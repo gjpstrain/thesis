@@ -1,0 +1,6 @@
+---
+title: "conclusion"
+
+output:
+  format: latex
+---

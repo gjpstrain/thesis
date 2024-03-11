@@ -15,8 +15,8 @@
 %%%%%%%%%%%%%%%%%% META DATA SETUP %%%%%%%%%%%%%%%%%%
 % This is where the document title and author are set. Other details for the title page are set later
 \begin{filecontents*}{\jobname.xmpdata}
-  \Title{Optimising Virtual Environments in Real-Time Using Perceptually-Based Rendering} 
-  \Author{David G. Petrescu}
+  \Title{The Effects of Visual and Design Features on the Perception of Correlation in Scatterplots} 
+  \Author{Gabriel Strain}
   \Language{en-GB}
   \Copyrighted{True}
   % More meta-data fielda can be added here if wanted, see https://ctan.org/pkg/pdfx?lang=en for fields
@@ -32,8 +32,6 @@
 %%%%%%%%%%%%%%%%%% PACKAGES AND COMMANDS %%%%%%%%%%%%%%%%%%
 
 % Packages - some useful examples
-\usepackage{graphicx,psfrag,color} % for postscript graphics files
-  \graphicspath{ {./images/FovWalking}{./images/LoDVel}}
 \usepackage{amsmath}               % assumes amsmath package installed
   \allowdisplaybreaks[1]           % allow eqnarrays to break across pages
 \usepackage{amssymb}               % assumes amsmath package installed 
@@ -55,28 +53,10 @@
 \usepackage{bibentry}
 
 %\usepackage[printonlyused]{acronym}
-\input{acros}
 
 \usepackage{fancyref}
 
 \usepackage{xcolor}
-\usepackage{tikz}
-
-\usetikzlibrary{arrows.meta}
-\tikzset{%
-  >={Latex[width=5mm,length=5mm]},
-  % Specifications for style of nodes:
-            base/.style = {rectangle, rounded corners, draw=black,
-                           minimum width=6cm, minimum height=1.5cm,
-                           text centered},
-  activityStarts/.style = {base, fill=blue!20},
-       startstop/.style = {base, fill=red!20},
-    activityRuns/.style = {base, fill=green!19},
-         process/.style = {base, minimum width=2.5cm, fill=orange!15
-                           },
-}
-
-
 
 % Custom commands
 \newcommand{\degree}{\ensuremath{^\circ}}
@@ -106,15 +86,10 @@
 
 % Add more .bib files here if wanted
 \addbibresource{references.bib}
-\addbibresource{phd.bib}
-
-
-
+\addbibresource{gabe_thesis.bib}
 
 %%%%%%%%%%%%%%%%%% START DOCUMENT %%%%%%%%%%%%%%%%%%
 \begin{document}
-
-
 
 %%%%%%%%%%%%%%%%%% COVID-19 impact statement %%%%%%%%%%%%%%%%%%
 \begin{uomcovid} % policy asks for statement to be before the title page
@@ -154,19 +129,10 @@
   Publications go here.
 \end{uomlop}
 
-
-    
-\begin{uomterms}
-\printacronyms[heading=empty]
-\end{uomterms}
-
-
-
 %%%%%%%%%%%%%%%%%% ABSTRACT %%%%%%%%%%%%%%%%%%
 \begin{abstract} % put abstract here. Limit is 1 page.
 
-Rendering realistic virtual environments require intense computation that will always scale to the zeitgeist of what users consider high-quality. With the renewed interest in Virtual Reality and display technologies becoming more proficient, computational requirements will increase even further. However, human perception is limited, which means that high-quality rendering is often unnecessary as it does not affect the visual experience of the user. 
-The aim of this thesis is to explore aspects of human perception that have the potential of optimising rendering which have traditionally received less attention from the graphics community. An extensive framework of perceptual rendering will be introduced which reveals promising overlapping areas which have not been explored. To this extent, the relation between the perception of causality and other factors that limit visual acuity such as retinal eccentricity, velocity and area will be disentangled. The rest of the thesis is concerned with how self-induced movement in Virtual Reality (VR) affects sensitivity to changes in geometrical Level-of-Detail (LOD) and Foveated Rendering (FR). With respect to the latter, this thesis shows that current FR algorithms can be significantly improved if users engage in active movement, which is a dimension characteristic of VR usage.  
+put abstract here
   
   \lipsum[1-2]
 \end{abstract}%
@@ -202,23 +168,21 @@ Acknowledgements go here.
 
 %%%%%%%% CHAPTERS %%%%%%%%%%%%%%%%%%
 \chapter{Introduction} 
-\subfile{chapters/introduction}
-\chapter{Background}\label{chap:background}
-\subfile{chapters/LitReview}
-\chapter{General Methods}\label{chap:methods}
-\subfile{chapters/methods.tex}
-\chapter{Hipster Michotte}\label{chap:Michotte}
-\subfile{chapters/causalityChap}
-\chapter{Velocity LOD}\label{chap:velLOD}
-\subfile{chapters/velocityLOD}
-\chapter{Foveated Walking}\label{chap:fovWalking}
-\subfile{chapters/foveatedWalking}
-\chapter{Thinking on Your Feet}\label{chap:TOYF}
-\subfile{chapters/toyf}
-\chapter{Conclusion and Future Work}\label{chap:conclusion}
-\subfile{chapters/conclusion}
-
-
+\subfile{chapters_tex/chapters_quarto/introduction.tex}
+\chapter{Literature Review}
+\subfile{chapters_tex/chapters_quarto/literature_review.tex}
+\chapter{General Methodology}
+\subfile{chapters_tex/chapters_quarto/general_methodology.tex}
+\chapter{Adjusting the Opacities of Scatterplot Points Can Affect Correlation Estimates}
+\subfile{chapters_tex/chapters_quarto/adjusting_opacity.tex}
+\chapter{Adjusting the Sizes of Scatterplot Points Can Correct for a Historic Correlation Underestimation Bias}
+\subfile{chapters_tex/chapters_quarto/adjusting_size.tex}
+\chapter{Interactions of Opacity and Size Adjustments} 
+\subfile{chapters_tex/chapters_quarto/interactions_opacity_size.tex}
+\chapter{Scatterplots Optimised for Correlation Perception Affect Beliefs About Correlations and Attitudes Towards Trivial Topics}
+\subfile{chapters_tex/chapters_quarto/optimised_scatterplots.tex}
+\chapter{Conclusion}
+\subfile{chapters_tex/chapters_quarto/conclusion.tex}
 
 %%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
 \printbibliography[title={References},heading=bibintoc] % a single list of references for the whole thesis

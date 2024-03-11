@@ -1,0 +1,6 @@
+---
+title: "general_methodology"
+
+output:
+  format: latex
+---

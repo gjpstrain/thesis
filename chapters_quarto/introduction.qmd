@@ -1,0 +1,49 @@
+---
+title: "introduction"
+
+output:
+  format: 
+    latex:
+
+params:
+  eval_models: false
+  
+knitr:
+  opts_chunk: 
+    cache_comments: false
+    crop: true
+    
+execute: 
+  echo: false
+  warning: false
+  message: false
+  include: false            
+      
+---
+
+```{r}
+#| label: fig-test
+#| include: true
+#| fig-cap: "test plot"
+
+# Load necessary library
+library(ggplot2)
+
+# Generate sample data
+set.seed(123)
+data <- data.frame(
+  x = rnorm(100),
+  y = rnorm(100)
+)
+
+# Create scatterplot using ggplot
+ggplot(data, aes(x = x, y = y)) +
+  geom_point() +
+  labs(
+    title = "Scatterplot",
+    x = "X-axis",
+    y = "Y-axis"
+  )
+
+```
+

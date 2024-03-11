@@ -1,0 +1,6 @@
+---
+title: "optimised_scatterplots"
+
+output:
+  format: latex
+---

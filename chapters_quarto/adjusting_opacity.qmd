@@ -1,0 +1,6 @@
+---
+title: "adjusting_opacity"
+
+output:
+  format: latex
+---
