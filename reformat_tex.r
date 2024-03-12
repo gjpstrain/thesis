@@ -44,8 +44,10 @@ replace_before_document_in_folder(folder_path)
 ################################################################################
 
 # now we can use tinytex to compile the thesis
+# because the UoM template uses lualatex, we may have to manually install
+# an additional package (just uncomment line 50)
 
-tinytex::tlmgr_install("luatex85")
+#tinytex::tlmgr_install("luatex85")
 
 tinytex::lualatex("main.tex")
 

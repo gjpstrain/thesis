@@ -38,7 +38,7 @@
 \RequirePackage[explicit]{titlesec}      % re-format section titles
 \RequirePackage{geometry}                % set paper margins
 \RequirePackage{setspace}                % set line spacing
-\RequirePackage[document]{ragged2e}      % set to be left aligned
+%\RequirePackage[document]{ragged2e}      % comment this out so text isn't ragged on the RHS
 \RequirePackage{pgfcore}                 % for logo positioning in fixed location
 \RequirePackage{fontspec}                % for font setting
 \RequirePackage{tocloft} % allows precise control over the table of contents and deals with subfigures properly
@@ -98,8 +98,8 @@
 \newlength{\logowidth}    \setlength{\logowidth}{40.006mm}
 \newlength{\logoheight}   \setlength{\logoheight}{19.454mm}
 \newlength{\logopad}      \setlength{\logopad}{14.279mm}
-\newlength{\marginleft}   \setlength{\marginleft}{4cm}   % Minimum margins are 1.5cm, 4cm, 1.5cm, 1.5cm
-\newlength{\marginright}  \setlength{\marginright}{1.5cm} 
+\newlength{\marginleft}   \setlength{\marginleft}{2cm}   % Binding page margin is reccomended at 4cm.
+\newlength{\marginright}  \setlength{\marginright}{2cm} 
 \newlength{\margintop}    \setlength{\margintop}{1.5cm}
 \newlength{\marginbottom} \setlength{\marginbottom}{1.5cm}  
 

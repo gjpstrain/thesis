@@ -18,32 +18,10 @@ execute:
   warning: false
   message: false
   include: false            
-      
 ---
 
-```{r}
-#| label: fig-test
-#| include: true
-#| fig-cap: "test plot"
+# Research Motivation
 
-# Load necessary library
-library(ggplot2)
+# Contributions
 
-# Generate sample data
-set.seed(123)
-data <- data.frame(
-  x = rnorm(100),
-  y = rnorm(100)
-)
-
-# Create scatterplot using ggplot
-ggplot(data, aes(x = x, y = y)) +
-  geom_point() +
-  labs(
-    title = "Scatterplot",
-    x = "X-axis",
-    y = "Y-axis"
-  )
-
-```
-
+# Overview of Thesis
