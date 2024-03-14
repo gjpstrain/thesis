@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.11)  12 MAR 2024 16:40
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.13)  14 MAR 2024 13:49
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -993,7 +993,86 @@ Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 ))
 \@quotelevel=\count482
 \@quotereset=\count483
-(./main.aux)
+(./main.aux
+
+LaTeX Warning: Label `introduction' multiply defined.
+
+
+LaTeX Warning: Label `abstract' multiply defined.
+
+
+LaTeX Warning: Label `overview' multiply defined.
+
+
+LaTeX Warning: Label `related-work' multiply defined.
+
+
+LaTeX Warning: Label `introduction' multiply defined.
+
+
+LaTeX Warning: Label `methods' multiply defined.
+
+
+LaTeX Warning: Label `analysis' multiply defined.
+
+
+LaTeX Warning: Label `discussion' multiply defined.
+
+
+LaTeX Warning: Label `general-discussion' multiply defined.
+
+
+LaTeX Warning: Label `abstract' multiply defined.
+
+
+LaTeX Warning: Label `overview' multiply defined.
+
+
+LaTeX Warning: Label `related-work' multiply defined.
+
+
+LaTeX Warning: Label `introduction' multiply defined.
+
+
+LaTeX Warning: Label `methods' multiply defined.
+
+
+LaTeX Warning: Label `analysis' multiply defined.
+
+
+LaTeX Warning: Label `discussion' multiply defined.
+
+
+LaTeX Warning: Label `general-discussion' multiply defined.
+
+
+LaTeX Warning: Label `abstract' multiply defined.
+
+
+LaTeX Warning: Label `overview' multiply defined.
+
+
+LaTeX Warning: Label `related-work' multiply defined.
+
+
+LaTeX Warning: Label `introduction' multiply defined.
+
+
+LaTeX Warning: Label `methods' multiply defined.
+
+
+LaTeX Warning: Label `analysis' multiply defined.
+
+
+LaTeX Warning: Label `discussion' multiply defined.
+
+
+LaTeX Warning: Label `general-discussion' multiply defined.
+
+
+LaTeX Warning: Label `contributions' multiply defined.
+
+)
 \openout1 = main.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
@@ -1133,8 +1212,8 @@ Package biblatex Info: Automatic encoding selection.
 
 \openout5 = main.bcf
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
-No file main.bbl.
+Package biblatex Info: ... file 'main.bbl' found.
+(./main.bbl)
 Package biblatex Info: Reference section=0 on input line 92.
 Package biblatex Info: Reference segment=0 on input line 92.
 
@@ -1161,34 +1240,34 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+) [2] [3])
 \tf@toc=\write6
 
 \openout6 = main.toc
-[2] [3] (./main.lof)
+[4] [5] (./main.lof)
 \tf@lof=\write7
 
 \openout7 = main.lof
-[4
+[6
 
 ] (./main.lot)
 \tf@lot=\write8
 
 \openout8 = main.lot
-[5
-
-] [6
-
-
-] [7
-
-
+[7
 
 ] [8
 
 
-
 ] [9
+
+
+
+] [10
+
+
+
+] [11
 
 
 ]
@@ -1196,80 +1275,141 @@ Overfull \hbox (2.46695pt too wide) in paragraph at lines 153--153
 \TU/lmtt/m/n/12 ac.uk/DocuInfo.aspx?DocID=24420$[]\TU/TeXGyreTermes(0)/m/n/12 ), in any rel-e-vant The-sis re-stric-tion dec-la-ra-tions de-posited
  []
 
-[10
+[12
 
 
-] [11
+] [13
 
 
 ]
 Chapter 1.
-(./chapters_tex/chapters_quarto/introduction.tex) [12
+(./chapters_tex/chapters_quarto/introduction.tex) [14
 
 
 ]
 Chapter 2.
-(./chapters_tex/chapters_quarto/literature_review.tex) [13
+(./chapters_tex/chapters_quarto/literature_review.tex) [15
 
 ]
 Chapter 3.
-(./chapters_tex/chapters_quarto/general_methodology.tex) [14
+(./chapters_tex/chapters_quarto/general_methodology.tex) [16
 
 ]
+Overfull \vbox (143.05653pt too high) has occurred while \output is active []
+
+[17]
 Chapter 4.
-(./chapters_tex/chapters_quarto/adjusting_opacity.tex) [15
+(./chapters_tex/chapters_quarto/adjusting_opacity.tex
+warning  (pdf backend): ignoring duplicate destination with the name 'introduction'
+) [18
 
 ]
+Overfull \vbox (90.79155pt too high) has occurred while \output is active []
+
+[19]
 Chapter 5.
-(./chapters_tex/chapters_quarto/adjusting_size.tex) [16
+(./chapters_tex/chapters_quarto/adjusting_size.tex
+warning  (pdf backend): ignoring duplicate destination with the name 'abstract'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'overview'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'related-work'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'introduction'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'methods'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'analysis'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'discussion'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'general-discussion'
+) [20
 
 ]
 Chapter 6.
-(./chapters_tex/chapters_quarto/interactions_opacity_size.tex) [17
+(./chapters_tex/chapters_quarto/interactions_opacity_size.tex
+warning  (pdf backend): ignoring duplicate destination with the name 'abstract'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'overview'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'related-work'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'introduction'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'methods'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'analysis'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'discussion'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'general-discussion'
+) [21
 
 ]
 Chapter 7.
-(./chapters_tex/chapters_quarto/optimised_scatterplots.tex) [18
+(./chapters_tex/chapters_quarto/optimised_scatterplots.tex
+warning  (pdf backend): ignoring duplicate destination with the name 'abstract'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'overview'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'related-work'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'introduction'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'methods'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'analysis'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'discussion'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'general-discussion'
+) [22
 
 ]
 Chapter 8.
-(./chapters_tex/chapters_quarto/conclusion.tex)
+(./chapters_tex/chapters_quarto/conclusion.tex
+warning  (pdf backend): ignoring duplicate destination with the name 'contributions'
+)
 
 LaTeX Warning: Empty bibliography on input line 188.
 
-[19
+[23
 
-] [20
+] [24
 
 
 ]
 Appendix A.
-[21
+[25
 
 
-] [22] (./main.aux)
+] [26] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 37673 strings out of 476447
+ 37993 strings out of 476447
  125161,1977958 words of node,token memory allocated
- 821 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 11 attribute, 110 glue_spec, 11 attribute_list, 2 write, 4 pdf_action nodes
-   avail lists: 1:2,2:691,3:242,4:24,5:480,6:65,7:7411,8:59,9:386,10:14,11:531
- 58802 multiletter control sequences out of 65536+600000
- 55 fonts using 5594303 bytes
- 104i,5n,110p,1128b,2541s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 831 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 12 attribute, 110 glue_spec, 12 attribute_list, 2 write, 5 pdf_action nodes
+   avail lists: 1:2,2:1093,3:453,4:88,5:480,6:116,7:7411,8:59,9:674,10:14,11:531
+ 58961 multiletter control sequences out of 65536+600000
+ 56 fonts using 5769095 bytes
+ 104i,6n,110p,1128b,2541s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-italic.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-bold.otf>
-Output written on main.pdf (23 pages, 192791 bytes).
+Output written on main.pdf (27 pages, 258786 bytes).
 
-PDF statistics: 305 PDF objects out of 1000 (max. 8388607)
- 66 named destinations out of 1000 (max. 131072)
- 239 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 821 PDF objects out of 1000 (max. 8388607)
+ 222 named destinations out of 1000 (max. 131072)
+ 919 words of extra memory for PDF output out of 10000 (max. 100000000)
 

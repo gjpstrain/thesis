@@ -16,7 +16,6 @@ replace_before_document <- function(file_path) {
   
   if (length(preamble_index) > 0) {
     new_lines <- c("\\documentclass[../main.tex]{subfiles}",
-                   "\\graphicspath{{collated_images/}{collated_images/}}",
                    lines[(preamble_index):length(lines)])
     
     new_lines <- grep("\\\\maketitle", new_lines, invert = TRUE, value = TRUE)
@@ -44,12 +43,20 @@ replace_before_document_in_folder(folder_path)
 ################################################################################
 
 # now we can use tinytex to compile the thesis
+# if this is your first time using the template,
+# you will need to install tinytex (the package), and
+# then TinyTex (the engine)
+
+#install.packages("tinytex")
+#tinytex::install_tinytex()
+
 # because the UoM template uses lualatex, we may have to manually install
 # an additional package (just uncomment line 50)
 
+
 #tinytex::tlmgr_install("luatex85")
 
-tinytex::lualatex("main.tex")
+tinytex::lualatex("main.tex", bib_engine = "biber") 
 
 
 

@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%% USAGE INSTRUCTIONS %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% USAGE INSTRUCTIONS - from original template %%%%%%%%%%%%%%%%%%
 % - Compile using LuaLaTeX and biber, unless there is a particular reason not to. Do not use the older LaTex/PDFLaTeX or BibTeX (the fonts won't work correctly.)
 % - Font and the report 'year' must be specified when all \documentclass or the template won't work correctly. (There's no error checking/default cases!)
 % - Options for fonts are: calibri, times, palatino, garamond, arial, tahoma, verdana, trebuchet. Note however that not all these are installed on Overleaf, you need to install to your project 
@@ -44,8 +44,6 @@
 \usepackage{footnote}              % allows more control over footnote environments
 \usepackage{float}                 % allows H option on floats to force here placement
 \usepackage{booktabs}              % improve table line spacing
-\usepackage[base]{babel}           % required for lisum package
-\usepackage{lipsum}                % for adding dummy text here
 \usepackage{subcaption}            % for multiple sub-figures in a single float
 \usepackage{siunitx}               % add SI units
 % Add your packages here
@@ -96,7 +94,6 @@
   % Policy asks for this to be removed from the final thesis post-examination, which messes up the page numbers somewhat. Done here so that the final post-examination thesis is correct. In the pre-examination thesis the numbers displayed on the page will be one lower than the number displayed by the PDF reader. Remove this page if not wanted/needed, and/or is a first or second year report
   Optional. Delete this section if not needed. This is COVID-19 impact text.
   
-  \lipsum[1-3] % generate dummy text for here
 \end{uomcovid}% \clearpage is added automatically
 
 
@@ -134,7 +131,6 @@
 
 put abstract here
   
-  \lipsum[1-2]
 \end{abstract}%
 \clearpage
 
@@ -144,7 +140,6 @@ put abstract here
 \begin{uomlay} % put lay abstract here. Limit is 1 page. Not compulsory
   This is lay abstract text. 
   
-  \lipsum[1-2]
 \end{uomlay}
 
 
@@ -193,7 +188,6 @@ Acknowledgements go here.
 \begin{uomappendix} 
   \chapter{First appendix}
     \section{Section in Appendix}
-    \lipsum[1-6]
 \end{uomappendix}
 
 

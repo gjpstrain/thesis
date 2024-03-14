@@ -2,5 +2,60 @@
 title: "general_methodology"
 
 output:
-  format: latex
+  format: 
+    latex:
+
+params:
+  eval_models: false
+  
+knitr:
+  opts_chunk: 
+    cache_comments: false
+    crop: true
+    
+execute: 
+  echo: false
+  warning: false
+  message: false
+  include: false     
 ---
+
+# Introduction
+
+# Experimental Methods
+
+## Experimental Design
+
+## Tools for Testing
+
+## Creating Stimuli
+
+## Recruitment
+
+# Analytical Methods
+
+## Linear Mixed-Effects Models
+
+## Advantages Over Aggregate-Level Statistical Tests
+
+## Model Construction
+
+## Effects Sizes
+
+## Reporting Analyses
+
+# Computational Methods
+
+## Executable Reporting
+
+## Containerised Environments
+
+# Reproducility In This Thesis
+
+## Sharing Data and Code
+
+## Executable Papers and Docker Containers
+
+## Experimental Resources
+
+# Conclusion

@@ -2,5 +2,42 @@
 title: "optimised_scatterplots"
 
 output:
-  format: latex
+  format: 
+    latex:
+
+params:
+  eval_models: false
+  
+knitr:
+  opts_chunk: 
+    cache_comments: false
+    crop: true
+    
+execute: 
+  echo: false
+  warning: false
+  message: false
+  include: false     
 ---
+
+# Abstract
+
+# Overview
+
+# Related Work
+
+## From Perception to Cognition
+
+## From Cognition to Belief
+
+# Experiment: I don't know what is going to happen yet
+
+## Introduction
+
+## Methods
+
+## Analysis
+
+## Discussion
+
+# General Discussion

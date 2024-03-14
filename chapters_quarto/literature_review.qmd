@@ -2,5 +2,46 @@
 title: "literature_review"
 
 output:
-  format: latex
+  format: 
+    latex:
+
+params:
+  eval_models: false
+  
+knitr:
+  opts_chunk: 
+    cache_comments: false
+    crop: true
+    
+execute: 
+  echo: false
+  warning: false
+  message: false
+  include: false     
 ---
+
+# Data Visualisation: A Brief History
+
+# Measuring Relatedness
+
+# Conceptions of Correlation
+
+# Visualising Correlation
+
+## History
+
+## Present Landscape
+
+## Scatterplots
+
+# Correlation Perception
+
+# Correlation Cognition
+
+# Underestimation: What's Really Going On?
+
+# Underestimation: Potential Consequences
+
+# Data Visualisation Literacy
+
+# Objectives and Contributions

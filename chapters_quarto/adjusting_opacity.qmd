@@ -2,5 +2,57 @@
 title: "adjusting_opacity"
 
 output:
-  format: latex
+  format: 
+    latex:
+
+params:
+  eval_models: false
+  
+knitr:
+  opts_chunk: 
+    cache_comments: false
+    crop: true
+    
+execute: 
+  echo: false
+  warning: false
+  message: false
+  include: false     
 ---
+
+# Abstract
+
+# Introduction
+
+## Overview
+
+# Related Work
+
+## Transparency, Contrast, Opacity, and Formal Definitions
+
+## Effects of Point Opacity on Correlation Estimation
+
+# Experiments
+
+## Experiment 1: Uniform Opacity Adjustments
+
+### Introduction
+
+### Methods
+
+### Analysis
+
+### Discussion
+
+## Experiment 2: Spatially-Dependent Opacity Adjustments
+
+### Introduction
+
+### Methods
+
+### Analysis
+
+### Discussion
+
+# General Discussion
+

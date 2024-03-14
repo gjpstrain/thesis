@@ -2,5 +2,40 @@
 title: "interactions_opacity_size"
 
 output:
-  format: latex
+  format: 
+    latex:
+
+params:
+  eval_models: false
+  
+knitr:
+  opts_chunk: 
+    cache_comments: false
+    crop: true
+    
+execute: 
+  echo: false
+  warning: false
+  message: false
+  include: false     
 ---
+
+# Abstract
+
+# Overview
+
+# Related Work
+
+## Size and Opacity
+
+# Experiment: Adjusting Point Size and Opacity Together
+
+## Introduction
+
+## Methods
+
+## Analysis
+
+## Discussion
+
+# General Discussion
