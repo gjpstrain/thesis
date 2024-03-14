@@ -7,8 +7,8 @@
 
 # Latex files
 
-.xmpdata
-.xmpi
+*.xmpdata
+*.xmpi
 
 
 /.quarto/
