@@ -20,11 +20,11 @@ execute:
   include: false     
 ---
 
-# Abstract
+# Abstract {#abstract-adjusting-size}
 
-# Overview
+# Overview {#overview-adjusting-size}
 
-# Related Work
+# Related Work {#related-work-adjusting-size}
 
 ## Size and Perception
 
@@ -32,12 +32,12 @@ execute:
 
 # Experiment: Adjusting Point Size to Facilitate More Accurate Correlation Perception in Scatterplots
 
-## Introduction
+## Introduction {#introduction-adjusting-size}
 
-## Methods
+## Methods {#methods-adjusting-size}
 
-## Analysis
+## Analysis {#analysis-adjusting-size}
 
-## Discussion
+## Discussion {#discussion-adjusting-size}
 
-# General Discussion
+# General Discussion {#general-discussion-adjusting-size}

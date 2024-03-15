@@ -20,22 +20,22 @@ execute:
   include: false     
 ---
 
-# Abstract
+# Abstract {#abstract-interactions}
 
-# Overview
+# Overview {#overview-interactions}
 
-# Related Work
+# Related Work {#related-work-interactions}
 
 ## Size and Opacity
 
 # Experiment: Adjusting Point Size and Opacity Together
 
-## Introduction
+## Introduction {#introduction-interactions}
 
-## Methods
+## Methods {#methods-interactions}
 
-## Analysis
+## Analysis {#analysis-interactions}
 
-## Discussion
+## Discussion {#discussion-interactions}
 
-# General Discussion
+# General Discussion {#general-discussion-interactions}

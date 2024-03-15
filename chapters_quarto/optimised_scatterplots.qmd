@@ -20,11 +20,11 @@ execute:
   include: false     
 ---
 
-# Abstract
+# Abstract {#abstract-optimised}
 
-# Overview
+# Overview {#overview-optimised}
 
-# Related Work
+# Related Work {#related-work-optimised}
 
 ## From Perception to Cognition
 
@@ -32,12 +32,12 @@ execute:
 
 # Experiment: I don't know what is going to happen yet
 
-## Introduction
+## Introduction {#into-optimised}
 
-## Methods
+## Methods {#methods-optimised}
 
-## Analysis
+## Analysis {#analysis-optimised}
 
-## Discussion
+## Discussion {#discussion-optimised}
 
-# General Discussion
+# General Discussion {#gen-discussion-optimised}

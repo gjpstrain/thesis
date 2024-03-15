@@ -20,13 +20,13 @@ execute:
   include: false     
 ---
 
-# Abstract
+# Abstract {#abstract-adjusting-opacity}
 
-# Introduction
+# Introduction {#introduction-adjusting-opacity}
 
-## Overview
+## Overview {#overview-adjusting-opacity}
 
-# Related Work
+# Related Work {#related-work-adjusting-opacity}
 
 ## Transparency, Contrast, Opacity, and Formal Definitions
 
@@ -36,23 +36,23 @@ execute:
 
 ## Experiment 1: Uniform Opacity Adjustments
 
-### Introduction
+### Introduction {#introduction-adjusting-opacity-e1}
 
-### Methods
+### Methods {#methods-adjusting-opacity-e1}
 
-### Analysis
+### Analysis {#analysis-adjusting-opacity-e1}
 
-### Discussion
+### Discussion {#discussion-adjusting-opacity-e1}
 
 ## Experiment 2: Spatially-Dependent Opacity Adjustments
 
-### Introduction
+### Introduction {#introduction-adjusting-opacity-e2}
 
-### Methods
+### Methods {#methods-adjusting-opacity-e2}
 
-### Analysis
+### Analysis {#analysis-adjusting-opacity-e2}
 
-### Discussion
+### Discussion {#discussion-adjusting-opacity-e2}
 
-# General Discussion
+# General Discussion {#general-discussion-adjusting-opacity}
 
