@@ -88,15 +88,6 @@
 %%%%%%%%%%%%%%%%%% START DOCUMENT %%%%%%%%%%%%%%%%%%
 \begin{document}
 
-%%%%%%%%%%%%%%%%%% COVID-19 impact statement %%%%%%%%%%%%%%%%%%
-\begin{uomcovid} % policy asks for statement to be before the title page
-  % Policy asks for this to be removed from the final thesis post-examination, which messes up the page numbers somewhat. Done here so that the final post-examination thesis is correct. In the pre-examination thesis the numbers displayed on the page will be one lower than the number displayed by the PDF reader. Remove this page if not wanted/needed, and/or is a first or second year report
-  Optional. Delete this section if not needed. This is COVID-19 impact text.
-  
-\end{uomcovid}% \clearpage is added automatically
-
-
-
 %%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%
 
 % Title and author are automatically taken from the document meta-data defined above
@@ -162,21 +153,21 @@ Acknowledgements go here.
 
 %%%%%%%% CHAPTERS %%%%%%%%%%%%%%%%%%
 \chapter{Introduction} 
-\subfile{chapters_tex/chapters_quarto/introduction.tex}\label{chap:introduction}
+\subfile{chapters_tex/chapters_quarto/1_introduction.tex}\label{chap:introduction}
 \chapter{Literature Review}\label{chap:lit_review}
-\subfile{chapters_tex/chapters_quarto/literature_review.tex}
+\subfile{chapters_tex/chapters_quarto/2_literature_review.tex}
 \chapter{General Methodology}\label{chap:gen_methods}
-\subfile{chapters_tex/chapters_quarto/general_methodology.tex}
+\subfile{chapters_tex/chapters_quarto/3_general_methodology.tex}
 \chapter{Adjusting the Opacities of Scatterplot Points Can Affect Correlation Estimates}\label{chap:adjust_opacity}
-\subfile{chapters_tex/chapters_quarto/adjusting_opacity.tex}
+\subfile{chapters_tex/chapters_quarto/4_adjusting_opacity.tex}
 \chapter{Adjusting the Sizes of Scatterplot Points Can Correct for a Historic Correlation Underestimation Bias}\label{chap:adjust_size}
-\subfile{chapters_tex/chapters_quarto/adjusting_size.tex}
+\subfile{chapters_tex/chapters_quarto/5_adjusting_size.tex}
 \chapter{Interactions of Opacity and Size Adjustments}\label{chap:interactions}
-\subfile{chapters_tex/chapters_quarto/interactions_opacity_size.tex}
-\chapter{Scatterplots Optimised for Correlation Perception Affect Beliefs About Correlations and Attitudes Towards Trivial Topics}\label{chap:optimise}
-\subfile{chapters_tex/chapters_quarto/optimised_scatterplots.tex}
+\subfile{chapters_tex/chapters_quarto/6_interactions_opacity_size.tex}
+\chapter{Visual Features Affecting Perceptual Estimates Also Affect Beliefs About Correlations}\label{chap:belief_change}
+\subfile{chapters_tex/chapters_quarto/7_belief_change.tex}
 \chapter{Conclusion}\label{chap:conclusion}
-\subfile{chapters_tex/chapters_quarto/conclusion.tex}
+\subfile{chapters_tex/chapters_quarto/8_conclusion.tex}
 
 %%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
 \printbibliography[title={References},heading=bibintoc] % a single list of references for the whole thesis

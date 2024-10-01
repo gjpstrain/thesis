@@ -1,5 +1,8 @@
 # First, run all .qmd chapters
 
+#install.packages("quarto")
+#install.packages("tinytex")
+
 library(quarto)
 library(tinytex)
 
@@ -25,10 +28,14 @@ replace_before_document_in_folder(folder_path)
 #tinytex::install_tinytex()
 
 # because the UoM template uses lualatex, we may have to manually install
-# an additional package (just uncomment line 50)
-
+# an additional package (just uncomment line 30)
 
 #tinytex::tlmgr_install("luatex85")
+
+#sometimes the Tex Gyres Termes font is not found, so manually install it via
+#tinytex
+
+#tinytex::tlmgr_install("tex-gyre")
 
 tinytex::lualatex("main.tex", bib_engine = "biber") 
 
