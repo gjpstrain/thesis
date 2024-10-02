@@ -30,15 +30,14 @@ replace_before_document_in_folder(folder_path)
 # because the UoM template uses lualatex, we may have to manually install
 # an additional package (just uncomment line 30)
 
-#tinytex::tlmgr_install("luatex85")
+tinytex::tlmgr_install("luatex85")
 
 #sometimes the Tex Gyres Termes font is not found, so manually install it via
 #tinytex
 
-#tinytex::tlmgr_install("tex-gyre")
+tinytex::tlmgr_install("tex-gyre")
 
-tinytex::lualatex("main.tex", bib_engine = "biber") 
-
+tinytex::lualatex("main.tex", bib_engine = "biber")
 
 
 
