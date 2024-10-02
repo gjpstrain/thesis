@@ -1,10 +1,8 @@
 ---
 title: "adjusting_opacity"
-
 output:
   format: 
     latex:
-
 params:
   eval_models: false
   
@@ -53,4 +51,3 @@ execute:
 ## Discussion {#discussion-adjusting-opacity-e2}
 
 # General Discussion {#general-discussion-adjusting-opacity}
-

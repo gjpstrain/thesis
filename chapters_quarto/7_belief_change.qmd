@@ -1,10 +1,8 @@
 ---
-title: "optimised_scatterplots"
-
+title: "belief_change"
 output:
   format: 
     latex:
-
 params:
   eval_models: false
   
@@ -20,24 +18,34 @@ execute:
   include: false     
 ---
 
-# Abstract {#abstract-optimised}
+# Abstract {#abstract-beliefs}
 
-# Overview {#overview-optimised}
+# Overview {#overview-beliefs}
 
-# Related Work {#related-work-optimised}
+# Related Work {#related-work-beliefs}
 
 ## From Perception to Cognition
 
 ## From Cognition to Belief
 
-# Experiment: I don't know what is going to happen yet
+# Pre-Study: Investigating Beliefs About Relatedness Statements {#beliefs-pre-study}
 
-## Introduction {#into-optimised}
+## Introduction {#intro-beliefs-pre}
 
-## Methods {#methods-optimised}
+## Methods {#methods-beliefs-pre}
 
-## Analysis {#analysis-optimised}
+## Analysis {#analysis-beliefs-pre}
 
-## Discussion {#discussion-optimised}
+## Discussion {#discussion-beliefs-pre}
 
-# General Discussion {#gen-discussion-optimised}
+# Experiment: Potential for Belief Change Using Atypical Scatterplots {#beliefs-main}
+
+## Introduction {#intro-beliefs-main}
+
+## Methods {#methods-beliefs-main}
+
+## Analysis {#analysis-beliefs-main}
+
+## Discussion {#discussion-beliefs-main}
+
+# General Discussion {#general-discussion-beliefs}
