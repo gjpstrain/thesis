@@ -38,12 +38,12 @@ author of all included papers.
  contain minimally altered parts of the published article.
  
  - *Adjusting Point Size to Facilitate More Accurate Correlation Perception in Scatterplots*
- \cite{strain_2024} is reproduced in \chap{chap:adjusting_size}. Sections 
+ \cite{strain_2023b} is reproduced in \chap{chap:adjusting_size}. Sections 
  \ref{methods-adjusting-size}, \ref{analysis-adjusting-size}, \ref{discussion-adjusting-size},
  and \ref{general-discussion-adjusting-size} contain minimally altered parts of 
  the published article.
  
- - *Effects of Point Size and Opacity Adjustments in Scatterplots* \cite{strain_2024b}
+ - *Effects of Point Size and Opacity Adjustments in Scatterplots* \cite{strain_2024}
  is reproduced in \chap{chap:interactions_opacity_size}. Sections \ref{methods-interactions},
  \ref{analysis-interactions}, \ref{discussion-interactions}, and \ref{general-discussion-interactions}
  contain minimally altered parts of the published article.

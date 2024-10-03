@@ -17,9 +17,72 @@ regards to reproducibility and open science.
 
 \section{Experimental Methods}\label{experimental-methods}
 
+It is important to acknowledge that the way in which we conduct
+experiments influences what we find and the conclusions that we may draw
+from those findings. The decisions that lead us to designing experiments
+in certain ways must be based not only on theory, but also on the
+practical constraints imposed by external factors on the research team.
+Concerns such as time, convenience, and cost must be addressed, and a
+compromise between research that is \emph{valuable} and research that is
+\emph{doable} must be reached. We focused on pragmatism and impact
+throughout the course of this research project; happily, the research
+journey we embarked on resulted in methodologies that satisfied both
+principles. It is for this reason that we consider the framework we
+present to be a key contribution of this thesis.
+
 \subsection{Experimental Design}\label{experimental-design}
 
+All but our final experiment utilised within-participants designs. Each
+participant saw all experimental stimuli and provided a judgement of
+correlation using a sliding scale between 0 and 1 (see
+Figure~\ref{fig-slider}). Experiments 1 to 3 featured featured a single
+experimental factor of design, all with 4 levels corresponding to
+scatterplots with different design features. Experiment 4 employed a
+factorial 2 \(\times\) 2 design. Experiment 5 is a departure from the
+shared experimental paradigm of the previous experiments, and features a
+1 factor, 2 level between-participants design.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{../supplied_graphics/example_slider.png}
+
+}
+
+\caption{\label{fig-slider}An example of the slider participants used to
+estimate correlation in experiments 1-4.}
+
+\end{figure}%
+
 \subsection{Tools for Testing}\label{tools-for-testing}
+
+Whatever the design of our experiments, software plays a crucial role in
+allowing us to carry them out. Fortunately, at the time of writing,
+there is a wealth of tools available to facilitate the testing of
+visualisations both in traditional lab-based tests and in online
+experiments. As we adhere to the principles of open and reproducible
+research \cite{ayris_2018}, we discount closed-source software, such as
+Gorilla \cite{anwyl_2020} or E-prime \cite{eprime_2020}, as these rely
+on paid licenses and do not allow us to share code with future
+researchers. We settled on using PsychoPy \cite{peirce_2019} due to its
+open-source status, flexibility regarding graphical and code-based
+experimental design, and high level of timings accuracy
+\cite{bridges_2020}. Using such a open-source tool not only facilitated
+our own learning with regard to experiment building, but also enables to
+contribute further examples of visualisation studies by hosting the
+resulting experiments online for use and modification by future
+researchers.
+
+We elected to pursue online testing throughout this thesis. Doing so is
+much quicker than carrying out in-person lab-based testing, meaning we
+can collect data from a much larger number of participants. This reduces
+the chances of detecting false positives during analysis and ensures
+adequate levels of power despite the potential for small effects sizes.
+Online testing also affords us access to diverse groups of participants
+across our populations of interest, especially when compared to the
+relatively homogeneous student populations usually accessed by doctoral
+researchers.
 
 \subsection{Creating Stimuli}\label{creating-stimuli}
 
