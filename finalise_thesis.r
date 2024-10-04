@@ -8,6 +8,10 @@ library(tinytex)
 
 quarto_render("chapters_quarto/", output_format = "latex")
 
+# use for rendering a single chapter
+
+quarto_render("chapters_quarto/3_general_methodology.qmd", output_format = "latex")
+
 ################################################################################
 
 # functions to reformat tex are stored in the local directory

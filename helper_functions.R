@@ -14,3 +14,12 @@ lapply(chapters_qmd, function(file) trackdown::update_file(file = file,
 
 lapply(chapters_qmd, function(file) trackdown::download_file(file = file,
                                                            force = T))
+
+# code for authenticating trackdown
+
+#my_client <- gargle::gargle_oauth_client(
+#  name = "my-client-name",
+#  id = "client-id",
+#  secret = "secret"
+#)
+#trackdown_auth_configure(client = my_client)
