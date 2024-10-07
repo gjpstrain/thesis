@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.9.26)  4 OCT 2024 14:35
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.7)  7 OCT 2024 14:34
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -693,28 +693,48 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count338
 \@lastruleclass=\count339
 \@thisrulewidth=\dimen295
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/subcaption.sty
+) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2024/10/05 v24.11 The Babel package
+(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2024/10/05 v24.11 Babel common definitions
+) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/luababel.def
+\bbl@readstream=\read5
+\l@dumylang=\language2
+Package babel Info: Non-standard hyphenation setup on input line 118.
+\l@nohyphenation=\language3
+\l@vietnamese=\language4
+\l@hebrew=\language5
+\babelcatcodetablenum=\catcodetable14
+\bbl@pattcodes=\catcodetable15
+)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lipsum/lipsum.sty (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
+)
+Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
+\g__lipsum_par_int=\count340
+\l__lipsum_a_int=\count341
+\l__lipsum_b_int=\count342
+(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count340
+\c@subfigure=\count343
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count341
+\c@subtable=\count344
 ) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2024-09-30 v3.3.22 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count342
-\l__siunitx_number_exponent_fixed_int=\count343
-\l__siunitx_number_min_decimal_int=\count344
-\l__siunitx_number_min_integer_int=\count345
-\l__siunitx_number_round_precision_int=\count346
-\l__siunitx_number_lower_threshold_int=\count347
-\l__siunitx_number_upper_threshold_int=\count348
-\l__siunitx_number_group_first_int=\count349
-\l__siunitx_number_group_size_int=\count350
-\l__siunitx_number_group_minimum_int=\count351
+\l__siunitx_number_uncert_offset_int=\count345
+\l__siunitx_number_exponent_fixed_int=\count346
+\l__siunitx_number_min_decimal_int=\count347
+\l__siunitx_number_min_integer_int=\count348
+\l__siunitx_number_round_precision_int=\count349
+\l__siunitx_number_lower_threshold_int=\count350
+\l__siunitx_number_upper_threshold_int=\count351
+\l__siunitx_number_group_first_int=\count352
+\l__siunitx_number_group_size_int=\count353
+\l__siunitx_number_group_minimum_int=\count354
 \l__siunitx_angle_tmp_dim=\dimen296
 \l__siunitx_angle_marker_box=\box69
 \l__siunitx_angle_unit_box=\box70
-\l__siunitx_compound_count_int=\count352
+\l__siunitx_compound_count_int=\count355
 \l__siunitx_table_tmp_box=\box71
 \l__siunitx_table_tmp_dim=\dimen297
 \l__siunitx_table_column_width_dim=\dimen298
@@ -725,9 +745,9 @@ Package: siunitx 2024-09-30 v3.3.22 A comprehensive (SI) units package
 \l__siunitx_table_after_box=\box76
 \l__siunitx_table_before_dim=\dimen299
 \l__siunitx_table_carry_dim=\dimen300
-\l__siunitx_unit_tmp_int=\count353
-\l__siunitx_unit_position_int=\count354
-\l__siunitx_unit_total_int=\count355
+\l__siunitx_unit_tmp_int=\count356
+\l__siunitx_unit_position_int=\count357
+\l__siunitx_unit_total_int=\count358
 ) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/import/import.sty
@@ -738,58 +758,58 @@ Package: bibentry 2007/10/30 1.5 (PWD)
 Package: fancyref 1999/02/03 v0.9c Fancy cross-referencing
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/varioref.sty
 Package: varioref 2024/05/23 v1.6g package for extended references (FMi)
-\c@vrcnt=\count356
+\c@vrcnt=\count359
 )) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count357
+\lrq@indent=\count360
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count358
-\c@listtotal=\count359
-\c@listcount=\count360
-\c@liststart=\count361
-\c@liststop=\count362
-\c@citecount=\count363
-\c@citetotal=\count364
-\c@multicitecount=\count365
-\c@multicitetotal=\count366
-\c@instcount=\count367
-\c@maxnames=\count368
-\c@minnames=\count369
-\c@maxitems=\count370
-\c@minitems=\count371
-\c@citecounter=\count372
-\c@maxcitecounter=\count373
-\c@savedcitecounter=\count374
-\c@uniquelist=\count375
-\c@uniquename=\count376
-\c@refsection=\count377
-\c@refsegment=\count378
-\c@maxextratitle=\count379
-\c@maxextratitleyear=\count380
-\c@maxextraname=\count381
-\c@maxextradate=\count382
-\c@maxextraalpha=\count383
-\c@abbrvpenalty=\count384
-\c@highnamepenalty=\count385
-\c@lownamepenalty=\count386
-\c@maxparens=\count387
-\c@parenlevel=\count388
-\blx@tempcnta=\count389
-\blx@tempcntb=\count390
-\blx@tempcntc=\count391
-\c@blx@maxsection=\count392
-\blx@maxsegment@0=\count393
-\blx@notetype=\count394
-\blx@parenlevel@text=\count395
-\blx@parenlevel@foot=\count396
-\blx@sectionciteorder@0=\count397
-\blx@sectionciteorderinternal@0=\count398
-\blx@entrysetcounter=\count399
-\blx@biblioinstance=\count400
+\c@tabx@nest=\count361
+\c@listtotal=\count362
+\c@listcount=\count363
+\c@liststart=\count364
+\c@liststop=\count365
+\c@citecount=\count366
+\c@citetotal=\count367
+\c@multicitecount=\count368
+\c@multicitetotal=\count369
+\c@instcount=\count370
+\c@maxnames=\count371
+\c@minnames=\count372
+\c@maxitems=\count373
+\c@minitems=\count374
+\c@citecounter=\count375
+\c@maxcitecounter=\count376
+\c@savedcitecounter=\count377
+\c@uniquelist=\count378
+\c@uniquename=\count379
+\c@refsection=\count380
+\c@refsegment=\count381
+\c@maxextratitle=\count382
+\c@maxextratitleyear=\count383
+\c@maxextraname=\count384
+\c@maxextradate=\count385
+\c@maxextraalpha=\count386
+\c@abbrvpenalty=\count387
+\c@highnamepenalty=\count388
+\c@lownamepenalty=\count389
+\c@maxparens=\count390
+\c@parenlevel=\count391
+\blx@tempcnta=\count392
+\blx@tempcntb=\count393
+\blx@tempcntc=\count394
+\c@blx@maxsection=\count395
+\blx@maxsegment@0=\count396
+\blx@notetype=\count397
+\blx@parenlevel@text=\count398
+\blx@parenlevel@foot=\count399
+\blx@sectionciteorder@0=\count400
+\blx@sectionciteorderinternal@0=\count401
+\blx@entrysetcounter=\count402
+\blx@biblioinstance=\count403
 \labelnumberwidth=\skip105
 \labelalphawidth=\skip106
 \biblabelsep=\skip107
@@ -798,12 +818,12 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibinitsep=\skip110
 \bibparsep=\skip111
 \bibhang=\skip112
-\blx@bcfin=\read5
+\blx@bcfin=\read6
 \blx@bcfout=\write5
-\blx@langwohyphens=\language2
-\c@mincomprange=\count401
-\c@maxcomprange=\count402
-\c@mincompwidth=\count403
+\blx@langwohyphens=\language6
+\c@mincomprange=\count404
+\c@maxcomprange=\count405
+\c@mincompwidth=\count406
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-dm.def
@@ -813,74 +833,74 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric-comp.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count404
-\c@savedafterword=\count405
-\c@annotator=\count406
-\c@savedannotator=\count407
-\c@author=\count408
-\c@savedauthor=\count409
-\c@bookauthor=\count410
-\c@savedbookauthor=\count411
-\c@commentator=\count412
-\c@savedcommentator=\count413
-\c@editor=\count414
-\c@savededitor=\count415
-\c@editora=\count416
-\c@savededitora=\count417
-\c@editorb=\count418
-\c@savededitorb=\count419
-\c@editorc=\count420
-\c@savededitorc=\count421
-\c@foreword=\count422
-\c@savedforeword=\count423
-\c@holder=\count424
-\c@savedholder=\count425
-\c@introduction=\count426
-\c@savedintroduction=\count427
-\c@namea=\count428
-\c@savednamea=\count429
-\c@nameb=\count430
-\c@savednameb=\count431
-\c@namec=\count432
-\c@savednamec=\count433
-\c@translator=\count434
-\c@savedtranslator=\count435
-\c@shortauthor=\count436
-\c@savedshortauthor=\count437
-\c@shorteditor=\count438
-\c@savedshorteditor=\count439
-\c@labelname=\count440
-\c@savedlabelname=\count441
-\c@institution=\count442
-\c@savedinstitution=\count443
-\c@lista=\count444
-\c@savedlista=\count445
-\c@listb=\count446
-\c@savedlistb=\count447
-\c@listc=\count448
-\c@savedlistc=\count449
-\c@listd=\count450
-\c@savedlistd=\count451
-\c@liste=\count452
-\c@savedliste=\count453
-\c@listf=\count454
-\c@savedlistf=\count455
-\c@location=\count456
-\c@savedlocation=\count457
-\c@organization=\count458
-\c@savedorganization=\count459
-\c@origlocation=\count460
-\c@savedoriglocation=\count461
-\c@origpublisher=\count462
-\c@savedorigpublisher=\count463
-\c@publisher=\count464
-\c@savedpublisher=\count465
-\c@language=\count466
-\c@savedlanguage=\count467
-\c@origlanguage=\count468
-\c@savedoriglanguage=\count469
-\c@pageref=\count470
-\c@savedpageref=\count471
+\c@afterword=\count407
+\c@savedafterword=\count408
+\c@annotator=\count409
+\c@savedannotator=\count410
+\c@author=\count411
+\c@savedauthor=\count412
+\c@bookauthor=\count413
+\c@savedbookauthor=\count414
+\c@commentator=\count415
+\c@savedcommentator=\count416
+\c@editor=\count417
+\c@savededitor=\count418
+\c@editora=\count419
+\c@savededitora=\count420
+\c@editorb=\count421
+\c@savededitorb=\count422
+\c@editorc=\count423
+\c@savededitorc=\count424
+\c@foreword=\count425
+\c@savedforeword=\count426
+\c@holder=\count427
+\c@savedholder=\count428
+\c@introduction=\count429
+\c@savedintroduction=\count430
+\c@namea=\count431
+\c@savednamea=\count432
+\c@nameb=\count433
+\c@savednameb=\count434
+\c@namec=\count435
+\c@savednamec=\count436
+\c@translator=\count437
+\c@savedtranslator=\count438
+\c@shortauthor=\count439
+\c@savedshortauthor=\count440
+\c@shorteditor=\count441
+\c@savedshorteditor=\count442
+\c@labelname=\count443
+\c@savedlabelname=\count444
+\c@institution=\count445
+\c@savedinstitution=\count446
+\c@lista=\count447
+\c@savedlista=\count448
+\c@listb=\count449
+\c@savedlistb=\count450
+\c@listc=\count451
+\c@savedlistc=\count452
+\c@listd=\count453
+\c@savedlistd=\count454
+\c@liste=\count455
+\c@savedliste=\count456
+\c@listf=\count457
+\c@savedlistf=\count458
+\c@location=\count459
+\c@savedlocation=\count460
+\c@organization=\count461
+\c@savedorganization=\count462
+\c@origlocation=\count463
+\c@savedoriglocation=\count464
+\c@origpublisher=\count465
+\c@savedorigpublisher=\count466
+\c@publisher=\count467
+\c@savedpublisher=\count468
+\c@language=\count469
+\c@savedlanguage=\count470
+\c@origlanguage=\count471
+\c@savedoriglanguage=\count472
+\c@pageref=\count473
+\c@savedpageref=\count474
 \shorthandwidth=\skip113
 \shortjournalwidth=\skip114
 \shortserieswidth=\skip115
@@ -907,19 +927,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
-\c@textcitecount=\count472
-\c@textcitetotal=\count473
-\c@textcitemaxnames=\count474
-\c@biburlbigbreakpenalty=\count475
-\c@biburlbreakpenalty=\count476
-\c@biburlnumpenalty=\count477
-\c@biburlucpenalty=\count478
-\c@biburllcpenalty=\count479
+\c@textcitecount=\count475
+\c@textcitetotal=\count476
+\c@textcitemaxnames=\count477
+\c@biburlbigbreakpenalty=\count478
+\c@biburlbreakpenalty=\count479
+\c@biburlnumpenalty=\count480
+\c@biburlucpenalty=\count481
+\c@biburllcpenalty=\count482
 \biburlbigskip=\muskip19
 \biburlnumskip=\muskip20
 \biburlucskip=\muskip21
 \biburllcskip=\muskip22
-\c@smartand=\count480
+\c@smartand=\count483
 )
 Package biblatex Info: Trying to load natbib compatibility...
 Package biblatex Info: ... file 'blx-natbib.def' found.
@@ -939,17 +959,17 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count481
-\c@bbx:relatedtotal=\count482
+\c@bbx:relatedcount=\count484
+\c@bbx:relatedtotal=\count485
 )))
 Package biblatex Info: Trying to load citation style 'numeric-comp'...
 Package biblatex Info: ... file 'numeric-comp.cbx' found.
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
 File: numeric-comp.cbx 2024/03/21 v3.20 biblatex citation style (PK/MW)
-\c@cbx@tempcnta=\count483
-\c@cbx@tempcntb=\count484
-\c@cbx@tempcntc=\count485
-\c@cbx@tempcntd=\count486
+\c@cbx@tempcnta=\count486
+\c@cbx@tempcntb=\count487
+\c@cbx@tempcntc=\count488
+\c@cbx@tempcntd=\count489
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -977,42 +997,42 @@ Package biblatex Info: ... and expl3
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 ))
-\@quotelevel=\count487
-\@quotereset=\count488
+\@quotelevel=\count490
+\@quotereset=\count491
 (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 89.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 89.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 91.
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
 (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 89.
+Package hyperref Info: Link coloring OFF on input line 91.
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
@@ -1054,56 +1074,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 89.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 89.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 89.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 89.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 89.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 89.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 89.
-LaTeX Font Info:    Redeclaring math accent \check on input line 89.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 89.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 89.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 89.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 89.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 91.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 91.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 91.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 91.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 91.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 91.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 91.
+LaTeX Font Info:    Redeclaring math accent \check on input line 91.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 91.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 91.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 91.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 91.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 89.
+(Font)              `operators' in the math version `normal' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TeXGyreTermes(0)/m/n on input line 89.
+(Font)                  OT1/cmr/m/n --> TU/TeXGyreTermes(0)/m/n on input line 91.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 89.
+(Font)              `operators' in the math version `bold' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermes(0)/m/n on input line 89.
+(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermes(0)/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/TeXGyreTermes(0)/m/n --> TU/TeXGyreTermes(0)/m/n on input line 89.
+(Font)                  TU/TeXGyreTermes(0)/m/n --> TU/TeXGyreTermes(0)/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/TeXGyreTermes(0)/m/it on input line 89.
+(Font)                  OT1/cmr/m/it --> TU/TeXGyreTermes(0)/m/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermes(0)/b/n on input line 89.
+(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermes(0)/b/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 89.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 89.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/TeXGyreTermes(0)/m/n --> TU/TeXGyreTermes(0)/b/n on input line 89.
+(Font)                  TU/TeXGyreTermes(0)/m/n --> TU/TeXGyreTermes(0)/b/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/TeXGyreTermes(0)/b/it on input line 89.
+(Font)                  OT1/cmr/bx/it --> TU/TeXGyreTermes(0)/b/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 89.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 89.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 91.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: rotating package is loaded.
@@ -1122,8 +1142,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 89.
-Package biblatex Info: Reference segment=0 on input line 89.
+Package biblatex Info: Reference section=0 on input line 91.
+Package biblatex Info: Reference segment=0 on input line 91.
 
 warning  (file uom_logo.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.5', but at most version '1.4' allowed
 
@@ -1189,7 +1209,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-Overfull \hbox (2.46695pt too wide) in paragraph at lines 138--138
+Overfull \hbox (2.46695pt too wide) in paragraph at lines 140--140
 \TU/lmtt/m/n/12 ac.uk/DocuInfo.aspx?DocID=24420$[]\TU/TeXGyreTermes(0)/m/n/12 ), in any rel-e-vant The-sis re-stric-tion dec-la-ra-tions de-posited
  []
 
@@ -1219,7 +1239,7 @@ Chapter 2.
 ]
 Chapter 3.
 (./chapters_tex/chapters_quarto/3_general_methodology.tex
-<chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png, id=393, 471.26062pt x 57.71562pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png, id=395, 471.26062pt x 57.71562pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png  used on input line 49.
@@ -1231,80 +1251,90 @@ Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/examp
 ]
 
 [17<./chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png>]
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf, id=437, 397.485pt x 397.485pt>
+File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf Graphic file (type pdf)
+<use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>
+Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf  used on input line 167.
+(luatex.def)             Requested size: 397.48402pt x 397.48402pt.
 
-[18])
 
-[19]
+[18]
+
+[19<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>])
+
+[20]
+
+[21]
 Chapter 4.
 (./chapters_tex/chapters_quarto/4_adjusting_opacity.tex)
 
-[20
+[22
 
 ]
 Overfull \vbox (120.06145pt too high) has occurred while \output is active []
 
 
 
-[21]
+[23]
 Chapter 5.
 (./chapters_tex/chapters_quarto/5_adjusting_size.tex)
 
-[22
+[24
 
 ]
 Chapter 6.
 (./chapters_tex/chapters_quarto/6_interactions_opacity_size.tex)
 
-[23
+[25
 
 ]
 Chapter 7.
 (./chapters_tex/chapters_quarto/7_belief_change.tex)
 
-[24
+[26
 
 ]
 Overfull \vbox (87.99644pt too high) has occurred while \output is active []
 
 
 
-[25]
+[27]
 Chapter 8.
 (./chapters_tex/chapters_quarto/8_conclusion.tex)
 
-[26
+[28
 
 ]
-Overfull \hbox (18.2631pt too wide) in paragraph at lines 173--173
+Overfull \hbox (18.2631pt too wide) in paragraph at lines 175--175
 []\TU/TeXGyreTermes(0)/m/n/12 Nick Char-alam-bides. \TU/TeXGyreTermes(0)/m/it/12 We Re-cently Went Vi-ral on Tik-Tok - Here’s What We Learned\TU/TeXGyreTermes(0)/m/n/12 . https://www.pro-
  []
 
 
-Overfull \hbox (9.1642pt too wide) in paragraph at lines 173--173
+Overfull \hbox (9.1642pt too wide) in paragraph at lines 175--175
 \TU/TeXGyreTermes(0)/m/n/12 Subjects Re-search: Com-par-isons be-tween MTurk, Pro-lific, CloudResearch, Qualtrics, and SONA''.
  []
 
 
 
-[27
+[29
 
 ]
-Overfull \hbox (36.18292pt too wide) in paragraph at lines 173--173
+Overfull \hbox (36.18292pt too wide) in paragraph at lines 175--175
 \TU/TeXGyreTermes(0)/m/n/12 bourne, Aus-tralia: IEEE, Oct. 2023, pp. 1–5. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : 9798350329841. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1109 / VisXVision60716 .
  []
 
 
 
-[28]
+[30]
 
-[29
+[31
 
 
 ]
 Appendix A.
 
 
-[30
+[32
 
 
 ] (./main.aux)
@@ -1318,18 +1348,20 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 37772 strings out of 475910
+ 38415 strings out of 475910
  125165,1977958 words of node,token memory allocated
- 866 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 14 attribute, 113 glue_spec, 14 attribute_list, 2 write, 7 pdf_action nodes
-   avail lists: 1:1,2:1127,3:416,4:80,5:669,6:160,7:7634,8:59,9:685,10:19,11:689
- 59349 multiletter control sequences out of 65536+600000
- 56 fonts using 5769095 bytes
- 104i,6n,117p,2644b,3229s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-italic.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-bold.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (30 pages, 323792 bytes).
+ 892 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 17 attribute, 113 glue_spec, 17 attribute_list, 2 write, 7 pdf_action nodes
+   avail lists: 1:1,2:1125,3:416,4:80,5:755,6:166,7:8594,8:59,9:685,10:19,11:786
+ 59945 multiletter control sequences out of 65536+600000
+ 63 fonts using 6315943 bytes
+ 104i,8n,117p,2644b,3225s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-PDF statistics: 931 PDF objects out of 1000 (max. 8388607)
- 183 named destinations out of 1000 (max. 131072)
+warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
+<c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-italic.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-bold.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (32 pages, 343238 bytes).
+
+PDF statistics: 957 PDF objects out of 1000 (max. 8388607)
+ 189 named destinations out of 1000 (max. 131072)
  1031 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -3,6 +3,7 @@ title: "general_methodology"
 output:
   format: 
     latex:
+      
 params:
   eval_models: false
   
@@ -17,6 +18,17 @@ execute:
   message: false
   include: false     
 ---
+
+```{r}
+#| label: setup
+
+# load required packages
+
+library(tidyverse)
+library(MASS)
+
+```
+
 
 # Introduction
 
@@ -115,13 +127,111 @@ a 1:1 ratio of male to female participants. The demographic issues settled quick
 however we maintained our screened 1:1 ratio for the remainder of the experiments.
 
 The first experiment we conducted was a pilot study (see Section \ref{pilot} for full details)
-investigating a very early iteration of the point opacity manipulation
+investigating a very early iteration of the point opacity manipulation in combination
+with exploratory work around plot size and correlation estimation. At the time,
+the author was relatively naive to the intricacies of recruiting research participants
+online, and thus experienced issues with regards to participant engagement. Each
+experiment, including the pilot, included attention check questions in which participants
+were instructed to ignore the stimulus and provide a specific answer. We stated in
+the advert for each experiment that failure of more than 2 attention check items
+would result in a submission being rejected. This pilot study suffered from a 
+rejection rate of 57.5\%, indicating that we were experiencing low levels of
+participant engagement. For our following studies, we therefore followed published
+guidelines \cite{peer_2021} to address these issues; specifically, we required
+that participants:
+
+  - Had previously completed at least 100 studies on Prolific.
+  - Had an acceptance rate of at least 99% for those studies. [^1]
+  
+Following implementation of these pre-screen criteria, the rejection rate
+for our next experiment fell to ~5\%. Rejection rates were similar for the remainder
+of our experiments. Exact numbers of accepted and rejected participants can be
+found in the \textbf{Participants} sections of each experiment.
+
+[^1]: this is a more strict rate than the 95% recommended by Peer et al. \cite{peer_2021}.
 
 ## Creating Stimuli
+
+All our stimuli were created using `ggplot2` in R. Specific versions are cited separately
+with regard to the specific visualisations produced for each experiment. We followed
+identical principles regarding data visualisation design for each experiment bar the
+last, which is discussed \textit{in situ}. 
+
+We designed with the intention of isolating and addressing a perceptual effect;
+the underestimation of correlation in positively correlated scatterplots. For this
+reason, we sought to remove the potential for other design factors to have effects
+on correlation estimation. To this end, we removed most of the conventionally
+present visual features of scatterplots, including axis labels, tick labels,
+grid lines, and titles. We elected to preserve the axis ticks themselves.
+@fig-scatter-example demonstrates the basic design of the scatterplots
+used in experiments 1 to 4.
+
+```{r}
+#| label: fig-scatter-example
+#| include: true
+#| fig-cap: The basic design of scatterplots in experiments 1 to 4. 
+#| out-width: NA
+#| out-height: NA
+#| fig-asp: 1
+
+ set.seed(1234)
+  
+  my_sample_size = 128
+  
+  my_desired_r = 0.6
+  
+  mean_variable_1 = 0
+  sd_variable_1 = 1
+  
+  mean_variable_2 = 0
+  sd_variable_2 = 1
+  
+  mu <- c(mean_variable_1, mean_variable_2) 
+  
+  myr <- my_desired_r * sqrt(sd_variable_1) * sqrt(sd_variable_2)
+  
+  mysigma <- matrix(c(sd_variable_1, myr, myr, sd_variable_2), 2, 2) 
+  
+  corr_data = as_tibble(mvrnorm(my_sample_size, mu, mysigma, empirical = TRUE))
+  
+  corr_model <- lm(V2 ~ V1, data = corr_data)
+  
+  my_residuals <- abs(residuals(corr_model))
+  
+  data_with_resid <- round(cbind(corr_data, my_residuals), 2)
+  
+plot_example_function <- function (d) {
+  
+  set.seed(1234)
+  
+  ggplot(d, aes(x = V1, y = V2)) +
+  scale_alpha_identity() +
+  geom_point(shape = 16, size = 1)  +
+  labs(x = "", y = "") +
+  theme_classic() +
+  theme(axis.text = element_blank(),
+        plot.margin = unit(c(0,0,0,0), "cm"),
+        legend.position = "none",
+        plot.title = element_text(size = 15))
+}
+  
+plot_example_function(data_with_resid)  
+```
 
 # Analytical Methods
 
 ## Linear Mixed-Effects Models
+
+To investigate whether the experimental manipulations we test have actual effects
+on the interpretations participants provide, we must employ appropriate statistical
+testing. This involves taking into account the variability in responses that can be
+attributed to an experimental experimental against the backdrop of other variability
+inherent in the dataset. To accomplish this, we utilise linear mixed-effects modelling,
+a broadly applicable and reliable approach that is also resistant to a variety
+of distributional assumption violations \cite{schielzeth_2020}.
+
+- fixed and random effects
+- how does modelling work?
 
 ## Advantages Over Aggregate-Level Statistical Tests
 

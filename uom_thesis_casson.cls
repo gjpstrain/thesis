@@ -75,6 +75,9 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 %% Accessibility options
 %\RequirePackage{unicode-math} % unicode maths for accessibility
 % Removed axessibility in 2022 version - 2022 version of texlive seems to have lots of bugs with this!

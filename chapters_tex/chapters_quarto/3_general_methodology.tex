@@ -112,14 +112,89 @@ demographic issues settled quickly, however we maintained our screened
 
 The first experiment we conducted was a pilot study (see Section
 \ref{pilot} for full details) investigating a very early iteration of
-the point opacity manipulation
+the point opacity manipulation in combination with exploratory work
+around plot size and correlation estimation. At the time, the author was
+relatively naive to the intricacies of recruiting research participants
+online, and thus experienced issues with regards to participant
+engagement. Each experiment, including the pilot, included attention
+check questions in which participants were instructed to ignore the
+stimulus and provide a specific answer. We stated in the advert for each
+experiment that failure of more than 2 attention check items would
+result in a submission being rejected. This pilot study suffered from a
+rejection rate of 57.5\%, indicating that we were experiencing low
+levels of participant engagement. For our following studies, we
+therefore followed published guidelines \cite{peer_2021} to address
+these issues; specifically, we required that participants:
+
+\begin{itemize}
+\tightlist
+\item
+  Had previously completed at least 100 studies on Prolific.
+\item
+  Had an acceptance rate of at least 99\% for those studies. \footnote{this
+    is a more strict rate than the 95\% recommended by Peer et
+    al.~\cite{peer_2021}.}
+\end{itemize}
+
+Following implementation of these pre-screen criteria, the rejection
+rate for our next experiment fell to \textasciitilde5\%. Rejection rates
+were similar for the remainder of our experiments. Exact numbers of
+accepted and rejected participants can be found in the
+\textbf{Participants} sections of each experiment.
 
 \subsection{Creating Stimuli}\label{creating-stimuli}
+
+All our stimuli were created using \texttt{ggplot2} in R. Specific
+versions are cited separately with regard to the specific visualisations
+produced for each experiment. We followed identical principles regarding
+data visualisation design for each experiment bar the last, which is
+discussed \textit{in situ}.
+
+We designed with the intention of isolating and addressing a perceptual
+effect; the underestimation of correlation in positively correlated
+scatterplots. For this reason, we sought to remove the potential for
+other design factors to have effects on correlation estimation. To this
+end, we removed most of the conventionally present visual features of
+scatterplots, including axis labels, tick labels, grid lines, and
+titles. We elected to preserve the axis ticks themselves.
+Figure~\ref{fig-scatter-example} demonstrates the basic design of the
+scatterplots used in experiments 1 to 4.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf}
+
+}
+
+\caption{\label{fig-scatter-example}The basic design of scatterplots in
+experiments 1 to 4.}
+
+\end{figure}%
 
 \section{Analytical Methods}\label{analytical-methods}
 
 \subsection{Linear Mixed-Effects
 Models}\label{linear-mixed-effects-models}
+
+To investigate whether the experimental manipulations we test have
+actual effects on the interpretations participants provide, we must
+employ appropriate statistical testing. This involves taking into
+account the variability in responses that can be attributed to an
+experimental experimental against the backdrop of other variability
+inherent in the dataset. To accomplish this, we utilise linear
+mixed-effects modelling, a broadly applicable and reliable approach that
+is also resistant to a variety of distributional assumption violations
+\cite{schielzeth_2020}.
+
+\begin{itemize}
+\tightlist
+\item
+  fixed and random effects
+\item
+  how does modelling work?
+\end{itemize}
 
 \subsection{Advantages Over Aggregate-Level Statistical
 Tests}\label{advantages-over-aggregate-level-statistical-tests}
