@@ -188,20 +188,122 @@ mixed-effects modelling, a broadly applicable and reliable approach that
 is also resistant to a variety of distributional assumption violations
 \cite{schielzeth_2020}.
 
-\begin{itemize}
-\tightlist
-\item
-  fixed and random effects
-\item
-  how does modelling work?
-\end{itemize}
+In a mixed-effects modelling paradigm, a distinction is made between
+variability that is thought to arise as a result of an experimental
+manipulation (fixed effects), and that which arises due to differences
+between, for example, participants or particular experimental items
+(random effects). When a variable is manipulated by a researcher in an
+experiment, each level of that variable is present, meaning it is
+appropriate to be modelled as a fixed effect. When only a \emph{subset}
+of levels of a variable is present, such as a sample of all possible
+participants or experimental items, then this variable is appropriate
+for modelling as a random effect. Typically, mixed-effects models
+require the specification of \emph{intercepts}; these are different
+baselines for each participant or item that reflect random deviations
+from the mean of the dependent variable. Mixed-effects models may also
+specify random \emph{slopes}; these are differences in the magnitude of
+the difference between levels of the independent variable for each
+participant or experimental item \cite{brown_2021}.
+Figure~\ref{fig-mixed-effects-demo} visualises these concepts.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=1\textwidth,height=\textheight]{3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf}
+
+}
+
+\caption{\label{fig-mixed-effects-demo}Visualising random intercepts and
+slopes for a theoretical experiment with 4 participants. The grand mean
+of the dependent variable is shown as a solid line, while each separate
+random intercept is drawn with dashed lines. Each line has a different
+gradient, representing different random slopes for each participant.
+This graphic was inspired by those featured in Brown, 2021
+\cite{brown_2021}.}
+
+\end{figure}%
+
+Throughout the course of this thesis we attempt to model both random
+intercepts and slopes in order to capture the maximum amount of
+variability present in our datasets.
 
 \subsection{Advantages Over Aggregate-Level Statistical
 Tests}\label{advantages-over-aggregate-level-statistical-tests}
 
+Traditional analysis of the data that we collect throughout this thesis
+would involve the use of repeated measures analyses of variance
+(ANOVAs). This technique assesses whether there are significant
+differences in means of dependent variables between conditions. While
+these techniques are commonplace, they do not allow for comparisons of
+differences across the full range of participant responses, nor do they
+allow for simultaneous consideration of by-item and by-participant
+variance. It is for these reasons that we employ linear mixed-effects
+models throughout this thesis; doing so simply allows us to appreciate
+the data story in a broader and more detailed fashion.
+
+\subsection{Ordinal Modelling}\label{ordinal-modelling}
+
+In experiment 5, participants used Likert scales to provide responses.
+These scales capture whether one rating is higher or lower than another,
+however they do not quantify the magnitude of the difference between
+levels of rating. Metric modelling, such as linear regression, treats
+the response options to a Likert scale as if they were numeric. Doing so
+assumes equal levels of difference between ratings, when in reality
+there is no theoretical reason to assume so. Metric modelling is
+therefore considered inappropriate for modelling responses to Likert
+scales \cite{liddell_2018}. In light of these issues, we use
+\texttt{ordinal} package \cite{ordinal} in R to build cumulative link
+mixed effects models for the analysis of Likert scale data. This allows
+us to treat our Likert responses as an ordered factor as opposed to a
+continuous response scale.
+
 \subsection{Model Construction}\label{model-construction}
 
+Choices are inherent in every type of statistical analysis, and can play
+a large role in the conclusions that are drawn from them. In linear
+mixed-effects modelling, deciding what is a fixed and what is a random
+effect is straightforward; deciding how to specify random effects is a
+more complicated matter. Barr et al.~\cite{barr_2013} argue that for
+fully repeated measures designs, we should prefer a maximal model; one
+with random intercepts and slopes for each participant and experimental
+item. More recently, Bates et al.~\cite{bates} have argued that
+attempting to specify maximal models for insufficiently rich datasets
+may lead to overfitting and unreliable conclusions. In light of this we
+sought a more systematic approach to selecting the random effects
+structure of a given model.
+
+In an attempt to balance simplicity, explanatory power, and model
+convergence (whether or not a solution can be found), we chose to use
+the \texttt{buildmer} package \cite{buildmer} in R to automate the
+selection of our model specifications. Having been provided with a
+maximal model, \texttt{buildmer} uses stepwise regression to select the
+most complex model structure that successfully converges. Following
+this, random effects terms that fail to explain a significant amount of
+variance in the dataset are dropped. This results in a model that
+captures the maximal amount of feasible variability while minimising
+redundancy. Note that we do not rely on \texttt{buildmer} as a modelling
+\emph{panacea}; models are still based on theoretical underpinnings and
+are evaluated critically.
+
 \subsection{Effects Sizes}\label{effects-sizes}
+
+Our approach to effects sizes evolved throughout the course of the
+research project due to reviewer feedback and an increasing appreciation
+of complexities of effect sizes when discussing linear mixed-effects
+models. Experiments 1, 2, and 3 used the \texttt{EMAtools} package
+\cite{ematools} to calculate equivalent Cohen's \emph{d} effect sizes.
+Experiment 4 did not feature a theoretically sound baseline condition,
+meaning Cohen's \emph{d} was inappropriate. We therefore used the
+\texttt{r2glmm} package \cite{r2glmm} to calculate semi-partial
+R\textsuperscript{2}. We use this in lieu of a traditional measure of
+effect size to demonstrate the unique variance in our dependent variable
+explained by each level of our independent \cite{nakagawa_2013}.
+Experiment 5 features a much simpler modelling siuation, and returns to
+providing equivalent Cohen's \emph{d} values, this time calculated using
+the \texttt{effectsize} package \cite{effectsize}. More details on
+specific calculations, measures, and conclusions can be found \emph{in
+situ}.
 
 \subsection{Reporting Analyses}\label{reporting-analyses}
 
