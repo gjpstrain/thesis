@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.7)  8 OCT 2024 15:54
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.7)  9 OCT 2024 14:36
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1145,28 +1145,21 @@ Package biblatex Info: ... file 'main.bbl' found.
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
-(biblatex)                bates
+(biblatex)                effectsize
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
 
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
-(biblatex)                bridges_2020
+(biblatex)                leisch_2002
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
 
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
-(biblatex)                nakagawa_2013
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                r2glmm
+(biblatex)                trisovic_2022
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
 
@@ -1274,16 +1267,13 @@ File: chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png Graph
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png  used on input line 49.
 (luatex.def)             Requested size: 471.25948pt x 57.71547pt.
 
-LaTeX Warning: Citation 'bridges_2020' on page 16 undefined on input line 71.
-
-
 
 [16
 
 ]
 
 [17<./chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png>]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf, id=445, 397.485pt x 397.485pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf, id=447, 397.485pt x 397.485pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf  used on input line 167.
@@ -1291,73 +1281,77 @@ Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_file
 
 
 [18]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf, id=457, 397.485pt x 237.88875pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf, id=459, 397.485pt x 237.88875pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf  used on input line 213.
-(luatex.def)             Requested size: 483.7119pt x 759.72769pt.
-
-LaTeX Warning: Float too large for page by 58.0391pt on input line 225.
-
+(luatex.def)             Requested size: 397.48402pt x 237.88815pt.
 
 
 [19<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>]
 
 [20<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf>]
 
-LaTeX Warning: Citation 'bates' on page 21 undefined on input line 270.
-
-
-LaTeX Warning: Citation 'r2glmm' on page 21 undefined on input line 298.
-
-
-LaTeX Warning: Citation 'nakagawa_2013' on page 21 undefined on input line 301.
+LaTeX Warning: Citation 'effectsize' on page 21 undefined on input line 305.
 
 
 
 [21]
 
-[22])
+LaTeX Warning: Citation 'leisch_2002' on page 22 undefined on input line 348.
 
-[23]
+
+LaTeX Warning: Citation 'trisovic_2022' on page 22 undefined on input line 380.
+
+
+
+[22]
+
+[23])
+
+[24]
 Chapter 4.
 (./chapters_tex/chapters_quarto/4_adjusting_opacity.tex)
 
-[24
+[25
 
 ]
 Overfull \vbox (120.06145pt too high) has occurred while \output is active []
 
 
 
-[25]
+[26]
 Chapter 5.
 (./chapters_tex/chapters_quarto/5_adjusting_size.tex)
 
-[26
+[27
 
 ]
 Chapter 6.
 (./chapters_tex/chapters_quarto/6_interactions_opacity_size.tex)
 
-[27
+[28
 
 ]
 Chapter 7.
 (./chapters_tex/chapters_quarto/7_belief_change.tex)
 
-[28
+[29
 
 ]
 Overfull \vbox (87.99644pt too high) has occurred while \output is active []
 
 
 
-[29]
+[30]
 Chapter 8.
 (./chapters_tex/chapters_quarto/8_conclusion.tex)
 
-[30
+[31
+
+]
+
+[32
 
 ]
 Overfull \hbox (18.2631pt too wide) in paragraph at lines 175--175
@@ -1370,28 +1364,31 @@ Overfull \hbox (9.1642pt too wide) in paragraph at lines 175--175
  []
 
 
+Overfull \hbox (8.21506pt too wide) in paragraph at lines 175--175
+[]\TU/TeXGyreTermes(0)/m/n/12 John Mac-Far-lane. \TU/TeXGyreTermes(0)/m/it/12 Pan-doc\TU/TeXGyreTermes(0)/m/n/12 . https://pan-doc.org/in-dex.html. (Vis-ited on 10/09/2024) (cited on p. []22[]). 
+ []
 
-[31
 
-]
+
+[33]
+
+[34]
 Overfull \hbox (36.18292pt too wide) in paragraph at lines 175--175
 \TU/TeXGyreTermes(0)/m/n/12 bourne, Aus-tralia: IEEE, Oct. 2023, pp. 1–5. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : 9798350329841. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1109 / VisXVision60716 .
  []
 
 
 
-[32]
+[35]
 
-[33]
-
-[34
+[36
 
 
 ]
 Appendix A.
 
 
-[35
+[37
 
 
 ] (./main.aux)
@@ -1405,20 +1402,20 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 38477 strings out of 475910
+ 38567 strings out of 475910
  125165,1977958 words of node,token memory allocated
  908 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 18 attribute, 113 glue_spec, 18 attribute_list, 2 write, 9 pdf_action nodes
-   avail lists: 1:1,2:1158,3:429,4:80,5:758,6:180,7:8619,8:61,9:701,10:22,11:821
- 59987 multiletter control sequences out of 65536+600000
+   avail lists: 1:1,2:1184,3:436,4:86,5:760,6:226,7:8611,8:61,9:703,10:22,11:821
+ 60060 multiletter control sequences out of 65536+600000
  63 fonts using 6315943 bytes
- 104i,8n,117p,2474b,3228s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,8n,117p,2644b,3232s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
 <c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-italic.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-bold.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (35 pages, 367961 bytes).
+Output written on main.pdf (37 pages, 389269 bytes).
 
-PDF statistics: 1018 PDF objects out of 1200 (max. 8388607)
- 200 named destinations out of 1000 (max. 131072)
+PDF statistics: 1081 PDF objects out of 1200 (max. 8388607)
+ 217 named destinations out of 1000 (max. 131072)
  1039 words of extra memory for PDF output out of 10000 (max. 100000000)
 

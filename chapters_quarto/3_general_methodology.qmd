@@ -250,7 +250,7 @@ or experimental item \cite{brown_2021}. @fig-mixed-effects-demo visualises these
 #| label: fig-mixed-effects-demo
 #| include: true
 #| fig-cap: Visualising random intercepts and slopes for a theoretical experiment with 4 participants. The grand mean of the dependent variable is shown as a solid line, while each separate random intercept is drawn with dashed lines. Each line has a different gradient, representing different random slopes for each participant. This graphic was inspired by those featured in Brown, 2021 \cite{brown_2021}.
-#| out-width: "100%"
+#| out-width: NA
 #| out-height: NA
 #| fig-asp: 0.6
 
@@ -319,7 +319,7 @@ deciding what is a fixed and what is a random effect is straightforward; decidin
 how to specify random effects is a more complicated matter. Barr et al. \cite{barr_2013}
 argue that for fully repeated measures designs, we should prefer a maximal model;
 one with random intercepts and slopes for each participant and experimental item. More
-recently, Bates et al. \cite{bates} have argued that attempting to specify
+recently, Bates et al. \cite{bates_2018} have argued that attempting to specify
 maximal models for insufficiently rich datasets may lead to overfitting and
 unreliable conclusions. In light of this we sought a more systematic approach to
 selecting the random effects structure of a given model.
@@ -346,20 +346,96 @@ meaning Cohen's *d* was inappropriate. We therefore used the `r2glmm` package
 \cite{r2glmm} to calculate semi-partial R^2^. We use this in lieu of a traditional
 measure of effect size to demonstrate the unique variance in our dependent
 variable explained by each level of our independent \cite{nakagawa_2013}. Experiment
-5 features a much simpler modelling siuation, and returns to providing equivalent
-Cohen's *d* values, this time calculated using the `effectsize` package \cite{effectsize}.
-More details on specific calculations, measures, and conclusions can be found 
-*in situ*.
+5 features a much simpler modelling situation, and returns to providing equivalent
+Cohen's *d* values, this time calculated by converting odds ratios using the
+`effectsize` package \cite{effectsize}. More details on specific calculations,
+measures, and conclusions can be found *in situ*.
 
 ## Reporting Analyses
 
+Throughout this thesis, we take a broad approach to the reporting of statistical
+analyses; while we consider our analytical methods and conclusions to be sound,
+we also present a range of statistics to allow the reader to draw their own
+conclusions should they wish. Statistics are visualised where appropriate, and where
+visualisation aids understanding and interpretation. In addition, we include 
+details about model structures and the issues we tackled when modelling,
+for transparency \cite{meteyard_2020}.
+
 # Computational Methods
+
+We took an approach to computational methods that sought to marry convenience,
+simplicity, and reproducibility. Often, this meant that what would otherwise
+be a makeshift script followed by copy-pasting of results into overleaf ended
+up being an involved exercise in functional programming and code wrangling.
+This involved effort and time, particularly in the early stages of the project,
+however has yielded a number of benefits. Many of the techniques developed 
+early in the project proved to be instrumental later on, meaning time was,
+on the whole saved. Additionally, we share these techniques, principles, and 
+practices to enable future researchers to learn, where we had to struggle. In
+this section, we detail our approaches to computational methods, including
+how we utilised the idea of **executable papers**, and how we used containerised
+environments to capture a *freeze-frame* of our analyses.
 
 ## Executable Reporting
 
+Each paper published throughout this project, each chapter in this thesis,
+and the thesis itself, has been written to be executable. Doing so allows us
+to package our research such that a lay person can follow simple instructions to
+recreate our work, while also facilitating literate programming, or the close alignment
+of documentation and underlying code \cite{piccolo_2016}.
+
+The use of a literate programming paradigm to generate reports (usually using LaTeX) has
+a rich history. Here, we focus on that history specifically with regards to the
+language used throughout the course of this project, R. `Sweave` \cite{leisch_2002},
+written in 2002, allowed R code to be integrated into LaTeX documents. This was
+followed by Yihui Xie's `knitr` \cite{xie_2015}, which expanded `Sweave` functionality
+and improved integration with tools such as `pandoc` \cite{pandoc}. `knitr` uses
+`Rmarkdown` \cite{xie_2020} to mix markdown-flavoured text with code chunks into
+a document that can easily be rendered into an appropriately-formatted
+conference or journal pdf; this workflow was used for the paper associated
+with experiments 1 and 2. `Quarto` \cite{allaire_2024}, released in 2022,
+further expands on `Rmarkdown` functionality, and removes reliance on R or
+Rstudio. We used `Quarto` for the remainder of the papers associated with
+this project, and for the present thesis.
+
+Writing executable or dynamic documents allows results to be re-generated whenever
+the document is rendered. This includes any associated data visualisations and statistical
+modelling. Structuring documents like this effectively "open up" research by allowing
+others to view the code that performed the analysis and generated the
+data visualisations, in addition to guarding against accusations of questionable research
+practices through high levels of transparency \cite{holmes_2021}. This paradigm
+also allows for the caching of computationally expensive statistical models.
+
 ## Containerised Environments
 
+Providing the code associated with a project, even when that code is integrated into
+a literately programmed executable paper, is necessary, but not sufficient, for 
+enabling adequate reproducibility. Previous work has found many instances where
+publicly-accessible code could not reproduce the results included in the corresponding
+document or failed to run \cite{collberg_2016, trisovic_2022, samuel_2024}.
+Poor programming practices accounted for a significant portion of these 
+issues, highlighting the issue of researchers without technical backgrounds being
+expected to produce high quality technical documentation. Elsewhere, differences
+in computational environment, package versions, and operating systems have been
+identified as responsible for the non-replication of results. Large research
+projects, such as this, can include hundreds of functions from scores of packages,
+meaning that small changes can critically break code.
+
+To address these issues, we elected to use containers, specifically, those created
+by `Docker` \cite{merkel_2014, boettiger_2015}. 1979 saw the development of `chroot`, which is
+able to isolate an application's file access. The following 50 years has seen
+rapid development and uptake of containerisation software, mostly within the 
+software security and development communities. Docker, released in 2014, is a 
+popular, lightweight containerisation tool that enables a precise recreation
+of computational environments. By recording software versions and dependencies,
+we avoid the potential for broken code in the future, and by publicly hosting papers as
+GitHub repositories that build into Docker containers, we ensure that future researchers
+can interact with our code and data in the same computational environment we did 
+when carrying out the research.
+
 # Reproducibility In This Thesis
+
+gold standard of reproducibility \cite{peng_2011}
 
 ## Sharing Data and Code
 
@@ -395,3 +471,5 @@ Experiment 5 Main Study (Group B): https://gitlab.pavlovia.org/Strain/atypical_s
 
 
 # Conclusion
+
+
