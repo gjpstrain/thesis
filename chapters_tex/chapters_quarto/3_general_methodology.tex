@@ -12,7 +12,7 @@ experimental work this thesis describes. Methods that differ regarding
 the final experiment in chapter 7 are detailed along the way. In this
 chapter, we discuss our experimental designs, the tools we use to build
 and run our experiments, our approach to statistical analyses, and the
-computational methods and practices we employed particularly with
+computational methods and practices we employed, particularly with
 regards to reproducibility and open science.
 
 \section{Experimental Methods}\label{experimental-methods}
@@ -36,7 +36,7 @@ All but our final experiment utilised within-participants designs. Each
 participant saw all experimental stimuli and provided a judgement of
 correlation using a sliding scale between 0 and 1 (see
 Figure~\ref{fig-slider}). Experiments 1 to 3 featured featured a single
-experimental factor of design, all with 4 levels corresponding to
+experimental factor of design, each with 4 levels corresponding to
 scatterplots with different design features. Experiment 4 employed a
 factorial 2 \(\times\) 2 design. Experiment 5 is a departure from the
 shared experimental paradigm of the previous experiments, and features a
@@ -86,9 +86,9 @@ researchers. Research has identified online experimentation as producing
 reliable results that closely match those found in traditional lab-based
 experiments \cite{arechar_2018, hirao_2021, prisse_2022}, especially
 with large sample sizes. Due to its integration with PsychoPy, we chose
-to use Pavlovia (pavlovia.org) to host all the experiments described in
-this thesis. Section \ref{experimental-resources} contains links to all
-experiments publicly hosted on Pavlovia's GitLab instance.
+to use \href{pavlovia.org}{Pavlovia} to host all the experiments
+described in this thesis. Section \ref{experimental-resources} contains
+links to all experiments publicly hosted on Pavlovia's GitLab instance.
 
 \subsection{Recruitment \& Participants}\label{recruitment-participants}
 
@@ -105,7 +105,7 @@ even high quality platforms tailored towards academic research. On the
 young people identifying as female. At the time, Prolific did not
 manually balance the participants recruited for a study. We addressed
 this in our pilot study (see Section \ref{pilot}) by preventing
-participants who joined after this data from participating, in addition
+participants who joined after this date from participating, in addition
 to manually requesting a 1:1 ratio of male to female participants. The
 demographic issues settled quickly, however we maintained our screened
 1:1 ratio for the remainder of the experiments.
@@ -115,16 +115,16 @@ The first experiment we conducted was a pilot study (see Section
 the point opacity manipulation in combination with exploratory work
 around plot size and correlation estimation. At the time, the author was
 relatively naive to the intricacies of recruiting research participants
-online, and thus experienced issues with regards to participant
-engagement. Each experiment, including the pilot, included attention
-check questions in which participants were instructed to ignore the
-stimulus and provide a specific answer. We stated in the advert for each
-experiment that failure of more than 2 attention check items would
-result in a submission being rejected. This pilot study suffered from a
-rejection rate of 57.5\%, indicating that we were experiencing low
-levels of participant engagement. For our following studies, we
-therefore followed published guidelines \cite{peer_2021} to address
-these issues; specifically, we required that participants:
+online, and thus we experienced issues regarding participant engagement.
+Each experiment included attention check questions in which participants
+were instructed to ignore the stimulus and provide a specific answer. We
+stated in the advert for each experiment that failure of more than 2
+attention check items would result in a submission being rejected. This
+pilot study suffered from a rejection rate of 57.5\%, indicating that we
+were experiencing very low levels of participant engagement. For our
+following studies, we therefore followed published guidelines
+\cite{peer_2021} to address these issues; specifically, we required that
+participants:
 
 \begin{itemize}
 \tightlist
@@ -252,7 +252,7 @@ the response options to a Likert scale as if they were numeric. Doing so
 assumes equal levels of difference between ratings, when in reality
 there is no theoretical reason to assume so. Metric modelling is
 therefore considered inappropriate for modelling responses to Likert
-scales \cite{liddell_2018}. In light of these issues, we use
+scales \cite{liddell_2018}. In light of these issues, we use the
 \texttt{ordinal} package \cite{ordinal} in R to build cumulative link
 mixed effects models for the analysis of Likert scale data. This allows
 us to treat our Likert responses as an ordered factor as opposed to a
@@ -262,16 +262,16 @@ continuous response scale.
 
 Choices are inherent in every type of statistical analysis, and can play
 a large role in the conclusions that are drawn from them. In linear
-mixed-effects modelling, deciding what is a fixed and what is a random
-effect is straightforward; deciding how to specify random effects is a
-more complicated matter. Barr et al.~\cite{barr_2013} argue that for
-fully repeated measures designs, we should prefer a maximal model; one
-with random intercepts and slopes for each participant and experimental
-item. More recently, Bates et al.~\cite{bates_2018} have argued that
-attempting to specify maximal models for insufficiently rich datasets
-may lead to overfitting and unreliable conclusions. In light of this we
-sought a more systematic approach to selecting the random effects
-structure of a given model.
+mixed-effects modelling, deciding \emph{what} is a fixed or random
+effect is straightforward; deciding \emph{how to specify} random effects
+is a more complicated matter. Barr et al.~\cite{barr_2013} argue that
+for fully repeated measures designs, we should prefer a maximal model;
+one with random intercepts and slopes for each participant and
+experimental item. More recently, Bates et al.~\cite{bates_2018} have
+argued that attempting to specify maximal models for insufficiently rich
+datasets may lead to overfitting and unreliable conclusions. In light of
+this we sought a more systematic approach to selecting the random
+effects structure of a given model.
 
 In an attempt to balance simplicity, explanatory power, and model
 convergence (whether or not a solution can be found), we chose to use
@@ -289,8 +289,8 @@ are evaluated critically.
 \subsection{Effects Sizes}\label{effects-sizes}
 
 Our approach to effects sizes evolved throughout the course of the
-research project due to reviewer feedback and an increasing appreciation
-of complexities of effect sizes when discussing linear mixed-effects
+research project due to reviewer feedback and a growing appreciation of
+the complexities of effect sizes when discussing linear mixed-effects
 models. Experiments 1, 2, and 3 used the \texttt{EMAtools} package
 \cite{ematools} to calculate equivalent Cohen's \emph{d} effect sizes.
 Experiment 4 did not feature a theoretically sound baseline condition,
@@ -321,26 +321,26 @@ transparency \cite{meteyard_2020}.
 We took an approach to computational methods that sought to marry
 convenience, simplicity, and reproducibility. Often, this meant that
 what would otherwise be a makeshift script followed by copy-pasting of
-results into overleaf ended up being an involved exercise in functional
-programming and code wrangling. This involved effort and time,
-particularly in the early stages of the project, however has yielded a
-number of benefits. Many of the techniques developed early in the
-project proved to be instrumental later on, meaning time was, on the
-whole saved. Additionally, we share these techniques, principles, and
-practices to enable future researchers to learn, where we had to
-struggle. In this section, we detail our approaches to computational
-methods, including how we utilised the idea of \textbf{executable
-papers}, and how we used containerised environments to capture a
-\emph{freeze-frame} of our analyses.
+results into \href{https://www.overleaf.com/}{Overleaf} ended up being
+an involved exercise in functional programming and code wrangling. This
+involved effort and time, particularly in the early stages of the
+project, however has yielded a number of benefits. Many of the
+techniques developed early in the project proved to be instrumental
+later on, resulting in time-savings overall. Additionally, we share
+these techniques, principles, and practices to enable future researchers
+to learn, where we had to struggle. In this section, we detail our
+approaches to computational methods, including how we utilised the idea
+of \textbf{executable papers}, and how we used containerised
+environments to capture a freeze-frame of our analyses.
 
 \subsection{Executable Reporting}\label{executable-reporting}
 
-Each paper published throughout this project, each chapter in this
-thesis, and the thesis itself, has been written to be executable. Doing
-so allows us to package our research such that a lay person can follow
-simple instructions to recreate our work, while also facilitating
-literate programming, or the close alignment of documentation and
-underlying code \cite{piccolo_2016}.
+Each paper published throughout this project, and this thesis, has been
+written to be executable. Doing so allows us to package our research
+such that a lay person can follow simple instructions to recreate our
+work, while also facilitating and encouraging literate programming, or
+the close alignment of documentation and underlying code
+\cite{piccolo_2016}.
 
 The use of a literate programming paradigm to generate reports (usually
 using LaTeX) has a rich history. Here, we focus on that history
@@ -377,9 +377,9 @@ integrated into a literately programmed executable paper, is necessary,
 but not sufficient, for enabling adequate reproducibility. Previous work
 has found many instances where publicly-accessible code could not
 reproduce the results included in the corresponding document or failed
-to run \cite{collberg_2016, trisovic_2022, samuel_2024}. Poor
+to run entirely \cite{collberg_2016, trisovic_2022, samuel_2024}. Poor
 programming practices accounted for a significant portion of these
-issues, highlighting the issue of researchers without technical
+problems, highlighting the issue of researchers without technical
 backgrounds being expected to produce high quality technical
 documentation. Elsewhere, differences in computational environment,
 package versions, and operating systems have been identified as
@@ -388,28 +388,77 @@ such as this, can include hundreds of functions from scores of packages,
 meaning that small changes can critically break code.
 
 To address these issues, we elected to use containers, specifically,
-those created by \texttt{Docker} \cite{merkel_2014, boettiger_2015}.
-1979 saw the development of \texttt{chroot}, which is able to isolate an
-application's file access. The following 50 years has seen rapid
-development and uptake of containerisation software, mostly within the
-software security and development communities. Docker, released in 2014,
-is a popular, lightweight containerisation tool that enables a precise
-recreation of computational environments. By recording software versions
-and dependencies, we avoid the potential for broken code in the future,
-and by publicly hosting papers as GitHub repositories that build into
-Docker containers, we ensure that future researchers can interact with
-our code and data in the same computational environment we did when
-carrying out the research.
+those created by \href{https://www.docker.com/}{Docker}
+\cite{merkel_2014, boettiger_2015}. 1979 saw the development of
+\texttt{chroot}, which is able to isolate an application's file access.
+The next 50 years saw rapid development and uptake of containerisation
+software, mostly within the software development and security
+communities. Docker, released in 2014, is a popular, lightweight
+containerisation tool that enables a precise recreation of computational
+environments. By recording software versions and dependencies, we avoid
+the potential for broken code in the future, and by publicly hosting
+papers as GitHub repositories that build into Docker containers, we
+ensure that future researchers can interact with our code and data in
+the same computational environment we did when carrying out the
+research.
 
 \section{Reproducibility In This
 Thesis}\label{reproducibility-in-this-thesis}
 
-gold standard of reproducibility \cite{peng_2011}
+Reproducibility is a broad spectrum \cite{peng_2011}. As discussed
+above, even when code and data are provided, results are often not
+replicable, and this is before issues around poor research practice,
+inappropriate analysis, and dishonest science even rear their heads.
+While for most, the reproducibility crisis \cite{osf_2015} crystallised
+in the early 2010s \cite{peng_2015}, concerns had been voiced since at
+least the late 1960s \cite{romero_2019}. Since coming into the wider
+academic conscious, numerous studies have identified reasons for the
+crisis, ranging from poor practice (e.g Potti et al., 2006
+\cite{potti_2006}) to outright deception and fabrication (e.g the
+Woo-Suk Hwang scandal \cite{saunders_2008}). These issues led us to
+strive for a gold standard \cite{peng_2011} of reproducibility
+throughout this project. In this section, we detail how we accomplished
+this, and in doing so, expose our work to welcome critique.
 
 \subsection{Sharing Data and Code}\label{sharing-data-and-code}
 
+The open and public sharing of data and code facilitates external
+assessment \cite{klein_2018, alter_2018}, secondary use of data
+\cite{tamuhla_2023}, and guards against reproducibility issues
+\cite{miyakawa_2020}. Quite aside from external motivating factors, we
+have found that developing and embedding the reproducibility practices
+described here have resulted in longer term savings in time and effort.
+We also favour a gold-standard reproducible approach as a way of
+``paying it forward''; having come from a non-technical background, this
+author found previous work that adhered to the same standard critical to
+learning and development. We use GitHub to host both this thesis and the
+papers associated with the project; links to these repositories can be
+found throughout.
+
 \subsection{Executable Papers and Docker
 Containers}\label{executable-papers-and-docker-containers}
+
+As detailed above, we used Quarto and Docker to produce executable
+journal/conference papers for each of the published works this thesis
+describes. For simplicity, all analyses from these papers have been
+repeated using up to date packages here. Accordingly, we provide a
+single implementation of Docker to reproduce this thesis. All statistics
+have been checked against those provided in the original analyses, and
+repositories for the corresponding papers are provided complete with
+separate Docker implementations.
+
+\subsection{Pre-Registration of Hypotheses and Analysis
+Plans}\label{pre-registration-of-hypotheses-and-analysis-plans}
+
+Often touted as a low-cost entry point into reproducible research
+practices \cite{logg_2021}, pre-registration is the practice of
+clarifying hypotheses and analysis plans prior to data collection. While
+this may not be able to prevent research fraud and QRPs entirely, it
+does lend credibility to the researcher \cite{simmons_2021}. We
+pre-registered all hypotheses and analysis plans with the Open Science
+Framework \cite{OSF}. Pre-registrations are embargoed, and we detail
+where we deviate from our analysis plans in the methods sections of the
+corresponding experiments.
 
 \subsection{Experimental Resources}\label{experimental-resources}
 
@@ -446,6 +495,23 @@ Experiment 5 Main Study (Group B):
 https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_t
 
 \section{Conclusion}\label{conclusion}
+
+In this chapter, we have established the broad methodological approach
+taken by this thesis. This project sought to investigate novel ways of
+visualising data and their effects on perception and cognition. We have
+detailed justifications for the designs we used, the methodological
+challenges we faced, and how we have used a broad array of tools and
+techniques to overcome these challenges, including how we learnt from
+our mistakes. We have endeavoured to keep open research and
+reproducibility at the core of our work throughout this project, and we
+hope this thesis can serve as an example for future work facing similar
+challenges and with similar commitments to open science. To this end, we
+have produced a
+\href{https://github.com/gjpstrain/UoM_reproducible_thesis_template}{template}
+to facilitate future reproducible theses. Through public sharing of data
+and code, literate programming, and containerisation, we satisfy FAIR
+(\textbf{F}indable, \textbf{A}ccessible, \textbf{I}nteropable, and
+\textbf{R}eusable) data principles \cite{wilkinson_2016}.
 
 
 
