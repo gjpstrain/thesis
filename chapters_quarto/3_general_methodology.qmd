@@ -21,14 +21,11 @@ execute:
 
 ```{r}
 #| label: setup
-
 # load required packages
-
 library(tidyverse)
 library(MASS)
 library(ggdist)
 library(geomtextpath)
-
 ```
 
 # Introduction
@@ -51,7 +48,9 @@ that lead us to designing experiments in certain ways must be based not only
 on theory, but also on the practical constraints imposed by external factors on
 the research team. Concerns such as time, convenience, and cost must be addressed,
 and a compromise between research that is *valuable* and research that is *doable*
-must be reached. We focused on pragmatism and impact throughout the course of this
+must be reached. 
+
+We focused on pragmatism and impact throughout the course of this
 research project; happily, the research journey we embarked on resulted in methodologies
 that satisfied both principles. It is for this reason that we consider the framework
 we present to be a key contribution of this thesis.
@@ -59,7 +58,7 @@ we present to be a key contribution of this thesis.
 ## Experimental Design
 
 All but our final experiment utilised within-participants designs. Each
-participant saw all experimental stimuli and provided a judgement 
+participant saw all experimental stimuli and provided a judgment 
 of correlation using a sliding scale between 0 and 1 (see @fig-slider). Experiments 1 to 3 featured
 featured a single experimental factor of design, each with 4 levels corresponding
 to scatterplots with different design features. Experiment 4 employed a factorial
@@ -73,9 +72,7 @@ between-participants design.
 #| fig-cap: An example of the slider participants used to estimate correlation in experiments 1-4.
 #| out-width: NA
 #| out-height: NA
-
 # find slider png in supplied graphics folder
-
 knitr::include_graphics(path = "../supplied_graphics/example_slider.png", dpi = NA)
 ```
 
@@ -174,7 +171,6 @@ used in experiments 1 to 4.
 #| out-width: NA
 #| out-height: NA
 #| fig-asp: 1
-
  set.seed(1234)
   
   my_sample_size = 128
@@ -253,9 +249,7 @@ or experimental item \cite{brown_2021}. @fig-mixed-effects-demo visualises these
 #| out-width: NA
 #| out-height: NA
 #| fig-asp: 0.6
-
 set.seed(123)
-
 df <- data.frame(
   IV = c(0, 2, 4, 6, 8, 10),
   DV_mean = c(500, 700, 900, 1100, 1300, 1500),
@@ -264,7 +258,6 @@ df <- data.frame(
   DV_3 = c(800, 800, 900, 1000, 1100, 2300),
   DV_4 = c(400, 500, 600, 700, 800, 1200)
 )
-
 ggplot(df, aes(x = IV)) +
   geom_textsmooth(aes(y = DV_mean, label = "Grand Mean",
                       hjust = 1, vjust = 1.1), method = "lm", se = FALSE, colour = "black", linewidth = 0.75) +
@@ -278,7 +271,6 @@ ggplot(df, aes(x = IV)) +
                       hjust = 1, vjust = 1.1), method = "lm", se = FALSE, colour = "grey", linetype = "dashed", size = 3, linewidth = 0.5) +
   theme_ggdist() +
   labs(x = "Independent Variable", y = "Dependent Variable")
-
 rm(df)
 ```
 

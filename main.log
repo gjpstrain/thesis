@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.10)  10 OCT 2024 15:31
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.10)  11 OCT 2024 09:21
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -238,7 +238,7 @@ Package pdfx Warning: Setting all color commands to rgb,
 consistent with the Color Model for PDF/A  on input line 3126.
 
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 37.
+Package hyperref Info: Option `colorlinks' set `false' on input line 37.
 Package hyperref Info: Option `breaklinks' set `true' on input line 37.
 (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
@@ -1032,7 +1032,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 91.
+Package hyperref Info: Link coloring OFF on input line 91.
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
@@ -1210,7 +1210,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Overfull \hbox (2.46695pt too wide) in paragraph at lines 140--140
-\TU/lmtt/m/n/12 ac.uk/DocuInfo.aspx?DocID=24420$[][]\TU/TeXGyreTermes(0)/m/n/12 ), in any rel-e-vant The-sis re-stric-tion dec-la-ra-tions de-posited
+\TU/lmtt/m/n/12 ac.uk/DocuInfo.aspx?DocID=24420$[]\TU/TeXGyreTermes(0)/m/n/12 ), in any rel-e-vant The-sis re-stric-tion dec-la-ra-tions de-posited
  []
 
 
@@ -1336,12 +1336,12 @@ Overfull \hbox (9.1642pt too wide) in paragraph at lines 175--175
 
 [34]
 Overfull \hbox (8.21506pt too wide) in paragraph at lines 175--175
-[]\TU/TeXGyreTermes(0)/m/n/12 John Mac-Far-lane. \TU/TeXGyreTermes(0)/m/it/12 Pan-doc\TU/TeXGyreTermes(0)/m/n/12 . https://pan-doc.org/in-dex.html. (Vis-ited on 10/09/2024) (cited on p. [][]22[][]). 
+[]\TU/TeXGyreTermes(0)/m/n/12 John Mac-Far-lane. \TU/TeXGyreTermes(0)/m/it/12 Pan-doc\TU/TeXGyreTermes(0)/m/n/12 . https://pan-doc.org/in-dex.html. (Vis-ited on 10/09/2024) (cited on p. []22[]). 
  []
 
 
 Overfull \hbox (6.78093pt too wide) in paragraph at lines 175--175
-\TU/TeXGyreTermes(0)/m/it/12 ence \TU/TeXGyreTermes(0)/m/n/12 349.6251 (Aug. 2015), aac4716. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : [][]$\TU/lmtt/m/n/12 10 . 1126 / science . aac4716$[][]\TU/TeXGyreTermes(0)/m/n/12 . (Vis-ited on 10/10/2024)
+\TU/TeXGyreTermes(0)/m/it/12 ence \TU/TeXGyreTermes(0)/m/n/12 349.6251 (Aug. 2015), aac4716. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1126 / science . aac4716$[]\TU/TeXGyreTermes(0)/m/n/12 . (Vis-ited on 10/10/2024)
  []
 
 
@@ -1355,7 +1355,7 @@ Overfull \hbox (1.58311pt too wide) in paragraph at lines 175--175
 
 [36]
 Overfull \hbox (36.18292pt too wide) in paragraph at lines 175--175
-\TU/TeXGyreTermes(0)/m/n/12 bourne, Aus-tralia: IEEE, Oct. 2023, pp. 1–5. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : 9798350329841. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : [][]$\TU/lmtt/m/n/12 10 . 1109 / VisXVision60716 .
+\TU/TeXGyreTermes(0)/m/n/12 bourne, Aus-tralia: IEEE, Oct. 2023, pp. 1–5. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : 9798350329841. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1109 / VisXVision60716 .
  []
 
 
@@ -1389,14 +1389,14 @@ Here is how much of LuaTeX's memory you used:
  125165,1977958 words of node,token memory allocated
  948 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 22 attribute, 113 glue_spec, 22 attribute_list, 2 write, 13 pdf_action nodes
-   avail lists: 1:1,2:1346,3:472,4:218,5:759,6:281,7:8573,8:61,9:719,10:22,11:814
+   avail lists: 1:1,2:1298,3:472,4:95,5:759,6:281,7:8573,8:61,9:719,10:22,11:814
  60157 multiletter control sequences out of 65536+600000
  63 fonts using 6315943 bytes
  104i,8n,117p,2644b,3226s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
 <c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-italic.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-regular.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-bold.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (40 pages, 420627 bytes).
+Output written on main.pdf (40 pages, 417397 bytes).
 
 PDF statistics: 1178 PDF objects out of 1200 (max. 8388607)
  237 named destinations out of 1000 (max. 131072)
