@@ -26,6 +26,7 @@ library(tidyverse)
 library(MASS)
 library(ggdist)
 library(geomtextpath)
+library(grid)
 ```
 
 # Introduction
@@ -428,7 +429,7 @@ when carrying out the research.
 
 # Reproducibility In This Thesis
 
-Reproducibility is a broad spectrum \cite{peng_2011}. As discussed above, even
+Reproducibility is a broad spectrum \cite{peng_2011} (see @fig-reproducibility-spectrum). As discussed above, even
 when code and data are provided, results are often not replicable, and this is before
 issues around poor research practice, inappropriate analysis, and dishonest science
 even rear their heads. While for most, the reproducibility crisis \cite{osf_2015} crystallised in
@@ -440,6 +441,37 @@ studies have identified reasons for the crisis, ranging from poor practice
 strive for a gold standard \cite{peng_2011} of reproducibility throughout
 this project. In this section, we detail how we accomplished this, and in doing
 so, expose our work to welcome critique.
+
+```{r}
+#| label: fig-reproducibility-spectrum
+#| include: true
+#| fig-cap: Peng's (2011) Reproducibility Spectrum. This figure has been reproduced from Peng (2011) \cite{peng_2011}.
+#| out-width: NA
+#| out-height: NA
+#| fig-asp: 0.7
+
+df <- data.frame(
+  section = c("Publication\nonly", "Code", "Code\nand\ndata", "Linked and\nexecutable\ncode and data", "Full\nreplication"),
+  xmin = c(0, 1, 2, 3, 4),
+  xmax = c(1, 2, 3, 4, 5),
+  ymin = c(1, 1, 1, 1, 1),
+  ymax = c(2, 2, 2, 2, 2)
+)
+
+ggplot() +
+  geom_rect(data = df, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), 
+            fill = "lightgrey", color = "black") +
+  geom_text(data = df, aes(x = (xmin + xmax)/2, y = 1.5, label = section), size = 4) +
+  annotate("segment", x = 2, xend = 5, y = 2.1, yend = 2.1, 
+           arrow = arrow(type = "closed", length = unit(0.3, "cm")), color = "grey") +
+    annotate("segment", x = 2, xend = 0, y = 2.1, yend = 2.1, 
+           arrow = arrow(type = "closed", length = unit(0.3, "cm")), color = "grey") +
+  annotate("text", x = 0.5, y = 2.3, label = "Not reproducible", size = 4) +
+  annotate("text", x = 4.5, y = 2.3, label = "Gold standard", size = 4) +
+  theme_void() +
+  coord_fixed(ratio = 0.7)
+```
+
 
 ## Sharing Data and Code
 
