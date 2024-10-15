@@ -16,4 +16,3 @@ lapply(chapters_qmd, function(file) trackdown::download_file(file = file,
                                                            force = T))
 
 # code for authenticating trackdown
-
