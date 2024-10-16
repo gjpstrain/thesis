@@ -27,6 +27,7 @@ library(tidyverse)
 library(MASS)
 library(ggdist)
 library(geomtextpath)
+library(ggpubr)
 ```
 
 # Introduction
@@ -83,8 +84,83 @@ factor, 2 level between-participants design.
 #| out-width: NA
 #| out-height: NA
 # find slider png in supplied graphics folder
+
 knitr::include_graphics(path = "../supplied_graphics/example_slider.png", dpi = NA)
 ```
+
+```{r}
+#| label: plot-example-functions
+#| include: false
+
+ set.seed(1234)
+  
+  my_sample_size = 128
+  
+  my_desired_r = 0.6
+  
+  mean_variable_1 = 0
+  sd_variable_1 = 1
+  
+  mean_variable_2 = 0
+  sd_variable_2 = 1
+  
+  mu <- c(mean_variable_1, mean_variable_2) 
+  
+  myr <- my_desired_r * sqrt(sd_variable_1) * sqrt(sd_variable_2)
+  
+  mysigma <- matrix(c(sd_variable_1, myr, myr, sd_variable_2), 2, 2) 
+  
+  corr_data = as_tibble(mvrnorm(my_sample_size, mu, mysigma, empirical = TRUE))
+  
+  corr_model <- lm(V2 ~ V1, data = corr_data)
+  
+  my_residuals <- abs(residuals(corr_model))
+  
+  data_with_resid <- round(cbind(corr_data, my_residuals), 2)
+  
+  slopes <- data_with_resid %>%
+  mutate(slope_0.25 = 1-(0.25)^my_residuals) %>%
+  mutate(slope_inverted = (1 + (0.25)^ my_residuals)-1) %>%
+  mutate(slope_inverted_floored = pmax(0.1,(1+(0.25)^my_residuals)-1)) 
+  
+plot_example_function <- function (df, t, o, s) {
+  
+  set.seed(1234)
+  
+  ggplot(df, aes(x = V1, y = V2)) +
+  scale_alpha_identity() +
+  scale_size_identity() +
+  geom_point(aes(size = (s + 0.7),
+                 alpha = o), shape = 16)  +
+  labs(x = "", y = "",
+       title = t) +
+  theme_classic() +
+  theme(axis.text = element_blank(),
+        plot.margin = unit(c(0,0,0,0), "cm"),
+        legend.position = "none",
+        plot.title = element_text(size = 8, vjust = -5, hjust = 0.08))
+}
+```
+
+```{r}
+#| label: fig-exp1-examples
+#| include: true
+#| fig-cap: placeholder
+#| out-width: NA
+#| out-height: NA
+#| fig-asp: 0.275
+
+ggarrange(plot_example_function(data_with_resid, "Opacity = 0.25",
+                                0.25, 0.2),
+          plot_example_function(data_with_resid, "Opacity = 0.5",
+                                0.5, 0.2),
+          plot_example_function(data_with_resid, "Opacity = 0.75",
+                                0.75, 0.2),
+          plot_example_function(data_with_resid, "Opacity = 1",
+                                1, 0.2),
+          nrow = 1)
+```
+
 
 ## Tools for Testing
 
@@ -187,48 +263,8 @@ design of the scatterplots used in experiments 1 to 4.
 #| out-width: NA
 #| out-height: NA
 #| fig-asp: 1
- set.seed(1234)
   
-  my_sample_size = 128
-  
-  my_desired_r = 0.6
-  
-  mean_variable_1 = 0
-  sd_variable_1 = 1
-  
-  mean_variable_2 = 0
-  sd_variable_2 = 1
-  
-  mu <- c(mean_variable_1, mean_variable_2) 
-  
-  myr <- my_desired_r * sqrt(sd_variable_1) * sqrt(sd_variable_2)
-  
-  mysigma <- matrix(c(sd_variable_1, myr, myr, sd_variable_2), 2, 2) 
-  
-  corr_data = as_tibble(mvrnorm(my_sample_size, mu, mysigma, empirical = TRUE))
-  
-  corr_model <- lm(V2 ~ V1, data = corr_data)
-  
-  my_residuals <- abs(residuals(corr_model))
-  
-  data_with_resid <- round(cbind(corr_data, my_residuals), 2)
-  
-plot_example_function <- function (d) {
-  
-  set.seed(1234)
-  
-  ggplot(d, aes(x = V1, y = V2)) +
-  scale_alpha_identity() +
-  geom_point(shape = 16, size = 1)  +
-  labs(x = "", y = "") +
-  theme_classic() +
-  theme(axis.text = element_blank(),
-        plot.margin = unit(c(0,0,0,0), "cm"),
-        legend.position = "none",
-        plot.title = element_text(size = 15))
-}
-  
-plot_example_function(data_with_resid)  
+plot_example_function(data_with_resid, t = "", o = 1, s = 0.4)  
 ```
 
 # Analytical Methods
@@ -454,7 +490,50 @@ of computational environments. Recording software versions and dependencies
 avoids the potential for broken code in the future, and publicly hosting papers as
 GitHub repositories that build into Docker containers ensures that future researchers
 can interact with code and data in the same computational environment used
-when carrying out the research. Docker containers
+when carrying out the research. While virtual machines make isolated sections
+of hardware available, containers abstract protected parts of the operating system
+\cite{merkel_2014}. This makes containers smaller and more lightweight than full
+virtual machines, while still conferring the advantages of virtualisation. For the
+Docker implementation here, portable R environments provided by the Rocker project
+\cite{boettiger_2017} are used. These environments are agnostic regarding the host
+operating system, allowing the reader to reproduce the analyses featured here
+in a replica of the computational environment they were conducted in.
+
+Building Docker containers is facilitated through a Dockerfile. This file instructs
+Docker to build a container with the appropriate version of R, the files required,
+and the correct package versions used during analysis. Below is the Dockerfile
+used to reproduce this thesis.
+
+I first specify the Rocker image that will form the basis of the container. This 
+includes the version of R required (version 4.4.1), the Rstudio Integrated Development
+Environment (IDE), Quarto, and the `tidyverse` package.
+
+`FROM rocker/version:4.4.1`
+
+Next, I add the files and folders required, including the Quarto document and
+related files, chapter folder, bibliography, additional scripts, LaTeX class 
+file and template, the folders containing the cached models and raw data,
+and the R project file:
+
+`ADD thesis.qmd /home/rstudio/`
+`ADD _quarto.yml /home/rstudio/`
+`ADD chapters_quarto/ /home/rstudio/chapters_quarto/`
+`ADD thesis.bib /home/studio/`
+`ADD reformat_tex.R /home/studio/`
+`ADD finalise_thesis.R /home/rstudio/`
+`ADD helper_functions.R /home/rstudio/`
+`ADD uom_thesis_casson.cls /home/rstudio/`
+`ADD main.tex /home/rstudio/`
+`ADD data/ /home/rstudio/data/`
+`ADD cache/ /home/rstudio/cache/`
+`ADD thesis.Rproj /home/rstudio/`
+
+Finally, I add the specific versions of the R packages used throughout the course
+of this thesis. For brevity, I only display the addition of the first three here:
+
+`RUN R -e "devtools::install_version('MASS', version = '7.3-60', dependencies = T)"`
+`RUN R -e "devtools::install_version('buildmer', version = '2.10.1', dependencies = T)"`
+`RUN R -e "devtools::install_version('emmeans', version = '1.8.8', dependencies = T)"`
 
 # Reproducibility In This Thesis
 
@@ -586,9 +665,4 @@ To this end, I have produced a [template](https://github.com/gjpstrain/UoM_repro
 to facilitate future reproducible theses. We satisfy FAIR (**F**indable,
 **A**ccessible, **I**nteropable, and **R**eusable) data principles
 \cite{wilkinson_2016} through public sharing of data 
-and code, literate programming, and containerisation,
-
-[b]More about how Docker works would help here
-[d]do you talk about your Dockerfiles later? If not, this might be a good 
-place to describe how a Dockerfile is constructed, and how yours are built 
-- you can explain the critical lines that are common across all your Dockerfiles
+and code, literate programming, and containerisation.

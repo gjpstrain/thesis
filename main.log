@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.7)  15 OCT 2024 12:19
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.7)  16 OCT 2024 13:22
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1243,90 +1243,131 @@ Chapter 3.
 [16
 
 ]
-<chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png, id=417, 471.26062pt x 57.71562pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png, id=421, 471.26062pt x 57.71562pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png>
-Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png  used on input line 63.
-(luatex.def)             Requested size: 471.25948pt x 57.71547pt.
+Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png  used on input line 57.
+(luatex.def)             Requested size: 483.69687pt x 59.23901pt.
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf, id=422, 397.485pt x 108.405pt>
+File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf Graphic file (type pdf)
+<use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf>
+Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf  used on input line 70.
+(luatex.def)             Requested size: 483.69687pt x 131.9214pt.
 
 
-[17<./chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png>]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf, id=456, 397.485pt x 397.485pt>
-File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf Graphic file (type pdf)
-<use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf  used on input line 189.
-(luatex.def)             Requested size: 397.48402pt x 397.48402pt.
-
+[17<./chapters_tex/chapters_quarto/../supplied_graphics/example_slider.png><./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf>]
 
 [18]
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf, id=478, 397.485pt x 397.485pt>
+File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf Graphic file (type pdf)
+<use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>
+Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf  used on input line 195.
+(luatex.def)             Requested size: 483.69687pt x 483.7119pt.
+
 
 [19<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf, id=477, 397.485pt x 237.88875pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf, id=489, 397.485pt x 237.88875pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf  used on input line 244.
-(luatex.def)             Requested size: 397.48402pt x 237.88815pt.
+Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf  used on input line 250.
+(luatex.def)             Requested size: 483.69687pt x 289.49422pt.
 
 
-[20<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf>]
+[20]
 
-[21]
+[21<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf>]
 
 [22]
 
 [23]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf, id=568, 397.485pt x 79.29625pt>
+Overfull \hbox (8.52255pt too wide) in paragraph at lines 464--476
+[]\TU/lmtt/m/n/12 ADD thesis.qmd /home/rstudio/ ADD _quarto.yml /home/rstudio/ ADD chapters_quarto/
+ []
+
+
+Overfull \hbox (76.50247pt too wide) in paragraph at lines 464--476
+\TU/lmtt/m/n/12 /home/rstudio/chapters_quarto/ ADD thesis.bib /home/studio/ ADD reformat_tex.R /home/studio/
+ []
+
+
+Overfull \hbox (125.94241pt too wide) in paragraph at lines 464--476
+\TU/lmtt/m/n/12 ADD finalise_thesis.R /home/rstudio/ ADD helper_functions.R /home/rstudio/ ADD uom_thesis_casson.cls
+ []
+
+
+Overfull \hbox (16.70255pt too wide) in paragraph at lines 464--476
+\TU/lmtt/m/n/12 /home/rstudio/ ADD main.tex /home/rstudio/ ADD data/ /home/rstudio/data/ ADD cache/
+ []
+
+
+Overfull \hbox (23.05054pt too wide) in paragraph at lines 481--484
+[]\TU/lmtt/m/n/12 RUN R -e "devtools::install_version('MASS', version = '7.3-60', dependencies = T)"
+ []
+
+
+Overfull \hbox (10.70255pt too wide) in paragraph at lines 481--484
+\TU/lmtt/m/n/12 RUN R -e "devtools::install_version('buildmer', version = '2.10.1', dependencies
+ []
+
+
+Overfull \hbox (31.24252pt too wide) in paragraph at lines 481--484
+\TU/lmtt/m/n/12 = T)" RUN R -e "devtools::install_version('emmeans', version = '1.8.8', dependencies
+ []
+
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf, id=578, 397.485pt x 79.29625pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf  used on input line 455.
-(luatex.def)             Requested size: 397.48402pt x 79.29604pt.
+Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf  used on input line 508.
+(luatex.def)             Requested size: 483.69687pt x 96.49805pt.
 
 
-[24<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf>])
+[24]
 
-[25]
+[25<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf>])
+
+[26]
 Chapter 4.
 (./chapters_tex/chapters_quarto/4_adjusting_opacity.tex)
 
-[26
+[27
 
 ]
 Overfull \vbox (120.06145pt too high) has occurred while \output is active []
 
 
 
-[27]
+[28]
 Chapter 5.
 (./chapters_tex/chapters_quarto/5_adjusting_size.tex)
 
-[28
+[29
 
 ]
 Chapter 6.
 (./chapters_tex/chapters_quarto/6_interactions_opacity_size.tex)
 
-[29
+[30
 
 ]
 Chapter 7.
 (./chapters_tex/chapters_quarto/7_belief_change.tex)
 
-[30
+[31
 
 ]
 Overfull \vbox (87.99644pt too high) has occurred while \output is active []
 
 
 
-[31]
+[32]
 Chapter 8.
 (./chapters_tex/chapters_quarto/8_conclusion.tex)
 
-[32
+[33
 
 ]
 
-[33
+[34
 
 ]
 Overfull \hbox (18.2631pt too wide) in paragraph at lines 175--175
@@ -1345,21 +1386,36 @@ Overfull \hbox (9.1642pt too wide) in paragraph at lines 175--175
 
 
 
-[34]
-Overfull \hbox (8.21506pt too wide) in paragraph at lines 175--175
-[]\TU/TeXGyreTermes(0)/m/n/12 John Mac-Far-lane. \TU/TeXGyreTermes(0)/m/it/12 Pan-doc\TU/TeXGyreTermes(0)/m/n/12 . https://pan-doc.org/in-dex.html. (Vis-ited on 10/09/2024) (cited on p. []22[]). 
+[35]
+Overfull \hbox (1.12622pt too wide) in paragraph at lines 175--175
+\TU/TeXGyreTermes(0)/m/n/12 Mikael Borg, Sal-vador Capella-Gutierrez, Neil Chue Hong, Mar-tin Cook, Manuel Cor-pas, Madi-
+ []
+
+
+Overfull \hbox (1.60222pt too wide) in paragraph at lines 175--175
+\TU/TeXGyreTermes(0)/m/n/12 son Flan-nery, Leyla Gar-cia, Josep Ll Gelpí, Si-mon Glad-man, Ca-r-ole Goble, Montser-rat González
+ []
+
+
+Overfull \hbox (12.02322pt too wide) in paragraph at lines 175--175
+\TU/TeXGyreTermes(0)/m/n/12 dosław Suchecki, Radka Svo-bodová Vařeková, Harry-Anton Talvik, Il-ian Todorov, An-drew Treloar,
  []
 
 
 
-[35]
+[36]
+Overfull \hbox (8.21506pt too wide) in paragraph at lines 175--175
+[]\TU/TeXGyreTermes(0)/m/n/12 John Mac-Far-lane. \TU/TeXGyreTermes(0)/m/it/12 Pan-doc\TU/TeXGyreTermes(0)/m/n/12 . https://pan-doc.org/in-dex.html. (Vis-ited on 10/09/2024) (cited on p. []23[]). 
+ []
+
+
 Overfull \hbox (6.78093pt too wide) in paragraph at lines 175--175
 \TU/TeXGyreTermes(0)/m/it/12 ence \TU/TeXGyreTermes(0)/m/n/12 349.6251 (Aug. 2015), aac4716. \TU/TeXGyreTermes(0)/m/sc/12 \TU/TeXGyreTermes(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1126 / science . aac4716$[]\TU/TeXGyreTermes(0)/m/n/12 . (Vis-ited on 10/10/2024)
  []
 
 
 
-[36]
+[37]
 Overfull \hbox (1.58311pt too wide) in paragraph at lines 175--175
 \TU/TeXGyreTermes(0)/m/n/12 Learn from the Ko-rean Cloning Fraud?'' In: \TU/TeXGyreTermes(0)/m/it/12 Jour-nal of Med-i-cal Ethics \TU/TeXGyreTermes(0)/m/n/12 34.3 (Mar. 2008), pp. 214–
  []
@@ -1371,18 +1427,20 @@ Overfull \hbox (36.18292pt too wide) in paragraph at lines 175--175
 
 
 
-[37]
-
 [38]
 
-[39
+[39]
+
+[40]
+
+[41
 
 
 ]
 Appendix A.
 
 
-[40
+[42
 
 
 ] (./main.aux)
@@ -1396,20 +1454,20 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 38725 strings out of 475910
+ 38771 strings out of 475910
  125165,1977958 words of node,token memory allocated
  947 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 glyph, 22 attribute, 113 glue_spec, 22 attribute_list, 2 write, 14 pdf_action nodes
-   avail lists: 1:1,2:1279,3:443,4:98,5:777,6:285,7:8320,8:61,9:703,10:22,11:771
- 60185 multiletter control sequences out of 65536+600000
+   avail lists: 1:1,2:1237,3:445,4:100,5:813,6:295,7:9207,8:61,9:703,10:22,11:784
+ 60216 multiletter control sequences out of 65536+600000
  63 fonts using 6315943 bytes
- 104i,8n,117p,2644b,3231s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,8n,117p,2644b,3229s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
 <c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-italic.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-bold.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (40 pages, 426890 bytes).
+Output written on main.pdf (42 pages, 466725 bytes).
 
-PDF statistics: 1195 PDF objects out of 1200 (max. 8388607)
- 241 named destinations out of 1000 (max. 131072)
+PDF statistics: 1233 PDF objects out of 1440 (max. 8388607)
+ 247 named destinations out of 1000 (max. 131072)
  1039 words of extra memory for PDF output out of 10000 (max. 100000000)
 

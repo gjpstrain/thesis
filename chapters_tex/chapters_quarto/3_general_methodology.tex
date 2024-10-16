@@ -22,13 +22,7 @@ experiments in certain ways must be based not only on theory, but also
 on the practical constraints imposed by external factors on the research
 team. Concerns such as time, practicality, and cost must be addressed,
 and a compromise between research that is \emph{valuable} and research
-that is \emph{doable} must be reached.
-
-We focused on pragmatism and impact throughout the course of this
-research project; happily, the research journey we embarked on resulted
-in methodologies that satisfied both principles. It is for this reason
-that we consider the framework we present to be a key contribution of
-this thesis.{[}a{]}
+that is \emph{doable}.
 
 \subsection{Experimental Design}\label{experimental-design}
 
@@ -45,7 +39,7 @@ single data point. In experiments 1 to 3, each participant saw all
 experimental stimuli and provided a judgement of correlation using a
 sliding scale between 0 and 1 (see Figure~\ref{fig-slider}). Experiment
 1 featured a single factor of global scatterplot point opacity with 4
-levels (see \textbf{?@fig-exp1-examples}). Experiment 2 featured a
+levels (see Figure~\ref{fig-exp1-examples}). Experiment 2 featured a
 single factor of scatterplot point design regarding opacity with 4
 levels (see \textbf{?@fig-exp2-examples}). Experiment 3 featured a
 single factor of scatterplot point design regarding size with 4 levels
@@ -60,12 +54,24 @@ features a 1 factor, 2 level between-participants design.
 
 \centering{
 
-\includegraphics{../supplied_graphics/example_slider.png}
+\includegraphics[width=\textwidth]{../supplied_graphics/example_slider.png}
 
 }
 
 \caption{\label{fig-slider}An example of the slider participants used to
 estimate correlation in experiments 1-4.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf}
+
+}
+
+\caption{\label{fig-exp1-examples}placeholder}
 
 \end{figure}%
 
@@ -186,7 +192,7 @@ scatterplots used in experiments 1 to 4.
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf}
 
 }
 
@@ -241,7 +247,7 @@ visualises these concepts.
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf}
 
 }
 
@@ -427,7 +433,54 @@ software versions and dependencies avoids the potential for broken code
 in the future, and publicly hosting papers as GitHub repositories that
 build into Docker containers ensures that future researchers can
 interact with code and data in the same computational environment used
-when carrying out the research.{[}b{]}
+when carrying out the research. While virtual machines make isolated
+sections of hardware available, containers abstract protected parts of
+the operating system \cite{merkel_2014}. This makes containers smaller
+and more lightweight than full virtual machines, while still conferring
+the advantages of virtualisation. For the Docker implementation here,
+portable R environments provided by the Rocker project
+\cite{boettiger_2017} are used. These environments are agnostic
+regarding the host operating system, allowing the reader to reproduce
+the analyses featured here in a replica of the computational environment
+they were conducted in.
+
+Building Docker containers is facilitated through a Dockerfile. This
+file instructs Docker to build a container with the appropriate version
+of R, the files required, and the correct package versions used during
+analysis. Below is the Dockerfile used to reproduce this thesis.
+
+I first specify the Rocker image that will form the basis of the
+container. This includes the version of R required (version 4.4.1), the
+Rstudio Integrated Development Environment (IDE), Quarto, and the
+\texttt{tidyverse} package.
+
+\texttt{FROM\ rocker/version:4.4.1}
+
+Next, I add the files and folders required, including the Quarto
+document and related files, chapter folder, bibliography, additional
+scripts, LaTeX class file and template, the folders containing the
+cached models and raw data, and the R project file:
+
+\texttt{ADD\ thesis.qmd\ /home/rstudio/}
+\texttt{ADD\ \_quarto.yml\ /home/rstudio/}
+\texttt{ADD\ chapters\_quarto/\ /home/rstudio/chapters\_quarto/}
+\texttt{ADD\ thesis.bib\ /home/studio/}
+\texttt{ADD\ reformat\_tex.R\ /home/studio/}
+\texttt{ADD\ finalise\_thesis.R\ /home/rstudio/}
+\texttt{ADD\ helper\_functions.R\ /home/rstudio/}
+\texttt{ADD\ uom\_thesis\_casson.cls\ /home/rstudio/}
+\texttt{ADD\ main.tex\ /home/rstudio/}
+\texttt{ADD\ data/\ /home/rstudio/data/}
+\texttt{ADD\ cache/\ /home/rstudio/cache/}
+\texttt{ADD\ thesis.Rproj\ /home/rstudio/}
+
+Finally, I add the specific versions of the R packages used throughout
+the course of this thesis. For brevity, I only display the addition of
+the first three here:
+
+\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}MASS\textquotesingle{},\ version\ =\ \textquotesingle{}7.3-60\textquotesingle{},\ dependencies\ =\ T)"}
+\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}buildmer\textquotesingle{},\ version\ =\ \textquotesingle{}2.10.1\textquotesingle{},\ dependencies\ =\ T)"}
+\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}emmeans\textquotesingle{},\ version\ =\ \textquotesingle{}1.8.8\textquotesingle{},\ dependencies\ =\ T)"}
 
 \section{Reproducibility In This
 Thesis}\label{reproducibility-in-this-thesis}
@@ -452,7 +505,7 @@ work to welcome critique.
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf}
 
 }
 
@@ -475,7 +528,11 @@ Favouring a gold-standard reproducible approach is also a way of
 found previous work that adhered to the same standard critical to
 learning and development. GitHub is used to host both this thesis and
 the papers associated with the project; links to these repositories can
-be found throughout.{[}c{]}
+be found throughout. I favour permissive and lenient licencing, such as
+the MIT licence \cite{mit} for GitHub repositories and the CC-BY 4.0
+license for pre-registrations. These enable future researchers to re-use
+data and code while providing clear guidance for appropriate use and
+facilitating long-term sustainability \cite{jimenez_2017}.
 
 \subsection{Executable Papers and Docker
 Containers}\label{executable-papers-and-docker-containers}
@@ -498,9 +555,11 @@ clarifying hypotheses and analysis plans prior to data collection. While
 this may not be able to prevent research fraud and QRPs entirely, it
 does lend credibility to the researcher \cite{simmons_2021}. All
 hypotheses and analysis plans were pre-registered with the Open Science
-Framework \cite{OSF}. Pre-registrations are embargoed{[}e{]}, and
-deviations from registered analysis plans are detailed in the methods
-sections of the corresponding experiments.
+Framework \cite{OSF}. Pre-registrations are embargoed by the research
+team prior to data collection, and then made public in a frozen state
+following publication of the corresponding research. Deviations from
+registered analysis plans are detailed in the methods sections of the
+corresponding experiments.
 
 \subsection{Experimental Resources}\label{experimental-resources}
 
@@ -553,15 +612,7 @@ have produced a
 to facilitate future reproducible theses. We satisfy FAIR
 (\textbf{F}indable, \textbf{A}ccessible, \textbf{I}nteropable, and
 \textbf{R}eusable) data principles \cite{wilkinson_2016} through public
-sharing of data and code, literate programming, and containerisation,
-
-{[}a{]}I'm not sure this is needed {[}b{]}More about how Docker works
-would help here {[}c{]}sharing is no good without the appropriate
-license - maybe add a brief section of the different licenses here
-{[}d{]}do you talk about your Dockerfiles later? If not, this might be a
-good place to describe how a Dockerfile is constructed, and how yours
-are built - you can explain the critical lines that are common across
-all your Dockerfiles {[}e{]}are they always? for how long?
+sharing of data and code, literate programming, and containerisation.
 
 
 

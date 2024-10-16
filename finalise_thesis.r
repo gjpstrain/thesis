@@ -6,7 +6,7 @@
 library(quarto)
 library(tinytex)
 
-#quarto_render("chapters_quarto/", output_format = "latex")
+quarto_render("chapters_quarto/", output_format = "latex")
 
 # use for rendering a single chapter
 
@@ -42,14 +42,3 @@ replace_before_document_in_folder(folder_path)
 #tinytex::tlmgr_install("tex-gyre")
 
 tinytex::lualatex("main.tex", bib_engine = "biber")
-
-
-
-
-
-
-
-
-
-
-
