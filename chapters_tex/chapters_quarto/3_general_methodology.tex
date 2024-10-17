@@ -4,7 +4,7 @@
 
 \section{Introduction}\label{introduction}
 
-In this chapter I describe our research methodologies. The experiments
+In this chapter I describe my research methodologies. The experiments
 described in chapters 4, 5, and 6 share most aspects of experimental
 method, and are therefore described in full in this chapter. Chapter 7
 features a different methodology, and is described therein. This chapter
@@ -19,10 +19,10 @@ It is important to acknowledge that the way in which we conduct
 experiments influences what research questions we can ask and the
 conclusions that we may draw. The decisions that lead us to designing
 experiments in certain ways must be based not only on theory, but also
-on the practical constraints imposed by external factors on the research
-team. Concerns such as time, practicality, and cost must be addressed,
-and a compromise between research that is \emph{valuable} and research
-that is \emph{doable}.
+on the external constraints imposed on the research team. Concerns such
+as time, practicality, and cost must be addressed, and a compromise
+between research that is \emph{valuable} and research that is
+\emph{doable} must be reached.
 
 \subsection{Experimental Design}\label{experimental-design}
 
@@ -32,23 +32,28 @@ intervention. This is in contrast with between-participants designs,
 where separate groups are exposed to only a single level of the
 intervention each. Where possible, within-participants designs are
 preferred. These designs do not rely on random allocation, and as each
-participant is able to provide as many data points as there are levels
-\cite{charness_2012}, offer a significant boost in statistical power
-over between-participant designs where each participant only provides a
-single data point. In experiments 1 to 3, each participant saw all
+participant is able to provide as many data points as there are
+experiment items in levels \cite{charness_2012}, offer a significant
+boost in statistical power over between-participant designs where each
+participant may only provide data points for a portion of the total
+experimental items. In experiments 1 to 3, each participant saw all
 experimental stimuli and provided a judgement of correlation using a
 sliding scale between 0 and 1 (see Figure~\ref{fig-slider}). Experiment
 1 featured a single factor of global scatterplot point opacity with 4
 levels (see Figure~\ref{fig-exp1-examples}). Experiment 2 featured a
 single factor of scatterplot point design regarding opacity with 4
-levels (see \textbf{?@fig-exp2-examples}). Experiment 3 featured a
+levels (see Figure~\ref{fig-exp2-examples}). Experiment 3 featured a
 single factor of scatterplot point design regarding size with 4 levels
-(see \textbf{?@fig-exp3-examples}). Experiment 4 featured a factorial 2
-\(\times\) 2 design; IV1 was the scatterplot point opacity design used
-with 2 levels, and IV2 was the scatterplot point size design used with 2
-levels (see \textbf{?@fig-exp4-examples}). Experiment 5 is a departure
-from the shared experimental paradigm of the previous experiments, and
-features a 1 factor, 2 level between-participants design.
+(see Figure~\ref{fig-exp3-examples}). Experiment 4 featured a factorial
+2 \(\times\) 2 design; IV\textsubscript{1} was the scatterplot point
+opacity design used with 2 levels, and IV\textsubscript{2} was the
+scatterplot point size design used with 2 levels (see
+Figure~\ref{fig-exp4-examples}). Experiment 5 is a departure from the
+shared experimental paradigm of the previous experiments, and features a
+1 factor, 2 level between-participants design; group A saw scatterplots
+designed to ellict greater levels of belief change compared to typical
+scatterplots, which were shown to group b (see
+Figure~\ref{fig-exp5-examples}).
 
 \begin{figure}
 
@@ -71,7 +76,63 @@ estimate correlation in experiments 1-4.}
 
 }
 
-\caption{\label{fig-exp1-examples}placeholder}
+\caption{\label{fig-exp1-examples}Examples of the stimuli used in
+experiment 1, demonstrated with an \textit{r} value of 0.6. Here,
+``opacity'' refers to the alpha value used by ggplot.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf}
+
+}
+
+\caption{\label{fig-exp2-examples}Examples of the stimuli used in
+experiment 2, demonstrated with an \textit{r} value of 0.6.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf}
+
+}
+
+\caption{\label{fig-exp3-examples}Examples of the stimuli used in
+experiment 3, demonstrated with an \textit{r} value of 0.6.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf}
+
+}
+
+\caption{\label{fig-exp4-examples}Examples of the stimuli used in
+experiment 4, demonstrated with an \textit{r} value of 0.6.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf}
+
+}
+
+\caption{\label{fig-exp5-examples}Examples of the experimental stimuli
+for experiment 5 using an \textit{r} value of 0.6. Group A saw the
+alternative scatterplot presented on the right, while group B saw the
+typical design on the left.}
 
 \end{figure}%
 
@@ -98,7 +159,7 @@ much quicker than carrying out in-person lab-based testing, facilitating
 the collection of data from a much larger number of participants. This
 reduces the chances of detecting false positives during analysis and
 ensures adequate levels of power despite the potential for small effects
-sizes (see Section \ref{recruitment} . Online testing also affords
+sizes (see Section \ref{recruitment}). Online testing also affords
 access to diverse groups of participants across our populations of
 interest, especially when compared to the relatively homogeneous student
 populations usually accessed by doctoral researchers. Research has
@@ -119,8 +180,9 @@ evaluating a number of these providers recently found that Prolific
 for the lowest cost \cite{douglas_2023}; I elected to use the former due
 to my familiarity with the system. Despite these findings, there has
 also been evidence of low data quality and skewed demographics affecting
-even high quality platforms tailored towards academic research. On the
-24th of July, 2021, the Prolific.co platform went viral on social media
+both general crowdsourcing platforms, such as Amazon's MTurk, and those
+tailored specifically towards academic research. On the 24th of July,
+2021, the Prolific.co platform went viral on social media
 \cite{chara_2021}, leading to a participant pool heavily skewed towards
 young people identifying as female. At the time, Prolific did not
 manually balance the participants recruited for a study. This was
@@ -281,11 +343,11 @@ however they do not quantify the magnitude of the difference between
 levels of rating. Metric modelling, such as linear regression, treats
 the response options to a Likert scale as if they were numeric. Doing so
 assumes equal levels of difference between ratings, when in reality
-there is no theoretical reason to assume so. Metric modelling is
-therefore considered inappropriate for modelling responses to Likert
+there is no theoretical reason to back this assumption. Metric modelling
+is therefore considered inappropriate for modelling responses to Likert
 scales \cite{liddell_2018}. In light of these issues, the
 \texttt{ordinal} package \cite{ordinal} in R was used to build
-cumulative link mixed effects models for the analysis of Likert scale
+cumulative link mixed-effects models for the analysis of Likert scale
 data. This allows for the treatment of Likert responses as ordered
 factors as opposed to continuous response scales.
 
@@ -348,7 +410,7 @@ conclusions valid, I also present a range of statistics to allow the
 reader to draw their own conclusions should they wish. Statistical
 results are visualised where appropriate, and where visualisation aids
 understanding and interpretation. In addition, details about model
-structures and the issues we tackled when modelling are included for
+structures and the issues I tackled when modelling are included for
 transparency \cite{meteyard_2020}.
 
 \section{Computational Methods}\label{computational-methods}
@@ -357,14 +419,14 @@ The approach to computational methods in this thesis sought to marry
 practicality, simplicity, and reproducibility. Often, this meant that
 what would otherwise be a makeshift script followed by copy-pasting of
 results into \href{https://www.overleaf.com/}{Overleaf} ended up being
-an involved exercise in literate programming (knuth ref) and code
+an involved exercise in literate programming \cite{knuth_1984} and code
 wrangling. This involved effort and time, particularly in the early
 stages of the project, however has yielded a number of benefits. Many of
 the techniques developed early in the project proved to be instrumental
 later on, resulting in time-savings overall. Additionally, these
 techniques, principles, and practices are shared to enable future
-researchers to learn, where I struggled. In this section, we detail our
-approaches to computational methods, including how the idea of
+researchers to learn, where I struggled. In this section, I detail my
+approach to computational methods, including how the idea of
 \textbf{executable papers} was utilised, and how containerised
 environments were used to capture a freeze-frame of the analyses.
 
@@ -378,19 +440,20 @@ alignment of documentation and underlying code \cite{piccolo_2016}.
 
 The use of a literate programming paradigm to generate reports (usually
 using LaTeX) has a rich history. This section focuses on this history as
-it pertains to the language used throughout this project,
-R.\texttt{Sweave} \cite{leisch_2002}, written in 2002, allowed R code to
+it pertains to the language used throughout this project, R.
+\texttt{Sweave} \cite{leisch_2002}, written in 2002, allowed R code to
 be integrated into LaTeX documents. This was followed by Yihui Xie's
 \texttt{knitr} \cite{xie_2015}, which expanded \texttt{Sweave}
 functionality and improved integration with tools such as
 \texttt{pandoc} \cite{pandoc}. \texttt{knitr} uses \texttt{Rmarkdown}
 \cite{xie_2020} to mix markdown-flavoured text with code chunks into a
 document that can be rendered into an appropriately-formatted conference
-or journal pdf; this workflow was used for the paper associated with
-experiments 1 and 2. \texttt{Quarto} \cite{allaire_2024}, released in
-2022, further expands on \texttt{Rmarkdown} functionality, and removes
-reliance on R or Rstudio. \texttt{Quarto} was used for the remainder of
-the papers associated with this project, and for the present thesis.
+or journal pdf; this workflow was used for the papers associated with
+experiments 1, 2, and 3. \texttt{Quarto} \cite{allaire_2024}, released
+in 2022, further expands on \texttt{Rmarkdown} functionality, and
+removes reliance on R or Rstudio. \texttt{Quarto} was used for the
+remainder of the papers associated with this project, and for the
+present thesis.
 
 Writing executable or dynamic documents allows results to be
 re-generated whenever the document is rendered. This includes any
@@ -462,16 +525,27 @@ scripts, LaTeX class file and template, the folders containing the
 cached models and raw data, and the R project file:
 
 \texttt{ADD\ thesis.qmd\ /home/rstudio/}
+
 \texttt{ADD\ \_quarto.yml\ /home/rstudio/}
+
 \texttt{ADD\ chapters\_quarto/\ /home/rstudio/chapters\_quarto/}
+
 \texttt{ADD\ thesis.bib\ /home/studio/}
+
 \texttt{ADD\ reformat\_tex.R\ /home/studio/}
+
 \texttt{ADD\ finalise\_thesis.R\ /home/rstudio/}
+
 \texttt{ADD\ helper\_functions.R\ /home/rstudio/}
+
 \texttt{ADD\ uom\_thesis\_casson.cls\ /home/rstudio/}
+
 \texttt{ADD\ main.tex\ /home/rstudio/}
+
 \texttt{ADD\ data/\ /home/rstudio/data/}
+
 \texttt{ADD\ cache/\ /home/rstudio/cache/}
+
 \texttt{ADD\ thesis.Rproj\ /home/rstudio/}
 
 Finally, I add the specific versions of the R packages used throughout
@@ -479,7 +553,9 @@ the course of this thesis. For brevity, I only display the addition of
 the first three here:
 
 \texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}MASS\textquotesingle{},\ version\ =\ \textquotesingle{}7.3-60\textquotesingle{},\ dependencies\ =\ T)"}
+
 \texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}buildmer\textquotesingle{},\ version\ =\ \textquotesingle{}2.10.1\textquotesingle{},\ dependencies\ =\ T)"}
+
 \texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}emmeans\textquotesingle{},\ version\ =\ \textquotesingle{}1.8.8\textquotesingle{},\ dependencies\ =\ T)"}
 
 \section{Reproducibility In This
@@ -501,24 +577,10 @@ gold standard \cite{peng_2011} of reproducibility throughout. In this
 section, I detail how this was accomplished, and in doing so, expose my
 work to welcome critique.
 
-\begin{figure}
-
-\centering{
-
-\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf}
-
-}
-
-\caption{\label{fig-reproducibility-spectrum}Peng's (2011)
-Reproducibility Spectrum. This figure has been reproduced from Peng
-(2011) \cite{peng_2011}.}
-
-\end{figure}%
-
 \subsection{Sharing Data and Code}\label{sharing-data-and-code}
 
 The open and public sharing of data and code facilitates external
-assessment \cite{klein_2018, alter_2018}, secondary use of data
+assessment \cite{klein_2018, alter_2018} and secondary use of data
 \cite{tamuhla_2023}, and guards against reproducibility issues
 \cite{miyakawa_2020}. Quite aside from external motivating factors, I
 found that developing and embedding the reproducibility practices
@@ -534,6 +596,20 @@ license for pre-registrations. These enable future researchers to re-use
 data and code while providing clear guidance for appropriate use and
 facilitating long-term sustainability \cite{jimenez_2017}.
 
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf}
+
+}
+
+\caption{\label{fig-reproducibility-spectrum}Peng's (2011)
+Reproducibility Spectrum. This figure has been reproduced from Peng
+(2011) \cite{peng_2011}.}
+
+\end{figure}%
+
 \subsection{Executable Papers and Docker
 Containers}\label{executable-papers-and-docker-containers}
 
@@ -544,7 +620,7 @@ repeated using up to date packages here. Accordingly, a single
 implementation of Docker to is provided to reproduce this thesis. All
 statistics have been checked against those provided in the original
 analyses, and repositories for the corresponding papers are provided
-complete with separate Docker implementations.{[}d{]}
+complete with separate Docker implementations.
 
 \subsection{Pre-Registration of Hypotheses and Analysis
 Plans}\label{pre-registration-of-hypotheses-and-analysis-plans}
@@ -602,8 +678,8 @@ taken by this thesis. This project sought to investigate novel ways of
 visualising data and their effects on perception and cognition. I have
 provided justifications for the designs used, the methodological
 challenges faced, and how the use of a broad array of tools and
-techniques was able to overcome these challenges. Throughout, I
-havedetailed how I have learnt from my mistakes. Open research and
+techniques was able to overcome these challenges. Throughout, I have
+detailed how I have learnt from my mistakes. Open research and
 reproducibility is at the core of the work described here, and I hope
 this thesis can serve as an example for future work facing similar
 challenges and with similar commitments to open science. To this end, I
