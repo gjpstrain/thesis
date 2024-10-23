@@ -10,7 +10,7 @@ library(tinytex)
 
 # use for rendering a single chapter
 
-quarto_render("chapters_quarto/3_general_methodology.qmd", output_format = "latex")
+quarto_render("chapters_quarto/1_introduction.qmd", output_format = "latex")
 
 ################################################################################
 

@@ -18,7 +18,49 @@ execute:
   include: false            
 ---
 
+Data visualisation is the practice of pictorially presenting patterns otherwise 
+described by numbers, and has been employed in one form or another for thousands of
+years \cite{azzam_2013}. Lists or matrices of numbers may be able to communicate
+simple trends, but for more complex patterns, harnessing the human visual system
+\cite{midway_2020} through visualisation is crucial for the communication of science
+and data. Effective data visualisation is able to reduce the cognitive and perceptual
+loads on viewers, regardless of their backgrounds levels of statistical knowledge or 
+experience. This outsourcing, while efficient, leaves the viewer vulnerable
+to the design choices that were made when creating the visualisation. For this reason,
+understanding *how* design choices affect interpretation is crucial to designing
+better data visualisations and simultaneously inoculating viewers against
+poor or malevolent design practices.
+
+It is hard to understate the importance and ubiquity of data visualisations. 
+They are used in to communicate with experts, with those with no background
+in science, and with everyone in between. They are relied upon to communicate vital
+public health information \cite{li_2021}, to present evidence in court cases \cite{bobko_1979},
+and to facilitate collaboration and encourage engagement on climate change issues
+\cite{nocke_2008, schuster_2024}. Studying data visualisation therefore has the potential
+to change the nature of scientific study itself.
+
+Interaction with a data visualisation involves steps from perception (viewing),
+to cognition (interpreting), to behaviour (deciding). These stages must be 
+examined both separately and together, as there are bottom-up and top-down
+interactions present. In this thesis, I therefore present a series of
+experiments whose aim was to investigate and address a long-standing
+perceptual bias in scatterplots, a very common form of 
+data visualisation \cite{friendly_2005}. Following attempts to address this 
+bias, I further investigated the impacts these attempts may have had on
+cognition and behaviour.
+
 # Research Motivation
+
+Data visualisations were once the preserve of the academic and professional
+classes. Now, however, visualisation is everywhere. This became especially
+apparent to me during the COVID-19 pandemic, when people such as my parents, 
+professionals with no background in mathematics or statistics, were
+bombarded with data visualisations on a daily basis. At the time, I assumed
+that the ways 
+
+Interaction with data visualisation is an inherently complex process. One
+of the (many) advantages of visualising data is that one can communicate
+a range of statistics and interpretations simultaneously. 
 
 # Contributions {#contributions-introduction}
 
