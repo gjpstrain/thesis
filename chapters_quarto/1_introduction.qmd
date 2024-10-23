@@ -23,15 +23,15 @@ described by numbers, and has been employed in one form or another for thousands
 years \cite{azzam_2013}. Lists or matrices of numbers may be able to communicate
 simple trends, but for more complex patterns, harnessing the human visual system
 \cite{midway_2020} through visualisation is crucial for the communication of science
-and data. Effective data visualisation is able to reduce the cognitive and perceptual
+and data. Effective data visualisation is able to reduce cognitive and perceptual
 loads on viewers, regardless of their backgrounds levels of statistical knowledge or 
 experience. This outsourcing, while efficient, leaves the viewer vulnerable
 to the design choices that were made when creating the visualisation. For this reason,
 understanding *how* design choices affect interpretation is crucial to designing
-better data visualisations and simultaneously inoculating viewers against
+better data visualisations and simultaneously allows for the inoculation of viewers against
 poor or malevolent design practices.
 
-It is hard to understate the importance and ubiquity of data visualisations. 
+One cannot understate the importance and ubiquity of data visualisations. 
 They are used in to communicate with experts, with those with no background
 in science, and with everyone in between. They are relied upon to communicate vital
 public health information \cite{li_2021}, to present evidence in court cases \cite{bobko_1979},
@@ -40,7 +40,7 @@ and to facilitate collaboration and encourage engagement on climate change issue
 to change the nature of scientific study itself.
 
 Interaction with a data visualisation involves steps from perception (viewing),
-to cognition (interpreting), to behaviour (deciding). These stages must be 
+to cognition (interpreting), to behaviour (deciding and acting). These stages must be 
 examined both separately and together, as there are bottom-up and top-down
 interactions present. In this thesis, I therefore present a series of
 experiments whose aim was to investigate and address a long-standing
@@ -55,8 +55,23 @@ Data visualisations were once the preserve of the academic and professional
 classes. Now, however, visualisation is everywhere. This became especially
 apparent to me during the COVID-19 pandemic, when people such as my parents, 
 professionals with no background in mathematics or statistics, were
-bombarded with data visualisations on a daily basis. At the time, I assumed
-that the ways 
+bombarded with data visualisations on a daily basis. Despite not being able
+to fully articulate the whole data story, they were still able to derive
+meaning from the visualisations they were seeing. The ability of data visualisations
+to transcend language and even mathematical ability motivated my study of them; concepts
+such as exponential growth or the relatedness between variables can be displayed
+in simple ways that do not rely on underlying understanding of exponents
+or correlation coefficients.
+
+Using data visualisations in such a way effectively provides a cognitive proxy
+for viewers. This is an efficient way to communicate, however still necessitates
+the presence of accurate and reliable perception. On further investigation
+into the reliance that those who design visualisations make on those who view
+them, I uncovered a historic perceptual bias that was still being described
+in the literature, seemingly with no attempt at correction. This bias
+was the underestimation of correlation in positively correlated scatterplots.
+
+
 
 Interaction with data visualisation is an inherently complex process. One
 of the (many) advantages of visualising data is that one can communicate
