@@ -3,32 +3,93 @@
 
 
 Data visualisation is the practice of pictorially presenting patterns
-otherwise described by numbers. Lists or matrices of numbers may be able
-to communicate simple trends, but for more complex patterns, harnessing
-the human visual system \cite{midway_2020} through visualisation is
-crucial for the communication of science and data. Effective data
-visualisation is able to reduce the cognitive and perceptual loads on
-viewers, regardless of their backgrounds levels of statistical knowledge
-or experience. This outsourcing, while efficient, leaves the viewer
-vulnerable to the design choices that were made when creating the
+otherwise described by numbers, and has been employed in one form or
+another for thousands of years \cite{azzam_2013}. Lists or matrices of
+numbers may be able to communicate simple trends, but for more complex
+patterns, harnessing the human visual system \cite{midway_2020} through
+visualisation is crucial for the communication of science and data.
+Effective data visualisation is able to reduce cognitive and perceptual
+loads on viewers, regardless of their backgrounds levels of statistical
+knowledge or experience. This outsourcing, while efficient, leaves the
+viewer vulnerable to the design choices that were made when creating the
 visualisation. For this reason, understanding \emph{how} design choices
 affect interpretation is crucial to designing better data visualisations
-and simultaneously inoculating viewers against poor or malevolent design
-practices.
+and simultaneously allows for the inoculation of viewers against poor or
+malevolent design practices.
 
-It is hard to understate the importance and ubiquity of data
-visualisations. They are used in communication between experts, to those
-with no background in science, and to everyone in between. They are
+One cannot understate the importance and ubiquity of data
+visualisations. They are used in to communicate with experts, with those
+with no background in science, and with everyone in between. They are
 relied upon to communicate vital public health information
 \cite{li_2021}, to present evidence in court cases \cite{bobko_1979},
 and to facilitate collaboration and encourage engagement on climate
-change \cite{nocke_2008, schuster_2024}.
+change issues \cite{nocke_2008, schuster_2024}. Studying data
+visualisation therefore has the potential to change the nature of
+scientific study itself.
 
-test render
+Interaction with a data visualisation involves steps from perception
+(viewing), to cognition (interpreting), to behaviour (deciding and
+acting). These stages must be examined both separately and together, as
+there are bottom-up and top-down interactions present. In this thesis, I
+therefore present a series of experiments whose aim was to investigate
+and address a long-standing perceptual bias in scatterplots, a very
+common form of data visualisation \cite{friendly_2005}. Following
+attempts to address this bias, I further investigated the impacts these
+attempts may have had on cognition and behaviour.
 
 \section{Research Motivation}\label{research-motivation}
 
+Data visualisations were once the preserve of the academic and
+professional classes. Now, however, visualisation is everywhere. This
+became especially apparent to me during the COVID-19 pandemic, when
+people such as my parents, professionals with no background in
+mathematics or statistics, were bombarded with data visualisations on a
+daily basis. Despite not being able to fully articulate the whole data
+story, they were still able to derive meaning from the visualisations
+they were seeing. The ability of data visualisations to transcend
+language and even mathematical ability motivated my study of them;
+concepts such as exponential growth or the relatedness between variables
+can be displayed in simple ways that do not rely on underlying
+understanding of exponents or correlation coefficients.
+
+Using data visualisations in such a way effectively provides a cognitive
+proxy for viewers. This is an efficient way to communicate, however
+still necessitates the presence of accurate and reliable perception. On
+further investigation into the reliance that those who design
+visualisations make on those who view them, I uncovered a historic
+perceptual bias that was still being described in the literature,
+seemingly with no attempt at correction. This bias was the
+underestimation of correlation in positively correlated scatterplots. In
+the literature, this robust effect had been observed in a number of
+experimental paradigms, including direct estimation
+\cite{strahan_1978, bobko_1979, cleveland_1982,
+collyer_1990, lane_1985, lauer_1989, meyer_1997} and estimation via
+bisection tasks \cite{rensink_2017}, and as of 2021, no attempts had
+been made to correct for it. The goal of this thesis was therefore to
+collect empirical evidence on the perception of correlation in
+positively correlated scatterplots, use that information to create novel
+visualisations with a view to correcting for the underestimation, and
+further investigate the potential for these visualisations to effect the
+things that people think and believe.
+
 \section{Contributions}\label{contributions-introduction}
+
+Through this thesis, I present a series of empirical experiments that
+provide knowledge about how changing visual features in scatterplots can
+affect how participants interpret the strength of the correlation
+displayed. I demonstrate that systematically reducing the opacities and
+sizes of points on scatterplots as a function of their distances from a
+regression line can significantly increase estimates of correlation and
+partially correct for a historic underestimation bias. Following this, I
+show that consequences of employing these techniques are not limited to
+perception, but in fact can be extended into a cognitive space to change
+what people think and believe. I utilise large-sample, controlled
+experiments with lay populations to provide generalisable conclusions
+and recommendations for visualisation designers and researchers. Through
+this thesis, I provide a framework for the large-scale testing of data
+visualisations with lay audiences. Additionally, I hope to provide an
+example of a project conducted entirely in an open and reproducible
+manner.
 
 \section{Included Publications}\label{included-publications}
 
@@ -77,6 +138,8 @@ included papers.
 \end{itemize}
 
 \section{Overview of Thesis}\label{overview-of-thesis}
+
+In Chapter 2, I conduct a thorough review of the literature and provide
 
 
 

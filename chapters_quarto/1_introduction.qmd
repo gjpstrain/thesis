@@ -70,14 +70,31 @@ into the reliance that those who design visualisations make on those who view
 them, I uncovered a historic perceptual bias that was still being described
 in the literature, seemingly with no attempt at correction. This bias
 was the underestimation of correlation in positively correlated scatterplots.
-
-
-
-Interaction with data visualisation is an inherently complex process. One
-of the (many) advantages of visualising data is that one can communicate
-a range of statistics and interpretations simultaneously. 
+In the literature, this robust effect had been observed in a number of experimental
+paradigms, including direct estimation \cite{strahan_1978, bobko_1979, cleveland_1982,
+collyer_1990, lane_1985, lauer_1989, meyer_1997} and estimation via bisection tasks
+\cite{rensink_2017}, and as of 2021, no attempts had been made to correct for it.
+The goal of this thesis was therefore to collect empirical evidence on the perception
+of correlation in positively correlated scatterplots, use that information to 
+create novel visualisations with a view to correcting for the underestimation,
+and further investigate the potential for these visualisations to effect the things
+that people think and believe.
 
 # Contributions {#contributions-introduction}
+
+Through this thesis, I present a series of empirical experiments that provide
+knowledge about how changing visual features in scatterplots can affect how participants
+interpret the strength of the correlation displayed. I demonstrate that systematically
+reducing the opacities and sizes of points on scatterplots as a function of their
+distances from a regression line can significantly increase estimates of correlation
+and partially correct for a historic underestimation bias. Following this, I show 
+that consequences of employing these techniques are not limited to perception, but
+in fact can be extended into a cognitive space to change what people think and believe.
+I utilise large-sample, controlled experiments with lay populations to provide
+generalisable conclusions and recommendations for visualisation designers and 
+researchers. Through this thesis, I provide a framework for the large-scale
+testing of data visualisations with lay audiences. Additionally, I hope to provide
+an example of a project conducted entirely in an open and reproducible manner.
 
 # Included Publications
 
@@ -111,3 +128,5 @@ author of all included papers.
  and \ref{general-discussion-beliefs} contain minimally altered parts of the published article.
 
 # Overview of Thesis
+
+In Chapter 2, I conduct a thorough review of the literature and provide
