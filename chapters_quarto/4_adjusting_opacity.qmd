@@ -20,7 +20,7 @@ execute:
 
 # Abstract {#abstract-adjusting-opacity}
 
-# Preface: Learning From an Early Pilot Study {#pilot}
+# Preface: Learning From an Early Pilot Study {#pilot-study}
 
 # Introduction {#introduction-adjusting-opacity}
 
