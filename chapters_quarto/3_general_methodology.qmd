@@ -189,11 +189,6 @@ the research team. Concerns such as time, practicality, and cost must be address
 and a compromise between research that is *valuable* and research that is *doable*
 must be reached.
 
-<!-- We focused on pragmatism and impact throughout the course of this -->
-<!-- research project; happily, the research journey we embarked on resulted in methodologies -->
-<!-- that satisfied both principles. It is for this reason that we consider the framework -->
-<!-- we present to be a key contribution of this thesis.[a] -->
-
 ## Experimental Design
 
 All but the final experiment utilised within-participants designs. In such a design,

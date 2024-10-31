@@ -32,7 +32,7 @@ better data visualisations and simultaneously allows for the inoculation of view
 poor or malevolent design practices.
 
 One cannot understate the importance and ubiquity of data visualisations. 
-They are used in to communicate with experts, with those with no background
+They are used to communicate with experts, with those with no background
 in science, and with everyone in between. They are relied upon to communicate vital
 public health information \cite{li_2021}, to present evidence in court cases \cite{bobko_1979},
 and to facilitate collaboration and encourage engagement on climate change issues
@@ -44,7 +44,7 @@ to cognition (interpreting), to behaviour (deciding and acting). These stages mu
 examined both separately and together, as there are bottom-up and top-down
 interactions present. In this thesis, I therefore present a series of
 experiments whose aim was to investigate and address a long-standing
-perceptual bias in scatterplots, a very common form of 
+perceptual bias in scatterplots, a common form of 
 data visualisation \cite{friendly_2005}. Following attempts to address this 
 bias, I further investigated the impacts these attempts may have had on
 cognition and behaviour.
@@ -58,14 +58,14 @@ professionals with no background in mathematics or statistics, were
 bombarded with data visualisations on a daily basis. Despite not being able
 to fully articulate the whole data story, they were still able to derive
 meaning from the visualisations they were seeing. The ability of data visualisations
-to transcend language and even mathematical ability motivated my study of them; concepts
+to transcend language mathematical prowess motivated my study of them; concepts
 such as exponential growth or the relatedness between variables can be displayed
-in simple ways that do not rely on underlying understanding of exponents
+in simple ways that do not rely on an underlying understanding of exponents
 or correlation coefficients.
 
 Using data visualisations in such a way effectively provides a cognitive proxy
 for viewers. This is an efficient way to communicate, however still necessitates
-the presence of accurate and reliable perception. On further investigation
+the presence of accurate and reliable perceptions. On further investigation
 into the reliance that those who design visualisations make on those who view
 them, I uncovered a historic perceptual bias that was still being described
 in the literature, seemingly with no attempt at correction. This bias
@@ -75,10 +75,10 @@ paradigms, including direct estimation \cite{strahan_1978, bobko_1979, cleveland
 collyer_1990, lane_1985, lauer_1989, meyer_1997} and estimation via bisection tasks
 \cite{rensink_2017}, and as of 2021, no attempts had been made to correct for it.
 The goal of this thesis was therefore to collect empirical evidence on the perception
-of correlation in positively correlated scatterplots, use that information to 
+of correlation in positively correlated scatterplots, to use that information to 
 create novel visualisations with a view to correcting for the underestimation,
-and further investigate the potential for these visualisations to effect the things
-that people think and believe.
+and to further investigate the potential for these visualisations to effect 
+what people think and believe.
 
 # Contributions {#contributions-introduction}
 
@@ -152,7 +152,7 @@ demonstrates that lowering point opacity in a uniform manner can increase partic
 levels of error on a correlation estimation task. The second experiment describes
 how employing a function relating point opacity to residual error can correct
 for the correlation underestimation bias by shifting estimates upwards. Specifically,
-lowering point contrast as a function of residual error provided significant
+lowering point contrast as a function of residual error provides significant
 levels of correction for the underestimation bias, and demonstrates that, in contrast
 to previous work, changing visual features can alter perceptions of correlation. 
 This finding was foundational for the remainder of the work described in this thesis. 
@@ -166,8 +166,8 @@ points as a function of residual error is able to alter participants'
 estimates of correlation to a greater degree than functions relating point opacity
 and residual error. 
 
-Chapter 6 described an experiment in which point opacity and size adjustments
-are combined. This experiment included conditions in which point opacity and size
+Chapter 6 describes an experiment in which point opacity and size adjustments
+are combined. This experiment includes conditions in which point opacity and size
 are reduced and increased together with residual error (congruent conditions),
 and conditions in which one increases while another decreases (incongruent conditions).
 I demonstrate that opacity and size adjustments interact in a non-linear fashion,

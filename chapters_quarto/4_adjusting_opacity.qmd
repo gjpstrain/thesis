@@ -3,6 +3,7 @@ title: "adjusting_opacity"
 output:
   format: 
     latex:
+      
 params:
   eval_models: false
   
@@ -10,13 +11,52 @@ knitr:
   opts_chunk: 
     cache_comments: false
     crop: true
+    out-width: NA
+    out-height: NA
     
 execute: 
   echo: false
   warning: false
   message: false
-  include: false     
+  include: false      
 ---
+
+```{r}
+#| label: setup
+
+# load packages
+
+library(tidyverse)
+library(MASS)
+library(emmeans)
+library(scales)
+library(buildmer)
+library(lme4)
+library(kableExtra)
+library(afex)
+library(papaja)
+library(broom.mixed)
+library(insight)
+library(qwraps2)
+library(lmerTest)
+library(tinylabels)
+library(ggdist)
+library(ggpubr)
+library(geomtextpath)
+library(conflicted)
+
+# fix conflicts
+
+conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
+```
+
+```{r}
+#| label: load-data
+
+exp1_anon <- read_csv("../data/data_E1_uniform")
+```
+
+
 
 # Abstract {#abstract-adjusting-opacity}
 

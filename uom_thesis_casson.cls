@@ -222,10 +222,6 @@
   \listoftables
   \clearpage
   }    
-\newenvironment{uomlop}{
-  \phantomsection\addcontentsline{toc}{chapter}{List of publications}
-  \chapter*{List of publications}
-}
 {\clearpage}
 \newenvironment{uomterms}{
   \phantomsection\addcontentsline{toc}{chapter}{Terms and abbreviations}
