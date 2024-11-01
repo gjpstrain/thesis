@@ -13,6 +13,8 @@ knitr:
     crop: true
     out-width: NA
     out-height: NA
+
+cache-dir: "../cache/pdf"
     
 execute: 
   echo: false
@@ -53,8 +55,213 @@ conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
 ```{r}
 #| label: load-data
 
-exp1_anon <- read_csv("../data/data_E1_uniform")
+exp1_anon <- read_csv("../data/exp_1_data.csv")
+exp2_anon <- read_csv("../data/exp_2_data.csv")# all experimental data lives in this folder
 ```
+
+```{r}
+#| label: retrieve-cached-models
+
+if (!params$eval_models){ lazyload_cache_dir("../cache/pdf") }
+```
+
+```{r}
+#| label: wrangle-data
+
+# NB: With the exception of anonymisation, data are provided as-is from pavlovia.
+# Wrangling functions must be run first to make the dataset usable.
+
+wrangle <- function(anon_file) {
+  
+  literacy <- anon_file %>%
+    filter(!is.na(q1_slider.response)) %>%
+    rowwise() %>%
+    mutate(literacy = sum(c(q1_slider.response, 
+                            q2_slider.response, 
+                            q3_slider.response, 
+                            q4_slider.response, 
+                            q5_slider.response))) %>%
+    select(participant,
+           literacy)
+  
+# extract demographic information
+# link slider response numbers to gender categories
+  
+demographics <- anon_file %>%
+  filter(!is.na(gender_slider.response)) %>%
+  mutate(gender_slider.response = recode(gender_slider.response,
+                                         `1` = "F",
+                                         `2` = "M",
+                                         `3` = "NB")) %>%
+  dplyr::select(matches(c("participant",
+                          "age_textbox.text",
+                          "gender_slider.response")))
+
+# split plots_with_labels column into item and contrast condition columns 
+
+anon_file <- anon_file %>%
+  mutate(images = str_replace(images, pattern = "A", replacement = "-A")) %>%
+  mutate(images = str_replace(images, pattern = "B", replacement = "-B")) %>%
+  mutate(images = str_replace(images, pattern = "C", replacement = "-C")) %>%
+  mutate(images = str_replace(images, pattern = "D", replacement = "-D")) %>%
+  separate(images, c("item", "contrast"), sep = "-") %>%
+  mutate(contrast = str_replace(contrast, pattern = ".png", replacement = "")) %>%
+  mutate(item = str_replace(item, pattern = "all_plots/", replacement = ""))
+
+# select relevant columns
+# select only experimental items
+# add literacy data
+# change data types where appropriate
+# output this file with suffix 'tidy'
+
+anon_file %>%
+  dplyr::select(c("participant",
+                  "item",
+                  "contrast",
+                  "slider.response",
+                  "my_rs",
+                  "total_residuals",
+                  "unique_item_no",
+                  "trials.thisN",
+                  "session")) %>%
+  mutate(half = case_when(
+    trials.thisN < 93 ~ "First",
+    trials.thisN > 92 ~ "Second" )) %>%
+  filter(unique_item_no < 181) %>%
+  inner_join(literacy, by = "participant") %>%
+  inner_join(demographics, by = "participant") %>%
+  mutate(across(c("item", "contrast", "half"), as_factor)) %>%
+  dplyr::select(-c("__participant")) %>%
+  mutate(difference = my_rs - slider.response) %>%
+  mutate(contrast = fct_relevel(contrast, c('A', 'B', 'C', 'D'))) %>%
+  rename("opacity" = "contrast") %>% #contrast was an earlier term, so is changed here for consistency                                        
+
+  assign(paste0(unique(anon_file$expName), "_tidy"),
+           value = ., envir = .GlobalEnv)
+}
+
+# use wrangle function on anonmyised data files 
+
+walk(list(exp1_anon,
+          exp2_anon),
+     wrangle)
+
+# Experiments were incorrectly named, so rename them
+
+E1_uniform_adjustments_tidy <- E3_full_exp_tidy
+E2_spatially_dependent_tidy <- E2_full_exp_tidy
+
+# remove incorrectly named and anon dfs from environment
+
+rm(E3_full_exp_tidy, E2_full_exp_tidy, exp1_anon, exp2_anon, wrangle)
+
+```
+
+```{r}
+#| label: comparison-function
+
+# this function takes a model and creates a nested model with the fixed effects 
+# terms removed for anova comparison
+
+comparison <- function(model) {
+  
+  parens <- function(x) paste0("(",x,")")
+  onlyBars <- function(form) reformulate(sapply(findbars(form),
+                                              function(x)  parens(deparse(x))),
+                                       response=".")
+  onlyBars(formula(model))
+  cmpr_model <- update(model,onlyBars(formula(model)))
+  
+  return(cmpr_model)
+  
+}
+```
+
+```{r}
+#| label: anova-results-function
+
+# this function takes two nested models, runs an anova, and the outputs the 
+# Chi-square statistic, the degrees of freedom, and the p value to the global 
+# environment
+
+anova_results <- function(model, cmpr_model) {
+  
+  model_name <- deparse(substitute(model))
+  
+  if (class(model) == "buildmer") model <- model@model
+  if (class(cmpr_model) == "buildmer") cmpr_model <- cmpr_model@model
+  
+  anova_output <- anova(model, cmpr_model)
+  
+  assign(paste0(model_name, ".Chisq"),
+         anova_output$Chisq[2],
+         envir = .GlobalEnv)
+  assign(paste0(model_name, ".df"),
+         anova_output$Df[2],
+         envir = .GlobalEnv)
+  assign(paste0(model_name, ".p"),
+         anova_output$`Pr(>Chisq)`[2],
+         envir = .GlobalEnv)
+  
+}
+```
+
+```{r}
+#| label: contrasts-extract
+
+# this function extracts test statistics and p values from model summaries
+
+contrasts_extract <- function(model) {
+  
+  model_name <- deparse(substitute(model))
+  
+  if (class(model) == "buildmer") model <- model@model
+  
+  EMMs <- emmeans(model, pairwise ~ size * opacity)
+  
+  contrast_df <- as.data.frame(EMMs[2]) %>%
+                            rename_with(str_replace,
+                                        pattern = "contrasts.", replacement = "",
+                                        matches("contrasts")) %>%
+                            rename_with(str_to_title, !starts_with("p")) %>%
+                            select(c("Contrast", "Z.ratio", "p.value"))
+  
+  return(contrast_df)
+}
+```
+
+```{r}
+#| label: error-bar-plot
+
+# plot the error bars plots by condition
+# takes dataframe, measure (i.e difference or raw r score), and label vector
+
+plot_error_bars_function <- function(df, measure, l){
+  df %>% 
+  drop_na() %>% 
+  group_by(condition_abs, my_rs) %>% 
+  summarise(sd = sd(get(measure)), mean = mean(get(measure))) %>% 
+  ggplot(aes(x = my_rs, y = mean*-1)) +
+  geom_point(size = 0.2) + 
+  geom_errorbar(mapping = aes(ymin = -1*mean + sd, ymax = -1*mean - sd),
+                width = 0.01,
+                size = 0.3) +
+  theme_ggdist() +
+  scale_y_continuous(breaks = seq(-0.4,1, 0.2)) +
+  theme(strip.text = element_text(size = 6,
+                                  margin = margin(1,0,1,0, "mm")),
+        aspect.ratio = 1,
+        axis.text = element_text(size = 7),
+        axis.title.y = ggtext::element_markdown(size = 8),
+        axis.title.x = ggtext::element_markdown(size = 8)) +
+  facet_wrap(condition_abs ~., ncol = 4, labeller = labeller(condition_abs = l)) +
+    labs(x = "Objective *r*",
+         y = "Mean *r* Estimation Error") +
+    geom_line(formula= x ~ y) +
+    xlim(0.2,1)
+}
+```
+
 
 
 
