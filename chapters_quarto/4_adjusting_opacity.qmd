@@ -50,6 +50,11 @@ library(conflicted)
 # fix conflicts
 
 conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
+
+# define plotting labels now
+
+labels_e1 <- c(A = "Low Contrast", B = "Medium Contrast", C = "High Contrast", D = "Full Contrast")
+labels_e2 <- c(A = "Non-Linear Decay", B = "Linear Decay", C = "Inverted Decay", D = "Full Contrast")
 ```
 
 ```{r}
@@ -155,6 +160,16 @@ E2_spatially_dependent_tidy <- E2_full_exp_tidy
 
 rm(E3_full_exp_tidy, E2_full_exp_tidy, exp1_anon, exp2_anon, wrangle)
 
+# extract age and gender information
+# first grab demographics functions from shared functions file
+
+source("../shared_functions.R")
+
+extract_age(E1_uniform_adjustments_tidy)
+
+extract_gender(E1_uniform_adjustments_tidy)
+
+extract_literacy(E1_uniform_adjustments_tidy)
 ```
 
 ```{r}
@@ -262,10 +277,21 @@ plot_error_bars_function <- function(df, measure, l){
 }
 ```
 
-
-
-
 # Abstract {#abstract-adjusting-opacity}
+
+Scatterplots are common data visualisations utilised for communication with experts 
+and lay people alike. Despite being widely studied, it is common for people to 
+underestimate the level of correlation displayed in them. The weight of evidence
+points toward changes in the opacities of scatterplot points being unable to change
+perceptions of correlation, however this was not tested rigorously using systematic
+adjustments. Drawing on evidence that the shape of a scatterplot's point cloud
+may drive correlation perception, I conducted exploratory work addressing
+this underestimation bias. In two experiments (total *N* = 300), evidence is provided
+that changing the opacities of scatterplot points *can* have small effects on participants'
+performance on a correlation estimation task. The systematic adjustment of 
+point opacity as a function of residual distance is able to alter estimates to a greater 
+degree and correct for the underestimation bias. In this chapter, I also present
+an early pilot study that was ultimately not included in any published works.
 
 # Preface: Learning From an Early Pilot Study {#pilot-study}
 
@@ -285,6 +311,20 @@ plot_error_bars_function <- function(df, measure, l){
 
 ## Methods {#methods-adjusting-opacity-e1}
 
+150 participants were recruited using the Prolific.co platform. Normal to
+corrected-to-normal vision and English fluency were required. Participants who
+had completed the pre-study were prevented from participating. Data were collected
+from 158 participants. 8 failed more than 2 out of 6 attention check questions,
+and, as per the pre-registration, had their submissions rejected from the study.
+The data from the remaining 150 participants were included in the full analysis
+(`r printnum(E1_uniform_adjustments_tidy_gender$M)`% male, `r printnum(E1_uniform_adjustments_tidy_gender$F)`
+% female, and `r printnum(E1_uniform_adjustments_tidy_gender$NB)`% non-binary). 
+Participants' mean age was `r printnum(E1_uniform_adjustments_tidy_age$mean)`
+(*SD* = `r printnum(E1_uniform_adjustments_tidy_age$sd)`). Mean graph literacy score
+was `r printnum(E1_uniform_adjustments_tidy_graph_literacy$mean)` (*SD* =
+`r printnum(E1_uniform_adjustments_tidy_graph_literacy$sd)`). The average
+time taken to complete the experiment was 33 minutes (SD = 10 minutes).
+
 ## Analysis {#analysis-adjusting-opacity-e1}
 
 ## Discussion {#discussion-adjusting-opacity-e1}
@@ -294,6 +334,21 @@ plot_error_bars_function <- function(df, measure, l){
 ## Introduction {#introduction-adjusting-opacity-e2}
 
 ## Methods {#methods-adjusting-opacity-e2}
+
+150 participants were recruited using the Prolific.co platform. Normal to
+corrected-to-normal vision and English fluency were required. Participants who
+had completed the pre-study were prevented from participating. Data were collected
+from 158 participants. 7 failed more than 2 out of 6 attention check questions,
+and, as per the pre-registration, had their submissions rejected from the study.
+The data from the remaining 150 participants were included in the full analysis
+(`r printnum(E2_spatially_dependent_tidy_age$M)`% male, `r printnum(E2_spatially_dependent_tidy_gender$F)`
+% female, and `r printnum(E2_spatially_dependent_tidy_gender$NB)`% non-binary). 
+Participants' mean age was `r printnum(E2_spatially_dependent_tidy_age$mean)`
+(*SD* = `r printnum(E2_spatially_dependent_tidy_age$sd)`). Mean graph literacy score
+was `r printnum(E2_spatially_dependent_tidy_graph_literacy$mean)` (*SD* =
+`r printnum(E2_spatially_dependent_tidy_tidy_graph_literacy$sd)`). The average
+time taken to complete the experiment was 33 minutes (SD = 10 minutes).
+
 
 ## Analysis {#analysis-adjusting-opacity-e2}
 

@@ -422,8 +422,8 @@ found in the \textbf{Participants} sections of each experiment.
 Each experiment recruited until 150 participants had completed successfully.
 Due to the novelty of this work, it was difficult to get a sense of the size
 of the effect that would be seen. I assumed a small effect size (Cohen’s d ~ 0.2),
-and aimed to recruit enough participants that the experiments would be adequately
-powered \cite{brysbaert_2019}. NB: I did not conduct an *a priori* power analysis.
+and aimed to recruit enough participants to adequately power the experiments 
+\cite{brysbaert_2019}. NB: I did not conduct an *a priori* power analysis.
 A post-hoc power analysis of the first experiment revealed a power of 0.54.
 Effect sizes were larger in the subsequent experiments, however to facilitate
 comparison, it was decided that n = 150 would remain the target recruitment rate.
