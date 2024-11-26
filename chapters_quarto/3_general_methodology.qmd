@@ -384,7 +384,7 @@ on Pavlovia's GitLab instance.
 
 Recruitment of participants online is possible through a range of service providers,
 each with advantages and disadvantages. Research evaluating a number of these
-providers recently found that Prolific \cite{prolific_2024} and CloudResearch 
+providers recently found that Prolific \cite{prolific} and CloudResearch 
 provide the highest quality data for the lowest cost \cite{douglas_2023}; I elected
 to use the former due to my familiarity with the system. Despite these findings,
 there has also been evidence of low data quality and skewed demographics affecting

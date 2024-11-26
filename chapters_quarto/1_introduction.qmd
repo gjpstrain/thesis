@@ -105,7 +105,7 @@ literature review and general methodology chapters. *Gabriel Strain* is the prim
 author of all included papers.
 
  - *The Effects of Contrast on Correlation Perception in Scatterplots* \cite{strain_2023} is reproduced
- in \chap{chap:adjusting_opacity}. Sections \ref{methods-adjusting-opacity-e1}, 
+ in \chap{chap:adjusting_opacity}. Sections \ref{shared-methods-adjusting-opacity}, \ref{methods-adjusting-opacity-e1}, 
  \ref{methods-adjusting-opacity-e2}, \ref{analysis-adjusting-opacity-e1},
  \ref{analysis-adjusting-opacity-e2}, \ref{discussion-adjusting-opacity-e1}, 
  \ref{discussion-adjusting-opacity-e2}, and \ref{general-discussion-adjusting-opacity}

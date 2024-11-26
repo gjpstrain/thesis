@@ -40,6 +40,6 @@ execute:
 
 # Underestimation: Potential Consequences
 
-# Data Visualisation Literacy
+# Data Visualisation Literacy {#graph-literacy-lit-review}
 
 # Objectives and Contributions

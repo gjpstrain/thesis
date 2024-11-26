@@ -1,163 +1,5 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
-%
-\documentclass[
-  letterpaper,
-  DIV=11,
-  numbers=noendperiod]{scrartcl}
-
-\usepackage{amsmath,amssymb}
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-\usepackage{lmodern}
-\ifPDFTeX\else  
-    % xetex/luatex font selection
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-% Make \paragraph and \subparagraph free-standing
-\makeatletter
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}{
-    \@ifstar
-      \xxxParagraphStar
-      \xxxParagraphNoStar
-  }
-  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
-  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}{
-    \@ifstar
-      \xxxSubParagraphStar
-      \xxxSubParagraphNoStar
-  }
-  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
-  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-\makeatother
-
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
-\usepackage{graphicx}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-
-\KOMAoption{captions}{tableheading}
-\makeatletter
-\@ifpackageloaded{caption}{}{\usepackage{caption}}
-\AtBeginDocument{%
-\ifdefined\contentsname
-  \renewcommand*\contentsname{Table of contents}
-\else
-  \newcommand\contentsname{Table of contents}
-\fi
-\ifdefined\listfigurename
-  \renewcommand*\listfigurename{List of Figures}
-\else
-  \newcommand\listfigurename{List of Figures}
-\fi
-\ifdefined\listtablename
-  \renewcommand*\listtablename{List of Tables}
-\else
-  \newcommand\listtablename{List of Tables}
-\fi
-\ifdefined\figurename
-  \renewcommand*\figurename{Figure}
-\else
-  \newcommand\figurename{Figure}
-\fi
-\ifdefined\tablename
-  \renewcommand*\tablename{Table}
-\else
-  \newcommand\tablename{Table}
-\fi
-}
-\@ifpackageloaded{float}{}{\usepackage{float}}
-\floatstyle{ruled}
-\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
-\floatname{codelisting}{Listing}
-\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
-\@ifpackageloaded{caption}{}{\usepackage{caption}}
-\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
-\makeatother
-
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\usepackage{bookmark}
-
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-\hypersetup{
-  pdftitle={general\_methodology},
-  colorlinks=true,
-  linkcolor={blue},
-  filecolor={Maroon},
-  citecolor={Blue},
-  urlcolor={Blue},
-  pdfcreator={LaTeX via pandoc}}
-
-
-\title{general\_methodology}
-\author{}
-\date{}
-
+\documentclass[../main.tex]{subfiles}
 \begin{document}
-\maketitle
 
 
 \section{Introduction}\label{introduction}
@@ -217,7 +59,7 @@ Figure~\ref{fig-exp5-examples}).
 
 \centering{
 
-\includegraphics{../supplied_graphics/example_slider.png}
+\includegraphics[width=\textwidth]{../supplied_graphics/example_slider.png}
 
 }
 
@@ -230,7 +72,7 @@ estimate correlation in experiments 1-4.}
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf}
 
 }
 
@@ -244,7 +86,7 @@ experiment 1, demonstrated with an \textit{r} value of 0.6. Here,
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf}
 
 }
 
@@ -257,7 +99,7 @@ experiment 2, demonstrated with an \textit{r} value of 0.6.}
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf}
 
 }
 
@@ -270,7 +112,7 @@ experiment 3, demonstrated with an \textit{r} value of 0.6.}
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf}
 
 }
 
@@ -283,7 +125,7 @@ experiment 4, demonstrated with an \textit{r} value of 0.6.}
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf}
 
 }
 
@@ -334,11 +176,11 @@ links to all experiments publicly hosted on Pavlovia's GitLab instance.
 Recruitment of participants online is possible through a range of
 service providers, each with advantages and disadvantages. Research
 evaluating a number of these providers recently found that Prolific
-\cite{prolific_2024} and CloudResearch provide the highest quality data
-for the lowest cost \cite{douglas_2023}; I elected to use the former due
-to my familiarity with the system. Despite these findings, there has
-also been evidence of low data quality and skewed demographics affecting
-both general crowdsourcing platforms, such as Amazon's MTurk, and those
+\cite{prolific} and CloudResearch provide the highest quality data for
+the lowest cost \cite{douglas_2023}; I elected to use the former due to
+my familiarity with the system. Despite these findings, there has also
+been evidence of low data quality and skewed demographics affecting both
+general crowdsourcing platforms, such as Amazon's MTurk, and those
 tailored specifically towards academic research. On the 24th of July,
 2021, the Prolific.co platform went viral on social media
 \cite{chara_2021}, leading to a participant pool heavily skewed towards
@@ -385,7 +227,7 @@ Each experiment recruited until 150 participants had completed
 successfully. Due to the novelty of this work, it was difficult to get a
 sense of the size of the effect that would be seen. I assumed a small
 effect size (Cohen's d \textasciitilde{} 0.2), and aimed to recruit
-enough participants that the experiments would be adequately powered
+enough participants to adequately power the experiments
 \cite{brysbaert_2019}. NB: I did not conduct an \emph{a priori} power
 analysis. A post-hoc power analysis of the first experiment revealed a
 power of 0.54. Effect sizes were larger in the subsequent experiments,
@@ -412,7 +254,7 @@ scatterplots used in experiments 1 to 4.
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf}
 
 }
 
@@ -467,7 +309,7 @@ visualises these concepts.
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf}
 
 }
 
@@ -758,7 +600,7 @@ facilitating long-term sustainability \cite{jimenez_2017}.
 
 \centering{
 
-\includegraphics{3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf}
+\includegraphics[width=\textwidth]{3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf}
 
 }
 
