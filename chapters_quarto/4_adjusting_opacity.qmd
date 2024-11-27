@@ -310,12 +310,11 @@ an early pilot study that was ultimately not included in any published works.
 ## Transparency, Contrast, Opacity, and Formal Definitions
 
 - include the "formalising contrast" part of the original papers general methods section here
+- also include justification for referring to "opacity" instead of contrast
 
 ## Effects of Point Opacity on Correlation Estimation
 
-# Shared Methods {#shared-methods-adjusting-opacity}
-
-## Procedure
+# General Methods {#shared-methods-adjusting-opacity}
 
 The experiments described in this chapter share multiple aspects of their procedures.
 Both experiments were built using PsychoPy \cite{peirce_2019} and are hosted on pavlovia.org.
@@ -363,11 +362,33 @@ Each trial was preceded by text that either told the participant:
  
  The latter instructions were attention checks, and were formatted with red text 
  to increase their visibility. Each experimental trial was preceded by a visual
- mask (see @fig-mask-adjusting-opacity) that was displayed for 2.5 seconds.
-
+ mask (see @fig-mask-adjusting-opacity) that was displayed for 2.5 seconds. Participants
+ were instructed to make their judgements as quickly and accurately as possible,
+ but there was no time limit per trial. Both experiments described here use a
+ fully repeated-measures, within-participants design. Participants saw all 180 experimental
+ items, corresponding to ~27,000 individual judgements per experiment, in a fully
+ randomised order.
+ 
+ Both experiments were conducted according to principles of open and reproducible
+ research. All data and analysis code for the origin paper is available on GitHub [^1].
+ Experiment 1 [^2] and 2 [^3] are hosted on Pavlovia.org, while the Open Science
+ Framework hosts pre-registrations [^4]. It is important to note at this point
+ that experiment 2 was conducted prior to experiment 1; when the original paper
+ was written, the order of presentation of the experiments was swapped to make the
+ narrative more cohesive. I preserve this order in the present chapter.
+ 
+ [^1]: https://github.com/gjpstrain/contrast_and_scatterplots
+ [^2]: https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments
+ [^3]: https://gitlab.pavlovia.org/Strain/exp_spatially_dependent
+ [^4]: Experiment 1 - https://osf.io/tuexh. Experiment 2 - https://osf.io/6f5ev
+ 
 # Experiment 1: Uniform Opacity Adjustments
 
 ## Introduction {#introduction-adjusting-opacity-e1}
+
+Owing to the robust effects of altering stimulus opacity on perception described 
+above \cite{wehrhahn_1990, champion_2017}, it was hypothesised that there would be 
+a greater spread of estimates of correlation for plots
 
 ## Methods {#methods-adjusting-opacity-e1}
 

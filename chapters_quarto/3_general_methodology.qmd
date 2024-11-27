@@ -455,6 +455,18 @@ design of the scatterplots used in experiments 1 to 4.
 plot_example_function(data_with_resid, t = "", o = 1, s = 0.4, 2)  
 ```
 
+A single random seed was used to generate scatterplot datasets throughout
+this thesis. 45 *r* values were uniformly generated between 0.2 and 0.99,
+as there is evidence that little correlation is perceived below *r* = 0.2
+\cite{strahan_1978, bobko_1979, cleveland_1982}. The data that forms the scatterplots
+was randomly generated from bivariate normal distributions with standard
+deviations of 1 in each direction. Scatterplots always had a 1:1
+aspect ratio, and were configured such that they occupied the same proportion of
+the experimental window regardless of the size or resolution of a participant's
+monitor. From Chapter 5 onwards, a measure of dot pitch is included, which facilitates
+the approximation of the physical size of scatterplot points on-screen; where
+available, this is included in analyses.
+
 # Analytical Methods
 
 To investigate whether the experimental manipulations have actual effects
@@ -793,7 +805,7 @@ ggplot() +
   geom_text(data = df, aes(x = (xmin + xmax)/2, y = 1.5, label = section), size = 3) +
   annotate("segment", x = 2, xend = 5, y = 2.1, yend = 2.1, 
            arrow = arrow(type = "closed", length = unit(0.3, "cm")), color = "grey") +
-    annotate("segment", x = 2, xend = 0, y = 2.1, yend = 2.1, 
+  annotate("segment", x = 2, xend = 0, y = 2.1, yend = 2.1, 
            arrow = arrow(type = "closed", length = unit(0.3, "cm")), color = "grey") +
   annotate("text", x = 0.5, y = 2.3, label = "Not reproducible", size = 3) +
   annotate("text", x = 4.5, y = 2.3, label = "Gold standard", size = 3) +
