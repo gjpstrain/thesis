@@ -1,3 +1,5 @@
+# Age, gender, and literacy extraction functions
+
 extract_age <- function(df) {
     assign(
         paste0(deparse(substitute(df)), "_age"),
@@ -29,4 +31,189 @@ extract_literacy <- function(df) {
             summarise(mean = mean(literacy), sd = sd(literacy)),
         envir = .GlobalEnv
     )
+}
+
+# Plot example functions for all experiments
+
+set.seed(1234)
+
+my_sample_size = 128
+
+my_desired_r = 0.6
+
+mean_variable_1 = 0
+sd_variable_1 = 1
+
+mean_variable_2 = 0
+sd_variable_2 = 1
+
+mu <- c(mean_variable_1, mean_variable_2) 
+
+myr <- my_desired_r * sqrt(sd_variable_1) * sqrt(sd_variable_2)
+
+mysigma <- matrix(c(sd_variable_1, myr, myr, sd_variable_2), 2, 2) 
+
+corr_data = as_tibble(mvrnorm(my_sample_size, mu, mysigma, empirical = TRUE))
+
+corr_model <- lm(V2 ~ V1, data = corr_data)
+
+my_residuals <- abs(residuals(corr_model))
+
+data_with_resid <- round(cbind(corr_data, my_residuals), 2)
+
+slopes <- data_with_resid %>%
+  mutate(slope_linear = my_residuals/3.2) %>%
+  mutate(slope_0.25 = 1-(0.25)^my_residuals) %>%
+  mutate(slope_inverted = (1 + (0.25)^ my_residuals)-1) %>%
+  mutate(slope_inverted_floored = pmax(0.1,(1+(0.25)^my_residuals)-1)) 
+
+plot_example_function <- function (df, t, o, s, title_size) {
+  
+  set.seed(1234)
+  
+  ggplot(df, aes(x = V1, y = V2)) +
+    scale_alpha_identity() +
+    scale_size_identity() +
+    geom_point(aes(size = (s + 0.7),
+                   alpha = o), shape = 16)  +
+    labs(x = "", y = "",
+         title = t) +
+    theme_classic() +
+    theme(axis.text = element_blank(),
+          plot.margin = unit(c(0,0,0,0), "cm"),
+          legend.position = "none",
+          plot.title = element_text(size = title_size, vjust = -3))
+}
+
+## plot example function for experiment 5
+
+exp5_slope_function <- function(my_desired_r) {
+  
+  set.seed(1234)
+  
+  my_sample_size = 128
+  
+  mean_variable_1 = 5
+  sd_variable_1 = 1
+  
+  mean_variable_2 = 76
+  sd_variable_2 = 5
+  
+  mu <- c(mean_variable_1, mean_variable_2) 
+  
+  myr <- my_desired_r * sqrt(sd_variable_1) * sqrt(sd_variable_2)
+  
+  mysigma <- matrix(c(sd_variable_1, myr, myr, sd_variable_2), 2, 2) 
+  
+  corr_data = as_tibble(mvrnorm(my_sample_size, mu, mysigma, empirical = TRUE))
+  
+  corr_model <- lm(V2 ~ V1, data = corr_data)
+  
+  my_residuals <- abs(residuals(corr_model))
+  
+  data_with_resid <- round(cbind(corr_data, my_residuals), 2)
+  
+  slopes_exp5 <- data_with_resid %>%
+    mutate(slope_0.25 = 1-(0.25)^my_residuals) %>%
+    mutate(slope_inverted = (1 + (0.25)^ my_residuals)-1) %>%
+    mutate(slope_inverted_floored = pmax(0.2,(1+(0.25)^my_residuals)-1)) %>%
+    mutate(typical = 0.033) %>%
+    mutate(standard_alpha = 1)
+  
+  return(slopes_exp5)
+}
+
+# manually specify variables from slopes_exp5 df
+
+slopes_exp5 <- exp5_slope_function(0.6)
+slopeI <- (slopes_exp5$slope_inverted)
+slopeI_floored <- (slopes_exp5$slope_inverted_floored)
+typical <- (slopes_exp5$typical)
+standard_alpha <- (slopes_exp5$standard_alpha)
+
+# function for creating example plots for exp 5
+
+example_plot_function_exp5 <- function(slopes, my_desired_r, size_value, opacity_value, theme) {
+  
+  p <- ggplot(slopes, aes(x = V1, y = V2)) +
+    scale_size_identity() +
+    scale_alpha_identity() +
+    geom_point(aes(size =  4*(size_value + 0.2), alpha = opacity_value), shape = 16) +  
+    geom_hline(yintercept = 68, size = 1, colour="#333333") +
+    geom_segment(x = 0, xend = 10, y = 66.2, yend = 66.2, size = 0.3, colour="#585858") +
+    bbc_style() +
+    theme(axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          plot.title = element_text(size = 12, vjust = -1),
+          plot.subtitle = element_text(size = 6.75),
+          plot.caption = element_text(size = 6, hjust = -0.02),
+          plot.margin = unit(c(0,0,1,0), "cm")) +
+    labs(title = "Spicy Foods",
+         subtitle = "Higher consumption of plain (non-spicy) foods\nis associated with a higher risk of certain types of cancer.",
+         caption = "Source: NHS England") +
+    annotate("text", x = 3, y = 67, label = "Less plain Diet", size = 2.5) +
+    annotate("text", x = 7, y = 67, label = "More plain Diet", size = 2.5) +
+    annotate("text", x = 1, y = 71, label = "Fewer Cancer\nDiagnoses", angle = 90, size = 2.5) +
+    annotate("text", x = 1, y = 80, label = "More Cancer\nDiagnoses", angle = 90, size = 2.5) +
+    coord_cartesian(clip = "off")
+  
+  return(p)
+  
+}
+
+# Functions for working with experimental models
+
+## comparison function - returns model with fixed fx terms removed
+
+comparison <- function(model) {
+  
+  parens <- function(x) paste0("(",x,")")
+  onlyBars <- function(form) reformulate(sapply(findbars(form),
+                                                function(x)  parens(deparse(x))),
+                                         response=".")
+  onlyBars(formula(model))
+  cmpr_model <- update(model,onlyBars(formula(model)))
+  
+  return(cmpr_model)
+  
+}
+
+## anova results function - outputs test statistics to global env
+## compatible with clmm and lme models
+
+anova_results <- function(model, cmpr_model) {
+  
+  model_name <- deparse(substitute(model))
+  
+  if (class(model) == "buildmer") model <- model@model
+  if (class(cmpr_model) == "buildmer") cmpr_model <- cmpr_model@model
+  
+  if (class(model) == "clmm") {
+    
+    anova_output <- ordinal:::anova.clm(model, cmpr_model)
+    
+    assign(paste0(model_name, ".LR"),
+           anova_output$LR.stat[2],
+           envir = .GlobalEnv)
+    assign(paste0(model_name, ".df"),
+           anova_output$Df[2],
+           envir = .GlobalEnv)
+    assign(paste0(model_name, ".p"),
+           anova_output$`Pr(>Chisq)`[2],
+           envir = .GlobalEnv)
+  }
+  
+  else
+    
+  anova_output <- anova(model, cmpr_model) # currently unused, left it 
+  # in case you want to use LMMs
+  assign(paste0(model_name, ".Chisq"),
+         anova_output$Chisq[2],
+         envir = .GlobalEnv)
+  assign(paste0(model_name, ".df"),
+         anova_output$Df[2],
+         envir = .GlobalEnv)
+  assign(paste0(model_name, ".p"),
+         anova_output$`Pr(>Chisq)`[2],
+         envir = .GlobalEnv)
 }

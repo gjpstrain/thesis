@@ -5,7 +5,7 @@ output:
     latex:
       
 params:
-  eval_models: false
+  eval_models: true
   
 knitr:
   opts_chunk: 
@@ -62,6 +62,10 @@ labels_e2 <- c(A = "Non-Linear Decay", B = "Linear Decay", C = "Inverted Decay",
 
 exp1_anon <- read_csv("../data/exp_1_data.csv")
 exp2_anon <- read_csv("../data/exp_2_data.csv")# all experimental data lives in this folder
+
+# load in shared functions
+
+source("../shared_functions.R")
 ```
 
 ```{r}
@@ -134,7 +138,7 @@ anon_file %>%
     trials.thisN > 92 ~ "Second" )) %>%
   filter(unique_item_no < 181) %>%
   inner_join(literacy, by = "participant") %>%
-  inner_join(demographics, by = "participant") %>%
+  full_join(demographics, by = "participant") %>%
   mutate(across(c("item", "contrast", "half"), as_factor)) %>%
   dplyr::select(-c("__participant")) %>%
   mutate(difference = my_rs - slider.response) %>%
@@ -161,9 +165,6 @@ E2_spatially_dependent_tidy <- E2_full_exp_tidy
 rm(E3_full_exp_tidy, E2_full_exp_tidy, exp1_anon, exp2_anon, wrangle)
 
 # extract age and gender information
-# first grab demographics functions from shared functions file
-
-source("../shared_functions.R")
 
 extract_age(E1_uniform_adjustments_tidy)
 
@@ -176,55 +177,6 @@ extract_age(E2_spatially_dependent_tidy)
 extract_gender(E2_spatially_dependent_tidy)
 
 extract_literacy(E2_spatially_dependent_tidy)
-```
-
-```{r}
-#| label: comparison-function
-
-# this function takes a model and creates a nested model with the fixed effects 
-# terms removed for anova comparison
-
-comparison <- function(model) {
-  
-  parens <- function(x) paste0("(",x,")")
-  onlyBars <- function(form) reformulate(sapply(findbars(form),
-                                              function(x)  parens(deparse(x))),
-                                       response=".")
-  onlyBars(formula(model))
-  cmpr_model <- update(model,onlyBars(formula(model)))
-  
-  return(cmpr_model)
-  
-}
-```
-
-```{r}
-#| label: anova-results-function
-
-# this function takes two nested models, runs an anova, and the outputs the 
-# Chi-square statistic, the degrees of freedom, and the p value to the global 
-# environment
-
-anova_results <- function(model, cmpr_model) {
-  
-  model_name <- deparse(substitute(model))
-  
-  if (class(model) == "buildmer") model <- model@model
-  if (class(cmpr_model) == "buildmer") cmpr_model <- cmpr_model@model
-  
-  anova_output <- anova(model, cmpr_model)
-  
-  assign(paste0(model_name, ".Chisq"),
-         anova_output$Chisq[2],
-         envir = .GlobalEnv)
-  assign(paste0(model_name, ".df"),
-         anova_output$Df[2],
-         envir = .GlobalEnv)
-  assign(paste0(model_name, ".p"),
-         anova_output$`Pr(>Chisq)`[2],
-         envir = .GlobalEnv)
-  
-}
 ```
 
 ```{r}
@@ -388,9 +340,12 @@ Each trial was preceded by text that either told the participant:
 
 Owing to the robust effects of altering stimulus opacity on perception described 
 above \cite{wehrhahn_1990, champion_2017}, it was hypothesised that there would be 
-a greater spread of estimates of correlation for plots
+a greater spread of estimates of correlation for plots with lower global opacity
+compared to higher opacity plots.
 
-## Methods {#methods-adjusting-opacity-e1}
+## Method {#methods-adjusting-opacity-e1}
+
+### Participants
 
 150 participants were recruited using the Prolific platform \cite{prolific}. Normal to
 corrected-to-normal vision and English fluency were required. Participants who
@@ -403,10 +358,65 @@ The data from the remaining 150 participants were included in the full analysis
 Participants' mean age was `r printnum(E1_uniform_adjustments_tidy_age$mean)`
 (*SD* = `r printnum(E1_uniform_adjustments_tidy_age$sd)`). Mean graph literacy score
 was `r printnum(E1_uniform_adjustments_tidy_graph_literacy$mean)` (*SD* =
-`r printnum(E1_uniform_adjustments_tidy_graph_literacy$sd)`). The average
+`r printnum(E1_uniform_adjustments_tidy_graph_literacy$sd)`). The mean
 time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
+### Design
+
+For each of the 45 *r* values, there were four versions of each plot corresponding
+to the four levels of point opacity. Examples of each of these can be seen in
+@fig-exp1-examples-chap4, demonstrated with an *r* value of 0.6.
+
+```{r}
+#| label: fig-exp1-examples-chap4
+#| include: true
+#| fig-cap: Examples of the stimuli used in experiment 1, demonstrated with an \textit{r} value of 0.6. Here, "opacity" refers to the alpha value used by ggplot.
+#| out-width: NA
+#| out-height: NA
+#| fig-asp: 0.275
+
+ggarrange(plot_example_function(data_with_resid, "Opacity = 0.25",
+                                0.25, 0.2, 7),
+          plot_example_function(data_with_resid, "Opacity = 0.5",
+                                0.5, 0.2, 7),
+          plot_example_function(data_with_resid, "Opacity = 0.75",
+                                0.75, 0.2, 7),
+          plot_example_function(data_with_resid, "Opacity = 1",
+                                1, 0.2, 7),
+          nrow = 1)
+```
+
 ## Analysis {#analysis-adjusting-opacity-e1}
+
+```{r}
+#| label: model-e1
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e1_model <- buildmer(difference ~ opacity +
+                       (1 + opacity | participant) +
+                       (1 + opacity | item),
+                     data = E1_uniform_adjustments_tidy)
+```
+
+```{r}
+#| label: model-e1-cmpr
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e1_model_cmpr <- comparison(e1_model)
+```
+
+```{r}
+#| label: anova-results-e1
+
+anova_results(e1_model, e1_model_cmpr)
+```
+
+To investigate the effects of opacity condition on participants' estimates
+of correlation, a linear mixed effects model was built whereby opacity condition
+is a predictor for the difference between objective *r* values for each plot
+and participants' estimates of *r*.
 
 ## Discussion {#discussion-adjusting-opacity-e1}
 

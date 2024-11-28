@@ -279,20 +279,21 @@ included in analyses.
 
 \section{Analytical Methods}\label{analytical-methods}
 
-To investigate whether the experimental manipulations have actual
-effects on the interpretations participants provide, appropriate
-statistical testing must be employed. This involves taking into account
-the variability in responses that can be attributed to an experimental
-manipulation against the backdrop of other variability inherent in the
-dataset. Traditional analysis of the data collected throughout this
-thesis would involve the use of repeated measures analyses of variance
-(ANOVAs). This technique assesses whether there are significant
-differences in means of dependent variables between conditions. While
-these techniques are commonplace, they do not allow for comparisons of
-differences across the full range of individual participant responses,
-nor do they allow for simultaneous consideration of by-item and
-by-participant variance. It is for these reasons that linear
-mixed-effects models were used throughout. Linear mixed-effects
+All analyses in this thesis were conducted using R (version 4.4.2
+\cite{r_core}). To investigate whether the experimental manipulations
+have actual effects on the interpretations participants provide,
+appropriate statistical testing must be employed. This involves taking
+into account the variability in responses that can be attributed to an
+experimental manipulation against the backdrop of other variability
+inherent in the dataset. Traditional analysis of the data collected
+throughout this thesis would involve the use of repeated measures
+analyses of variance (ANOVAs). This technique assesses whether there are
+significant differences in means of dependent variables between
+conditions. While these techniques are commonplace, they do not allow
+for comparisons of differences across the full range of individual
+participant responses, nor do they allow for simultaneous consideration
+of by-item and by-participant variance. It is for these reasons that
+linear mixed-effects models were used throughout. Linear mixed-effects
 modelling is a reliable approach that is resistant to a variety of
 distributional assumption violations \cite{schielzeth_2020}, and
 facilitates the appreciation of the data story in a broader and more
@@ -527,11 +528,11 @@ of R, the files required, and the correct package versions used during
 analysis. Below is the Dockerfile used to reproduce this thesis.
 
 I first specify the Rocker image that will form the basis of the
-container. This includes the version of R required (version 4.4.1), the
+container. This includes the version of R required (version 4.4.2), the
 Rstudio Integrated Development Environment (IDE), Quarto, and the
 \texttt{tidyverse} package.
 
-\texttt{FROM\ rocker/version:4.4.1}
+\texttt{FROM\ rocker/version:4.4.2}
 
 Next, I add the files and folders required, including the Quarto
 document and related files, chapter folder, bibliography, additional
