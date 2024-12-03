@@ -13,9 +13,8 @@ knitr:
     crop: true
     out-width: NA
     out-height: NA
+    cache.path: "../thesis_cache/" 
 
-cache-dir: "../cache/pdf"
-    
 execute: 
   echo: false
   warning: false
@@ -71,7 +70,7 @@ source("../shared_functions.R")
 ```{r}
 #| label: retrieve-cached-models
 
-if (!params$eval_models){ lazyload_cache_dir("../cache/pdf") }
+if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
 ```
 
 ```{r}
