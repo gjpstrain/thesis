@@ -14,45 +14,26 @@ replace_before_document <- function(file_path) {
       if (match[1] != -1) {
         graphics_command <- regmatches(line, match)[1]
         
-        modified_command <- graphics_command
-        
-        # Check if 'width=' is missing
         if (!grepl("width=", graphics_command)) {
+          # Check if there are existing options (`[...]`)
           if (grepl("\\[[^\\]]*\\]", graphics_command)) {
+            # Append `width=\textwidth,` to existing options
             modified_command <- sub(
               "(\\\\includegraphics\\[)([^\\]]*)",
               "\\1width=\\\\textwidth,\\2",
-              modified_command
+              graphics_command
             )
           } else {
+            # Add `width=\textwidth` as a new option
             modified_command <- sub(
               "(\\\\includegraphics)(\\{)",
               "\\1[width=\\\\textwidth]\\2",
-              modified_command
+              graphics_command
             )
           }
+          regmatches(line, match) <- modified_command
         }
-        
-        # Check if 'height=' is missing
-        if (!grepl("height=", modified_command)) {
-          if (grepl("\\[[^\\]]*\\]", modified_command)) {
-            modified_command <- sub(
-              "(\\\\includegraphics\\[)([^\\]]*)",
-              "\\1height=\\\\textheight,\\2",
-              modified_command
-            )
-          } else {
-            modified_command <- sub(
-              "(\\\\includegraphics)(\\{)",
-              "\\1[height=\\\\textheight]\\2",
-              modified_command
-            )
-          }
-        }
-        
-        regmatches(line, match) <- modified_command
       }
-      
       line
     }, USE.NAMES = FALSE)
     
@@ -63,10 +44,7 @@ replace_before_document <- function(file_path) {
   }
 }
 
-
-
 replace_before_document_in_folder <- function(folder_path) {
   files <- list.files(folder_path, pattern = "\\.tex$", full.names = TRUE)
   lapply(files, replace_before_document)
 }
-

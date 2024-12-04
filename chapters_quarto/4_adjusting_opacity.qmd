@@ -304,12 +304,10 @@ knitr::include_graphics(path = "../supplied_graphics/example-plots.png", dpi = N
 #| label: fig-mask-adjusting-opacity
 #| include: true
 #| fig-cap: An example of a visual mask displayed for 2.5 seconds before each experimental trial.
-#| out-width: 50%
-#| out-height: 31.8352%
 
 # find training slide png in supplied graphics folder
 
-knitr::include_graphics(path = "../supplied_graphics/visual_mask.png", dpi = NA)
+knitr::include_graphics(path = "../supplied_graphics/visual_mask.png")
 ```
 
 Each trial was preceded by text that either told the participant:
