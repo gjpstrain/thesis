@@ -5,7 +5,7 @@ output:
     latex:
       
 params:
-  eval_models: true
+  eval_models: false
   
 knitr:
   opts_chunk: 
@@ -52,8 +52,14 @@ conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
 
 # define plotting labels now
 
-labels_e1 <- c(A = "Low Contrast", B = "Medium Contrast", C = "High Contrast", D = "Full Contrast")
-labels_e2 <- c(A = "Non-Linear Decay", B = "Linear Decay", C = "Inverted Decay", D = "Full Contrast")
+labels_e1 <- c(A = "Low Contrast\nalpha = 0.25",
+               B = "Medium Contrast\nalpha = 0.5",
+               C = "High Contrast\nalpha = 0.75",
+               D = "Full Contrast\nalpha = 1.0")
+labels_e2 <- c(A = "Non-Linear Decay",
+               B = "Linear Decay",
+               C = "Inverted Decay",
+               D = "Full Contrast")
 ```
 
 ```{r}
@@ -288,8 +294,7 @@ response slider.
 #| label: fig-training-slide-adjusting-opacity
 #| include: true
 #| fig-cap: Participants viewed these plots for at least eight seconds before being allowed to continue to the practice trials.
-#| out-width: NA
-#| out-height: NA
+
 # find training slide png in supplied graphics folder
 
 knitr::include_graphics(path = "../supplied_graphics/example-plots.png", dpi = NA)
@@ -299,8 +304,9 @@ knitr::include_graphics(path = "../supplied_graphics/example-plots.png", dpi = N
 #| label: fig-mask-adjusting-opacity
 #| include: true
 #| fig-cap: An example of a visual mask displayed for 2.5 seconds before each experimental trial.
-#| out-width: NA
-#| out-height: NA
+#| out-width: 50%
+#| out-height: 31.8352%
+
 # find training slide png in supplied graphics folder
 
 knitr::include_graphics(path = "../supplied_graphics/visual_mask.png", dpi = NA)
@@ -370,8 +376,6 @@ to the four levels of point opacity. Examples of each of these can be seen in
 #| label: fig-exp1-examples-chap4
 #| include: true
 #| fig-cap: Examples of the stimuli used in experiment 1, demonstrated with an \textit{r} value of 0.6. Here, "opacity" refers to the alpha value used by ggplot.
-#| out-width: NA
-#| out-height: NA
 #| fig-asp: 0.275
 
 ggarrange(plot_example_function(data_with_resid, "Opacity = 0.25",
@@ -415,7 +419,24 @@ anova_results(e1_model, e1_model_cmpr)
 To investigate the effects of opacity condition on participants' estimates
 of correlation, a linear mixed effects model was built whereby opacity condition
 is a predictor for the difference between objective *r* values for each plot
-and participants' estimates of *r*.
+and participants' estimates of *r*. This model has random intercepts for 
+items and participants. A likelihood ratio test revealed that the mode including
+global opacity as a fixed effect explained significantly more variance than a 
+null model ($\chi^2$(`r in_paren(e1_model.df)`) = `r printnum(e1_model.Chisq)`,
+*p* `r printp(e1_model.p, add_equals = TRUE)`). @fig-e1-estimates shows the mean
+errors in correlation estimation for each opacity condition.
+
+```{r}
+#| label: fig-e1-estimates
+#| include: true
+#| fig-cap: placeholder
+#| fig-asp: 0.4
+
+#plotting_df <- as_tibble(emmeans(e1_model, pairwise ~ "opacity")[[1]]) %>%
+#    mutate(opacity = recode(opacity, !!!labels_e1))
+```
+
+
 
 ## Discussion {#discussion-adjusting-opacity-e1}
 
