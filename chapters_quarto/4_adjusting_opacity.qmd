@@ -45,6 +45,8 @@ library(ggdist)
 library(ggpubr)
 library(geomtextpath)
 library(conflicted)
+library(formattable)
+library(effectsize)
 
 # fix conflicts
 
@@ -52,14 +54,14 @@ conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
 
 # define plotting labels now
 
-labels_e1 <- c(A = "Low Contrast\nalpha = 0.25",
-               B = "Medium Contrast\nalpha = 0.5",
-               C = "High Contrast\nalpha = 0.75",
-               D = "Full Contrast\nalpha = 1.0")
+labels_e1 <- c(A = "Low Opacity\n(alpha = 0.25)",
+               B = "Medium Opacity\n(alpha = 0.5)",
+               C = "High Opacity\n(alpha = 0.75)",
+               D = "Full Opacity\n(alpha = 1.0)")
 labels_e2 <- c(A = "Non-Linear Decay",
                B = "Linear Decay",
                C = "Inverted Decay",
-               D = "Full Contrast")
+               D = "Full Opacity")
 ```
 
 ```{r}
@@ -182,30 +184,6 @@ extract_age(E2_spatially_dependent_tidy)
 extract_gender(E2_spatially_dependent_tidy)
 
 extract_literacy(E2_spatially_dependent_tidy)
-```
-
-```{r}
-#| label: contrasts-extract
-
-# this function extracts test statistics and p values from model summaries
-
-contrasts_extract <- function(model) {
-  
-  model_name <- deparse(substitute(model))
-  
-  if (class(model) == "buildmer") model <- model@model
-  
-  EMMs <- emmeans(model, pairwise ~ size * opacity)
-  
-  contrast_df <- as.data.frame(EMMs[2]) %>%
-                            rename_with(str_replace,
-                                        pattern = "contrasts.", replacement = "",
-                                        matches("contrasts")) %>%
-                            rename_with(str_to_title, !starts_with("p")) %>%
-                            select(c("Contrast", "Z.ratio", "p.value"))
-  
-  return(contrast_df)
-}
 ```
 
 ```{r}
@@ -398,6 +376,10 @@ e1_model <- buildmer(difference ~ opacity +
                        (1 + opacity | participant) +
                        (1 + opacity | item),
                      data = E1_uniform_adjustments_tidy)
+
+# build model with literacy added for later
+
+e1_lit_model <- add_fixed_effect(e1_model, "literacy", "E1_uniform_adjustments_tidy")
 ```
 
 ```{r}
@@ -412,6 +394,10 @@ e1_model_cmpr <- comparison(e1_model)
 #| label: anova-results-e1
 
 anova_results(e1_model, e1_model_cmpr)
+
+# also do anova for literacy model
+
+anova_results(e1_lit_model, e1_model)
 ```
 
 To investigate the effects of opacity condition on participants' estimates
@@ -422,18 +408,110 @@ items and participants. A likelihood ratio test revealed that the mode including
 global opacity as a fixed effect explained significantly more variance than a 
 null model ($\chi^2$(`r in_paren(e1_model.df)`) = `r printnum(e1_model.Chisq)`,
 *p* `r printp(e1_model.p, add_equals = TRUE)`). @fig-e1-estimates shows the mean
-errors in correlation estimation for each opacity condition.
+errors in correlation estimation for each opacity condition, along with 95% confidence intervals.
 
 ```{r}
 #| label: fig-e1-estimates
 #| include: true
-#| fig-cap: placeholder
+#| fig-cap: Estimated marginal means for the four conditions tested in experiment 1. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error.
 #| fig-asp: 0.4
 
-#plotting_df <- as_tibble(emmeans(e1_model, pairwise ~ "opacity")[[1]]) %>%
-#    mutate(opacity = recode(opacity, !!!labels_e1))
+# assign buildmer model to lmer slot
+
+if (class(e1_model) == "buildmer") e1_model <- e1_model@model
+
+plotting_df <- as_tibble(emmeans(e1_model, pairwise ~ "opacity")[[1]]) %>%
+  mutate(opacity = recode(opacity, !!!labels_e1)) %>%
+  rename("Condition" = "opacity")
+
+ggplot(aes(x = reorder(Condition, emmean), y = emmean*-1),data = plotting_df) +
+  geom_point(size = 1.75) +
+  geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
+  theme_ggdist() +
+  labs(y = "Estimated Marginal Mean of Error",
+       x = "Condition") +
+  theme(axis.text = element_text(size = 7),
+        axis.title = element_text(size = 8)) +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10)) +
+  coord_flip() +
+  geom_abline(intercept = 0, slope = 0, linetype = 2) +
+  annotate(geom = "segment",
+                   x = 4.4,
+                   xend = 4.4,
+                   y = -.02,
+                   yend = -.08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm" ))) +
+  annotate(geom = "segment",
+                   x = 4.4,
+                   xend = 4.4,
+                   y = .02,
+                   yend = .08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm"))) +
+  annotate(geom = "text",
+           x = 4.15,
+           y = -.05,
+           label = "Underestimation",
+           size = 3) +
+  annotate(geom = "text",
+           x = 4.15,
+           y = .05,
+           label = "Overestimation",
+           size = 3) +
+  annotate(geom = "text",
+           x = 2.5,
+           y = 0.008,
+           label = "No Estimation Error",
+           size = 2.5,
+           angle = 270)
+
+rm(plotting_df)
 ```
 
+```{r}
+#| label: tbl-contrasts-e1
+#| include: true
+#| tbl-cap: Contrasts between different levels of the opacity factor in experiment 1.
+
+# assign slot, if it hasn't been assigned already
+
+if (class(e1_model) == "buildmer") e1_model <- e1_model@model
+
+# make table df
+
+contrasts_extract(e1_model, "opacity") %>%
+  mutate(Contrast = str_replace_all(Contrast, labels_e1)) %>%
+  separate(Contrast, c(" ", "  "), sep = "-") %>%
+  kbl(booktabs = TRUE, digits = c(0,2,3), escape = FALSE) %>%
+  add_header_above(c("Contrasts" = 2, "Statistics" = 2))
+
+```
+
+This effect was driven by significant difference between means of correlation 
+estimation error between all conditions bar high and full opacity. Statistical
+tests for contrasts were performed using the **emmeans** package \cite{emmeans}, 
+and are shown in @tbl-contrasts-e1. To test whether the observed results could be
+explained by difference in participants' levels of graph literacy, an additional
+model was built. This model is identical to the experimental model, but also
+includes graph literacy as a fixed effect. There was no effect of graph literacy,
+indicating that the differences observed in participants' correlation estimation 
+performance were not as a result of their differing levels of graph literacy
+($\chi^2$(`r in_paren(e1_lit_model.df)`) = `r printp(e1_lit_model.Chisq)`,
+*p* `r printp(e1_lit_model.p, add_equals = TRUE)`).
+
+```{r}
+#| label: tbl-sig-e1
+#| include: true
+#| tbl-cap: placeholder
+
+if (class(e1_model) == "buildmer") e1_model <- e1_model@model
+
+model_summary <- summary(e1_model)
+
+coef_table <- model_summary$coefficients 
+
+as_tibble(coef_table, rownames = "Effect") %>%
+  column_to_rownames(var = "Effect")
+```
 
 
 ## Discussion {#discussion-adjusting-opacity-e1}

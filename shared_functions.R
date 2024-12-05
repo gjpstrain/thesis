@@ -217,3 +217,43 @@ anova_results <- function(model, cmpr_model) {
          anova_output$`Pr(>Chisq)`[2],
          envir = .GlobalEnv)
 }
+
+## function to extract contrasts from model summaries using emmeans
+
+contrasts_extract <- function(model, measure) {
+  
+  contrast_formula <- as.formula(paste("pairwise ~", measure))
+  
+  model_name <- deparse(substitute(model))
+  
+  if (class(model) == "buildmer") model <- model@model
+  
+  EMMs <- emmeans(model, contrast_formula)
+  
+  contrast_df <- as.data.frame(EMMs[2]) %>%
+    rename_with(str_replace,
+                pattern = "contrasts.", replacement = "",
+                matches("contrasts")) %>%
+    rename_with(str_to_title, !starts_with("p")) %>%
+    select(c("Contrast", "Z.ratio", "p.value")) %>%
+    mutate(p.value = scales::pvalue(p.value)) %>%
+    rename("\\textit{p}" = "p.value",
+           "Z ratio" = "Z.ratio")
+  
+  return(contrast_df)
+}
+
+## function to add a fixed effect term to any model
+
+add_fixed_effect <- function(model, term, df) {
+  
+  if (class(model) == "buildmer") model <- model@model
+  
+  new_formula <- add.terms(formula(model), term)
+  
+  new_model <- eval(bquote(
+    lmer(.(new_formula), data = .(as.name(df)))
+  ))
+  
+  return(new_model)
+}

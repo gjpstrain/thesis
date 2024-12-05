@@ -187,8 +187,75 @@ This model has random intercepts for items and participants. A
 likelihood ratio test revealed that the mode including global opacity as
 a fixed effect explained significantly more variance than a null model
 (\(\chi^2\)(3) = 223.13, \emph{p} \textless{} .001).
-\textbf{?@fig-e1-estimates} shows the mean errors in correlation
-estimation for each opacity condition.
+Figure~\ref{fig-e1-estimates} shows the mean errors in correlation
+estimation for each opacity condition, along with 95\% confidence
+intervals.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf}
+
+}
+
+\caption{\label{fig-e1-estimates}Estimated marginal means for the four
+conditions tested in experiment 1. 95\% confidence intervals are shown.
+The vertical dashed line represents no estimation error.}
+
+\end{figure}%
+
+\begin{table}
+
+\caption{\label{tbl-contrasts-e1}Contrasts between different levels of
+the opacity factor in experiment 1.}
+
+\centering{
+
+\begin{tabular}[t]{llrl}
+\toprule
+\multicolumn{2}{c}{Contrasts} & \multicolumn{2}{c}{Statistics} \\
+\cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
+  &    & Z ratio & \textit{p}\\
+\midrule
+Low Opacity
+(alpha = 0.25) & Medium Opacity
+(alpha = 0.5) & 6.631 & <0.001\\
+Low Opacity
+(alpha = 0.25) & High Opacity
+(alpha = 0.75) & 12.071 & <0.001\\
+Low Opacity
+(alpha = 0.25) & Full Opacity
+(alpha = 1.0) & 13.439 & <0.001\\
+Medium Opacity
+(alpha = 0.5) & High Opacity
+(alpha = 0.75) & 5.443 & <0.001\\
+Medium Opacity
+(alpha = 0.5) & Full Opacity
+(alpha = 1.0) & 6.809 & <0.001\\
+\addlinespace
+High Opacity
+(alpha = 0.75) & Full Opacity
+(alpha = 1.0) & 1.363 & 0.523\\
+\bottomrule
+\end{tabular}
+
+}
+
+\end{table}%
+
+This effect was driven by significant difference between means of
+correlation estimation error between all conditions bar high and full
+opacity. Statistical tests for contrasts were performed using the
+\textbf{emmeans} package \cite{emmeans}, and are shown in
+Table~\ref{tbl-contrasts-e1}. To test whether the observed results could
+be explained by difference in participants' levels of graph literacy, an
+additional model was built. This model is identical to the experimental
+model, but also includes graph literacy as a fixed effect. There was no
+effect of graph literacy, indicating that the differences observed in
+participants' correlation estimation performance were not as a result of
+their differing levels of graph literacy (\(\chi^2\)(1) = 0.00, \emph{p}
+= .962).
 
 \subsection{Discussion}\label{discussion-adjusting-opacity-e1}
 
