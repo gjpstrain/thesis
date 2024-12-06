@@ -510,7 +510,19 @@ model_summary <- summary(e1_lit_model)
 coef_table <- model_summary$coefficients 
 
 as_tibble(coef_table, rownames = "Effect") %>%
-  column_to_rownames(var = "Effect")
+  rename("Standard Error" = "Std. Error",
+         "t-value" = "t value") %>%
+  mutate(`Pr(>|t|)` = scales::pvalue(`Pr(>|t|)`)) %>%
+  mutate("Odds Ratio" = exp(Estimate)) %>%
+  mutate("Cohen's \\textit{d}" = effectsize::oddsratio_to_d(`Odds Ratio`)) %>%
+  mutate(Effect = recode(Effect,
+                         "(Intercept)" = "Low Opacity (alpha = 0.25)",
+                         "opacityB" = "Medium Opacity (alpha = 0.5)",
+                         "opacityC" = "High Opacity (alpha = 0.75)",
+                         "opacityD" = "Full Opacity (alpha = 1.0)",
+                         "literacy" = "Graph Literacy")) %>%
+  column_to_rownames(var = "Effect") %>%
+  kbl()
 ```
 
 

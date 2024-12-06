@@ -252,7 +252,7 @@ add_fixed_effect <- function(model, term, df) {
   new_formula <- add.terms(formula(model), term)
   
   new_model <- eval(bquote(
-    lmer(.(new_formula), data = .(as.name(df)))
+    lmerTest::lmer(.(new_formula), data = .(as.name(df)))
   ))
   
   return(new_model)
