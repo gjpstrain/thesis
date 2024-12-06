@@ -505,7 +505,7 @@ performance were not as a result of their differing levels of graph literacy
 
 if (class(e1_model) == "buildmer") e1_model <- e1_model@model
 
-model_summary <- summary(e1_model)
+model_summary <- summary(e1_lit_model)
 
 coef_table <- model_summary$coefficients 
 
