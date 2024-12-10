@@ -5,7 +5,7 @@ output:
     latex:
       
 params:
-  eval_models: false
+  eval_models: true
   
 knitr:
   opts_chunk: 
@@ -58,10 +58,10 @@ labels_e1 <- c(A = "Low Opacity\n(alpha = 0.25)",
                B = "Medium Opacity\n(alpha = 0.5)",
                C = "High Opacity\n(alpha = 0.75)",
                D = "Full Opacity\n(alpha = 1.0)")
-labels_e2 <- c(A = "Non-Linear Decay",
-               B = "Linear Decay",
-               C = "Inverted Decay",
-               D = "Full Opacity")
+labels_e2 <- c(A = "Non-Linear\nDecay",
+               B = "Linear\nDecay",
+               C = "Inverted\nDecay",
+               D = "Full\n Opacity")
 ```
 
 ```{r}
@@ -422,7 +422,7 @@ errors in correlation estimation for each opacity condition, along with 95% conf
 ```{r}
 #| label: fig-e1-estimates
 #| include: true
-#| fig-cap: Estimated marginal means for the four conditions tested in experiment 1. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error.
+#| fig-cap: Estimated marginal means for the four conditions tested in experiment 1. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error. The overestimation zone is included to facilitate comparison to later work.
 #| fig-asp: 0.4
 
 # assign buildmer model to lmer slot
@@ -433,7 +433,7 @@ plotting_df <- as_tibble(emmeans(e1_model, pairwise ~ "opacity")[[1]]) %>%
   mutate(opacity = recode(opacity, !!!labels_e1)) %>%
   rename("Condition" = "opacity")
 
-ggplot(aes(x = reorder(Condition, emmean), y = emmean*-1),data = plotting_df) +
+ggplot(aes(x = reorder(Condition, emmean), y = emmean*-1), data = plotting_df) +
   geom_point(size = 1.75) +
   geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
   theme_ggdist() +
@@ -487,7 +487,7 @@ if (class(e1_model) == "buildmer") e1_model <- e1_model@model
 
 # make table df
 
-contrasts_extract(e1_model, "opacity")
+contrasts_extract(e1_model, "opacity") %>%
   mutate(Contrast = str_replace_all(Contrast, labels_e1)) %>%
   separate(Contrast, c(" ", "  "), sep = "-") %>%
   kbl(booktabs = TRUE, digits = c(0,2,3), escape = FALSE) %>%
@@ -501,28 +501,42 @@ tests for contrasts were performed using the **emmeans** package \cite{emmeans},
 and are shown in @tbl-contrasts-e1. To test whether the observed results could be
 explained by difference in participants' levels of graph literacy, an additional
 model was built. This model is identical to the experimental model, but also
-includes graph literacy as a fixed effect. There was no effect of graph literacy,
+includes graph literacy as a fixed effect. Including graph literacy as a fixed effect
+explained no additional variance ($\chi^2$(`r in_paren(e1_lit_model.df)`) =
+`r printp(e1_lit_model.Chisq)`, *p* `r printp(e1_lit_model.p, add_equals = TRUE)`),
 indicating that the differences observed in participants' correlation estimation 
-performance were not as a result of differences in levels of graph literacy
-($\chi^2$(`r in_paren(e1_lit_model.df)`) = `r printp(e1_lit_model.Chisq)`,
-*p* `r printp(e1_lit_model.p, add_equals = TRUE)`).
+performance were not as a result of differences in levels of graph literacy.
 
 ```{r}
 #| label: tbl-efs-e1
 #| include: true
+#| tbl-cap: Cohen's \textit{d} effect sizes for levels of the opacity factor in experiment 1. Each effect size is compared to the reference level, full contrast (alpha = 1).
+
+# this approximation uses t values and the pooled standard deviation of the differences
 
 efs <- lme.dscore(e1_model, E1_uniform_adjustments_tidy, type = "lme4") %>%
   as_tibble(rownames = "Effect") %>%
   select(-c(t, df)) %>%
-  add_row(Effect = "opacityD", .before = 1) %>%
+  mutate(d = as.character(d)) %>%
+  add_row(Effect = "opacityD", d = "", .before = 1) %>%
   mutate(Effect = recode(Effect,
                          "opacityA" = "Low Opacity (alpha = 0.25)",
                          "opacityB" = "Medium Opacity (alpha = 0.5)",
                          "opacityC" = "High Opacity (alpha = 0.75)",
-                         "opacityD" = "Full Opacity (alpha = 1.0)")) 
+                         "opacityD" = "Full Opacity (alpha = 1.0)")) %>%
+  rename(`Cohen's \textit{d}` = "d")
+
+kbl(efs, booktabs = TRUE, digits = 2)
   
 ```
 
+A function from the now archived **EMAtools** package \cite{ematools} was used to 
+calculate an approximation of Cohen's *d* between the reference level (full contrast, 
+alpha = 1.0) and each other level of the opacity factor. These statistics can be
+seen in @tbl-efs-e1. The largest effect size observed (*d* ~ 0.17) is between the 
+low and full opacity conditions, and is small. This was unsurprising given the lack 
+of previously reported effects on correlation perception of global point opacity
+\cite{rensink_2012}.
 
 ## Discussion {#discussion-adjusting-opacity-e1}
 
@@ -531,6 +545,8 @@ efs <- lme.dscore(e1_model, E1_uniform_adjustments_tidy, type = "lme4") %>%
 ## Introduction {#introduction-adjusting-opacity-e2}
 
 ## Methods {#methods-adjusting-opacity-e2}
+
+### Participants {#participants-adjusting-opacity-e2}
 
 150 participants were recruited using the Prolific platform \cite{prolific}. Normal to
 corrected-to-normal vision and English fluency were required. Participants who
@@ -546,8 +562,158 @@ was `r printnum(E2_spatially_dependent_tidy_graph_literacy$mean)` (*SD* =
 `r printnum(E2_spatially_dependent_tidy_graph_literacy$sd)`). The average
 time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
+### Design {#design-adjusting-opacity-e2}
+
+For each of the 45 *r* values in experiment 2, there were four versions of each plot corresponding to the three levels of point opacity decay function and 
+the baseline global full opacity condition. Examples 
+of each of these can be seen in@fig-exp2-examples-chap4, demonstrated 
+with an *r* value of 0.6.
+
+```{r}
+#| label: fig-exp2-examples-chap4
+#| include: true
+#| fig-cap: Examples of the stimuli used in experiment 2, demonstrated with an \textit{r} value of 0.6. Here, "opacity" refers to the alpha value used by ggplot.
+#| fig-asp: 0.275
+
+ggarrange(plot_example_function(slopes, "Non-Linear Decay",
+                                (1-slopes$slope_0.25), 0.2, 7),
+          plot_example_function(slopes, "Linear Decay",
+                                (1-slopes$slope_linear), 0.2, 7),
+          plot_example_function(slopes, "Inverted Decay",
+                                (1-slopes$slope_inverted), 0.2, 7),
+          plot_example_function(slopes, "Full Opacity",
+                                1, 0.2, 7),
+          nrow = 1)
+```
 
 ## Analysis {#analysis-adjusting-opacity-e2}
+
+```{r}
+#| label: model-e2
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e2_model <- buildmer(difference ~ opacity +
+                       (1 + opacity | participant) +
+                       (1 + opacity | item),
+                     data = E2_spatially_dependent_tidy)
+
+```
+
+```{r}
+#| label: model-e2-lit
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+# build model with literacy added for later
+
+e2_lit_model <- add_fixed_effect(e2_model, "literacy", "E2_spatially_dependent_tidy")
+```
+
+```{r}
+#| label: model-e2-cmpr
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e2_model_cmpr <- comparison(e2_model)
+```
+
+```{r}
+#| label: anova-results-e2
+
+anova_results(e2_model, e2_model_cmpr)
+
+# also do anova for literacy model
+
+anova_results(e2_lit_model, e2_model)
+```
+
+To investigate the effects of the opacity decay functions on participants' estimates
+of correlation, a linear mixed effects model was built whereby decay function condition
+is a predictor for the difference between objective *r* values for each plot
+and participants' estimates of *r*. This model has random intercepts for 
+items and participants. A likelihood ratio test revealed that the mode including
+global opacity as a fixed effect explained significantly more variance than a 
+null model ($\chi^2$(`r in_paren(e2_model.df)`) = `r printnum(e2_model.Chisq)`,
+*p* `r printp(e2_model.p, add_equals = TRUE)`). @fig-e1-estimates shows the mean
+errors in correlation estimation for each opacity decay function condition,
+along with 95% confidence intervals.
+
+```{r}
+#| label: fig-e2-estimates
+#| include: true
+#| fig-cap: Estimated marginal means for the four conditions tested in experiment 2. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error.
+#| fig-asp: 0.4
+
+# assign buildmer model to lmer slot
+
+if (class(e2_model) == "buildmer") e2_model <- e2_model@model
+
+plotting_df <- as_tibble(emmeans(e2_model, pairwise ~ "opacity")[[1]]) %>%
+  mutate(opacity = recode(opacity, !!!labels_e2)) %>%
+  rename("Condition" = "opacity")
+
+ggplot(aes(x = reorder(Condition, emmean), y = emmean*-1), data = plotting_df) +
+  geom_point(size = 1.75) +
+  geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
+  theme_ggdist() +
+  labs(y = "Estimated Marginal Mean of Error",
+       x = "Condition") +
+  theme(axis.text = element_text(size = 7),
+        axis.title = element_text(size = 8)) +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10)) +
+  coord_flip() +
+  geom_abline(intercept = 0, slope = 0, linetype = 2) +
+  annotate(geom = "segment",
+                   x = 4.4,
+                   xend = 4.4,
+                   y = -.02,
+                   yend = -.08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm" ))) +
+  annotate(geom = "segment",
+                   x = 4.4,
+                   xend = 4.4,
+                   y = .02,
+                   yend = .08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm"))) +
+  annotate(geom = "text",
+           x = 4.15,
+           y = -.05,
+           label = "Underestimation",
+           size = 3) +
+  annotate(geom = "text",
+           x = 4.15,
+           y = .05,
+           label = "Overestimation",
+           size = 3) +
+  annotate(geom = "text",
+           x = 2.5,
+           y = 0.008,
+           label = "No Estimation Error",
+           size = 2.5,
+           angle = 270)
+
+rm(plotting_df)
+```
+
+```{r}
+#| label: tbl-contrasts-e2
+#| include: true
+#| tbl-cap: Contrasts between different levels of opacity decay function in experiment 2.
+
+# assign slot, if it hasn't been assigned already
+
+if (class(e2_model) == "buildmer") e2_model <- e2_model@model
+
+# make table df
+
+contrasts_extract(e2_model, "opacity") %>%
+  mutate(Contrast = str_replace_all(Contrast, labels_e2)) %>%
+  separate(Contrast, c(" ", "  "), sep = "-") %>%
+  kbl(booktabs = TRUE, digits = c(0,2,3), escape = FALSE) %>%
+  add_header_above(c("Contrasts" = 2, "Statistics" = 2))
+  
+```
 
 ## Discussion {#discussion-adjusting-opacity-e2}
 

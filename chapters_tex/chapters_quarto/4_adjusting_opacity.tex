@@ -201,7 +201,8 @@ intervals.
 
 \caption{\label{fig-e1-estimates}Estimated marginal means for the four
 conditions tested in experiment 1. 95\% confidence intervals are shown.
-The vertical dashed line represents no estimation error.}
+The vertical dashed line represents no estimation error. The
+overestimation zone is included to facilitate comparison to later work.}
 
 \end{figure}%
 
@@ -251,33 +252,44 @@ opacity. Statistical tests for contrasts were performed using the
 Table~\ref{tbl-contrasts-e1}. To test whether the observed results could
 be explained by difference in participants' levels of graph literacy, an
 additional model was built. This model is identical to the experimental
-model, but also includes graph literacy as a fixed effect. There was no
-effect of graph literacy, indicating that the differences observed in
-participants' correlation estimation performance were not as a result of
-their differing levels of graph literacy (\(\chi^2\)(1) = .002, \emph{p}
-= .962).
+model, but also includes graph literacy as a fixed effect. Including
+graph literacy as a fixed effect explained no additional variance
+(\(\chi^2\)(1) = .002, \emph{p} = .962), indicating that the differences
+observed in participants' correlation estimation performance were not as
+a result of differences in levels of graph literacy.
 
 \begin{table}
 
-\caption{\label{tbl-sig-e1}placeholder}
+\caption{\label{tbl-efs-e1}Cohen's \textit{d} effect sizes for levels of
+the opacity factor in experiment 1. Each effect size is compared to the
+reference level, full contrast (alpha = 1).}
 
 \centering{
 
-\begin{tabular}[t]{lrrrrlrr}
+\begin{tabular}[t]{ll}
 \toprule
-  & Estimate & Standard Error & df & t-value & Pr(>|t|) & Odds Ratio & Cohen's \textbackslash{}\textbackslash{}textit\{d\}\\
+Effect & Cohen's    extit\{d\}\\
 \midrule
-Low Opacity (alpha = 0.25) & 0.181 & 0.048 & 168.1 & 3.75 & <0.001 & 1.198 & 0.100\\
-Medium Opacity (alpha = 0.5) & -0.017 & 0.003 & 26637.0 & -6.63 & <0.001 & 0.984 & -0.009\\
-High Opacity (alpha = 0.75) & -0.030 & 0.003 & 26637.0 & -12.07 & <0.001 & 0.970 & -0.017\\
-Full Opacity (alpha = 1.0) & -0.034 & 0.003 & 26637.0 & -13.44 & <0.001 & 0.967 & -0.019\\
-Graph Literacy & 0.000 & 0.002 & 148.0 & 0.05 & 0.962 & 1.000 & 0.000\\
+Full Opacity (alpha = 1.0) & \\
+High Opacity (alpha = 0.75) & 0.0167045436637091\\
+Medium Opacity (alpha = 0.5) & 0.0834386934054599\\
+Low Opacity (alpha = 0.25) & 0.1646818599774\\
 \bottomrule
 \end{tabular}
 
 }
 
 \end{table}%
+
+A function from the now archived \textbf{EMAtools} package
+\cite{ematools} was used to calculate an approximation of Cohen's
+\emph{d} between the reference level (full contrast, alpha = 1.0) and
+each other level of the opacity factor. These statistics can be seen in
+Table~\ref{tbl-efs-e1}. The largest effect size observed (\emph{d}
+\textasciitilde{} 0.17) is between the low and full opacity conditions,
+and is small. This was unsurprising given the lack of previously
+reported effects on correlation perception of global point opacity
+\cite{rensink_2012}.
 
 \subsection{Discussion}\label{discussion-adjusting-opacity-e1}
 
@@ -287,6 +299,8 @@ Adjustments}\label{experiment-2-spatially-dependent-opacity-adjustments}
 \subsection{Introduction}\label{introduction-adjusting-opacity-e2}
 
 \subsection{Methods}\label{methods-adjusting-opacity-e2}
+
+\subsubsection{Participants}\label{participants-adjusting-opacity-e2}
 
 150 participants were recruited using the Prolific platform
 \cite{prolific}. Normal to corrected-to-normal vision and English
@@ -300,7 +314,97 @@ Participants' mean age was 27.05 (\emph{SD} = 7.37). Mean graph literacy
 score was 21.71 (\emph{SD} = 4.06). The average time taken to complete
 the experiment was 33 minutes (SD = 10 minutes).
 
+\subsubsection{Design}\label{design-adjusting-opacity-e2}
+
+For each of the 45 \emph{r} values in experiment 2, there were four
+versions of each plot corresponding to the three levels of point opacity
+decay function and the baseline global full opacity condition. Examples
+of each of these can be seen in@fig-exp2-examples-chap4, demonstrated
+with an \emph{r} value of 0.6.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf}
+
+}
+
+\caption{\label{fig-exp2-examples-chap4}Examples of the stimuli used in
+experiment 2, demonstrated with an \textit{r} value of 0.6. Here,
+``opacity'' refers to the alpha value used by ggplot.}
+
+\end{figure}%
+
 \subsection{Analysis}\label{analysis-adjusting-opacity-e2}
+
+To investigate the effects of the opacity decay functions on
+participants' estimates of correlation, a linear mixed effects model was
+built whereby decay function condition is a predictor for the difference
+between objective \emph{r} values for each plot and participants'
+estimates of \emph{r}. This model has random intercepts for items and
+participants. A likelihood ratio test revealed that the mode including
+global opacity as a fixed effect explained significantly more variance
+than a null model (\(\chi^2\)(3) = 1,157.62, \emph{p} \textless{} .001).
+Figure~\ref{fig-e1-estimates} shows the mean errors in correlation
+estimation for each opacity decay function condition, along with 95\%
+confidence intervals.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf}
+
+}
+
+\caption{\label{fig-e2-estimates}Estimated marginal means for the four
+conditions tested in experiment 2. 95\% confidence intervals are shown.
+The vertical dashed line represents no estimation error.}
+
+\end{figure}%
+
+\begin{table}
+
+\caption{\label{tbl-contrasts-e2}Contrasts between different levels of
+opacity decay function in experiment 2.}
+
+\centering{
+
+\begin{tabular}[t]{llrl}
+\toprule
+\multicolumn{2}{c}{Contrasts} & \multicolumn{2}{c}{Statistics} \\
+\cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
+  &    & Z ratio & \textit{p}\\
+\midrule
+Full
+ Opacity & Inverted
+Full
+ Opacityecay & -18.880 & <0.001\\
+Full
+ Opacity & Linear
+Full
+ Opacityecay & 1.554 & 0.405\\
+Full
+ Opacity & Non & 15.302 & <0.001\\
+Inverted
+Full
+ Opacityecay & Linear
+Full
+ Opacityecay & 20.425 & <0.001\\
+Inverted
+Full
+ Opacityecay & Non & 34.170 & <0.001\\
+\addlinespace
+Linear
+Full
+ Opacityecay & Non & 13.742 & <0.001\\
+\bottomrule
+\end{tabular}
+
+}
+
+\end{table}%
 
 \subsection{Discussion}\label{discussion-adjusting-opacity-e2}
 

@@ -261,14 +261,9 @@ add_fixed_effect <- function(model, term, df) {
 ## lme.dscore function, as EMAtools package is no longer available
 
 lme.dscore<-function(mod,data,type){
-  if (type=="lme4") {
+
     mod1<-lmerTest::lmer(mod,data=data)
     eff<-cbind(summary(mod1)$coefficients[,4],summary(mod1)$coefficients[,3])
-  }
-  
-  if (type=="nlme") {
-    eff=cbind(summary(mod)$tTable[,4],summary(mod)$fixDF$terms)
-  }
   
   colnames(eff)<-c("t","df")
   eff<-as.data.frame(eff)
