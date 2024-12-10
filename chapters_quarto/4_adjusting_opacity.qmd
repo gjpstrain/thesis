@@ -149,7 +149,7 @@ anon_file %>%
   mutate(across(c("item", "contrast", "half"), as_factor)) %>%
   dplyr::select(-c("__participant")) %>%
   mutate(difference = my_rs - slider.response) %>%
-  mutate(contrast = fct_relevel(contrast, c('A', 'B', 'C', 'D'))) %>%
+  mutate(contrast = fct_relevel(contrast, c('D', 'C', 'B', 'A'))) %>%
   rename("opacity" = "contrast") %>% #contrast was an earlier term, so is changed here for consistency                                        
 
   assign(paste0(unique(anon_file$expName), "_tidy"),
@@ -377,6 +377,15 @@ e1_model <- buildmer(difference ~ opacity +
                        (1 + opacity | item),
                      data = E1_uniform_adjustments_tidy)
 
+
+```
+
+
+```{r}
+#| label: model-e1-lit
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
 # build model with literacy added for later
 
 e1_lit_model <- add_fixed_effect(e1_model, "literacy", "E1_uniform_adjustments_tidy")
@@ -478,12 +487,12 @@ if (class(e1_model) == "buildmer") e1_model <- e1_model@model
 
 # make table df
 
-contrasts_extract(e1_model, "opacity") %>%
+contrasts_extract(e1_model, "opacity")
   mutate(Contrast = str_replace_all(Contrast, labels_e1)) %>%
   separate(Contrast, c(" ", "  "), sep = "-") %>%
   kbl(booktabs = TRUE, digits = c(0,2,3), escape = FALSE) %>%
   add_header_above(c("Contrasts" = 2, "Statistics" = 2))
-
+  
 ```
 
 This effect was driven by significant difference between means of correlation 
@@ -494,35 +503,24 @@ explained by difference in participants' levels of graph literacy, an additional
 model was built. This model is identical to the experimental model, but also
 includes graph literacy as a fixed effect. There was no effect of graph literacy,
 indicating that the differences observed in participants' correlation estimation 
-performance were not as a result of their differing levels of graph literacy
+performance were not as a result of differences in levels of graph literacy
 ($\chi^2$(`r in_paren(e1_lit_model.df)`) = `r printp(e1_lit_model.Chisq)`,
 *p* `r printp(e1_lit_model.p, add_equals = TRUE)`).
 
 ```{r}
-#| label: tbl-sig-e1
+#| label: tbl-efs-e1
 #| include: true
-#| tbl-cap: placeholder
 
-if (class(e1_model) == "buildmer") e1_model <- e1_model@model
-
-model_summary <- summary(e1_lit_model)
-
-coef_table <- model_summary$coefficients 
-
-as_tibble(coef_table, rownames = "Effect") %>%
-  rename("Standard Error" = "Std. Error",
-         "t-value" = "t value") %>%
-  mutate(`Pr(>|t|)` = scales::pvalue(`Pr(>|t|)`)) %>%
-  mutate("Odds Ratio" = exp(Estimate)) %>%
-  mutate("Cohen's \\textit{d}" = effectsize::oddsratio_to_d(`Odds Ratio`)) %>%
+efs <- lme.dscore(e1_model, E1_uniform_adjustments_tidy, type = "lme4") %>%
+  as_tibble(rownames = "Effect") %>%
+  select(-c(t, df)) %>%
+  add_row(Effect = "opacityD", .before = 1) %>%
   mutate(Effect = recode(Effect,
-                         "(Intercept)" = "Low Opacity (alpha = 0.25)",
+                         "opacityA" = "Low Opacity (alpha = 0.25)",
                          "opacityB" = "Medium Opacity (alpha = 0.5)",
                          "opacityC" = "High Opacity (alpha = 0.75)",
-                         "opacityD" = "Full Opacity (alpha = 1.0)",
-                         "literacy" = "Graph Literacy")) %>%
-  column_to_rownames(var = "Effect") %>%
-  kbl()
+                         "opacityD" = "Full Opacity (alpha = 1.0)")) 
+  
 ```
 
 
