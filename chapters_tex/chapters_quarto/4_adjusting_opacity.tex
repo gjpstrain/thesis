@@ -219,25 +219,25 @@ the opacity factor in experiment 1.}
 \cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
   &    & Z ratio & \textit{p}\\
 \midrule
-Low Opacity
-(alpha = 0.25) & Medium Opacity
-(alpha = 0.5) & 6.631 & <0.001\\
-Low Opacity
-(alpha = 0.25) & High Opacity
-(alpha = 0.75) & 12.071 & <0.001\\
-Low Opacity
-(alpha = 0.25) & Full Opacity
-(alpha = 1.0) & 13.439 & <0.001\\
-Medium Opacity
-(alpha = 0.5) & High Opacity
-(alpha = 0.75) & 5.443 & <0.001\\
-Medium Opacity
-(alpha = 0.5) & Full Opacity
-(alpha = 1.0) & 6.809 & <0.001\\
-\addlinespace
+Full Opacity
+(alpha = 1.0) & High Opacity
+(alpha = 0.75) & -1.363 & 0.523\\
+Full Opacity
+(alpha = 1.0) & Medium Opacity
+(alpha = 0.5) & -6.809 & <0.001\\
+Full Opacity
+(alpha = 1.0) & Low Opacity
+(alpha = 0.25) & -13.439 & <0.001\\
 High Opacity
-(alpha = 0.75) & Full Opacity
-(alpha = 1.0) & 1.363 & 0.523\\
+(alpha = 0.75) & Medium Opacity
+(alpha = 0.5) & -5.443 & <0.001\\
+High Opacity
+(alpha = 0.75) & Low Opacity
+(alpha = 0.25) & -12.071 & <0.001\\
+\addlinespace
+Medium Opacity
+(alpha = 0.5) & Low Opacity
+(alpha = 0.25) & -6.631 & <0.001\\
 \bottomrule
 \end{tabular}
 
@@ -266,14 +266,14 @@ reference level, full contrast (alpha = 1).}
 
 \centering{
 
-\begin{tabular}[t]{ll}
+\begin{tabular}[t]{lr}
 \toprule
-Effect & Cohen's    extit\{d\}\\
+Effect & Cohen's \textit{d}\\
 \midrule
 Full Opacity (alpha = 1.0) & \\
-High Opacity (alpha = 0.75) & 0.0167045436637091\\
-Medium Opacity (alpha = 0.5) & 0.0834386934054599\\
-Low Opacity (alpha = 0.25) & 0.1646818599774\\
+High Opacity (alpha = 0.75) & 0.02\\
+Medium Opacity (alpha = 0.5) & 0.08\\
+Low Opacity (alpha = 0.25) & 0.16\\
 \bottomrule
 \end{tabular}
 
@@ -286,7 +286,7 @@ A function from the now archived \textbf{EMAtools} package
 \emph{d} between the reference level (full contrast, alpha = 1.0) and
 each other level of the opacity factor. These statistics can be seen in
 Table~\ref{tbl-efs-e1}. The largest effect size observed (\emph{d}
-\textasciitilde{} 0.17) is between the low and full opacity conditions,
+\textasciitilde{} 0.16) is between the low and full opacity conditions,
 and is small. This was unsurprising given the lack of previously
 reported effects on correlation perception of global point opacity
 \cite{rensink_2012}.
@@ -377,34 +377,60 @@ opacity decay function in experiment 2.}
 \cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
   &    & Z ratio & \textit{p}\\
 \midrule
-Full
- Opacity & Inverted
-Full
- Opacityecay & -18.880 & <0.001\\
-Full
- Opacity & Linear
-Full
- Opacityecay & 1.554 & 0.405\\
-Full
- Opacity & Non & 15.302 & <0.001\\
-Inverted
-Full
- Opacityecay & Linear
-Full
- Opacityecay & 20.425 & <0.001\\
-Inverted
-Full
- Opacityecay & Non & 34.170 & <0.001\\
+Full Opacity & Inverted Decay & -18.880 & <0.001\\
+Full Opacity & Linear Decay & 1.554 & 0.405\\
+Full Opacity & Non-Linear Decay & 15.302 & <0.001\\
+Inverted Decay & Linear Decay & 20.425 & <0.001\\
+Inverted Decay & Non-Linear Decay & 34.170 & <0.001\\
 \addlinespace
-Linear
-Full
- Opacityecay & Non & 13.742 & <0.001\\
+Linear Decay & Non-Linear Decay & 13.742 & <0.001\\
 \bottomrule
 \end{tabular}
 
 }
 
 \end{table}%
+
+The effect seen in experiment 2 was driven by significant differences in
+means of correlation estimation error between all levels of opacity
+decay function condition bar full opacity and linear decay. Statistical
+testing for contrasts was performed using the \textbf{emmeans} package
+\cite{emmeans}, and are shown in Table~\ref{tbl-contrasts-e2}. To test
+whether the observed results could be explained by differences in graph
+literacy, a model including participants' graph literacy scores as a
+fixed effect was built. Including graph literacy as a fixed effect again
+explained no additional variance (\(\chi^2\)(1) = .242, \emph{p} =
+.623).
+
+\begin{table}
+
+\caption{\label{tbl-efs-e2}Cohen's \textit{d} effect sizes for levels of
+the opacity decay function factor in experiment 2. Each effect size is
+compared to the reference level, full contrast (alpha = 1).}
+
+\centering{
+
+\begin{tabular}[t]{lr}
+\toprule
+Effect & Cohen's \textit{d}\\
+\midrule
+Full Opacity & \\
+Inverted Decay & 0.23\\
+Linear Decay & -0.02\\
+Non-Linear Decay & -0.19\\
+\bottomrule
+\end{tabular}
+
+}
+
+\end{table}%
+
+Approximated Cohen's \emph{d} effect sizes between the baseline (global
+full opacity) and each other condition can be seen in
+Table~\ref{tbl-efs-e2}. The largest effect size observed
+(\textasciitilde0.23) is small to moderate, and the effect size between
+the baseline and the non-linear decay condition (\textasciitilde0.19) is
+small.
 
 \subsection{Discussion}\label{discussion-adjusting-opacity-e2}
 

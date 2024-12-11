@@ -58,10 +58,18 @@ labels_e1 <- c(A = "Low Opacity\n(alpha = 0.25)",
                B = "Medium Opacity\n(alpha = 0.5)",
                C = "High Opacity\n(alpha = 0.75)",
                D = "Full Opacity\n(alpha = 1.0)")
+
 labels_e2 <- c(A = "Non-Linear\nDecay",
                B = "Linear\nDecay",
                C = "Inverted\nDecay",
                D = "Full\n Opacity")
+
+labels_e2_regex <- c(
+  "\\bA\\b" = "Non-Linear Decay",
+  "\\bB\\b" = "Linear Decay",
+  "\\bC\\b" = "Inverted Decay",
+  "\\bD\\b" = "Full Opacity"
+)
 ```
 
 ```{r}
@@ -376,10 +384,7 @@ e1_model <- buildmer(difference ~ opacity +
                        (1 + opacity | participant) +
                        (1 + opacity | item),
                      data = E1_uniform_adjustments_tidy)
-
-
 ```
-
 
 ```{r}
 #| label: model-e1-lit
@@ -492,7 +497,6 @@ contrasts_extract(e1_model, "opacity") %>%
   separate(Contrast, c(" ", "  "), sep = "-") %>%
   kbl(booktabs = TRUE, digits = c(0,2,3), escape = FALSE) %>%
   add_header_above(c("Contrasts" = 2, "Statistics" = 2))
-  
 ```
 
 This effect was driven by significant difference between means of correlation 
@@ -514,26 +518,26 @@ performance were not as a result of differences in levels of graph literacy.
 
 # this approximation uses t values and the pooled standard deviation of the differences
 
+options(knitr.kable.NA = "")
+
 efs <- lme.dscore(e1_model, E1_uniform_adjustments_tidy, type = "lme4") %>%
   as_tibble(rownames = "Effect") %>%
   select(-c(t, df)) %>%
-  mutate(d = as.character(d)) %>%
-  add_row(Effect = "opacityD", d = "", .before = 1) %>%
+  add_row(Effect = "opacityD", d = NA_real_, .before = 1) %>%
   mutate(Effect = recode(Effect,
                          "opacityA" = "Low Opacity (alpha = 0.25)",
                          "opacityB" = "Medium Opacity (alpha = 0.5)",
                          "opacityC" = "High Opacity (alpha = 0.75)",
                          "opacityD" = "Full Opacity (alpha = 1.0)")) %>%
-  rename(`Cohen's \textit{d}` = "d")
+  rename("Cohen's \\textit{d}" = "d") 
 
-kbl(efs, booktabs = TRUE, digits = 2)
-  
+kbl(efs, booktabs = TRUE, digits = c(0, 2), escape = FALSE)
 ```
 
 A function from the now archived **EMAtools** package \cite{ematools} was used to 
 calculate an approximation of Cohen's *d* between the reference level (full contrast, 
 alpha = 1.0) and each other level of the opacity factor. These statistics can be
-seen in @tbl-efs-e1. The largest effect size observed (*d* ~ 0.17) is between the 
+seen in @tbl-efs-e1. The largest effect size observed (*d* ~ 0.16) is between the 
 low and full opacity conditions, and is small. This was unsurprising given the lack 
 of previously reported effects on correlation perception of global point opacity
 \cite{rensink_2012}.
@@ -564,7 +568,8 @@ time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
 ### Design {#design-adjusting-opacity-e2}
 
-For each of the 45 *r* values in experiment 2, there were four versions of each plot corresponding to the three levels of point opacity decay function and 
+For each of the 45 *r* values in experiment 2, there were four versions 
+of each plot corresponding to the three levels of point opacity decay function and 
 the baseline global full opacity condition. Examples 
 of each of these can be seen in@fig-exp2-examples-chap4, demonstrated 
 with an *r* value of 0.6.
@@ -597,7 +602,6 @@ e2_model <- buildmer(difference ~ opacity +
                        (1 + opacity | participant) +
                        (1 + opacity | item),
                      data = E2_spatially_dependent_tidy)
-
 ```
 
 ```{r}
@@ -708,12 +712,51 @@ if (class(e2_model) == "buildmer") e2_model <- e2_model@model
 # make table df
 
 contrasts_extract(e2_model, "opacity") %>%
-  mutate(Contrast = str_replace_all(Contrast, labels_e2)) %>%
-  separate(Contrast, c(" ", "  "), sep = "-") %>%
-  kbl(booktabs = TRUE, digits = c(0,2,3), escape = FALSE) %>%
+  mutate(Contrast = str_replace_all(Contrast, labels_e2_regex)) %>%
+  mutate(Contrast = str_replace(Contrast, " - ", " | ")) %>%
+  separate(Contrast, into = c(" ", "  "), sep = " \\| ") %>%
+  kbl(booktabs = TRUE, digits = c(0, 2, 3), escape = FALSE) %>%
   add_header_above(c("Contrasts" = 2, "Statistics" = 2))
-  
+
 ```
+
+The effect seen in experiment 2 was driven by significant differences in means of 
+correlation estimation error between all levels of opacity decay function condition
+bar full opacity and linear decay. Statistical testing for contrasts was performed
+using the **emmeans** package \cite{emmeans}, and are shown in @tbl-contrasts-e2.
+To test whether the observed results could be explained by differences in graph 
+literacy, a model including participants' graph literacy scores as a fixed effect
+was built. Including graph literacy as a fixed effect again explained no additional
+variance ($\chi^2$(`r in_paren(e2_lit_model.df)`) = `r printp(e2_lit_model.Chisq)`,
+*p* `r printp(e2_lit_model.p, add_equals = TRUE)`).
+
+```{r}
+#| label: tbl-efs-e2
+#| include: true
+#| tbl-cap: Cohen's \textit{d} effect sizes for levels of the opacity decay function factor in experiment 2. Each effect size is compared to the reference level, full contrast (alpha = 1).
+
+# this approximation uses t values and the pooled standard deviation of the differences
+
+options(knitr.kable.NA = "")
+
+efs <- lme.dscore(e2_model, E2_spatially_dependent_tidy, type = "lme4") %>%
+  as_tibble(rownames = "Effect") %>%
+  select(-c(t, df)) %>%
+  add_row(Effect = "opacityD", d = NA_real_, .before = 1) %>%
+  mutate(Effect = recode(Effect,
+                         "opacityA" = "Non-Linear Decay",
+                         "opacityB" = "Linear Decay",
+                         "opacityC" = "Inverted Decay",
+                         "opacityD" = "Full Opacity")) %>%
+  rename("Cohen's \\textit{d}" = "d") 
+
+kbl(efs, booktabs = TRUE, digits = c(0, 2), escape = FALSE)
+```
+
+Approximated Cohen's *d* effect sizes between the baseline (global full opacity)
+and each other condition can be seen in @tbl-efs-e2. The largest effect size observed
+(~0.23) is small to moderate, and the effect size between the baseline and the non-linear
+decay condition (~0.19) is small.
 
 ## Discussion {#discussion-adjusting-opacity-e2}
 
