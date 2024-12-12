@@ -84,13 +84,13 @@ source("../shared_functions.R")
 ```
 
 ```{r}
-#| label: retrieve-cached-models
+#| label: retrieve-cached-models-chap4
 
 if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
 ```
 
 ```{r}
-#| label: wrangle-data
+#| label: wrangle-data-chap4
 
 # NB: With the exception of anonymisation, data are provided as-is from pavlovia.
 # Wrangling functions must be run first to make the dataset usable.
@@ -192,38 +192,6 @@ extract_age(E2_spatially_dependent_tidy)
 extract_gender(E2_spatially_dependent_tidy)
 
 extract_literacy(E2_spatially_dependent_tidy)
-```
-
-```{r}
-#| label: error-bar-plot
-
-# plot the error bars plots by condition
-# takes dataframe, measure (i.e difference or raw r score), and label vector
-
-plot_error_bars_function <- function(df, measure, l){
-  df %>% 
-  drop_na() %>% 
-  group_by(condition_abs, my_rs) %>% 
-  summarise(sd = sd(get(measure)), mean = mean(get(measure))) %>% 
-  ggplot(aes(x = my_rs, y = mean*-1)) +
-  geom_point(size = 0.2) + 
-  geom_errorbar(mapping = aes(ymin = -1*mean + sd, ymax = -1*mean - sd),
-                width = 0.01,
-                size = 0.3) +
-  theme_ggdist() +
-  scale_y_continuous(breaks = seq(-0.4,1, 0.2)) +
-  theme(strip.text = element_text(size = 6,
-                                  margin = margin(1,0,1,0, "mm")),
-        aspect.ratio = 1,
-        axis.text = element_text(size = 7),
-        axis.title.y = ggtext::element_markdown(size = 8),
-        axis.title.x = ggtext::element_markdown(size = 8)) +
-  facet_wrap(condition_abs ~., ncol = 4, labeller = labeller(condition_abs = l)) +
-    labs(x = "Objective *r*",
-         y = "Mean *r* Estimation Error") +
-    geom_line(formula= x ~ y) +
-    xlim(0.2,1)
-}
 ```
 
 # Abstract {#abstract-adjusting-opacity}
@@ -435,10 +403,11 @@ errors in correlation estimation for each opacity condition, along with 95% conf
 if (class(e1_model) == "buildmer") e1_model <- e1_model@model
 
 plotting_df <- as_tibble(emmeans(e1_model, pairwise ~ "opacity")[[1]]) %>%
+  mutate(opacity = fct_relevel(opacity, c("A", "B", "C", "D"))) %>%
   mutate(opacity = recode(opacity, !!!labels_e1)) %>%
   rename("Condition" = "opacity")
 
-ggplot(aes(x = reorder(Condition, emmean), y = emmean*-1), data = plotting_df) +
+ggplot(aes(x = Condition, y = emmean*-1), data = plotting_df) +
   geom_point(size = 1.75) +
   geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
   theme_ggdist() +
@@ -570,9 +539,8 @@ time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
 For each of the 45 *r* values in experiment 2, there were four versions 
 of each plot corresponding to the three levels of point opacity decay function and 
-the baseline global full opacity condition. Examples 
-of each of these can be seen in@fig-exp2-examples-chap4, demonstrated 
-with an *r* value of 0.6.
+the baseline global full opacity condition. Examples of each of these can be 
+seen in @fig-exp2-examples-chap4, demonstrated with an *r* value of 0.6.
 
 ```{r}
 #| label: fig-exp2-examples-chap4
@@ -654,10 +622,11 @@ along with 95% confidence intervals.
 if (class(e2_model) == "buildmer") e2_model <- e2_model@model
 
 plotting_df <- as_tibble(emmeans(e2_model, pairwise ~ "opacity")[[1]]) %>%
+  mutate(opacity = fct_relevel(opacity, c("A", "B", "C", "D"))) %>%
   mutate(opacity = recode(opacity, !!!labels_e2)) %>%
   rename("Condition" = "opacity")
 
-ggplot(aes(x = reorder(Condition, emmean), y = emmean*-1), data = plotting_df) +
+ggplot(aes(x = Condition, y = emmean*-1), data = plotting_df) +
   geom_point(size = 1.75) +
   geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
   theme_ggdist() +
@@ -755,8 +724,8 @@ kbl(efs, booktabs = TRUE, digits = c(0, 2), escape = FALSE)
 
 Approximated Cohen's *d* effect sizes between the baseline (global full opacity)
 and each other condition can be seen in @tbl-efs-e2. The largest effect size observed
-(~0.23) is small to moderate, and the effect size between the baseline and the non-linear
-decay condition (~0.19) is small.
+(~0.23 between full opacity and inverted decay conditions) is small to moderate,
+and the effect size between the baseline and the non-linear decay condition (~0.19) is small.
 
 ## Discussion {#discussion-adjusting-opacity-e2}
 
