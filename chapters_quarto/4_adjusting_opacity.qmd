@@ -212,6 +212,41 @@ an early pilot study that was ultimately not included in any published works.
 
 # Preface: Learning From an Early Pilot Study {#pilot-study}
 
+The research proposal that kickstarted this project in 2021 set out a plan to 
+investigate the perception of correlation in scatterplots as a function of screen size.
+This was prompted by recent research demonstrating consistent perceptual biases
+in scatterplots due to geometric scaling \cite{wei_2020}, the increasing prevalence
+of data visualisations in lay people's daily lives due to the COVID-19 pandemic, and
+the increasing adoption of wearable devices. The first experiment conducted therefore
+examined how perceptions of correlation changed according to the size of a scatterplot.
+Additionally, a very early version of the opacity decay factor from experiment 2
+was included. The implementation of this factor was immature. In experiment 2
+onwards, if a scatterplot point resided in a particular place, it would always
+have the same opacity or size. In the pilot study, the code that set the opacity
+of each point always scaled the opacity values such that the point with the highest
+residual had the lowest possible opacity, and vice versa, resulting in the plots 
+seen in @fig-pilot-study-examples.
+
+```{r}
+#| label: fig-pilot-study-examples
+#| include: true
+#| fig-cap: Examples of the experimental stimuli used in the pilot study (opacity decay factor). On the left, the opacity decay function is visible. Note the linear scaling used.
+
+knitr::include_graphics(path = "../supplied_graphics/pilot_examples.png")
+```
+
+This provided no consistency between different experimental stimuli, making it 
+difficult to comment on the effects of changing levels of opacity in various 
+parts of a plot on correlation estimation. This was later addressed by hardcoding
+residual size to a specific value of opacity or size. The pilot also suffered
+extensively from poor data quality. Of the 260 participants tested, data from only 
+118 was included in the final analyses. It is for this reason that the pre-screen
+requirements detailed in Section \ref{recruitment} were implemented.
+
+Participants viewed 180 experimental plots in a 3$x$2 factorial design. The first
+independent variable, plot size, had three levels, 63%, 100%, and 252% scales. The second
+was the simple presence or absence of the opacity decay function.
+
 # Introduction {#introduction-adjusting-opacity}
 
 ## Overview {#overview-adjusting-opacity}
