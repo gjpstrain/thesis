@@ -240,12 +240,89 @@ difficult to comment on the effects of changing levels of opacity in various
 parts of a plot on correlation estimation. This was later addressed by hardcoding
 residual size to a specific value of opacity or size. The pilot also suffered
 extensively from poor data quality. Of the 260 participants tested, data from only 
-118 was included in the final analyses. It is for this reason that the pre-screen
-requirements detailed in Section \ref{recruitment} were implemented.
+118 was included in the final analyses due to failed attention checks.
+It is for this reason that the pre-screen requirements detailed in Section
+\ref{recruitment} were implemented.
 
 Participants viewed 180 experimental plots in a 3$x$2 factorial design. The first
 independent variable, plot size, had three levels, 63%, 100%, and 252% scales. The second
-was the simple presence or absence of the opacity decay function.
+was the simple presence or absence of the opacity decay function (see @fig-pilot-study-examples).
+I aimed to recruit 150 participants, but stopped after 118 due to data quality
+issues. Nevertheless, the results provided were crucial in informing the future
+direction of the research project. I present these results in brief below.
+
+## Pilot Study: Results
+
+```{r}
+#| label: pilot-study-wrangle
+
+pilot_data <- read_csv("../data/pilot_data.csv") %>%
+  mutate(plots_with_labels = str_replace(plots_with_labels, pattern = "S", replacement = "-S-")) %>%
+  mutate(plots_with_labels = str_replace(plots_with_labels, pattern = "M", replacement = "-M-")) %>%
+  mutate(plots_with_labels = str_replace(plots_with_labels, pattern = "L", replacement = "-L-")) %>%
+  separate(plots_with_labels, c("item", "size", "present"), sep = "-") %>%
+  mutate(present = str_replace(present, pattern = ".png", replacement = "")) %>%
+  mutate(item = str_replace(item, pattern = "all_plots/", replacement = "")) %>%
+  dplyr::select(c("item",
+                  "size", 
+                  "present",
+                  "participant",
+                  "unique_item_no",
+                  "my_rs",
+                  "slider.response")) %>%
+  filter(unique_item_no < 181) %>%
+  mutate(size = as.factor(size)) %>%
+  mutate(present = as.factor(present)) %>%
+  mutate(difference = my_rs - slider.response) %>%
+  filter(!is.na(difference))
+
+contrasts(pilot_data$size) = contr.sum(levels(only_those_passed$size))
+contrasts(pilot_data$present) = contr.sum(levels(only_those_passed$present))
+
+```
+
+```{r}
+#| label: pilot-model
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+pilot_model <- buildmer(difference ~ size * present + 
+                          (1 + size * present | participant) +
+                          (1 + size * present | item),
+                        data = pilot_data)
+
+```
+```{r}
+#| label: pilot-null-model
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+pilot_null <- comparison(pilot_model)
+```
+
+```{r}
+#| label: anova-results-pilot
+
+anova_results(pilot_model, pilot_null)
+```
+
+To investigate the effects of plot size and the presence or absence of an opacity
+decay manipulation on participants' estimates of correlation, a linear mixed
+effects modelling was built whereby participants' errors in correlation estimation
+was predicted by plot size and the presence of the opacity decay function. This model
+features random intercepts for participants and items, as well as random slopes for
+both participants and items relevant to the presence or absence of the opacity 
+decay function. A likelihood ratio test between the experimental model and a 
+null model with the fixed effects removed revealed that the experimental
+model explained significantly more variance than the null ($\chi^2$(`r in_paren(pilot_model.df)`)
+= `r printnum(pilot_model.Chisq)`, *p* `r printp(pilot_model.p, add_equals = TRUE)`).
+There was no interaction between plot size and the presence or absence of
+the opacity decay function. The **emmeans** \cite{emmeans} package was used 
+to explore estimated marginal means separately for each factor.
+
+
+
+
 
 # Introduction {#introduction-adjusting-opacity}
 
