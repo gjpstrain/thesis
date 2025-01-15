@@ -244,9 +244,9 @@ extensively from poor data quality. Of the 260 participants tested, data from on
 It is for this reason that the pre-screen requirements detailed in Section
 \ref{recruitment} were implemented.
 
-Participants viewed 180 experimental plots in a 3$x$2 factorial design. The first
+Participants viewed 180 experimental plots in a 3x2 factorial design. The first
 independent variable, plot size, had three levels, 63%, 100%, and 252% scales. The second
-was the simple presence or absence of the opacity decay function (see @fig-pilot-study-examples).
+was the presence or absence of the opacity decay function (see @fig-pilot-study-examples).
 I aimed to recruit 150 participants, but stopped after 118 due to data quality
 issues. Nevertheless, the results provided were crucial in informing the future
 direction of the research project. I present these results in brief below.
@@ -276,8 +276,8 @@ pilot_data <- read_csv("../data/pilot_data.csv") %>%
   mutate(difference = my_rs - slider.response) %>%
   filter(!is.na(difference))
 
-contrasts(pilot_data$size) = contr.sum(levels(only_those_passed$size))
-contrasts(pilot_data$present) = contr.sum(levels(only_those_passed$present))
+contrasts(pilot_data$size) = contr.sum(levels(pilot_data$size))
+contrasts(pilot_data$present) = contr.sum(levels(pilot_data$present))
 
 ```
 
@@ -292,6 +292,7 @@ pilot_model <- buildmer(difference ~ size * present +
                         data = pilot_data)
 
 ```
+
 ```{r}
 #| label: pilot-null-model
 #| eval: !expr params$eval_models
@@ -308,7 +309,7 @@ anova_results(pilot_model, pilot_null)
 
 To investigate the effects of plot size and the presence or absence of an opacity
 decay manipulation on participants' estimates of correlation, a linear mixed
-effects modelling was built whereby participants' errors in correlation estimation
+effects model was built whereby participants' errors in correlation estimation
 was predicted by plot size and the presence of the opacity decay function. This model
 features random intercepts for participants and items, as well as random slopes for
 both participants and items relevant to the presence or absence of the opacity 
@@ -320,6 +321,38 @@ There was no interaction between plot size and the presence or absence of
 the opacity decay function. The **emmeans** \cite{emmeans} package was used 
 to explore estimated marginal means separately for each factor.
 
+```{r}
+#| label: tbl-emmeans-pilot
+#| include: true
+#| tbl-cap: Estimated Marginal Means for plot size (left) and the presence of the opacity decay function (right)
+#| tbl-subcap: ["test1", "test2"]
+
+if (class(pilot_model) == "buildmer") pilot_model <- pilot_model@model
+
+emmeans(pilot_model, pairwise ~ "size")[[1]] %>%
+  as_tibble() %>%
+  select(-c(df, asymp.LCL, asymp.UCL)) %>%
+  rename(Size = size,
+         Mean = emmean,
+         "Standard\nError" = SE) %>%
+  mutate("Size" = recode(Size,
+                         "L" = "Large (252%)",
+                         "M" = "Medium (100%)",
+                         "S" = "Small (62%)")) %>%
+  kbl(booktabs = T, digits = c(1, 2, 3))
+
+emmeans(pilot_model, pairwise ~ "present")[[1]] %>%
+  as_tibble() %>%
+  select(-c(df, asymp.LCL, asymp.UCL)) %>%
+  rename(Decay = present,
+         Mean = emmean,
+         "Standard\nError" = SE) %>%
+  mutate("Decay" = recode(Decay,
+                         "N" = "Absent",
+                         "Y" = "Present")) %>%
+  kbl(booktabs = T, digits = c(1, 2, 3))
+
+```
 
 
 

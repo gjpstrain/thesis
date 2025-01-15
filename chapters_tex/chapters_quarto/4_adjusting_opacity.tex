@@ -61,13 +61,67 @@ opacity in various parts of a plot on correlation estimation. This was
 later addressed by hardcoding residual size to a specific value of
 opacity or size. The pilot also suffered extensively from poor data
 quality. Of the 260 participants tested, data from only 118 was included
-in the final analyses. It is for this reason that the pre-screen
-requirements detailed in Section \ref{recruitment} were implemented.
+in the final analyses due to failed attention checks. It is for this
+reason that the pre-screen requirements detailed in Section
+\ref{recruitment} were implemented.
 
-Participants viewed 180 experimental plots in a 3\$x\$2 factorial
-design. The first independent variable, plot size, had three levels,
-63\%, 100\%, and 252\% scales. The second was the simple presence or
-absence of the opacity decay function.
+Participants viewed 180 experimental plots in a 3x2 factorial design.
+The first independent variable, plot size, had three levels, 63\%,
+100\%, and 252\% scales. The second was the presence or absence of the
+opacity decay function (see Figure~\ref{fig-pilot-study-examples}). I
+aimed to recruit 150 participants, but stopped after 118 due to data
+quality issues. Nevertheless, the results provided were crucial in
+informing the future direction of the research project. I present these
+results in brief below.
+
+\subsection{Pilot Study: Results}\label{pilot-study-results}
+
+To investigate the effects of plot size and the presence or absence of
+an opacity decay manipulation on participants' estimates of correlation,
+a linear mixed effects model was built whereby participants' errors in
+correlation estimation was predicted by plot size and the presence of
+the opacity decay function. This model features random intercepts for
+participants and items, as well as random slopes for both participants
+and items relevant to the presence or absence of the opacity decay
+function. A likelihood ratio test between the experimental model and a
+null model with the fixed effects removed revealed that the experimental
+model explained significantly more variance than the null (\(\chi^2\)(3)
+= 26.38, \emph{p} \textless{} .001). There was no interaction between
+plot size and the presence or absence of the opacity decay function. The
+\textbf{emmeans} \cite{emmeans} package was used to explore estimated
+marginal means separately for each factor.
+
+\begin{table}
+
+\caption{\label{tbl-emmeans-pilot}Estimated Marginal Means for plot size
+(left) and the presence of the opacity decay function (right)}
+
+\centering{
+
+\begin{tabular}[t]{lrr}
+\toprule
+Size & Mean & Standard
+Error\\
+\midrule
+Large (252\%) & 0.12 & 0.014\\
+Medium (100\%) & 0.12 & 0.014\\
+Small (62\%) & 0.13 & 0.014\\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}[t]{lrr}
+\toprule
+Decay & Mean & Standard
+Error\\
+\midrule
+Absent & 0.13 & 0.015\\
+Present & 0.11 & 0.013\\
+\bottomrule
+\end{tabular}
+
+}
+
+\end{table}%
 
 \section{Introduction}\label{introduction-adjusting-opacity}
 
