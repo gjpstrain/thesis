@@ -54,6 +54,13 @@ conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
 
 # define plotting labels now
 
+labels_pilot_size <- c(S = "Small (52\\\\%)",
+                       M = "Medium (100\\\\%)",
+                       L = "Large (252\\\\%)")
+
+labels_pilot_present <- c(N = "Absent",
+                          Y = "Present")
+
 labels_e1 <- c(A = "Low Opacity\n(alpha = 0.25)",
                B = "Medium Opacity\n(alpha = 0.5)",
                C = "High Opacity\n(alpha = 0.75)",
@@ -319,13 +326,15 @@ model explained significantly more variance than the null ($\chi^2$(`r in_paren(
 = `r printnum(pilot_model.Chisq)`, *p* `r printp(pilot_model.p, add_equals = TRUE)`).
 There was no interaction between plot size and the presence or absence of
 the opacity decay function. The **emmeans** \cite{emmeans} package was used 
-to explore estimated marginal means separately for each factor.
+to explore estimated marginal means (see @tbl-emmeans-pilot) and contrasts (see @tbl-contrasts-pilot)
+separately for each factor.
 
 ```{r}
 #| label: tbl-emmeans-pilot
 #| include: true
-#| tbl-cap: Estimated Marginal Means for plot size (left) and the presence of the opacity decay function (right)
+#| tbl-cap: Estimated Marginal Means for plot size (left) and the presence of the opacity decay function (right).
 #| tbl-subcap: ["test1", "test2"]
+#| layout-ncol: 2
 
 if (class(pilot_model) == "buildmer") pilot_model <- pilot_model@model
 
@@ -354,7 +363,53 @@ emmeans(pilot_model, pairwise ~ "present")[[1]] %>%
 
 ```
 
+```{r}
+#| label: tbl-contrasts-pilot
+#| include: true
+#| tbl-cap: Contrasts between levels of the size factor (left) and opacity decay factor (right).
+#| tbl-subcap: ["A", "B"]
+#| layout-ncol: 2
 
+contrasts_extract(pilot_model, "size") %>%
+  mutate(Contrast = str_replace_all(Contrast, labels_pilot_size)) %>%
+  mutate(Contrast = str_replace(Contrast, " - ", " | ")) %>%
+  separate(Contrast, into = c(" ", "  "), sep = " \\| ") %>%
+  kbl(booktabs = TRUE, digits = c(0, 2, 2), escape = FALSE) %>%
+  add_header_above(c("Contrasts" = 2, "Statistics" = 2))
+
+contrasts_extract(pilot_model, "present") %>%
+  mutate(Contrast = str_replace_all(Contrast, labels_pilot_present)) %>%
+  mutate(Contrast = str_replace(Contrast, " - ", " | ")) %>%
+  separate(Contrast, into = c(" ", "  "), sep = " \\| ") %>%
+  kbl(booktabs = TRUE, digits = c(0, 2, 2), escape = FALSE) %>%
+  add_header_above(c("Contrasts" = 2, "Statistics" = 2))
+```
+
+## Pilot Study: Discussion
+
+For the factor of plot size, the effect observed was driven by significant differences
+in correlation estimation error between large and small plots. Participants
+estimated more accurately when the plot was large and when the decay function
+was present. Participants still underestimated correlation in all conditions.
+The finding that estimation error was lower for larger plots is in line
+with previous evidence that geometrically scaling a scatterplot up can increase
+perceptions of the strength of the correlation displayed \cite{wei_2020}. Despite
+the statistical significance of this finding, we elected at this point to abandon
+the plot size factor due to the extremely small effect (see @tbl-emmeans-pilot) and
+lack of novelty.
+
+The impact of even an immature point opacity decay function on correlation estimation
+was a novel finding that we felt deserved further, and more rigorous, study. Its
+implementation was based on findings that changing the opacities of scatterplot
+points could bias estimates of means \cite{hong_2021}, and on limited evidence for
+the perception of correlation being based on the perceived width of a probability
+distribution represented by the arrangement of scatterplot points. I did not foresee
+the decay function, being novel, having a greater effect on correlation estimation
+than size. Once evidence had been found that changing the opacity of points in 
+scatterplots could have effects on correlation estimation, in opposition to previous
+research \cite{rensink_2012, rensink_2014}, the door was opened for a rigorous
+investigation into how this worked and how it could be used systematically to
+correct for the historic underestimation bias.
 
 
 # Introduction {#introduction-adjusting-opacity}
@@ -829,7 +884,7 @@ contrasts_extract(e2_model, "opacity") %>%
   mutate(Contrast = str_replace_all(Contrast, labels_e2_regex)) %>%
   mutate(Contrast = str_replace(Contrast, " - ", " | ")) %>%
   separate(Contrast, into = c(" ", "  "), sep = " \\| ") %>%
-  kbl(booktabs = TRUE, digits = c(0, 2, 3), escape = FALSE) %>%
+  kbl(booktabs = TRUE, digits = c(0, 2, 1), escape = FALSE) %>%
   add_header_above(c("Contrasts" = 2, "Statistics" = 2))
 
 ```

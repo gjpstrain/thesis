@@ -89,14 +89,15 @@ model explained significantly more variance than the null (\(\chi^2\)(3)
 = 26.38, \emph{p} \textless{} .001). There was no interaction between
 plot size and the presence or absence of the opacity decay function. The
 \textbf{emmeans} \cite{emmeans} package was used to explore estimated
-marginal means separately for each factor.
+marginal means (see Table~\ref{tbl-emmeans-pilot}) and contrasts (see
+Table~\ref{tbl-contrasts-pilot}) separately for each factor.
 
 \begin{table}
 
 \caption{\label{tbl-emmeans-pilot}Estimated Marginal Means for plot size
-(left) and the presence of the opacity decay function (right)}
+(left) and the presence of the opacity decay function (right).}
 
-\centering{
+\begin{minipage}{0.50\linewidth}
 
 \begin{tabular}[t]{lrr}
 \toprule
@@ -109,6 +110,10 @@ Small (62\%) & 0.13 & 0.014\\
 \bottomrule
 \end{tabular}
 
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
 \begin{tabular}[t]{lrr}
 \toprule
 Decay & Mean & Standard
@@ -119,9 +124,76 @@ Present & 0.11 & 0.013\\
 \bottomrule
 \end{tabular}
 
-}
+\end{minipage}%
 
 \end{table}%
+
+\begin{table}
+
+\caption{\label{tbl-contrasts-pilot}Contrasts between levels of the size
+factor (left) and opacity decay factor (right).}
+
+\begin{minipage}{0.50\linewidth}
+
+\begin{tabular}[t]{llrl}
+\toprule
+\multicolumn{2}{c}{Contrasts} & \multicolumn{2}{c}{Statistics} \\
+\cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
+  &    & Z ratio & \textit{p}\\
+\midrule
+Large (252\%) & Medium (100\%) & -0.94 & 0.618\\
+Large (252\%) & Small (52\%) & -3.56 & 0.001\\
+Medium (100\%) & Small (52\%) & -2.63 & 0.023\\
+\bottomrule
+\end{tabular}
+
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\begin{tabular}[t]{llrl}
+\toprule
+\multicolumn{2}{c}{Contrasts} & \multicolumn{2}{c}{Statistics} \\
+\cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
+  &    & Z ratio & \textit{p}\\
+\midrule
+Absent & Present & 3.65 & <0.001\\
+\bottomrule
+\end{tabular}
+
+\end{minipage}%
+
+\end{table}%
+
+\subsection{Pilot Study: Discussion}\label{pilot-study-discussion}
+
+For the factor of plot size, the effect observed was driven by
+significant differences in correlation estimation error between large
+and small plots. Participants estimated more accurately when the plot
+was large and when the decay function was present. Participants still
+underestimated correlation in all conditions. The finding that
+estimation error was lower for larger plots is in line with previous
+evidence that geometrically scaling a scatterplot up can increase
+perceptions of the strength of the correlation displayed
+\cite{wei_2020}. Despite the statistical significance of this finding,
+we elected at this point to abandon the plot size factor due to the
+extremely small effect (see Table~\ref{tbl-emmeans-pilot}) and lack of
+novelty.
+
+The impact of even an immature point opacity decay function on
+correlation estimation was a novel finding that we felt deserved
+further, and more rigorous, study. Its implementation was based on
+findings that changing the opacities of scatterplot points could bias
+estimates of means \cite{hong_2021}, and on limited evidence for the
+perception of correlation being based on the perceived width of a
+probability distribution represented by the arrangement of scatterplot
+points. I did not foresee the decay function, being novel, having a
+greater effect on correlation estimation than size. Once evidence had
+been found that changing the opacity of points in scatterplots could
+have effects on correlation estimation, in opposition to previous
+research \cite{rensink_2012, rensink_2014}, the door was opened for a
+rigorous investigation into how this worked and how it could be used
+systematically to correct for the historic underestimation bias.
 
 \section{Introduction}\label{introduction-adjusting-opacity}
 
@@ -477,13 +549,13 @@ opacity decay function in experiment 2.}
 \cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
   &    & Z ratio & \textit{p}\\
 \midrule
-Full Opacity & Inverted Decay & -18.880 & <0.001\\
-Full Opacity & Linear Decay & 1.554 & 0.405\\
-Full Opacity & Non-Linear Decay & 15.302 & <0.001\\
-Inverted Decay & Linear Decay & 20.425 & <0.001\\
-Inverted Decay & Non-Linear Decay & 34.170 & <0.001\\
+Full Opacity & Inverted Decay & -18.9 & <0.001\\
+Full Opacity & Linear Decay & 1.6 & 0.405\\
+Full Opacity & Non-Linear Decay & 15.3 & <0.001\\
+Inverted Decay & Linear Decay & 20.4 & <0.001\\
+Inverted Decay & Non-Linear Decay & 34.2 & <0.001\\
 \addlinespace
-Linear Decay & Non-Linear Decay & 13.742 & <0.001\\
+Linear Decay & Non-Linear Decay & 13.7 & <0.001\\
 \bottomrule
 \end{tabular}
 
