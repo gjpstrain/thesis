@@ -411,10 +411,20 @@ research \cite{rensink_2012, rensink_2014}, the door was opened for a rigorous
 investigation into how this worked and how it could be used systematically to
 correct for the historic underestimation bias.
 
-
 # Introduction {#introduction-adjusting-opacity}
 
 ## Overview {#overview-adjusting-opacity}
+
+In two experiments, the opacities of point in scatterplots was manipulated while 
+participants were asked to make judgements of correlation. In the first, point opacity
+is changed in a uniform manner, while in the second, point opacity is systematically
+altered as a function of the size of a particular point's residual. By comparing
+participants' performance on a correlation estimation task for data-identical
+scatterplots that vary only in the opacities of their points, it is demonstrated that;
+lower global point opacity results in greater errors in the estimation of positive
+correlation (experiment 1); and lowering point opacity as a function of the size
+of a point's residual is able to bias estimates of positive correlation upwards to
+
 
 # Related Work {#related-work-adjusting-opacity}
 
