@@ -413,6 +413,18 @@ correct for the historic underestimation bias.
 
 # Introduction {#introduction-adjusting-opacity}
 
+Findings from the pilot study suggest that changing the opacities of points
+in scatterplots is able to change participants' estimates of the correlation being
+displayed. The effect found in that study was too small to make a real difference
+with a view to correcting for the underestimation bias, and does not provide information
+on *how* changing opacity might change the percept (only that *it does*). Failing
+to understand the ways in which opacity is able to change the perception of correlation
+prevents future work from tuning what was a small effect in the pilot study
+into something with real potential for producing more perceptually optimised
+scatterplots.
+
+Previous work had found that 
+
 ## Overview {#overview-adjusting-opacity}
 
 In two experiments, the opacities of point in scatterplots was manipulated while 
@@ -423,8 +435,8 @@ participants' performance on a correlation estimation task for data-identical
 scatterplots that vary only in the opacities of their points, it is demonstrated that;
 lower global point opacity results in greater errors in the estimation of positive
 correlation (experiment 1); and lowering point opacity as a function of the size
-of a point's residual is able to bias estimates of positive correlation upwards to
-
+of a point's residual is able to bias estimates of positive correlation upwards to 
+partially correct for a historic underestimation bias.
 
 # Related Work {#related-work-adjusting-opacity}
 
