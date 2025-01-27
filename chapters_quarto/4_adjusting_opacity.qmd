@@ -423,11 +423,9 @@ prevents future work from tuning what was a small effect in the pilot study
 into something with real potential for producing more perceptually optimised
 scatterplots.
 
-Previous work had found that 
-
 ## Overview {#overview-adjusting-opacity}
 
-In two experiments, the opacities of point in scatterplots was manipulated while 
+In two experiments, the opacities of points in scatterplots was manipulated while 
 participants were asked to make judgements of correlation. In the first, point opacity
 is changed in a uniform manner, while in the second, point opacity is systematically
 altered as a function of the size of a particular point's residual. By comparing
@@ -442,10 +440,152 @@ partially correct for a historic underestimation bias.
 
 ## Transparency, Contrast, Opacity, and Formal Definitions
 
-- include the "formalising contrast" part of the original papers general methods section here
-- also include justification for referring to "opacity" instead of contrast
+The original paper that this chapter is based on is titled "The Effects of Contrast
+on Correlation Perception in Scatterplots". In response to reviewer comments to
+the paper that forms Chapter 6, the term "contrast" was changed to "opacity". In order
+to maintain consistency throughout this thesis, the more up-to-date wording (opacity)
+is used throughout.
+
+Adjusting the opacity of points in scatterplots is an established technique
+used to address issues of overplotting or clutter \cite{bertini_2004, matejka_2015},
+in which scatterplots with large numbers of data points suffer from visibility issues
+caused by excessive point density. Lowering the opacity of all scatterplot points
+using alpha blending \cite{few_2008} addresses this, and makes data trends and 
+distributions easier to see and interpret for the reader. @fig-overplotting-example
+demonstrates the impact of lowering global point opacity in a scatterplot with
+a very high number of data points.
+
+```{r}
+#| label: fig-overplotting-examples
+#| include: true
+#| fig-asp: 0.6
+#| fig-cap: Adjusting point opacity to address overplotting. Contrast between the points and the background is full (alpha = 1, full opacity points, Left) or low (alpha = .1, low opacity points, Right). The dataset used has 40,000 points.
+ 
+set.seed(123)
+
+data <- data.frame(x = c(rnorm(20000, mean = -1),
+                         rnorm(20000, mean = 1)),
+                   y = rnorm(40000))
+
+ggplot(data, aes(x = x, y = y)) +
+  scale_alpha_identity() +
+  geom_point(aes(alpha = ifelse(x > -0.1 & x < 0.1, 0,
+                         ifelse(x > 0, 0.1, 1))),
+             shape = 16) +
+  geom_vline(xintercept = 0,
+             linetype = "dashed") +
+  theme_ggdist() +
+  labs(x = "",
+       y = "") +
+  theme(axis.text = element_blank())
+```
+
+Lowering opacity leads to a reduction of the contrast of isolated points with the background,
+and for regions with overlapping points, colour intensities are summed. The stimuli
+used in the experiments throughout this chapter had 128 small points, meaning
+the majority of points were clearly visible at all times. For this reason, the effects
+of point overlap were not taken into account when designing and analysing the experiments
+described here. Due to this, the approach to opacity described in this chapter would
+not be useful when dealing with much larger datasets where clutter becomes an issue.
+
+The **ggplot2** \cite{wickham_2016} package was used in R to create stimuli for 
+this experiment. This package uses an alpha parameter to set point opacity. Alpha
+here refers to the level of linear interpolation \cite{stone_2008} between foreground
+and background pixel values; alpha values of 0 (full transparency) and 1 (full opacity)
+result in no interpolation and rendering of either the background or foreground
+pixel values respectively. Alpha values between 0 and 1 correspond to different
+ratios of interpolation, and are illustrated in @fig-alpha-examples.
+
+```{r}
+#| label: fig-alpha-examples
+#| include: true
+#| fig-asp:  0.2
+#| fig-cap: The relationship between alpha values and rendered point opacity. Higher alpha values result in greater contrast between the foreground (scatterplot point) and background. When alpha = 0, the foreground is ignored and the background is rendered.
+
+x1 <- seq(0,1, length.out = 11)
+y1 <- rep(1, times = 11)
+df <- data.frame(x1, y1)
+ggplot(aes(x1, y1), data = df) +
+  geom_point(alpha = x1, size = 14, shape = 16) +
+  theme(panel.background = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.title = element_blank(),
+        plot.title = element_text(size = 16),
+        axis.text.x = element_text(size = 14)) +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 11)) +
+rm(x1,y1,df)
+```
+
+Definitions of contrast, opacity, and transparency are fuzzy. Often, different 
+works will use the terms interchangeably. As mentioned above, I initially
+elected to use the term "contrast", given the fundamentality of contrast as a
+feature of human visual perception \cite{ginsburg_2003}, however later reviewer
+comments prompted the change to "opacity". Nevertheless, we can consider *opacity*
+as it is used here to be shorthand for "the contrast between foreground and
+background objects", as visually, these concepts are the same. There are numerous
+psychophysical definitions of perceived contrast \cite{zuffi_2007} based on what
+is being presented, for example, models that take into account visibility
+limits (CIELAB lightness), or contrast in periodic patterns such as sinusoidal
+gratings (Michelson's contrast). The common thread running through these definitions
+is the use of a ratio between target and background luminances. The experiments
+described here take place online, with participants completing experiments
+on their personal laptop or desktop computers. Due to this, the experimenter
+has no control over the exact luminances of stimuli, only over the relative
+luminance between targets (scatterplot points) and backgrounds. Given my interest
+in relative differences in correlation perception averaged over a series of 
+180 single-plot trials, this lack of control over the exact nature of the stimuli
+was not problematic. It does mean that reporting the exact luminance values would be
+pointless however, so where a value for opacity is referred to in this chapter, 
+it is the alpha value specified by **ggplot2**.
 
 ## Effects of Point Opacity on Correlation Estimation
+
+Despite the popularity of adjusting opacity to address overplotting issues,
+little investigation had taken place into the effects of reducing point opacity
+on people's perceptions of correlation. In 2012, Rensink \cite{rensink_2012} found
+correlation perception to be invariant to changes in point opacity, although this
+work took place with only small sample sizes (n = 12), and using only bisection/JND
+methodologies.
+
+Changing the contrast between a stimulus and its background (lowering its opacity)
+effectively reduces the strength of its signal. A likely consequence oif this is 
+greater levels of uncertainty in aspects of that stimulus, for example, the locations
+of points in scatterplots. Consequently, one might anticipate that increased uncertainty
+could lead to altered perceptions of correlation and/or the presence of greater
+levels of noise in correlation estimates due to effects on the perceived position
+of points within a scatterplot point cloud. While there is evidence \cite{wehrhahn_1990}
+that perception of stimulus position becomes exponentially worse as contrast
+is reduced (as measured by vernier acuity tasks), this is only true for a narrow
+range of low contrast stimuli just above the detection threshold. For stimuli
+that feature higher contrasts between them and their backgrounds, vernier acuity
+appears robust to such changes. Nevertheless, there is evidence that
+other perceptual estimates become more uncertain with reduced contrast, such as speed
+perception \cite{warren_2017}. With this in mind, I argue that the effects of contrast
+on perceived correlation in scatterplots warrants further investigation.
+
+Hong et al., in 2021 \cite{hong_2021} used point opacity and size to encode the third
+variable in trivariate scatterplots. Participants were asked to judge the average
+position of all the points displayed. It was found that participants' estimates
+of average point position were biased towards areas of larger or darker points; this
+was termed the *weighted average illusion*. Together with evidence that darker (more opaque)
+and larger points are more salient \cite{healey_2012}, the implication I took from this
+work was that I could use point opacity to systematically lower the salience of 
+of the points representing the widest parts of the probability distribution; if
+participants promptly perceived a narrower distribution, I expected this to be able
+to (at least partially) correct for the underestimation bias.
+
+One way to correct for an underestimation in correlation would be to simply remove
+outer data points until correlation perception is aligned with the actual correlation
+value. However, this would necessitate hiding data and thus changing the information
+presented to the viewer. An alternative approach is to manipulate the opacity of
+only some of the points; it would seem most sensible to do so for the points
+that are more extreme relative to the underlying regression line. In the present
+study these questions are explored in two online experiments with large sample sizes.
+In the first, the effects of point opacity over the entire scatterplot on correlation estimates
+is investigated. In the second experiment we examine how changing contrast as a function 
+of distance to the regression line affects perceived correlation.
+To pre-empt our results we find clear effects of both manipulations.
 
 # General Methods {#shared-methods-adjusting-opacity}
 
