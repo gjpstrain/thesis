@@ -1,177 +1,5 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
-%
-\documentclass[
-  letterpaper,
-  DIV=11,
-  numbers=noendperiod]{scrartcl}
-
-\usepackage{amsmath,amssymb}
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-\usepackage{lmodern}
-\ifPDFTeX\else  
-    % xetex/luatex font selection
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-% Make \paragraph and \subparagraph free-standing
-\makeatletter
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}{
-    \@ifstar
-      \xxxParagraphStar
-      \xxxParagraphNoStar
-  }
-  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
-  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}{
-    \@ifstar
-      \xxxSubParagraphStar
-      \xxxSubParagraphNoStar
-  }
-  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
-  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-\makeatother
-
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
-\usepackage{graphicx}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
-\KOMAoption{captions}{tableheading}
-\makeatletter
-\@ifpackageloaded{caption}{}{\usepackage{caption}}
-\AtBeginDocument{%
-\ifdefined\contentsname
-  \renewcommand*\contentsname{Table of contents}
-\else
-  \newcommand\contentsname{Table of contents}
-\fi
-\ifdefined\listfigurename
-  \renewcommand*\listfigurename{List of Figures}
-\else
-  \newcommand\listfigurename{List of Figures}
-\fi
-\ifdefined\listtablename
-  \renewcommand*\listtablename{List of Tables}
-\else
-  \newcommand\listtablename{List of Tables}
-\fi
-\ifdefined\figurename
-  \renewcommand*\figurename{Figure}
-\else
-  \newcommand\figurename{Figure}
-\fi
-\ifdefined\tablename
-  \renewcommand*\tablename{Table}
-\else
-  \newcommand\tablename{Table}
-\fi
-}
-\@ifpackageloaded{float}{}{\usepackage{float}}
-\floatstyle{ruled}
-\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
-\floatname{codelisting}{Listing}
-\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
-\@ifpackageloaded{caption}{}{\usepackage{caption}}
-\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
-\makeatother
-
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\usepackage{bookmark}
-
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-\hypersetup{
-  pdftitle={adjusting\_opacity},
-  colorlinks=true,
-  linkcolor={blue},
-  filecolor={Maroon},
-  citecolor={Blue},
-  urlcolor={Blue},
-  pdfcreator={LaTeX via pandoc}}
-
-
-\title{adjusting\_opacity}
-\author{}
-\date{}
-
+\documentclass[../main.tex]{subfiles}
 \begin{document}
-\maketitle
 
 
 \section{Abstract}\label{abstract-adjusting-opacity}
@@ -188,36 +16,36 @@ this underestimation bias. In two experiments (total \emph{N} = 300),
 evidence is provided that changing the opacities of scatterplot points
 \emph{can} have small effects on participants' performance on a
 correlation estimation task. The systematic adjustment of point opacity
-as a function of residual distance is able to alter estimates to a
-greater degree and correct for the underestimation bias. In this
-chapter, I also present an early pilot study that was ultimately not
-included in any published works.
+as a function of residual distance is able to alter estimates
+sufficiently to correct for the underestimation bias. In this chapter, I
+also present an early pilot study that was ultimately not included in
+any published works.
 
 \section{Preface: Learning From an Early Pilot Study}\label{pilot-study}
 
 The research proposal that kickstarted this project in 2021 set out a
 plan to investigate the perception of correlation in scatterplots as a
-function of screen size. This was prompted by recent research
-demonstrating consistent perceptual biases in scatterplots due to
-geometric scaling \cite{wei_2020}, the increasing prevalence of data
-visualisations in lay people's daily lives due to the COVID-19 pandemic,
-and the increasing adoption of wearable devices. The first experiment
-conducted therefore examined how perceptions of correlation changed
-according to the size of a scatterplot. Additionally, a very early
-version of the opacity decay factor from experiment 2 was included. The
-implementation of this factor was immature. In experiment 2 onwards, if
-a scatterplot point resided in a particular place, it would always have
-the same opacity or size. In the pilot study, the code that set the
-opacity of each point always scaled the opacity values such that the
-point with the highest residual had the lowest possible opacity, and
-vice versa, resulting in the plots seen in
-Figure~\ref{fig-pilot-study-examples}.
+function of screen size. This proprosal is included in the supplemental
+materials. This was prompted by recent research demonstrating consistent
+perceptual biases in scatterplots due to geometric scaling
+\cite{wei_2020}, the increasing prevalence of data visualisations in lay
+people's daily lives due to the COVID-19 pandemic, and the increasing
+adoption of wearable devices. The first experiment conducted therefore
+examined how perceptions of correlation changed according to the size of
+a scatterplot. Additionally, a very early version of the opacity decay
+factor from experiment 2 was included, however the implementation of
+this factor was immature. In experiment 2 onwards, if a scatterplot
+point resided in a particular place, it would always have the same
+opacity or size. In the pilot study, the code that set the opacity of
+each point always scaled the opacity values such that the point with the
+highest residual had the lowest possible opacity, and vice versa,
+resulting in the plots seen in Figure~\ref{fig-pilot-study-examples}.
 
 \begin{figure}
 
 \centering{
 
-\includegraphics{../supplied_graphics/pilot_examples.png}
+\includegraphics[width=\textwidth]{../supplied_graphics/pilot_examples.png}
 
 }
 
@@ -251,23 +79,25 @@ results in brief below.
 To investigate the effects of plot size and the presence or absence of
 an opacity decay manipulation on participants' estimates of correlation,
 a linear mixed effects model was built whereby participants' errors in
-correlation estimation was predicted by plot size and the presence of
-the opacity decay function. This model features random intercepts for
-participants and items, as well as random slopes for both participants
-and items relevant to the presence or absence of the opacity decay
-function. A likelihood ratio test between the experimental model and a
-null model with the fixed effects removed revealed that the experimental
-model explained significantly more variance than the null (\(\chi^2\)(3)
-= 26.38, \emph{p} \textless{} .001). There was no interaction between
-plot size and the presence or absence of the opacity decay function. The
-\textbf{emmeans} \cite{emmeans} package was used to explore estimated
-marginal means (see Table~\ref{tbl-emmeans-pilot}) and contrasts (see
-Table~\ref{tbl-contrasts-pilot}) separately for each factor.
+correlation estimation were predicted by plot size and the presence or
+absence of the opacity decay function. This model features random
+intercepts for participants and items, as well as random slopes for both
+participants and items relevant to the presence or absence of the
+opacity decay function. A likelihood ratio test between the experimental
+model and a null model with the fixed effects removed revealed that the
+experimental model explained significantly more variance than the null
+(\(\chi^2\)(3) = 26.38, \emph{p} \textless{} .001). There was no
+interaction between plot size and the presence or absence of the opacity
+decay function. The \textbf{emmeans} \cite{lenth_2024} package was used
+to explore estimated marginal means (see Table~\ref{tbl-emmeans-pilot})
+and contrasts (see Table~\ref{tbl-contrasts-pilot}) separately for each
+factor.
 
 \begin{table}
 
-\caption{\label{tbl-emmeans-pilot}Estimated Marginal Means for plot size
-(left) and the presence of the opacity decay function (right).}
+\caption{\label{tbl-emmeans-pilot}Estimated Marginal Means of
+correlation estimation error for plot size (left) and the presence of
+the opacity decay function (right).}
 
 \begin{minipage}{0.50\linewidth}
 
@@ -356,7 +186,7 @@ The impact of even an immature point opacity decay function on
 correlation estimation was a novel finding that we felt deserved
 further, and more rigorous, study. Its implementation was based on
 findings that changing the opacities of scatterplot points could bias
-estimates of means \cite{hong_2021}, and on limited evidence for the
+estimates of means \cite{hong_2022}, and on limited evidence for the
 perception of correlation being based on the perceived width of a
 probability distribution represented by the arrangement of scatterplot
 points. I did not foresee the decay function, being novel, having a
@@ -372,7 +202,7 @@ systematically to correct for the historic underestimation bias.
 Findings from the pilot study suggest that changing the opacities of
 points in scatterplots is able to change participants' estimates of the
 correlation being displayed. The effect found in that study was too
-small to make a real difference with a view to correcting for the
+small to make a real difference with regards to correcting for the
 underestimation bias, and does not provide information on \emph{how}
 changing opacity might change the percept (only that \emph{it does}).
 Failing to understand the ways in which opacity is able to change the
@@ -382,7 +212,7 @@ producing more perceptually optimised scatterplots.
 
 \subsection{Overview}\label{overview-adjusting-opacity}
 
-In two experiments, the opacities of points in scatterplots was
+In two experiments, the opacities of points in scatterplots were
 manipulated while participants were asked to make judgements of
 correlation. In the first, point opacity is changed in a uniform manner,
 while in the second, point opacity is systematically altered as a
@@ -405,7 +235,7 @@ of Contrast on Correlation Perception in Scatterplots''. In response to
 reviewer comments to the paper that forms Chapter 6, the term
 ``contrast'' was changed to ``opacity''. In order to maintain
 consistency throughout this thesis, the more up-to-date wording
-(opacity) is used throughout.
+(opacity) is used, although I discuss the issue of terminology below.
 
 Adjusting the opacity of points in scatterplots is an established
 technique used to address issues of overplotting or clutter
@@ -414,22 +244,22 @@ numbers of data points suffer from visibility issues caused by excessive
 point density. Lowering the opacity of all scatterplot points using
 alpha blending \cite{few_2008} addresses this, and makes data trends and
 distributions easier to see and interpret for the reader.
-\textbf{?@fig-overplotting-example} demonstrates the impact of lowering
-global point opacity in a scatterplot with a very high number of data
-points.
+Figure~\ref{fig-overplotting-examples} demonstrates the impact of
+lowering global point opacity in a scatterplot with a very high number
+of data points.
 
 \begin{figure}
 
 \centering{
 
-\includegraphics{4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf}
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf}
 
 }
 
 \caption{\label{fig-overplotting-examples}Adjusting point opacity to
 address overplotting. Contrast between the points and the background is
 full (alpha = 1, full opacity points, Left) or low (alpha = .1, low
-opacity points, Right). The dataset used has 40,000 points.}
+opacity points, Right). The dataset used has 20,000 points.}
 
 \end{figure}%
 
@@ -457,7 +287,7 @@ Figure~\ref{fig-alpha-examples}.
 
 \centering{
 
-\includegraphics{4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf}
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf}
 
 }
 
@@ -491,7 +321,8 @@ correlation perception averaged over a series of 180 single-plot trials,
 this lack of control over the exact nature of the stimuli was not
 problematic. It does mean that reporting the exact luminance values
 would be pointless however, so where a value for opacity is referred to
-in this chapter, it is the alpha value specified by \textbf{ggplot2}.
+in this chapter and beyond, it is the alpha value specified by
+\textbf{ggplot2}.
 
 \subsection{Effects of Point Opacity on Correlation
 Estimation}\label{effects-of-point-opacity-on-correlation-estimation}
@@ -505,7 +336,7 @@ small sample sizes (n = 12), and using only bisection/JND methodologies.
 
 Changing the contrast between a stimulus and its background (lowering
 its opacity) effectively reduces the strength of its signal. A likely
-consequence oif this is greater levels of uncertainty in aspects of that
+consequence of this is greater levels of uncertainty in aspects of that
 stimulus, for example, the locations of points in scatterplots.
 Consequently, one might anticipate that increased uncertainty could lead
 to altered perceptions of correlation and/or the presence of greater
@@ -518,36 +349,36 @@ contrast stimuli just above the detection threshold. For stimuli that
 feature higher contrasts between them and their backgrounds, vernier
 acuity appears robust to such changes. Nevertheless, there is evidence
 that other perceptual estimates become more uncertain with reduced
-contrast, such as speed perception \cite{warren_2017}. With this in
-mind, I argue that the effects of contrast on perceived correlation in
-scatterplots warrants further investigation.
+contrast, such as speed perception \cite{champion_2017}. With this in
+mind, I argue that the effects of stimulus opacity on perceived
+correlation in scatterplots warrants further investigation.
 
-Hong et al., in 2021 \cite{hong_2021} used point opacity and size to
-encode the third variable in trivariate scatterplots. Participants were
-asked to judge the average position of all the points displayed. It was
-found that participants' estimates of average point position were biased
-towards areas of larger or darker points; this was termed the
+In 2022 \cite{hong_2022}, Hong et al.~used point opacity and size to
+encode a third variable in trivariate scatterplots, while asking
+participants to judge the average position of all the points displayed.
+It was found that participants' estimates of average point position were
+biased towards areas of larger or darker points; this was termed the
 \emph{weighted average illusion}. Together with evidence that darker
-(more opaque) and larger points are more salient \cite{healey_2012}, the
+(more opaque) and larger points are more salient \cite{healey_2011}, the
 implication I took from this work was that I could use point opacity to
-systematically lower the salience of of the points representing the
-widest parts of the probability distribution; if participants promptly
+systematically lower the salience of the points representing the widest
+parts of the probability distribution; if participants promptly
 perceived a narrower distribution, I expected this to be able to (at
 least partially) correct for the underestimation bias.
 
-One way to correct for an underestimation in correlation would be to
-simply remove outer data points until correlation perception is aligned
-with the actual correlation value. However, this would necessitate
-hiding data and thus changing the information presented to the viewer.
-An alternative approach is to manipulate the opacity of only some of the
-points; it would seem most sensible to do so for the points that are
-more extreme relative to the underlying regression line. In the present
-study these questions are explored in two online experiments with large
-sample sizes. In the first, the effects of point opacity over the entire
-scatterplot on correlation estimates is investigated. In the second
-experiment we examine how changing contrast as a function of distance to
-the regression line affects perceived correlation. To pre-empt our
-results we find clear effects of both manipulations.
+One way to correct for an underestimation of correlation in scatterplots
+would be to simply remove outer data points until correlation perception
+is aligned with the actual correlation value. However, this would
+necessitate hiding data and thus changing the information presented to
+the viewer. An alternative approach is to manipulate the opacity of only
+some of the points; it would seem most sensible to do so for the points
+that are more extreme relative to the underlying regression line. In the
+present study these questions are explored in two online experiments
+with large sample sizes. In the first, the effects of point opacity over
+the entire scatterplot on correlation estimates is investigated. In the
+second experiment we examine how changing contrast as a function of
+distance to the regression line affects perceived correlation. To
+pre-empt our results we find clear effects of both manipulations.
 
 \section{General Methods}\label{shared-methods-adjusting-opacity}
 
@@ -576,7 +407,7 @@ trials to familiarise themselves with the response slider.
 
 \centering{
 
-\includegraphics{../supplied_graphics/example-plots.png}
+\includegraphics[width=\textwidth]{../supplied_graphics/example-plots.png}
 
 }
 
@@ -590,7 +421,7 @@ to the practice trials.}
 
 \centering{
 
-\includegraphics{../supplied_graphics/visual_mask.png}
+\includegraphics[width=\textwidth]{../supplied_graphics/visual_mask.png}
 
 }
 
@@ -671,7 +502,7 @@ demonstrated with an \emph{r} value of 0.6.
 
 \centering{
 
-\includegraphics{4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf}
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf}
 
 }
 
@@ -699,7 +530,7 @@ intervals.
 
 \centering{
 
-\includegraphics{4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf}
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf}
 
 }
 
@@ -752,7 +583,7 @@ Medium Opacity
 This effect was driven by significant difference between means of
 correlation estimation error between all conditions bar high and full
 opacity. Statistical tests for contrasts were performed using the
-\textbf{emmeans} package \cite{emmeans}, and are shown in
+\textbf{emmeans} package \cite{lenth_2024}, and are shown in
 Table~\ref{tbl-contrasts-e1}. To test whether the observed results could
 be explained by difference in participants' levels of graph literacy, an
 additional model was built. This model is identical to the experimental
@@ -830,7 +661,7 @@ demonstrated with an \emph{r} value of 0.6.
 
 \centering{
 
-\includegraphics{4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf}
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf}
 
 }
 
@@ -858,7 +689,7 @@ confidence intervals.
 
 \centering{
 
-\includegraphics{4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf}
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf}
 
 }
 
@@ -899,11 +730,11 @@ The effect seen in experiment 2 was driven by significant differences in
 means of correlation estimation error between all levels of opacity
 decay function condition bar full opacity and linear decay. Statistical
 testing for contrasts was performed using the \textbf{emmeans} package
-\cite{emmeans}, and are shown in Table~\ref{tbl-contrasts-e2}. To test
-whether the observed results could be explained by differences in graph
-literacy, a model including participants' graph literacy scores as a
-fixed effect was built. Including graph literacy as a fixed effect again
-explained no additional variance (\(\chi^2\)(1) = .242, \emph{p} =
+\cite{lenth_2024}, and are shown in Table~\ref{tbl-contrasts-e2}. To
+test whether the observed results could be explained by differences in
+graph literacy, a model including participants' graph literacy scores as
+a fixed effect was built. Including graph literacy as a fixed effect
+again explained no additional variance (\(\chi^2\)(1) = .242, \emph{p} =
 .623).
 
 \begin{table}

@@ -213,21 +213,22 @@ may drive correlation perception, I conducted exploratory work addressing
 this underestimation bias. In two experiments (total *N* = 300), evidence is provided
 that changing the opacities of scatterplot points *can* have small effects on participants'
 performance on a correlation estimation task. The systematic adjustment of 
-point opacity as a function of residual distance is able to alter estimates to a greater 
-degree and correct for the underestimation bias. In this chapter, I also present
+point opacity as a function of residual distance is able to alter estimates sufficiently to
+correct for the underestimation bias. In this chapter, I also present
 an early pilot study that was ultimately not included in any published works.
 
 # Preface: Learning From an Early Pilot Study {#pilot-study}
 
 The research proposal that kickstarted this project in 2021 set out a plan to 
 investigate the perception of correlation in scatterplots as a function of screen size.
+This proprosal is included in the supplemental materials.
 This was prompted by recent research demonstrating consistent perceptual biases
 in scatterplots due to geometric scaling \cite{wei_2020}, the increasing prevalence
 of data visualisations in lay people's daily lives due to the COVID-19 pandemic, and
 the increasing adoption of wearable devices. The first experiment conducted therefore
 examined how perceptions of correlation changed according to the size of a scatterplot.
 Additionally, a very early version of the opacity decay factor from experiment 2
-was included. The implementation of this factor was immature. In experiment 2
+was included, however the implementation of this factor was immature. In experiment 2
 onwards, if a scatterplot point resided in a particular place, it would always
 have the same opacity or size. In the pilot study, the code that set the opacity
 of each point always scaled the opacity values such that the point with the highest
@@ -317,7 +318,7 @@ anova_results(pilot_model, pilot_null)
 To investigate the effects of plot size and the presence or absence of an opacity
 decay manipulation on participants' estimates of correlation, a linear mixed
 effects model was built whereby participants' errors in correlation estimation
-was predicted by plot size and the presence of the opacity decay function. This model
+were predicted by plot size and the presence or absence of the opacity decay function. This model
 features random intercepts for participants and items, as well as random slopes for
 both participants and items relevant to the presence or absence of the opacity 
 decay function. A likelihood ratio test between the experimental model and a 
@@ -325,14 +326,14 @@ null model with the fixed effects removed revealed that the experimental
 model explained significantly more variance than the null ($\chi^2$(`r in_paren(pilot_model.df)`)
 = `r printnum(pilot_model.Chisq)`, *p* `r printp(pilot_model.p, add_equals = TRUE)`).
 There was no interaction between plot size and the presence or absence of
-the opacity decay function. The **emmeans** \cite{emmeans} package was used 
+the opacity decay function. The **emmeans** \cite{lenth_2024} package was used 
 to explore estimated marginal means (see @tbl-emmeans-pilot) and contrasts (see @tbl-contrasts-pilot)
 separately for each factor.
 
 ```{r}
 #| label: tbl-emmeans-pilot
 #| include: true
-#| tbl-cap: Estimated Marginal Means for plot size (left) and the presence of the opacity decay function (right).
+#| tbl-cap: Estimated Marginal Means of correlation estimation error for plot size (left) and the presence of the opacity decay function (right).
 #| tbl-subcap: ["test1", "test2"]
 #| layout-ncol: 2
 
@@ -401,7 +402,7 @@ lack of novelty.
 The impact of even an immature point opacity decay function on correlation estimation
 was a novel finding that we felt deserved further, and more rigorous, study. Its
 implementation was based on findings that changing the opacities of scatterplot
-points could bias estimates of means \cite{hong_2021}, and on limited evidence for
+points could bias estimates of means \cite{hong_2022}, and on limited evidence for
 the perception of correlation being based on the perceived width of a probability
 distribution represented by the arrangement of scatterplot points. I did not foresee
 the decay function, being novel, having a greater effect on correlation estimation
@@ -416,7 +417,7 @@ correct for the historic underestimation bias.
 Findings from the pilot study suggest that changing the opacities of points
 in scatterplots is able to change participants' estimates of the correlation being
 displayed. The effect found in that study was too small to make a real difference
-with a view to correcting for the underestimation bias, and does not provide information
+with regards to correcting for the underestimation bias, and does not provide information
 on *how* changing opacity might change the percept (only that *it does*). Failing
 to understand the ways in which opacity is able to change the perception of correlation
 prevents future work from tuning what was a small effect in the pilot study
@@ -425,7 +426,7 @@ scatterplots.
 
 ## Overview {#overview-adjusting-opacity}
 
-In two experiments, the opacities of points in scatterplots was manipulated while 
+In two experiments, the opacities of points in scatterplots were manipulated while 
 participants were asked to make judgements of correlation. In the first, point opacity
 is changed in a uniform manner, while in the second, point opacity is systematically
 altered as a function of the size of a particular point's residual. By comparing
@@ -444,28 +445,28 @@ The original paper that this chapter is based on is titled "The Effects of Contr
 on Correlation Perception in Scatterplots". In response to reviewer comments to
 the paper that forms Chapter 6, the term "contrast" was changed to "opacity". In order
 to maintain consistency throughout this thesis, the more up-to-date wording (opacity)
-is used throughout.
+is used, although I discuss the issue of terminology below.
 
 Adjusting the opacity of points in scatterplots is an established technique
 used to address issues of overplotting or clutter \cite{bertini_2004, matejka_2015},
 in which scatterplots with large numbers of data points suffer from visibility issues
 caused by excessive point density. Lowering the opacity of all scatterplot points
 using alpha blending \cite{few_2008} addresses this, and makes data trends and 
-distributions easier to see and interpret for the reader. @fig-overplotting-example
+distributions easier to see and interpret for the reader. @fig-overplotting-examples
 demonstrates the impact of lowering global point opacity in a scatterplot with
 a very high number of data points.
 
 ```{r}
 #| label: fig-overplotting-examples
 #| include: true
-#| fig-asp: 0.6
-#| fig-cap: Adjusting point opacity to address overplotting. Contrast between the points and the background is full (alpha = 1, full opacity points, Left) or low (alpha = .1, low opacity points, Right). The dataset used has 40,000 points.
+#| fig-asp: 0.4
+#| fig-cap: Adjusting point opacity to address overplotting. Contrast between the points and the background is full (alpha = 1, full opacity points, Left) or low (alpha = .1, low opacity points, Right). The dataset used has 20,000 points.
  
 set.seed(123)
 
-data <- data.frame(x = c(rnorm(20000, mean = -1),
-                         rnorm(20000, mean = 1)),
-                   y = rnorm(40000))
+data <- data.frame(x = c(rnorm(10000, mean = -1),
+                         rnorm(10000, mean = 1)),
+                   y = rnorm(20000))
 
 ggplot(data, aes(x = x, y = y)) +
   scale_alpha_identity() +
@@ -536,7 +537,7 @@ luminance between targets (scatterplot points) and backgrounds. Given my interes
 in relative differences in correlation perception averaged over a series of 
 180 single-plot trials, this lack of control over the exact nature of the stimuli
 was not problematic. It does mean that reporting the exact luminance values would be
-pointless however, so where a value for opacity is referred to in this chapter, 
+pointless however, so where a value for opacity is referred to in this chapter and beyond, 
 it is the alpha value specified by **ggplot2**.
 
 ## Effects of Point Opacity on Correlation Estimation
@@ -549,7 +550,7 @@ work took place with only small sample sizes (n = 12), and using only bisection/
 methodologies.
 
 Changing the contrast between a stimulus and its background (lowering its opacity)
-effectively reduces the strength of its signal. A likely consequence oif this is 
+effectively reduces the strength of its signal. A likely consequence of this is 
 greater levels of uncertainty in aspects of that stimulus, for example, the locations
 of points in scatterplots. Consequently, one might anticipate that increased uncertainty
 could lead to altered perceptions of correlation and/or the presence of greater
@@ -561,21 +562,21 @@ range of low contrast stimuli just above the detection threshold. For stimuli
 that feature higher contrasts between them and their backgrounds, vernier acuity
 appears robust to such changes. Nevertheless, there is evidence that
 other perceptual estimates become more uncertain with reduced contrast, such as speed
-perception \cite{warren_2017}. With this in mind, I argue that the effects of contrast
+perception \cite{champion_2017}. With this in mind, I argue that the effects of stimulus opacity
 on perceived correlation in scatterplots warrants further investigation.
 
-Hong et al., in 2021 \cite{hong_2021} used point opacity and size to encode the third
-variable in trivariate scatterplots. Participants were asked to judge the average
+In 2022 \cite{hong_2022}, Hong et al. used point opacity and size to encode a third
+variable in trivariate scatterplots, while asking participants to judge the average
 position of all the points displayed. It was found that participants' estimates
 of average point position were biased towards areas of larger or darker points; this
 was termed the *weighted average illusion*. Together with evidence that darker (more opaque)
-and larger points are more salient \cite{healey_2012}, the implication I took from this
-work was that I could use point opacity to systematically lower the salience of 
+and larger points are more salient \cite{healey_2011}, the implication I took from this
+work was that I could use point opacity to systematically lower the salience 
 of the points representing the widest parts of the probability distribution; if
 participants promptly perceived a narrower distribution, I expected this to be able
 to (at least partially) correct for the underestimation bias.
 
-One way to correct for an underestimation in correlation would be to simply remove
+One way to correct for an underestimation of correlation in scatterplots would be to simply remove
 outer data points until correlation perception is aligned with the actual correlation
 value. However, this would necessitate hiding data and thus changing the information
 presented to the viewer. An alternative approach is to manipulate the opacity of
@@ -832,7 +833,7 @@ contrasts_extract(e1_model, "opacity") %>%
 
 This effect was driven by significant difference between means of correlation 
 estimation error between all conditions bar high and full opacity. Statistical
-tests for contrasts were performed using the **emmeans** package \cite{emmeans}, 
+tests for contrasts were performed using the **emmeans** package \cite{lenth_2024}, 
 and are shown in @tbl-contrasts-e1. To test whether the observed results could be
 explained by difference in participants' levels of graph literacy, an additional
 model was built. This model is identical to the experimental model, but also
@@ -1054,7 +1055,7 @@ contrasts_extract(e2_model, "opacity") %>%
 The effect seen in experiment 2 was driven by significant differences in means of 
 correlation estimation error between all levels of opacity decay function condition
 bar full opacity and linear decay. Statistical testing for contrasts was performed
-using the **emmeans** package \cite{emmeans}, and are shown in @tbl-contrasts-e2.
+using the **emmeans** package \cite{lenth_2024}, and are shown in @tbl-contrasts-e2.
 To test whether the observed results could be explained by differences in graph 
 literacy, a model including participants' graph literacy scores as a fixed effect
 was built. Including graph literacy as a fixed effect again explained no additional
