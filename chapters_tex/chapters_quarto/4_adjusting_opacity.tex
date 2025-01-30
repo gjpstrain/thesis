@@ -607,11 +607,12 @@ a result of differences in levels of graph literacy.
 
 \begin{table}
 
-\caption{\label{tbl-efs-e1}Cohen's \textit{d} effect sizes for levels of
-the opacity factor in experiment 1. Each effect size is compared to the
-reference level, full contrast (alpha = 1).}
+\caption{\label{tbl-efs-e1}Cohen's \textit{d} effect sizes (left) and
+summary statistics (right) for levels of the opacity factor in
+experiment 1. Each effect size is compared to the reference level, full
+contrast (alpha = 1).}
 
-\centering{
+\begin{minipage}{0.50\linewidth}
 
 \begin{tabular}[t]{lr}
 \toprule
@@ -624,7 +625,26 @@ Low Opacity (alpha = 0.25) & 0.16\\
 \bottomrule
 \end{tabular}
 
-}
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\begin{tabular}[t]{lrr}
+\toprule
+Opacity & Mean & Standard
+Error\\
+\midrule
+Full Opacity
+(alpha = 1.0) & 0.15 & 0.016\\
+High Opacity
+(alpha = 0.75) & 0.15 & 0.016\\
+Medium Opacity
+(alpha = 0.5) & 0.17 & 0.016\\
+Low Opacity (alpha = 0.25) & 0.18 & 0.016\\
+\bottomrule
+\end{tabular}
+
+\end{minipage}%
 
 \end{table}%
 
@@ -639,6 +659,63 @@ reported effects on correlation perception of global point opacity
 \cite{rensink_2012}.
 
 \subsection{Discussion}\label{discussion-adjusting-opacity-e1}
+
+The hypothesis, that there would be a greater spread of correlation
+estimates for plots with lower global opacity compared to those with
+higher global opacity, was not supported. As seen in
+Table~\ref{tbl-efs-e1} (right), standard errors for each opacity factor
+are identical to 3 decimal places. Participants' errors in correlation
+estimation were significantly greater when the opacity of all
+scatterplot points was lower compared when it was higher. This held true
+up until alpha was set to 0.75, implying a threshold around this value
+past which there is little variation in the perception of opacity, at
+least as far as it is associated with correlation estimation. This lack
+of significant difference in correlation estimation between the two
+highest global opacity conditions is congruent with the logarithmic
+nature of contrast/brightness perception
+\cite{fechner_1948, varshney_2013}; despite there being equaal linear
+distance between the opacity values used, the perceptual distance
+between them was clearly non-linear.
+
+As mentioned previously, Rensink \cite{rensink_2012, rensink_2014}
+present the only other account of experiments that directly test
+correlation perception as it pertains to the opacities of scatterplot
+points, and report no difference in either bias (error) or variability
+(spread) in correlation perception regarding point opacity
+manipulations. In comparison, the results observed here do report an
+effect. This effect may be explained by differences in experimental
+power, as it is a small effect, although I argue that methodological
+differences may have also played a small role. Given the small effect
+size (Cohen's \emph{d} = 0.16), the small sample in Rensink (2014)
+\cite{rensink_2014} may have been insufficiently powered. With the large
+sample size in the present work (n = 150), evidence for an effect has
+been found. The experimental methodology utilised here is more
+representative of the use of scatterplots in the wild, and is therefore
+more suited to informing design as opposed to investigating the
+mathematical relationship between real and perceived correlation. While
+the effect is small, it demonstrates definitively that differences in
+the opacities of scatterplot points \emph{can} affect estimates of
+correlation in positively correlated scatterplots. From the results it
+is unclear why lowering global opacity causes greater errors in
+correlation estimation while causing no difference in spread.
+
+I suggest that correlation perception functions similarly to speed
+perception \cite{champion_2017} with regards to changes in the contrast
+between foreground targets (in this case scatterplot points) and the
+background; the greater spatial uncertainty brought on by reduced point
+opacity, while not eliciting greater spread in correlation estimates,
+might be responsible for the effects observed via an increase in the
+perceived width of the probability distribution displayed by the
+scatterplot
+
+From the results it is clear that a scatterplot optimised for
+correlation perception should have contrast between the foreground
+(points) and background in a range corresponding to alpha values of
+between 0.75 and 1. That significant differences in correlation
+estimation between data-identical scatterplots with different global
+point opacities however, suggests that this effect may be leveraged to
+further improve participants' performances on a correlation estimation
+task.
 
 \section{Experiment 2: Spatially-Dependent Opacity
 Adjustments}\label{experiment-2-spatially-dependent-opacity-adjustments}
@@ -665,10 +742,6 @@ this in mind, it was hypothesised that:
   opacity becomes greater with residual distance, will result in higher
   mean errors in correlation estimation than for all other conditions.
 \end{itemize}
-
-participants' estimates of correlation would exhibit lower mean error
-with a decay parameter in which point opacity falls with residual
-distance in a non-linear fashion, and that
 
 \subsection{Methods}\label{methods-adjusting-opacity-e2}
 
@@ -776,11 +849,12 @@ again explained no additional variance (\(\chi^2\)(1) = .242, \emph{p} =
 
 \begin{table}
 
-\caption{\label{tbl-efs-e2}Cohen's \textit{d} effect sizes for levels of
-the opacity decay function factor in experiment 2. Each effect size is
-compared to the reference level, full contrast (alpha = 1).}
+\caption{\label{tbl-efs-e2}Cohen's \textit{d} effect sizes (left) and
+summary statistics (right) for the opacity decay function factor in
+experiment 2. Each effect size is compared to the reference level, full
+contrast (alpha = 1).}
 
-\centering{
+\begin{minipage}{0.50\linewidth}
 
 \begin{tabular}[t]{lr}
 \toprule
@@ -793,7 +867,23 @@ Non-Linear Decay & -0.19\\
 \bottomrule
 \end{tabular}
 
-}
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\begin{tabular}[t]{lrr}
+\toprule
+Opacity & Mean & Standard
+Error\\
+\midrule
+Full Opacity & 0.12 & 0.012\\
+Inverted Decay & 0.17 & 0.012\\
+Linear Decay & 0.12 & 0.012\\
+Non-Linear Decay & 0.09 & 0.012\\
+\bottomrule
+\end{tabular}
+
+\end{minipage}%
 
 \end{table}%
 

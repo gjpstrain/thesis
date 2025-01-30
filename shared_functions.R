@@ -205,8 +205,8 @@ anova_results <- function(model, cmpr_model) {
   
   else
     
-  anova_output <- anova(model, cmpr_model) # currently unused, left it 
-  # in case you want to use LMMs
+  anova_output <- anova(model, cmpr_model) 
+                                            
   assign(paste0(model_name, ".Chisq"),
          anova_output$Chisq[2],
          envir = .GlobalEnv)

@@ -852,7 +852,9 @@ performance were not as a result of differences in levels of graph literacy.
 ```{r}
 #| label: tbl-efs-e1
 #| include: true
-#| tbl-cap: Cohen's \textit{d} effect sizes for levels of the opacity factor in experiment 1. Each effect size is compared to the reference level, full contrast (alpha = 1).
+#| tbl-cap: Cohen's \textit{d} effect sizes (left) and summary statistics (right) for levels of the opacity factor in experiment 1. Each effect size is compared to the reference level, full contrast (alpha = 1).
+#| tbl-subcap: ["A", "B"]
+#| layout-ncol: 2
 
 # this approximation uses t values and the pooled standard deviation of the differences
 
@@ -870,6 +872,19 @@ efs <- lme.dscore(e1_model, E1_uniform_adjustments_tidy, type = "lme4") %>%
   rename("Cohen's \\textit{d}" = "d") 
 
 kbl(efs, booktabs = TRUE, digits = c(0, 2), escape = FALSE)
+
+emmeans(e1_model, pairwise ~ "opacity")[[1]] %>%
+  as_tibble() %>%
+  select(-c(df, asymp.LCL, asymp.UCL)) %>%
+  rename(Opacity = opacity,
+         Mean = emmean,
+         "Standard\nError" = SE) %>%
+  mutate("Opacity" = recode(Opacity,
+                         "A" = "Low Opacity (alpha = 0.25)",
+                         "B" = "Medium Opacity\n(alpha = 0.5)",
+                         "C" = "High Opacity\n(alpha = 0.75)",
+                         "D" = "Full Opacity\n(alpha = 1.0)")) %>%
+  kbl(booktabs = T, digits = c(1, 2, 3))
 ```
 
 A function from the now archived **EMAtools** package \cite{ematools} was used to 
@@ -881,6 +896,52 @@ of previously reported effects on correlation perception of global point opacity
 \cite{rensink_2012}.
 
 ## Discussion {#discussion-adjusting-opacity-e1}
+
+The hypothesis, that there would be a greater spread of correlation estimates
+for plots with lower global opacity compared to those with higher global opacity,
+was not supported. As seen in @tbl-efs-e1 (right), standard errors for each opacity
+factor are identical to 3 decimal places. Participants' errors in correlation 
+estimation were significantly greater when the opacity of all scatterplot points
+was lower compared when it was higher. This held true up until alpha was set to
+0.75, implying a threshold around this value past which there is little variation
+in the perception of opacity, at least as far as it is associated with correlation
+estimation. This lack of significant difference in correlation estimation between
+the two highest global opacity conditions is congruent with the logarithmic nature
+of contrast/brightness perception \cite{fechner_1948, varshney_2013}; despite
+there being equaal linear distance between the opacity values used, the perceptual
+distance between them was clearly non-linear.
+
+As mentioned previously, Rensink \cite{rensink_2012, rensink_2014} present the only
+other account of experiments that directly test correlation perception as it pertains
+to the opacities of scatterplot points, and report no difference in either bias (error)
+or variability (spread) in correlation perception regarding point opacity manipulations.
+In comparison, the results observed here do report an effect. This effect may be
+explained by differences in experimental power, as it is a small effect, although
+I argue that methodological differences may have also played a small role. Given
+the small effect size (Cohen's *d* = 0.16), the small sample in Rensink (2014) \cite{rensink_2014}
+may have been insufficiently powered. With the large sample size in the present
+work (n = 150), evidence for an effect has been found. The experimental methodology 
+utilised here is more representative of the use of scatterplots in the wild,
+and is therefore more suited to informing design as opposed to investigating the
+mathematical relationship between real and perceived correlation. While the effect is small,
+it demonstrates definitively that differences in the opacities of scatterplot points
+*can* affect estimates of correlation in positively correlated scatterplots.
+From the results it is unclear why lowering global opacity causes greater errors in
+correlation estimation while causing no difference in spread.
+
+I suggest that correlation perception functions similarly to speed perception
+\cite{champion_2017} with regards to changes in the contrast between foreground
+targets (in this case scatterplot points) and the background; the greater spatial
+uncertainty brought on by reduced point opacity, while not eliciting greater spread
+in correlation estimates, might be responsible for the effects observed via an
+increase in the perceived width of the probability distribution displayed by the scatterplot
+
+From the results it is clear that a scatterplot optimised for correlation perception
+should have contrast between the foreground (points) and background in a range
+corresponding to alpha values of between 0.75 and 1. That significant differences
+in correlation estimation between data-identical scatterplots with different
+global point opacities however, suggests that this effect may be leveraged
+to further improve participants' performances on a correlation estimation task.
 
 # Experiment 2: Spatially-Dependent Opacity Adjustments
 
@@ -899,10 +960,6 @@ opacity. With this in mind, it was hypothesised that:
  - H2: the use of the inverted non-linear decay parameter, in which point opacity
  becomes greater with residual distance, will result in higher mean errors in correlation
  estimation than for all other conditions.
-
-participants' estimates of 
-correlation would exhibit lower mean error with a decay parameter in which point
-opacity falls with residual distance in a non-linear fashion, and that 
 
 ## Methods {#methods-adjusting-opacity-e2}
 
@@ -1089,7 +1146,9 @@ variance ($\chi^2$(`r in_paren(e2_lit_model.df)`) = `r printp(e2_lit_model.Chisq
 ```{r}
 #| label: tbl-efs-e2
 #| include: true
-#| tbl-cap: Cohen's \textit{d} effect sizes for levels of the opacity decay function factor in experiment 2. Each effect size is compared to the reference level, full contrast (alpha = 1).
+#| tbl-cap: Cohen's \textit{d} effect sizes (left) and summary statistics (right) for the opacity decay function factor in experiment 2. Each effect size is compared to the reference level, full contrast (alpha = 1).
+#| tbl-subcap: ["A", "B"]
+#| layout-ncol: 2
 
 # this approximation uses t values and the pooled standard deviation of the differences
 
@@ -1107,6 +1166,19 @@ efs <- lme.dscore(e2_model, E2_spatially_dependent_tidy, type = "lme4") %>%
   rename("Cohen's \\textit{d}" = "d") 
 
 kbl(efs, booktabs = TRUE, digits = c(0, 2), escape = FALSE)
+
+emmeans(e2_model, pairwise ~ "opacity")[[1]] %>%
+  as_tibble() %>%
+  select(-c(df, asymp.LCL, asymp.UCL)) %>%
+  rename(Opacity = opacity,
+         Mean = emmean,
+         "Standard\nError" = SE) %>%
+  mutate("Opacity" = recode(Opacity,
+                         "A" = "Non-Linear Decay",
+                         "B" = "Linear Decay",
+                         "C" = "Inverted Decay",
+                         "D" = "Full Opacity")) %>%
+  kbl(booktabs = T, digits = c(1, 2, 3))
 ```
 
 Approximated Cohen's *d* effect sizes between the baseline (global full opacity)
