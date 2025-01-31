@@ -984,7 +984,75 @@ time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 For each of the 45 *r* values in experiment 2, there were four versions 
 of each plot corresponding to the three levels of point opacity decay function and 
 the baseline global full opacity condition. Examples of each of these can be 
-seen in @fig-exp2-examples-chap4, demonstrated with an *r* value of 0.6.
+seen in @fig-exp2-examples-chap4, demonstrated with an *r* value of 0.6. Given the
+shape of the underestimation curve found in previous work (see related work chap
+3 or something), intuition suggested employing a symmetrically opposing curve 
+(see the non-linear decay curve in @fig-opposing-curve) to relate point opacity to residuals.
+
+```{r}
+#| label: fig-opposing-curve
+#| include: true
+#| fig-cap: Using an \textit{r} value of 0.2 to demonstrate the relationship between the size of a point's residual and the alpha value (opacity) rendered.
+#| fig-asp: 1
+
+my_desired_r = 0.2
+  
+my_sample_size = 128
+mean_variable_1 = 0
+sd_variable_1 = 1
+mean_variable_2 = 0
+sd_variable_2 = 1
+
+mu <- c(mean_variable_1, mean_variable_2) 
+
+myr <- my_desired_r * sqrt(sd_variable_1) * sqrt(sd_variable_2)
+
+mysigma <- matrix(c(sd_variable_1, myr, myr, sd_variable_2), 2, 2) 
+
+corr_data = as_tibble(mvrnorm(my_sample_size, mu, mysigma, empirical = TRUE))
+
+corr_model <- lm(V2 ~ V1, data = corr_data)
+
+my_residuals <- abs(residuals(corr_model))
+
+data_with_resid <- round(cbind(corr_data, my_residuals), 2)
+
+slopes_opp <- data_with_resid %>%
+  mutate(linear_decay = ((-my_residuals/2.6) + 1)) %>%
+  mutate(inverted_decay = 1-(0.25)^my_residuals) %>%
+  mutate(non_linear_decay = (1 + (0.25)^ my_residuals)-1) %>%
+  pivot_longer(cols = ends_with("ay"),
+               names_to = c("decay"),
+               values_to = "transformed_residual")
+
+slopes_opp %>%
+  mutate(decay = str_replace_all(decay, pattern = "_", replacement = " ")) %>%
+  mutate(decay = str_to_title(decay)) %>%
+  group_by(decay) %>%
+  ggplot(aes(x = my_residuals, y = transformed_residual)) +
+  geom_textline(aes(colour = decay,label = decay, size = 6, hjust = 0.65, vjust = -0.3)) +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10), limits = c(0,2.6)) +
+  labs(x = "Residual",
+       y = "Alpha (opacity)") +
+  theme_ggdist() +
+  theme(legend.title = element_blank(),
+        legend.position = "none",
+        axis.text = element_text(size = 7),
+        axis.title = element_text(size = 8)) +
+  coord_cartesian(xlim = c(0,2.6), ylim = c(0,1)) +
+  scale_colour_manual(values = c("black", "black", "black"))
+```
+
+
+Equation 4.1 was used to non-linearly map residuals to ggplot alpha values, where R is the residual
+of the point. 0.25 was chosen as the value of *b*, as it was felt at the time
+that this rendered plots that maintained point visibility while also allowing
+a large enough point opacity range that, if an effect was present, it was 
+likely to be found.
+
+\begin{equation}
+  point_{size/opacity} = 1 - b^{residual}
+\end{equation}
 
 ```{r}
 #| label: fig-exp2-examples-chap4
@@ -1185,8 +1253,29 @@ Approximated Cohen's *d* effect sizes between the baseline (global full opacity)
 and each other condition can be seen in @tbl-efs-e2. The largest effect size observed
 (~0.23 between full opacity and inverted decay conditions) is small to moderate,
 and the effect size between the baseline and the non-linear decay condition (~0.19) is small.
+@fig-estimates-by-r illustrates the effects of each manipulation on participants'
+correlation estimation performance separately for each value of *r* used. The dotted horizontal
+line represents perfect estimation, and standard deviations of estimates are
+provided by way of error bars. Participants still underestimated correlation in 
+all conditions.
 
+```{r}
+#| label: fig-estimates-by-r
+#| include: true
+#| fig-cap: Participants' mean errors in correlation estimates grouped by factor and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring the non-linear opacity decay function. Error bars show standard deviations of estimates.
+
+plot_error_bars_function(E2_spatially_dependent_tidy %>%
+                           mutate(grouping_var = fct_relevel(opacity,
+                                                             c("A",
+                                                               "B",
+                                                               "C",
+                                                               "D")))
+                         , "opacity", "difference", labels_e2) +
+  geom_hline(yintercept = 0, linetype = 2)
+```
 ## Discussion {#discussion-adjusting-opacity-e2}
+
+
 
 # General Discussion {#general-discussion-adjusting-opacity}
 

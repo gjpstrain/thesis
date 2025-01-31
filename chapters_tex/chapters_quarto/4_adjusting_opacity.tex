@@ -765,7 +765,36 @@ For each of the 45 \emph{r} values in experiment 2, there were four
 versions of each plot corresponding to the three levels of point opacity
 decay function and the baseline global full opacity condition. Examples
 of each of these can be seen in Figure~\ref{fig-exp2-examples-chap4},
-demonstrated with an \emph{r} value of 0.6.
+demonstrated with an \emph{r} value of 0.6. Given the shape of the
+underestimation curve found in previous work (see related work chap 3 or
+something), intuition suggested employing a symmetrically opposing curve
+(see the non-linear decay curve in Figure~\ref{fig-opposing-curve}) to
+relate point opacity to residuals.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf}
+
+}
+
+\caption{\label{fig-opposing-curve}Using an \textit{r} value of 0.2 to
+demonstrate the relationship between the size of a point's residual and
+the alpha value (opacity) rendered.}
+
+\end{figure}%
+
+Equation 4.1 was used to non-linearly map residuals to ggplot alpha
+values, where R is the residual of the point. 0.25 was chosen as the
+value of \emph{b}, as it was felt at the time that this rendered plots
+that maintained point visibility while also allowing a large enough
+point opacity range that, if an effect was present, it was likely to be
+found.
+
+\begin{equation}
+  point_{size/opacity} = 1 - b^{residual}
+\end{equation}
 
 \begin{figure}
 
@@ -893,6 +922,29 @@ Table~\ref{tbl-efs-e2}. The largest effect size observed
 (\textasciitilde0.23 between full opacity and inverted decay conditions)
 is small to moderate, and the effect size between the baseline and the
 non-linear decay condition (\textasciitilde0.19) is small.
+Figure~\ref{fig-estimates-by-r} illustrates the effects of each
+manipulation on participants' correlation estimation performance
+separately for each value of \emph{r} used. The dotted horizontal line
+represents perfect estimation, and standard deviations of estimates are
+provided by way of error bars. Participants still underestimated
+correlation in all conditions.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-1.pdf}
+
+}
+
+\caption{\label{fig-estimates-by-r}Participants' mean errors in
+correlation estimates grouped by factor and by \textit{r} value. The
+dashed horizontal line represents perfect estimation. Participants were
+most accurate when presented with the plots featuring the non-linear
+opacity decay function. Error bars show standard deviations of
+estimates.}
+
+\end{figure}%
 
 \subsection{Discussion}\label{discussion-adjusting-opacity-e2}
 

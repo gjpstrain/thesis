@@ -33,7 +33,9 @@ extract_literacy <- function(df) {
     )
 }
 
-# Plot example functions for all experiments
+# Plotting functions
+
+## Plot example function for all experiments
 
 set.seed(1234)
 
@@ -161,6 +163,34 @@ example_plot_function_exp5 <- function(slopes, my_desired_r, size_value, opacity
   
 }
 
+# function for plotting error error bar plots per group, per r value
+# usage requires renaming the factor as "grouping_var"
+
+plot_error_bars_function <- function(df, grouping_var, measure, labels) {
+  df %>% 
+    drop_na() %>% 
+    group_by(grouping_var, my_rs) %>% 
+    summarise(sd = sd(get(measure)), mean = mean(get(measure))) %>% 
+    ggplot(aes(x = my_rs, y = mean*-1)) +
+    #geom_point(size = 0.2) + 
+    geom_errorbar(mapping = aes(ymin = -1*mean + sd, ymax = -1*mean - sd),
+                  width = 0.01,
+                  size = 0.3) +
+    theme_ggdist() +
+    scale_y_continuous(breaks = seq(-0.4,1, 0.2)) +
+    theme(strip.text = element_text(size = 6,
+                                    margin = margin(1,0,1,0, "mm")),
+          aspect.ratio = 1,
+          axis.text = element_text(size = 7),
+          axis.title.y = ggtext::element_markdown(size = 8),
+          axis.title.x = ggtext::element_markdown(size = 8)) +
+    facet_wrap(grouping_var ~., ncol = 4, labeller = labeller(grouping_var = labels)) +
+    labs(x = "Objective *r*",
+         y = "Mean *r* Estimation Error") +
+    geom_line(formula= x ~ y, size = 0.5) +
+    xlim(0.2,1)
+}
+
 # Functions for working with experimental models
 
 ## comparison function - returns model with fixed fx terms removed
@@ -271,5 +301,4 @@ lme.dscore<-function(mod,data,type){
   eff<-eff[-1,]
   return(eff)
 }
- 
 
