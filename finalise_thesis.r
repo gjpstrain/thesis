@@ -30,7 +30,7 @@ replace_before_document_in_folder(folder_path)
 #tinytex::install_tinytex()
 
 # because the UoM template uses lualatex, we may have to manually install
-# an additional package (just uncomment line 30)
+# an additional package (just uncomment and run line 30)
 
 #tinytex::tlmgr_install("luatex85")
 

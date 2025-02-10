@@ -1257,7 +1257,8 @@ and the effect size between the baseline and the non-linear decay condition (~0.
 correlation estimation performance separately for each value of *r* used. The dotted horizontal
 line represents perfect estimation, and standard deviations of estimates are
 provided by way of error bars. Participants still underestimated correlation in 
-all conditions.
+all conditions, although the use of the non-linear decay function biased participants'
+estimates upwards to partially correct for the underestimation.
 
 ```{r}
 #| label: fig-estimates-by-r
@@ -1273,7 +1274,59 @@ plot_error_bars_function(E2_spatially_dependent_tidy %>%
                          , "opacity", "difference", labels_e2) +
   geom_hline(yintercept = 0, linetype = 2)
 ```
+
 ## Discussion {#discussion-adjusting-opacity-e2}
+
+```{r}
+#| label: model-e2-low-range
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+E2_low_range <- E2_spatially_dependent_tidy %>%
+  filter(contrast == c("B", "D")) %>%
+  filter(my_rs < 0.6)
+
+e2_model_low_range <- buildmer(difference ~ opacity +
+                       (1 + opacity | participant) +
+                       (1 + opacity | item),
+                     data = E2_low_range)
+```
+
+```{r}
+#| label: model-e2-low-range-cmpr
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e2_model_comparison_low_range <- comparison(e2_model_low_range)
+```
+
+```{r}
+#| label: anova-results-e2-low-range
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+anova_results(e2_model_low_range, e2_model_comparison_low_range)
+```
+
+Both hypotheses received support from experiment 2. Participants' errors in
+correlation estimation were lowest when the non-linear decay function was used,
+and were highest when scatterplots employed the non-linear inverted decay function.
+There was no significant difference in correlation estimation errors between the 
+linear decay function and full contrast conditions. This result was surprising, however
+on closer inspection of the scatterplots in the linear decay function condition,
+it is clear that the logarithmic nature of contrast perception \cite{fechner_1948,
+varshney_2013} means there was little perceptual distance between points with
+high opacity values (*alpha* > 0.75). This resulted in no significant perceived
+differences between full opacity and linear decay function scatterplots. A similar
+threshold for high opacity values was found in experiment 1. Selecting only lower *r*
+values, those with naturally higher residuals (arbitrarily *r* < 0.6), still results
+in no difference between correlation estimation errors for linear decay parameters
+and full opacity conditions ($\chi^2$(`r in_paren(e2_model_low_range.df)`)
+= `r printnum(e2_model_low_range.Chisq)`, *p* `r printp(e2_model_low_range.p, add_equals = TRUE)`).
+Effect sizes were small, with the largest being between the baseline full opacity
+and inverted non-linear decay conditions. This suggests that it is easier to induce
+further bias in correlation estimates through a reduction in the salience of a 
+point cloud's centre than it is to correct for the underestimation bias.
 
 
 
