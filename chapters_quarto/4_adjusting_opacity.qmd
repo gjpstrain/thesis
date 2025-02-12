@@ -710,7 +710,7 @@ ggarrange(plot_example_function(data_with_resid, "Opacity = 0.25",
           nrow = 1)
 ```
 
-## Analysis {#analysis-adjusting-opacity-e1}
+## Results {#analysis-adjusting-opacity-e1}
 
 ```{r}
 #| label: model-e1
@@ -887,13 +887,32 @@ emmeans(e1_model, pairwise ~ "opacity")[[1]] %>%
   kbl(booktabs = T, digits = c(1, 2, 3))
 ```
 
+```{r}
+#| label: fig-estimates-by-r-e1
+#| include: true
+#| fig-cap: Participants' mean errors in correlation estimates grouped by factor and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring higher global point opacity. Error bars show standard deviations of estimates.
+
+plot_error_bars_function(E1_uniform_adjustments_tidy %>%
+                           mutate(grouping_var = fct_relevel(opacity,
+                                                             c("A",
+                                                               "B",
+                                                               "C",
+                                                               "D")))
+                         , "opacity", "difference", labels_e1) +
+  geom_hline(yintercept = 0, linetype = 2)
+```
+
+
 A function from the now archived **EMAtools** package \cite{ematools} was used to 
 calculate an approximation of Cohen's *d* between the reference level (full contrast, 
 alpha = 1.0) and each other level of the opacity factor. These statistics can be
 seen in @tbl-efs-e1. The largest effect size observed (*d* ~ 0.16) is between the 
 low and full opacity conditions, and is small. This was unsurprising given the lack 
 of previously reported effects on correlation perception of global point opacity
-\cite{rensink_2012}.
+\cite{rensink_2012}. @fig-estimates-by-r-e1 shows how participants' estimates of 
+correlation change with the objective *r* value in the plot. As reported in
+previous literature (see Sec in related work), participants underestimated
+*r* in nearly all cases (revise).
 
 ## Discussion {#discussion-adjusting-opacity-e1}
 
@@ -1071,7 +1090,7 @@ ggarrange(plot_example_function(slopes, "Non-Linear Decay",
           nrow = 1)
 ```
 
-## Analysis {#analysis-adjusting-opacity-e2}
+## Results {#analysis-adjusting-opacity-e2}
 
 ```{r}
 #| label: model-e2
@@ -1253,7 +1272,7 @@ Approximated Cohen's *d* effect sizes between the baseline (global full opacity)
 and each other condition can be seen in @tbl-efs-e2. The largest effect size observed
 (~0.23 between full opacity and inverted decay conditions) is small to moderate,
 and the effect size between the baseline and the non-linear decay condition (~0.19) is small.
-@fig-estimates-by-r illustrates the effects of each manipulation on participants'
+@fig-estimates-by-r-e2 illustrates the effects of each manipulation on participants'
 correlation estimation performance separately for each value of *r* used. The dotted horizontal
 line represents perfect estimation, and standard deviations of estimates are
 provided by way of error bars. Participants still underestimated correlation in 
@@ -1261,7 +1280,7 @@ all conditions, although the use of the non-linear decay function biased partici
 estimates upwards to partially correct for the underestimation.
 
 ```{r}
-#| label: fig-estimates-by-r
+#| label: fig-estimates-by-r-e2
 #| include: true
 #| fig-cap: Participants' mean errors in correlation estimates grouped by factor and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring the non-linear opacity decay function. Error bars show standard deviations of estimates.
 
@@ -1283,7 +1302,7 @@ plot_error_bars_function(E2_spatially_dependent_tidy %>%
 #| cache: !expr params$eval_models
 
 E2_low_range <- E2_spatially_dependent_tidy %>%
-  filter(contrast == c("B", "D")) %>%
+  filter(opacity == c("B", "D")) %>%
   filter(my_rs < 0.6)
 
 e2_model_low_range <- buildmer(difference ~ opacity +
@@ -1328,8 +1347,202 @@ and inverted non-linear decay conditions. This suggests that it is easier to ind
 further bias in correlation estimates through a reduction in the salience of a 
 point cloud's centre than it is to correct for the underestimation bias.
 
+Looking at the standard deviations of correlation estimates plotted separately
+by opacity decay function and *r* value in @fig-estimates-by-r-e2, it can be observed
+that as in experiment 1 (see @fig-estimates-by-r-e1), and aside from the inverted
+non-linear decay function condition, precision in *r* estimation increased with the
+objective *r* value. This finding corroborates previous work. In the inverted
+non-linear decay condition, as *r* approaches 1 (and point residuals accordingly approach 0),
+the opacity of points diminishes. Just as the standard deviation of correlation estimates
+was higher for the low global opacity condition in experiment 1, having lower
+opacity points at the high *r* end of the non-linear inverted condition in experiment 2 
+resulted in fairly constant standard deviations across *r* values, as the usual
+reduction towards *r* = 1 was not observed.
+
+The non-linear inverted opacity decay condition produced significantly lower estimates
+of correlation than all other conditions. This adds perspective to suggestions
+\cite{yang_2019} that, among other visual features, the area of a hypothetical
+prediction ellipse \cite{cleveland_1982, yang_2019}, a region used to predict
+new observations assuming a bivariate normal distribution (see @fig-prediction-ellipse)
+is a better predictor of correlation estimation performance than the objective *r*
+value itself. In the inverted non-linear decay condition, the area of this ellipse
+remained the same, yet estimates of correlation differed significantly. These results
+suggest that the apparent density of the scatterplot point cloud also has effects
+on estimates of correlation. Prior work has found that more dense scatterplots
+are rated as having higher correlations \cite{lauer_1989, rensink_2014}, although
+the effect found was weak. To explore this effect further, work investigating
+what people attend to when making correlation judgements must be completed. Eye-tracking
+offers an elegant solution to this problem, yet at the time of writing, had only 
+been used for simpler scatterplot-related tasks, such as those asking participants
+to identify the number of, or distance between, points \cite{netzel_2017}.
+
+```{r}
+#| label: fig-prediction-ellipse
+#| include: true
+#| fig-asp: 1
+#| fig-cap: Plot showing a 95\% prediction ellipse over a scatterplot with an \textit{r} value of 0.6.
+
+plot_example_function(data_with_resid, "", 1, 0.2, 7) +
+  stat_ellipse(type = "norm")
+```
 
 
 # General Discussion {#general-discussion-adjusting-opacity}
 
+To summarise the results, evidence was found that changing the opacities of points
+in scatterplots can significantly alter participants' estimates of correlation,
+that lower global point opacity is associated with greater correlation underestimation
+error, that lowering point opacity as a function of residual error can partially
+correct for this underestimation, and that raising opacity as a function of residual
+error can increase the underestimation bias. These findings pave the way for 
+using changes in point opacity to produce perceptually-optimised scatterplots
+that do not rely on data removal. As the focus of this work is on designing
+data visualisations that lay people are more easily able to interpret and understand,
+we used a large, representative sample, including people from a range of nationalities
+and educational backgrounds. This chapter demonstrates that a simple framework
+can be employed with these groups to gather high quality data, and, by design,
+produce conclusions that may generalise better to in-the-wild data visualisation
+usage.
+
+In agreement with previous research \cite{pollack_1960, rensink_2010, rensink_2012,
+rensink_2014, rensink_2017}, participants were more accurate and precise in their
+estimates of correlation when the *r* value shown in the scatterplot was higher.
+@fig-estimates-by-r-e1 and @fig-estimates-by-r-e2 plot objective *r* value
+against participants' errors in correlation estimation separately for each level
+of the respective independent variable. These plots illustrate, as in much previous
+work, the lower levels of precision and accuracy in correlation estimation that 
+are seen for *r* values further from 0 or 1.
+
+The results here contribute to a body of evidence that suggests participants
+are attending to the width of the probability distribution displayed in a scatterplot
+\cite{cleveland_1982, meyer_1997, rensink_2017, yang_2019} when making judgements
+of correlation. Further evidence is provided for the systematic underestimation
+bias, and a potential correction strategy is offered. This work does not attempt
+to redesign the scatterplot as a medium, but to provide a set of recommendations
+for designers based on the evidence; when designing positively correlated 
+scatterplots to support correlation perception:
+
+ - Lowering the total opacity in a scatterplot can cause people to underestimate
+ correlation compared to when contrast is maximal between the points and the
+ plot background (when point opacity is high). 
+ - The use of a non-linear opacity decay function, in which point opacity falls
+ as a function of residual size, can be used to counteract the underestimation 
+ seen in correlation estimation in positively correlated scatterplots.
+ 
+ Scatterplots are widely used, and are often designed with a number of communicative
+ concepts in mind. When one of these concepts is illustrating the degree of positive
+ association between two variables, the findings presented suggest that designers
+ should utilise the techniques described to give viewers the best chance of 
+ interpreting the correlation displayed as accurately as possible.
+
 ## Training {#training-adjusting-opacity}
+
+```{r}
+#| label: model-e1-training
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e1_training_model <- add_fixed_effect(e1_model, "half", "E1_uniform_adjustments_tidy")
+
+e1_training_cmpr <- e1_model
+```
+
+```{r}
+#| label: model-e1-training-results
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+anova_results(e1_training_model, e1_training_cmpr)
+```
+
+```{r}
+#| label: model-e2-training
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e2_training_model <- add_fixed_effect(e2_model, "half", "E2_spatially_dependent_tidy")
+
+e2_training_cmpr <- e2_model
+```
+
+```{r}
+#| label: model-e2-training-results
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+anova_results(e2_training_model, e2_training_cmpr)
+```
+
+Both experiments tested lay participants with varying levels of graph literacy.
+Due to concerns about participants' familiarity with scatterplots, each saw
+four scatterplots depicting correlations of *r* = 0.2, 0.5, 0.8, and 0.99
+(see @fig-training-slide-adjusting-opacity) to familiarise themselves with the concept.
+To test if the patterns of results seen in correlation estimation could be attribute
+to this training, models were built that included the half of the session (first or second)
+as a predictor for participants' judgements of correlation. Comparing these models
+to the origin revealed a significant effect in experiment 1 ($\chi^2$(`r in_paren(e1_training_model.df)`) =
+`r printnum(e1_training_model.Chisq)`, *p* `r printnum(e1_training_model.p,
+add_equals = TRUE)`), but not experiment 2 ($\chi^2$(`r in_paren(e2_training_model.df)`)
+= `r printnum(e2_training_model.Chisq)`, *p* `r printnum(e2_training_model.p, add_equals = TRUE)`).
+In experiment 1, participants' errors in correlation estimation were higher in the
+second half of the experiment, suggesting that having more recently viewed the
+training material may have made participants more accurate. That this was not 
+observed in experiment 2 implies that the point opacity manipulation had a greater
+effect on estimates than any training effects. 
+
+## Limitations
+
+The results in experiment 2 provide evidence that reducing the salience of points
+as they move further from the regression line can increase people's estimates
+of correlation, at least when plots like these are presented alongside conventional
+ones. Testing whether this phenomenon would exist with a plot in isolation would
+present a number of difficulties. As can be seen in @fig-estimates-by-r-e1 and
+@fig-estimates-by-r-e2, participants' estimates of correlation, especially between 0.2 and 0.7, suffer 
+from high variance. High numbers of trials and participants ameliorate this to an extent,
+but this does prevent commentary on single plot judgements of correlation.
+
+An important first step in the utilisation of point opacity changes to 
+optimise perception of correlation in scatterplots has been made, however there remains much to do.
+Quantitative determination of whether 0.25 is indeed the most optimal value
+for $b$ in equation 1, for example, is impossible from the present results. It may
+well be the case that changing the value of $b$ as a function of the objective 
+Pearson's *r* value could produce more accurate correlation estimation in participants;
+findings that participants were more accurate in correlation
+estimation when *r* was nearer 0 or 1 would suggest that the use of a decay parameter 
+for these correlations is unnecessary.
+
+The simplicity of the direct estimation task employed confers some limitations
+on the conclusions that can be drawn, although these limitations do not prevent the data 
+gathered from being practically useful. The methods used to not allow for investigation
+of absolute correlation perception, as JND or bisection methodologies might. The
+finding that mean errors in judgements of correlation for full opacity conditions
+were different between experiments 1 (0.149) and 2 (0.123) makes this limitation
+evident. In the experimental paradigm, participants indirectly made comparative
+correlation judgements, which may have resulted in this discrepancy. Nevertheless,
+the results found are promising with regards to design research.
+
+## Future Work
+
+Future work may wish to investigate negative values of *r*, given findings
+that people may overestimate the correlation of negatively correlated
+scatterplots in a similar way \cite{sher_2017}. The techniques presented here
+could be adapted to bias perceptions of correlation down and correct
+for this overestimation. The non-linear opacity decay function demonstrated
+here may be able to accomplish this.
+
+The opacity decay function conditions in experiment 2 used the vertical
+distance between a particular point and the regression line to set that
+point's opacity. Previous work \cite{meyer_1997} has suggested that the 
+perpendicular distance between a point and the regression line may be a
+more accurate predictor of performance on correlation estimation tasks
+\cite{cleveland_1982, rensink_2017, yang_2019}. Future work exploring these 
+manipulations further may wish to investigate whether there are differences between
+using perpendicular and vertical residual distance as bases for setting for opacity
+with regard to correlation estimation.
+
+Finally, the most exciting avenue for related future work is the possibility
+of combining the techniques developed and tested here with other novel scatterplot
+visualisation techniques that have a basis in the literature. Chapter 5 investigates 
+the use of point size in place of opacity with the techniques described, while
+Chapter 6 combines the two to explore how these different modalities work
+together with regards to the estimation of positive correlation.
