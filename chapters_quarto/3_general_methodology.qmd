@@ -299,10 +299,10 @@ comparison, it was decided that n = 150 would remain the target recruitment rate
 
 [^1]: this is a more strict rate than the 95% recommended by Peer et al. \cite{peer_2021}.
 
-## Creating Stimuli
+## Creating Stimuli {#creating-stimuli}
 
-All stimuli were created using `ggplot2` in R. Specific versions are cited separately
-with regard to the specific visualisations produced for each experiment. 
+All stimuli were created using `ggplot2` \cite{wickham_2016} in R. Specific versions numbers
+are provided with regard to the specific visualisations produced for each experiment. 
 Identical principles were followed regarding data visualisation design
 for each experiment bar the last, which is discussed \textit{in situ}. 
 

@@ -25,10 +25,10 @@ any published works.
 
 The research proposal that kickstarted this project in 2021 set out a
 plan to investigate the perception of correlation in scatterplots as a
-function of screen size. This proprosal is included in the supplemental
+function of screen size. This proposal is included in the supplemental
 materials. This was prompted by recent research demonstrating consistent
 perceptual biases in scatterplots due to geometric scaling
-\cite{wei_2020}, the increasing prevalence of data visualisations in lay
+\cite{wei_2020}, the growing prevalence of data visualisations in lay
 people's daily lives due to the COVID-19 pandemic, and the increasing
 adoption of wearable devices. The first experiment conducted therefore
 examined how perceptions of correlation changed according to the size of
@@ -139,7 +139,7 @@ factor (left) and opacity decay factor (right).}
 
 \begin{tabular}[t]{llrl}
 \toprule
-\multicolumn{2}{c}{Contrasts} & \multicolumn{2}{c}{Statistics} \\
+\multicolumn{2}{c}{Contrast} & \multicolumn{2}{c}{Statistics} \\
 \cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
   &    & Z ratio & \textit{p}\\
 \midrule
@@ -155,7 +155,7 @@ Medium (100\%) & Small (52\%) & -2.63 & 0.023\\
 
 \begin{tabular}[t]{llrl}
 \toprule
-\multicolumn{2}{c}{Contrasts} & \multicolumn{2}{c}{Statistics} \\
+\multicolumn{2}{c}{Contrast} & \multicolumn{2}{c}{Statistics} \\
 \cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
   &    & Z ratio & \textit{p}\\
 \midrule
@@ -171,9 +171,11 @@ Absent & Present & 3.65 & <0.001\\
 
 For the factor of plot size, the effect observed was driven by
 significant differences in correlation estimation error between large
-and small plots. Participants estimated more accurately when the plot
-was large and when the decay function was present. Participants still
-underestimated correlation in all conditions. The finding that
+and small plots and between medium and small plots. There were no
+significant differences in correlation estimation performance between
+large and medium plots. Participants estimated more accurately when the
+plot was large and when the decay function was present. Participants
+still underestimated correlation in all conditions. The finding that
 estimation error was lower for larger plots is in line with previous
 evidence that geometrically scaling a scatterplot up can increase
 perceptions of the strength of the correlation displayed
@@ -183,19 +185,20 @@ extremely small effect (see Table~\ref{tbl-emmeans-pilot}) and lack of
 novelty.
 
 The impact of even an immature point opacity decay function on
-correlation estimation was a novel finding that we felt deserved
-further, and more rigorous, study. Its implementation was based on
-findings that changing the opacities of scatterplot points could bias
-estimates of means \cite{hong_2022}, and on limited evidence for the
-perception of correlation being based on the perceived width of a
-probability distribution represented by the arrangement of scatterplot
-points. I did not foresee the decay function, being novel, having a
-greater effect on correlation estimation than size. Once evidence had
-been found that changing the opacity of points in scatterplots could
-have effects on correlation estimation, in opposition to previous
-research \cite{rensink_2012, rensink_2014}, the door was opened for a
-rigorous investigation into how this worked and how it could be used
-systematically to correct for the historic underestimation bias.
+correlation estimation was a novel finding that I felt deserved further,
+and more rigorous, study. Its implementation was based on findings that
+changing the opacities of scatterplot points could bias estimates of
+means \cite{hong_2022}, and on limited evidence for the perception of
+correlation being based on the perceived width of a probability
+distribution represented by the arrangement of scatterplot points. I did
+not foresee the decay function, being novel, having a greater effect on
+correlation estimation than the established effect of plot size. Once
+evidence had been found that changing the opacity of points in
+scatterplots could have effects on correlation estimation, in opposition
+to previous research \cite{rensink_2012, rensink_2014}, the door was
+opened for a rigorous investigation into how this worked and how it
+could be used systematically to correct for the historic underestimation
+bias.
 
 \section{Introduction}\label{introduction-adjusting-opacity}
 
@@ -273,14 +276,14 @@ experiments described here. Due to this, the approach to opacity
 described in this chapter would not be useful when dealing with much
 larger datasets where clutter becomes an issue.
 
-The \textbf{ggplot2} \cite{wickham_2016} package was used in R to create
-stimuli for this experiment. This package uses an alpha parameter to set
-point opacity. Alpha here refers to the level of linear interpolation
-\cite{stone_2008} between foreground and background pixel values; alpha
-values of 0 (full transparency) and 1 (full opacity) result in no
-interpolation and rendering of either the background or foreground pixel
-values respectively. Alpha values between 0 and 1 correspond to
-different ratios of interpolation, and are illustrated in
+The \texttt{ggplot2} \cite{wickham_2016} package (version 3.4.1) was
+used in R to create stimuli for this experiment. This package uses an
+alpha parameter to set point opacity. Alpha here refers to the level of
+linear interpolation \cite{stone_2008} between foreground and background
+pixel values; alpha values of 0 (full transparency) and 1 (full opacity)
+result in no interpolation and rendering of either the background or
+foreground pixel values respectively. Alpha values between 0 and 1
+correspond to different ratios of interpolation, and are illustrated in
 Figure~\ref{fig-alpha-examples}.
 
 \begin{figure}
@@ -304,9 +307,10 @@ I initially elected to use the term ``contrast'', given the
 fundamentality of contrast as a feature of human visual perception
 \cite{ginsburg_2003}, however later reviewer comments prompted the
 change to ``opacity''. Nevertheless, we can consider \emph{opacity} as
-it is used here to be shorthand for ``the contrast between foreground
-and background objects'', as visually, these concepts are the same.
-There are numerous psychophysical definitions of perceived contrast
+it is used here when pertaining to scatterplot points on a white
+background to be shorthand for ``the contrast between foreground and
+background objects'', as visually, these concepts are the same. There
+are numerous psychophysical definitions of perceived contrast
 \cite{zuffi_2007} based on what is being presented, for example, models
 that take into account visibility limits (CIELAB lightness), or contrast
 in periodic patterns such as sinusoidal gratings (Michelson's contrast).
@@ -322,7 +326,7 @@ this lack of control over the exact nature of the stimuli was not
 problematic. It does mean that reporting the exact luminance values
 would be pointless however, so where a value for opacity is referred to
 in this chapter and beyond, it is the alpha value specified by
-\textbf{ggplot2}.
+\texttt{ggplot2}.
 
 \subsection{Effects of Point Opacity on Correlation
 Estimation}\label{effects-of-point-opacity-on-correlation-estimation}
@@ -332,7 +336,9 @@ issues, little investigation had taken place into the effects of
 reducing point opacity on people's perceptions of correlation. In 2012,
 Rensink \cite{rensink_2012} found correlation perception to be invariant
 to changes in point opacity, although this work took place with only
-small sample sizes (n = 12), and using only bisection/JND methodologies.
+small sample sizes (n = 12), and using only bisection/JND methodologies
+(see section in related work about ways of testing correlation
+perception).
 
 Changing the contrast between a stimulus and its background (lowering
 its opacity) effectively reduces the strength of its signal. A likely
@@ -353,7 +359,7 @@ contrast, such as speed perception \cite{champion_2017}. With this in
 mind, I argue that the effects of stimulus opacity on perceived
 correlation in scatterplots warrants further investigation.
 
-In 2022 \cite{hong_2022}, Hong et al.~used point opacity and size to
+In 2022, Hong et al.~\cite{hong_2022}, used point opacity and size to
 encode a third variable in trivariate scatterplots, while asking
 participants to judge the average position of all the points displayed.
 It was found that participants' estimates of average point position were
@@ -375,16 +381,16 @@ some of the points; it would seem most sensible to do so for the points
 that are more extreme relative to the underlying regression line. In the
 present study these questions are explored in two online experiments
 with large sample sizes. In the first, the effects of point opacity over
-the entire scatterplot on correlation estimates is investigated. In the
-second experiment we examine how changing contrast as a function of
+the entire scatterplot on correlation estimates is investigated. The
+second experiment examines how changing contrast as a function of
 distance to the regression line affects perceived correlation. To
-pre-empt our results we find clear effects of both manipulations.
+pre-empt the results, clear effects of both manipulations are found.
 
-\section{General Methods}\label{shared-methods-adjusting-opacity}
+\section{General Methods}\label{general-methods-adjusting-opacity}
 
 The experiments described in this chapter share multiple aspects of
 their procedures. Both experiments were built using PsychoPy
-\cite{peirce_2019} and are hosted on pavlovia.org. Both use 1-factor,
+\cite{peirce_2019} and are hosted on Pavlovia.org. Both use 1-factor,
 4-level designs. Ethical approval for both experiments was granted by
 the University of Manchester's Computer Science Departmental Panel (Ref:
 2022-14660-24397). In each experiment, participants were shown the
@@ -393,11 +399,11 @@ consent through key presses in response to consent statements.
 Participants were asked to provide their age and gender identity, after
 which they completed the 5-item Subjective Graph Literacy test described
 by Garcia-Retamero et al.~\cite{garcia_2016} and discussed in Section
-\ref{graph-literacy-lit-review} of the literature review. Early piloting
-with a graduate student in humanities suggested the potential for
-participants to be unfamiliar with the visual nature of different values
-of Pearson's \emph{r}. Participants were therefore shown examples of
-\emph{r} = 0.2, 0.5, 0.8, and 0.95 (see
+\ref{graph-literacy-lit-review} of the related work chapter. Early
+piloting with a graduate student in humanities suggested the potential
+for participants to be unfamiliar with the visual nature of different
+values of Pearson's \emph{r}. Participants were therefore shown examples
+of \emph{r} = 0.2, 0.5, 0.8, and 0.95 (see
 Figure~\ref{fig-training-slide-adjusting-opacity}); a discussion of the
 effects of this training is provided in Section
 \ref{training-adjusting-opacity}. Participants were given two practice
@@ -448,13 +454,13 @@ preceded by a visual mask (see Figure~\ref{fig-mask-adjusting-opacity})
 that was displayed for 2.5 seconds. Participants were instructed to make
 their judgements as quickly and accurately as possible, but there was no
 time limit per trial. Both experiments described here use a fully
-repeated-measures, within-participants design. Participants saw all 180
-experimental items, corresponding to \textasciitilde27,000 individual
-judgements per experiment, in a fully randomised order.
+repeated-measures, within-participants design. All 150 participants saw
+all 180 experimental items, corresponding to \textasciitilde27,000
+individual judgements per experiment, in a fully randomised order.
 
 Both experiments were conducted according to principles of open and
-reproducible research. All data and analysis code for the origin paper
-is available on GitHub \footnote{https://github.com/gjpstrain/contrast\_and\_scatterplots}.
+reproducible research. All data and analysis code for the original paper
+are available on GitHub \footnote{https://github.com/gjpstrain/contrast\_and\_scatterplots}.
 Experiment 1 \footnote{https://gitlab.pavlovia.org/Strain/exp\_uniform\_adjustments}
 and 2 \footnote{https://gitlab.pavlovia.org/Strain/exp\_spatially\_dependent}
 are hosted on Pavlovia.org, while the Open Science Framework hosts
@@ -468,7 +474,7 @@ in the present chapter.
 \section{Experiment 1: Uniform Opacity
 Adjustments}\label{experiment-1-uniform-opacity-adjustments}
 
-\subsection{Introduction}\label{introduction-adjusting-opacity-e1}
+\subsection{Introduction}\label{introduction-e1}
 
 Previous literature had described correlation perception as being
 resistant to changes in opacity \cite{rensink_2012, rensink_2014}.
@@ -484,12 +490,12 @@ stimulus opacity on perception described above
 \tightlist
 \item
   H1: A greater spread of estimates of correlation for plots with lower
-  global opacity compared to higher opacity plots will be observed
+  global opacity compared to higher opacity plots will be observed.
 \end{itemize}
 
-\subsection{Method}\label{methods-adjusting-opacity-e1}
+\subsection{Method}\label{methods-e1}
 
-\subsubsection{Participants}\label{participants}
+\subsubsection{Participants}\label{participants-e1}
 
 150 participants were recruited using the Prolific platform
 \cite{prolific}. Normal to corrected-to-normal vision and English
@@ -503,7 +509,7 @@ Participants' mean age was 28.29 (\emph{SD} = 8.59). Mean graph literacy
 score was 21.79 (\emph{SD} = 4.47). The mean time taken to complete the
 experiment was 33 minutes (SD = 10 minutes).
 
-\subsubsection{Design}\label{design}
+\subsubsection{Design}\label{design-e1}
 
 For each of the 45 \emph{r} values, there were four versions of each
 plot corresponding to the four levels of point opacity. Examples of each
@@ -524,16 +530,16 @@ experiment 1, demonstrated with an \textit{r} value of 0.6. Here,
 
 \end{figure}%
 
-\subsection{Results}\label{analysis-adjusting-opacity-e1}
+\subsection{Results}\label{results-e1}
 
 To investigate the effects of opacity condition on participants'
 estimates of correlation, a linear mixed effects model was built whereby
 opacity condition is a predictor for the difference between objective
 \emph{r} values for each plot and participants' estimates of \emph{r}.
 This model has random intercepts for items and participants. A
-likelihood ratio test revealed that the mode including global opacity as
-a fixed effect explained significantly more variance than a null model
-(\(\chi^2\)(3) = 223.13, \emph{p} \textless{} .001).
+likelihood ratio test revealed that the model including global opacity
+as a fixed effect explained significantly more variance than a null
+model (\(\chi^2\)(3) = 223.13, \emph{p} \textless{} .001).
 Figure~\ref{fig-e1-estimates} shows the mean errors in correlation
 estimation for each opacity condition, along with 95\% confidence
 intervals.
@@ -562,7 +568,7 @@ the opacity factor in experiment 1.}
 
 \begin{tabular}[t]{llrl}
 \toprule
-\multicolumn{2}{c}{Contrasts} & \multicolumn{2}{c}{Statistics} \\
+\multicolumn{2}{c}{Contrast} & \multicolumn{2}{c}{Statistics} \\
 \cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
   &    & Z ratio & \textit{p}\\
 \midrule
@@ -592,7 +598,7 @@ Medium Opacity
 
 \end{table}%
 
-This effect was driven by significant difference between means of
+This effect was driven by significant differences between means of
 correlation estimation error between all conditions bar high and full
 opacity. Statistical tests for contrasts were performed using the
 \textbf{emmeans} package \cite{lenth_2024}, and are shown in
@@ -668,17 +674,17 @@ A function from the now archived \textbf{EMAtools} package
 \cite{ematools} was used to calculate an approximation of Cohen's
 \emph{d} between the reference level (full contrast, alpha = 1.0) and
 each other level of the opacity factor. These statistics can be seen in
-Table~\ref{tbl-efs-e1}. The largest effect size observed (\emph{d}
-\textasciitilde{} 0.16) is between the low and full opacity conditions,
-and is small. This was unsurprising given the lack of previously
-reported effects on correlation perception of global point opacity
-\cite{rensink_2012}. Figure~\ref{fig-estimates-by-r-e1} shows how
-participants' estimates of correlation change with the objective
-\emph{r} value in the plot. As reported in previous literature (see Sec
-in related work), participants underestimated \emph{r} in nearly all
-cases (revise).
+Table~\ref{tbl-efs-e1} along with means and standard deviations. The
+largest effect size observed (\emph{d} \textasciitilde{} 0.16) is
+between thelow and full opacity conditions, and is small. This was
+unsurprising given the lack of previously reported effects on
+correlation perception of global point opacity \cite{rensink_2012}.
+Figure~\ref{fig-estimates-by-r-e1} shows how participants' estimates of
+correlation change with the objective \emph{r} value in the plot. As
+reported in previous literature (see Sec in related work), participants
+underestimated \emph{r} in nearly all cases (revise).
 
-\subsection{Discussion}\label{discussion-adjusting-opacity-e1}
+\subsection{Discussion}\label{discussion-e1}
 
 The hypothesis, that there would be a greater spread of correlation
 estimates for plots with lower global opacity compared to those with
@@ -693,7 +699,7 @@ least as far as it is associated with correlation estimation. This lack
 of significant difference in correlation estimation between the two
 highest global opacity conditions is congruent with the logarithmic
 nature of contrast/brightness perception
-\cite{fechner_1948, varshney_2013}; despite there being equaal linear
+\cite{fechner_1948, varshney_2013}; despite there being equal linear
 distance between the opacity values used, the perceptual distance
 between them was clearly non-linear.
 
@@ -731,16 +737,16 @@ scatterplot
 From the results it is clear that a scatterplot optimised for
 correlation perception should have contrast between the foreground
 (points) and background in a range corresponding to alpha values of
-between 0.75 and 1. That significant differences in correlation
-estimation between data-identical scatterplots with different global
-point opacities however, suggests that this effect may be leveraged to
-further improve participants' performances on a correlation estimation
-task.
+between 0.75 and 1. That there are significant differences in
+correlation estimation between data-identical scatterplots with
+different global point opacities however, suggests that this effect may
+be leveraged to further improve participants' performances on a
+correlation estimation task.
 
 \section{Experiment 2: Spatially-Dependent Opacity
 Adjustments}\label{experiment-2-spatially-dependent-opacity-adjustments}
 
-\subsection{Introduction}\label{introduction-adjusting-opacity-e2}
+\subsection{Introduction}\label{introduction-e2}
 
 Experiment 1 found that point opacity in positively correlated
 scatterplots has an effect on the perception of correlation such that
@@ -763,9 +769,9 @@ this in mind, it was hypothesised that:
   mean errors in correlation estimation than for all other conditions.
 \end{itemize}
 
-\subsection{Methods}\label{methods-adjusting-opacity-e2}
+\subsection{Methods}\label{methods-e2}
 
-\subsubsection{Participants}\label{participants-adjusting-opacity-e2}
+\subsubsection{Participants}\label{participants-e2}
 
 150 participants were recruited using the Prolific platform
 \cite{prolific}. Normal to corrected-to-normal vision and English
@@ -779,7 +785,7 @@ Participants' mean age was 27.05 (\emph{SD} = 7.37). Mean graph literacy
 score was 21.71 (\emph{SD} = 4.06). The average time taken to complete
 the experiment was 33 minutes (SD = 10 minutes).
 
-\subsubsection{Design}\label{design-adjusting-opacity-e2}
+\subsubsection{Design}\label{design-e2}
 
 For each of the 45 \emph{r} values in experiment 2, there were four
 versions of each plot corresponding to the three levels of point opacity
@@ -806,11 +812,10 @@ the alpha value (opacity) rendered.}
 \end{figure}%
 
 Equation 4.1 was used to non-linearly map residuals to ggplot alpha
-values, where R is the residual of the point. 0.25 was chosen as the
-value of \emph{b}, as it was felt at the time that this rendered plots
-that maintained point visibility while also allowing a large enough
-point opacity range that, if an effect was present, it was likely to be
-found.
+values. 0.25 was chosen as the value of \emph{b}, as it was felt at the
+time that this rendered plots that maintained point visibility while
+also allowing a large enough point opacity range that, if an effect was
+present, it was likely to be found.
 
 \begin{equation}
   point_{size/opacity} = 1 - b^{residual}
@@ -830,19 +835,19 @@ experiment 2, demonstrated with an \textit{r} value of 0.6. Here,
 
 \end{figure}%
 
-\subsection{Results}\label{analysis-adjusting-opacity-e2}
+\subsection{Results}\label{results-e2}
 
 To investigate the effects of the opacity decay functions on
 participants' estimates of correlation, a linear mixed effects model was
 built whereby decay function condition is a predictor for the difference
 between objective \emph{r} values for each plot and participants'
 estimates of \emph{r}. This model has random intercepts for items and
-participants. A likelihood ratio test revealed that the mode including
-global opacity as a fixed effect explained significantly more variance
-than a null model (\(\chi^2\)(3) = 1,157.62, \emph{p} \textless{} .001).
-Figure~\ref{fig-e1-estimates} shows the mean errors in correlation
-estimation for each opacity decay function condition, along with 95\%
-confidence intervals.
+participants. A likelihood ratio test revealed that the model including
+opacity decay function as a fixed effect explained significantly more
+variance than a null model (\(\chi^2\)(3) = 1,157.62, \emph{p}
+\textless{} .001). Figure~\ref{fig-e1-estimates} shows the mean errors
+in correlation estimation for each opacity decay function condition,
+along with 95\% confidence intervals.
 
 \begin{figure}
 
@@ -867,7 +872,7 @@ opacity decay function in experiment 2.}
 
 \begin{tabular}[t]{llrl}
 \toprule
-\multicolumn{2}{c}{Contrasts} & \multicolumn{2}{c}{Statistics} \\
+\multicolumn{2}{c}{Contrast} & \multicolumn{2}{c}{Statistics} \\
 \cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
   &    & Z ratio & \textit{p}\\
 \midrule
@@ -968,9 +973,9 @@ estimates.}
 
 \end{figure}%
 
-\subsection{Discussion}\label{discussion-adjusting-opacity-e2}
+\subsection{Discussion}\label{discussion-e2}
 
-Both hypotheses received support from experiment 2. Participants' errors
+Both hypotheses received support in experiment 2. Participants' errors
 in correlation estimation were lowest when the non-linear decay function
 was used, and were highest when scatterplots employed the non-linear
 inverted decay function. There was no significant difference in
@@ -1110,13 +1115,13 @@ correlation displayed as accurately as possible.
 Both experiments tested lay participants with varying levels of graph
 literacy. Due to concerns about participants' familiarity with
 scatterplots, each saw four scatterplots depicting correlations of
-\emph{r} = 0.2, 0.5, 0.8, and 0.99 (see
+\emph{r} = 0.2, 0.5, 0.8, and 0.95 (see
 Figure~\ref{fig-training-slide-adjusting-opacity}) to familiarise
 themselves with the concept. To test if the patterns of results seen in
-correlation estimation could be attribute to this training, models were
+correlation estimation could be attributed to this training, models were
 built that included the half of the session (first or second) as a
 predictor for participants' judgements of correlation. Comparing these
-models to the origin revealed a significant effect in experiment 1
+models to the original revealed a significant effect in experiment 1
 (\(\chi^2\)(1) = 7.60, \emph{p} = 0.01), but not experiment 2
 (\(\chi^2\)(1) = 2.20, \emph{p} = 0.14). In experiment 1, participants'
 errors in correlation estimation were higher in the second half of the
@@ -1125,7 +1130,7 @@ material may have made participants more accurate. That this was not
 observed in experiment 2 implies that the point opacity manipulation had
 a greater effect on estimates than any training effects.
 
-\subsection{Limitations}\label{limitations}
+\subsection{Limitations}\label{limitations-adjusting-opacity}
 
 The results in experiment 2 provide evidence that reducing the salience
 of points as they move further from the regression line can increase
@@ -1163,7 +1168,7 @@ participants indirectly made comparative correlation judgements, which
 may have resulted in this discrepancy. Nevertheless, the results found
 are promising with regards to design research.
 
-\subsection{Future Work}\label{future-work}
+\subsection{Future Work}\label{future-work-adjusting-opacity}
 
 Future work may wish to investigate negative values of \emph{r}, given
 findings that people may overestimate the correlation of negatively

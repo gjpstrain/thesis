@@ -1,5 +1,5 @@
 ---
-title: "literature_review"
+title: "related_work"
 output:
   format: 
     latex:

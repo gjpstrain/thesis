@@ -10,6 +10,9 @@ knitr:
   opts_chunk: 
     cache_comments: false
     crop: true
+    out-width: NA
+    out-height: NA
+    cache.path: "../thesis_cache/"
     
 execute: 
   echo: false
@@ -18,24 +21,270 @@ execute:
   include: false     
 ---
 
+```{r}
+#| label: setup
+
+# load packages
+
+library(tidyverse)
+library(MASS)
+library(emmeans)
+library(scales)
+library(buildmer)
+library(lme4)
+library(kableExtra)
+library(afex)
+library(papaja)
+library(broom.mixed)
+library(insight)
+library(qwraps2)
+library(lmerTest)
+library(tinylabels)
+library(ggdist)
+library(ggpubr)
+library(geomtextpath)
+library(conflicted)
+library(formattable)
+library(effectsize)
+
+# fix conflicts
+
+conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
+
+# define plotting labels now
+
+labels_e3 <- c(A = "Non-Linear\nDecay",
+               B = "Linear\nDecay",
+               C = "Inverted\nDecay",
+               D = "Standard\nSize")
+
+labels_e3_regex <- c(
+  "\\bA\\b" = "Non-Linear Decay",
+  "\\bB\\b" = "Linear Decay",
+  "\\bC\\b" = "Inverted Decay",
+  "\\bD\\b" = "Standard Size"
+)
+```
+
+```{r}
+#| label: load-data
+
+exp3_anon <- read_csv("../data/exp_3_data.csv") %>%
+  mutate("expName" = recode(expName,
+                            "exp_size_only" = "E3_size_adjustments"))
+
+source("../shared_functions.R")
+```
+
+```{r}
+#| label: retrieve-cached-models-chap4
+
+if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
+```
+
+```{r}
+#| label: wrangle-data-chap5
+
+# NB: With the exception of anonymisation, data are provided as-is from pavlovia.
+# Wrangling functions must be run first to make the dataset usable.
+
+wrangle <- function(anon_file) {
+  
+  # first do literacy
+  
+    literacy <- anon_file %>%
+    filter(!is.na(q1_slider.response)) %>%
+    rowwise() %>%
+    mutate(literacy = sum(c(q1_slider.response, 
+                            q2_slider.response, 
+                            q3_slider.response, 
+                            q4_slider.response, 
+                            q5_slider.response))) %>%
+    select(participant,
+           literacy)
+    
+    # extract and process visual threshold testing
+  
+  visual_thresholds <- anon_file %>%
+    filter(!is.na(VT_with_labels)) %>%
+    select(c("VT_with_labels", "participant", "VT_textbox2.text")) %>%
+    mutate(VT_answer = str_replace(VT_with_labels, pattern = "vis_threshold_plots/", replacement = "")) %>%
+    mutate(VT_answer = str_replace(VT_answer, pattern = "_VT.png", replacement = "")) %>%
+    mutate(correct_VT = case_when(
+      VT_answer == VT_textbox2.text ~ "y",
+      VT_answer != VT_textbox2.text ~ "n",
+      is.na(VT_answer) ~ "n", TRUE ~ as.character(VT_answer))) %>%
+    group_by(participant) %>% 
+    summarise(VT_no_correct = sum(correct_VT == "y")) %>%
+    select("VT_no_correct", "participant")
+  
+# extract and process monitor and dot pitch information
+# we assume standard 16:9 aspect ratio for monitors
+  
+  monitor_information <- anon_file %>%
+    filter(!is.na(height)) %>%
+    filter(!is.na(res_width)) %>%
+    mutate(res_height = res_width*0.5625,
+           width = height*0.5625,
+           dot_pitch = ((sqrt(height^2 + width^2))/(sqrt(res_height^2 + res_width^2))) * 25.4) %>%
+        select(c("dot_pitch", "participant", "res_width"))
+    
+  
+# extract demographic information
+# link slider response numbers to gender categories
+  
+  demographics <- anon_file %>%
+    filter(!is.na(gender_slider.response)) %>%
+    mutate(gender_slider.response = recode(gender_slider.response,
+                                         `1` = "F",
+                                         `2` = "M",
+                                         `3` = "NB")) %>%
+  select(matches(c("participant",
+                          "age_textbox.text",
+                          "gender_slider.response")))
+
+# split images column into item and condition columns 
+
+anon_file <- anon_file %>%
+  mutate(images = str_replace(images, pattern = "A", replacement = "-A")) %>%
+  mutate(images = str_replace(images, pattern = "B", replacement = "-B")) %>%
+  mutate(images = str_replace(images, pattern = "C", replacement = "-C")) %>%
+  mutate(images = str_replace(images, pattern = "D", replacement = "-D")) %>%
+  separate(images, c("item", "size"), sep = "-") %>%
+  mutate(size = str_replace(size, pattern = ".png", replacement = "")) %>%
+  mutate(item = str_replace(item, pattern = "all_plots/", replacement = ""))
+
+# select relevant columns
+# select only experimental items
+# add literacy data
+# change data types where appropriate
+# output this file with suffix 'tidy'
+
+anon_file %>%
+  select(c("participant",
+                  "item",
+                  "size",
+                  "slider.response",
+                  "my_rs",
+                  "total_residuals",
+                  "unique_item_no",
+                  "session",
+                  "trials.thisN")) %>%
+  mutate(half = case_when(
+    trials.thisN < 93 ~ "First",
+    trials.thisN > 92 ~ "Second" )) %>%
+  filter(unique_item_no < 181) %>%
+  inner_join(literacy, by = "participant") %>%
+  inner_join(demographics, by = "participant") %>%
+  inner_join(monitor_information, by = "participant") %>%
+  inner_join(visual_thresholds, by = "participant") %>%
+  mutate(across(matches(c("item", "size")), as_factor)) %>%
+  select(-c("__participant")) %>%
+  mutate(difference = my_rs - slider.response) %>%
+  mutate(size = fct_relevel(size, c('D', 'C', 'B', 'A'))) %>% 
+  assign(paste0(unique(anon_file$expName), "_tidy"),
+           value = ., envir = .GlobalEnv)
+}
+
+# use wrangle function on anonmyised data file 
+
+wrangle(exp3_anon)
+
+# remove anon df from environment
+
+rm(exp3_anon)
+
+# extract age and gender data
+
+extract_age(E3_size_adjustments_tidy)
+
+extract_gender(E3_size_adjustments_tidy)
+
+extract_literacy(E3_size_adjustments_tidy)
+```
+
 # Abstract {#abstract-adjusting-size}
 
-# Overview {#overview-adjusting-size}
+Chapter 4 provided strong evidence for the effects of systematically varying the opacities
+of scatterplot points on participants' estimates of correlation in positively 
+correlated scatterplots. Utilising the same function and experimental paradigm,
+I show in a single experiment that systematically varying the sizes of scatterplot
+points is able to bias participants' estimates of correlation to a greater degree 
+than manipulations that only adjust point opacity. In a condition where point size
+decreases non-linearly as a function of residual distance, correlation estimation
+is significantly biased upwards to correct for a historic underestimation bias
+to a greater degree. I discuss the implications of these findings for the mechanisms
+behind both opacity and size adjustments in scatterplots in relation to correlation
+estimation, and recommend techniques for those who design with the estimation of
+positive correlation in mind.
+
+# Introduction {#introduction-adjusting-size}
+
+While I was successful at changing participants' perceptions of correlation in 
+positively correlated scatterplots in Chapter 4, the extent to which these perceptions
+were changed was minimal. \ref{fig-estimates-by-r-e2} illustrates how participants'
+mean errors in *r* estimation changed as a function of the subjective *r* value.
+Scatterplots employing non-linear opacity decay produced the most drastic changes
+in correlation estimation, however this was still small, with an effect size of 
+Cohen's *d* = 0.19. Recent evidence suggests that with regards to altering percepts
+in scatterplots, changes in point size may be more effective than changes in 
+opacity. In a fully-reproducible, large sample (N = 150) study, I show that 
+systematically altering point size using the same function is not only able to
+more effectively correct for the correlation underestimation bias, but is also
+able to alter the shape of the correlation estimation curve.
 
 # Related Work {#related-work-adjusting-size}
 
-## Size and Perception
+## Size and Perception 
 
 ## Scatterplot Point Size and Correlation Perception
 
-# Experiment: Adjusting Point Size to Facilitate More Accurate Correlation Perception in Scatterplots
+# Methods {#methods-e3}
 
-## Introduction {#introduction-adjusting-size}
+## Stimuli {#stimuli-e3}
 
-## Methods {#methods-adjusting-size}
+The creation of stimuli in this experiment follows the same general principles
+outlined in Section \ref{creating-stimuli}, Chapter 3. As in Chapter 4, equation
+1 was used to map point residuals to size values in the two non-linear decay conditions
 
-## Analysis {#analysis-adjusting-size}
+\begin{equation}
+  point_{size/opacity} = 1 - b^{residual}
+\end{equation}
 
-## Discussion {#discussion-adjusting-size}
+## Dot Pitch in Crowdsourced Experiments
 
-# General Discussion {#general-discussion-adjusting-size}
+## Point Visibility Testing
+
+## Design {#design-e3}
+
+## Procedure {#procedure-e3}
+
+## Participants {#participants-e3}
+
+Normal to corrected-to-normal vision and English fluency were required. Participants who
+had completed any of the experiments described in Chapter 4
+were prevented from participating. Data were collected from 164 participants.
+14 failed more than 2 out of 6 attention check questions,
+and, as per the pre-registration, had their submissions rejected from the study.
+The data from the remaining 150 participants were included in the full analysis
+(`r printnum(E3_size_adjustments_tidy_gender$M)`% male, `r printnum(E3_size_adjustments_tidy_gender$F)`
+% female, and `r printnum(E3_size_adjustments_tidy_gender$NB)`% non-binary). 
+Participants' mean age was `r printnum(E3_size_adjustments_tidy_age$mean)`
+(*SD* = `r printnum(E3_size_adjustments_tidy_age$sd)`). Mean graph literacy score
+was `r printnum(E3_size_adjustments_tidy_graph_literacy$mean)` (*SD* =
+`r printnum(E3_size_adjustments_tidy_graph_literacy$sd)`). The average
+time taken to complete the experiment was 39 minutes (SD = 14 minutes).
+
+# Results {#results-e3}
+
+# Discussion {#discussion-e3}
+
+Increased Correlation Estimation Accuracy
+
+Constant Correlation Estimation Precision
+
+## Training {#training-e3}
+
+## Limitations {#limitations-e3}
+
+## Future Work {#future-work-e3}

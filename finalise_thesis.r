@@ -10,7 +10,7 @@ quarto_render("chapters_quarto/", output_format = "latex")
 
 # use for rendering a single chapter
 
-quarto_render("chapters_quarto/4_adjusting_opacity.qmd", output_format = "latex")
+quarto_render("chapters_quarto/5_adjusting_size.qmd", output_format = "latex")
 
 # functions to reformat tex are stored in the local directory
 
@@ -30,7 +30,7 @@ replace_before_document_in_folder(folder_path)
 #tinytex::install_tinytex()
 
 # because the UoM template uses lualatex, we may have to manually install
-# an additional package (just uncomment and run line 30)
+# an additional package (just uncomment and run)
 
 #tinytex::tlmgr_install("luatex85")
 

@@ -491,7 +491,7 @@ of point overlap were not taken into account when designing and analysing the ex
 described here. Due to this, the approach to opacity described in this chapter would
 not be useful when dealing with much larger datasets where clutter becomes an issue.
 
-The **ggplot2** \cite{wickham_2016} package was used in R to create stimuli for 
+The `ggplot2` \cite{wickham_2016} package (version 3.4.1) was used in R to create stimuli for 
 this experiment. This package uses an alpha parameter to set point opacity. Alpha
 here refers to the level of linear interpolation \cite{stone_2008} between foreground
 and background pixel values; alpha values of 0 (full transparency) and 1 (full opacity)
@@ -541,7 +541,7 @@ in relative differences in correlation perception averaged over a series of
 180 single-plot trials, this lack of control over the exact nature of the stimuli
 was not problematic. It does mean that reporting the exact luminance values would be
 pointless however, so where a value for opacity is referred to in this chapter and beyond, 
-it is the alpha value specified by **ggplot2**.
+it is the alpha value specified by `ggplot2`.
 
 ## Effects of Point Opacity on Correlation Estimation
 
@@ -591,7 +591,7 @@ is investigated. The second experiment examines how changing contrast as a funct
 of distance to the regression line affects perceived correlation.
 To pre-empt the results, clear effects of both manipulations are found.
 
-# General Methods {#shared-methods-adjusting-opacity}
+# General Methods {#general-methods-adjusting-opacity}
 
 The experiments described in this chapter share multiple aspects of their procedures.
 Both experiments were built using PsychoPy \cite{peirce_2019} and are hosted on Pavlovia.org.
@@ -659,7 +659,7 @@ Each trial was preceded by text that either told the participant:
  
 # Experiment 1: Uniform Opacity Adjustments
 
-## Introduction {#introduction-adjusting-opacity-e1}
+## Introduction {#introduction-e1}
 
 Previous literature had described correlation perception as being resistant
 to changes in opacity \cite{rensink_2012, rensink_2014}. Findings from the pre-study
@@ -672,9 +672,9 @@ above \cite{wehrhahn_1990, champion_2017}, it was hypothesised that:
  - H1: A greater spread of estimates of correlation for plots with lower global opacity
 compared to higher opacity plots will be observed.
 
-## Method {#methods-adjusting-opacity-e1}
+## Method {#methods-e1}
 
-### Participants
+### Participants {#participants-e1}
 
 150 participants were recruited using the Prolific platform \cite{prolific}. Normal to
 corrected-to-normal vision and English fluency were required. Participants who
@@ -690,7 +690,7 @@ was `r printnum(E1_uniform_adjustments_tidy_graph_literacy$mean)` (*SD* =
 `r printnum(E1_uniform_adjustments_tidy_graph_literacy$sd)`). The mean
 time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
-### Design
+### Design {#design-e1}
 
 For each of the 45 *r* values, there were four versions of each plot corresponding
 to the four levels of point opacity. Examples of each of these can be seen in
@@ -713,7 +713,7 @@ ggarrange(plot_example_function(data_with_resid, "Opacity = 0.25",
           nrow = 1)
 ```
 
-## Results {#analysis-adjusting-opacity-e1}
+## Results {#results-e1}
 
 ```{r}
 #| label: model-e1
@@ -917,7 +917,7 @@ correlation change with the objective *r* value in the plot. As reported in
 previous literature (see Sec in related work), participants underestimated
 *r* in nearly all cases (revise).
 
-## Discussion {#discussion-adjusting-opacity-e1}
+## Discussion {#discussion-e1}
 
 The hypothesis, that there would be a greater spread of correlation estimates
 for plots with lower global opacity compared to those with higher global opacity,
@@ -967,7 +967,7 @@ to further improve participants' performances on a correlation estimation task.
 
 # Experiment 2: Spatially-Dependent Opacity Adjustments
 
-## Introduction {#introduction-adjusting-opacity-e2}
+## Introduction {#introduction-e2}
 
 Experiment 1 found that point opacity in positively correlated scatterplots has
 an effect on the perception of correlation such that those scatterplots with higher
@@ -983,9 +983,9 @@ opacity. With this in mind, it was hypothesised that:
  becomes greater with residual distance, will result in higher mean errors in correlation
  estimation than for all other conditions.
 
-## Methods {#methods-adjusting-opacity-e2}
+## Methods {#methods-e2}
 
-### Participants {#participants-adjusting-opacity-e2}
+### Participants {#participants-e2}
 
 150 participants were recruited using the Prolific platform \cite{prolific}. Normal to
 corrected-to-normal vision and English fluency were required. Participants who
@@ -1001,7 +1001,7 @@ was `r printnum(E2_spatially_dependent_tidy_graph_literacy$mean)` (*SD* =
 `r printnum(E2_spatially_dependent_tidy_graph_literacy$sd)`). The average
 time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
-### Design {#design-adjusting-opacity-e2}
+### Design {#design-e2}
 
 For each of the 45 *r* values in experiment 2, there were four versions 
 of each plot corresponding to the three levels of point opacity decay function and 
@@ -1093,7 +1093,7 @@ ggarrange(plot_example_function(slopes, "Non-Linear Decay",
           nrow = 1)
 ```
 
-## Results {#analysis-adjusting-opacity-e2}
+## Results {#results-e2}
 
 ```{r}
 #| label: model-e2
@@ -1297,7 +1297,7 @@ plot_error_bars_function(E2_spatially_dependent_tidy %>%
   geom_hline(yintercept = 0, linetype = 2)
 ```
 
-## Discussion {#discussion-adjusting-opacity-e2}
+## Discussion {#discussion-e2}
 
 ```{r}
 #| label: model-e2-low-range
@@ -1493,7 +1493,7 @@ training material may have made participants more accurate. That this was not
 observed in experiment 2 implies that the point opacity manipulation had a greater
 effect on estimates than any training effects. 
 
-## Limitations
+## Limitations {#limitations-adjusting-opacity}
 
 The results in experiment 2 provide evidence that reducing the salience of points
 as they move further from the regression line can increase people's estimates
@@ -1524,7 +1524,7 @@ evident. In the experimental paradigm, participants indirectly made comparative
 correlation judgements, which may have resulted in this discrepancy. Nevertheless,
 the results found are promising with regards to design research.
 
-## Future Work
+## Future Work {#future-work-adjusting-opacity}
 
 Future work may wish to investigate negative values of *r*, given findings
 that people may overestimate the correlation of negatively correlated

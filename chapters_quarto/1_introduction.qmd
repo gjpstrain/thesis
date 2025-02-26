@@ -105,16 +105,14 @@ literature review and general methodology chapters. *Gabriel Strain* is the prim
 author of all included papers.
 
  - *The Effects of Contrast on Correlation Perception in Scatterplots* \cite{strain_2023} is reproduced
- in \chap{chap:adjusting_opacity}. Sections \ref{shared-methods-adjusting-opacity}, \ref{methods-adjusting-opacity-e1}, 
- \ref{methods-adjusting-opacity-e2}, \ref{analysis-adjusting-opacity-e1},
- \ref{analysis-adjusting-opacity-e2}, \ref{discussion-adjusting-opacity-e1}, 
- \ref{discussion-adjusting-opacity-e2}, and \ref{general-discussion-adjusting-opacity}
+ in \chap{chap:adjusting_opacity}. Sections \ref{general-methods-adjusting-opacity}, \ref{methods-e1}, 
+ \ref{methods-e2}, \ref{results-e1}, \ref{results-e2}, \ref{discussion-e1}, 
+ \ref{discussion-e2}, and \ref{general-discussion-adjusting-opacity}
  contain minimally altered parts of the published article.
  
  - *Adjusting Point Size to Facilitate More Accurate Correlation Perception in Scatterplots*
  \cite{strain_2023b} is reproduced in \chap{chap:adjusting_size}. Sections 
- \ref{methods-adjusting-size}, \ref{analysis-adjusting-size}, \ref{discussion-adjusting-size},
- and \ref{general-discussion-adjusting-size} contain minimally altered parts of 
+ \ref{methods-e3}, \ref{results-e3}, and \ref{discussion-e3}, contain minimally altered parts of 
  the published article.
  
  - *Effects of Point Size and Opacity Adjustments in Scatterplots* \cite{strain_2024}
