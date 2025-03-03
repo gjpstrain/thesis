@@ -326,7 +326,7 @@ null model with the fixed effects removed revealed that the experimental
 model explained significantly more variance than the null ($\chi^2$(`r in_paren(pilot_model.df)`)
 = `r printnum(pilot_model.Chisq)`, *p* `r printp(pilot_model.p, add_equals = TRUE)`).
 There was no interaction between plot size and the presence or absence of
-the opacity decay function. The **emmeans** \cite{lenth_2024} package was used 
+the opacity decay function. The `emmeans` \cite{lenth_2024} package was used 
 to explore estimated marginal means (see @tbl-emmeans-pilot) and contrasts (see @tbl-contrasts-pilot)
 separately for each factor.
 
@@ -842,7 +842,7 @@ contrasts_extract(e1_model, "opacity") %>%
 
 This effect was driven by significant differences between means of correlation 
 estimation error between all conditions bar high and full opacity. Statistical
-tests for contrasts were performed using the **emmeans** package \cite{lenth_2024}, 
+tests for contrasts were performed using the `emmeans` package \cite{lenth_2024}, 
 and are shown in @tbl-contrasts-e1. To test whether the observed results could be
 explained by difference in participants' levels of graph literacy, an additional
 model was built. This model is identical to the experimental model, but also
@@ -905,7 +905,7 @@ plot_error_bars_function(E1_uniform_adjustments_tidy %>%
   geom_hline(yintercept = 0, linetype = 2)
 ```
 
-A function from the now archived **EMAtools** package \cite{ematools} was used to 
+A function from the now archived `EMAtools` package \cite{ematools} was used to 
 calculate an approximation of Cohen's *d* between the reference level (full contrast, 
 alpha = 1.0) and each other level of the opacity factor. These statistics can be
 seen in @tbl-efs-e1 along with means and standard deviations. The
@@ -1226,7 +1226,7 @@ contrasts_extract(e2_model, "opacity") %>%
 The effect seen in experiment 2 was driven by significant differences in means of 
 correlation estimation error between all levels of opacity decay function condition
 bar full opacity and linear decay. Statistical testing for contrasts was performed
-using the **emmeans** package \cite{lenth_2024}, and are shown in @tbl-contrasts-e2.
+using the `emmeans` package \cite{lenth_2024}, and are shown in @tbl-contrasts-e2.
 To test whether the observed results could be explained by differences in graph 
 literacy, a model including participants' graph literacy scores as a fixed effect
 was built. Including graph literacy as a fixed effect again explained no additional
