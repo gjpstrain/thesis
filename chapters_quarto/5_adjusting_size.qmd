@@ -205,7 +205,7 @@ extract_literacy(E3_size_adjustments_tidy)
 
 # Abstract {#abstract-adjusting-size}
 
-Chapter 4 provided strong evidence for the effects of systematically varying the opacities
+\chap{chap:adjusting_opacity} provided strong evidence for the effects of systematically varying the opacities
 of scatterplot points on participants' estimates of correlation in positively 
 correlated scatterplots. Utilising the same function and experimental paradigm,
 I show in a single experiment that systematically varying the sizes of scatterplot
@@ -221,7 +221,7 @@ positive correlation in mind.
 # Introduction {#introduction-adjusting-size}
 
 While I was successful at changing participants' perceptions of correlation in 
-positively correlated scatterplots in Chapter 4, the extent to which these perceptions
+positively correlated scatterplots in \chap{chap:adjusting_opacity}, the extent to which these perceptions
 were changed was minimal. \ref{fig-estimates-by-r-e2} illustrates how participants'
 mean errors in *r* estimation changed as a function of the subjective *r* value.
 Scatterplots employing non-linear opacity decay produced the most drastic changes
@@ -244,7 +244,7 @@ able to alter the shape of the correlation estimation curve.
 ## Stimuli {#stimuli-e3}
 
 The creation of stimuli in this experiment follows the same general principles
-outlined in Section \ref{creating-stimuli}, Chapter 3. As in Chapter 4, equation
+outlined in Section \ref{creating-stimuli}, \chap{chap:gen_methods}. As in \chap{chap:adjusting_opacity}, equation
 1 was used to map point residuals to size values in the two non-linear decay conditions
 
 \begin{equation}
@@ -262,7 +262,7 @@ outlined in Section \ref{creating-stimuli}, Chapter 3. As in Chapter 4, equation
 ## Participants {#participants-e3}
 
 Normal to corrected-to-normal vision and English fluency were required. Participants who
-had completed any of the experiments described in Chapter 4
+had completed any of the experiments described in \chap{chap:adjusting_opacity}
 were prevented from participating. Data were collected from 164 participants.
 14 failed more than 2 out of 6 attention check questions,
 and, as per the pre-registration, had their submissions rejected from the study.
