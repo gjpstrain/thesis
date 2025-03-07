@@ -24,18 +24,18 @@ who design with the estimation of positive correlation in mind.
 While I was successful at changing participants' perceptions of
 correlation in positively correlated scatterplots in
 \chap{chap:adjusting_opacity}, the extent to which these perceptions
-were changed was minimal. \ref{fig-estimates-by-r-e2} illustrates how
-participants' mean errors in \emph{r} estimation changed as a function
-of the subjective \emph{r} value. Scatterplots employing non-linear
-opacity decay produced the most drastic changes in correlation
-estimation, however this was still small, with an effect size of Cohen's
-\emph{d} = 0.19. Recent evidence suggests that with regards to altering
-percepts in scatterplots, changes in point size may be more effective
-than changes in opacity. In a fully-reproducible, large sample (N = 150)
-study, I show that systematically altering point size using the same
-function is not only able to more effectively correct for the
-correlation underestimation bias, but is also able to alter the shape of
-the correlation estimation curve.
+were changed was minimal. Figure \ref{fig-estimates-by-r-e2} illustrates
+how participants' mean errors in \emph{r} estimation changed as a
+function of the subjective \emph{r} value. Scatterplots employing
+non-linear opacity decay produced the most drastic changes in
+correlation estimation, however this was still small, with an effect
+size of Cohen's \emph{d} = 0.19. Recent evidence suggests that with
+regards to altering percepts in scatterplots, changes in point size may
+be more effective than changes in opacity. In a fully-reproducible,
+large sample (N = 150) study, I show that systematically altering point
+size using the same function is not only able to more effectively
+correct for the correlation underestimation bias, but is also able to
+alter the shape of the correlation estimation curve.
 
 \section{Related Work}\label{related-work-adjusting-size}
 
@@ -52,18 +52,81 @@ The creation of stimuli in this experiment follows the same general
 principles outlined in Section \ref{creating-stimuli},
 \chap{chap:gen_methods}. As in \chap{chap:adjusting_opacity}, equation 1
 was used to map point residuals to size values in the two non-linear
-decay conditions
+decay conditions:
 
 \begin{equation}
   point_{size/opacity} = 1 - b^{residual}
 \end{equation}
 
+As in \chap{chap:adjusting_opacity}, the use of this equation produces a
+curve around the identity line symmetrically opposing the
+underestimation curve found in previous work. Additionally, a constant
+of 0.2 was added to each raw size value, and a scaling factor of 4 was
+utilised; these adjustments resulted in the smallest points in the
+present experiment having a width of 12 pixels on a 1920x1080 monitor,
+which is consistent with the point size used in the experiments
+described in \chap{chap:adjusting_opacity}. Examples of the stimuli used
+in this experiment can be see in Figure~\ref{fig-exp3-examples-chap5}.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf}
+
+}
+
+\caption{\label{fig-exp3-examples-chap5}Examples of the stimuli used in
+experiment 3, demonstrated with an \textit{r} value of 0.6.}
+
+\end{figure}%
+
 \subsection{Dot Pitch in Crowdsourced
-Experiments}\label{dot-pitch-in-crowdsourced-experiments}
+Experiments}\label{dot-pitch-chap5}
+
+When the experiments described in \chap{chap:adjusting_opacity} took
+place, no method of obtaining dot pitch was implemented. Dot pitch is
+defined as the distance between the dots (sub-pixels)
+\cite{castellano_1992} that make up each pixel. Calculating dot pitch is
+a requirement for the subsequent calculation of the physical on-screen
+sizes of the scatterplot points that participants saw. In the preamble
+to the current experiment, participants were asked to hold a standard
+size credit/debit/ID card up to the monitor, and then to resize a
+corresponding on-screen image until it matched the size of their
+physical card \cite{screenscale}. These cards have a universal standard
+size (ISO/IEC 7810 ID-1), which when combined with the monitor
+resolution information recorded by Psychopy, and assuming a widescreen
+16:9 aspect ratio, allows for the inference of dot pitch and therefore
+the physical size of the points in the experience. Mean dot pitch was
+0.33mm (\(SD = 0.06\)), corresponding to a physical size on the screen
+of 4.32mm for the smallest points displayed. Section \ref{results-e3}
+includes analysis that takes into account the physical on-screen sizes
+of scatterplot points.
 
 \subsection{Point Visibility Testing}\label{point-visibility-testing}
 
+It is key that the manipulations used do not remove (or appear to
+remove) data from scatterplots. Therefore, point visibility testing is
+included in this experiment prior to the experimental items.
+Participants were shown 6 scatterplots and were asked to enter in a text
+box how many points were being displayed. These points were the same
+size as the smallest points displayed in the experimental items. 5\% of
+participants were correct on 5 out of 6 point visibility tests, while
+95\% were correct on 6 out of 6. It should be noted that those
+participants scoring 5/6 did not answer incorrectly, rather they did not
+answer at all for a particular question, which is suggestive of a
+mis-click or an initial misunderstanding of the task. Regardless, the
+results of this test indicate a sufficient level of point visibility.
+
 \subsection{Design}\label{design-e3}
+
+Again, a fully repeated-measures, within-participants design was
+employed. Each participant saw and responding to each of the 180
+scatterplots in a fully randomised order. There were four scatterplots
+for each of the 45 \emph{r} values corresponding to the four levels of
+the size decay condition, examples of which are shown in
+Figure~\ref{fig-exp3-examples-chap5}. The experiment itself is hosted on
+Pavlovia \footnote{https://gitlab.pavlovia.org/Strain/exp\_size\_only}.
 
 \subsection{Procedure}\label{procedure-e3}
 
@@ -75,11 +138,11 @@ Participants who had completed any of the experiments described in
 were collected from 164 participants. 14 failed more than 2 out of 6
 attention check questions, and, as per the pre-registration, had their
 submissions rejected from the study. The data from the remaining 150
-participants were included in the full analysis (48.00\% male, 50.00 \%
-female, and 2.00\% non-binary). Participants' mean age was 29.56
-(\emph{SD} = 8.54). Mean graph literacy score was 21.77 (\emph{SD} =
-4.29). The average time taken to complete the experiment was 39 minutes
-(SD = 14 minutes).
+participants were included in the full analysis (48\% male, 50 \%
+female, and 2\% non-binary). Participants' mean age was 29.56 (\emph{SD}
+= 8.54). Mean graph literacy score was 21.77 (\emph{SD} = 4.29). The
+average time taken to complete the experiment was 39 minutes (SD = 14
+minutes).
 
 \section{Results}\label{results-e3}
 

@@ -334,7 +334,7 @@ aspect ratio, and were configured such that they occupied the same proportion of
 the experimental window regardless of the size or resolution of a participant's
 monitor. From Chapter 5 onwards, a measure of dot pitch is included, which facilitates
 the approximation of the physical size of scatterplot points on-screen; where
-available, this is included in analyses.
+available, this is included in discussions and analyses.
 
 # Analytical Methods
 
