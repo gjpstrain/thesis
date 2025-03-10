@@ -4,7 +4,7 @@ output:
   format: 
     latex:
 params:
-  eval_models: false
+  eval_models: true
   
 knitr:
   opts_chunk: 
@@ -255,7 +255,7 @@ As in \chap{chap:adjusting_opacity}, the use of this equation produces a curve a
 the identity line symmetrically opposing the underestimation curve found in previous
 work. Additionally, a constant of 0.2 was added to each raw size value, and a scaling
 factor of 4 was utilised; these adjustments resulted in the smallest points in
-the present experiment having a width of 12 pixels on a 1920x1080 monitor,
+the present experiment having a width of 12 pixels on a 1920x1080 pixel monitor,
 which is consistent with the point size used in the experiments described in 
 \chap{chap:adjusting_opacity}. Examples of the stimuli used in this experiment
 can be see in @fig-exp3-examples-chap5.
@@ -344,6 +344,16 @@ shown in @fig-exp3-examples-chap5. The experiment itself is hosted on Pavlovia [
 
 ## Procedure {#procedure-e3}
 
+Each participant viewed the PIS and provided consent through key presses in response
+to consent statements. Participants were asked to provide their age in a free text
+box, followed by their gender identity. Participants then completed the 5-item
+Subjective Graph Literacy test \cite{garcia_2016}, followed by the screen scale
+and point visibility tasks described above. Participants were shown example of 
+scatterplots depicting *r* values of 0.2, 0.5, 0.8, and 0.95. Section \ref{results-e3}
+contains discussion of the potential effects of this training. Following two
+practice trials, participants worked through the series of 180 experimental and
+six attention check trials in a randomised order. Visual masks preceded each plot.
+
 ## Participants {#participants-e3}
 
 Normal to corrected-to-normal vision and English fluency were required. Participants who
@@ -361,6 +371,196 @@ was `r printnum(E3_size_adjustments_tidy_graph_literacy$mean)` (*SD* =
 time taken to complete the experiment was 39 minutes (SD = 14 minutes). 
 
 # Results {#results-e3}
+
+```{r}
+#| label: model-e3
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e3_model <- buildmer(difference ~ size +
+                       (1 + size | participant) +
+                       (1 + size | item),
+                     data = E3_size_adjustments_tidy)
+```
+
+```{r}
+#| label: model-e3-lit
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+# build model with literacy added for later
+
+e3_lit_model <- add_fixed_effect(e3_model, "literacy", "E3_size_adjustments_tidy")
+```
+
+```{r}
+#| label: model-e3-cmpr
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e3_model_cmpr <- comparison(e3_model)
+```
+
+```{r}
+#| label: anova-results-e3
+
+anova_results(e3_model, e3_model_cmpr)
+
+# also do anova for literacy model
+
+anova_results(e3_lit_model, e3_model)
+```
+
+To investigate the effects of point size adjustments on participants' estimates of
+correlation, a linear mixed effects model was built whereby the point size condition
+is a predictor for the difference between objective *r* values for each plot and 
+participants' estimates of *r*. This model has random intercepts for participants
+and items. A likelihood ratio test revealed that the model including size decay function
+as a fixed effect explained significantly more variance than the null model
+($\chi^2$(`r in_paren(e3_model.df)`) = `r printnum(e3_model.Chisq)`,
+*p* `r printp(e3_model.p, add_equals = TRUE)`). @fig-e3-estimates shows the mean
+errors in correlation estimation for each size decay condition, along with 95% confidence intervals.
+
+```{r}
+#| label: fig-e3-estimates
+#| include: true
+#| fig-cap: Estimated marginal means for the four conditions tested in experiment 3. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error. The overestimation zone is included to facilitate comparison to later work.
+#| fig-asp: 0.4
+
+# assign buildmer model to lmer slot
+
+if (class(e3_model) == "buildmer") e3_model <- e3_model@model
+
+plotting_df <- as_tibble(emmeans(e3_model, pairwise ~ "size")[[1]]) %>%
+  mutate(size = fct_relevel(size, c("A", "B", "C", "D"))) %>%
+  mutate(size = recode(size, !!!labels_e3)) %>%
+  rename("Condition" = "size")
+
+ggplot(aes(x = Condition, y = emmean*-1), data = plotting_df) +
+  geom_point(size = 1.75) +
+  geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
+  theme_ggdist() +
+  labs(y = "Estimated Marginal Mean of Error",
+       x = "Condition") +
+  theme(axis.text = element_text(size = 7),
+        axis.title = element_text(size = 8)) +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10)) +
+  coord_flip() +
+  geom_abline(intercept = 0, slope = 0, linetype = 2) +
+  annotate(geom = "segment",
+                   x = 4.4,
+                   xend = 4.4,
+                   y = -.02,
+                   yend = -.08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm" ))) +
+  annotate(geom = "segment",
+                   x = 4.4,
+                   xend = 4.4,
+                   y = .02,
+                   yend = .08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm"))) +
+  annotate(geom = "text",
+           x = 4.15,
+           y = -.05,
+           label = "Underestimation",
+           size = 3) +
+  annotate(geom = "text",
+           x = 4.15,
+           y = .05,
+           label = "Overestimation",
+           size = 3) +
+  annotate(geom = "text",
+           x = 2.5,
+           y = 0.008,
+           label = "No Estimation Error",
+           size = 2.5,
+           angle = 270)
+
+rm(plotting_df)
+```
+```{r}
+#| label: tbl-contrasts-e3
+#| include: true
+#| tbl-cap: Contrasts between different levels of the size decay factor in experiment 3.
+
+# assign slot, if it hasn't been assigned already
+
+if (class(e3_model) == "buildmer") e3_model <- e3_model@model
+
+# make table df
+
+contrasts_extract(e3_model, "size") %>%
+  mutate(Contrast = str_replace_all(Contrast, labels_e3_regex)) %>%
+  mutate(Contrast = str_replace(Contrast, " - ", " | ")) %>%
+  separate(Contrast, into = c(" ", "  "), sep = " \\| ") %>%
+  kbl(booktabs = TRUE, digits = c(0, 2, 1), escape = FALSE) %>%
+  add_header_above(c("Contrast" = 2, "Statistics" = 2))
+```
+
+This effect was driven by significant differences between means of correlation 
+estimation error between all conditions. Statistical
+tests for contrasts were performed using the `emmeans` package \cite{lenth_2024}, 
+and are shown in @tbl-contrasts-e3. To test whether the observed results could be
+explained by difference in participants' levels of graph literacy, an additional
+model was built. This model is identical to the experimental model, but also
+includes graph literacy as a fixed effect. Including graph literacy as a fixed effect
+explained no additional variance ($\chi^2$(`r in_paren(e3_lit_model.df)`) =
+`r printp(e3_lit_model.Chisq)`, *p* `r printp(e3_lit_model.p, add_equals = TRUE)`),
+indicating that the differences observed in participants' correlation estimation 
+performance were not as a result of differences in levels of graph literacy.
+
+```{r}
+#| label: tbl-efs-e3
+#| include: true
+#| tbl-cap: Cohen's \textit{d} effect sizes (left) and summary statistics (right) for levels of the size decay factor in experiment 3. Each effect size is compared to the reference level, termed, "Standard Size". 
+#| tbl-subcap: ["A", "B"]
+#| layout-ncol: 2
+
+# this approximation uses t values and the pooled standard deviation of the differences
+
+options(knitr.kable.NA = "")
+
+efs <- lme.dscore(e3_model, E3_size_adjustments_tidy, type = "lme4") %>%
+  as_tibble(rownames = "Effect") %>%
+  select(-c(t, df)) %>%
+  add_row(Effect = "sizeD", d = NA_real_, .before = 1) %>%
+  mutate(Effect = recode(Effect,
+                         "sizeA" = "Non-Linear Decay",
+                         "sizeB" = "Linear Decay",
+                         "sizeC" = "Inverted Decay",
+                         "sizeD" = "Standard Size")) %>%
+  rename("Cohen's \\textit{d}" = "d") 
+
+kbl(efs, booktabs = TRUE, digits = c(0, 2), escape = FALSE)
+
+emmeans(e3_model, pairwise ~ "size")[[1]] %>%
+  as_tibble() %>%
+  select(-c(df, asymp.LCL, asymp.UCL)) %>%
+  rename(Size = size,
+         Mean = emmean,
+         "Standard\nError" = SE) %>%
+  mutate("Size" = recode(Size,
+                         "A" = "Non-Linear Decay",
+                         "B" = "Linear Decay",
+                         "C" = "Inverted Decay",
+                         "D" = "Standard Size")) %>%
+  kbl(booktabs = T, digits = c(1, 2, 3))
+```
+
+```{r}
+#| label: fig-estimates-by-r-e3
+#| include: true
+#| fig-cap: Participants' mean errors in correlation estimates grouped by factor and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring the non-linear size decay function. Error bars show standard deviations of estimates.
+
+plot_error_bars_function(E3_size_adjustments_tidy %>%
+                           mutate(grouping_var = fct_relevel(size,
+                                                             c("A",
+                                                               "B",
+                                                               "C",
+                                                               "D")))
+                         , "size", "difference", labels_e3) +
+  geom_hline(yintercept = 0, linetype = 2)
+```
 
 # Discussion {#discussion-e3}
 
