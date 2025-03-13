@@ -1550,7 +1550,7 @@ the use of point size in place of opacity with the techniques described, while
 \chap{chap:belief_change} combines the two to explore how these different modalities work
 together with regards to the estimation of positive correlation.
 
-# Conclusion
+# Conclusion {#conclusion-chap4}
 
 In a pair of experiments, I varied the opacity of point in scatterplots both uniformly
 (experiment 1) and using functions relating point opacity to the size of a particular
