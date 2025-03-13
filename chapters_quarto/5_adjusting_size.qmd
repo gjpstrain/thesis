@@ -213,7 +213,7 @@ I show in a single experiment that systematically varying the sizes of scatterpl
 points is able to bias participants' estimates of correlation to a greater degree 
 than manipulations that only adjust point opacity. In a condition where point size
 decreases non-linearly as a function of residual distance, correlation estimation
-is significantly biased upwards to correct for a historic underestimation bias
+is significantly biased upwards to correct for the historic underestimation bias
 to a greater degree. I discuss the implications of these findings for the mechanisms
 behind both opacity and size adjustments in scatterplots in relation to correlation
 estimation, and recommend techniques for those who design with the estimation of
@@ -241,7 +241,7 @@ able to alter the shape of the correlation estimation curve.
 ```{r}
 #| label: fig-bubble-chart
 #| include: true
-#| fig-cap: An example of a bubble chart. This plot compares car engine displacement with fuel efficiency (in miles per gallon). Additionally, the number of cylinders in the cars engine are encoded with point size. We can see from this plot that vehicles with higher engine displacement and lower fuel efficiency tend to have a higher number of engine cylinders.
+#| fig-cap: An example of a bubble chart. This plot compares car engine displacement (cubin inches) with fuel efficiency (miles per gallon). Additionally, the number of cylinders in the cars engine are encoded with point size. We can see from this plot that vehicles with higher engine displacement and lower fuel efficiency tend to have a higher number of engine cylinders.
 #| fig-asp: 0.6
 
 ggplot(aes(x = mpg, y = disp), data = mtcars) +
@@ -256,7 +256,7 @@ ggplot(aes(x = mpg, y = disp), data = mtcars) +
 
 Opacity adjustments in scatterplots have been used extensively to solve issues
 of overplotting and clutter in scatterplots \cite{bertini_2004, matejka_2015}.
-\ref{fig-overplotting-examples} in \chap{chap:adjusting_opacity} demonstrates this
+Figure \ref{fig-overplotting-examples} in \chap{chap:adjusting_opacity} demonstrates this
 usage. Practicality also dictates that scatterplots visualising sufficiently large datasets 
 inherently require their points to be smaller to prevent obfuscation of the data 
 they portray. Aside from being used to increase point visibility, point size changes
@@ -273,8 +273,7 @@ however these studies were low-powered considering the small effect sizes found
 in the experiments described in \chap{chap:adjusting_opacity}. From the wider literature,
 there is evidence that larger points in scatterplots can bias judgements of 
 mean point position to a greater degree than point opacity can \cite{hong_2022},
-in what is termed the *weighted average illusion*. This finding motivated the
-point opacity investigations in \chap{chap:adjusting_opacity}. Outside of scatterplots
+in what is termed the *weighted average illusion*. Outside of scatterplots
 and scatterplot-adjacent chart types, there is evidence that increased size
 can result in faster reaction times to peripherally presented stimuli \cite{grice_1983},
 and there is evidence that larger stimuli are associated with lower
@@ -290,8 +289,8 @@ Based on the findings from \chap{chap:adjusting_opacity}, and on evidence from
 the wider literature described above, two hypotheses are made:
 
   - H1: The non-linear decay parameter, in which scatterplots points become
-  smaller as they become further from the regression line, will result in lower
-  mean errors in correlation estimation than for linear decay and normal size conditions.
+  smaller as they move further from the regression line, will result in lower
+  mean errors in correlation estimation than for linear decay and standard size conditions.
   - H2: The use of an inverted non-linear decay parameter, in which scatterplot
   points become larger as they get further away from the regression line,
   will result in higher mean errors in correlation estimation than for all other
@@ -345,6 +344,16 @@ mean_dot_pitch <- mean(E3_size_adjustments_tidy$dot_pitch)
 sd_dot_pitch <- sd(E3_size_adjustments_tidy$dot_pitch)
 
 range_dot_pitch <- range(E3_size_adjustments_tidy$dot_pitch)
+```
+
+```{r}
+#| label: fig-screen-scale-illustration
+#| include: true
+#| fig-cap: A mock-up of the screen scale \cite{screenscale} task used to infer the sizes of participants' monitors.
+
+# find training slide png in supplied graphics folder
+
+knitr::include_graphics(path = "../supplied_graphics/screen_scale_illustration.png", dpi = NA)
 ```
 
 When the experiments described in \chap{chap:adjusting_opacity} took place, no method

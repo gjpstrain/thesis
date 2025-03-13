@@ -13,7 +13,7 @@ scatterplot points is able to bias participants' estimates of
 correlation to a greater degree than manipulations that only adjust
 point opacity. In a condition where point size decreases non-linearly as
 a function of residual distance, correlation estimation is significantly
-biased upwards to correct for a historic underestimation bias to a
+biased upwards to correct for the historic underestimation bias to a
 greater degree. I discuss the implications of these findings for the
 mechanisms behind both opacity and size adjustments in scatterplots in
 relation to correlation estimation, and recommend techniques for those
@@ -51,26 +51,26 @@ Scatterplots}\label{point-size-and-the-perception-of-correlation-in-scatterplots
 }
 
 \caption{\label{fig-bubble-chart}An example of a bubble chart. This plot
-compares car engine displacement with fuel efficiency (in miles per
-gallon). Additionally, the number of cylinders in the cars engine are
-encoded with point size. We can see from this plot that vehicles with
-higher engine displacement and lower fuel efficiency tend to have a
-higher number of engine cylinders.}
+compares car engine displacement (cubin inches) with fuel efficiency
+(miles per gallon). Additionally, the number of cylinders in the cars
+engine are encoded with point size. We can see from this plot that
+vehicles with higher engine displacement and lower fuel efficiency tend
+to have a higher number of engine cylinders.}
 
 \end{figure}%
 
 Opacity adjustments in scatterplots have been used extensively to solve
 issues of overplotting and clutter in scatterplots
-\cite{bertini_2004, matejka_2015}. \ref{fig-overplotting-examples} in
-\chap{chap:adjusting_opacity} demonstrates this usage. Practicality also
-dictates that scatterplots visualising sufficiently large datasets
-inherently require their points to be smaller to prevent obfuscation of
-the data they portray. Aside from being used to increase point
-visibility, point size changes in scatterplots have also been employed
-in the creation of bubble charts; here, the size of a scatterplot point
-is mapped to a third variable. Figure~\ref{fig-bubble-chart}
-demonstrates this class of scatterplot using the included
-\texttt{mtcars} dataset in \texttt{ggplot2}.
+\cite{bertini_2004, matejka_2015}. Figure
+\ref{fig-overplotting-examples} in \chap{chap:adjusting_opacity}
+demonstrates this usage. Practicality also dictates that scatterplots
+visualising sufficiently large datasets inherently require their points
+to be smaller to prevent obfuscation of the data they portray. Aside
+from being used to increase point visibility, point size changes in
+scatterplots have also been employed in the creation of bubble charts;
+here, the size of a scatterplot point is mapped to a third variable.
+Figure~\ref{fig-bubble-chart} demonstrates this class of scatterplot
+using the included \texttt{mtcars} dataset in \texttt{ggplot2}.
 
 Despite the popularity of such charts, at the time of writing, very
 little investigation into how point size affects correlation perception
@@ -82,17 +82,16 @@ experiments described in \chap{chap:adjusting_opacity}. From the wider
 literature, there is evidence that larger points in scatterplots can
 bias judgements of mean point position to a greater degree than point
 opacity can \cite{hong_2022}, in what is termed the \emph{weighted
-average illusion}. This finding motivated the point opacity
-investigations in \chap{chap:adjusting_opacity}. Outside of scatterplots
-and scatterplot-adjacent chart types, there is evidence that increased
-size can result in faster reaction times to peripherally presented
-stimuli \cite{grice_1983}, and there is evidence that larger stimuli are
-associated with lower levels of spatial certainty \cite{alais_2004} but
-higher levels of salience \cite{healey_2012}. The current experiment
-should therefore facilitate discrimination between these candidate
-drivers of the effects observed in a way that was not possible when
-manipulating opacity, as in that case effects of salience or spatial
-certainty would operate in the same direction.
+average illusion}. Outside of scatterplots and scatterplot-adjacent
+chart types, there is evidence that increased size can result in faster
+reaction times to peripherally presented stimuli \cite{grice_1983}, and
+there is evidence that larger stimuli are associated with lower levels
+of spatial certainty \cite{alais_2004} but higher levels of salience
+\cite{healey_2012}. The current experiment should therefore facilitate
+discrimination between these candidate drivers of the effects observed
+in a way that was not possible when manipulating opacity, as in that
+case effects of salience or spatial certainty would operate in the same
+direction.
 
 \section{Hypotheses}\label{hypotheses}
 
@@ -104,9 +103,9 @@ made:
 \tightlist
 \item
   H1: The non-linear decay parameter, in which scatterplots points
-  become smaller as they become further from the regression line, will
+  become smaller as they move further from the regression line, will
   result in lower mean errors in correlation estimation than for linear
-  decay and normal size conditions.
+  decay and standard size conditions.
 \item
   H2: The use of an inverted non-linear decay parameter, in which
   scatterplot points become larger as they get further away from the
@@ -153,6 +152,20 @@ experiment 3, demonstrated with an \textit{r} value of 0.6.}
 
 \subsection{Dot Pitch in Crowdsourced
 Experiments}\label{dot-pitch-chap5}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{../supplied_graphics/screen_scale_illustration.png}
+
+}
+
+\caption{\label{fig-screen-scale-illustration}A mock-up of the screen
+scale \cite{screenscale} task used to infer the sizes of participants'
+monitors.}
+
+\end{figure}%
 
 When the experiments described in \chap{chap:adjusting_opacity} took
 place, no method of obtaining dot pitch was implemented. Dot pitch is
