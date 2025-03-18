@@ -4,7 +4,7 @@ output:
   format: 
     latex:
 params:
-  eval_models: false
+  eval_models: true
   
 knitr:
   opts_chunk: 
@@ -18,22 +18,300 @@ execute:
   include: false     
 ---
 
+```{r}
+#| label: setup
+
+# load packages
+
+library(tidyverse)
+library(MASS)
+library(emmeans)
+library(scales)
+library(buildmer)
+library(lme4)
+library(kableExtra)
+library(afex)
+library(papaja)
+library(broom.mixed)
+library(insight)
+library(qwraps2)
+library(lmerTest)
+library(tinylabels)
+library(ggdist)
+library(ggpubr)
+library(geomtextpath)
+library(conflicted)
+library(formattable)
+library(effectsize)
+
+# fix conflicts
+
+conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
+
+# define plotting labels now
+
+labels_e4 <- c(A = "Typical Orientation Size\nTypical Orientation Opacity",
+               B = "Inverted Orientation Size\nInverted Orientation Opacity",
+               X = "Typical Orientation Size\nInverted Orientation Opacity",
+               Y = "Inverted Orientation Size\nTypical Orientation Opacity")
+
+labels_e4_regex <- c(
+  "\\bA\\b" = "Typical Orientation Size Typical Orientation Opacity",
+  "\\bB\\b" = "Inverted Orientation Size Inverted Orientation Opacity",
+  "\\bX\\b" = "Typical Orientation Size Inverted Orientation Opacity",
+  "\\bY\\b" = "Inverted Orientation Size\nTypical Orientation Opacity"
+)
+```
+
+```{r}
+#| label: load-data
+
+exp4_anon <- read_csv("../data/exp_4_data.csv", guess_max = 17000) %>%
+  mutate("expName" = recode(expName,
+                            "size_and_opacity_exp" = "E4_interactions"))
+
+source("../shared_functions.R")
+```
+
+```{r}
+#| label: retrieve-cached-models-chap6
+
+if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
+```
+
+```{r}
+#| label: wrangle-data
+
+## NB: With the exception of anonymization, data are provided as-is from 
+## pavlovia (survey tool). Wrangling function *must* be run first to make
+## the data set usable
+
+# first do literacy
+
+wrangle <- function(anon_file) {
+  
+  literacy <- anon_file %>%
+    filter(!is.na(q5_slider.response)) %>%
+    rowwise() %>%
+    mutate(literacy = sum(c(q1_slider.response, 
+                            q2_slider.response, 
+                            q3_slider.response, 
+                            q4_slider.response, 
+                            q5_slider.response))) %>%
+    select(participant,
+           literacy)
+  
+# extract and process visual threshold testing
+  
+visual_thresholds <- anon_file %>%
+    filter(!is.na(VT_with_labels)) %>%
+    select(c("VT_with_labels",
+             "participant",
+             "VT_textbox2.text")) %>%
+    mutate(VT_answer = str_replace(VT_with_labels,
+                                   pattern = "vis_threshold_plots/",
+                                   replacement = "")) %>%
+    mutate(VT_answer = str_replace(VT_answer,
+                                   pattern = "_VT.png",
+                                   replacement = "")) %>%
+    mutate(correct_VT = case_when(
+      VT_answer == VT_textbox2.text ~ "y",
+      VT_answer != VT_textbox2.text ~ "n",
+      is.na(VT_answer) ~ "n", TRUE ~ as.character(VT_answer))) %>%
+    group_by(participant) %>% 
+    summarise(VT_no_correct = sum(correct_VT == "y")) %>%
+    mutate(VT_perc_correct = (VT_no_correct/6)*100) %>%
+    select("VT_perc_correct",
+           "VT_no_correct",
+           "participant")
+  
+# extract and process monitor and dot pitch information
+# we assume standard 16:9 aspect ratio for monitors
+  
+monitor_information <- anon_file %>%
+  mutate(height = dplyr::lead(height)) %>%
+  mutate(res_height = res_width*0.5625,
+         width = height*1.777,
+         dot_pitch = ((sqrt(height^2 + width^2))/(sqrt(res_height^2 + res_width^2))) * 25.4) %>%
+         select(c("dot_pitch",
+                  "participant",
+                  "res_width",
+                  "width",
+                  "height")) %>%
+  na.omit()
+  
+# extract demographic information
+# link slider response numbers to gender categories
+  
+demographics <- anon_file %>%
+    filter(!is.na(gender_slider.response)) %>%
+    mutate(gender_slider.response = recode(gender_slider.response,
+                                         `1` = "F",
+                                         `2` = "M",
+                                         `3` = "NB")) %>%
+  select(matches(c("participant",
+                    "age_textbox.text",
+                    "gender_slider.response")))
+
+# split images column into item and condition columns
+# additionally create "condition_abs" column
+# this will be simpler to plot with later
+
+anon_file <- anon_file %>%
+  mutate(images = str_replace(images, pattern = "A", replacement = "-S-S")) %>%
+  mutate(images = str_replace(images, pattern = "B", replacement = "-I-I")) %>%
+  mutate(images = str_replace(images, pattern = "X", replacement = "-S-I")) %>%
+  mutate(images = str_replace(images, pattern = "Y", replacement = "-I-S")) %>%
+  separate(images, c("item",
+                     "opacity",
+                     "size"),
+           sep = "-") %>%
+  mutate(size = str_replace(size, pattern = ".png", replacement = "")) %>%
+  mutate(condition_abs = case_when(
+    opacity == "S" & size == "S" ~ "A",
+    opacity == "I" & size == "I" ~ "B",
+    opacity == "S" & size == "I" ~ "X",
+    opacity == "I" & size == "S" ~ "Y",
+    TRUE ~ "placeholder"
+  ))
+
+# select relevant columns
+# select only experimental items
+# add literacy data
+# change data types where appropriate
+# output this file with suffix 'tidy'
+
+anon_file %>%
+  select(c("participant",
+            "item",
+            "size",
+            "opacity",
+            "slider.response",
+            "my_rs",
+            "total_residuals",
+            "unique_item_no",
+            "session",
+            "trials.thisN",
+            "condition_abs")) %>%
+  mutate(half = case_when(
+    trials.thisN < 93 ~ "First",
+    trials.thisN > 92 ~ "Second" )) %>% # used for training testing later on
+  filter(unique_item_no < 181) %>%
+  inner_join(literacy, by = "participant") %>%
+  inner_join(demographics, by = "participant") %>%
+  inner_join(monitor_information, by = "participant") %>%
+  inner_join(visual_thresholds, by = "participant") %>%
+  mutate(across(matches(c("item", "opacity", "size", "condition_abs")), as_factor)) %>%
+  mutate(trials.thisN = as.integer(trials.thisN)) %>%
+  mutate(difference = my_rs - slider.response) %>%
+  select(-c("__participant")) %>%
+  assign(paste0(unique(anon_file$expName), "_tidy"),
+           value = ., envir = .GlobalEnv)
+}
+
+# use wrangle function on anonmyised data file 
+
+wrangle(exp4_anon)
+
+# set deviation coding for experimental model
+
+contrasts(E4_interactions_tidy$size) <- matrix(c(.5, -.5))
+contrasts(E4_interactions_tidy$opacity) <- matrix(c(.5, -.5))
+
+# remove anon df from environment
+
+rm(exp4_anon)
+
+# extract age and gender data
+
+extract_age(E4_interactions_tidy)
+
+extract_gender(E4_interactions_tidy)
+
+extract_literacy(E4_interactions_tidy)
+```
+
 # Abstract {#abstract-interactions}
 
-# Overview {#overview-interactions}
+# Introduction {#introduction-interactions}
 
 # Related Work {#related-work-interactions}
 
-## Size and Opacity
+# Hypotheses {#hypotheses-interactions}
 
-# Experiment: Adjusting Point Size and Opacity Together
+# Methods {#methods-e4}
 
-## Introduction {#introduction-interactions}
+## Stimuli {#stimuli-e4}
 
-## Methods {#methods-interactions}
+## Design {#design-e4}
 
-## Analysis {#analysis-interactions}
+## Procedure {#procedure-e4}
 
-## Discussion {#discussion-interactions}
+## Participants {#participants-e4}
 
-# General Discussion {#general-discussion-interactions}
+Normal to corrected-to-normal vision and English fluency were required. Participants who
+had completed any of the experiments described in \chap{chap:adjusting_opacity} or \chap{chap:adjusting_size}
+were prevented from participating. Data were collected from 158 participants.
+8 failed more than 2 out of 6 attention check questions,
+and, as per the pre-registration, had their submissions rejected from the study.
+The data from the remaining 150 participants were included in the full analysis
+(`r printnum(E4_interactions_tidy_gender$M, digits = 0)`% male, `r printnum(E4_interactions_tidy_gender$F, digits = 0)`
+% female, and `r printnum(E4_interactions_tidy_gender$NB, digits = 0)`% non-binary). 
+Participants' mean age was `r printnum(E4_interactions_tidy_age$mean)`
+(*SD* = `r printnum(E4_interactions_tidy_age$sd)`). Mean graph literacy score
+was `r printnum(E4_interactions_tidy_graph_literacy$mean)` (*SD* =
+`r printnum(E4_interactions_tidy_graph_literacy$sd)`). The average
+time taken to complete the experiment was 37 minutes (SD = 12.3 minutes). 
+
+# Results {#results-e4}
+
+```{r}
+#| label: model-e4
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e4_model <- buildmer(difference ~ size * opacity + 
+                       (1 + size * opacity | participant) +
+                       (1 + size * opacity | item),
+                     data = E4_interactions_tidy)
+```
+
+```{r}
+#| label: model-e4-lit-dot-pitch
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+# build additional models (literacy, dot pitch, and training)
+
+e4_lit_model <- add_fixed_effect(e4_model, "literacy", "E4_interactions_tidy")
+
+e4_dot_pitch_model <- add_fixed_effect(e4_model, "dot_pitch", "E4_interactions_tidy")
+
+e4_training_model <- add_fixed_effect(e4_model, "half", "E4_interactions_tidy")
+```
+
+```{r}
+#| label: model-e4-cmpr
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e4_model_cmpr <- comparison(e4_model)
+```
+
+```{r}
+#| label: anova-results-e4
+
+# do all anovas now
+
+anova_results(e4_model, e4_model_cmpr)
+
+anova_results(e4_lit_model, e4_model)
+
+anova_results(e4_dot_pitch_model, e4_model)
+
+anova_results(e4_training_model, e4_model)
+```
+
+# Discussion {#discussion-e4}
+
+# Conclusion {#conclusion-interactions}

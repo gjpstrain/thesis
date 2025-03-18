@@ -78,7 +78,7 @@ source("../shared_functions.R")
 ```
 
 ```{r}
-#| label: retrieve-cached-models-chap4
+#| label: retrieve-cached-models-chap5
 
 if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
 ```
@@ -141,8 +141,8 @@ wrangle <- function(anon_file) {
                                          `2` = "M",
                                          `3` = "NB")) %>%
   select(matches(c("participant",
-                          "age_textbox.text",
-                          "gender_slider.response")))
+                    "age_textbox.text",
+                    "gender_slider.response")))
 
 # split images column into item and condition columns 
 
