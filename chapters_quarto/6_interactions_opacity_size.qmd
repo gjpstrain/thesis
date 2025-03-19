@@ -3,6 +3,7 @@ title: "interactions_opacity_size"
 output:
   format: 
     latex:
+      
 params:
   eval_models: true
   
@@ -10,12 +11,15 @@ knitr:
   opts_chunk: 
     cache_comments: false
     crop: true
-    
+    out-width: NA
+    out-height: NA
+    cache.path: "../thesis_cache/" 
+
 execute: 
   echo: false
   warning: false
   message: false
-  include: false     
+  include: false         
 ---
 
 ```{r}
@@ -287,7 +291,11 @@ e4_lit_model <- add_fixed_effect(e4_model, "literacy", "E4_interactions_tidy")
 
 e4_dot_pitch_model <- add_fixed_effect(e4_model, "dot_pitch", "E4_interactions_tidy")
 
+e4_VT_model <- add_fixed_effect(e4_model, "VT_no_correct", "E4_interactions_tidy")
+
 e4_training_model <- add_fixed_effect(e4_model, "half", "E4_interactions_tidy")
+
+e4_trial_number_model <- add_fixed_effect(e4_model, "trials.thisN", "E4_interactions_tidy")
 ```
 
 ```{r}
@@ -309,8 +317,195 @@ anova_results(e4_lit_model, e4_model)
 
 anova_results(e4_dot_pitch_model, e4_model)
 
+anova_results(e4_VT_model, e4_model)
+
 anova_results(e4_training_model, e4_model)
+
+anova_results(e4_trial_number_model, e4_model)
 ```
+
+To investigate the effects of combining point size and opacity decay functions on
+participants' estimates of correlation, a linear mixed effects model was built
+whereby the particular combination of point size and opacity decay function
+employed is a predictor for the difference between objective *r* values
+for each plot and participants' estimates of *r*. Deviation coding was used
+for each of the experimental factors, which allows comparison between means of
+*r* estimation error and the grand mean. This model has random intercepts for 
+items and participants, and random slopes for participants with regards to the
+size decay factor. A likelihood ratio test revealed that the model including
+the size and opacity decay conditions as predictors explained significantly
+more variance than the null ($\chi^2$(`r in_paren(e4_model.df)`) = 
+`r printnum(e4_model.Chisq)`, *p* `r printp(e4_model.p, add_equals = TRUE)`).
+There were significant fixed effects of size and opacity decay function, as 
+well as a significant interaction between the two. @fig-e4-estimates shows 
+the mean errors in correlation estimation for combination of conditions,
+along with 95% confidence intervals.
+
+```{r}
+#| label: fig-e4-estimates
+#| include: true
+#| fig-cap: Estimated marginal means for the four conditions tested in experiment 4. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error.
+#| fig-asp: 0.4
+
+# assign buildmer model to lmer slot
+
+if (class(e4_model) == "buildmer") e4_model <- e4_model@model
+
+as_tibble(emmeans(e4_model, pairwise ~ size * opacity)[[1]]) %>%
+  mutate("size" = recode(size,
+                         "S" = "Typical Orientation Size",
+                         "I" = "Inverted Orientation Size"),
+          "opacity" = recode(opacity,
+                         "S" = "Typical Orientation Opacity",
+                         "I" = "Inverted Orientation Opacity")) %>%
+  ggplot(aes(x = reorder(size:opacity, emmean), y = emmean*-1)) +
+  geom_point(size = 1.75) +
+  geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
+  scale_x_discrete(labels = ~ gsub(":", "\n", .x)) +
+  theme_ggdist() + 
+  labs(y = "Estimated Marginal Mean of Error",
+       x = " Size : Opacity") +
+  theme(axis.text = element_text(size = 7),
+        axis.title = element_text(size = 8)) +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10)) +
+  coord_flip() +
+  geom_abline(intercept = 0, slope = 0, linetype = 2) +
+  annotate(geom = "segment",
+                   x = 4.4,
+                   xend = 4.4,
+                   y = -.02,
+                   yend = -.08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm" ))) +
+  annotate(geom = "segment",
+                   x = 4.4,
+                   xend = 4.4,
+                   y = .02,
+                   yend = .08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm"))) +
+  annotate(geom = "text",
+           x = 4.15,
+           y = -.05,
+           label = "Underestimation",
+           size = 3) +
+  annotate(geom = "text",
+           x = 4.15,
+           y = .05,
+           label = "Overestimation",
+           size = 3) +
+  annotate(geom = "text",
+           x = 2.5,
+           y = 0.008,
+           label = "No Estimation Error",
+           size = 2.5,
+           angle = 270)
+```
+
+```{r}
+#| label: tbl-contrasts-e4
+#| include: true
+#| tbl-cap: Contrasts between different levels of the size and opacity decay factors in experiment 4.
+
+# assign slot, if it hasn't been assigned already
+
+if (class(e4_model) == "buildmer") e4_model <- e4_model@model
+
+# make table df
+
+contrasts_extract(e4_model, "size:opacity") %>%
+  mutate('Contrast' = recode(Contrast,
+         "S I - I I" = "TO Size x IO Opacity | IO Size x IO Opacity",
+         "S I - S S" = "TO Size x IO Opacity | TO Size x TO Opacity",
+         "S I - I S" = "TO Size x IO Opacity | IO Size x TO Opacity",
+         "I I - S S" = "IO Size x IO Opacity | TO Size x TO Opacity",
+         "I I - I S" = "IO Size x IO Opacity | IO Size x TO Opacity",
+         "S S - I S" = "TO Size x TO Opacity | IO Size x TO Opacity")) %>%
+  mutate(Contrast = str_replace(Contrast, " - ", " | ")) %>%
+  separate(Contrast, into = c(" ", "  "), sep = " \\| ") %>%
+  kbl(booktabs = TRUE, digits = c(0,2,3), escape = FALSE) %>%
+  add_header_above(c("Contrast" = 2, "Statistics" = 2))
+```
+
+The effects found were driven by significant difference between means of correlation
+estimation error between all conditions besides that which compares the two
+incongruent decay conditions. Statistical testing for contrasts were performed
+using the `emmeans` package \cite{lenth_2024}, and are provided in @tbl-contrasts-e4.
+
+Models including participants' graph literacy, their performance on the
+point visibility task, the dot pitch of participants'
+monitors, and which half a particular correlation judgement took place were
+built and compared with the experimental model.
+While no significant effects of graph literacy ($\chi^2$(`r in_paren(e4_lit_model.df)`) = 
+`r printnum(e4_lit_model.Chisq)`, *p* `r printp(e4_lit_model.p, add_equals = TRUE)`),
+performance on the point visibility task ($\chi^2$(`r in_paren(e4_VT_model.df)`) = 
+`r printnum(e4_VT_model.Chisq)`, *p* `r printp(e4_VT_model.p, add_equals = TRUE)`), or
+dot pitch ($\chi^2$(`r in_paren(e4_dot_pitch_model.df)`) = `r printnum(e4_dot_pitch_model.Chisq)`,
+*p* `r printp(e4_dot_pitch_model.p, add_equals = TRUE)`) were found, there was a 
+significant effect of training ($\chi^2$(`r in_paren(e4_training_model.df)`) = 
+`r printnum(e4_training_model.Chisq)`, *p* `r printp(e4_training_model.p, add_equals = TRUE)`),
+with participants rating correlation .01 lower during the second half. This drop
+suggests that having more recently viewed the training plots may have increased
+participants estimates of correlation. To further analyse this variability,
+a model was built including trial number, allowing for the analysis of error.
+A significant effect of trial number is also found 
+($\chi^2$(`r in_paren(e4_trial_number_model.df)`) = 
+`r printnum(e4_trial_number_model.Chisq)`, *p* 
+`r printp(e4_trial_number_model.p, add_equals = TRUE)`)
+on participants' correlation estimation errors.
+
+```{r}
+#| label: fig-e4-trial-number
+#| include: true
+#| fig-cap: Comparing mean errors in correlation estimation by trial number. Points represent unsigned mean errors for each trial number. The plotted line is the locally estimated smoothed curve, with the ribbon representing standard errors.
+#| fig-asp: 0.4
+
+E4_interactions_tidy %>%
+  drop_na() %>%
+  group_by(trials.thisN) %>%
+  summarise(sd = sd(abs(difference)), mean = mean(abs(difference))) %>%
+  ggplot(aes(x = trials.thisN, y = mean)) +
+  geom_point(alpha = 0.4, shape = 16) +
+  geom_smooth(se = T, span = 0.5, colour = "black", size = 0.7,) +
+  scale_x_continuous(breaks = seq(0,180, by = 20), limits = c(0, 180)) +
+  geom_vline(xintercept = 0, linetype = 2) +
+  geom_vline(xintercept = 90, linetype = 2) +
+  geom_vline(xintercept = 180, linetype = 2) +
+  labs(x = "Trial Number",
+       y = "Unsigned Mean Error") +
+  annotate("text",
+           x = 45,
+           y = 0.145,
+           label = "1st Half") +
+    annotate("text",
+           x = 135,
+           y = 0.145,
+           label = "2nd Half") +
+  theme_ggdist() +
+  theme(axis.text = element_text(size = 7),
+        axis.title = element_text(size = 8)) 
+```
+
+@fig-e4-trial-number is great.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Discussion {#discussion-e4}
 

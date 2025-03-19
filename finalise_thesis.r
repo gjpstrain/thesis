@@ -8,9 +8,9 @@ library(tinytex)
 
 quarto_render("chapters_quarto/", output_format = "latex")
 
- # use for rendering a single chapter
+# use for rendering a single chapter
 
-quarto_render("chapters_quarto/5_adjusting_size.qmd", output_format = "latex")
+quarto_render("chapters_quarto/6_interactions_opacity_size.qmd", output_format = "latex")
 
 # functions to reformat tex are stored in the local directory
 

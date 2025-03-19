@@ -34,6 +34,104 @@ experiment was 37 minutes (SD = 12.3 minutes).
 
 \section{Results}\label{results-e4}
 
+To investigate the effects of combining point size and opacity decay
+functions on participants' estimates of correlation, a linear mixed
+effects model was built whereby the particular combination of point size
+and opacity decay function employed is a predictor for the difference
+between objective \emph{r} values for each plot and participants'
+estimates of \emph{r}. Deviation coding was used for each of the
+experimental factors, which allows comparison between means of \emph{r}
+estimation error and the grand mean. This model has random intercepts
+for items and participants, and random slopes for participants with
+regards to the size decay factor. A likelihood ratio test revealed that
+the model including the size and opacity decay conditions as predictors
+explained significantly more variance than the null (\(\chi^2\)(3) =
+5,286.81, \emph{p} \textless{} .001). There were significant fixed
+effects of size and opacity decay function, as well as a significant
+interaction between the two. Figure~\ref{fig-e4-estimates} shows the
+mean errors in correlation estimation for combination of conditions,
+along with 95\% confidence intervals.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf}
+
+}
+
+\caption{\label{fig-e4-estimates}Estimated marginal means for the four
+conditions tested in experiment 4. 95\% confidence intervals are shown.
+The vertical dashed line represents no estimation error.}
+
+\end{figure}%
+
+\begin{table}
+
+\caption{\label{tbl-contrasts-e4}Contrasts between different levels of
+the size and opacity decay factors in experiment 4.}
+
+\centering{
+
+\begin{tabular}[t]{llrl}
+\toprule
+\multicolumn{2}{c}{Contrast} & \multicolumn{2}{c}{Statistics} \\
+\cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-4}
+  &    & Z ratio & \textit{p}\\
+\midrule
+TO Size x IO Opacity & IO Size x IO Opacity & -10.945 & <0.001\\
+TO Size x IO Opacity & TO Size x TO Opacity & 72.294 & <0.001\\
+TO Size x IO Opacity & IO Size x TO Opacity & -2.256 & 0.108\\
+IO Size x IO Opacity & TO Size x TO Opacity & 46.125 & <0.001\\
+IO Size x IO Opacity & IO Size x TO Opacity & 17.838 & <0.001\\
+\addlinespace
+TO Size x TO Opacity & IO Size x TO Opacity & -37.438 & <0.001\\
+\bottomrule
+\end{tabular}
+
+}
+
+\end{table}%
+
+The effects found were driven by significant difference between means of
+correlation estimation error between all conditions besides that which
+compares the two incongruent decay conditions. Statistical testing for
+contrasts were performed using the \texttt{emmeans} package
+\cite{lenth_2024}, and are provided in Table~\ref{tbl-contrasts-e4}.
+
+Models including participants' graph literacy, their performance on the
+point visibility task, the dot pitch of participants' monitors, and
+which half a particular correlation judgement took place were built and
+compared with the experimental model. While no significant effects of
+graph literacy (\(\chi^2\)(1) = 3.50, \emph{p} = .061), performance on
+the point visibility task (\(\chi^2\)(1) = 1.29, \emph{p} = .257), or
+dot pitch (\(\chi^2\)(1) = 1.52, \emph{p} = .218) were found, there was
+a significant effect of training (\(\chi^2\)(1) = 23.78, \emph{p}
+\textless{} .001), with participants rating correlation .01 lower during
+the second half. This drop suggests that having more recently viewed the
+training plots may have increased participants estimates of correlation.
+To further analyse this variability, a model was built including trial
+number, allowing for the analysis of error. A significant effect of
+trial number is also found (\(\chi^2\)(1) = 29.31, \emph{p} \textless{}
+.001) on participants' correlation estimation errors.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf}
+
+}
+
+\caption{\label{fig-e4-trial-number}Comparing mean errors in correlation
+estimation by trial number. Points represent unsigned mean errors for
+each trial number. The plotted line is the locally estimated smoothed
+curve, with the ribbon representing standard errors.}
+
+\end{figure}%
+
+Figure~\ref{fig-e4-trial-number} is great.
+
 \section{Discussion}\label{discussion-e4}
 
 \section{Conclusion}\label{conclusion-interactions}

@@ -551,6 +551,7 @@ ggplot(aes(x = Condition, y = emmean*-1), data = plotting_df) +
 
 rm(plotting_df)
 ```
+
 ```{r}
 #| label: tbl-contrasts-e3
 #| include: true
