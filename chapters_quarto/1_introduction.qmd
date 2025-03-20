@@ -104,26 +104,28 @@ information and discussion that would be repeated has been consolidated into the
 literature review and general methodology chapters. *Gabriel Strain* is the primary
 author of all included papers.
 
- - *The Effects of Contrast on Correlation Perception in Scatterplots* \cite{strain_2023} is reproduced
- in \chap{chap:adjusting_opacity}. Sections \ref{general-methods-adjusting-opacity}, \ref{methods-e1}, 
- \ref{methods-e2}, \ref{results-e1}, \ref{results-e2}, \ref{discussion-e1}, 
- \ref{discussion-e2}, and \ref{general-discussion-adjusting-opacity}
- contain minimally altered parts of the published article.
+ - *The Effects of Contrast on Correlation Perception in Scatterplots* \cite{strain_2023}
+ is reproduced in \chap{chap:adjusting_opacity}. Sections
+ \ref{general-methods-adjusting-opacity}, \ref{methods-e1}, \ref{methods-e2},
+ \ref{results-e1}, \ref{results-e2}, \ref{discussion-e1}, \ref{discussion-e2},
+ and \ref{general-discussion-adjusting-opacity} contain minimally altered parts
+ of the published article.
  
  - *Adjusting Point Size to Facilitate More Accurate Correlation Perception in Scatterplots*
  \cite{strain_2023b} is reproduced in \chap{chap:adjusting_size}. Sections 
- \ref{methods-e3}, \ref{results-e3}, and \ref{discussion-e3}, contain minimally altered parts of 
+ \ref{methods-e3}, \ref{results-e3}, and \ref{discussion-e3}, contain minimally 
+ altered parts of 
  the published article.
  
  - *Effects of Point Size and Opacity Adjustments in Scatterplots* \cite{strain_2024}
- is reproduced in \chap{chap:interactions_opacity_size}. Sections \ref{methods-interactions},
- \ref{analysis-interactions}, \ref{discussion-interactions}, and \ref{general-discussion-interactions}
- contain minimally altered parts of the published article.
+ is reproduced in \chap{chap:interactions_opacity_size}. Sections \ref{methods-e4},
+ \ref{analysis-e4}, and \ref{discussion-e4} contain minimally altered parts of 
+ the published article.
  
- - *Effects of Alternative Scatterplot Designs on Belief* (*under review*) is 
- reproduced in \chap{chap:belief_change}. Sections \ref{beliefs-pre-study},
- \ref{methods-beliefs-main}, \ref{analysis-beliefs-main}, \ref{discussion-beliefs-main},
- and \ref{general-discussion-beliefs} contain minimally altered parts of the published article.
+ - *Effects of Alternative Scatterplot Designs on Belief* \cite{strain_2025} is 
+ reproduced in \chap{chap:belief_change}. Sections \ref{beliefs-pre-study-e5},
+ \ref{methods-e5}, \ref{analysis-e5}, and \ref{discussion-e5}, contain minimally
+ altered parts of the published article.
 
 # Overview of Thesis
 

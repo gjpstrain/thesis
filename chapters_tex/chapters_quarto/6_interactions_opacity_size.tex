@@ -49,8 +49,8 @@ explained significantly more variance than the null (\(\chi^2\)(3) =
 5,286.81, \emph{p} \textless{} .001). There were significant fixed
 effects of size and opacity decay function, as well as a significant
 interaction between the two. Figure~\ref{fig-e4-estimates} shows the
-mean errors in correlation estimation for combination of conditions,
-along with 95\% confidence intervals.
+mean errors in correlation estimation for each combination of
+conditions, along with 95\% confidence intervals.
 
 \begin{figure}
 
@@ -98,6 +98,43 @@ correlation estimation error between all conditions besides that which
 compares the two incongruent decay conditions. Statistical testing for
 contrasts were performed using the \texttt{emmeans} package
 \cite{lenth_2024}, and are provided in Table~\ref{tbl-contrasts-e4}.
+Experiments 1, 2, and 3 all featured a comparative baseline condition.
+In the former two experiments, this was the full contrast condition (see
+\chap{chap:adjusting_opacity}), while in the latter, this was the
+standard size condition (see \chap{chap:adjusting_size}). In the current
+experiment, no baseline condition was used. Owing both to this and the
+use of a linear mixed effects model with an interaction term, the use of
+Cohen's \emph{d} as a measure of effect size would be inappropriate. In
+its place, the amounts of variance in participants' errors in
+correlation explanation explained by each fixed effect term and the
+interaction term is represented as semi-partial R\textsuperscript{2}
+\cite{nakagawa_2013}. These statistics were calculated using the
+\texttt{r2glmm} package (version 0.1.2) \cite{r2glmm}, and are presented
+along with model statistics in Table~\ref{tbl-model-stats-e4}.
+
+\begin{table}
+
+\caption{\label{tbl-model-stats-e4}Significances of fixed effects and
+the interaction between them. Semi-partial R\textsuperscript{2} for each
+fixed effect and the interaction term is also displayed in lieu of
+effect sizes.}
+
+\centering{
+
+\begin{tabular}[t]{lrrrrll}
+\toprule
+  & Estimate & Standard Error & df & t-value & \textit{p} & R\textsuperscript{2}\\
+\midrule
+(Intercept) & 0.08 & 0.013 & 103.32 & 6.27 & <0.001 & \\
+Size Decay & -0.14 & 0.005 & 148.39 & -25.77 & <0.001 & 0.104\\
+Opacity Decay & 0.12 & 0.002 & 26327.21 & 63.71 & <0.001 & 0.087\\
+Size Decay x Opacity Decay & 0.15 & 0.004 & 26327.13 & 38.47 & <0.001 & 0.034\\
+\bottomrule
+\end{tabular}
+
+}
+
+\end{table}%
 
 Models including participants' graph literacy, their performance on the
 point visibility task, the dot pitch of participants' monitors, and
@@ -130,7 +167,31 @@ curve, with the ribbon representing standard errors.}
 
 \end{figure}%
 
-Figure~\ref{fig-e4-trial-number} is great.
+Figure~\ref{fig-e4-trial-number} shows participants' unsigned mean
+errors in correlation estimation against trial number. Variability in
+error, as represented by the ribbon, stabilised quickly and remained
+stable for most the experiment, only widening again around trial number
+170. The simplest explanation for this is that participants, knowing
+they were coming to the end of the experiment, became less vigilant and
+rushed their judgements more. Regardless of statistical significance,
+this effect is not large enough to warrant further investigation, at
+least as it pertains to correlation estimation in scatterplots.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf}
+
+}
+
+\caption{\label{fig-estimates-by-r-e4}Participants' mean errors in
+correlation estimates grouped by factor and by \textit{r} value. The
+dashed horizontal line represents perfect estimation. Participants were
+most accurate when presented with the plots featuring the non-linear
+size decay function. Error bars show standard deviations of estimates.}
+
+\end{figure}%
 
 \section{Discussion}\label{discussion-e4}
 

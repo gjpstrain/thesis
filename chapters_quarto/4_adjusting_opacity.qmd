@@ -909,13 +909,15 @@ A function from the now archived `EMAtools` package \cite{ematools} was used to
 calculate an approximation of Cohen's *d* between the reference level (full contrast, 
 alpha = 1.0) and each other level of the opacity factor. These statistics can be
 seen in @tbl-efs-e1 along with means and standard deviations. The
-largest effect size observed (*d* ~ 0.16) is between thelow and full opacity
+largest effect size observed (*d* ~ 0.16) is between the low and full opacity
 conditions, and is small. This was unsurprising given the lack 
 of previously reported effects on correlation perception of global point opacity
 \cite{rensink_2012}. @fig-estimates-by-r-e1 shows how participants' estimates of 
-correlation change with the objective *r* value in the plot. As reported in
-previous literature (see Sec in related work), participants underestimated
-*r* in nearly all cases (revise).
+correlation change with the objective *r* value in the plot. Points represent
+mean errors in correlation estimation, and standard deviations of error
+are provided as error bars. The dashed horizontal line represents hypothetical
+perfect estimation. As reported in previous literature (see Sec in related work),
+participants underestimated *r* in nearly all cases (revise).
 
 ## Discussion {#discussion-e1}
 
@@ -1276,8 +1278,8 @@ and each other condition can be seen in @tbl-efs-e2. The largest effect size obs
 (~0.23 between full opacity and inverted decay conditions) is small to moderate,
 and the effect size between the baseline and the non-linear decay condition (~0.19) is small.
 @fig-estimates-by-r-e2 illustrates the effects of each manipulation on participants'
-correlation estimation performance separately for each value of *r* used. The dotted horizontal
-line represents perfect estimation, and standard deviations of estimates are
+correlation estimation performance separately for each value of *r* used. The dashed horizontal
+line represents perfect estimation, and standard deviations of estimation error are
 provided by way of error bars. Participants still underestimated correlation in 
 all conditions, although the use of the non-linear decay function biased participants'
 estimates upwards to partially correct for the underestimation.

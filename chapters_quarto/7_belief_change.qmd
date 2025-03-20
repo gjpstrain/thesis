@@ -40,12 +40,12 @@ execute:
 
 # Experiment: Potential for Belief Change Using Atypical Scatterplots {#beliefs-main}
 
-## Introduction {#intro-beliefs-main}
+## Introduction {#intro-e5}
 
-## Methods {#methods-beliefs-main}
+## Methods {#methods-e5}
 
-## Analysis {#analysis-beliefs-main}
+## Analysis {#analysis-e5}
 
-## Discussion {#discussion-beliefs-main}
+## Discussion {#discussion-e5}
 
 # General Discussion {#general-discussion-beliefs}

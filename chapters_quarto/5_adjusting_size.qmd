@@ -648,6 +648,22 @@ plot_error_bars_function(E3_size_adjustments_tidy %>%
   geom_hline(yintercept = 0, linetype = 2)
 ```
 
+As in \chap{chap:adjusting_opacity}, an approximation of Cohen's *d* was calculated
+between the reference level (here labelled "Standard Size") and all other levels of
+the size decay factor. These statistics can be seen in @tbl-efs-e3 along with 
+descriptive statistics for all levels. The largest observed effect size is between
+the standard size and non-linear decay conditions (*d* = 0.64), and is medium. This
+is a marked improvement on the non-linear opacity decay condition from experiment 
+2, \chap{chap:adjusting_opacity}, where the effect size observed was *d* = 0.19.
+@fig-estimates-by-r-e3 plots the effects of each size decay manipulation separately
+for each *r* value used. Points represent means of estimation error for each
+*r* value, with standard deviations of error shown as error bars. The dashed
+horizontal line represents hypothetical perfect estimation. Expectedly, while
+participants still underestimated *r* in all conditions, the non-linear size
+decay condition provided the most promising correction to date; the average
+estimation error is approaching a flat line (see the left-most plot in
+@fig-estimates-by-r-e3).
+
 # Discussion {#discussion-e3}
 
 Participants' errors in correlation estimation were significantly lower in the non-linear
@@ -662,7 +678,9 @@ lower than the errors that were observed for the standard size condition.
 
 The mean error in correlation estimation for the non-linear size decay condition
 in this experiment was .025, while for the equivalent opacity decay condition described
-in experiment 2 (see \chap{chap:adjusting_opacity}) was .086. This finding 
+in experiment 2 (see \chap{chap:adjusting_opacity}) was .086. This finding, along
+with the significantly higher Cohen's *d* effect size reported in this experiment
+compared to experiment 2 for the non-linear decay conditions (0.86 vs 0.19),
 provides evidence that point size is a stronger encoding channel for the manipulation
 of perceived contrast than point opacity. If these effects are being driven by
 the lower salience of more external points, the fact that a larger effect of point

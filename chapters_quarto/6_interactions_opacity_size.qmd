@@ -47,6 +47,7 @@ library(geomtextpath)
 library(conflicted)
 library(formattable)
 library(effectsize)
+library(r2glmm)
 
 # fix conflicts
 
@@ -233,6 +234,56 @@ extract_age(E4_interactions_tidy)
 extract_gender(E4_interactions_tidy)
 
 extract_literacy(E4_interactions_tidy)
+
+# significance table function. This function is only used in this chapter, and 
+# hence does not appear in the shared_functions.R file
+
+make_sig_table <- function (model) {
+  
+  # buildmer class models need reassigned to lmer class for further use
+  
+  if (class(model) == "buildmer") model <- model@model
+  
+  # subset model summary to get list of fixed/interaction effects
+  # then make this a data frame, rename columns, fix p value formatting
+  
+  table_df <- as.data.frame(summary(model)[10]) %>%
+    rename("Estimate" = "coefficients.Estimate",
+           "Standard Error" = "coefficients.Std..Error",
+           "df" = "coefficients.df",
+           "t-value" = "coefficients.t.value",
+           "p" = "coefficients.Pr...t..") %>%
+    mutate(p = scales::pvalue(p)) %>%
+    rename("\\textit{p}" = "p")
+  
+  # get semi-partial r^2, rename rows so they match with sig table
+  # take the last 3 rows corresponding to fixed effects and interaction term
+  # remove first cell of r^2
+  # reformat text for latex output
+  
+  r_squared <- r2beta(model, method = "nsj") %>%
+    mutate("Effect" = recode(Effect,
+                             "size" = "Size Decay",
+                             "opacity" = "Opacity Decay",
+                             "size:opacity" = "Size Decay x Opacity Decay")) %>%
+    select(c("Effect", "Rsq")) %>%
+    mutate(Rsq = round(Rsq, 3)) %>%
+    mutate(Rsq = ifelse(row_number() == 1, "", Rsq)) %>%
+    rename("R\\textsuperscript{2}" = "Rsq") 
+    
+  # tidy up row names
+  
+  rownames(table_df) <- c("(Intercept)",
+                          "Size Decay",
+                          "Opacity Decay",
+                          "Size Decay x Opacity Decay")
+  
+  sig_and_squared <- cbind(table_df, r_squared) %>% select(-c("Effect")) 
+  
+  table <- kbl(sig_and_squared, booktabs = T, digits = c(2,3,2,2,2,2,3), escape = F)
+  
+  return(table)
+}
 ```
 
 # Abstract {#abstract-interactions}
@@ -338,7 +389,7 @@ more variance than the null ($\chi^2$(`r in_paren(e4_model.df)`) =
 `r printnum(e4_model.Chisq)`, *p* `r printp(e4_model.p, add_equals = TRUE)`).
 There were significant fixed effects of size and opacity decay function, as 
 well as a significant interaction between the two. @fig-e4-estimates shows 
-the mean errors in correlation estimation for combination of conditions,
+the mean errors in correlation estimation for each combination of conditions,
 along with 95% confidence intervals.
 
 ```{r}
@@ -429,6 +480,29 @@ The effects found were driven by significant difference between means of correla
 estimation error between all conditions besides that which compares the two
 incongruent decay conditions. Statistical testing for contrasts were performed
 using the `emmeans` package \cite{lenth_2024}, and are provided in @tbl-contrasts-e4.
+Experiments 1, 2, and 3 all featured a comparative baseline condition. In the former
+two experiments, this was the full contrast condition (see \chap{chap:adjusting_opacity}),
+while in the latter, this was the standard size condition (see \chap{chap:adjusting_size}).
+In the current experiment, no baseline condition was used. Owing both to this
+and the use of a linear mixed effects model with an interaction term, the use of
+Cohen's *d* as a measure of effect size would be inappropriate. In its place,
+the amounts of variance in participants' errors in correlation explanation
+explained by each fixed effect term and the interaction term is represented as 
+semi-partial R^2^ \cite{nakagawa_2013}. These statistics were calculated using
+the `r2glmm` package (version 0.1.2) \cite{r2glmm}, and are presented along with model statistics
+in @tbl-model-stats-e4.
+
+```{r}
+#| label: tbl-model-stats-e4
+#| include: true
+#| tbl-cap: Significances of fixed effects and the interaction between them. Semi-partial R^2^ for each fixed effect and the interaction term is also displayed in lieu of effect sizes.
+
+make_sig_table(e4_model)
+
+```
+
+
+
 
 Models including participants' graph literacy, their performance on the
 point visibility task, the dot pitch of participants'
@@ -484,8 +558,31 @@ E4_interactions_tidy %>%
         axis.title = element_text(size = 8)) 
 ```
 
-@fig-e4-trial-number is great.
+@fig-e4-trial-number shows participants' unsigned mean errors in correlation
+estimation against trial number. Variability in error, as represented by the
+ribbon, stabilised quickly and remained stable for most the experiment,
+only widening again around trial number 170. The simplest explanation for this
+is that participants, knowing they were coming to the end of the experiment,
+became less vigilant and rushed their judgements more. Regardless of statistical
+significance, this effect is not large enough to warrant further investigation,
+at least as it pertains to correlation estimation in scatterplots.
 
+```{r}
+#| label: fig-estimates-by-r-e4
+#| include: true
+#| fig-cap: Participants' mean errors in correlation estimates grouped by factor and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring the non-linear size decay function. Error bars show standard deviations of estimates.
+
+plot_error_bars_function(E4_interactions_tidy %>%
+                           mutate(grouping_var = fct_relevel(condition_abs,
+                                                             c("A",
+                                                               "B",
+                                                               "X",
+                                                               "Y"))),
+                         "condition_abs",
+                         "difference",
+                         labels_e4) +
+  geom_hline(yintercept = 0, linetype = 2)
+```
 
 
 
