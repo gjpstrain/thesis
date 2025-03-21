@@ -294,6 +294,33 @@ make_sig_table <- function (model) {
 
 # Hypotheses {#hypotheses-interactions}
 
+A single experiment is present in this chapter based on the effects of adjusting
+point opacity and size on correlation estimation established in \chap{chap:adjusting_opacity}
+and \chap{chap:adjusting_size}. Here, previously independently tested point opacity and size
+manipulations are tested in both typical orientation (point opacity/size is 
+reduced with residual magnitude) and inverted orientation (point opacity/size
+is increased with residual magnitude). Throughout this chapter, referral is made
+to *congruent* and *incongruent* conditions with respect to the combination of 
+point opacity and size decay functions. *Congruent* conditions are those in which
+point opacity and size decay act in the same direction (typical or inverted),
+while for *incongruent* conditions, point opacity and size decay act against 
+each other. Due to previous findings that non-linearly reducing point opacity 
+or size as a function of residual magnitude can bias correlation estimates upwards,
+it is hypothesised that:
+
+ - H1: an increased reduction in correlation estimation error will be observed
+ when congruent typical orientation decay functions are used.
+ H2: the use of a congruent inverted function, such that point opacity and size
+ are both increased with residual magnitude, will produce the least accurate
+ estimates of correlation.
+ 
+Owing to the finding from \chap{chap:@adjusting_size} that point size is a stronger
+channel for biasing correlation estimation than point opacity, it is also 
+hypothesised that:
+
+ - H3: there will be a significant difference in correlation estimates between
+ the two incongruent orientation conditions.
+
 # Methods {#methods-e4}
 
 ## Stimuli {#stimuli-e4}
@@ -375,19 +402,19 @@ anova_results(e4_training_model, e4_model)
 anova_results(e4_trial_number_model, e4_model)
 ```
 
-To investigate the effects of combining point size and opacity decay functions on
+To investigate the effects of combining point opacity and size decay functions on
 participants' estimates of correlation, a linear mixed effects model was built
-whereby the particular combination of point size and opacity decay function
+whereby the particular combination of point opacity and size decay function
 employed is a predictor for the difference between objective *r* values
 for each plot and participants' estimates of *r*. Deviation coding was used
 for each of the experimental factors, which allows comparison between means of
 *r* estimation error and the grand mean. This model has random intercepts for 
 items and participants, and random slopes for participants with regards to the
 size decay factor. A likelihood ratio test revealed that the model including
-the size and opacity decay conditions as predictors explained significantly
+the opacity and size decay conditions as predictors explained significantly
 more variance than the null ($\chi^2$(`r in_paren(e4_model.df)`) = 
 `r printnum(e4_model.Chisq)`, *p* `r printp(e4_model.p, add_equals = TRUE)`).
-There were significant fixed effects of size and opacity decay function, as 
+There were significant fixed effects of opacity and size decay function, as 
 well as a significant interaction between the two. @fig-e4-estimates shows 
 the mean errors in correlation estimation for each combination of conditions,
 along with 95% confidence intervals.
@@ -454,7 +481,7 @@ as_tibble(emmeans(e4_model, pairwise ~ size * opacity)[[1]]) %>%
 ```{r}
 #| label: tbl-contrasts-e4
 #| include: true
-#| tbl-cap: Contrasts between different levels of the size and opacity decay factors in experiment 4.
+#| tbl-cap: Contrasts between different levels of the opacity and size decay factors in experiment 4.
 
 # assign slot, if it hasn't been assigned already
 
@@ -500,9 +527,6 @@ in @tbl-model-stats-e4.
 make_sig_table(e4_model)
 
 ```
-
-
-
 
 Models including participants' graph literacy, their performance on the
 point visibility task, the dot pitch of participants'
@@ -584,26 +608,73 @@ plot_error_bars_function(E4_interactions_tidy %>%
   geom_hline(yintercept = 0, linetype = 2)
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Discussion {#discussion-e4}
+
+Hypothesis 1 received full support in this experiment. The combination of 
+typical orientation opacity and size decay functions produced the most accurate
+estimates of correlation, although this also resulted in a marked over-correction
+and consequent overestimation for many values of *r* (see @fig-estimates-by-r-e4).
+The second hypothesis also received support; the combination of inverted opacity
+and size decay functions produced the least accurate estimates of correlation.
+No support was found for the third hypothesis, that there would be a significant
+difference in correlation estimates between inverted orientation opacity/typical
+orientation size plots and typical orientation opacity/inverted orientation
+size plots. There was, however, a significant interaction term present,
+providing evidence that the combination of opacity and size decay functions is
+not additive in natures.
+
+## Combining Manipulations
+
+## Estimation Precision
+
+## Relative Contributions of Opacity and Srize Decay
+
+## Mechanisms
+
+## Limitations
+
+## Future Work
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Conclusion {#conclusion-interactions}
