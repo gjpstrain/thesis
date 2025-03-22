@@ -642,7 +642,7 @@ the reproducibility practices described here have resulted in longer term
 savings in time and effort. Favouring a gold-standard reproducible 
 approach is also a way of "paying it forward"; having come from a non-technical
 background, I found previous work that adhered to the same standard
-critical to learning and development. GitHub is used to host both this thesis
+critical for my own learning and development. GitHub is used to host both this thesis
 and the papers associated with the project; links to these repositories can
 be found throughout. I favour permissive and lenient licencing, such as the MIT licence
 \cite{mit} for GitHub repositories and the CC-BY 4.0 license for pre-registrations.
@@ -713,25 +713,25 @@ concerning each experiment.
 
 \textbf{Chapter 4}
 
-Experiment 1: https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments
+Experiment 1: [https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments](https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments)
 
-Experiment 2: https://gitlab.pavlovia.org/Strain/exp_spatially_dependent
+Experiment 2: [https://gitlab.pavlovia.org/Strain/exp_spatially_dependent](https://gitlab.pavlovia.org/Strain/exp_spatially_dependent)
 
 \textbf{Chapter 5}
 
-Experiment 3: https://gitlab.pavlovia.org/Strain/exp_size_only
+Experiment 3: [https://gitlab.pavlovia.org/Strain/exp_size_only](https://gitlab.pavlovia.org/Strain/exp_size_only)
 
 \textbf{Chapter 6}
 
-Experiment 4: https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp
+Experiment 4: [https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp](https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp)
 
 \textbf{Chapter 7}
 
-Experiment 5 Pre-Study: https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest
+Experiment 5 Pre-Study: [https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest](https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest)
 
-Experiment 5 Main Study (Group A): https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a
+Experiment 5 Main Study (Group A): [https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a](https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a)
 
-Experiment 5 Main Study (Group B): https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t
+Experiment 5 Main Study (Group B): [https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t](https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t)
 
 # Conclusion
 
@@ -745,7 +745,7 @@ research and reproducibility is at the core of the work described here,
 and I hope this thesis can serve as an example for future work
 facing similar challenges and with similar commitments to open science.
 To this end, I have produced a [template](https://github.com/gjpstrain/UoM_reproducible_thesis_template)
-to facilitate future reproducible theses. We satisfy FAIR (**F**indable,
-**A**ccessible, **I**nteropable, and **R**eusable) data principles
-\cite{wilkinson_2016} through public sharing of data 
-and code, literate programming, and containerisation.
+to facilitate future reproducible theses. FAIR (**F**indable, **A**ccessible,
+**I**nteropable, and **R**eusable) data principles \cite{wilkinson_2016} are
+satisfied through public sharing of data and code, literate programming,
+and containerisation.

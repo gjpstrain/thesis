@@ -314,7 +314,7 @@ it is hypothesised that:
  are both increased with residual magnitude, will produce the least accurate
  estimates of correlation.
  
-Owing to the finding from \chap{chap:@adjusting_size} that point size is a stronger
+Owing to the finding from \chap{chap:adjusting_size} that point size is a stronger
 channel for biasing correlation estimation than point opacity, it is also 
 hypothesised that:
 
@@ -652,13 +652,40 @@ can be made for designers of correlation visualisations:
  implement the non-linear size decay function, as findings 
  have shown it to produce the most accurate correlation estimates in this range.
  - Outside of this range, and with the same caveats in place, designers may wish
- to implement the opacity decay function; while its effect on correlation estimation
+ to implement the opacity decay function described in\chap{chap:adjusting_opacity};
+ while its effect on correlation estimation
  is small, it does significantly increase estimation accuracy.
  - There exists a combination of size and opacity decay functions that produces
  accurate correlation estimates while maintaining the increased *r* estimation
  precision expected with high *r* values. Finding this will require extensive future testing.
 
 ## Combining Manipulations
+
+fig-e4-estimates and @fig-estimates-by-r-e4 show how, on average, the combination
+of typical orientation opacity and size decay functions results in an overestimation
+of *r* for the majority of values. While not solving the underestimation problem
+directly, it demonstrates that with regards to using point opacity and size manipulations
+to change estimates of correlation, there appear to be few limitations. If correlation
+estimation can be over-corrected, as in the typical orientation condition here,
+then there exists a *tuning* of the opacity and size decay parameters such
+that the degree of correction is appropriate; Section \ref{future-work-e4} explores
+the work that might be done to achieve this. The combination of inverted inverted
+orientation opacity and size decay functions also had the expected effect, producing
+the lowest and least accurate estimates of correlation. Combining inverted
+manipulations did not, however, significantly change the shape of the estimation
+curve (see @fig-estimates-by-r-e4). In addition to non-additive interaction, the
+effects observed operate differently depending on the direction of the change
+induced in perception. This finding may also explain the lack of support for
+the third hypothesis, that there would be a significant difference in estimation
+error between the two incongruent conditions. Despite the size channel being
+more powerful than opacity with regards to influencing correlation estimates,
+the fact that this power depends on the direction the function is set causes
+incongruent decay conditions to act against each other in unexpected ways.
+Indeed, the incongruent condition that used a typical orientation size decay function exhibited
+lower mean error than the one using inverted orientation size decay (see @fig-esatimates-by-r-e4),
+however in each case opacity decay appears to have blunted the power of the
+size decay function to the extent that the difference in errors is not statistically
+significant.
 
 ## Estimation Precision
 
@@ -668,7 +695,7 @@ can be made for designers of correlation visualisations:
 
 ## Limitations
 
-## Future Work
+## Future Work {#future-work-e4}
 
 
 
