@@ -28,23 +28,23 @@ execute:
 
 ## From Cognition to Belief
 
-# Pre-Study: Investigating Beliefs About Relatedness Statements {#beliefs-pre-study}
+# Pre-Study: Investigating Beliefs About Relatedness Statements {#e5a}
 
-## Introduction {#intro-beliefs-pre}
+## Introduction {#intro-e5a}
 
-## Methods {#methods-beliefs-pre}
+## Methods {#methods-e5a}
 
-## Analysis {#analysis-beliefs-pre}
+## Analysis {#results-e5a}
 
-## Discussion {#discussion-beliefs-pre}
+## Discussion {#discussion-e5a}
 
-# Experiment: Potential for Belief Change Using Atypical Scatterplots {#beliefs-main}
+# Experiment: Potential for Be0lief Change Using Atypical Scatterplots {#beliefs-e5}
 
 ## Introduction {#intro-e5}
 
 ## Methods {#methods-e5}
 
-## Analysis {#analysis-e5}
+## Analysis {#results-e5}
 
 ## Discussion {#discussion-e5}
 

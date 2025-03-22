@@ -544,8 +544,7 @@ with participants rating correlation .01 lower during the second half. This drop
 suggests that having more recently viewed the training plots may have increased
 participants estimates of correlation. To further analyse this variability,
 a model was built including trial number, allowing for the analysis of error.
-A significant effect of trial number is also found 
-($\chi^2$(`r in_paren(e4_trial_number_model.df)`) = 
+A significant effect of trial number is also found ($\chi^2$(`r in_paren(e4_trial_number_model.df)`) = 
 `r printnum(e4_trial_number_model.Chisq)`, *p* 
 `r printp(e4_trial_number_model.p, add_equals = TRUE)`)
 on participants' correlation estimation errors.
@@ -621,7 +620,43 @@ difference in correlation estimates between inverted orientation opacity/typical
 orientation size plots and typical orientation opacity/inverted orientation
 size plots. There was, however, a significant interaction term present,
 providing evidence that the combination of opacity and size decay functions is
-not additive in natures.
+not additive in nature.
+
+Further confirmatory evidence is found in favour of the phenomena reported in
+\chap{chap:adjusting_opacity} and \chap{chap:adjusting_size}. Namely, that while
+manipulations of both point opacity and size in scatterplots have significant
+effects on correlation estimation, the effect of changing point size is stronger,
+and that while manipulations such as those described in this thesis can influence
+estimates of positive correlation in either direction, typical orientation 
+manipulations are more powerful than inverted ones. As expected, there is also
+an effect of congruency on the extent to which a manipulation can bias estimates of
+correlation; redundant encoding, such as that present here in congruent conditions,
+is known to support visual grouping and segmentation \cite{nothelfer_2017}. The 
+findings presented here provide evidence that redundancy can be exploited to
+change perceptions of correlation.
+
+Given the consistent finding throughout this thesis that point size is a stronger
+encoding channel for the purposes of altering perceptions of correlation compared 
+to point opacity, the lack of support for the third hypothesis was unexpected.
+Tentatively, this may be a result of the non-additive nature of combining
+point opacity and size manipulations. Despite this, it was found that point size
+explained a greater proportion of the variance (.104) in the experimental model
+compared to point opacity.
+
+Taking into account the work presented in this chapter, along with that described
+in \chap{chap:adjusting_opacity} and \chap{chap:adjusting_size}, recommendations 
+can be made for designers of correlation visualisations:
+
+ - When *r* is between approximately 0.3 and 0.75, and the scatterplot in question
+ is intended solely for the communication of correlation, designers may wish to
+ implement the non-linear size decay function, as findings 
+ have shown it to produce the most accurate correlation estimates in this range.
+ - Outside of this range, and with the same caveats in place, designers may wish
+ to implement the opacity decay function; while its effect on correlation estimation
+ is small, it does significantly increase estimation accuracy.
+ - There exists a combination of size and opacity decay functions that produces
+ accurate correlation estimates while maintaining the increased *r* estimation
+ precision expected with high *r* values. Finding this will require extensive future testing.
 
 ## Combining Manipulations
 

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.21)  21 MAR 2025 07:47
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.1.21)  22 MAR 2025 10:14
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1177,6 +1177,13 @@ Package biblatex Warning: The following entry could not be found
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
+(biblatex)                nothelfer_2017
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
 (biblatex)                strain_2025
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
@@ -1597,32 +1604,38 @@ Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_siz
 (luatex.def)             Requested size: 483.69687pt x 159.98596pt.
 
 
-[65<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf><./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf>])
+[65<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf><./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf>]
+
+LaTeX Warning: Citation 'nothelfer_2017' on page 66 undefined on input line 261.
+
+)
 
 [66]
+
+[67]
 Chapter 7.
 (./chapters_tex/chapters_quarto/7_belief_change.tex)
 
-[67
+[68
 
 ]
 Overfull \vbox (87.99644pt too high) has occurred while \output is active []
 
 
 
-[68]
+[69]
 Chapter 8.
 (./chapters_tex/chapters_quarto/8_conclusion.tex)
-
-[69
-
-]
 
 [70
 
 ]
 
-[71]
+[71
+
+]
+
+[72]
 Overfull \hbox (24.2631pt too wide) in paragraph at lines 172--172
 []\TU/TeXGyreTermes(0)/m/n/12 Nick Char-alam-bides. \TU/TeXGyreTermes(0)/m/it/12 We Re-cently Went Vi-ral on Tik-Tok - Here’s What We Learned\TU/TeXGyreTermes(0)/m/n/12 . https://www.pro-
  []
@@ -1633,8 +1646,6 @@ Overfull \hbox (15.1642pt too wide) in paragraph at lines 172--172
  []
 
 
-
-[72]
 
 [73]
 
@@ -1652,14 +1663,16 @@ Overfull \hbox (15.1642pt too wide) in paragraph at lines 172--172
 
 [80]
 
-[81
+[81]
+
+[82
 
 
 ]
 Appendix A.
 
 
-[82
+[83
 
 
 ] (./main.aux)
@@ -1679,11 +1692,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 40010 strings out of 475518
+ 40011 strings out of 475518
  125165,2373549 words of node,token memory allocated
  1378 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 8 glue, 4 kern, 1 glyph, 65 attribute, 117 glue_spec, 65 attribute_list, 2 write, 48 pdf_action nodes
-   avail lists: 1:2,2:1280,3:491,4:171,5:877,6:478,7:9343,8:61,9:718,10:24,11:888
+   avail lists: 1:2,2:1280,3:491,4:171,5:879,6:478,7:9343,8:61,9:718,10:24,11:888
  61443 multiletter control sequences out of 65536+600000
  78 fonts using 7584495 bytes
  104i,12n,117p,2644b,3357s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1700,9 +1713,9 @@ warning  (pdf backend): unreferenced destination with name 'Hfootnote.2'
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
 <c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-italic.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-regular.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-bold.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (82 pages, 2507471 bytes).
+Output written on main.pdf (83 pages, 2511513 bytes).
 
-PDF statistics: 2855 PDF objects out of 2984 (max. 8388607)
- 396 named destinations out of 1000 (max. 131072)
+PDF statistics: 2865 PDF objects out of 2984 (max. 8388607)
+ 397 named destinations out of 1000 (max. 131072)
  1223 words of extra memory for PDF output out of 10000 (max. 100000000)
 

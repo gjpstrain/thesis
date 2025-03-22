@@ -114,17 +114,16 @@ author of all included papers.
  - *Adjusting Point Size to Facilitate More Accurate Correlation Perception in Scatterplots*
  \cite{strain_2023b} is reproduced in \chap{chap:adjusting_size}. Sections 
  \ref{methods-e3}, \ref{results-e3}, and \ref{discussion-e3}, contain minimally 
- altered parts of 
- the published article.
+ altered parts of the published article.
  
  - *Effects of Point Size and Opacity Adjustments in Scatterplots* \cite{strain_2024}
  is reproduced in \chap{chap:interactions_opacity_size}. Sections \ref{methods-e4},
- \ref{analysis-e4}, and \ref{discussion-e4} contain minimally altered parts of 
+ \ref{results-e4}, and \ref{discussion-e4} contain minimally altered parts of 
  the published article.
  
  - *Effects of Alternative Scatterplot Designs on Belief* \cite{strain_2025} is 
- reproduced in \chap{chap:belief_change}. Sections \ref{beliefs-pre-study-e5},
- \ref{methods-e5}, \ref{analysis-e5}, and \ref{discussion-e5}, contain minimally
+ reproduced in \chap{chap:belief_change}. Sections \ref{beliefs-e5a},
+ \ref{methods-e5}, \ref{results-e5}, and \ref{discussion-e5}, contain minimally
  altered parts of the published article.
 
 # Overview of Thesis
