@@ -241,7 +241,7 @@ able to alter the shape of the correlation estimation curve.
 ```{r}
 #| label: fig-bubble-chart
 #| include: true
-#| fig-cap: An example of a bubble chart. This plot compares car engine displacement (cubin inches) with fuel efficiency (miles per gallon). Additionally, the number of cylinders in the cars engine are encoded with point size. We can see from this plot that vehicles with higher engine displacement and lower fuel efficiency tend to have a higher number of engine cylinders.
+#| fig-cap: An example of a bubble chart. This plot compares car engine displacement (cubic inches) with fuel efficiency (miles per gallon). Additionally, the number of cylinders in the cars engine are encoded with point size. We can see from this plot that vehicles with higher engine displacement and lower fuel efficiency tend to have a higher number of engine cylinders.
 #| fig-asp: 0.6
 
 ggplot(aes(x = mpg, y = disp), data = mtcars) +
@@ -301,11 +301,11 @@ the wider literature described above, two hypotheses are made:
 ## Stimuli {#stimuli-e3}
 
 The creation of stimuli in this experiment follows the same general principles
-outlined in Section \chap{creating-stimuli}, \chap{chap:gen_methods}. As in \chap{chap:adjusting_opacity}, equation
-1 was used to map point residuals to size values in the two non-linear decay conditions:
+outlined in Section \ref{creating-stimuli}, \chap{chap:gen_methods}. As in \chap{chap:adjusting_opacity}, equation
+5.1 was used to map point residuals to size values in the two non-linear decay conditions:
 
 \begin{equation}
-  point_{size/opacity} = 1 - b^{residual}
+  point_{size} = 1 - b^{residual}
 \end{equation}
 
 As in \chap{chap:adjusting_opacity}, the use of this equation produces a curve around

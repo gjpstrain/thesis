@@ -288,6 +288,22 @@ make_sig_table <- function (model) {
 
 # Abstract {#abstract-interactions}
 
+\chap{chap:adjusting_opacity} and \chap{chap:adjusting_size} each provide evidence
+for the effects of changing the opacities and sizes of scatterplot points
+on people's performance on a correlation estimation task. It is clear from the
+results of the experiments presented in those chapters, however, that the effects of
+changing point opacity and size on correlation estimation in positively correlated
+scatterplots are different, both with regards to the strength of the correction
+provided and the shape of the estimation curve produced. Mechanistically, however,
+point opacity and size may operate similarly by reducing the influence of more exterior
+points in scatterplots. To further investigate these mechanisms, and in the interest of
+providing a more complete description of the ways in which changing point opacity
+and size can bias correlation estimation, I present a single experiment study combining the
+point opacity and size manipulations from \chap{chap:adjusting_opacity} and \chap{chap:adjusting_size}.
+In a condition where point opacity and size are reduced as a function of residual
+magnitude, correlation estimation is significantly biased upwards; a finding
+that suggests the effects of changing point opacity and size are not linearly additive.
+
 # Introduction {#introduction-interactions}
 
 # Related Work {#related-work-interactions}
@@ -324,6 +340,16 @@ hypothesised that:
 # Methods {#methods-e4}
 
 ## Stimuli {#stimuli-e4}
+
+The creation of the stimuli in this experiment follows the same general principles
+outline in Section \ref{creating-stimuli}, \chap{chap:gen_methods}. Again, equation
+6.1 was used to map point residuals to opacity and size values:
+
+\begin{equation}
+  point_{size/opacity} = 1 - b^{residual}
+\end{equation}
+
+As in
 
 ## Design {#design-e4}
 
