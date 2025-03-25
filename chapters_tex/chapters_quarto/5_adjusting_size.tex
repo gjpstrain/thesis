@@ -51,7 +51,7 @@ Scatterplots}\label{point-size-and-the-perception-of-correlation-in-scatterplots
 }
 
 \caption{\label{fig-bubble-chart}An example of a bubble chart. This plot
-compares car engine displacement (cubin inches) with fuel efficiency
+compares car engine displacement (cubic inches) with fuel efficiency
 (miles per gallon). Additionally, the number of cylinders in the cars
 engine are encoded with point size. We can see from this plot that
 vehicles with higher engine displacement and lower fuel efficiency tend
@@ -118,13 +118,13 @@ made:
 \subsection{Stimuli}\label{stimuli-e3}
 
 The creation of stimuli in this experiment follows the same general
-principles outlined in Section \chap{creating-stimuli},
-\chap{chap:gen_methods}. As in \chap{chap:adjusting_opacity}, equation 1
-was used to map point residuals to size values in the two non-linear
+principles outlined in Section \ref{creating-stimuli},
+\chap{chap:gen_methods}. As in \chap{chap:adjusting_opacity}, equation
+5.1 was used to map point residuals to size values in the two non-linear
 decay conditions:
 
 \begin{equation}
-  point_{size/opacity} = 1 - b^{residual}
+  point_{size} = 1 - b^{residual}
 \end{equation}
 
 As in \chap{chap:adjusting_opacity}, the use of this equation produces a
@@ -132,10 +132,11 @@ curve around the identity line symmetrically opposing the
 underestimation curve found in previous work. Additionally, a constant
 of 0.2 was added to each raw size value, and a scaling factor of 4 was
 utilised; these adjustments resulted in the smallest points in the
-present experiment having a width of 12 pixels on a 1920x1080 pixel
-monitor, which is consistent with the point size used in the experiments
-described in \chap{chap:adjusting_opacity}. Examples of the stimuli used
-in this experiment can be see in Figure~\ref{fig-exp3-examples-chap5}.
+present experiment having a width of 12 pixels on a 1920 \(\times\) 1080
+pixel monitor, which is consistent with the point size used in the
+experiments described in \chap{chap:adjusting_opacity}. Examples of the
+stimuli used in this experiment can be see in
+Figure~\ref{fig-exp3-examples-chap5}.
 
 \begin{figure}
 
@@ -203,11 +204,11 @@ results of this test indicate a sufficient level of point visibility.
 
 \subsection{Design}\label{design-e3}
 
-Again, a fully repeated-measures, within-participants design was
-employed. Each participant saw and responding to each of the 180
-scatterplots in a fully randomised order. There were four scatterplots
-for each of the 45 \emph{r} values corresponding to the four levels of
-the size decay condition, examples of which are shown in
+A fully repeated-measures, within-participants design was employed. Each
+participant saw and responding to each of the 180 scatterplots in a
+fully randomised order. There were four scatterplots for each of the 45
+\emph{r} values corresponding to the four levels of the size decay
+condition, examples of which are shown in
 Figure~\ref{fig-exp3-examples-chap5}. The experiment itself is hosted on
 Pavlovia \footnote{https://gitlab.pavlovia.org/Strain/exp\_size\_only}.
 

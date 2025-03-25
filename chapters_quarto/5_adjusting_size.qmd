@@ -312,7 +312,7 @@ As in \chap{chap:adjusting_opacity}, the use of this equation produces a curve a
 the identity line symmetrically opposing the underestimation curve found in previous
 work. Additionally, a constant of 0.2 was added to each raw size value, and a scaling
 factor of 4 was utilised; these adjustments resulted in the smallest points in
-the present experiment having a width of 12 pixels on a 1920x1080 pixel monitor,
+the present experiment having a width of 12 pixels on a 1920 $\times$ 1080 pixel monitor,
 which is consistent with the point size used in the experiments described in 
 \chap{chap:adjusting_opacity}. Examples of the stimuli used in this experiment
 can be see in @fig-exp3-examples-chap5.
@@ -324,7 +324,7 @@ can be see in @fig-exp3-examples-chap5.
 #| fig-asp: 0.275
 
 ggarrange(plot_example_function(data_with_resid, "Standard Size",
-                                1, 0.2, 8),
+                                1, 0.2, 7),
           plot_example_function(data_with_resid, "Linear Decay",
                                 1, (1-slopes$slope_linear), 7),
           plot_example_function(data_with_resid, "Non-linear Decay",
@@ -376,9 +376,9 @@ that takes into account the physical on-screen sizes of scatterplot points.
 ## Point Visibility Testing
 
 ```{r}
-# extract percentage correct on visual thresholds
+#| label: visibility-e3
 
-vis_df <- E3_size_adjustments_tidy %>%
+vis_df_e3 <- E3_size_adjustments_tidy %>%
   group_by(VT_no_correct) %>%
   count()
 ```
@@ -388,9 +388,9 @@ from scatterplots. Therefore, point visibility testing is included in this exper
 prior to the experimental items. Participants were shown 6 scatterplots and were 
 asked to enter in a text box how many points were being displayed. These points were
 the same size as the smallest points displayed in the experimental items.
-`r printnum(vis_df$n[1]/270, digits = 0)`% of participants were correct on
-`r printnum(vis_df$VT_no_correct[1])` out of 6 point visibility tests, while
-`r printnum(vis_df$n[2]/270, digits = 0)`% were correct on `r printnum(vis_df$VT_no_correct[2])` out of 6.
+`r printnum(vis_df_e3$n[1]/270, digits = 0)`% of participants were correct on
+`r printnum(vis_df_e3$VT_no_correct[1])` out of 6 point visibility tests, while
+`r printnum(vis_df_e3$n[2]/270, digits = 0)`% were correct on `r printnum(vis_df_e3$VT_no_correct[2])` out of 6.
 It should be noted that those participants scoring 5/6 did not answer
 incorrectly, rather they did not answer at all for a particular question,
 which is suggestive of a mis-click or an initial misunderstanding of
@@ -399,7 +399,7 @@ point visibility.
 
 ## Design {#design-e3}
 
-Again, a fully repeated-measures, within-participants design was employed. Each 
+A fully repeated-measures, within-participants design was employed. Each 
 participant saw and responding to each of the 180 scatterplots in a fully
 randomised order. There were four scatterplots for each of the 45 *r* values
 corresponding to the four levels of the size decay condition, examples of which are 

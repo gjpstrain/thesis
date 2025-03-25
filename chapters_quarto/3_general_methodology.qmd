@@ -79,7 +79,7 @@ point design regarding size with 4 levels (see @fig-exp3-examples). Experiment
 opacity design used with 2 levels, and IV~2~ was the scatterplot point size design 
 used with 2 levels (see @fig-exp4-examples). Experiment 5 is a departure from 
 the shared experimental paradigm of the previous experiments, and features a 1
-factor, 2 level between-participants design; group A saw scatterplots designed to ellict
+factor, 2 level between-participants design; group A saw scatterplots designed to elict
 greater levels of belief change compared to typical scatterplots, which were
 shown to group b (see @fig-exp5-examples).
 
@@ -620,7 +620,7 @@ of this thesis. For brevity, I only display the addition of the first three here
 
 # Reproducibility In This Thesis
 
-Reproducibility is a broad spectrum \cite{peng_2011} (see @fig-reproducibility-spectrum.
+Reproducibility is a broad spectrum \cite{peng_2011} (see @fig-reproducibility-spectrum).
 As discussed above, even when code and data are provided, results are often not replicable, and this is before
 issues around poor research practice, inappropriate analysis, and dishonest science
 even rear their heads. While for most, the reproducibility crisis \cite{osf_2015} crystallised in

@@ -306,6 +306,21 @@ that suggests the effects of changing point opacity and size are not linearly ad
 
 # Introduction {#introduction-interactions}
 
+The work presented in \chap{chap:adjusting_opacity} and \chap{chap:adjusting_size}
+shows that point opacity and size adjustments can be used to bias perceptions of
+correlation in positively correlated scatterplots. These findings are in opposition
+to work finding both bias and variability in correlation perception to be
+invariant to both uniform and irregular changes in point opacities and sizes
+\cite{rensink_2012, rensink_2014}. Of course, when attempting to provide tools for
+visualisation designers to design *better* visualisations, more options are preferable
+to few. In this spirit, then, I endeavoured to answer the next big question;
+what happens when point opacity and size manipulations are combined? Answering
+this question would not only allow for a deeper exploration of the potential
+mechanisms behind each decay function, but would further empower visualisation
+designers with the knowledge of how altering point opacities and sizes might 
+affect people's interpretations of the correlations displayed therein.
+
+
 # Related Work {#related-work-interactions}
 
 # Hypotheses {#hypotheses-interactions}
@@ -326,7 +341,7 @@ it is hypothesised that:
 
  - H1: an increased reduction in correlation estimation error will be observed
  when congruent typical orientation decay functions are used.
- H2: the use of a congruent inverted function, such that point opacity and size
+ - H2: the use of a congruent inverted function, such that point opacity and size
  are both increased with residual magnitude, will produce the least accurate
  estimates of correlation.
  
@@ -349,11 +364,146 @@ outline in Section \ref{creating-stimuli}, \chap{chap:gen_methods}. Again, equat
   point_{size/opacity} = 1 - b^{residual}
 \end{equation}
 
-As in
+For the changes made to point size in this experiment, a constant of 0.2 was added
+to each raw value, along with a scaling factor of 4; as in \chap{chap:adjusting_size},
+these adjustments resulted in the smallest points having a width of 12 pixels on
+a 1920x1080 pixel monitor, which is consistent with the point size used in 
+\chap{chap:adjusting_opacity} and the minimum point size used in \chap{chap:adjusting_size}.
+With regards to changing the opacities of points, an alpha = 0.2 floor was implemented,
+as informal piloting indicated low levels of visibility when very small points were
+especially transparent. In this experiment, point opacity or size manipulations in which a reduction with
+residual magnitude takes place are referred to as *typical orientation*, while those
+in which point opacity or size are increased with residual magnitude are referred
+to as *inverted orientation*. Additionally, as the current experiment only examines
+combinations of point opacity and size decay manipulations, the nature of these
+combinations are classified. When both point size and opacity decay operate in
+the same direction, that condition is referred to as *congruent*. When they operate
+in opposition to each other, those conditions are referred to as *incongruent*.
+Labelled examples of the stimuli used in this experiment can be viewed in 
+@fig-exp4-examples-chap6.
+
+```{r}
+#| label: fig-exp4-examples-chap6
+#| include: true
+#| fig-cap: Examples of the stimuli used in experiment 4, demonstrated with an \textit{r} value of 0.6.
+#| fig-asp: 0.275
+
+examples_congruent <- ggarrange(plot_example_function(data_with_resid,
+                                                      "Typical Orientation Size\nTypical Orientation Opacity",
+                                                      (1-slopes$slope_0.25),
+                                                      (1-slopes$slope_0.25),
+                                                      6.25),
+                                plot_example_function(data_with_resid,
+                                                      "Inverted Orientation Size\nInverted Orientation Opacity",
+                                                      (1-slopes$slope_inverted),
+                                                      (1-slopes$slope_inverted),
+                                                      6.25), nrow = 1) +
+  annotate(geom = "text",
+           label = "Congruent Plots",
+           x = 0.5,
+           y = 0.07)
+
+examples_incongruent <- ggarrange(plot_example_function(data_with_resid,
+                                                        "Inverted Orientation Size\nTypical Orientation Opacity",
+                                                        (1-slopes$slope_inverted),
+                                                        (1-slopes$slope_0.25),
+                                                        6.25),
+                                  plot_example_function(data_with_resid,
+                                                        "Typical Orientation Size\nInverted Orientation Opacity",
+                                                        (1-slopes$slope_inverted),
+                                                        (1-slopes$slope_inverted),
+                                                        6.25), nrow = 1) +
+    annotate(geom = "text",
+           label = "Incongruent Plots",
+           x = 0.5,
+           y = 0.07)
+
+ggarrange(examples_congruent, examples_incongruent, nrow = 1)
+```
+
+## Point Visibility Testing
+
+```{r}
+#| label: visibility-e4
+
+VT <- E4_interactions_tidy %>%
+  summarise(mean_VT_no_correct = mean(VT_no_correct),
+            sd_VT_no_correct = sd(VT_no_correct),
+            mean_VT_perc_correct = mean(VT_perc_correct),
+            sd_VT_perc_correct = sd(VT_perc_correct))
+```
+
+Discussions about the opacities and sizes of stimuli are difficult in the 
+context of online, crowdsourced experiments. Unfortunately, it is not possible
+to exert much control over the types of device participants use beyond insisting on 
+laptops or desktop computers. In particular, the varying physical sizes, resolutions,
+and dynamic ranges of participants' monitors can make commenting on the opacities 
+and sizes of stimuli difficult. On the other hand, carrying out this kind of experimentation
+produces findings that are more resilient to different viewing contexts than
+traditional lab-based work. It is key that the manipulations employed here do not
+remove data; this includes removing data by rendering it invisible. As in
+\chap{chap:adjusting_size}, point visibility testing is included to address these
+concerns. Participants were shown size scatterplots containing between 2 and 7
+points; these points were the same size and opacity and the smallest and most
+opaque points used in the experimental stimuli. Participants were instructed
+to enter the number of points present for each plot in a textbox. Participants
+scored an average of `r printnum(VT$mean_VT_perc_correct)`% ($SD$ =
+`r printnum(VT$sd_VT_perc_correct)`%). Despite the use of the opacity floor
+and point size constant and scaling factor, some of the smallest, least opaque
+stimuli used were clearly not visible to participants. This was most likely
+due to low contrast between the foreground (scatterplot points) and the background,
+as experiment 4, \chap{chap:adjusting_size} found visibility mostly invariant
+to point size. In an idealised experimental setup, minimum point opacity and size
+would need to calibrated on a per-monitor basis. Analysis including participants'
+performance on the point visibility task as a fixed effect is detailed in 
+Section \ref{results-e4}
+
+## Dot Pitch
+
+```{r}
+#| label: dot-pitch-e4
+
+dot_pitch <- E4_interactions_tidy %>%
+  summarise(mean_dp = mean(dot_pitch),
+            sd_dp = sd(dot_pitch),
+            mean_width = median(width),
+            mean_height = median(height))
+```
+
+As in \chap{chap:adjusting_size}, a method for inferring the dot pitch of participants'
+monitors was included in this experiment \cite{screenscale}. Section \ref{dot-pitch-chap5}
+details precisely how this was accomplished. Mean dot pitch was 
+  `r printnum(dot_pitch$mean_dp, digits = 2)`mm ($SD$ = `r printnum(dot_pitch$sd_dp, digits = 2)`),
+corresponding to a physical on-screen size of `r printnum(dot_pitch$mean_dp*13)`mm
+on a 1920 $\times$ 1080 pixel monitor for the smallest points displayed on a hypothetical
+`r printnum(dot_pitch$mean_width)` $\times$ `r printnum(dot_pitch$mean_height)`cm monitor.
+Analysis including dot pitch as a fixed effect is provided in Section \ref{results-e4}
 
 ## Design {#design-e4}
 
+A full repeated-measures, 2 $\times$ 2 factorial design was employed. Each participant
+saw each combination of opacity and size decay function scatterplots for a total
+of 180 experimental items. Participants viewed these experimental items, along
+with 6 attention check items, in a fully randomised order. The experiment is
+hosted on Pavlovia [^1].
+
+[^1]: https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp
+
 ## Procedure {#procedure-e4}
+
+Participants viewed the PIS and provided consent through key presses in response to
+consent statements. Participants were asked to provide their age and gender identity.
+Participants completed the 5-item Subjective Graph Literacy test \cite{garcia_2016},
+followed by the screen scale and point visibility tasks described in Section \ref{methods-e4}.
+Following the completion of the pre-experimental tests, participants were briefly
+shown examples of scatterplots with correlations of 0.2, 0.5, 0.8, and 0.95. Section
+\ref{results-e4} contains a discussion of the potential effects of this training.
+Two practice trials were allowed before the experiment began. Participants worked
+through a series of 180 experimental and 6 attention check trials in a fully randomised
+order while being asked to use a slider (see Figure \ref{fig-slider}, \chap{chap:general_methods})
+to estimate the correlation to two decimal places. Visual masks preceded
+each trial. The attention check trials explicitly asked participants to set the
+slider to 0 or 1.
 
 ## Participants {#participants-e4}
 
@@ -708,7 +858,7 @@ more powerful than opacity with regards to influencing correlation estimates,
 the fact that this power depends on the direction the function is set causes
 incongruent decay conditions to act against each other in unexpected ways.
 Indeed, the incongruent condition that used a typical orientation size decay function exhibited
-lower mean error than the one using inverted orientation size decay (see @fig-esatimates-by-r-e4),
+lower mean error than the one using inverted orientation size decay (see @fig-estimates-by-r-e4),
 however in each case opacity decay appears to have blunted the power of the
 size decay function to the extent that the difference in errors is not statistically
 significant.
@@ -722,47 +872,5 @@ significant.
 ## Limitations
 
 ## Future Work {#future-work-e4}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Conclusion {#conclusion-interactions}
