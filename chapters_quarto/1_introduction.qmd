@@ -113,7 +113,7 @@ author of all included papers.
  
  - *Adjusting Point Size to Facilitate More Accurate Correlation Perception in Scatterplots*
  \cite{strain_2023b} is reproduced in \chap{chap:adjusting_size}. Sections 
- \ref{methods-e3}, \ref{results-e3}, and \ref{discussion-e3}, contain minimally 
+ \ref{methods-e3}, \ref{results-e3}, and \ref{discussion-e3} contain minimally 
  altered parts of the published article.
  
  - *Effects of Point Size and Opacity Adjustments in Scatterplots* \cite{strain_2024}
@@ -123,7 +123,7 @@ author of all included papers.
  
  - *Effects of Alternative Scatterplot Designs on Belief* \cite{strain_2025} is 
  reproduced in \chap{chap:belief_change}. Sections \ref{beliefs-e5a},
- \ref{methods-e5}, \ref{results-e5}, and \ref{discussion-e5}, contain minimally
+ \ref{methods-e5}, \ref{results-e5}, and \ref{discussion-e5} contain minimally
  altered parts of the published article.
 
 # Overview of Thesis
@@ -136,7 +136,8 @@ perceptual bias in the interpretation of correlation in scatterplots, and thereb
 motivate novel experimental work that seeks to address this bias. I provide
 real-world motivation by exploring the potential for perceptual biases to have effects
 on people's lives and livelihoods. Finally, I provide a discussion on issues of 
-graph and statistical literacy.
+graph and statistical literacy as they pertain to the interpretation of data
+visualisation.
 
 \chap{chap:gen_methods} explores the general methodological approaches taken by this thesis, with
 a particular focus on transparency and reproducibility. This thesis embodies these

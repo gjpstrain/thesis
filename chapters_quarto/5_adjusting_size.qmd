@@ -236,7 +236,7 @@ able to alter the shape of the correlation estimation curve.
 
 # Related Work {#related-work-adjusting-size}
 
-## Point Size and the Perception of Correlation in Scatterplots
+## Point Size and the Perception of Correlation in Scatterplots {#point-size-chap5}
 
 ```{r}
 #| label: fig-bubble-chart

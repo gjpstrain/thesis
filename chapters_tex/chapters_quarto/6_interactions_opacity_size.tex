@@ -41,9 +41,87 @@ question would not only allow for a deeper exploration of the potential
 mechanisms behind each decay function, but would further empower
 visualisation designers with the knowledge of how altering point
 opacities and sizes might affect people's interpretations of the
-correlations displayed therein.
+correlations displayed therein. In a fully- reproducible, large-sample
+(N = 150) study, I show that combining point opacity and size
+manipulations can produce more powerful effects on correlation
+estimation than either effect in isolation. Additionally, I comment on
+the impact that the adjustment of each visual feature may have on
+correlation estimation, and suggest future work to tune the effects seen
+in \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and here.
 
 \section{Related Work}\label{related-work-interactions}
+
+Much of the related work presented here is covered in more detail in
+\chap{chap:related_work} and in Sections
+\ref{related-work-adjusting-opacity} and
+\ref{related-work-adjusting-opacity}. For the reader's convenience, and
+to properly contextualise the experimental methods and findings in the
+present chapter, this related work is reproduced in brief here.
+
+\subsection{Opacity and Contrast}\label{opacity-and-contrast}
+
+Changing the opacities of points in scatterplots is standard practice
+when visualising very large datasets to address overplotting
+\cite{matejka_2015}. Figure \ref{fig-overplotting-examples} visualises
+how point opacity is often reduced when large numbers of points are
+present to preserve individual point discriminability. While work on the
+effects of point opacity on correlation perception in scatterplots has
+taken place, it is often contradictory. Earlier work found correlation
+perception invariant to changes in the opacities of points
+\cite{rensink_2012, rensink_2014}, while the work I completed in
+\chap{adjusting_opacity} found clear, if small, effects. That work
+offered both point salience/perceptual weighting and spatial uncertainty
+as potential drivers for the effects found. Lower stimulus contrast,
+which for isolated stimuli is functionally identical to lower opacity,
+is associated with lower salience \cite{healey_2011}, can bias
+judgements of mean point position \cite{hong_2021}, increases error in
+positional judgements \cite{wehrhahn_1990}, and can result in greater
+uncertainty in speed perception \cite{champion_2017}. Due to mechanistic
+accounts of both salience/perceptual weighting and spatial uncertainty
+predicting results in the same direction regarding opacity adjustments,
+the work I conducted in \chap{chap:adjusting_opacity} was unable to
+distinguish between explanations rooted in point salience/perceptual
+weighting and spatial uncertainty as drivers for the effect found.
+
+Micallef et al.~\cite{micallef_2017} found that ``merging, dark dots''
+support correlation estimation; despite only changing point opacity in a
+\emph{uniform} manner, the sheer number of points used in that study
+results in scatterplots that appear similar to those that reduce opacity
+as a function of residual error (see \chap{chap:adjusting_opacity}).
+That this technique has been shown to produce more accurate correlation
+estimates as compared to unadjusted scatterplots may explain why the
+optimisation system employed in Micallef et al.~\cite{micallef_2017}
+conferred benefits regarding correlation estimation.
+
+\subsection{Point Size}\label{point-size}
+
+Again, for discriminability reasons, scatterplots dealing with larger
+datasets tend to have smaller individual points. Section
+\ref{point-size-chap5} explores this, and related bubble charts, in
+greater detail. As with opacity, the work exploring the effects of point
+size on correlation perception in scatterplots is conflicted. Some finds
+correlation perception to be invariant to both global and irregular
+changes in point opacity \cite{rensink_2012, rensink_2014}, while the
+work presented in \chap{chap:adjusting_size} contradicts this, finding
+effects on correlation perception that go beyond that available through
+manipulation only of point opacity.
+
+While the mechanistic driver of the effects of point opacity on
+correlation perception is unclear, the balance of evidence for point
+size points towards a point salience/perceptual weighting account. There
+is evidence that larger stimulus size is associated with lower levels of
+spatial certainty \cite{alais_2004}, but higher levels of salience
+\cite{healey_2011}, results which are supported by evidence that
+reaction times are slower to smaller stimuli
+\cite{gramazio_2014, osaka_1976}. The predicted effects of spatial
+certainty and salience on correlation perception operate in the opposite
+direction to one another, lead to the conclusion in
+\chap{chap:adjusting_size} that point salience is a more likely
+candidate mechanism. In an investigation into perceptions of global
+means in scatterplots, it has been found that perceptions are biased
+towards areas that contain larger points \cite{hong_2021}. These
+findings form the theoretical basis behind the third hypothesis in the
+present work.
 
 \section{Hypotheses}\label{hypotheses-interactions}
 
