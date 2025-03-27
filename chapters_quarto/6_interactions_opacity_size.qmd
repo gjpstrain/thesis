@@ -66,6 +66,11 @@ labels_e4_regex <- c(
   "\\bX\\b" = "Typical Orientation Size Inverted Orientation Opacity",
   "\\bY\\b" = "Inverted Orientation Size\nTypical Orientation Opacity"
 )
+
+labels_all_exp <- c(additive_manipulation = "Size and Opacity Manipulated",
+                    opacity_manipulated = "Opacity Manipulated",
+                    size_manipulated = "Size Manipulated",
+                    standard_plot = "No Manipulation Present")
 ```
 
 ```{r}
@@ -932,7 +937,88 @@ significant.
 
 ## Estimation Precision
 
-## Relative Contributions of Opacity and Srize Decay
+Previous work has been consistent regarding the finding that *r* estimation precision
+increases with the objective *r* value displayed in the scatterplot 
+\cite{doherty_2007, rensink_2012, rensink_2014, rensink_2017}. The experiments
+carried out in \chap{chap:adjusting_opacity} and \chap{chap:adjusting_size} found
+that in some cases, precision in *r* estimation is constant across the range of 
+*r* values investigated. For example, the use of a size decay function, whether
+linear or non-linear decay in typical or inverted directions, results in no
+change in *r* estimation prevision (see Section \ref{results-e3}, \chap{chap:adjusting_size}).
+When opacity was changed in the ways, only an inverted decay does not exhibit
+the conventional increase in *r* estimation precision with increase *r* value.
+In the experiment described presently, precision in *r* estimation increased
+whenever a typical orientation opacity decay function was used. This may be
+part of the moderating effect of point opacity decay on the size decay function;
+the visual character of scatterplots with high *r* values that use the size decay
+function eliminates the usual increase in precision one would expect,
+however the introduction of the opacity decay function normalises
+this to the point where precision is restored.
+
+## Relative Contributions of Opacity and Size Decay
+
+Incorporating the data gathered in \chap{chap:adjusting_opacity} and
+\chap{chap:adjusting_size} allows for the comparison of estimation curves
+for size decay and opacity decay both in isolation and combination. @fig-all-est-curves
+shows correlation estimation error curves in the present experiment (typical orientation congruent),
+and in the non-linear decay conditions for both opacity decay (\chap{chap:adjusting_opacity})
+and size decay (see \chap{chap:adjusting_size}) conditions. The "no manipulations
+present" plot is averaged from the results of experiments 1 to 3.
+
+```{r}
+#| label: fig-all-est-curves
+#| include: true
+#| fig-cap: placeholder
+#| fig-asp: 0.275
+
+# set facet orders
+
+facet_order <- c("opacity_manipulated", "size_manipulated", "additive_manipulation", "standard_plot")
+
+standard_alone <- read_csv("../data/exp_1_to_4_combined.csv") %>%
+    drop_na() %>%
+    filter(factor == "standard_plot") %>%
+    group_by(factor, my_rs) %>% 
+    summarise(sd = sd(difference), mean = mean(difference)) %>%
+    arrange(my_rs) %>%
+    mutate(group = ceiling(row_number() / 2)) %>%
+    group_by(group) %>%
+    summarise(
+      factor = first(factor),
+      my_rs = mean(my_rs),
+      sd = mean(sd),
+      mean = mean(mean)
+    ) %>%
+  ungroup() %>%
+  select(-group)
+
+all_exp_df <- read_csv("../data/exp_1_to_4_combined.csv") %>%
+    drop_na() %>%
+    filter(factor != "standard_plot") %>%
+    group_by(factor, my_rs) %>% 
+    summarise(sd = sd(difference), mean = mean(difference)) %>%
+    mutate(factor = factor(factor, levels = facet_order))
+
+plotting_df <- rbind(all_exp_df, standard_alone)
+
+  plotting_df %>% 
+    ggplot(aes(x = my_rs, y = -1*mean)) + 
+    geom_errorbar(mapping = aes(ymin = -1*mean + sd, ymax = -1*mean - sd),width = 0.01, size = 0.3) +
+    theme_ggdist() +
+    scale_y_continuous(breaks = seq(-0.4,1, 0.2)) +
+    theme(strip.text = element_text(size = 6, margin = margin(1,0,1,0, "mm")), aspect.ratio = 1,
+        axis.text = element_text(size = 7),
+        axis.title.x = ggtext::element_markdown(size = 8),
+        axis.title.y = ggtext::element_markdown(size = 8)) +
+    facet_wrap(factor ~., ncol = 4, labeller = labeller(factor = labels_all_exp)) +
+    labs(x = "Objective *r*",
+         y = "Mean *r* Estimation Error") +
+    geom_smooth(se = FALSE, colour = "black", size = 0.4) +
+    xlim(0.2,1) +
+    geom_hline(yintercept = 0, linetype = 2)
+
+```
+
 
 ## Mechanisms
 
