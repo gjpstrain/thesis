@@ -172,7 +172,6 @@ plot_error_bars_function <- function(df, grouping_var, measure, labels) {
     group_by(grouping_var, my_rs) %>% 
     summarise(sd = sd(get(measure)), mean = mean(get(measure))) %>% 
     ggplot(aes(x = my_rs, y = mean*-1)) +
-    #geom_point(size = 0.2) + 
     geom_errorbar(mapping = aes(ymin = -1*mean + sd, ymax = -1*mean - sd),
                   width = 0.01,
                   size = 0.3) +
@@ -185,7 +184,7 @@ plot_error_bars_function <- function(df, grouping_var, measure, labels) {
           axis.title.y = ggtext::element_markdown(size = 8),
           axis.title.x = ggtext::element_markdown(size = 8)) +
     facet_wrap(grouping_var ~., ncol = 4, labeller = labeller(grouping_var = labels)) +
-    labs(x = "Objective *r*",
+    labs(x = "Objective *r*",-
          y = "Mean *r* Estimation Error") +
     geom_line(formula= x ~ y, size = 0.5) +
     xlim(0.2,1)
