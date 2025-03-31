@@ -184,7 +184,7 @@ plot_error_bars_function <- function(df, grouping_var, measure, labels) {
           axis.title.y = ggtext::element_markdown(size = 8),
           axis.title.x = ggtext::element_markdown(size = 8)) +
     facet_wrap(grouping_var ~., ncol = 4, labeller = labeller(grouping_var = labels)) +
-    labs(x = "Objective *r*",-
+    labs(x = "Objective *r*",
          y = "Mean *r* Estimation Error") +
     geom_line(formula= x ~ y, size = 0.5) +
     xlim(0.2,1)

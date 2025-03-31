@@ -48,6 +48,7 @@ library(conflicted)
 library(formattable)
 library(effectsize)
 library(r2glmm)
+library(DescTools)
 
 # fix conflicts
 
@@ -71,6 +72,11 @@ labels_all_exp <- c(additive_manipulation = "Size and Opacity Decay",
                     opacity_manipulated = "Opacity Decay",
                     size_manipulated = "Size Decay",
                     standard_plot = "Typical Scatterplot")
+
+
+labels_power <- c(size_power = "Size\nPower",
+                  opacity_power = "Opacity\nPower",
+                  additive_power = "Size and Opacity\nCombined Power")
 ```
 
 ```{r}
@@ -1036,14 +1042,150 @@ preserves the increase in correlation estimation precision with *r* expected.
 Using the size decay function in isolation has a more dramatic effect. Size decay
 over-corrects at lower *r* values, leading to an overestimation effect;
 at higher values, underestimation still occurs. At mid-range values of 
-*r*, however, the size decay function performs significantly better than all others
+*r*, however, the size decay function performs significantly better than all others.
+One option for tuning correlation estimation using the decay functions described in 
+this thesis would therefore be to use size decay in isolation for mid-range
+*r* values (around 0.3 to 0.75), and to use opacity decay in isolation outside
+of this range. Combining the decay functions, however, allows for the exploitation
+of the power of the size decay function while maintaining the expected increase
+in *r* estimation precision that the opacity decay function confers. The simple
+combination used in the present experiment does not represent an ideal tuning,
+as participants overestimated *r* for the majority of values; the findings here
+do, however, confirm that there is the scope to bias *r* to greater degrees
+compared to scatterplots that use point opacity or size decay functions in
+isolation. Precise values for the contributions of each encoding channel
+when they are used simultaneously would be needed to begin doing this work.
+To describe the effect that each decay function (and their combination) has
+on correlation estimates, new curves can be derived compare estimates made
+with opacity and size decay to those made without.
 
+```{r}
+#| label: fig-power-plot-e4
+#| include: true
+#| fig-cap: Power is the difference between what is observed when a decay function/combination of decay functions is used and what is observed when no manipulation is used. The dashed line represents the power that would be required to correct for the observed underestimation of correlation in scatterplots. The integral of each power curve over \textit{r} is provided, as well as the difference between this integral and the integral of each required-power curve over \textit{r}.
 
+# dataframe containing values from previous experiments and the current is included
+# in the data folder 
 
+curves <- read_csv("../data/curves_df.csv") 
 
+facet_order <- c("opacity_power", "size_power", "additive_power")
 
+# create necessary power curve
+
+necessary_power <- curves %>% select(c("my_rs", "standard_curve")) %>%
+  mutate(mirror = my_rs-standard_curve)
+
+# find integrals
+
+int_df <- left_join(curves, necessary_power, by = "my_rs")
+
+area_opac <- round(AUC(int_df$my_rs, int_df$opacity_power) - AUC(int_df$my_rs, int_df$mirror), 3)
+
+area_size <- round(AUC(int_df$my_rs, int_df$size_power) - AUC(int_df$my_rs, int_df$mirror), 3)
+
+area_combined <- round(AUC(int_df$my_rs, int_df$additive_power) - AUC(int_df$my_rs, int_df$mirror), 3)
+
+int_opac <- round(AUC(int_df$my_rs, int_df$opacity_power), 3)
+
+int_size <- round(AUC(int_df$my_rs, int_df$size_power), 3)
+
+int_combined <- round(AUC(int_df$my_rs, int_df$additive_power), 3)
+
+# create area and int labels for facetted plots
+
+area_labels <- tibble(
+  label = c(substitute(expression(integral(italic(f)(italic(x)) - italic(g)(italic(x))*italic(dx), 0.2, 1) == a), list(a = area_opac)),
+            substitute(expression(integral(italic(f)(italic(x)) - italic(g)(italic(x))*italic(dx), 0.2, 1) == a), list(a = area_size)),
+            substitute(expression(integral(italic(f)(italic(x)) - italic(g)(italic(x))*italic(dx), 0.2, 1) == a), list(a = area_combined))),
+  factor = c("opacity_power", "size_power", "additive_power"),
+)
+
+int_labels <- tibble(
+  label = c(substitute(expression(integral(italic(f)(italic(x))*italic(dx), 0.2, 1) == a), list(a = int_opac)),
+            substitute(expression(integral(italic(f)(italic(x))*italic(dx), 0.2, 1) == a), list(a = int_size)),
+            substitute(expression(integral(italic(f)(italic(x))*italic(dx), 0.2, 1) == a), list(a = int_combined))),
+  factor = c("opacity_power", "size_power", "additive_power"),
+)
+
+# create plot
+
+ curves %>% 
+    drop_na() %>%
+    select(c("opacity_power",
+             "size_power",
+             "additive_power",
+             "my_rs")) %>%
+    pivot_longer(cols = c("opacity_power",
+                          "size_power",
+                          "additive_power"),
+                 names_to = "factor", values_to = "power") %>%
+    mutate(factor = factor(factor, levels = facet_order)) %>%
+    group_by(factor, my_rs) %>% 
+    summarise(sd = sd(power), mean = mean(power)) %>% 
+    ggplot(aes(x = my_rs, y = mean)) + 
+    theme_ggdist() +
+    scale_y_continuous(breaks = seq(-0.4,1, 0.2)) +
+    theme(strip.text = element_text(size = 6, margin = margin(1,0,1,0, "mm")), aspect.ratio = 1,
+          axis.text = element_text(size = 7),
+          axis.title.x = ggtext::element_markdown(size = 8),
+          axis.title.y = ggtext::element_markdown(size = 8)) +
+    facet_wrap(factor ~., ncol = 5, labeller = labeller(factor = labels_power)) +
+    labs(x = "Objective *r*",
+         y = "Power") +
+    geom_smooth(se = FALSE, colour = "black", size = 0.4) +
+    geom_smooth(data = necessary_power,
+                aes(x = my_rs, y = mirror),
+                se = F,
+                linetype = 3,
+                colour = "black",
+                size = 0.4) +
+    xlim(0.2,1) +
+    ylim(-0.1,0.3) +
+    geom_text(data = area_labels,
+              parse = T,
+              mapping = aes(x = -Inf, y = -Inf, label = gsub("^.(.*).$", "\\1", str_replace(label, "expression", ""))),
+              hjust = -0.4,
+              vjust = -0.2,
+              size = 2.5) +
+       geom_text(data = int_labels,
+              parse = T,
+              mapping = aes(x = -Inf, y = -Inf, label = gsub("^.(.*).$", "\\1", str_replace(label, "expression", ""))),
+              hjust = -0.6,
+              vjust = -1.6,
+              size = 2.5)
+
+```
+
+This contribution is termed *power*, and is visualised in @fig-power-plot-e4. As can
+be seen in the right-hand plot, size decay in isolation provides the closest to the 
+required level of correction, and combining point opacity and size decay results
+in gross overestimation. @fig-power-plot-e4 also includes the integral of each
+power curve over *r* as a measure of the total power of each curve. Subtracting the
+integral of the required power curve from the integral of the observed power
+curve allows a numerical value to be calculated for how far off each manipulation is.
 
 ## Mechanisms
+
+Findings in \chap{chap:adjusting_opacity} and \chap{chap:adjusting_size} made the
+case for opacity and size decay acting primarily through point salience and 
+perceptual weighting, with the caveat that spatial certainty also plays a small
+part in the mechanism behind the effects of point size decay. The results in the
+present experiment are supportive of this notion, with the higher and lowest 
+mean estimates being observed in the congruent typical and congruent inverted
+orientation conditions. These findings also support dot density \cite{yang_2023}
+and featured-based attention bias accounts \cite{hong_2022, sun_2016}. As all
+these mechanisms would produce similar results, making conclusions about the
+relative potential contributions of each is difficult. Nevertheless, on a higher
+level, the evidence generally points towards a probability distribution accounts
+\cite{rensink_2017, rensink_2022}. On a lower level, however, numerous candidate
+mechanisms exist. The results from the current experiment provide further
+evidence for a point salience/perceptual weighting account. Hong et al. \cite{hong_2022}
+found that the inclusion of larger and more opaque scatterplot points was able
+to bias estimates of positional means, but that the relative contributions
+(weights) of thees visual features with regards to perception change as a function
+of the ranges of opacities and sizes used. It is clear from this evidence
+and the present that the perceptual weightings of opacity and size are not the same.
 
 ## Limitations
 

@@ -578,16 +578,6 @@ precision is restored.
 \subsection{Relative Contributions of Opacity and Size
 Decay}\label{relative-contributions-of-opacity-and-size-decay}
 
-Incorporating the data gathered in \chap{chap:adjusting_opacity} and
-\chap{chap:adjusting_size} allows for the comparison of estimation
-curves for size decay and opacity decay both in isolation and
-combination. Figure~\ref{fig-all-est-curves} shows correlation
-estimation error curves in the present experiment (typical orientation
-congruent), and in the non-linear decay conditions for both opacity
-decay (\chap{chap:adjusting_opacity}) and size decay (see
-\chap{chap:adjusting_size}) conditions. The ``no manipulations present''
-plot is averaged from the results of experiments 1 to 3.
-
 \begin{figure}
 
 \centering{
@@ -596,9 +586,96 @@ plot is averaged from the results of experiments 1 to 3.
 
 }
 
-\caption{\label{fig-all-est-curves}placeholder}
+\caption{\label{fig-all-est-curves}Plotting errors in \emph{r}
+estimation against objective \emph{r} values for opacity and size decay
+functions. On the left, opacity and size decay functions in combination
+in the typical orientation congruent condition from the current
+experiment. The plots in the centre show estimation error for opacity
+and size decay functions in isolation from previous chapters. The
+right-hand plot averages the comparitive baseline (standard
+scatterplotr) conditions from the previous two chapters.}
 
 \end{figure}%
+
+Incorporating the data gathered in \chap{chap:adjusting_opacity} and
+\chap{chap:adjusting_size} allows for the comparison of estimation
+curves for size decay and opacity decay both in isolation and
+combination. Figure~\ref{fig-all-est-curves} shows correlation
+estimation error curves in the present experiment (typical orientation
+congruent), and in the non-linear decay conditions for both opacity
+decay (\chap{chap:adjusting_opacity}) and size decay (see
+\chap{chap:adjusting_size}) conditions. The ``no manipulations present''
+plot is averaged from the results of experiments 1 to 3. Using opacity
+decay alone significantly changes the amplitude of the estimation curve,
+while leaving its shape intact; this can be seen by comparing opacity
+decay and standard scatterplot plots in Figure~\ref{fig-all-est-curves}.
+Using size decay changes both the amplitude and the shape of the
+estimation curve. When opacity and size decay functions are combined,
+the shape of the curve is most similar to that observed when size decay
+is employed in isolation. This is in line with findings, both here and
+in previous work \cite{hong_2021}, that size is a more potent encoding
+channel for the manipulation of perceptual estimates derived from
+scatterplots. It would appear then that the addition of the opacity
+curve moderates the effect of size decay as a function of the objective
+\emph{r} value itself, without affecting the general shape of the curve.
+
+Using an opacity decay function in isolation has a small effect on
+correlation estimation. It does little to change the shape of the
+underestimation curve, but rather slightly biases \emph{r} estimates
+upwards to partially correct for the underestimation observed with
+standard scatterplots. Importantly, it also preserves the increase in
+correlation estimation precision with \emph{r} expected. Using the size
+decay function in isolation has a more dramatic effect. Size decay
+over-corrects at lower \emph{r} values, leading to an overestimation
+effect; at higher values, underestimation still occurs. At mid-range
+values of \emph{r}, however, the size decay function performs
+significantly better than all others. One option for tuning correlation
+estimation using the decay functions described in this thesis would
+therefore be to use size decay in isolation for mid-range \emph{r}
+values (around 0.3 to 0.75), and to use opacity decay in isolation
+outside of this range. Combining the decay functions, however, allows
+for the exploitation of the power of the size decay function while
+maintaining the expected increase in \emph{r} estimation precision that
+the opacity decay function confers. The simple combination used in the
+present experiment does not represent an ideal tuning, as participants
+overestimated \emph{r} for the majority of values; the findings here do,
+however, confirm that there is the scope to bias \emph{r} to greater
+degrees compared to scatterplots that use point opacity or size decay
+functions in isolation. Precise values for the contributions of each
+encoding channel when they are used simultaneously would be needed to
+begin doing this work. To describe the effect that each decay function
+(and their combination) has on correlation estimates, new curves can be
+derived compare estimates made with opacity and size decay to those made
+without.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf}
+
+}
+
+\caption{\label{fig-power-plot-e4}Power is the difference between what
+is observed when a decay function/combination of decay functions is used
+and what is observed when no manipulation is used. The dashed line
+represents the power that would be required to correct for the observed
+underestimation of correlation in scatterplots. The integral of each
+power curve over \textit{r} is provided, as well as the difference
+between this integral and the integral of each required-power curve over
+\textit{r}.}
+
+\end{figure}%
+
+This contribution is termed \emph{power}, and is visualised in
+Figure~\ref{fig-power-plot-e4}. As can be seen in the right-hand plot,
+size decay in isolation provides the closest to the required level of
+correction, and combining point opacity and size decay results in gross
+overestimation. Figure~\ref{fig-power-plot-e4} also includes the
+integral of each power curve over \emph{r} as a measure of the total
+power of each curve. Subtracting the integral of the required power
+curve from the integral of the observed power curve allows a numerical
+value to be calculated for how far off each manipulation is.
 
 \subsection{Mechanisms}\label{mechanisms}
 
