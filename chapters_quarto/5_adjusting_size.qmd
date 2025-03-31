@@ -373,7 +373,7 @@ corresponding to a physical size on the screen of `r printnum(mean_dot_pitch*13)
 for the smallest points displayed. Section \ref{results-e3} includes analysis
 that takes into account the physical on-screen sizes of scatterplot points.
 
-## Point Visibility Testing
+## Point Visibility Testing {#point-visibility-testing-e3}
 
 ```{r}
 #| label: visibility-e3

@@ -573,7 +573,7 @@ variable in trivariate scatterplots, while asking participants to judge the aver
 position of all the points displayed. It was found that participants' estimates
 of average point position were biased towards areas of larger or darker points; this
 was termed the *weighted average illusion*. Together with evidence that darker (more opaque)
-and larger points are more salient \cite{healey_2011}, the implication I took from this
+and larger points are more salient \cite{healey_2012}, the implication I took from this
 work was that I could use point opacity to systematically lower the salience 
 of the points representing the widest parts of the probability distribution; if
 participants promptly perceived a narrower distribution, I expected this to be able
