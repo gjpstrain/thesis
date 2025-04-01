@@ -672,7 +672,7 @@ above \cite{wehrhahn_1990, champion_2017}, it was hypothesised that:
  - H1: A greater spread of estimates of correlation for plots with lower global opacity
 compared to higher opacity plots will be observed.
 
-## Method {#methods-e1}
+## Method {#method-e1}
 
 ### Participants {#participants-e1}
 
@@ -985,7 +985,7 @@ opacity. With this in mind, it was hypothesised that:
  becomes greater with residual distance, will result in higher mean errors in correlation
  estimation than for all other conditions.
 
-## Methods {#methods-e2}
+## Method {#method-e2}
 
 ### Participants {#participants-e2}
 

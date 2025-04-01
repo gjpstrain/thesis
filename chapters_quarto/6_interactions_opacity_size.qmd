@@ -5,7 +5,7 @@ output:
     latex:
       
 params:
-  eval_models: true
+  eval_models: false
   
 knitr:
   opts_chunk: 
@@ -431,7 +431,7 @@ hypothesised that:
  - H3: there will be a significant difference in correlation estimates between
  the two incongruent orientation conditions.
 
-# Methods {#methods-e4}
+# Method {#method-e4}
 
 ## Stimuli {#stimuli-e4}
 

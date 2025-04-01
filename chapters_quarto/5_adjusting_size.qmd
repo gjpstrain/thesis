@@ -296,7 +296,7 @@ the wider literature described above, two hypotheses are made:
   will result in higher mean errors in correlation estimation than for all other
   conditions.
 
-# Methods {#methods-e3}
+# Method {#method-e3}
 
 ## Stimuli {#stimuli-e3}
 

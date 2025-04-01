@@ -3,24 +3,431 @@ title: "belief_change"
 output:
   format: 
     latex:
+      
 params:
-  eval_models: false
+  eval_models: true
   
 knitr:
   opts_chunk: 
     cache_comments: false
     crop: true
-    
+    out-width: NA
+    out-height: NA
+    cache.path: "../thesis_cache/" 
+
 execute: 
   echo: false
   warning: false
   message: false
-  include: false     
+  include: false 
 ---
+```{r}
+#| label: setup
+
+set.seed(1234) # random seed for number generation
+
+library(tidyverse)
+library(MASS)
+library(emmeans)
+library(scales)
+library(buildmer)
+library(lme4)
+library(kableExtra)
+library(papaja)
+library(qwraps2)
+library(lmerTest)
+library(ggdist)
+library(ggpubr)
+library(conflicted)
+library(ggtext)
+library(Matrix)
+library(irr)
+library(bbplot)
+library(geomtextpath)
+library(ggh4x)
+library(ordinal)
+library(ggrain)
+library(effectsize)
+
+# fix conflicts now using the conflicted package
+
+conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
+options(knitr.kable.NA = "")
+```
+
+```{r}
+#| label: load-data
+
+exp_5_pre_test_anon <- read_csv("../data/exp_5_pre_test_data.csv") %>%
+  mutate("expName" = recode(expName,
+                            "beliefs_scatterplots_pretest" = "E5_beliefs_pre_test"))
+
+exp_5_main_A_anon <- read_csv("../data/exp_5_main_data_A.csv") %>%
+  mutate("expName" = recode(expName,
+                            "atypical_scatterplots_main_test_A" = "E5_beliefs_A"))
+  
+exp_5_main_T_anon <- read_csv("../data/exp_5_main_data_T.csv") %>%
+  mutate("expName" = recode(expName,
+                            "atypical_scatterplots_main_test_T" = "E5_beliefs_T"))
+
+source("../shared_functions.R")
+```
+
+```{r}
+#| label: wrangle-data
+## NB: With the exception of anonymisation, data are provided as-is from 
+## pavlovia (survey tool). Wrangling functions *must* be run first to make
+## the data sets usable
+
+wrangle_pre_test <- function(anon_file) {
+  
+# extract demographic information
+  
+demographics <- anon_file %>%
+  filter(!is.na(gender_slider.response)) %>%
+  select(matches(c("participant",
+                   "age_textbox.text",
+                   "gender_slider.response")))
+
+time_taken <- anon_file %>%
+  filter(!is.na(final.stopped)) %>%
+  select(c("participant", "final.stopped"))
+  
+# select relevant columns
+# select only experimental items
+# change data types where appropriate
+# output this file with suffix 'tidy'
+
+anon_file %>%
+  select(c("participant",
+           "avg_corr",
+           "avg_emot",
+           "slider_emotion.response",
+           "slider_belief.response",
+           "statement",
+           "item_no",
+           "label",
+           "session",
+           )) %>%
+  filter(item_no < 26) %>%
+  full_join(demographics, by = "participant") %>%
+  full_join(time_taken, by = "participant") %>%
+  select(-c("__participant")) %>%
+  assign(paste0(unique(anon_file$expName), "_tidy"),
+           value = ., envir = .GlobalEnv)
+}
+
+# wrangle function for main experiment
+
+wrangle_main_exp <- function(anon_file) {
+  
+# extract demographic information
+  
+demographics <- anon_file %>%
+  filter(!is.na(gender_slider.response)) %>%
+  select(matches(c("participant",
+                   "age_textbox.text",
+                   "gender_slider.response")))
+
+# extract time taken information
+
+time_taken <- anon_file %>%
+  filter(!is.na(final.stopped)) %>%
+  select(c("participant", "final.stopped"))
+
+# extract defensive confidence testing scores
+
+defensive_confidence <- anon_file %>%
+  select(contains(c("DC", "participant"))) %>% 
+  select(-contains(c("stopped", "started"))) %>%
+  rename(DC_1 = q1_slider_DC.response,
+         DC_2 = q2_slider_DC.response,
+         DC_3 = q3_slider_DC.response,
+         DC_4 = q4_slider_DC.response,
+         DC_5 = q1_slider_DC_2.response,
+         DC_6 = q2_slider_DC_2.response,
+         DC_7 = q3_slider_DC_2.response,
+         DC_8 = q4_slider_DC_2.response,
+         DC_9 = q1_slider_DC_3.response,
+         DC_10 = q2_slider_DC_3.response,
+         DC_11 = q3_slider_DC_3.response,
+         DC_12 = q4_slider_DC_3.response) %>%
+  mutate(DC_3 = 6 - DC_3,                # reverse score items 3, 4, 10, 12
+         DC_4 = 6 - DC_4,
+         DC_10 = 6 - DC_10,
+         DC_12 = 6 - DC_12) %>%
+  group_by(participant) %>%
+  summarise(
+    dc_score = sum(DC_1,
+                   DC_2,
+                   DC_3,
+                   DC_4,
+                   DC_5,
+                   DC_6,
+                   DC_7,
+                   DC_8,
+                   DC_9,
+                   DC_10,
+                   DC_11,
+                   DC_12,
+                   na.rm = T)
+  )
+
+# extract literacy info
+
+literacy <- anon_file %>%
+    filter(!is.na(q5_slider.response)) %>%
+    rowwise() %>%
+    mutate(lit_time = literacy.stopped - literacy.started) %>%
+    mutate(literacy = sum(c(q1_slider.response, 
+                            q2_slider.response, 
+                            q3_slider.response, 
+                            q4_slider.response, 
+                            q5_slider.response))) %>%
+  select(participant,
+         literacy,
+         lit_time)
+
+# split unique item no column into number (dataset used) and letter (condition)
+
+anon_file <- anon_file %>%
+  separate(starts_with("unique"), into = c("item_no", "condition"), sep = "(?<=\\d)(?=\\D)")
+
+# extract pre belief, post belief, and belief_diff
+
+belief <- anon_file %>%
+  group_by(participant) %>%
+  summarise(
+    pre_bel = sum(slider_belief.response, na.rm = T),
+    post_bel = sum(slider_belief_post.response, na.rm = T)
+  ) %>%
+  mutate(belief_diff = post_bel - pre_bel) %>%
+  select(participant, belief_diff, pre_bel, post_bel)
+
+emotion <- anon_file %>%
+  filter(!is.na(slider_emotion.response)) %>%
+  group_by(participant) %>%
+  select(participant, slider_emotion.response)
+
+# select relevant columns
+# select only experimental items
+# change data types where appropriate
+# output this file with suffix 'tidy'
+
+anon_file %>%
+  select(c("participant",
+           "item_no",
+           "condition",
+           "slider.response",
+           "trials.thisN"
+           )) %>%
+  mutate(half = case_when(
+    trials.thisN < 23 ~ "first",
+    trials.thisN > 23 ~ "second")) %>%
+  filter(item_no < 46) %>%
+  inner_join(literacy, by = "participant") %>%
+  inner_join(demographics, by = "participant") %>%
+  inner_join(belief, by = "participant") %>%
+  inner_join(emotion, by = "participant") %>%
+  inner_join(defensive_confidence, by = "participant") %>%
+  full_join(time_taken, by = "participant") %>%
+  mutate(across(matches(c("item_no", "condition")), as_factor)) %>%
+  mutate(trials.thisN = as.integer(trials.thisN)) %>%
+  pivot_longer(cols = c("pre_bel", "post_bel"),
+               values_to = "rating",
+               names_to = "rating_time") %>%
+  mutate(rating_time = as_factor(rating_time)) %>%
+  mutate(across(c("rating"), as.ordered)) %>%                                
+  mutate("condition" = recode(condition,
+                              "T" = "S")) %>%
+  assign(paste0(unique(anon_file$expName), "_tidy"),                         
+           value = ., envir = .GlobalEnv)
+}
+
+# use wrangling function on anonymized data files
+
+wrangle_pre_test(exp_5_pre_test_anon)
+
+wrangle_main_exp(exp_5_main_A_anon)
+
+wrangle_main_exp(exp_5_main_T_anon)
+
+# add 75 to each participant number for second part of main exp
+
+E5_beliefs_T_tidy <- E5_beliefs_T_tidy %>%
+  mutate(participant = participant + 75)
+
+# main experiment is between participants, so rbind main_exp dfs together
+
+E5_beliefs_main_tidy <- rbind(E5_beliefs_A_tidy,
+                              E5_beliefs_T_tidy)
+
+# remove excess dataframes
+
+rm(E5_beliefs_A_tidy, E5_beliefs_T_tidy, exp_5_main_A_anon,
+   exp_5_main_T_anon, exp_5_pre_test_anon)
+
+# write functions to extract chapter-specific
+
+# extract gender, age, and graph literacy
+
+extract_age(E5_beliefs_pre_test_tidy)
+
+extract_gender(E5_beliefs_pre_test_tidy)
+
+extract_age(E5_beliefs_main_tidy)
+
+extract_gender(E5_beliefs_main_tidy)
+
+extract_literacy(E5_beliefs_main_tidy)
+
+# functions for this chapter included below. Many are only used in this chapter,
+# so are not included in the shared_functions.R file.
+
+add_and_to_numbers <- function(numbers) {
+  num_str <- as.character(numbers)
+  len <- length(num_str)
+  
+  if (len == 1) {
+    return(num_str)
+    
+  } else if (len == 2) {
+    
+    return(paste(num_str[1], "and", num_str[2]))
+    
+  } else {
+    return(paste(paste(num_str[1:(len-1)], collapse = ", "), ", and ", num_str[len], sep = ""))
+  }
+}
+
+# functions to create tables with fixed effects and interactions for models
+# first do function for rating time only model
+
+make_sig_table_rating_time <- function (model) {
+  
+  # buildmer class models need reassigned to lmer class for further use
+  
+  if (class(model) == "buildmer") model <- model@model
+  
+  # subset model summary to get list of fixed/interaction effects
+  # then make this a data frame, rename columns, fix p value formatting
+  
+  model_summary <- summary(model)
+  
+  coef_table <- model_summary$coefficients %>% tail(1)
+  df <- as_tibble(coef_table, rownames = "Effect") %>%
+    rename("Standard Error" = "Std. Error",
+           "Z-value" = "z value",
+    "p" = "Pr(>|z|)") %>%
+    mutate(p = scales::pvalue(p)) %>%
+    rename("\\textit{p}" = "p") %>%
+    mutate("Odds Ratio" = exp(Estimate)) %>%
+    mutate("Cohen's \\textit{d}" = effectsize::oddsratio_to_d(`Odds Ratio`)) %>%
+    mutate("Effect" = recode(Effect,
+                               "rating_timepost_bel" = "Rating Time")) %>%
+    column_to_rownames(var = "Effect")
+  table <- kbl(df, booktabs = T, digits = c(2,3,2,2,2,2,3), escape = F)
+  
+  return(table)
+}
+
+# next do table for rating time * condition model
+
+make_sig_table_interact <- function (model) {
+  
+  # buildmer class models need reassigned to lmer class for further use
+  
+  if (class(model) == "buildmer") model <- model@model
+  
+  # subset model summary to get list of fixed/interaction effects
+  # then make this a data frame, rename columns, fix p value formatting
+  
+  model_summary <- summary(model)
+  
+  coef_table <- model_summary$coefficients %>% tail(3)
+  df <- as_tibble(coef_table, rownames = "Effect") %>%
+    rename("Standard Error" = "Std. Error",
+           "Z-value" = "z value",
+    "p" = "Pr(>|z|)") %>%
+    mutate(p = scales::pvalue(p)) %>%
+    rename("\\textit{p}" = "p") %>%
+    mutate("Odds Ratio" = exp(abs(Estimate))) %>%
+    mutate("Cohen's \\textit{d}" = effectsize::oddsratio_to_d(`Odds Ratio`)) %>%
+    mutate("Effect" = recode(Effect,
+                               "rating_timepost_bel" = "Rating Time",
+                               "conditionS" = "Condition",
+                               "rating_timepost_bel:conditionS" = "Rating Time x Condition")) %>%
+    column_to_rownames(var = "Effect")
+ 
+  table <- kbl(df, booktabs = T, digits = c(2,3,2,2,2,2,3), escape = F)
+  
+  return(table)
+}
+```
+
+```{r}
+#| label: extracting-other-dfs
+
+# extract time taken data into separate dfs
+
+time_taken_e5a <- distinct(E5_beliefs_pre_test_tidy, participant,
+                .keep_all = TRUE) %>%
+  summarise(mean = mean(final.stopped/60, na.rm = TRUE),
+            sd = sd(final.stopped/60, na.rm = TRUE)) 
+
+time_taken_e5 <- distinct(E5_beliefs_main_tidy, participant,
+                .keep_all = TRUE) %>%
+  summarise(mean = mean(final.stopped/60, na.rm = TRUE),
+            sd = sd(final.stopped/60, na.rm = TRUE))
+
+# extract literacy data into separate df
+
+literacy_e5 <- distinct(E5_beliefs_main_tidy, participant,
+                        .keep_all = TRUE) %>%
+  summarise(mean = mean(literacy), sd = sd(literacy),
+            mean_time = mean(lit_time), sd_time = sd(lit_time))
+
+# extract defensive confidence data into separate df
+
+defensive_confidence_e5 <- distinct(E5_beliefs_main_tidy, participant,
+                        .keep_all = TRUE) %>%
+  summarise(mean = mean(dc_score), sd = sd(dc_score))
+
+# extract topic emotionality data into separate df
+
+topic_emotionality_e5 <- distinct(E5_beliefs_main_tidy, participant,
+                        .keep_all = TRUE) %>%
+  summarise(mean = mean(slider_emotion.response),
+            sd = sd(slider_emotion.response))
+```
+
 
 # Abstract {#abstract-beliefs}
 
-# Overview {#overview-beliefs}
+\chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}
+show through four experiments that point opacity and size changes can have powerful
+effects on participants' estimates of correlation in positively correlated
+scatterplots. In \chap{chap:adjusting_opacity}, global and spatially-dependent 
+adjustments in point opacity were employed, and a small, but statistically 
+significant level of correction for a historic underestimation bias of positive 
+correlation was found. Spatially-dependent adjustment of point size, in which
+size is reduced as a function of residual error, was found in \chap{chap:adjusting_size}
+to produce much stronger effects on estimates of correlation; the non-linear decay
+function used in that experiment produced higher levels of correction and resulted
+in highly accurate correlation estimates. In \chap{chap:interactions_opacity_size},
+these point opacity and size manipulations were combined. Their combination was
+found to produce stronger effects than would be expected if they were linearly
+additive. While my efforts at correcting for the underestimation bias were successful,
+my work has not yet attempted to investigate whether any of the techniques developed
+in this thesis may be used to change people's cognitions about data. Therefore, for my final 
+experimental chapter, I show that scatterplot manipulations that are able to correct for a historic
+correlation underestimation bias are also able to induce stronger levels of belief
+change in viewers compared to conventional plots showing identical data. In a pre-study
+and main experiment, I provide evidence that adjusting visual features in scatterplots
+can go beyond simple perceptual effects to influence beliefs about information
+from trusted news sources.
+
+# Introduction {#intro-beliefs}
 
 # Related Work {#related-work-beliefs}
 
@@ -28,24 +435,58 @@ execute:
 
 ## From Cognition to Belief
 
+# Open Research {#open-research-chap7}
+
 # Pre-Study: Investigating Beliefs About Relatedness Statements {#beliefs-e5a}
 
 ## Introduction {#intro-e5a}
 
-## Methods {#methods-e5a}
+## Method {#method-e5a}
 
-## Analysis {#results-e5a}
+### Participants {#participants-e5a}
+
+100 participants were recruited using the Prolific platform \cite{prolific}. English fluency and
+UK residency were required for participation, as the main experiment relied on familiarity
+with data visualisations from a popular British news source. In addition to 25
+experimental items, six attention check items were included that instructed participants
+to ignore the statement and provide specific answers to the Likert scale sliders.
+No participants failed more than 2 out of 6 attention
+check items, and therefore data from all 100 were included in the full analysis
+(`r printnum(E5_beliefs_pre_test_tidy_gender$Male, digits = 0)` male and 
+`r printnum(E5_beliefs_pre_test_tidy_gender$Female, digits = 0)` female). 
+Participants' mean age was `r printnum(E5_beliefs_pre_test_tidy_age$mean, digits = 1)` (*SD* = 
+`r printnum(E5_beliefs_pre_test_tidy_age$sd, digits = 1)`). The average time 
+taken to complete the survey was `r printnum(time_taken_e5a$mean, digits = 1)`
+minutes (*SD* = `r printnum(time_taken_e5a$sd, digits = 1)` minutes).
+
+### Design {#design-e5a}
+
+Each participant saw all survey items (see Appendix A), along with the six
+attention check items, in a fully randomised order. All experimental code, 
+materials, and instructions are hosted on GitLab[^1].
+
+
+
+### Procedure {#procedure-e5a}
+
+## Results {#results-e5a}
 
 ## Discussion {#discussion-e5a}
 
-# Experiment: Potential for Belief Change Using Atypical Scatterplots {#beliefs-e5}
+# Main Experiment: Altnernative Scatterplot Designs and Beliefs about Relatedness {#beliefs-main-e5}
 
 ## Introduction {#intro-e5}
 
-## Methods {#methods-e5}
+## Method {#method-e5}
 
-## Analysis {#results-e5}
+## Results {#results-e5}
 
 ## Discussion {#discussion-e5}
 
-# General Discussion {#general-discussion-beliefs}
+### Graph Literacy, Defensive Confidence, and Statement Emotional Valence
+
+# General Discussion {#general-discussion-e5}
+
+# Limitations {#limitations-e5}
+
+# Future Work {#future-work-e5}
