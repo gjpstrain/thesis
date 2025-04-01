@@ -75,6 +75,7 @@ source("../shared_functions.R")
 
 ```{r}
 #| label: wrangle-data
+
 ## NB: With the exception of anonymisation, data are provided as-is from 
 ## pavlovia (survey tool). Wrangling functions *must* be run first to make
 ## the data sets usable
@@ -140,36 +141,21 @@ time_taken <- anon_file %>%
 defensive_confidence <- anon_file %>%
   select(contains(c("DC", "participant"))) %>% 
   select(-contains(c("stopped", "started"))) %>%
-  rename(DC_1 = q1_slider_DC.response,
-         DC_2 = q2_slider_DC.response,
-         DC_3 = q3_slider_DC.response,
-         DC_4 = q4_slider_DC.response,
-         DC_5 = q1_slider_DC_2.response,
-         DC_6 = q2_slider_DC_2.response,
-         DC_7 = q3_slider_DC_2.response,
-         DC_8 = q4_slider_DC_2.response,
-         DC_9 = q1_slider_DC_3.response,
-         DC_10 = q2_slider_DC_3.response,
-         DC_11 = q3_slider_DC_3.response,
-         DC_12 = q4_slider_DC_3.response) %>%
-  mutate(DC_3 = 6 - DC_3,                # reverse score items 3, 4, 10, 12
+  rename(DC_1 = q1_slider_DC.response, DC_2 = q2_slider_DC.response,
+         DC_3 = q3_slider_DC.response, DC_4 = q4_slider_DC.response,
+         DC_5 = q1_slider_DC_2.response, DC_6 = q2_slider_DC_2.response,
+         DC_7 = q3_slider_DC_2.response, DC_8 = q4_slider_DC_2.response,
+         DC_9 = q1_slider_DC_3.response, DC_10 = q2_slider_DC_3.response,
+         DC_11 = q3_slider_DC_3.response, DC_12 = q4_slider_DC_3.response) %>%
+  mutate(DC_3 = 6 - DC_3,  # reverse score items 3, 4, 10, 12
          DC_4 = 6 - DC_4,
          DC_10 = 6 - DC_10,
          DC_12 = 6 - DC_12) %>%
   group_by(participant) %>%
   summarise(
-    dc_score = sum(DC_1,
-                   DC_2,
-                   DC_3,
-                   DC_4,
-                   DC_5,
-                   DC_6,
-                   DC_7,
-                   DC_8,
-                   DC_9,
-                   DC_10,
-                   DC_11,
-                   DC_12,
+    dc_score = sum(DC_1, DC_2, DC_3, DC_4,
+                   DC_5, DC_6, DC_7, DC_8,
+                   DC_9, DC_10, DC_11, DC_12,
                    na.rm = T)
   )
 
@@ -191,7 +177,8 @@ literacy <- anon_file %>%
 # split unique item no column into number (dataset used) and letter (condition)
 
 anon_file <- anon_file %>%
-  separate(starts_with("unique"), into = c("item_no", "condition"), sep = "(?<=\\d)(?=\\D)")
+  separate(starts_with("unique"), into = c("item_no", "condition"),
+           sep = "(?<=\\d)(?=\\D)")
 
 # extract pre belief, post belief, and belief_diff
 
@@ -280,6 +267,11 @@ extract_age(E5_beliefs_main_tidy)
 extract_gender(E5_beliefs_main_tidy)
 
 extract_literacy(E5_beliefs_main_tidy)
+
+```
+
+```{r}
+#| label: additional-functions
 
 # functions for this chapter included below. Many are only used in this chapter,
 # so are not included in the shared_functions.R file.
@@ -463,19 +455,159 @@ minutes (*SD* = `r printnum(time_taken_e5a$sd, digits = 1)` minutes).
 
 Each participant saw all survey items (see Appendix A), along with the six
 attention check items, in a fully randomised order. All experimental code, 
-materials, and instructions are hosted on GitLab[^1].
+materials, and instructions are hosted on GitLab [^1].
 
-
+[^1]: https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest
 
 ### Procedure {#procedure-e5a}
 
+Participants viewed the PIS and were asked to provide through key presses
+in response to consent statements. They were prompted to provide their
+age in a free text box and their gender identity. Participants were told
+that they would be asked to read statements about the relatedness between a 
+pair of variables, after which they would be asked to answer some questions.
+To familiarise themselves with the sliders used to collect responses, they were
+asked to complete a practice trial in response to the statement: "As participation
+in online experiments increases, society becomes happier". Following each
+statement, a pair of Likert scales were presented labelled "Statement Emotionality"
+and "Strength of Relatedness; these scales were identical to those used by 
+myself a co-author in Section \ref{beliefs-e5a}.
+
 ## Results {#results-e5a}
+
+```{r}
+#| label: kappa-pre-test
+
+# Calculate Fleiss' Kappa for 100 raters on emotional valence
+
+pre_test_emot <- E5_beliefs_pre_test_tidy %>%
+  select(c("participant", "slider_emotion.response", "item_no"))
+
+emot_matrix <- xtabs(slider_emotion.response ~ item_no + participant, data = pre_test_emot)
+
+emot_matrix <- as.matrix(emot_matrix)
+
+emot_kappa <- kappam.fleiss(emot_matrix)
+
+# do the same for strength of belief
+
+pre_test_belief <- E5_beliefs_pre_test_tidy %>%
+  select(c("participant", "slider_belief.response", "item_no"))
+
+belief_matrix <- xtabs(slider_belief.response ~ item_no + participant, data = pre_test_belief)
+
+belief_matrix <- as.matrix(belief_matrix)
+
+belief_kappa <- kappam.fleiss(belief_matrix)
+
+# calculate mean ratings and standard deviations for each statement
+
+agreement_df_emot <- E5_beliefs_pre_test_tidy %>%
+  group_by(item_no) %>%
+  summarise(mean_emot = mean(slider_emotion.response),
+            std_dev_emot = sd(slider_emotion.response)) %>%
+  arrange(std_dev_emot)
+agreement_df_belief <- E5_beliefs_pre_test_tidy %>%
+  group_by(item_no) %>%
+  summarise(mean_belief = mean(slider_belief.response),
+            std_dev_belief = sd(slider_belief.response)) %>%
+  arrange(std_dev_belief)
+
+ratings_df <- full_join(agreement_df_belief, agreement_df_emot, by = "item_no")
+
+# calculate average topic emotionality ratings
+
+avg_emot <- ratings_df %>%
+  filter(between(mean_emot, 3, 5))
+
+# calculate consensus by summing standard deviations
+
+consensus_df <- avg_emot %>%
+  mutate(consensus = std_dev_belief + std_dev_emot) %>% 
+  arrange(consensus) %>%
+  slice_head(n =  2)
+```
+
+As before, the `irr` package \cite{irr} to measure interrater agreement on 
+statement emotional valence and strength of relatedness for the 25 experimental
+items. This analysis revealed that participants agreed above chance on statement
+emotional valence ($\kappa$ = `r printnum(emot_kappa$value, digits = 2)`,
+*p* `r printp(emot_kappa$p.value, add_equals = TRUE)`)
+and strength of relatedness ($\kappa$ = `r printnum(belief_kappa$value, digits = 2)`,
+*p* `r printp(belief_kappa$p.value, add_equals = TRUE)`).
+
+## Selecting Statements for the Main Experiment {#selecting-statements-e5a}
+
+```{r}
+#| label: tbl-candidate-statements
+#| include: true
+#| tbl-cap: Statements with neutral average emotional valence ratings.
+
+candidates <- avg_emot$item_no
+
+candidate_statements <- read_csv("../data/experimental_dataframes/e5a_exp_dataframe.csv") %>%
+  filter(item_no %in% candidates) %>%
+  select(c("item_no","statement")) %>%
+  rename("Statement" = "statement",
+         "Item" = "item_no")
+
+kbl(candidate_statements, booktabs = TRUE, format = "latex")
+  #kable_styling(latex_options =  "scale_down")
+  #column_spec(2, width = "7.5cm")
+```
+
+Statements represents neutral emotional valence were selected to control for the
+potential effects of statement emotionality in the main experiment. Statements
+with average emotionality ratings between 3 and 5 are statements 
+`r printnum(add_and_to_numbers(avg_emot$item_no), digits = 0)`, which can be seen
+in @tbl-candidate-statements. To ascertain which statements represent the
+greatest consensus, standard deviations of ratings for statement emotional valence
+and strength of relatedness were summed. Due to concerns about experimental
+power, and in line with evidence that propensity for belief change is highest
+when prior beliefs are not strongly held \cite{xiong_2022, markant_2023},
+at this point the decision was made to test only the statement corresponding to weak beliefs
+about the strength of relatedness between the variables in question. Statement number
+`r printnum(add_and_to_numbers(consensus_df$item_no[2]), digits = 0)` was therefore
+selected: "Higher consumption of spicy foods is associated with a lower risk of 
+certain types of cancer", however the wording was modified such that the variables
+(food consumption and cancer risk) are positively correlated. While the work
+carried out in \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
+\chap{chap:interactions_opacity_size} show that opacity and size adjustments
+in scatterplots can affect estimates of positive correlation, no work regarding
+the effects of these manipulations in negatively correlated scatterplots has 
+been completed.
 
 ## Discussion {#discussion-e5a}
 
-# Main Experiment: Altnernative Scatterplot Designs and Beliefs about Relatedness {#beliefs-main-e5}
+Fleiss' Kappa values for interrater agreement on both statement emotional valence
+and strength of correlation scales are low ($\kappa$ = `r printnum(emot_kappa$value, digits = 2)`
+and $\kappa$ = `r printnum(belief_kappa$value, digits = 2)` respectively),
+however do exceed that which would be expected by chance. In light of this, 
+decisions regarding which statement to use are not based 
+on the values of Fleiss' Kappa observed, but rather on the standard deviations of 
+ratings across all raters. Statement emotionality and strength of relatedness are
+tested with participants in the main study and included as fixed effects as part
+of the analyses.
 
-## Introduction {#intro-e5}
+# Main Experiment: Alternative Scatterplot Designs and Beliefs about Relatedness {#beliefs-main-e5}
+
+The statement selected exhibits the lowest average level of belief about strength
+of relatedness and the 2^nd^ highest level of consensus. Modified for directionality,
+the statement reads:
+
+```{=tex}
+\begin{quotation}
+    ``Higher consumption of plain (non-spicy) foods
+is associated with a higher risk of certain types of cancer.''
+    
+\end{quotation}
+```
+
+## Hypotheses {#hypotheses-e5}
+
+### Defensive Confidence {#def-con-e5}
+
+### Graph Literacy {graph-literacy-e5}
 
 ## Method {#method-e5}
 

@@ -4,7 +4,35 @@
 
 \section{Abstract}\label{abstract-beliefs}
 
-\section{Overview}\label{overview-beliefs}
+\chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
+\chap{chap:interactions_opacity_size} show through four experiments that
+point opacity and size changes can have powerful effects on
+participants' estimates of correlation in positively correlated
+scatterplots. In \chap{chap:adjusting_opacity}, global and
+spatially-dependent adjustments in point opacity were employed, and a
+small, but statistically significant level of correction for a historic
+underestimation bias of positive correlation was found.
+Spatially-dependent adjustment of point size, in which size is reduced
+as a function of residual error, was found in \chap{chap:adjusting_size}
+to produce much stronger effects on estimates of correlation; the
+non-linear decay function used in that experiment produced higher levels
+of correction and resulted in highly accurate correlation estimates. In
+\chap{chap:interactions_opacity_size}, these point opacity and size
+manipulations were combined. Their combination was found to produce
+stronger effects than would be expected if they were linearly additive.
+While my efforts at correcting for the underestimation bias were
+successful, my work has not yet attempted to investigate whether any of
+the techniques developed in this thesis may be used to change people's
+cognitions about data. Therefore, for my final experimental chapter, I
+show that scatterplot manipulations that are able to correct for a
+historic correlation underestimation bias are also able to induce
+stronger levels of belief change in viewers compared to conventional
+plots showing identical data. In a pre-study and main experiment, I
+provide evidence that adjusting visual features in scatterplots can go
+beyond simple perceptual effects to influence beliefs about information
+from trusted news sources.
+
+\section{Introduction}\label{intro-beliefs}
 
 \section{Related Work}\label{related-work-beliefs}
 
@@ -13,29 +41,155 @@ Cognition}\label{from-perception-to-cognition}
 
 \subsection{From Cognition to Belief}\label{from-cognition-to-belief}
 
+\section{Open Research}\label{open-research-chap7}
+
 \section{Pre-Study: Investigating Beliefs About Relatedness
 Statements}\label{beliefs-e5a}
 
 \subsection{Introduction}\label{intro-e5a}
 
-\subsection{Methods}\label{methods-e5a}
+\subsection{Method}\label{method-e5a}
 
-\subsection{Analysis}\label{results-e5a}
+\subsubsection{Participants}\label{participants-e5a}
+
+100 participants were recruited using the Prolific platform
+\cite{prolific}. English fluency and UK residency were required for
+participation, as the main experiment relied on familiarity with data
+visualisations from a popular British news source. In addition to 25
+experimental items, six attention check items were included that
+instructed participants to ignore the statement and provide specific
+answers to the Likert scale sliders. No participants failed more than 2
+out of 6 attention check items, and therefore data from all 100 were
+included in the full analysis (52 male and 48 female). Participants'
+mean age was 41.1 (\emph{SD} = 12.3). The average time taken to complete
+the survey was 7.6 minutes (\emph{SD} = 2.9 minutes).
+
+\subsubsection{Design}\label{design-e5a}
+
+Each participant saw all survey items (see Appendix A), along with the
+six attention check items, in a fully randomised order. All experimental
+code, materials, and instructions are hosted on GitLab \footnote{https://gitlab.pavlovia.org/Strain/beliefs\_scatterplots\_pretest}.
+
+\subsubsection{Procedure}\label{procedure-e5a}
+
+Participants viewed the PIS and were asked to provide through key
+presses in response to consent statements. They were prompted to provide
+their age in a free text box and their gender identity. Participants
+were told that they would be asked to read statements about the
+relatedness between a pair of variables, after which they would be asked
+to answer some questions. To familiarise themselves with the sliders
+used to collect responses, they were asked to complete a practice trial
+in response to the statement: ``As participation in online experiments
+increases, society becomes happier''. Following each statement, a pair
+of Likert scales were presented labelled ``Statement Emotionality'' and
+``Strength of Relatedness; these scales were identical to those used by
+myself a co-author in Section \ref{beliefs-e5a}.
+
+\subsection{Results}\label{results-e5a}
+
+As before, the \texttt{irr} package \cite{irr} to measure interrater
+agreement on statement emotional valence and strength of relatedness for
+the 25 experimental items. This analysis revealed that participants
+agreed above chance on statement emotional valence (\(\kappa\) = 0.07,
+\emph{p} \textless{} .001) and strength of relatedness (\(\kappa\) =
+0.06, \emph{p} \textless{} .001).
+
+\subsection{Selecting Statements for the Main
+Experiment}\label{selecting-statements-e5a}
+
+\begin{table}
+
+\caption{\label{tbl-candidate-statements}Statements with neutral average
+emotional valence ratings.}
+
+\centering{
+
+\begin{tabular}[t]{rl}
+\toprule
+Item & Statement\\
+\midrule
+2 & As caffeine consumption increases, so does the average heart rate.\\
+10 & Higher sugar consumption is associated with an increased risk of dental cavities.\\
+16 & As the amount of sleep decreases, the risk of obesity increases.\\
+22 & Higher consumption of spicy foods is associated with a lower risk of certain types of cancer.\\
+23 & Greater adherence to a Mediterranean diet is linked to a lower risk of neurodegenerative diseases.\\
+\bottomrule
+\end{tabular}
+
+}
+
+\end{table}%
+
+Statements represents neutral emotional valence were selected to control
+for the potential effects of statement emotionality in the main
+experiment. Statements with average emotionality ratings between 3 and 5
+are statements 2, 10, 22, 16, and 23, which can be seen in
+Table~\ref{tbl-candidate-statements}. To ascertain which statements
+represent the greatest consensus, standard deviations of ratings for
+statement emotional valence and strength of relatedness were summed. Due
+to concerns about experimental power, and in line with evidence that
+propensity for belief change is highest when prior beliefs are not
+strongly held \cite{xiong_2022, markant_2023}, at this point the
+decision was made to test only the statement corresponding to weak
+beliefs about the strength of relatedness between the variables in
+question. Statement number 22 was therefore selected: ``Higher
+consumption of spicy foods is associated with a lower risk of certain
+types of cancer'', however the wording was modified such that the
+variables (food consumption and cancer risk) are positively correlated.
+While the work carried out in \chap{chap:adjusting_opacity},
+\chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}
+show that opacity and size adjustments in scatterplots can affect
+estimates of positive correlation, no work regarding the effects of
+these manipulations in negatively correlated scatterplots has been
+completed.
 
 \subsection{Discussion}\label{discussion-e5a}
 
-\section{Experiment: Potential for Belief Change Using Atypical
-Scatterplots}\label{beliefs-e5}
+Fleiss' Kappa values for interrater agreement on both statement
+emotional valence and strength of correlation scales are low (\(\kappa\)
+= 0.07 and \(\kappa\) = 0.06 respectively), however do exceed that which
+would be expected by chance. In light of this, decisions regarding which
+statement to use are not based on the values of Fleiss' Kappa observed,
+but rather on the standard deviations of ratings across all raters.
+Statement emotionality and strength of relatedness are tested with
+participants in the main study and included as fixed effects as part of
+the analyses.
 
-\subsection{Introduction}\label{intro-e5}
+\section{Main Experiment: Alternative Scatterplot Designs and Beliefs
+about Relatedness}\label{beliefs-main-e5}
 
-\subsection{Methods}\label{methods-e5}
+The statement selected exhibits the lowest average level of belief about
+strength of relatedness and the 2\textsuperscript{nd} highest level of
+consensus. Modified for directionality, the statement reads:
 
-\subsection{Analysis}\label{results-e5}
+\begin{quotation}
+    ``Higher consumption of plain (non-spicy) foods
+is associated with a higher risk of certain types of cancer.''
+    
+\end{quotation}
+
+\subsection{Hypotheses}\label{hypotheses-e5}
+
+\subsubsection{Defensive Confidence}\label{def-con-e5}
+
+\subsubsection{Graph Literacy
+\{graph-literacy-e5\}}\label{graph-literacy-graph-literacy-e5}
+
+\subsection{Method}\label{method-e5}
+
+\subsection{Results}\label{results-e5}
 
 \subsection{Discussion}\label{discussion-e5}
 
-\section{General Discussion}\label{general-discussion-beliefs}
+\subsubsection{Graph Literacy, Defensive Confidence, and Statement
+Emotional
+Valence}\label{graph-literacy-defensive-confidence-and-statement-emotional-valence}
+
+\section{General Discussion}\label{general-discussion-e5}
+
+\section{Limitations}\label{limitations-e5}
+
+\section{Future Work}\label{future-work-e5}
 
 
 
