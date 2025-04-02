@@ -552,8 +552,6 @@ candidate_statements <- read_csv("../data/experimental_dataframes/e5a_exp_datafr
          "Item" = "item_no")
 
 kbl(candidate_statements, booktabs = TRUE, format = "latex")
-  #kable_styling(latex_options =  "scale_down")
-  #column_spec(2, width = "7.5cm")
 ```
 
 Statements represents neutral emotional valence were selected to control for the
@@ -603,15 +601,143 @@ is associated with a higher risk of certain types of cancer.''
 \end{quotation}
 ```
 
+To maximise the likelihood of finding an effect of viewing alternative scatterplots,
+the stimuli were designed based on a popular British news source and the data
+were falsely credited as being supplied by the British National Health Service (NHS).
+Participants were told that the news source had requested their identity be obscured.
+They were debriefed that this was not the case, and in fact the data were false,
+at the end of the experiment. Based on evidence that beliefs can change after
+viewing visualisations \cite{karduni_2020, markant_2023}, and that scatterplots
+employing point opacity and size manipulations described in \ref{related-work-beliefs}
+are able to affect perceptual estimates, the following hypotheses were made:
+
 ## Hypotheses {#hypotheses-e5}
+
+  - H1: there will be a significant difference between ratings of strength of
+  relatedness made before and after participants viewed scatterplots in either
+  the standard or alternative conditions.
+  - H2: this difference will be greatest when participants are exposed
+  to scatterplots in the alternative scatterplot condition.
+  
+Exploratory investigations taking into account participants' scores on a defensive
+confidence test, their scores on a graph literacy test, and each participant's rating
+of the emotional valence of the correlative statement used. Analysis including each of
+these factors can be found in Section \ref{add-analyses-e5}, and their inclusion is
+justified below.
 
 ### Defensive Confidence {#def-con-e5}
 
+In line with evidence that those who are more confident in their ability to
+defend their own positions are more susceptible to having those positions changed
+\cite{albarracin_2004}, participant's defensive confidence was measured using 
+Albarracín and Mitchell's \cite{albarracin_2004} 12-item scale. This scale is 
+replicated from previous work in Appendix B, and has 
+been utilised more recently \cite{markant_2023} to explore the potential for attitude
+change specifically with regard to correlations in scatterplots. Participants
+provide answers to the 12 scale items using a 5-point Likert scale anchored at points 1
+(*not at all characteristic of me*) and 5 (*extremely characteristic of me*), with 
+all other points being unlabelled.
+
 ### Graph Literacy {graph-literacy-e5}
+
+No effect of graph literacy was found in experiments 1 to 4 (see \chap{chap:adjusting_opacity},
+\chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}). Despite 
+this, the scale was included here due to the higher predicted cognitive load
+of the current tasks, along with evidence that graph literacy may affect performance on more cognitively
+demanding visualisation tasks \cite{canham_2010, okan_2012}. Additionally, the graph
+literacy test used \cite{garcia_2016} is extremely short; in the present study,
+this took participants an average of `r printnum(literacy_e5$mean_time, digits = 0)`
+seconds (*SD* = `r printnum(literacy_e5$sd_time, digits = 0)` seconds).
+
+### Emotionality
+
+The emotional content of a visualisation and the emotional state of a participant
+may have cognitive and perceptual effects on performance in visualisation tasks
+\cite{phelps_2006, harrison_2013, thoreson_2016}; this was the primary
+motivation behind performing the pre-study. Nevertheless, it is not guaranteed
+that each participant considers the emotional content of the correlative
+statement to be the same. To account for these individual differences, ratings
+of emotional valence are also collected during the main study.
 
 ## Method {#method-e5}
 
+### Stimuli {#stimuli-e5}
+
+```{r}
+#| label: fig-exp5-examples-chap7
+#| include: true
+#| fig-cap: Examples of the stimuli used in experiment 4, demonstrated with an \textit{r} value of 0.6.
+#| fig-asp: 0.275
+
+slopes_exp5 <- exp5_slope_function(0.6)
+slopeI <- (slopes_exp5$slope_inverted)
+slopeI_floored <- (slopes_exp5$slope_inverted_floored)
+typical <- (slopes_exp5$typical)
+standard_alpha <- (slopes_exp5$standard_alpha)
+
+example_plots <- ggarrange(example_plot_function_exp5(slopes_exp5,
+                                                 0.6,
+                                                 typical,
+                                                 standard_alpha,
+                                                 bbc_style()),
+                           example_plot_function_exp5(slopes_exp5,
+                                                 0.6,
+                                                 slopeI,
+                                                 slopeI_floored,
+                                                 bbc_style()),
+                           nrow = 1) +
+  annotate(geom = "text",
+           label = "Standard Scatterplot",
+           x = 0.25,
+           y = 0.04,
+           size = 6) +
+  annotate(geom = "text",
+           label = "Alternative Scatterplot",
+           x = 0.75,
+           y = 0.04,
+           size = 6) +
+  annotate(geom = "segment",
+           x = 0.077,
+           xend = 0,
+           y = 0.04,
+           yend = 0.04,
+           size = 0.6,
+           colour = "grey",
+           arrow = arrow(length = unit(0.15, "cm"), angle = 90)) +
+  annotate(geom = "segment",
+           x = 0.935,
+           xend = 1,
+           y = 0.04,
+           yend = 0.04,
+           size = 0.6,
+           colour = "grey",
+           arrow = arrow(length = unit(0.15, "cm"), angle = 90)) +
+  annotate(geom = "segment",
+           x = 0.43,
+           xend = 0.5,
+           y = 0.04,
+           yend = 0.04,
+           size = 0.6,
+           colour = "grey",
+           arrow = arrow(length = unit(0.15, "cm"), angle = 90)) +
+  annotate(geom = "segment",
+           x = 0.565,
+           xend = 0.5,
+           y = 0.04,
+           yend = 0.04,
+           size = 0.6,
+           colour = "grey",
+           arrow = arrow(length = unit(0.15, "cm"), angle = 90))
+
+rm(slopeI, slopeI_floored, typical, standard_alpha, slopes) # clean up
+
+example_plots
+```
+
+
 ## Results {#results-e5}
+
+### Additional Analyses {#add-analyses-e5}
 
 ## Discussion {#discussion-e5}
 
