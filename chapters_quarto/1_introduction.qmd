@@ -106,24 +106,24 @@ author of all included papers.
 
  - *The Effects of Contrast on Correlation Perception in Scatterplots* \cite{strain_2023}
  is reproduced in \chap{chap:adjusting_opacity}. Sections
- \ref{general-methods-adjusting-opacity}, \ref{methods-e1}, \ref{methods-e2},
+ \ref{general-methods-adjusting-opacity}, \ref{method-e1}, \ref{method-e2},
  \ref{results-e1}, \ref{results-e2}, \ref{discussion-e1}, \ref{discussion-e2},
  and \ref{general-discussion-adjusting-opacity} contain minimally altered parts
  of the published article.
  
  - *Adjusting Point Size to Facilitate More Accurate Correlation Perception in Scatterplots*
  \cite{strain_2023b} is reproduced in \chap{chap:adjusting_size}. Sections 
- \ref{methods-e3}, \ref{results-e3}, and \ref{discussion-e3} contain minimally 
+ \ref{method-e3}, \ref{results-e3}, and \ref{discussion-e3} contain minimally 
  altered parts of the published article.
  
  - *Effects of Point Size and Opacity Adjustments in Scatterplots* \cite{strain_2024}
- is reproduced in \chap{chap:interactions_opacity_size}. Sections \ref{methods-e4},
+ is reproduced in \chap{chap:interactions_opacity_size}. Sections \ref{method-e4},
  \ref{results-e4}, and \ref{discussion-e4} contain minimally altered parts of 
  the published article.
  
  - *Effects of Alternative Scatterplot Designs on Belief* \cite{strain_2025} is 
  reproduced in \chap{chap:belief_change}. Sections \ref{beliefs-e5a},
- \ref{methods-e5}, \ref{results-e5}, and \ref{discussion-e5} contain minimally
+ \ref{method-e5}, \ref{results-e5}, and \ref{discussion-e5} contain minimally
  altered parts of the published article.
 
 # Overview of Thesis

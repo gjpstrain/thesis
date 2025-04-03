@@ -393,7 +393,6 @@ topic_emotionality_e5 <- distinct(E5_beliefs_main_tidy, participant,
             sd = sd(slider_emotion.response))
 ```
 
-
 # Abstract {#abstract-beliefs}
 
 \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}
@@ -435,22 +434,6 @@ from trusted news sources.
 
 ## Method {#method-e5a}
 
-### Participants {#participants-e5a}
-
-100 participants were recruited using the Prolific platform \cite{prolific}. English fluency and
-UK residency were required for participation, as the main experiment relied on familiarity
-with data visualisations from a popular British news source. In addition to 25
-experimental items, six attention check items were included that instructed participants
-to ignore the statement and provide specific answers to the Likert scale sliders.
-No participants failed more than 2 out of 6 attention
-check items, and therefore data from all 100 were included in the full analysis
-(`r printnum(E5_beliefs_pre_test_tidy_gender$Male, digits = 0)` male and 
-`r printnum(E5_beliefs_pre_test_tidy_gender$Female, digits = 0)` female). 
-Participants' mean age was `r printnum(E5_beliefs_pre_test_tidy_age$mean, digits = 1)` (*SD* = 
-`r printnum(E5_beliefs_pre_test_tidy_age$sd, digits = 1)`). The average time 
-taken to complete the survey was `r printnum(time_taken_e5a$mean, digits = 1)`
-minutes (*SD* = `r printnum(time_taken_e5a$sd, digits = 1)` minutes).
-
 ### Design {#design-e5a}
 
 Each participant saw all survey items (see Appendix A), along with the six
@@ -472,6 +455,22 @@ in online experiments increases, society becomes happier". Following each
 statement, a pair of Likert scales were presented labelled "Statement Emotionality"
 and "Strength of Relatedness; these scales were identical to those used by 
 myself a co-author in Section \ref{beliefs-e5a}.
+
+### Participants {#participants-e5a}
+
+100 participants were recruited using the Prolific platform \cite{prolific}. English fluency and
+UK residency were required for participation, as the main experiment relied on familiarity
+with data visualisations from a popular British news source. In addition to 25
+experimental items, six attention check items were included that instructed participants
+to ignore the statement and provide specific answers to the Likert scale sliders.
+No participants failed more than 2 out of 6 attention
+check items, and therefore data from all 100 were included in the full analysis
+(`r printnum(E5_beliefs_pre_test_tidy_gender$Male, digits = 0)` male and 
+`r printnum(E5_beliefs_pre_test_tidy_gender$Female, digits = 0)` female). 
+Participants' mean age was `r printnum(E5_beliefs_pre_test_tidy_age$mean, digits = 1)` (*SD* = 
+`r printnum(E5_beliefs_pre_test_tidy_age$sd, digits = 1)`). The average time 
+taken to complete the survey was `r printnum(time_taken_e5$mean, digits = 1)`
+minutes (*SD* = `r printnum(time_taken_e5a$sd, digits = 1)` minutes).
 
 ## Results {#results-e5a}
 
@@ -638,7 +637,7 @@ provide answers to the 12 scale items using a 5-point Likert scale anchored at p
 (*not at all characteristic of me*) and 5 (*extremely characteristic of me*), with 
 all other points being unlabelled.
 
-### Graph Literacy {graph-literacy-e5}
+### Graph Literacy {#graph-literacy-e5}
 
 No effect of graph literacy was found in experiments 1 to 4 (see \chap{chap:adjusting_opacity},
 \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}). Despite 
@@ -667,7 +666,6 @@ of emotional valence are also collected during the main study.
 #| label: fig-exp5-examples-chap7
 #| include: true
 #| fig-cap: Examples of the stimuli used in experiment 4, demonstrated with an \textit{r} value of 0.6.
-#| fig-asp: 0.275
 
 slopes_exp5 <- exp5_slope_function(0.6)
 slopeI <- (slopes_exp5$slope_inverted)
@@ -734,6 +732,89 @@ rm(slopeI, slopeI_floored, typical, standard_alpha, slopes) # clean up
 example_plots
 ```
 
+After selecting a correlative statement describing a weak relationship and with
+a high level of consensus between participants, the `ggplot2` package (version 3.5.1)
+\cite{wickham_2016} was used to create the stimuli for the main experiment. As
+the statement was rated as describing a low level of relatedness, scatterplots
+describing a strong relationship (0.6 < *r* < 0.99) were used with the intent
+of inducing belief change. Plots in the alternative scatterplot condition were
+created using a combination of non-linear opacity and size decay, as this
+particular condition was shown to bias correlation estimates to a greater
+degree than either point opacity or size decay alone (see experiment 4 in 
+\chap{chap:interactions_opacity_size}). 45 *r* values uniformly distributed
+between 0.6 and 0.99 were used to create 45 scatterplots for each condition.
+Examples of stimuli using an *r* value of 0.6 for both the
+standard and alternative scatterplot conditions can be seen in @fig-exp5-examples-chap7.
+
+### Design {#design-e5}
+
+Unlike all previous experiments, a between-participants design was employed
+here. Each participant was randomly assigned either to group A, in which they
+viewed standard scatterplots, or group B, in which they viewed alternative scatterplots
+designed deliberately to elicit higher levels of belief change.
+Participants saw all 45 experimental items for their group, along
+with 4 attention check items, in a fully randomised order. The dependent variable 
+was the level of belief change induced by viewing the scatterplot visualisations,
+so participants were tested on how strongly related they believed the variables 
+described by the correlative statement were both **before** and **after** viewing the
+experimental items. All experimental code, materials, and instructions are 
+hosted on GitLab as two separate experiments [^2] [^3].
+
+[^2]: https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t
+[^3]: https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a
+
+### Procedure {#procedure-e5}
+
+Participants viewed the PIS and provided consent through key presses in response
+to displayed consent statements. Participants were then asked to provide
+their age and gender identity. Following this, participants completed
+the 5-item Subjective Graph Literacy scale as in previous experiments
+\cite{garcia_2016}, and Albarracín and Mitchell's \cite{albarracin_2004} 12-item defensive confidence
+scale . To give legitimacy to the data visualisations with hope of
+maximising any potential belief change, participants were told that the graphs
+they would see were taken from a well-known British news source, but that the
+identity of this source had been obscured at their request. To promote 
+engagement with the visualisations, participants were instructed to use a slider
+to estimate the correlation displayed in each scatterplot; no hypotheses were made 
+based on these data, and in the published paper this chapter was based on, they
+were not analysed. For completeness sake, I analyse this data in Section \ref{add-analyses-e5}
+here. Following instructions, which included textual descriptions of scatterplots
+and Pearson's *r*, participants were given two practice trials; these trials
+took the form of a typical "standard scatterplot" trial from experiment 1.
+Participants were then asked to indicate their beliefs about emotional valence
+and strength of relatedness described in the chosen correlative statement; these
+data were captured using Likert scales identical to those described previously.
+After completing 45 experimental trials, participants were then asked again,
+using the same Likert scales, to indicate their beliefs about emotional valence
+and strength of relatedness. Interspersed among the experimental items were 
+four attention check trials which explicitly asked participants to set the slider
+to 0 or 1.
+
+### Participants {#participants-e5}
+
+150 participants were recruited using the Prolific platform \cite{prolific}.
+Normal to corrected-to-normal vision and English fluency were required. As in
+the pre-study, UK residency was required of participants, as the experiment relied
+on familiarity with the style of a British news source. Participants who took part
+in the pre-study, or in any of the experiments described in \chap{chap:adjusting_opacity},
+\chap{chap:adjusting_size}, or \chap{chap:interactions_opacity_size} were prevented
+from completing this experiment. Data were collected from 77 participants in 
+each condition. 2 participants failed more than 2 out of 4 attention check
+questions for each condition, meaning their data were excluded per
+pre-registration stipulations. Data from the remaining 150 participants were
+included in the full analysis (`r printnum(E5_beliefs_main_tidy_gender$Male, digits = 2)` male,
+`r printnum(E5_beliefs_main_tidy_gender$Female, digits = 2)` female, and 
+`r printnum(E5_beliefs_main_tidy_gender$'Non-binary', digits = 2)` non-binary).
+Participants' mean age was `r printnum(E5_beliefs_main_tidy_age$mean, digits = 1)`
+(*SD* = `r printnum(E5_beliefs_main_tidy_age$sd, digits = 1)`). Participants' 
+mean graph literacy score was `r printnum(E5_beliefs_main_tidy_graph_literacy$mean, digits = 1)`
+(*SD* = `r printnum(E5_beliefs_main_tidy_graph_literacy$sd, digits = 1)`)
+out of 30, their mean defensive confidence score was `r printnum(defensive_confidence_e5$mean, digits = 0)`
+(*SD* = `r printnum(defensive_confidence_e5$sd, digits = 1)`) out of 60, and their mean rating of 
+statement emotional valence was `r printnum(topic_emotionality_e5$mean, digits = 1)`
+(*SD* = `r printnum(topic_emotionality_e5$sd, digits = 1)`) on a 7-point Likert scale.
+On average, participants took `r printnum(time_taken_e5$mean, digits = 1)`
+minutes to complete the experiment (*SD* = `r printnum(time_taken_e5$sd)`).
 
 ## Results {#results-e5}
 

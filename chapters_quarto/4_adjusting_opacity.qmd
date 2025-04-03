@@ -678,7 +678,7 @@ compared to higher opacity plots will be observed.
 
 150 participants were recruited using the Prolific platform \cite{prolific}. Normal to
 corrected-to-normal vision and English fluency were required. Participants who
-had completed the pre-study were prevented from participating. Data were collected
+had completed the pilot study were prevented from participating. Data were collected
 from 158 participants. 8 failed more than 2 out of 6 attention check questions,
 and, as per the pre-registration, had their submissions rejected from the study.
 The data from the remaining 150 participants were included in the full analysis
@@ -991,7 +991,7 @@ opacity. With this in mind, it was hypothesised that:
 
 150 participants were recruited using the Prolific platform \cite{prolific}. Normal to
 corrected-to-normal vision and English fluency were required. Participants who
-had completed the pre-study were prevented from participating. Data were collected
+had completed the pilot study or experiment 1 were prevented from participating. Data were collected
 from 158 participants. 7 failed more than 2 out of 6 attention check questions,
 and, as per the pre-registration, had their submissions rejected from the study.
 The data from the remaining 150 participants were included in the full analysis

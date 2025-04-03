@@ -50,20 +50,6 @@ Statements}\label{beliefs-e5a}
 
 \subsection{Method}\label{method-e5a}
 
-\subsubsection{Participants}\label{participants-e5a}
-
-100 participants were recruited using the Prolific platform
-\cite{prolific}. English fluency and UK residency were required for
-participation, as the main experiment relied on familiarity with data
-visualisations from a popular British news source. In addition to 25
-experimental items, six attention check items were included that
-instructed participants to ignore the statement and provide specific
-answers to the Likert scale sliders. No participants failed more than 2
-out of 6 attention check items, and therefore data from all 100 were
-included in the full analysis (52 male and 48 female). Participants'
-mean age was 41.1 (\emph{SD} = 12.3). The average time taken to complete
-the survey was 7.6 minutes (\emph{SD} = 2.9 minutes).
-
 \subsubsection{Design}\label{design-e5a}
 
 Each participant saw all survey items (see Appendix A), along with the
@@ -84,6 +70,20 @@ increases, society becomes happier''. Following each statement, a pair
 of Likert scales were presented labelled ``Statement Emotionality'' and
 ``Strength of Relatedness; these scales were identical to those used by
 myself a co-author in Section \ref{beliefs-e5a}.
+
+\subsubsection{Participants}\label{participants-e5a}
+
+100 participants were recruited using the Prolific platform
+\cite{prolific}. English fluency and UK residency were required for
+participation, as the main experiment relied on familiarity with data
+visualisations from a popular British news source. In addition to 25
+experimental items, six attention check items were included that
+instructed participants to ignore the statement and provide specific
+answers to the Likert scale sliders. No participants failed more than 2
+out of 6 attention check items, and therefore data from all 100 were
+included in the full analysis (52 male and 48 female). Participants'
+mean age was 41.1 (\emph{SD} = 12.3). The average time taken to complete
+the survey was 14.2 minutes (\emph{SD} = 2.9 minutes).
 
 \subsection{Results}\label{results-e5a}
 
@@ -214,8 +214,7 @@ anchored at points 1 (\emph{not at all characteristic of me}) and 5
 (\emph{extremely characteristic of me}), with all other points being
 unlabelled.
 
-\subsubsection{Graph Literacy
-\{graph-literacy-e5\}}\label{graph-literacy-graph-literacy-e5}
+\subsubsection{Graph Literacy}\label{graph-literacy-e5}
 
 No effect of graph literacy was found in experiments 1 to 4 (see
 \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
@@ -254,6 +253,92 @@ are also collected during the main study.
 experiment 4, demonstrated with an \textit{r} value of 0.6.}
 
 \end{figure}%
+
+After selecting a correlative statement describing a weak relationship
+and with a high level of consensus between participants, the
+\texttt{ggplot2} package (version 3.5.1) \cite{wickham_2016} was used to
+create the stimuli for the main experiment. As the statement was rated
+as describing a low level of relatedness, scatterplots describing a
+strong relationship (0.6 \textless{} \emph{r} \textless{} 0.99) were
+used with the intent of inducing belief change. Plots in the alternative
+scatterplot condition were created using a combination of non-linear
+opacity and size decay, as this particular condition was shown to bias
+correlation estimates to a greater degree than either point opacity or
+size decay alone (see experiment 4 in
+\chap{chap:interactions_opacity_size}). 45 \emph{r} values uniformly
+distributed between 0.6 and 0.99 were used to create 45 scatterplots for
+each condition. Examples of stimuli using an \emph{r} value of 0.6 for
+both the standard and alternative scatterplot conditions can be seen in
+Figure~\ref{fig-exp5-examples-chap7}.
+
+\subsubsection{Design}\label{design-e5}
+
+Unlike all previous experiments, a between-participants design was
+employed here. Each participant was randomly assigned either to group A,
+in which they viewed standard scatterplots, or group B, in which they
+viewed alternative scatterplots designed deliberately to elicit higher
+levels of belief change. Participants saw all 45 experimental items for
+their group, along with 4 attention check items, in a fully randomised
+order. The dependent variable was the level of belief change induced by
+viewing the scatterplot visualisations, so participants were tested on
+how strongly related they believed the variables described by the
+correlative statement were both \textbf{before} and \textbf{after}
+viewing the experimental items. All experimental code, materials, and
+instructions are hosted on GitLab as two separate experiments
+\footnote{https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_t}
+\footnote{https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_a}.
+
+\subsubsection{Procedure}\label{procedure-e5}
+
+Participants viewed the PIS and provided consent through key presses in
+response to displayed consent statements. Participants were then asked
+to provide their age and gender identity. Following this, participants
+completed the 5-item Subjective Graph Literacy scale as in previous
+experiments \cite{garcia_2016}, and Albarracín and Mitchell's
+\cite{albarracin_2004} 12-item defensive confidence scale . To give
+legitimacy to the data visualisations with hope of maximising any
+potential belief change, participants were told that the graphs they
+would see were taken from a well-known British news source, but that the
+identity of this source had been obscured at their request. To promote
+engagement with the visualisations, participants were instructed to use
+a slider to estimate the correlation displayed in each scatterplot; no
+hypotheses were made based on these data, and in the published paper
+this chapter was based on, they were not analysed. For completeness
+sake, I analyse this data in Section \ref{add-analyses-e5} here.
+Following instructions, which included textual descriptions of
+scatterplots and Pearson's \emph{r}, participants were given two
+practice trials; these trials took the form of a typical ``standard
+scatterplot'' trial from experiment 1. Participants were then asked to
+indicate their beliefs about emotional valence and strength of
+relatedness described in the chosen correlative statement; these data
+were captured using Likert scales identical to those described
+previously. After completing 45 experimental trials, participants were
+then asked again, using the same Likert scales, to indicate their
+beliefs about emotional valence and strength of relatedness.
+Interspersed among the experimental items were four attention check
+trials which explicitly asked participants to set the slider to 0 or 1.
+
+\subsubsection{Participants}\label{participants-e5}
+
+150 participants were recruited using the Prolific platform
+\cite{prolific}. Normal to corrected-to-normal vision and English
+fluency were required. As in the pre-study, UK residency was required of
+participants, as the experiment relied on familiarity with the style of
+a British news source. Participants who took part in the pre-study, or
+in any of the experiments described in \chap{chap:adjusting_opacity},
+\chap{chap:adjusting_size}, or \chap{chap:interactions_opacity_size}
+were prevented from completing this experiment. Data were collected from
+77 participants in each condition. 2 participants failed more than 2 out
+of 4 attention check questions for each condition, meaning their data
+were excluded per pre-registration stipulations. Data from the remaining
+150 participants were included in the full analysis (48.67 male, 48.67
+female, and 2.67 non-binary). Participants' mean age was 39.3 (\emph{SD}
+= 11.5). Participants' mean graph literacy score was 21.3 (\emph{SD} =
+4.3) out of 30, their mean defensive confidence score was 43 (\emph{SD}
+= 6.8) out of 60, and their mean rating of statement emotional valence
+was 2.9 (\emph{SD} = 1.3) on a 7-point Likert scale. On average,
+participants took 14.2 minutes to complete the experiment (\emph{SD} =
+6.41).
 
 \subsection{Results}\label{results-e5}
 

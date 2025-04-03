@@ -421,6 +421,7 @@ six attention check trials in a randomised order. Visual masks preceded each plo
 
 ## Participants {#participants-e3}
 
+150 participants were recruited using the Prolific platform \cite{prolific}.
 Normal to corrected-to-normal vision and English fluency were required. Participants who
 had completed any of the experiments described in \chap{chap:adjusting_opacity}
 were prevented from participating. Data were collected from 164 participants.
