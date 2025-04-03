@@ -561,7 +561,7 @@ in @tbl-candidate-statements. To ascertain which statements represent the
 greatest consensus, standard deviations of ratings for statement emotional valence
 and strength of relatedness were summed. Due to concerns about experimental
 power, and in line with evidence that propensity for belief change is highest
-when prior beliefs are not strongly held \cite{xiong_2022, markant_2023},
+when prior beliefs are not strongly held \cite{xiong_2023, markant_2023},
 at this point the decision was made to test only the statement corresponding to weak beliefs
 about the strength of relatedness between the variables in question. Statement number
 `r printnum(add_and_to_numbers(consensus_df$item_no[2]), digits = 0)` was therefore
@@ -652,7 +652,7 @@ seconds (*SD* = `r printnum(literacy_e5$sd_time, digits = 0)` seconds).
 
 The emotional content of a visualisation and the emotional state of a participant
 may have cognitive and perceptual effects on performance in visualisation tasks
-\cite{phelps_2006, harrison_2013, thoreson_2016}; this was the primary
+\cite{phelps_2006, harrison_2013, thoresen_2016}; this was the primary
 motivation behind performing the pre-study. Nevertheless, it is not guaranteed
 that each participant considers the emotional content of the correlative
 statement to be the same. To account for these individual differences, ratings

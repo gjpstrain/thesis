@@ -24,20 +24,22 @@ years \cite{azzam_2013}. Lists or matrices of numbers may be able to communicate
 simple trends, but for more complex patterns, harnessing the human visual system
 \cite{midway_2020} through visualisation is crucial for the communication of science
 and data. Effective data visualisation is able to reduce cognitive and perceptual
-loads on viewers, regardless of their backgrounds levels of statistical knowledge or 
+loads on viewers, regardless of their background levels of statistical knowledge or 
 experience. This outsourcing, while efficient, leaves the viewer vulnerable
 to the design choices that were made when creating the visualisation. For this reason,
 understanding *how* design choices affect interpretation is crucial to designing
-better data visualisations and simultaneously allows for the inoculation of viewers against
+better data visualisations, while simultaneously facilitating the inoculation of viewers against
 poor or malevolent design practices.
 
 One cannot understate the importance and ubiquity of data visualisations. 
 They are used to communicate with experts, with those with no background
 in science, and with everyone in between. They are relied upon to communicate vital
-public health information \cite{li_2021}, to present evidence in court cases \cite{bobko_1979},
+public health information \cite{li_2021, koch_2021, clements_2023}, to present
+evidence in court cases \cite{bobko_1979, mclachlan_2021},
 and to facilitate collaboration and encourage engagement on climate change issues
 \cite{nocke_2008, schuster_2024}. Studying data visualisation therefore has the potential
-to change the nature of scientific study itself.
+to change not only the nature of scientific study, but the ways in which the fruit
+of that study is made salient in the minds of the public.
 
 Interaction with a data visualisation involves steps from perception (viewing),
 to cognition (interpreting), to behaviour (deciding and acting). These stages must be 
@@ -45,9 +47,11 @@ examined both separately and together, as there are bottom-up and top-down
 interactions present. In this thesis, I therefore present a series of
 experiments whose aim was to investigate and address a long-standing
 perceptual bias in scatterplots, a common form of 
-data visualisation \cite{friendly_2005}. Following attempts to address this 
+data visualisation \cite{friendly_2005}. Following successful attempts to address this 
 bias, I further investigated the impacts these attempts may have had on
-cognition and behaviour.
+cognition and behaviour, showing that small, simple changes in the visual
+features of data visualisations can have profound effects on the ways
+we think.
 
 # Research Motivation
 
@@ -55,19 +59,19 @@ Data visualisations were once the preserve of the academic and professional
 classes. Now, however, visualisation is everywhere. This became especially
 apparent to me during the COVID-19 pandemic, when people such as my parents, 
 professionals with no background in mathematics or statistics, were
-bombarded with data visualisations on a daily basis. Despite not being able
-to fully articulate the whole data story, they were still able to derive
-meaning from the visualisations they were seeing. The ability of data visualisations
-to transcend language mathematical prowess motivated my study of them; concepts
+exposed to data visualisations on a daily basis. Despite not being able
+to fully articulate the complexities of what they saw, they were still able to derive
+meaning from the visualisations they engaged with. The ability of data visualisation
+to transcend language and mathematical prowess motivated my study of them; concepts
 such as exponential growth or the relatedness between variables can be displayed
 in simple ways that do not rely on an underlying understanding of exponents
 or correlation coefficients.
 
-Using data visualisations in such a way effectively provides a cognitive proxy
+Using data visualisation in such a way effectively provides a cognitive proxy
 for viewers. This is an efficient way to communicate, however still necessitates
-the presence of accurate and reliable perceptions. On further investigation
-into the reliance that those who design visualisations make on those who view
-them, I uncovered a historic perceptual bias that was still being described
+the presence of accurate and reliable perceptions. While investigating the 
+assumptions data visualisation designers have about the people who view their 
+visualisations, I uncovered a historical perceptual bias that was still being described
 in the literature, seemingly with no attempt at correction. This bias
 was the underestimation of correlation in positively correlated scatterplots.
 In the literature, this robust effect had been observed in a number of experimental
@@ -83,14 +87,14 @@ what people think and believe.
 # Contributions {#contributions-introduction}
 
 Through this thesis, I present a series of empirical experiments that provide
-knowledge about how changing visual features in scatterplots can affect how participants
+knowledge about how changing visual features in scatterplots can affect how people
 interpret the strength of the correlation displayed. I demonstrate that systematically
 reducing the opacities and sizes of points on scatterplots as a function of their
 distances from a regression line can significantly increase estimates of correlation
-and partially correct for a historic underestimation bias. Following this, I show 
+and partially correct for the underestimation bias. Following this, I show 
 that consequences of employing these techniques are not limited to perception, but
 in fact can be extended into a cognitive space to change what people think and believe.
-I utilise large-sample, controlled experiments with lay populations to provide
+I utilise large-sample size, controlled experiments with lay populations to provide
 generalisable conclusions and recommendations for visualisation designers and 
 researchers. Through this thesis, I provide a framework for the large-scale
 testing of data visualisations with lay audiences. Additionally, I hope to provide
@@ -98,9 +102,10 @@ an example of a project conducted entirely in an open and reproducible manner.
 
 # Included Publications
 
-The research described in Chapters 4, 5, 6, and 7 in this thesis is adapted from
-earlier publications, the last of which is under review as of writing. To avoid repetition,
-information and discussion that would be repeated has been consolidated into the
+The research described in \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size},
+\chap{chap:interactions_opacity_size}, and \chap{chap:belief_change} in this 
+thesis is adapted from earlier publications. To avoid repetition, information
+and discussion that would be repeated has been consolidated into the
 literature review and general methodology chapters. *Gabriel Strain* is the primary
 author of all included papers.
 
@@ -164,7 +169,9 @@ In \chap{chap:adjusting_size}, I present an experiment that expands the techniqu
 previous chapter to point size. I show that reducing the sizes of scatterplot
 points as a function of residual error is able to alter participants'
 estimates of correlation to a greater degree than functions relating point opacity
-and residual error. 
+and residual error. Additionally, I begin to explore how changing different visual
+features of scatterplots can affect the shape of the curve that describes how
+people related subjective and objective *r* values.
 
 \chap{chap:interactions_opacity_size} describes an experiment in which point opacity and size adjustments
 are combined. This experiment includes conditions in which point opacity and size
@@ -172,7 +179,8 @@ are reduced and increased together with residual error (congruent conditions),
 and conditions in which one increases while another decreases (incongruent conditions).
 I demonstrate that opacity and size adjustments interact in a non-linear fashion,
 and explore the potential for further tuning of these manipulations to create
-perceptually optimised scatterplots.
+perceptually optimised scatterplots. This experiment features the most dramatic
+manipulation of correlation judgements seen in this thesis.
 
 In \chap{chap:belief_change}, I extend the perceptual effects described in previous chapters to
 a cognitive space. In a single experiment, I explore the potential for scatterplots

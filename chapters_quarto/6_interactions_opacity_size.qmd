@@ -1188,7 +1188,7 @@ to bias estimates of positional means, but that the relative contributions
 of the ranges of opacities and sizes used. It is clear from this evidence
 and the present that the perceptual weightings of opacity and size are not the same.
 
-## Limitations
+## Limitations {#limitations-e4}
 
 First, participants' performance on the point visibility task. This was poor,
 with an average of only `r printnum(VT$mean_VT_perc_correct)`%. It would seem that
