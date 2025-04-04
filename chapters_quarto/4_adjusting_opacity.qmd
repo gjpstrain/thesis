@@ -204,7 +204,7 @@ extract_literacy(E2_spatially_dependent_tidy)
 # Abstract {#abstract-adjusting-opacity}
 
 Scatterplots are common data visualisations utilised for communication with experts 
-and lay people alike. Despite being widely studied, it is common for people to 
+and lay people alike. Despite being widely studied, people tend to 
 underestimate the level of correlation displayed in them. The weight of evidence
 points toward changes in the opacities of scatterplot points being unable to change
 perceptions of correlation, however this was not tested rigorously using systematic
@@ -225,11 +225,11 @@ This proposal is included in the supplemental materials.
 This was prompted by recent research demonstrating consistent perceptual biases
 in scatterplots due to geometric scaling \cite{wei_2020}, the growing prevalence
 of data visualisations in lay people's daily lives due to the COVID-19 pandemic, and
-the increasing adoption of wearable devices. The first experiment conducted therefore
+the increasing adoption of wearable devices \cite{shandhi_2024}. The first experiment conducted therefore
 examined how perceptions of correlation changed according to the size of a scatterplot.
 Additionally, a very early version of the opacity decay factor from experiment 2
 was included, however the implementation of this factor was immature. In experiment 2
-onwards, if a scatterplot point resided in a particular place, it would always
+onwards, if a scatterplot point resided in a particular place on a scatterplot, it would always
 have the same opacity or size. In the pilot study, the code that set the opacity
 of each point always scaled the opacity values such that the point with the highest
 residual had the lowest possible opacity, and vice versa, resulting in the plots 
@@ -255,7 +255,7 @@ It is for this reason that the pre-screen requirements detailed in Section
 Participants viewed 180 experimental plots in a 3x2 factorial design. The first
 independent variable, plot size, had three levels, 63%, 100%, and 252% scales. The second
 was the presence or absence of the opacity decay function (see @fig-pilot-study-examples).
-I aimed to recruit 150 participants, but stopped after 118 due to data quality
+I aimed to recruit 150 participants, but stopped after 118 due to ongoing data quality
 issues. Nevertheless, the results provided were crucial in informing the future
 direction of the research project. I present these results in brief below.
 
@@ -399,7 +399,7 @@ with previous evidence that geometrically scaling a scatterplot up can increase
 perceptions of the strength of the correlation displayed \cite{wei_2020}. Despite
 the statistical significance of this finding, we elected at this point to abandon
 the plot size factor due to the extremely small effect (see @tbl-emmeans-pilot) and
-lack of novelty.
+lack of novelty compared to the effects of the opacity decay function.
 
 The impact of even an immature point opacity decay function on correlation estimation
 was a novel finding that I felt deserved further, and more rigorous, study. Its

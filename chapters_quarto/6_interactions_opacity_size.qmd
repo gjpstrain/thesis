@@ -436,7 +436,8 @@ hypothesised that:
 ## Stimuli {#stimuli-e4}
 
 The creation of the stimuli in this experiment follows the same general principles
-outline in Section \ref{creating-stimuli}, \chap{chap:gen_methods}. Again, equation
+outline in Section \ref{creating-stimuli}, \chap{chap:gen_methods}. `ggplot2` 
+(version 3.5.0) was used to create the stimuli. Again, equation
 6.1 was used to map point residuals to opacity and size values:
 
 \begin{equation}
@@ -573,7 +574,7 @@ hosted on Pavlovia [^1].
 Participants viewed the PIS and provided consent through key presses in response to
 consent statements. Participants were asked to provide their age and gender identity.
 Participants completed the 5-item Subjective Graph Literacy test \cite{garcia_2016},
-followed by the screen scale and point visibility tasks described in Section \ref{methods-e4}.
+followed by the screen scale and point visibility tasks described in Section \ref{method-e4}.
 Following the completion of the pre-experimental tests, participants were briefly
 shown examples of scatterplots with correlations of 0.2, 0.5, 0.8, and 0.95. Section
 \ref{results-e4} contains a discussion of the potential effects of this training.

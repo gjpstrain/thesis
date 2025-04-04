@@ -5,13 +5,14 @@
 \section{Introduction}\label{introduction}
 
 In this chapter I describe my research methodologies. The experiments
-described in chapters 4, 5, and 6 share most aspects of experimental
-method, and are therefore described in full in this chapter. Chapter 7
-features a different methodology, and is described therein. This chapter
-discusses experimental designs, the tools used to build and run the
-experiments, the approach to statistical analyses, and the computational
-methods and practices employed, particularly with regards to
-reproducibility and open science.
+described in \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size},
+and \chap{chap:interactions_opacity_size} share most aspects of
+experimental method, and are therefore described in full in this
+chapter. \chap{chap:belief_change} features a different methodology, and
+is described therein. This chapter discusses experimental designs, the
+tools used to build and run the experiments, the approach to statistical
+analyses, and the computational methods and practices employed,
+particularly with regards to reproducibility and open science.
 
 \section{Experimental Methods}\label{experimental-methods}
 
@@ -19,9 +20,9 @@ It is important to acknowledge that the way in which we conduct
 experiments influences what research questions we can ask and the
 conclusions that we may draw. The decisions that lead us to designing
 experiments in certain ways must be based not only on theory, but also
-on the external constraints imposed on the research team. Concerns such
-as time, practicality, and cost must be addressed, and a compromise
-between research that is \emph{valuable} and research that is
+on the external constraints imposed on (and by) the research team.
+Concerns such as time, practicality, and cost must be addressed, and a
+compromise between research that is \emph{valuable} and research that is
 \emph{doable} must be reached.
 
 \subsection{Experimental Design}\label{experimental-design}
@@ -33,7 +34,7 @@ where separate groups are exposed to only a single level of the
 intervention each. Where possible, within-participants designs are
 preferred. These designs do not rely on random allocation, and as each
 participant is able to provide as many data points as there are
-experiment items in levels \cite{charness_2012}, offer a significant
+experimental items in levels \cite{charness_2012}, offer a significant
 boost in statistical power over between-participant designs where each
 participant may only provide data points for a portion of the total
 experimental items. In experiments 1 to 3, each participant saw all
@@ -52,7 +53,7 @@ Figure~\ref{fig-exp4-examples}). Experiment 5 is a departure from the
 shared experimental paradigm of the previous experiments, and features a
 1 factor, 2 level between-participants design; group A saw scatterplots
 designed to elict greater levels of belief change compared to typical
-scatterplots, which were shown to group b (see
+scatterplots, which were shown to group B (see
 Figure~\ref{fig-exp5-examples}).
 
 \begin{figure}
@@ -162,14 +163,16 @@ ensures adequate levels of power despite the potential for small effects
 sizes (see Section \ref{recruitment}). Online testing also affords
 access to diverse groups of participants across our populations of
 interest, especially when compared to the relatively homogeneous student
-populations usually accessed by doctoral researchers. Research has
-identified online experimentation as producing reliable results that
-closely match those found in traditional lab-based experiments
-\cite{arechar_2018, hirao_2021, prisse_2022}, especially with large
-sample sizes. Due to its integration with PsychoPy,
+populations usually accessed in the lab by doctoral researchers.
+Research has identified online experimentation as producing reliable
+results that closely match those found in traditional lab-based
+experiments \cite{arechar_2018, hirao_2021, prisse_2022}, especially
+with large sample sizes. Due to its integration with PsychoPy,
 \href{pavlovia.org}{Pavlovia} was used to host all the experiments
 described in this thesis. Section \ref{experimental-resources} contains
-links to all experiments publicly hosted on Pavlovia's GitLab instance.
+links to all experiments publicly hosted on Pavlovia's GitLab instance;
+these links are also provided as experiments are described in each
+chapter.
 
 \subsection{Recruitment \& Participants}\label{recruitment}
 
@@ -223,10 +226,10 @@ were similar for the remainder of experiments. Exact numbers of accepted
 and rejected participants can be found in the \textbf{Participants}
 sections of each experiment.
 
-Each experiment recruited until 150 participants had completed
+Each full experiment recruited until 150 participants had completed
 successfully. Due to the novelty of this work, it was difficult to get a
-sense of the size of the effect that would be seen. I assumed a small
-effect size (Cohen's d \textasciitilde{} 0.2), and aimed to recruit
+sense of the effect sizes that would be seen. I assumed a small effect
+size (Cohen's \emph{d} \textasciitilde{} 0.2), and aimed to recruit
 enough participants to adequately power the experiments
 \cite{brysbaert_2019}. NB: I did not conduct an \emph{a priori} power
 analysis. A post-hoc power analysis of the first experiment revealed a
@@ -272,10 +275,10 @@ scatterplots was randomly generated from bivariate normal distributions
 with standard deviations of 1 in each direction. Scatterplots always had
 a 1:1 aspect ratio, and were configured such that they occupied the same
 proportion of the experimental window regardless of the size or
-resolution of a participant's monitor. From Chapter 5 onwards, a measure
-of dot pitch is included, which facilitates the approximation of the
-physical size of scatterplot points on-screen; where available, this is
-included in discussions and analyses.
+resolution of a participant's monitor. From \chap{chap:adjusting_size}
+onwards, a measure of dot pitch is included, which facilitates the
+approximation of the physical size of scatterplot points on-screen;
+where available, this is included in discussions and analyses.
 
 \section{Analytical Methods}\label{analytical-methods}
 
@@ -287,7 +290,7 @@ into account the variability in responses that can be attributed to an
 experimental manipulation against the backdrop of other variability
 inherent in the dataset. Traditional analysis of the data collected
 throughout this thesis would involve the use of repeated measures
-analyses of variance (ANOVAs). This technique assesses whether there are
+analysis of variance (ANOVA). This technique assesses whether there are
 significant differences in means of dependent variables between
 conditions. While these techniques are commonplace, they do not allow
 for comparisons of differences across the full range of individual
@@ -358,9 +361,9 @@ however they do not quantify the magnitude of the difference between
 levels of rating. Metric modelling, such as linear regression, treats
 the response options to a Likert scale as if they were numeric. Doing so
 assumes equal levels of difference between ratings, when in reality
-there is no theoretical reason to back this assumption. Metric modelling
+there is no theoretical reason to make this assumption. Metric modelling
 is therefore considered inappropriate for modelling responses to Likert
-scales \cite{liddell_2018}. In light of these issues, the
+scale data \cite{liddell_2018}. In light of these issues, the
 \texttt{ordinal} package \cite{ordinal} in R was used to build
 cumulative link mixed-effects models for the analysis of Likert scale
 data. This allows for the treatment of Likert responses as ordered
@@ -373,13 +376,13 @@ a large role in the conclusions that are drawn from them. In linear
 mixed-effects modelling, deciding \emph{what} is a fixed or random
 effect is straightforward; deciding \emph{how to specify} random effects
 is a more complicated matter. Barr et al.~\cite{barr_2013} argue that
-for fully repeated measures designs, we should prefer a maximal model;
-one with random intercepts and slopes for each participant and
-experimental item. More recently, Bates et al.~\cite{bates_2018} have
-argued that attempting to specify maximal models for insufficiently rich
-datasets may lead to overfitting and unreliable conclusions. In light of
-this I sought a more systematic approach to selecting the random effects
-structure of a given model.
+for fully repeated measures designs, a maximal model should be
+preferred; one with random intercepts and slopes for each participant
+and experimental item. More recently, Bates et al.~\cite{bates_2018}
+have argued that attempting to specify maximal models for insufficiently
+rich datasets may lead to overfitting and unreliable conclusions. In
+light of this I sought a more systematic approach to selecting the
+random effects structure of a given model.
 
 In an attempt to balance simplicity, explanatory power, and model
 convergence (whether or not a solution can be found), the
@@ -412,8 +415,8 @@ traditional measure of effect size, this demonstrated the unique
 variance in the dependent variable explained by each level of the
 independent \cite{nakagawa_2013}. Experiment 5 features a much simpler
 modelling situation, and returns to providing equivalent Cohen's
-\emph{d} values for the pre- vs post- plot viewing conditions, this time
-calculated by converting odds ratios using the \texttt{effectsize}
+\emph{d} values for the pre- vs.~post- plot viewing conditions, this
+time calculated by converting odds ratios using the \texttt{effectsize}
 package \cite{effectsize}. More details on specific calculations,
 measures, and conclusions can be found \emph{in situ}.
 
@@ -422,7 +425,7 @@ measures, and conclusions can be found \emph{in situ}.
 Throughout this thesis, a broad approach to the reporting of statistical
 analyses was taken; while I consider our analytical methods and
 conclusions valid, I also present a range of statistics to allow the
-reader to draw their own conclusions should they wish. Statistical
+reader to draw their own conclusions, should they wish. Statistical
 results are visualised where appropriate, and where visualisation aids
 understanding and interpretation. In addition, details about model
 structures and the issues I tackled when modelling are included for
@@ -472,13 +475,13 @@ present thesis.
 
 Writing executable or dynamic documents allows results to be
 re-generated whenever the document is rendered. This includes any
-associated data visualisations and statistical modelling. Structuring
-documents like this effectively ``open up'' research by allowing others
+associated data visualisation and statistical modelling. Structuring
+documents like this effectively ``opens up'' research by allowing others
 to view the code that performed the analysis and generated the data
 visualisations, in addition to guarding against accusations of
-questionable research practices through high levels of transparency
-\cite{holmes_2021}. This paradigm also allows for the caching of
-computationally expensive statistical models.
+questionable research practices (QRPs) through high levels of
+transparency \cite{holmes_2021}. This paradigm also allows for the
+caching of computationally expensive statistical models.
 
 \subsection{Containerised
 Environments}\label{containerised-environments}
@@ -573,6 +576,8 @@ the first three here:
 
 \texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}emmeans\textquotesingle{},\ version\ =\ \textquotesingle{}1.8.8\textquotesingle{},\ dependencies\ =\ T)"}
 
+\texttt{...}
+
 \section{Reproducibility In This
 Thesis}\label{reproducibility-in-this-thesis}
 
@@ -582,11 +587,11 @@ when code and data are provided, results are often not replicable, and
 this is before issues around poor research practice, inappropriate
 analysis, and dishonest science even rear their heads. While for most,
 the reproducibility crisis \cite{osf_2015} crystallised in the early
-2010s \cite{peng_2015}, concerns had been voiced since at least the late
-1960s \cite{romero_2019}. Since coming into the wider academic
-conscious, numerous studies have identified reasons for the crisis,
-ranging from poor practice (e.g Potti et al., 2006 \cite{potti_2006}) to
-outright deception and fabrication (e.g the Woo-Suk Hwang scandal
+2010s \cite{peng_2015}, serious concerns had been voiced since at least
+the late 1960s \cite{romero_2019}. Since coming into the wider academic
+consciousness, numerous studies have identified reasons for the crisis,
+ranging from poor practice (e.g.~Potti et al., 2006 \cite{potti_2006})
+to outright deception and fabrication (e.g.~the Woo-Suk Hwang scandal
 \cite{saunders_2008}). These issues led this project to strive for a
 gold standard \cite{peng_2011} of reproducibility throughout. In this
 section, I detail how this was accomplished, and in doing so, expose my
@@ -635,22 +640,22 @@ repeated using up to date packages here. Accordingly, a single
 implementation of Docker to is provided to reproduce this thesis. All
 statistics have been checked against those provided in the original
 analyses, and repositories for the corresponding papers are provided
-complete with separate Docker implementations.
+complete with original Docker implementations.
 
 \subsection{Pre-Registration of Hypotheses and Analysis
 Plans}\label{pre-registration-of-hypotheses-and-analysis-plans}
 
 Often touted as a low-cost entry point into reproducible research
-practices \cite{logg_2021}, pre-registration is the practice of
+practices \cite{logg_2021}, pre-registration is the practice of formally
 clarifying hypotheses and analysis plans prior to data collection. While
 this may not be able to prevent research fraud and QRPs entirely, it
 does lend credibility to the researcher \cite{simmons_2021}. All
 hypotheses and analysis plans were pre-registered with the Open Science
 Framework \cite{OSF}. Pre-registrations are embargoed by the research
 team prior to data collection, and then made public in a frozen state
-following publication of the corresponding research. Deviations from
-registered analysis plans are detailed in the methods sections of the
-corresponding experiments.
+following publication of the corresponding research. Where I felt it
+necessary to deviate from these plans, details are provided in the
+methods sections of the corresponding experiments.
 
 \subsection{Experimental Resources}\label{experimental-resources}
 

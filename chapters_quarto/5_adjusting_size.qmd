@@ -301,7 +301,8 @@ the wider literature described above, two hypotheses are made:
 ## Stimuli {#stimuli-e3}
 
 The creation of stimuli in this experiment follows the same general principles
-outlined in Section \ref{creating-stimuli}, \chap{chap:gen_methods}. As in \chap{chap:adjusting_opacity}, equation
+outlined in Section \ref{creating-stimuli}, \chap{chap:gen_methods}, and was
+performed using `ggplot2` (version 3.4.4). As in \chap{chap:adjusting_opacity}, equation
 5.1 was used to map point residuals to size values in the two non-linear decay conditions:
 
 \begin{equation}
@@ -681,7 +682,7 @@ The mean error in correlation estimation for the non-linear size decay condition
 in this experiment was .025, while for the equivalent opacity decay condition described
 in experiment 2 (see \chap{chap:adjusting_opacity}) was .086. This finding, along
 with the significantly higher Cohen's *d* effect size reported in this experiment
-compared to experiment 2 for the non-linear decay conditions (0.86 vs 0.19),
+compared to experiment 2 for the non-linear decay conditions (0.86 vs. 0.19),
 provides evidence that point size is a stronger encoding channel for the manipulation
 of perceived contrast than point opacity. If these effects are being driven by
 the lower salience of more external points, the fact that a larger effect of point
