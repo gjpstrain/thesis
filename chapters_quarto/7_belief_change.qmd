@@ -420,6 +420,8 @@ from trusted news sources.
 
 # Introduction {#intro-beliefs}
 
+
+
 # Related Work {#related-work-beliefs}
 
 ## From Perception to Cognition
@@ -594,9 +596,7 @@ the statement reads:
 
 ```{=tex}
 \begin{quotation}
-    ``Higher consumption of plain (non-spicy) foods
-is associated with a higher risk of certain types of cancer.''
-    
+``Higher consumption of plain (non-spicy) foods is associated with a higher risk of certain types of cancer.''
 \end{quotation}
 ```
 

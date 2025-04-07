@@ -1556,9 +1556,9 @@ together with regards to the estimation of positive correlation.
 
 In a pair of experiments, I varied the opacity of point in scatterplots both uniformly
 (experiment 1) and using functions relating point opacity to the size of a particular
-point's residual. In experiment 1, I showed that, in contradiction with previous work,
+point's residual (experiment 2). In experiment 1, I showed that, in contradiction with previous work,
 changing the opacity of all points in a scatterplot can effect participants' performance
 on a correlation estimation task. In experiment 2, I showed that varying point opacity
 as a function of a point's residual distance is able to significantly change 
-participants' correlation estimates and partially correct for a historic
+participants' correlation estimates and partially correct for a long-standing 
 underestimation bias. 

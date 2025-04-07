@@ -21,7 +21,7 @@ study combining the point opacity and size manipulations from
 \chap{chap:adjusting_opacity} and \chap{chap:adjusting_size}. In a
 condition where point opacity and size are reduced as a function of
 residual magnitude, correlation estimation is significantly biased
-upwards; a finding that suggests the effects of changing point opacity
+upwards, a finding that suggests the effects of changing point opacity
 and size are not linearly additive.
 
 \section{Introduction}\label{introduction-interactions}
@@ -41,21 +41,21 @@ question would not only allow for a deeper exploration of the potential
 mechanisms behind each decay function, but would further empower
 visualisation designers with the knowledge of how altering point
 opacities and sizes might affect people's interpretations of the
-correlations displayed therein. In a fully- reproducible, large-sample
-(N = 150) study, I show that combining point opacity and size
-manipulations can produce more powerful effects on correlation
-estimation than either effect in isolation. Additionally, I comment on
-the impact that the adjustment of each visual feature may have on
-correlation estimation, and suggest future work to tune the effects seen
-in \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and here.
+correlations displayed therein. In a fully-reproducible, large-sample (N
+= 150) study, I show that combining point opacity and size manipulations
+can produce more powerful effects on correlation estimation than either
+manipulation in isolation. Additionally, I comment on the impact that
+the adjustment of each visual feature may have on correlation
+estimation, and suggest future work to tune the effects seen in
+\chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and here.
 
 \section{Related Work}\label{related-work-interactions}
 
 Much of the related work presented here is covered in more detail in
 \chap{chap:related_work} and in Sections
 \ref{related-work-adjusting-opacity} and
-\ref{related-work-adjusting-opacity}. For the reader's convenience, and
-to properly contextualise the experimental methods and findings in the
+\ref{related-work-adjusting-size}. For the reader's convenience, and to
+properly contextualise the experimental methods and findings in the
 present chapter, this related work is reproduced in brief here.
 
 \subsection{Opacity and Contrast}\label{opacity-and-contrast}
@@ -139,7 +139,8 @@ decay act in the same direction (typical or inverted), while for
 \emph{incongruent} conditions, point opacity and size decay act against
 each other. Due to previous findings that non-linearly reducing point
 opacity or size as a function of residual magnitude can bias correlation
-estimates upwards, it is hypothesised that:
+estimates upwards, and that increasing point opacity and size can
+further bias estimates downwards, it is hypothesised that:
 
 \begin{itemize}
 \tightlist
@@ -225,20 +226,20 @@ than traditional lab-based work. It is key that the manipulations
 employed here do not remove data; this includes removing data by
 rendering it invisible. As in \chap{chap:adjusting_size}, point
 visibility testing is included to address these concerns. Participants
-were shown size scatterplots containing between 2 and 7 points; these
-points were the same size and opacity and the smallest and most opaque
-points used in the experimental stimuli. Participants were instructed to
-enter the number of points present for each plot in a textbox.
-Participants scored an average of 74.89\% (\(SD\) = 32.25\%). Despite
-the use of the opacity floor and point size constant and scaling factor,
-some of the smallest, least opaque stimuli used were clearly not visible
-to participants. This was most likely due to low contrast between the
+were shown scatterplots containing between 2 and 7 points; these points
+were the same size and opacity as the smallest and least opaque points
+used in the experimental stimuli. Participants were instructed to enter
+the number of points present for each plot in a textbox. Participants
+scored an average of 74.89\% (\(SD\) = 32.25\%). Despite the use of the
+opacity floor and point size constant and scaling factor, some of the
+smallest, least opaque stimuli used were clearly not visible to
+participants. This was most likely due to low contrast between the
 foreground (scatterplot points) and the background, as experiment 4,
 \chap{chap:adjusting_size} found visibility mostly invariant to point
 size. In an idealised experimental setup, minimum point opacity and size
 would need to calibrated on a per-monitor basis. Analysis including
 participants' performance on the point visibility task as a fixed effect
-is detailed in Section \ref{results-e4}
+is detailed in Section \ref{results-e4}.
 
 \subsection{Dot Pitch}\label{dot-pitch}
 
@@ -249,11 +250,11 @@ this was accomplished. Mean dot pitch was 0.60mm (\(SD\) = 0.09),
 corresponding to a physical on-screen size of 7.80mm on a 1920
 \(\times\) 1080 pixel monitor for the smallest points displayed on a
 hypothetical 35.54 \(\times\) 20.00cm monitor. Analysis including dot
-pitch as a fixed effect is provided in Section \ref{results-e4}
+pitch as a fixed effect is provided in Section \ref{results-e4}.
 
 \subsection{Design}\label{design-e4}
 
-A full repeated-measures, 2 \(\times\) 2 factorial design was employed.
+A fully repeated-measures, 2 \(\times\) 2 factorial design was employed.
 Each participant saw each combination of opacity and size decay function
 scatterplots for a total of 180 experimental items. Participants viewed
 these experimental items, along with 6 attention check items, in a fully
@@ -265,7 +266,7 @@ Participants viewed the PIS and provided consent through key presses in
 response to consent statements. Participants were asked to provide their
 age and gender identity. Participants completed the 5-item Subjective
 Graph Literacy test \cite{garcia_2016}, followed by the screen scale and
-point visibility tasks described in Section \ref{methods-e4}. Following
+point visibility tasks described in Section \ref{method-e4}. Following
 the completion of the pre-experimental tests, participants were briefly
 shown examples of scatterplots with correlations of 0.2, 0.5, 0.8, and
 0.95. Section \ref{results-e4} contains a discussion of the potential
@@ -358,16 +359,16 @@ correlation estimation error between all conditions besides that which
 compares the two incongruent decay conditions. Statistical testing for
 contrasts were performed using the \texttt{emmeans} package
 \cite{lenth_2024}, and are provided in Table~\ref{tbl-contrasts-e4}.
-Experiments 1, 2, and 3 all featured a comparative baseline condition.
-In the former two experiments, this was the full contrast condition (see
-\chap{chap:adjusting_opacity}), while in the latter, this was the
-standard size condition (see \chap{chap:adjusting_size}). In the current
-experiment, no baseline condition was used. Owing both to this and the
-use of a linear mixed effects model with an interaction term, the use of
-Cohen's \emph{d} as a measure of effect size would be inappropriate. In
-its place, the amounts of variance in participants' errors in
-correlation explanation explained by each fixed effect term and the
-interaction term is represented as semi-partial R\textsuperscript{2}
+Experiments 1, 2, and 3 all featured identical comparative baseline
+conditions. In the former two experiments, this was the full contrast
+condition (see \chap{chap:adjusting_opacity}), while in the latter, this
+was the standard size condition (see \chap{chap:adjusting_size}). In the
+current experiment, no baseline condition was used. Owing both to this
+and the use of a linear mixed effects model with an interaction term,
+the use of Cohen's \emph{d} as a measure of effect size would be
+inappropriate. In its place, the amounts of variance in participants'
+errors in correlation estimation explained by each fixed effect term and
+the interaction term is represented as semi-partial R\textsuperscript{2}
 \cite{nakagawa_2013}. These statistics were calculated using the
 \texttt{r2glmm} package (version 0.1.2) \cite{r2glmm}, and are presented
 along with model statistics in Table~\ref{tbl-model-stats-e4}.
@@ -396,22 +397,6 @@ Size Decay x Opacity Decay & 0.15 & 0.004 & 26327.13 & 38.47 & <0.001 & 0.034\\
 
 \end{table}%
 
-Models including participants' graph literacy, their performance on the
-point visibility task, the dot pitch of participants' monitors, and
-which half a particular correlation judgement took place were built and
-compared with the experimental model. While no significant effects of
-graph literacy (\(\chi^2\)(1) = 3.50, \emph{p} = .061), performance on
-the point visibility task (\(\chi^2\)(1) = 1.29, \emph{p} = .257), or
-dot pitch (\(\chi^2\)(1) = 1.52, \emph{p} = .218) were found, there was
-a significant effect of training (\(\chi^2\)(1) = 23.78, \emph{p}
-\textless{} .001), with participants rating correlation .01 lower during
-the second half. This drop suggests that having more recently viewed the
-training plots may have increased participants estimates of correlation.
-To further analyse this variability, a model was built including trial
-number, allowing for the analysis of error. A significant effect of
-trial number is also found (\(\chi^2\)(1) = 29.31, \emph{p} \textless{}
-.001) on participants' correlation estimation errors.
-
 \begin{figure}
 
 \centering{
@@ -427,15 +412,33 @@ curve, with the ribbon representing standard errors.}
 
 \end{figure}%
 
-Figure~\ref{fig-e4-trial-number} shows participants' unsigned mean
-errors in correlation estimation against trial number. Variability in
-error, as represented by the ribbon, stabilised quickly and remained
+Models including participants' graph literacy, their performance on the
+point visibility task, the dot pitch of participants' monitors, and
+which half of the experiment a particular correlation judgement took
+place were built and compared with the experimental model. While no
+significant effects of graph literacy (\(\chi^2\)(1) = 3.50, \emph{p} =
+.061),performance on the point visibility task (\(\chi^2\)(1) = 1.29,
+\emph{p} = .257), or dot pitch (\(\chi^2\)(1) = 1.52, \emph{p} = .218)
+were found, there was a significant effect of training (\(\chi^2\)(1) =
+23.78, \emph{p} \textless{} .001), with participants rating correlation
+.01 lower during the second half. This drop suggests that having more
+recently viewed the training plots may have increased participants'
+estimates of correlation. To further analyse this variability, a model
+was built including trial number, allowing for the analysis of error
+purely as a function of when an experimental trial took place. A
+significant effect of trial number is also found (\(\chi^2\)(1) = 29.31,
+\emph{p} \textless{} .001) on participants' correlation estimation
+errors. Figure~\ref{fig-e4-trial-number} shows participants' unsigned
+mean errors in correlation estimation against trial number. Variability
+in error, as represented by the ribbon, stabilised quickly and remained
 stable for most the experiment, only widening again around trial number
 170. The simplest explanation for this is that participants, knowing
 they were coming to the end of the experiment, became less vigilant and
 rushed their judgements more. Regardless of statistical significance,
 this effect is not large enough to warrant further investigation, at
 least as it pertains to correlation estimation in scatterplots.
+
+\section{Discussion}\label{discussion-e4}
 
 \begin{figure}
 
@@ -448,12 +451,11 @@ least as it pertains to correlation estimation in scatterplots.
 \caption{\label{fig-estimates-by-r-e4}Participants' mean errors in
 correlation estimates grouped by factor and by \textit{r} value. The
 dashed horizontal line represents perfect estimation. Participants were
-most accurate when presented with the plots featuring the non-linear
-size decay function. Error bars show standard deviations of estimates.}
+most accurate when presented with the plots in the congruent, typical
+orientation condition. Error bars show standard deviations of
+estimates.}
 
 \end{figure}%
-
-\section{Discussion}\label{discussion-e4}
 
 Hypothesis 1 received full support in this experiment. The combination
 of typical orientation opacity and size decay functions produced the
@@ -509,8 +511,8 @@ correlation visualisations:
   correlation estimates in this range.
 \item
   Outside of this range, and with the same caveats in place, designers
-  may wish to implement the opacity decay function described
-  in\chap{chap:adjusting_opacity}; while its effect on correlation
+  may wish to implement the opacity decay function described in
+  \chap{chap:adjusting_opacity}; while its effect on correlation
   estimation is small, it does significantly increase estimation
   accuracy.
 \item
@@ -522,19 +524,19 @@ correlation visualisations:
 
 \subsection{Combining Manipulations}\label{combining-manipulations}
 
-fig-e4-estimates and Figure~\ref{fig-estimates-by-r-e4} show how, on
-average, the combination of typical orientation opacity and size decay
-functions results in an overestimation of \emph{r} for the majority of
-values. While not solving the underestimation problem directly, it
-demonstrates that with regards to using point opacity and size
-manipulations to change estimates of correlation, there appear to be few
-limitations. If correlation estimation can be over-corrected, as in the
-typical orientation condition here, then there exists a \emph{tuning} of
-the opacity and size decay parameters such that the degree of correction
-is appropriate; Section \ref{future-work-e4} explores the work that
-might be done to achieve this. The combination of inverted inverted
-orientation opacity and size decay functions also had the expected
-effect, producing the lowest and least accurate estimates of
+Figure~\ref{fig-e4-estimates} and Figure~\ref{fig-estimates-by-r-e4}
+show how, on average, the combination of typical orientation opacity and
+size decay functions results in an overestimation of \emph{r} for the
+majority of values. While not solving the underestimation problem
+directly, it demonstrates that with regards to using point opacity and
+size manipulations to change estimates of correlation, there appear to
+be few limitations. If correlation estimation can be over-corrected, as
+in the typical orientation condition here, then there exists a
+\emph{tuning} of the opacity and size decay parameters such that the
+degree of correction is appropriate; Section \ref{future-work-e4}
+explores the work that might be done to achieve this. The combination of
+inverted orientation opacity and size decay functions also had the
+expected effect, producing the lowest and least accurate estimates of
 correlation. Combining inverted manipulations did not, however,
 significantly change the shape of the estimation curve (see
 Figure~\ref{fig-estimates-by-r-e4}). In addition to non-additive
@@ -564,18 +566,18 @@ experiments carried out in \chap{chap:adjusting_opacity} and
 \emph{r} estimation is constant across the range of \emph{r} values
 investigated. For example, the use of a size decay function, whether
 linear or non-linear decay in typical or inverted directions, results in
-no change in \emph{r} estimation prevision (see Section
-\ref{results-e3}, \chap{chap:adjusting_size}). When opacity was changed
-in the ways, only an inverted decay does not exhibit the conventional
-increase in \emph{r} estimation precision with increase \emph{r} value.
-In the experiment described presently, precision in \emph{r} estimation
-increased whenever a typical orientation opacity decay function was
-used. This may be part of the moderating effect of point opacity decay
-on the size decay function; the visual character of scatterplots with
-high \emph{r} values that use the size decay function eliminates the
-usual increase in precision one would expect, however the introduction
-of the opacity decay function normalises this to the point where
-precision is restored.
+no change in \emph{r} estimation precision (see Section
+\ref{results-e3}, \chap{chap:adjusting_size}). When point opacity was
+altered in the same way, only an inverted decay function does not
+exhibit the conventional increase in \emph{r} estimation precision with
+increasing objective \emph{r} value. In the experiment described
+presently, precision in \emph{r} estimation increased whenever a typical
+orientation opacity decay function was used. This may be part of the
+moderating effect of point opacity decay on the size decay function; the
+visual character of scatterplots with high \emph{r} values that use the
+size decay function eliminates the usual increase in precision one would
+expect, however the introduction of the opacity decay function
+normalises this to the point where precision is restored.
 
 \subsection{Relative Contributions of Opacity and Size
 Decay}\label{relative-contributions-of-opacity-and-size-decay}
@@ -641,14 +643,14 @@ maintaining the expected increase in \emph{r} estimation precision that
 the opacity decay function confers. The simple combination used in the
 present experiment does not represent an ideal tuning, as participants
 overestimated \emph{r} for the majority of values; the findings here do,
-however, confirm that there is the scope to bias \emph{r} to greater
-degrees compared to scatterplots that use point opacity or size decay
-functions in isolation. Precise values for the contributions of each
-encoding channel when they are used simultaneously would be needed to
-begin doing this work. To describe the effect that each decay function
-(and their combination) has on correlation estimates, new curves can be
-derived compare estimates made with opacity and size decay to those made
-without.
+however, confirm that there is the scope to bias \emph{r} estimation to
+greater degrees compared to scatterplots that use point opacity or size
+decay functions in isolation. Precise values for the contributions of
+each encoding channel when they are used simultaneously would be needed
+to begin doing this work. To describe the effect that each decay
+function (and their combination) has on correlation estimates, new
+curves can be derived that compare estimates made with opacity and size
+decay to those made without.
 
 \begin{figure}
 
@@ -686,23 +688,24 @@ made the case for opacity and size decay acting primarily through point
 salience and perceptual weighting, with the caveat that spatial
 certainty also plays a small part in the mechanism behind the effects of
 point size decay. The results in the present experiment are supportive
-of this notion, with the higher and lowest mean estimates being observed
-in the congruent typical and congruent inverted orientation conditions.
-These findings also support dot density \cite{yang_2023} and
-featured-based attention bias accounts \cite{hong_2022, sun_2016}. As
-all these mechanisms would produce similar results, making conclusions
-about the relative potential contributions of each is difficult.
-Nevertheless, on a higher level, the evidence generally points towards a
-probability distribution accounts \cite{rensink_2017, rensink_2022}. On
-a lower level, however, numerous candidate mechanisms exist. The results
-from the current experiment provide further evidence for a point
-salience/perceptual weighting account. Hong et al.~\cite{hong_2022}
-found that the inclusion of larger and more opaque scatterplot points
-was able to bias estimates of positional means, but that the relative
-contributions (weights) of these visual features with regards to
-perception change as a function of the ranges of opacities and sizes
-used. It is clear from this evidence and the present that the perceptual
-weightings of opacity and size are not the same.
+of this notion, with the highest and lowest mean estimates being
+observed in the congruent typical and congruent inverted orientation
+conditions respectively. These findings also support dot density
+\cite{yang_2023} and featured-based attention bias accounts
+\cite{hong_2022, sun_2016}. As all these mechanisms would produce
+similar results, making conclusions about the relative potential
+contributions of each is difficult. Nevertheless, on a higher level, the
+evidence generally points towards a probability distribution accounts
+\cite{rensink_2017, rensink_2022}. On a lower level, however, numerous
+candidate mechanisms exist. The results from the current experiment
+provide further evidence for a point salience/perceptual weighting
+account. Hong et al.~\cite{hong_2022} found that the inclusion of larger
+and more opaque scatterplot points was able to bias estimates of
+positional means, but that the relative contributions (weights) of these
+visual features with regards to perception change as a function of the
+ranges of opacities and sizes used. It is clear from this evidence and
+the present that the perceptual weightings of opacity and size are not
+the same.
 
 \subsection{Limitations}\label{limitations-e4}
 
@@ -756,8 +759,9 @@ The finding that combining point opacity and size manipulations
 significantly reduced point visibility suggests the potential for future
 work investigating the calibration of scatterplot visual features for a
 particular participant. Doing this would require a more dynamic
-experimental environment in which stimuli could be regenerated on the
-fly, but would allow researchers to test perceptions more accurately.
+experimental environment in which stimuli could be regenerated
+on-the-fly, but would allow researchers to test perceptions more
+accurately.
 
 Experimental limitations meant that this work did not feature a
 comparative baseline condition, unlike in \chap{chap:adjusting_opacity}
@@ -791,11 +795,11 @@ is not additive, there are a multitude of parameters that may be
 adjusted and tested to explore the relative contributions of each to the
 effects seen. The value of \emph{b}, which so far has only been b =
 0.25, is one such parameter, and controls the severity of the fall-off
-of the decay function in question. The opacity floor, size scaling
-factor, and size constant are other values that might be changed. Of
-course, the equation used is not exhaustive; future work may wish to
-investigate more complicated equations that link the objective \emph{r}
-value to the decay condition.
+in point opacity or size of the decay function in question. The opacity
+floor, size scaling factor, and size constant are other values that
+might be changed. Of course, the equation used is not exhaustive; future
+work may wish to investigate more complicated equations that link the
+objective \emph{r} value to the decay condition.
 
 Future experimental work may use the major axis through the probability
 ellipse instead of the regression line as a baseline to change point
@@ -826,15 +830,14 @@ to explore these interactions in greater detail.
 
 In a single experiment that combined the point opacity manipulation from
 \chap{chap:adjusting_opacity} and the point size manipulation from
-\chap{chap:adjusting_opacity}, evidence is provided that this
-combination is not additive in nature. In addition to opening up
-questions about the complexity of this interaction, this work shows that
-there is scope to bias correlation estimates significantly; the finding
-that the combination of non-linear opacity and size decay functions
-produces marked overestimation emphasises this. Exploring exactly how
-these decay functions interact with a view to tuning correlation
-perception is beyond the scope of this thesis; the foundation has,
-however, been laid.
+\chap{chap:adjusting_size}, evidence is provided that this combination
+is not additive in nature. In addition to opening up questions about the
+complexity of this interaction, this work shows that there is scope to
+bias correlation estimates significantly; the finding that the
+combination of non-linear opacity and size decay functions produces
+marked overestimation emphasises this. Exploring exactly how these decay
+functions interact with a view to tuning correlation perception is
+beyond the scope of this thesis; the foundation has, however, been laid.
 
 
 
