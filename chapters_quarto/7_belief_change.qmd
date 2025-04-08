@@ -420,13 +420,189 @@ from trusted news sources.
 
 # Introduction {#intro-beliefs}
 
+Research consistently finds that participants underestimate the correlation 
+displayed in positively correlated scatterplots \cite{strahan_1978,bobko_1979, cleveland_1982,
+collyer_1990, lane_1985, lauer_1989, meyer_1992, rensink_2017}. This underestimation 
+is particularly pronounced for Pearson's *r* values of 0.2 < *r* < 0.6, and has
+been replicated extensively in the current thesis. If scatterplots were solely
+used for communication between experts, then the presence of this bias would
+not be especially problematic; those trained in statistics and data visualisation
+are more likely to be aware of, and make allowances for, their biases. Unfortunately,
+this is not the case; lay people are expected to be able to use and interpret
+data visualisations on an almost daily basis. It is therefore the duty of those who design visualisations
+to design with the naive, inexperienced viewer in mind. Doing so requires us to 
+understand *how* visualisations work, and to gain an appreciation for the hidden processes
+that allow pictorial representations to convey more than words and numbers alone
+ever could.
 
+In this thesis, \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
+\chap{chap:interactions_opacity_size} demonstrate how changing the opacities and
+sizes on points on scatterplots is able to significantly alter participants' 
+estimates of correlation in positively correlated scatterplots. Substantial progress
+has been made in correcting for the underestimation bias, however these efforts
+have only provided evidence about perceptual effects using a simple direct
+estimation paradigm. While successful, this work has not yet investigated whether,
+and to what extent, these techniques can influence cognition in the context of
+real-word data visualisations and the relatedness between variables.
+
+Visualisation is a powerful tool. After all, if numerical data were sufficient
+for understanding, there would be no need to visualise beyond aesthetic 
+preference. Pattern recognition, attention, and familiarity are aspects of human
+perception and cognition that can be exploited by visualisation designers to 
+facilitate more efficient, enjoyable, and effective communication \cite{franconeri_2021}.
+This, however, is a double-edged sword; poor design, be it malevolent
+or misguided, can cause distrust, confusion, and misunderstanding amongst viewers.
+It is for these reasons that belief change in scatterplots as a consequence of 
+alternative designs is the next logical research direction for this project.
+Scatterplots, like many other data visualisations, have been submitted as 
+evidence in court cases \cite{bobko_1979}, and play key roles in organisational 
+decision-making, including in healthcare \cite{poly_2019}. It is reasonable to 
+assume that data visualisations are used to make decisions that result in positive
+or negative outcomes with regard to health and policy more generally, especially 
+given findings that in certain contexts, they are more persuasive than textual 
+information \cite{pandey_2014}. Studying the potential for new designs to alter
+beliefs about relatedness facilitates better visualisation techniques,
+but also facilitates understanding about how these designs might be used by
+malevolent actors with a view to inoculating those who engage with them.
+To this end, I present a two-experiment study. First, crowdsourcing is used to
+select part of our experimental stimuli. The propensity for previously established
+alternative scatterplot designs to alter beliefs about relatedness is then tested,
+taking into account the emotional content of the statement and the graph literacy
+and defensive confidence of participants.
 
 # Related Work {#related-work-beliefs}
 
-## From Perception to Cognition
+## Scatterplots: Developments in This Thesis
 
-## From Cognition to Belief
+```{r}
+#| label: fig-previous-manipulations
+#| include: true
+#| fig-cap: "Top row: Examples of scatterplot manipulations from previous work using an \\textit{r} value of 0.6. Bottom row: the corresponding correlation estimation behaviour across values of \\textit{r} between 0.2 and 0.99. The dashed diagonal line represents hypothetically accurate estimation, while the solid line is what is observed when participants are asked to estimate correlation."
+
+# dataframe containing values from previous work and the current is included
+# in the data folder 
+# set facet orders
+
+facet_order <- c("standard_plot", "opacity_manipulated", "size_manipulated", "additive_manipulation")
+
+# make data frame of behaviours observed with standard plot
+
+standard_alone <- read_csv("../data/exp_1_to_4_combined.csv") %>%
+    drop_na() %>%
+    filter(factor == "standard_plot") %>%
+    group_by(factor, my_rs) %>% 
+    summarise(sd = sd(difference), mean = mean(difference)) %>%
+    arrange(my_rs) %>%
+    mutate(group = ceiling(row_number() / 2)) %>%
+    group_by(group) %>%
+    summarise(
+      factor = first(factor),
+      my_rs = mean(my_rs),
+      sd = mean(sd),
+      mean = mean(mean)
+    ) %>%
+  ungroup() %>%
+  select(-group) %>%
+  mutate(slider.response = (log(1-0.88*my_rs)/log(1-0.88)))
+
+all_exp_df <- read_csv("../data/exp_1_to_4_combined.csv") %>%
+    drop_na() %>%
+    filter(factor != "standard_plot") %>%
+    group_by(factor, my_rs) %>%
+    mutate(factor = factor(factor, levels = facet_order))
+
+plotting_df <- rbind(all_exp_df, standard_alone)
+
+plot_est_prev_no_y <- function(filter) {
+  
+  plot <- plotting_df %>%
+    filter(factor == filter) %>%
+    ggplot(aes(x = my_rs, y = slider.response)) + 
+    theme_ggdist() +
+    theme(scale_y_continuous(breaks = seq(-0.4,1, 0.2)),
+        axis.text = element_text(size = 7),
+        axis.title.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        plot.margin = unit(c(0,0,0.2,0), "cm")) +
+    geom_abline(slope = 1, intercept = 0, linetype = 3) +
+    labs(x = "Objective *r") +
+    geom_smooth(se = FALSE, colour = "black", size = 0.4) +
+    xlim(0.2,1) +
+    ylim(0.1,1)
+  
+  return(plot)
+}
+
+example_plots_prev <- ggarrange(
+                      plot_example_function(slopes,
+                                            "Standard Scatterplot",
+                                            1,
+                                            0.2,
+                                            7),
+                      plot_example_function(slopes,
+                                            "Opacity Manipulation",
+                                            (1-slopes$slope_0.25),
+                                            0.2,
+                                            title_size = 7),
+                      plot_example_function(slopes,
+                                            "Size Manipulation",
+                                            1,
+                                            (1-slopes$slope_0.25),
+                                            title_size = 7),
+                      plot_example_function(slopes,
+                                            "Both Manipulations",
+                                            (1-slopes$slope_0.25),
+                                            (1-slopes$slope_0.25),
+                                            title_size = 7),
+                      nrow = 1)
+
+est_prev <- ggarrange(
+  plot_est_prev_no_y("standard_plot"),
+  plot_est_prev_no_y("opacity_manipulated"),
+  plot_est_prev_no_y("size_manipulated"),
+  plot_est_prev_no_y("additive_manipulation"), nrow = 1
+)
+
+p <- ggarrange(example_plots_prev, est_prev, nrow = 2) + annotate("line", x = 0, end = 1, y = 0.5, yend = 0)
+
+x_label <- text_grob(expression("Objective " * italic("r") * " value"))
+
+y_label <- text_grob(expression("Subjective " * italic("r") * " value"),
+                     rot = 90, hjust = 0.9)
+
+rm(example_plots_prev, plot_prev_est_no_y,    # trying to prevent env clogging
+   plot_prev_est, plotting_df,                # up when working on thesis
+   all_exp_df, standard_alone,
+   facet_order)
+
+annotate_figure(p,
+                bottom = x_label,
+                left = y_label)
+```
+
+In contradiction to previous work \cite{rensink_2014, rensink_2017}, this thesis
+has found clear and powerful effects of systematically changing the opacities
+and sizes of scatterplot points on participants' estimates of correlation in
+positively correlated scatterplots. While \chap{chap:adjusting_size}, in which
+point sizes were lowered as a function of residual distance using equation 1, provided
+the best level of correction seen so far, \chap{chap:interactions_opacity_size}
+featured the most dramatic level of correction. In that that particular condition,
+both point opacity and size were lowered as a function of residual distance
+using equation 1:
+
+\begin{equation}
+  point_{size/opacity} = 1 - b^{residual}
+\end{equation}
+
+@ fig-previous-manipulations contains a summary of the most promising point opacity 
+and size manipulations from the previous three chapters in this thesis, along with
+their effects on performance on a correlation estimation task.
+
+## Perception & Cognition in Data Visualisation
+
+
 
 # Open Research {#open-research-chap7}
 

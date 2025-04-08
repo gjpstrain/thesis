@@ -105,13 +105,13 @@ knitr::include_graphics(path = "../supplied_graphics/example_slider.png", dpi = 
 #| fig-asp: 0.275
 
 ggarrange(plot_example_function(data_with_resid, "Opacity = 0.25",
-                                0.25, 0.2, 7),
+                                0.25, 0.2, 6.5),
           plot_example_function(data_with_resid, "Opacity = 0.5",
-                                0.5, 0.2, 7),
+                                0.5, 0.2, 6.5),
           plot_example_function(data_with_resid, "Opacity = 0.75",
-                                0.75, 0.2, 7),
+                                0.75, 0.2, 6.5),
           plot_example_function(data_with_resid, "Opacity = 1",
-                                1, 0.2, 7),
+                                1, 0.2, 6.5),
           nrow = 1)
 ```
 
@@ -124,13 +124,13 @@ ggarrange(plot_example_function(data_with_resid, "Opacity = 0.25",
 #| fig-asp: 0.275
 
 ggarrange(plot_example_function(data_with_resid, "Full Opacity",
-                                1, 0.2, 8),
+                                1, 0.2, 6.5),
           plot_example_function(data_with_resid, "Linear Decay",
-                                (1-slopes$slope_linear), 0.2, 7),
+                                (1-slopes$slope_linear), 0.2, 6.5),
           plot_example_function(data_with_resid, "Non-linear Decay",
-                                (1-slopes$slope_0.25), 0.2, 7),
-          plot_example_function(data_with_resid, "Inverted\nNon-linear Decay",
-                                (1-slopes$slope_inverted), 0.2, 7),
+                                (1-slopes$slope_0.25), 0.2, 6.5),
+          plot_example_function(data_with_resid, "Inverted Non-linear Decay",
+                                (1-slopes$slope_inverted), 0.2, 6.5),
           nrow = 1)
 ```
 
@@ -143,13 +143,13 @@ ggarrange(plot_example_function(data_with_resid, "Full Opacity",
 #| fig-asp: 0.275
 
 ggarrange(plot_example_function(data_with_resid, "Standard Size",
-                                1, 0.2, 8),
+                                1, 0.2, 6.5),
           plot_example_function(data_with_resid, "Linear Decay",
-                                1, (1-slopes$slope_linear), 7),
+                                1, (1-slopes$slope_linear), 6.5),
           plot_example_function(data_with_resid, "Non-linear Decay",
-                                1, (1-slopes$slope_0.25), 7),
-          plot_example_function(data_with_resid, "Inverted\nNon-linear Decay",
-                                1, (1-slopes$slope_inverted), 7),
+                                1, (1-slopes$slope_0.25), 6.5),
+          plot_example_function(data_with_resid, "Inverted Non-linear Decay",
+                                1, (1-slopes$slope_inverted), 6.5),
           nrow = 1)
 ```
 
@@ -164,28 +164,28 @@ ggarrange(plot_example_function(data_with_resid, "Standard Size",
 example_plots_congruent <- ggarrange(plot_example_function(data_with_resid,
                                                            "Typical Orientation Size\nTypical Orientation Opacity",
                                                            (1-slopes$slope_0.25),
-                                                           (1-slopes$slope_0.25), 6),
+                                                           (1-slopes$slope_0.25), 4.5),
                                      plot_example_function(data_with_resid,
                                                            "Inverted Orientation Size\nInverted Orientation Opacity",
                                                            (1-slopes$slope_inverted),
-                                                           (1-slopes$slope_inverted), 6), nrow = 1) +
+                                                           (1-slopes$slope_inverted), 4.5), nrow = 1) +
   annotate(geom = "text",
            label = "Congruent Plots",
            x = 0.5,
-           y = 0.05, size = 3.5)
+           y = 0.03, size = 3)
                    
 example_plots_incongruent <- ggarrange(plot_example_function(slopes,
                                                              "Inverted Orientation Size\nTypical Orientation Opacity",
                                                              (1-slopes$slope_inverted),
-                                                             (1-slopes$slope_0.25), 6),
+                                                             (1-slopes$slope_0.25), 4.5),
                                        plot_example_function(slopes,
                                                              "Typical Orientation Size\nInverted Orientation Opacity",
                                                              (1-slopes$slope_0.25),
-                                                             (1-slopes$slope_inverted), 6), nrow = 1) +
+                                                             (1-slopes$slope_inverted), 4.5), nrow = 1) +
   annotate(geom = "text",
            label = "Incongruent Plots",
            x = 0.5,
-           y = 0.05, size = 3.5)
+           y = 0.03, size = 3)
 
 ggarrange(example_plots_incongruent, example_plots_congruent, nrow = 1)
 ```

@@ -34,12 +34,109 @@ from trusted news sources.
 
 \section{Introduction}\label{intro-beliefs}
 
+Research consistently finds that participants underestimate the
+correlation displayed in positively correlated scatterplots
+\cite{strahan_1978,bobko_1979, cleveland_1982,
+collyer_1990, lane_1985, lauer_1989, meyer_1992, rensink_2017}. This
+underestimation is particularly pronounced for Pearson's \emph{r} values
+of 0.2 \textless{} \emph{r} \textless{} 0.6, and has been replicated
+extensively in the current thesis. If scatterplots were solely used for
+communication between experts, then the presence of this bias would not
+be especially problematic; those trained in statistics and data
+visualisation are more likely to be aware of, and make allowances for,
+their biases. Unfortunately, this is not the case; lay people are
+expected to be able to use and interpret data visualisations on an
+almost daily basis. It is therefore the duty of those who design
+visualisations to design with the naive, inexperienced viewer in mind.
+Doing so requires us to understand \emph{how} visualisations work, and
+to gain an appreciation for the hidden processes that allow pictorial
+representations to convey more than words and numbers alone ever could.
+
+In this thesis, \chap{chap:adjusting_opacity},
+\chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}
+demonstrate how changing the opacities and sizes on points on
+scatterplots is able to significantly alter participants' estimates of
+correlation in positively correlated scatterplots. Substantial progress
+has been made in correcting for the underestimation bias, however these
+efforts have only provided evidence about perceptual effects using a
+simple direct estimation paradigm. While successful, this work has not
+yet investigated whether, and to what extent, these techniques can
+influence cognition in the context of real-word data visualisations and
+the relatedness between variables.
+
+Visualisation is a powerful tool. After all, if numerical data were
+sufficient for understanding, there would be no need to visualise beyond
+aesthetic preference. Pattern recognition, attention, and familiarity
+are aspects of human perception and cognition that can be exploited by
+visualisation designers to facilitate more efficient, enjoyable, and
+effective communication \cite{franconeri_2021}. This, however, is a
+double-edged sword; poor design, be it malevolent or misguided, can
+cause distrust, confusion, and misunderstanding amongst viewers. It is
+for these reasons that belief change in scatterplots as a consequence of
+alternative designs is the next logical research direction for this
+project. Scatterplots, like many other data visualisations, have been
+submitted as evidence in court cases \cite{bobko_1979}, and play key
+roles in organisational decision-making, including in healthcare
+\cite{poly_2019}. It is reasonable to assume that data visualisations
+are used to make decisions that result in positive or negative outcomes
+with regard to health and policy more generally, especially given
+findings that in certain contexts, they are more persuasive than textual
+information \cite{pandey_2014}. Studying the potential for new designs
+to alter beliefs about relatedness facilitates better visualisation
+techniques, but also facilitates understanding about how these designs
+might be used by malevolent actors with a view to inoculating those who
+engage with them. To this end, I present a two-experiment study. First,
+crowdsourcing is used to select part of our experimental stimuli. The
+propensity for previously established alternative scatterplot designs to
+alter beliefs about relatedness is then tested, taking into account the
+emotional content of the statement and the graph literacy and defensive
+confidence of participants.
+
 \section{Related Work}\label{related-work-beliefs}
 
-\subsection{From Perception to
-Cognition}\label{from-perception-to-cognition}
+\subsection{Scatterplots: Developments in This
+Thesis}\label{scatterplots-developments-in-this-thesis}
 
-\subsection{From Cognition to Belief}\label{from-cognition-to-belief}
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf}
+
+}
+
+\caption{\label{fig-previous-manipulations}Top row: Examples of
+scatterplot manipulations from previous work using an \textit{r} value
+of 0.6. Bottom row: the corresponding correlation estimation behaviour
+across values of \textit{r} between 0.2 and 0.99. The dashed diagonal
+line represents hypothetically accurate estimation, while the solid line
+is what is observed when participants are asked to estimate
+correlation.}
+
+\end{figure}%
+
+In contradiction to previous work \cite{rensink_2014, rensink_2017},
+this thesis has found clear and powerful effects of systematically
+changing the opacities and sizes of scatterplot points on participants'
+estimates of correlation in positively correlated scatterplots. While
+\chap{chap:adjusting_size}, in which point sizes were lowered as a
+function of residual distance using equation 1, provided the best level
+of correction seen so far, \chap{chap:interactions_opacity_size}
+featured the most dramatic level of correction. In that that particular
+condition, both point opacity and size were lowered as a function of
+residual distance using equation 1:
+
+\begin{equation}
+  point_{size/opacity} = 1 - b^{residual}
+\end{equation}
+
+@ fig-previous-manipulations contains a summary of the most promising
+point opacity and size manipulations from the previous three chapters in
+this thesis, along with their effects on performance on a correlation
+estimation task.
+
+\subsection{Perception \& Cognition in Data
+Visualisation}\label{perception-cognition-in-data-visualisation}
 
 \section{Open Research}\label{open-research-chap7}
 
