@@ -644,9 +644,13 @@ Each trial was preceded by text that either told the participant:
  items, corresponding to ~27,000 individual judgements per experiment, in a fully
  randomised order.
  
+## Open Research {#open-research-chap4}
+ 
  Both experiments were conducted according to principles of open and reproducible
- research. All data and analysis code for the original paper are available on GitHub [^1].
- Experiment 1 [^2] and 2 [^3] are hosted on Pavlovia.org, while the Open Science
+ research \cite{ayris_2018}. All data and analysis code for the original paper are available on GitHub [^1].
+ This repository also includes a Docker implementation to reproduce the original
+ computational environment the paper was written in. Experiment 1 [^2] and 2 [^3]
+ are hosted on Pavlovia.org, while the Open Science
  Framework hosts pre-registrations [^4]. It is important to note at this point
  that experiment 2 was conducted prior to experiment 1; when the original paper
  was written, the order of presentation of the experiments was swapped to make the

@@ -164,28 +164,28 @@ ggarrange(plot_example_function(data_with_resid, "Standard Size",
 example_plots_congruent <- ggarrange(plot_example_function(data_with_resid,
                                                            "Typical Orientation Size\nTypical Orientation Opacity",
                                                            (1-slopes$slope_0.25),
-                                                           (1-slopes$slope_0.25), 4.5),
+                                                           (1-slopes$slope_0.25), 6.5),
                                      plot_example_function(data_with_resid,
                                                            "Inverted Orientation Size\nInverted Orientation Opacity",
                                                            (1-slopes$slope_inverted),
-                                                           (1-slopes$slope_inverted), 4.5), nrow = 1) +
+                                                           (1-slopes$slope_inverted), 6.5), nrow = 1) +
   annotate(geom = "text",
            label = "Congruent Plots",
            x = 0.5,
-           y = 0.03, size = 3)
+           y = 0.05, size = 3)
                    
 example_plots_incongruent <- ggarrange(plot_example_function(slopes,
                                                              "Inverted Orientation Size\nTypical Orientation Opacity",
                                                              (1-slopes$slope_inverted),
-                                                             (1-slopes$slope_0.25), 4.5),
+                                                             (1-slopes$slope_0.25), 6.5),
                                        plot_example_function(slopes,
                                                              "Typical Orientation Size\nInverted Orientation Opacity",
                                                              (1-slopes$slope_0.25),
-                                                             (1-slopes$slope_inverted), 4.5), nrow = 1) +
+                                                             (1-slopes$slope_inverted), 6.5), nrow = 1) +
   annotate(geom = "text",
            label = "Incongruent Plots",
            x = 0.5,
-           y = 0.03, size = 3)
+           y = 0.05, size = 3)
 
 ggarrange(example_plots_incongruent, example_plots_congruent, nrow = 1)
 ```

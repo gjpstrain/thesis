@@ -434,6 +434,20 @@ hypothesised that:
 
 # Method {#method-e4}
 
+## Open Research {#open-research-chap6}
+
+The experiment was conducted according to the principles of open and reproducible 
+research \cite{ayris_2018}. All data and code for the original paper are maintained in a GitHub
+repository [^1]. This repository also features an implementation of a Docker
+container that enables the full recreation of the computational environment in which
+the original paper was written. The experiment itself is hosted on GitLab [^2].
+The hypotheses and analysis plans were pre-registered with the Open Science Framework (OSF)
+[^3], and no deviations from them were made.
+
+[^1]: https://github.com/gjpstrain/size_opacity_and_scatterplots
+[^2]: https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp
+[^3]: https://osf.io/j32sk
+
 ## Stimuli {#stimuli-e4}
 
 The creation of the stimuli in this experiment follows the same general principles

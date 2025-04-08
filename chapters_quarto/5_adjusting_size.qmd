@@ -298,6 +298,20 @@ the wider literature described above, two hypotheses are made:
 
 # Method {#method-e3}
 
+## Open Research {#open-research-chap5}
+
+The experiment was conducted according to the principles of open and reproducible 
+research. All data and code for the original paper are maintained in a GitHub
+repository [^1]. This repository also features an implementation of a Docker
+container that enables the full recreation of the computational environment
+the original paper was written in. The experiment itself is hosted on GitLab [^2].
+The hypotheses and analysis plans were pre-registered with the Open Science Framework (OSF)
+[^3], and there were non deviations from them.
+
+[^1]: https://github.com/gjpstrain/size_and_scatterplots
+[^2]: https://gitlab.pavlovia.org/Strain/exp_size_only
+[^3]: https://osf.io/k4gd8
+
 ## Stimuli {#stimuli-e3}
 
 The creation of stimuli in this experiment follows the same general principles
@@ -405,9 +419,7 @@ A fully repeated-measures, within-participants design was employed. Each
 participant saw and responded to each of the 180 scatterplots in a fully
 randomised order. There were four scatterplots for each of the 45 *r* values
 corresponding to the four levels of the size decay condition, examples of which are 
-shown in @fig-exp3-examples-chap5. The experiment itself is hosted on Pavlovia [^1].
-
-[^1]:https://gitlab.pavlovia.org/Strain/exp_size_only
+shown in @fig-exp3-examples-chap5.
 
 ## Procedure {#procedure-e3}
 

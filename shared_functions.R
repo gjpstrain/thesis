@@ -82,9 +82,9 @@ plot_example_function <- function (df, t, o, s, title_size) {
          title = t) +
     theme_classic() +
     theme(axis.text = element_blank(),
-          plot.margin = unit(c(0,0,0.2,0), "cm"),
+          plot.margin = unit(c(0,0,0.4,0), "cm"),
           legend.position = "none",
-          plot.title = element_text(size = 8.5, vjust = -0.1),
+          plot.title = element_text(size = title_size, vjust = -0.1),
           axis.title.x = element_blank(),
           axis.title.y = element_blank(),
           axis.line = element_line(linewidth = 0.25))

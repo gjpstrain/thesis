@@ -596,15 +596,57 @@ using equation 1:
   point_{size/opacity} = 1 - b^{residual}
 \end{equation}
 
-@ fig-previous-manipulations contains a summary of the most promising point opacity 
-and size manipulations from the previous three chapters in this thesis, along with
-their effects on performance on a correlation estimation task.
+@fig-previous-manipulations contains a summary of the point opacity and size
+manipulations from the previous three chapters in this thesis, along with
+their effects on performance on a correlation estimation task. Each manipulation
+specified employs that modality's non-linear decay function. The present experiment
+investigates the potential for alternative scatterplot designs to have effects on
+cognition. For this reason, and to facilitate comparison to the work found
+in experiments 1 to 4, the same design protocols have been utilised here, including
+the number of points (n = 128), the value of *b* (0.25), and the size scaling
+factor, additional constant, and opacity floor. For the alternative scatterplot
+condition here, the manipulation which has been previously shown to cause the
+most dramatic change in participants' estimates of correlation was used: the combination
+of non-linear opacity and size decay functions described in \chap{chap:interactions_opacity_size}
+(see the right-hand pair of plots in @fig-previous-manipulations).
 
 ## Perception & Cognition in Data Visualisation
 
-
+Interacting with data visualisation is a complex process involving bottom-up and
+top-down mechanisms \cite{shah_2011, franconeri_2021, xiong_2022}. My previous work 
+investigating alternative scatterplot designs has predominantly focused on
+perceptual factors and mechanisms; here the potential for top-down effects to bias
+participants is introduced. Recent work has established that scatterplots are able
+to induce different levels of belief change in viewers \cite{karduni_2020, markant_2023};
+this may depend on factors such as prior belief strength, attitudes, and the presence
+or absence of uncertainty visualisations. Accordingly, the pre-study is essential
+for isolating the variable of interest, the alternative scatterplot design. Data
+visualisation does not take place without context, and so the investigation of
+top-down effects is critical for providing designers with the tools to design
+visualisations that work as intended in the field. To this end, I present a 
+two-experiment study investigating the propensity for established scatterplot
+visualisation techniques to bias participants' beliefs about the levels of
+relatedness between variables.
 
 # Open Research {#open-research-chap7}
+
+All experiments in this chapter were conducted according to the principles
+of open and reproducible research \cite{ayris_2018}. All experimental code, 
+materials, and instructions are hosted on GitLab for the pretest [^1] and
+for the main test as a pair of separate experiments [^2] [^3]. The original
+paper is maintained as a GitHub repository [^4]. This repository contains
+all code, analysis, and visualisation. The repository also contains
+instructions for building a Docker container to recreate the computation
+environment the paper was written in. Pre-registrations for both the 
+pre-test [^5] and the main experiment [^6] are hosted on the Open Science
+Framework (OSF), and any deviations are noted where relevant in this chapter.
+
+[^1]: https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest
+[^2]: https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t
+[^3]: https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a
+[^4]: https://github.com/gjpstrain/beliefs_alternative_scatterplots
+[^5]: https://osf.io/xuf4d
+[^6]: https://osf.io/anmez
 
 # Pre-Study: Investigating Beliefs About Relatedness Statements {#beliefs-e5a}
 
@@ -615,10 +657,7 @@ their effects on performance on a correlation estimation task.
 ### Design {#design-e5a}
 
 Each participant saw all survey items (see Appendix A), along with the six
-attention check items, in a fully randomised order. All experimental code, 
-materials, and instructions are hosted on GitLab [^1].
-
-[^1]: https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest
+attention check items, in a fully randomised order. 
 
 ### Procedure {#procedure-e5a}
 
