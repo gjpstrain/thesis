@@ -491,10 +491,7 @@ order. The dependent variable was the level of belief change induced by
 viewing the scatterplot visualisations, so participants were tested on
 how strongly related they believed the variables described by the
 correlative statement were both \textbf{before} and \textbf{after}
-viewing the experimental items. All experimental code, materials, and
-instructions are hosted on GitLab as two separate experiments
-\footnote{https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_t}
-\footnote{https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_a}.
+viewing the experimental items.
 
 \subsubsection{Procedure}\label{procedure-e5}
 
@@ -549,6 +546,73 @@ participants took 14.2 minutes to complete the experiment (\emph{SD} =
 6.41).
 
 \subsection{Results}\label{results-e5}
+
+Likert scales capture whether one rating is higher or lower than
+another, however they do not quantify the differences between levels of
+rating. Metric modelling assuming equal levels of difference between
+ratings, such as linear regression, is therefore inappropriate
+\cite{liddell_2018}. In light of this, the \textbf{ordinal} package
+(version 2023.12-4.1 \cite{ordinal}) was used to build cumulative link
+mixed effects models to analyse Likert scale data \footnote{The linked
+  pre-registration (see Section \ref{open-research-chap7}) specifies
+  linear mixed effects models. This was an oversight; conclusions are
+  identical when using said models.}. As in previous chapters, the
+\textbf{buildmer} (version 2.11 \cite{buildmer}) package is used to
+automate the selection of the random effects structure (see Section
+\ref{model-construction} for further details). Odds ratios and
+equivalent Cohen's \emph{d} effect size values are calculated using the
+\textbf{effectsize} package (version 1.0.0 \cite{effectsize}).
+
+To test the first hypothesis, that ratings of strength of relatedness
+would be different before and after participants viewed experimental
+items, a model is built whereby the rating of strength of relatedness
+the participant made is predicted by whether it was made \textbf{before}
+or \textbf{after} viewing the experimental items. The first hypothesis
+was supported; there was a significant difference in ratings of strength
+of relatedness made before and after participants viewed the
+experimental plots. A likelihood ratio test revealed that the model
+including time of rating as a predictor explained significantly more
+variance than the null (\(\chi^2\)() = 8,046.95, \emph{p} \textless{}
+.001). This model has random intercepts for participants. Statistical
+testing providing support for this hypothesis is shown in
+Table~\ref{tbl-rating-time}. Figure~\ref{fig-descriptives-e5} shows
+means and dot plots for ratings of strength of relatedness made before
+and after viewing scatterplots in either the standard or alternative
+condition.
+
+\begin{table}
+
+\caption{\label{tbl-rating-time}Statistics for the significant main
+effect of rating time. Odds ratio and the equivalent Cohen's \textit{d}
+value is also supplied.}
+
+\centering{
+
+\begin{tabular}[t]{lrrrlrr}
+\toprule
+  & Estimate & Standard Error & Z-value & \textit{p} & Odds Ratio & Cohen's \textit{d}\\
+\midrule
+Rating Time & 3.77 & 0.049 & 76.63 & <0.001 & 43.2 & 2.08\\
+\bottomrule
+\end{tabular}
+
+}
+
+\end{table}%
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf}
+
+}
+
+\caption{\label{fig-descriptives-e5}Dot plots for pre- and post-plot
+viewing ratings of strength of relatedness for standard and alternative
+scatterplot conditions. Mean ratings are also shown as points.}
+
+\end{figure}%
 
 \subsubsection{Additional Analyses}\label{add-analyses-e5}
 

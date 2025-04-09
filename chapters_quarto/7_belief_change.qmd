@@ -1140,7 +1140,7 @@ viewing scatterplots in either the standard or alternative condition.
 #| include: true
 #| tbl-cap: "Statistics for the significant main effect of rating time. Odds ratio and the equivalent Cohen's \\textit{d} value is also supplied."
 
-make_sig_table_rating_time(rating_time_model)
+make_sig_table_rating_time(e5_rating_time_model)
 ```
 
 ```{r}
@@ -1149,7 +1149,7 @@ make_sig_table_rating_time(rating_time_model)
 #| fig-asp: 0.4
 #| fig-cap: Dot plots for pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplot conditions. Mean ratings are also shown as points.
 
-main_exp_tidy %>%
+E5_beliefs_main_tidy %>%
   mutate("condition" = recode(condition,
                             "A" = "Alternative\nScatterplot",
                             "S" = "Standard\nScatterplot"),
