@@ -393,6 +393,38 @@ topic_emotionality_e5 <- distinct(E5_beliefs_main_tidy, participant,
             sd = sd(slider_emotion.response))
 ```
 
+```{r}
+#| label: author-pre-test-ratings
+
+# NB: this code is reproduced here so that test values are accessible
+# It can also be found at item_preparation/pre_test_stim.R
+
+# Create dataframes for each rater
+
+author_A_statements <- read_csv("../data/exp5_statements_A.csv") %>%
+  rename(Topic_Emotionality_A = Topic_Emotionality,
+         Strength_of_Correlation_A = Strength_of_Correlation) %>%
+  select(-Notes)
+  
+author_B_statements <- read_csv("../data/exp5_statements_B.csv") %>%
+  rename(Topic_Emotionality_B = Topic_Emotionality,
+         Strength_of_Correlation_B = Strength_of_Correlation) %>%
+  select(-Notes)
+
+# Bind dataframes together
+
+all_ratings <- left_join(author_A_statements,
+                         author_B_statements,
+                         by = c("Number",
+                                "Statements"))
+## IRR Calculations
+
+irr_emot <- kappa2(matrix(c(all_ratings$Topic_Emotionality_A,
+                all_ratings$Topic_Emotionality_B), ncol = 2), "squared")    
+irr_corr <- kappa2(matrix(c(all_ratings$Strength_of_Correlation_A,
+                all_ratings$Strength_of_Correlation_B), ncol = 2), "squared")    
+```
+
 # Abstract {#abstract-beliefs}
 
 \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}
@@ -650,13 +682,71 @@ Framework (OSF), and any deviations are noted where relevant in this chapter.
 
 # Pre-Study: Investigating Beliefs About Relatedness Statements {#beliefs-e5a}
 
-## Introduction {#intro-e5a}
+The goal of the present study is to investigate the extent to which a novel scatterplot
+design, incorporating the findings of \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
+\chap{chap:interactions_opacity_size}, is able to alter participants' beliefs
+about correlations. Due to the targeting of lay populations, and my previous
+experience with lay participants failing to understand the term "correlation" 
+(although not the concept), I elected to operationalise correlation 
+as "strength of relatedness". There is evidence that belief change can be
+affected by prior beliefs and attitudes \cite{matejka_2015, xiong_2022}, and that
+emotion, including the content of a visualisation \cite{phelps_2006, harrison_2013}
+and the emotional state of a participant \cite{thoresen_2016} can have perceptual
+effects on participants and their performance. I was unable to find resources
+for correlative statements that included ratings for belief strength and
+emotional valence, so elected to create my own. To control for these factors
+as much as possible, the pre-study was run with the intent of finding a correlative
+statement that was matched on emotional valence and level of belief strength.
+As opposed to manually creating a list of candidate statements, I used
+the ChatGPT4 Large Language Model (LLM) \cite{chatGPT}. On the 9th April, 2024,
+ChatGPT was asked:
+
+\begin{quotation}
+    ``Generate 100 statements that describe the correlation between two variables, such as:
+     "X is associated with a higher level of Y" or
+     "As X increases, Y increases".
+    Try to match all the statements on emotionality.''
+\end{quotation}
+
+The full list of statements can be found in Appendix X. Myself and a co-author
+rated each statement on emotional valence and belief about strength of relatedness
+using Likert scales from 1 to 7. Both statement emotional valence
+and strength of relatedness were anchored at points 1 and 7: *Very Negative* and
+*Very Positive* for the former, and *Not Related At All* and *Strongly Related* for
+the latter. All other points were unlabelled. The `irr` (version 0.84.1 \cite{irr}) 
+package was used to calculate a quadratic weighted Cohen's Kappa between the raters,
+which penalises larger magnitude disagreements more harshly. Following each
+statement, a pair of Likert scales were presented labelled "Statement Emotionality"
+and "Strength of Relatedness; these scales were identical to those used by 
+myself a co-author in Section \ref{beliefs-e5a}. We agreed above chance for both
+emotional valence ($\kappa$ = `r printnum(irr_emot$value, digits = 2)`,
+*p* `r printp(irr_emot$p.value, add_equals = TRUE)`)
+and strength of relatedness ($\kappa$ = `r printnum(irr_corr$value, digits = 2)`,
+*p* `r printp(irr_corr$p.value, add_equals = TRUE)`), indicating moderate 
+levels of agreement in both cases \cite{cohen_1968, fleiss_1969}. Together, we 
+selected strongly and weakly correlated statements with the highest levels of
+absolute agreement, resulting in 14 strongly and 11 weakly correlated statements.
+These statements are reproduced in Appendix X2.
+
+## Hypotheses {#hypotheses-e5a}
+
+In an attempt to control for the potential effects of belief about strength of 
+relatedness and emotional valence in the main study, the 25 candidate statements
+selected by myself and a co-author were then tested with a representative UK
+population in order to ascertain consensus. It was hypothesised that:
+
+  - H1: there will be a significant difference in the average ratings of 
+  emotional valence between statements.[^7] 
+  - H2: there will be a significant difference in the average ratings
+  of strength of relatedness between statements.
+
+[^7]: The pre-registration for this hypothesis refers to "emotionality", as did an earlier draft of this paper. In response to reviewer comments, I clarify that it is really emotional valence that is being tested, and therefore this wording is used here.
 
 ## Method {#method-e5a}
 
 ### Design {#design-e5a}
 
-Each participant saw all survey items (see Appendix A), along with the six
+Each participant saw all 25 survey items (see Appendix A), along with the six
 attention check items, in a fully randomised order. 
 
 ### Procedure {#procedure-e5a}
@@ -668,10 +758,7 @@ that they would be asked to read statements about the relatedness between a
 pair of variables, after which they would be asked to answer some questions.
 To familiarise themselves with the sliders used to collect responses, they were
 asked to complete a practice trial in response to the statement: "As participation
-in online experiments increases, society becomes happier". Following each
-statement, a pair of Likert scales were presented labelled "Statement Emotionality"
-and "Strength of Relatedness; these scales were identical to those used by 
-myself a co-author in Section \ref{beliefs-e5a}.
+in online experiments increases, society becomes happier".
 
 ### Participants {#participants-e5a}
 
@@ -680,8 +767,8 @@ UK residency were required for participation, as the main experiment relied on f
 with data visualisations from a popular British news source. In addition to 25
 experimental items, six attention check items were included that instructed participants
 to ignore the statement and provide specific answers to the Likert scale sliders.
-No participants failed more than 2 out of 6 attention
-check items, and therefore data from all 100 were included in the full analysis
+No participants failed more than 2 out of 6 attention check items, and therefore
+data from all 100 were included in the full analysis 
 (`r printnum(E5_beliefs_pre_test_tidy_gender$Male, digits = 0)` male and 
 `r printnum(E5_beliefs_pre_test_tidy_gender$Female, digits = 0)` female). 
 Participants' mean age was `r printnum(E5_beliefs_pre_test_tidy_age$mean, digits = 1)` (*SD* = 

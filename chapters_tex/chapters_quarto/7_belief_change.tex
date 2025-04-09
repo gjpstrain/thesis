@@ -130,28 +130,142 @@ residual distance using equation 1:
   point_{size/opacity} = 1 - b^{residual}
 \end{equation}
 
-@ fig-previous-manipulations contains a summary of the most promising
-point opacity and size manipulations from the previous three chapters in
-this thesis, along with their effects on performance on a correlation
-estimation task.
+Figure~\ref{fig-previous-manipulations} contains a summary of the point
+opacity and size manipulations from the previous three chapters in this
+thesis, along with their effects on performance on a correlation
+estimation task. Each manipulation specified employs that modality's
+non-linear decay function. The present experiment investigates the
+potential for alternative scatterplot designs to have effects on
+cognition. For this reason, and to facilitate comparison to the work
+found in experiments 1 to 4, the same design protocols have been
+utilised here, including the number of points (n = 128), the value of
+\emph{b} (0.25), and the size scaling factor, additional constant, and
+opacity floor. For the alternative scatterplot condition here, the
+manipulation which has been previously shown to cause the most dramatic
+change in participants' estimates of correlation was used: the
+combination of non-linear opacity and size decay functions described in
+\chap{chap:interactions_opacity_size} (see the right-hand pair of plots
+in Figure~\ref{fig-previous-manipulations}).
 
 \subsection{Perception \& Cognition in Data
 Visualisation}\label{perception-cognition-in-data-visualisation}
 
+Interacting with data visualisation is a complex process involving
+bottom-up and top-down mechanisms
+\cite{shah_2011, franconeri_2021, xiong_2022}. My previous work
+investigating alternative scatterplot designs has predominantly focused
+on perceptual factors and mechanisms; here the potential for top-down
+effects to bias participants is introduced. Recent work has established
+that scatterplots are able to induce different levels of belief change
+in viewers \cite{karduni_2020, markant_2023}; this may depend on factors
+such as prior belief strength, attitudes, and the presence or absence of
+uncertainty visualisations. Accordingly, the pre-study is essential for
+isolating the variable of interest, the alternative scatterplot design.
+Data visualisation does not take place without context, and so the
+investigation of top-down effects is critical for providing designers
+with the tools to design visualisations that work as intended in the
+field. To this end, I present a two-experiment study investigating the
+propensity for established scatterplot visualisation techniques to bias
+participants' beliefs about the levels of relatedness between variables.
+
 \section{Open Research}\label{open-research-chap7}
+
+All experiments in this chapter were conducted according to the
+principles of open and reproducible research \cite{ayris_2018}. All
+experimental code, materials, and instructions are hosted on GitLab for
+the pretest \footnote{https://gitlab.pavlovia.org/Strain/beliefs\_scatterplots\_pretest}
+and for the main test as a pair of separate experiments \footnote{https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_t}
+\footnote{https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_a}.
+The original paper is maintained as a GitHub repository \footnote{https://github.com/gjpstrain/beliefs\_alternative\_scatterplots}.
+This repository contains all code, analysis, and visualisation. The
+repository also contains instructions for building a Docker container to
+recreate the computation environment the paper was written in.
+Pre-registrations for both the pre-test \footnote{https://osf.io/xuf4d}
+and the main experiment \footnote{https://osf.io/anmez} are hosted on
+the Open Science Framework (OSF), and any deviations are noted where
+relevant in this chapter.
 
 \section{Pre-Study: Investigating Beliefs About Relatedness
 Statements}\label{beliefs-e5a}
 
-\subsection{Introduction}\label{intro-e5a}
+The goal of the present study is to investigate the extent to which a
+novel scatterplot design, incorporating the findings of
+\chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
+\chap{chap:interactions_opacity_size}, is able to alter participants'
+beliefs about correlations. Due to the targeting of lay populations, and
+my previous experience with lay participants failing to understand the
+term ``correlation'' (although not the concept), I elected to
+operationalise correlation as ``strength of relatedness''. There is
+evidence that belief change can be affected by prior beliefs and
+attitudes \cite{matejka_2015, xiong_2022}, and that emotion, including
+the content of a visualisation \cite{phelps_2006, harrison_2013} and the
+emotional state of a participant \cite{thoresen_2016} can have
+perceptual effects on participants and their performance. I was unable
+to find resources for correlative statements that included ratings for
+belief strength and emotional valence, so elected to create my own. To
+control for these factors as much as possible, the pre-study was run
+with the intent of finding a correlative statement that was matched on
+emotional valence and level of belief strength. As opposed to manually
+creating a list of candidate statements, I used the ChatGPT4 Large
+Language Model (LLM) \cite{chatGPT}. On the 9th April, 2024, ChatGPT was
+asked:
+
+\begin{quotation}
+    ``Generate 100 statements that describe the correlation between two variables, such as:
+     "X is associated with a higher level of Y" or
+     "As X increases, Y increases".
+    Try to match all the statements on emotionality.''
+\end{quotation}
+
+The full list of statements can be found in Appendix X. Myself and a
+co-author rated each statement on emotional valence and belief about
+strength of relatedness using Likert scales from 1 to 7. Both statement
+emotional valence and strength of relatedness were anchored at points 1
+and 7: \emph{Very Negative} and \emph{Very Positive} for the former, and
+\emph{Not Related At All} and \emph{Strongly Related} for the latter.
+All other points were unlabelled. The \texttt{irr} (version 0.84.1
+\cite{irr}) package was used to calculate a quadratic weighted Cohen's
+Kappa between the raters, which penalises larger magnitude disagreements
+more harshly. Following each statement, a pair of Likert scales were
+presented labelled ``Statement Emotionality'' and ``Strength of
+Relatedness; these scales were identical to those used by myself a
+co-author in Section \ref{beliefs-e5a}. We agreed above chance for both
+emotional valence (\(\kappa\) = 0.49, \emph{p} \textless{} .001) and
+strength of relatedness (\(\kappa\) = 0.51, \emph{p} \textless{} .001),
+indicating moderate levels of agreement in both cases
+\cite{cohen_1968, fleiss_1969}. Together, we selected strongly and
+weakly correlated statements with the highest levels of absolute
+agreement, resulting in 14 strongly and 11 weakly correlated statements.
+These statements are reproduced in Appendix X2.
+
+\subsection{Hypotheses}\label{hypotheses-e5a}
+
+In an attempt to control for the potential effects of belief about
+strength of relatedness and emotional valence in the main study, the 25
+candidate statements selected by myself and a co-author were then tested
+with a representative UK population in order to ascertain consensus. It
+was hypothesised that:
+
+\begin{itemize}
+\tightlist
+\item
+  H1: there will be a significant difference in the average ratings of
+  emotional valence between statements.\footnote{The pre-registration
+    for this hypothesis refers to ``emotionality'', as did an earlier
+    draft of this paper. In response to reviewer comments, I clarify
+    that it is really emotional valence that is being tested, and
+    therefore this wording is used here.}
+\item
+  H2: there will be a significant difference in the average ratings of
+  strength of relatedness between statements.
+\end{itemize}
 
 \subsection{Method}\label{method-e5a}
 
 \subsubsection{Design}\label{design-e5a}
 
-Each participant saw all survey items (see Appendix A), along with the
-six attention check items, in a fully randomised order. All experimental
-code, materials, and instructions are hosted on GitLab \footnote{https://gitlab.pavlovia.org/Strain/beliefs\_scatterplots\_pretest}.
+Each participant saw all 25 survey items (see Appendix A), along with
+the six attention check items, in a fully randomised order.
 
 \subsubsection{Procedure}\label{procedure-e5a}
 
@@ -163,10 +277,7 @@ relatedness between a pair of variables, after which they would be asked
 to answer some questions. To familiarise themselves with the sliders
 used to collect responses, they were asked to complete a practice trial
 in response to the statement: ``As participation in online experiments
-increases, society becomes happier''. Following each statement, a pair
-of Likert scales were presented labelled ``Statement Emotionality'' and
-``Strength of Relatedness; these scales were identical to those used by
-myself a co-author in Section \ref{beliefs-e5a}.
+increases, society becomes happier''.
 
 \subsubsection{Participants}\label{participants-e5a}
 
