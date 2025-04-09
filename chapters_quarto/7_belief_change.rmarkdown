@@ -21,6 +21,7 @@ execute:
   message: false
   include: false 
 ---
+
 ```{r}
 #| label: setup
 
@@ -425,6 +426,8 @@ irr_corr <- kappa2(matrix(c(all_ratings$Strength_of_Correlation_A,
                 all_ratings$Strength_of_Correlation_B), ncol = 2), "squared")    
 ```
 
+
+
 # Abstract {#abstract-beliefs}
 
 \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}
@@ -505,6 +508,8 @@ and defensive confidence of participants.
 # Related Work {#related-work-beliefs}
 
 ## Scatterplots: Developments in This Thesis
+
+
 
 ```{r}
 #| label: fig-previous-manipulations
@@ -613,6 +618,8 @@ annotate_figure(p,
                 bottom = x_label,
                 left = y_label)
 ```
+
+
 
 In contradiction to previous work \cite{rensink_2014, rensink_2017}, this thesis
 has found clear and powerful effects of systematically changing the opacities
@@ -778,6 +785,8 @@ minutes (*SD* = `r printnum(time_taken_e5a$sd, digits = 1)` minutes).
 
 ## Results {#results-e5a}
 
+
+
 ```{r}
 #| label: kappa-pre-test
 
@@ -831,6 +840,8 @@ consensus_df <- avg_emot %>%
   slice_head(n =  2)
 ```
 
+
+
 As before, the `irr` package \cite{irr} to measure interrater agreement on 
 statement emotional valence and strength of relatedness for the 25 experimental
 items. This analysis revealed that participants agreed above chance on statement
@@ -840,6 +851,8 @@ and strength of relatedness ($\kappa$ = `r printnum(belief_kappa$value, digits =
 *p* `r printp(belief_kappa$p.value, add_equals = TRUE)`).
 
 ## Selecting Statements for the Main Experiment {#selecting-statements-e5a}
+
+
 
 ```{r}
 #| label: tbl-candidate-statements
@@ -856,6 +869,8 @@ candidate_statements <- read_csv("../data/experimental_dataframes/e5a_exp_datafr
 
 kbl(candidate_statements, booktabs = TRUE, format = "latex")
 ```
+
+
 
 Statements represents neutral emotional valence were selected to control for the
 potential effects of statement emotionality in the main experiment. Statements
@@ -896,11 +911,15 @@ The statement selected exhibits the lowest average level of belief about strengt
 of relatedness and the 2^nd^ highest level of consensus. Modified for directionality,
 the statement reads:
 
+
+
 ```{=tex}
 \begin{quotation}
 ``Higher consumption of plain (non-spicy) foods is associated with a higher risk of certain types of cancer.''
 \end{quotation}
 ```
+
+
 
 To maximise the likelihood of finding an effect of viewing alternative scatterplots,
 the stimuli were designed based on a popular British news source and the data
@@ -964,6 +983,8 @@ of emotional valence are also collected during the main study.
 
 ### Stimuli {#stimuli-e5}
 
+
+
 ```{r}
 #| label: fig-exp5-examples-chap7
 #| include: true
@@ -992,6 +1013,8 @@ ggarrange(example_plot_function_exp5(slopes_exp5,
            y = 0.1,
            size = 3)
 ```
+
+
 
 After selecting a correlative statement describing a weak relationship and with
 a high level of consensus between participants, the `ggplot2` package (version 3.5.1)
@@ -1075,6 +1098,8 @@ minutes to complete the experiment (*SD* = `r printnum(time_taken_e5$sd)`).
 
 ## Results {#results-e5}
 
+
+
 ```{r}
 #| label: model-e5-rating-time
 #| eval: !expr params$eval_models
@@ -1106,6 +1131,8 @@ e5_rating_time_model_cmpr <- comparison(e5_rating_time_model)
 anova_results(e5_rating_time_model, e5_rating_time_model_cmpr)
 ```
 
+
+
 Likert scales capture whether one rating is higher or lower than another, however
 they do not quantify the differences between levels of rating. Metric modelling
 assuming equal levels of difference between ratings, such as linear regression, 
@@ -1134,6 +1161,8 @@ intercepts for participants. Statistical testing providing support for this
 hypothesis is shown in @tbl-rating-time. @fig-descriptives-e5 shows means and dot
 plots for ratings of strength of relatedness made before and after
 viewing scatterplots in either the standard or alternative condition.
+
+
 
 ```{r}
 #| label: tbl-rating-time
@@ -1191,6 +1220,8 @@ main_exp_tidy %>%
 ```
 
 
+
+
 ### Additional Analyses {#add-analyses-e5}
 
 ## Discussion {#discussion-e5}
@@ -1202,3 +1233,4 @@ main_exp_tidy %>%
 # Limitations {#limitations-e5}
 
 # Future Work {#future-work-e5}
+

@@ -441,7 +441,7 @@ used to build cumulative link mixed-effects models for the analysis of Likert
 scale data. This allows for the treatment of Likert responses as
 ordered factors as opposed to continuous response scales.
 
-## Model Construction
+## Model Construction {#model-construction}
 
 Choices are inherent in every type of statistical analysis, and can play a large
 role in the conclusions that are drawn from them. In linear mixed-effects modelling,
