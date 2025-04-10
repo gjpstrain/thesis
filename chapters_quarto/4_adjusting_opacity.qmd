@@ -680,7 +680,7 @@ compared to higher opacity plots will be observed.
 
 ### Participants {#participants-e1}
 
-150 participants were recruited using the Prolific platform \cite{prolific}. Normal to
+150 participants were recruited using the Prolific platform \cite{prolific}. Normal or
 corrected-to-normal vision and English fluency were required. Participants who
 had completed the pilot study were prevented from participating. Data were collected
 from 158 participants. 8 failed more than 2 out of 6 attention check questions,

@@ -603,7 +603,7 @@ slider to 0 or 1.
 ## Participants {#participants-e4}
 
 150 participants were recruited using the Prolific platform \cite{prolific}.
-Normal to corrected-to-normal vision and English fluency were required. Participants who
+Normal or corrected-to-normal vision and English fluency were required. Participants who
 had completed any of the experiments described in \chap{chap:adjusting_opacity} or \chap{chap:adjusting_size}
 were prevented from participating. Data were collected from 158 participants.
 8 failed more than 2 out of 6 attention check questions,

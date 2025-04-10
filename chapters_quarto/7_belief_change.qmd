@@ -432,28 +432,27 @@ show through four experiments that point opacity and size changes can have power
 effects on participants' estimates of correlation in positively correlated
 scatterplots. In \chap{chap:adjusting_opacity}, global and spatially-dependent 
 adjustments in point opacity were employed, and a small, but statistically 
-significant level of correction for a historic underestimation bias of positive 
+significant level of correction for the underestimation of positive 
 correlation was found. Spatially-dependent adjustment of point size, in which
 size is reduced as a function of residual error, was found in \chap{chap:adjusting_size}
 to produce much stronger effects on estimates of correlation; the non-linear decay
 function used in that experiment produced higher levels of correction and resulted
-in highly accurate correlation estimates. In \chap{chap:interactions_opacity_size},
+in highly accurate correlation estimates (see Figure \ref{fig-estimates-by-r-e3}, \chap{chap:adjusting_size). In \chap{chap:interactions_opacity_size},
 these point opacity and size manipulations were combined. Their combination was
 found to produce stronger effects than would be expected if they were linearly
 additive. While my efforts at correcting for the underestimation bias were successful,
 my work has not yet attempted to investigate whether any of the techniques developed
 in this thesis may be used to change people's cognitions about data. Therefore, for my final 
-experimental chapter, I show that scatterplot manipulations that are able to correct for a historic
+experimental chapter, I show that scatterplot manipulations that are able to correct for a historical
 correlation underestimation bias are also able to induce stronger levels of belief
-change in viewers compared to conventional plots showing identical data. In a pre-study
+change in viewers compared to conventional plots showing identical data. Through a pre-study
 and main experiment, I provide evidence that adjusting visual features in scatterplots
 can go beyond simple perceptual effects to influence beliefs about information
 from trusted news sources.
 
 # Introduction {#intro-beliefs}
 
-Research consistently finds that participants underestimate the correlation 
-displayed in positively correlated scatterplots \cite{strahan_1978,bobko_1979, cleveland_1982,
+Research consistently finds that the correlation displayed in positively correlated scatterplots is underestimated \cite{strahan_1978,bobko_1979, cleveland_1982,
 collyer_1990, lane_1985, lauer_1989, meyer_1992, rensink_2017}. This underestimation 
 is particularly pronounced for Pearson's *r* values of 0.2 < *r* < 0.6, and has
 been replicated extensively in the current thesis. If scatterplots were solely
@@ -469,7 +468,7 @@ ever could.
 
 In this thesis, \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
 \chap{chap:interactions_opacity_size} demonstrate how changing the opacities and
-sizes on points on scatterplots is able to significantly alter participants' 
+sizes of points in scatterplots is able to significantly alter participants' 
 estimates of correlation in positively correlated scatterplots. Substantial progress
 has been made in correcting for the underestimation bias, however these efforts
 have only provided evidence about perceptual effects using a simple direct
@@ -494,10 +493,10 @@ or negative outcomes with regard to health and policy more generally, especially
 given findings that in certain contexts, they are more persuasive than textual 
 information \cite{pandey_2014}. Studying the potential for new designs to alter
 beliefs about relatedness facilitates better visualisation techniques,
-but also facilitates understanding about how these designs might be used by
+but also effects understanding about how these designs might be used by
 malevolent actors with a view to inoculating those who engage with them.
 To this end, I present a two-experiment study. First, crowdsourcing is used to
-select part of our experimental stimuli. The propensity for previously established
+select part of the experimental stimuli. The propensity for previously established
 alternative scatterplot designs to alter beliefs about relatedness is then tested,
 taking into account the emotional content of the statement and the graph literacy
 and defensive confidence of participants.
@@ -618,11 +617,11 @@ In contradiction to previous work \cite{rensink_2014, rensink_2017}, this thesis
 has found clear and powerful effects of systematically changing the opacities
 and sizes of scatterplot points on participants' estimates of correlation in
 positively correlated scatterplots. While \chap{chap:adjusting_size}, in which
-point sizes were lowered as a function of residual distance using equation 1, provided
+point sizes were lowered as a function of residual distance, provided
 the best level of correction seen so far, \chap{chap:interactions_opacity_size}
 featured the most dramatic level of correction. In that that particular condition,
 both point opacity and size were lowered as a function of residual distance
-using equation 1:
+using equation 7.1:
 
 \begin{equation}
   point_{size/opacity} = 1 - b^{residual}
@@ -631,9 +630,9 @@ using equation 1:
 @fig-previous-manipulations contains a summary of the point opacity and size
 manipulations from the previous three chapters in this thesis, along with
 their effects on performance on a correlation estimation task. Each manipulation
-specified employs that modality's non-linear decay function. The present experiment
+specified employs the labelled non-linear decay function(s). The present experiment
 investigates the potential for alternative scatterplot designs to have effects on
-cognition. For this reason, and to facilitate comparison to the work found
+cognition. For this reason, and to facilitate comparison to the work carried out
 in experiments 1 to 4, the same design protocols have been utilised here, including
 the number of points (n = 128), the value of *b* (0.25), and the size scaling
 factor, additional constant, and opacity floor. For the alternative scatterplot
@@ -646,7 +645,7 @@ of non-linear opacity and size decay functions described in \chap{chap:interacti
 
 Interacting with data visualisation is a complex process involving bottom-up and
 top-down mechanisms \cite{shah_2011, franconeri_2021, xiong_2023}. My previous work 
-investigating alternative scatterplot designs has predominantly focused on
+investigating alternative scatterplot designs has focused on
 perceptual factors and mechanisms; here the potential for top-down effects to bias
 participants is introduced. Recent work has established that scatterplots are able
 to induce different levels of belief change in viewers \cite{karduni_2020, markant_2023};
@@ -668,7 +667,7 @@ materials, and instructions are hosted on GitLab for the pretest [^1] and
 for the main test as a pair of separate experiments [^2] [^3]. The original
 paper is maintained as a GitHub repository [^4]. This repository contains
 all code, analysis, and visualisation. The repository also contains
-instructions for building a Docker container to recreate the computation
+instructions for building a Docker container to recreate the computational
 environment the paper was written in. Pre-registrations for both the 
 pre-test [^5] and the main experiment [^6] are hosted on the Open Science
 Framework (OSF), and any deviations are noted where relevant in this chapter.
@@ -703,8 +702,8 @@ ChatGPT was asked:
 
 \begin{quotation}
     ``Generate 100 statements that describe the correlation between two variables, such as:
-     "X is associated with a higher level of Y" or
-     "As X increases, Y increases".
+     ``X is associated with a higher level of Y" or
+     ``As X increases, Y increases".
     Try to match all the statements on emotionality.''
 \end{quotation}
 
@@ -717,8 +716,7 @@ the latter. All other points were unlabelled. The `irr` (version 0.84.1 \cite{ir
 package was used to calculate a quadratic weighted Cohen's Kappa between the raters,
 which penalises larger magnitude disagreements more harshly. Following each
 statement, a pair of Likert scales were presented labelled "Statement Emotionality"
-and "Strength of Relatedness; these scales were identical to those used by 
-myself a co-author in Section \ref{beliefs-e5a}. We agreed above chance for both
+and "Strength of Relatedness". We agreed above chance for both
 emotional valence ($\kappa$ = `r printnum(irr_emot$value, digits = 2)`,
 *p* `r printp(irr_emot$p.value, add_equals = TRUE)`)
 and strength of relatedness ($\kappa$ = `r printnum(irr_corr$value, digits = 2)`,
@@ -746,7 +744,7 @@ population in order to ascertain consensus. It was hypothesised that:
 
 ### Design {#design-e5a}
 
-Each participant saw all 25 survey items (see Appendix A), along with the six
+The pre-study featured a within-subjects design. Each participant saw all 25 survey items (see Appendix A), along with the six
 attention check items, in a fully randomised order. 
 
 ### Procedure {#procedure-e5a}
@@ -831,7 +829,7 @@ consensus_df <- avg_emot %>%
   slice_head(n =  2)
 ```
 
-As before, the `irr` package \cite{irr} to measure interrater agreement on 
+As before, the `irr` package (version 0.84.1 \cite{irr}) was used to measure interrater agreement on 
 statement emotional valence and strength of relatedness for the 25 experimental
 items. This analysis revealed that participants agreed above chance on statement
 emotional valence ($\kappa$ = `r printnum(emot_kappa$value, digits = 2)`,
@@ -857,7 +855,7 @@ candidate_statements <- read_csv("../data/experimental_dataframes/e5a_exp_datafr
 kbl(candidate_statements, booktabs = TRUE, format = "latex")
 ```
 
-Statements represents neutral emotional valence were selected to control for the
+Statements representing neutral emotional valence were selected to control for the
 potential effects of statement emotionality in the main experiment. Statements
 with average emotionality ratings between 3 and 5 are statements 
 `r printnum(add_and_to_numbers(avg_emot$item_no), digits = 0)`, which can be seen
@@ -890,7 +888,7 @@ ratings across all raters. Statement emotionality and strength of relatedness ar
 tested with participants in the main study and included as fixed effects as part
 of the analyses.
 
-# Main Experiment: Alternative Scatterplot Designs and Beliefs about Relatedness {#beliefs-main-e5}
+# Main Experiment: Alternative Scatterplot Designs and Beliefs {#beliefs-main-e5}
 
 The statement selected exhibits the lowest average level of belief about strength
 of relatedness and the 2^nd^ highest level of consensus. Modified for directionality,
@@ -909,7 +907,7 @@ Participants were told that the news source had requested their identity be obsc
 They were debriefed that this was not the case, and in fact the data were false,
 at the end of the experiment. Based on evidence that beliefs can change after
 viewing visualisations \cite{karduni_2020, markant_2023}, and that scatterplots
-employing point opacity and size manipulations described in \ref{related-work-beliefs}
+employing point opacity and size manipulations described in Section \ref{related-work-beliefs}
 are able to affect perceptual estimates, the following hypotheses were made:
 
 ## Hypotheses {#hypotheses-e5}
@@ -920,7 +918,7 @@ are able to affect perceptual estimates, the following hypotheses were made:
   - H2: this difference will be greatest when participants are exposed
   to scatterplots in the alternative scatterplot condition.
   
-Exploratory investigations taking into account participants' scores on a defensive
+Exploratory investigations also took place taking into account participants' scores on a defensive
 confidence test, their scores on a graph literacy test, and each participant's rating
 of the emotional valence of the correlative statement used. Analysis including each of
 these factors can be found in Section \ref{add-analyses-e5}, and their inclusion is
@@ -944,7 +942,7 @@ all other points being unlabelled.
 No effect of graph literacy was found in experiments 1 to 4 (see \chap{chap:adjusting_opacity},
 \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}). Despite 
 this, the scale was included here due to the higher predicted cognitive load
-of the current tasks, along with evidence that graph literacy may affect performance on more cognitively
+of the current tasks, as there is evidence that graph literacy may affect performance on more cognitively
 demanding visualisation tasks \cite{canham_2010, okan_2012}. Additionally, the graph
 literacy test used \cite{garcia_2016} is extremely short; in the present study,
 this took participants an average of `r printnum(literacy_e5$mean_time, digits = 0)`
@@ -967,27 +965,26 @@ of emotional valence are also collected during the main study.
 ```{r}
 #| label: fig-exp5-examples-chap7
 #| include: true
-#| fig-cap: Examples of the experimental stimuli for experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the right, while group B saw the typical design on the left. 
+#| fig-cap: Examples of the experimental stimuli for experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the left, while group B saw the typical design on the right. The labels below the plots are included for the reader's convenience, and were not a part of the experimental stimuli. 
 #| fig-asp: 0.7
 
 ggarrange(example_plot_function_exp5(slopes_exp5,
                                      0.6,
-                                     typical,
-                                     standard_alpha,
-                                     bbc_style()),
-          example_plot_function_exp5(slopes_exp5,
-                                     0.6,
                                      slopeI,
                                      slopeI_floored,
                                      bbc_style()),
-          nrow = 1) +
+          example_plot_function_exp5(slopes_exp5,
+                                     0.6,
+                                     typical,
+                                     standard_alpha,
+                                     bbc_style()), nrow = 1) +
   annotate(geom = "text",
-           label = "Typical Scatterplot",
+           label = "ATypical Scatterplot",
            x = 0.25,
            y = 0.1,
            size = 3) +
   annotate(geom = "text",
-           label = "Atypical Scatterplot",
+           label = "Typical Scatterplot",
            x = 0.75,
            y = 0.1,
            size = 3)
@@ -1027,15 +1024,14 @@ to displayed consent statements. Participants were then asked to provide
 their age and gender identity. Following this, participants completed
 the 5-item Subjective Graph Literacy scale as in previous experiments
 \cite{garcia_2016}, and Albarracín and Mitchell's \cite{albarracin_2004} 12-item defensive confidence
-scale . To give legitimacy to the data visualisations with hope of
+scale . To give legitimacy to the data visualisations with the hope of
 maximising any potential belief change, participants were told that the graphs
 they would see were taken from a well-known British news source, but that the
 identity of this source had been obscured at their request. To promote 
 engagement with the visualisations, participants were instructed to use a slider
 to estimate the correlation displayed in each scatterplot; no hypotheses were made 
-based on these data, and in the published paper this chapter was based on, they
-were not analysed. For completeness sake, I analyse this data in Section \ref{add-analyses-e5}
-here. Following instructions, which included textual descriptions of scatterplots
+based on these data, and therefore they were not analysed further. 
+Following instructions, which included textual descriptions of scatterplots
 and Pearson's *r*, participants were given two practice trials; these trials
 took the form of a typical "standard scatterplot" trial from experiment 1.
 Participants were then asked to indicate their beliefs about emotional valence
@@ -1050,9 +1046,9 @@ to 0 or 1.
 ### Participants {#participants-e5}
 
 150 participants were recruited using the Prolific platform \cite{prolific}.
-Normal to corrected-to-normal vision and English fluency were required. As in
+Normal or corrected-to-normal vision and English fluency were required. As in
 the pre-study, UK residency was required of participants, as the experiment relied
-on familiarity with the style of a British news source. Participants who took part
+on familiarity with the visual style of a British news source. Participants who took part
 in the pre-study, or in any of the experiments described in \chap{chap:adjusting_opacity},
 \chap{chap:adjusting_size}, or \chap{chap:interactions_opacity_size} were prevented
 from completing this experiment. Data were collected from 77 participants in 
