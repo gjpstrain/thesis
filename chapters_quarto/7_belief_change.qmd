@@ -72,6 +72,11 @@ exp_5_main_T_anon <- read_csv("../data/exp_5_main_data_T.csv") %>%
 
 source("../shared_functions.R")
 ```
+```{r}
+#| label: retrieve-cached-models-chap7
+
+if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
+```
 
 ```{r}
 #| label: wrangle-data
@@ -348,7 +353,7 @@ make_sig_table_interact <- function (model) {
     mutate("Effect" = recode(Effect,
                                "rating_timepost_bel" = "Rating Time",
                                "conditionS" = "Condition",
-                               "rating_timepost_bel:conditionS" = "Rating Time x Condition")) %>%
+                               "rating_timepost_bel:conditionS" = "Rating Time $x$ Condition")) %>%
     column_to_rownames(var = "Effect")
  
   table <- kbl(df, booktabs = T, digits = c(2,3,2,2,2,2,3), escape = F)
@@ -437,7 +442,7 @@ correlation was found. Spatially-dependent adjustment of point size, in which
 size is reduced as a function of residual error, was found in \chap{chap:adjusting_size}
 to produce much stronger effects on estimates of correlation; the non-linear decay
 function used in that experiment produced higher levels of correction and resulted
-in highly accurate correlation estimates (see Figure \ref{fig-estimates-by-r-e3}, \chap{chap:adjusting_size). In \chap{chap:interactions_opacity_size},
+in highly accurate correlation estimates (see Figure \ref{fig-estimates-by-r-e3}, \chap{chap:adjusting_size}. In \chap{chap:interactions_opacity_size},
 these point opacity and size manipulations were combined. Their combination was
 found to produce stronger effects than would be expected if they were linearly
 additive. While my efforts at correcting for the underestimation bias were successful,
@@ -452,7 +457,8 @@ from trusted news sources.
 
 # Introduction {#intro-beliefs}
 
-Research consistently finds that the correlation displayed in positively correlated scatterplots is underestimated \cite{strahan_1978,bobko_1979, cleveland_1982,
+Research consistently finds that the correlation displayed in positively 
+correlated scatterplots is underestimated \cite{strahan_1978,bobko_1979, cleveland_1982,
 collyer_1990, lane_1985, lauer_1989, meyer_1992, rensink_2017}. This underestimation 
 is particularly pronounced for Pearson's *r* values of 0.2 < *r* < 0.6, and has
 been replicated extensively in the current thesis. If scatterplots were solely
@@ -767,8 +773,8 @@ experimental items, six attention check items were included that instructed part
 to ignore the statement and provide specific answers to the Likert scale sliders.
 No participants failed more than 2 out of 6 attention check items, and therefore
 data from all 100 were included in the full analysis 
-(`r printnum(E5_beliefs_pre_test_tidy_gender$Male, digits = 0)` male and 
-`r printnum(E5_beliefs_pre_test_tidy_gender$Female, digits = 0)` female). 
+(`r printnum(E5_beliefs_pre_test_tidy_gender$Male)` male and 
+`r printnum(E5_beliefs_pre_test_tidy_gender$Female)` female). 
 Participants' mean age was `r printnum(E5_beliefs_pre_test_tidy_age$mean, digits = 1)` (*SD* = 
 `r printnum(E5_beliefs_pre_test_tidy_age$sd, digits = 1)`). The average time 
 taken to complete the survey was `r printnum(time_taken_e5$mean, digits = 1)`
@@ -1055,9 +1061,9 @@ from completing this experiment. Data were collected from 77 participants in
 each condition. 2 participants failed more than 2 out of 4 attention check
 questions for each condition, meaning their data were excluded per
 pre-registration stipulations. Data from the remaining 150 participants were
-included in the full analysis (`r printnum(E5_beliefs_main_tidy_gender$Male, digits = 2)` male,
-`r printnum(E5_beliefs_main_tidy_gender$Female, digits = 2)` female, and 
-`r printnum(E5_beliefs_main_tidy_gender$'Non-binary', digits = 2)` non-binary).
+included in the full analysis (`r printnum(E5_beliefs_main_tidy_gender$Male)` male,
+`r printnum(E5_beliefs_main_tidy_gender$Female)`  female, and 
+`r printnum(E5_beliefs_main_tidy_gender$'Non-binary')` non-binary).
 Participants' mean age was `r printnum(E5_beliefs_main_tidy_age$mean, digits = 1)`
 (*SD* = `r printnum(E5_beliefs_main_tidy_age$sd, digits = 1)`). Participants' 
 mean graph literacy score was `r printnum(E5_beliefs_main_tidy_graph_literacy$mean, digits = 1)`
@@ -1099,7 +1105,7 @@ e5_rating_time_model_cmpr <- comparison(e5_rating_time_model)
 
 # run ANOVA between experimental and comparison models, outputs stats in global env
 
-anova_results(e5_rating_time_model, e5_rating_time_model_cmpr)
+anova_results_e5(e5_rating_time_model, e5_rating_time_model_cmpr)
 ```
 
 ```{r}
@@ -1132,7 +1138,7 @@ e5_condition_interact_model_cmpr <- comparison(e5_condition_interact_model)
 
 # extract ANOVA results for relative vs null model comparison
 
-anova_results(e5_condition_interact_model, e5_condition_interact_model_cmpr)
+anova_results_e5(e5_condition_interact_model, e5_condition_interact_model_cmpr)
 ```
 
 Likert scales capture whether one rating is higher or lower than another, however
@@ -1214,11 +1220,13 @@ E5_beliefs_main_tidy %>%
         legend.box = "horizontal",
         legend.key.size = unit(1., "line"),
         legend.title.position = "left",
-        legend.title = element_text(size = 10),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 7),
         axis.line.y = element_blank(),
         axis.ticks.y = element_blank(),
-        axis.text.y = element_text(size = 11, colour = "black"),
-        axis.text.x = element_text(size = 11)) +
+        axis.text.x = element_text(size = 7, colour = "grey30"),
+        axis.text.y = element_text(size = 8, colour = "black"),
+        axis.title = element_text(size = 8, colour = "black")) +
   guides(shape = F) +
   guides(fill = guide_legend(
     override.aes = list(shape = 21, size = 5, color = "NA"),
@@ -1226,15 +1234,16 @@ E5_beliefs_main_tidy %>%
   )) +
   coord_flip()
 ```
+
 The second hypothesis, that the difference between ratings of strength of relatedness
-made before and after participants' viewed the experimental plots would be greater
+made before and after participants viewed the experimental plots would be greater
 when they were assigned to the alternative scatterplot condition, also received
 support. Treatment coding was used for each of the experimental factors of
 rating time (pre- or post-) and scatterplot condition, which facilitates direct 
 comparisons between means of ratings made before and after plot viewing.
 A cumulative link mixed effects model, whereby the rating of strength of 
 relatedness the participant made was predicted by the condition they were assigned
-to *and* the time they made the rating. A likelihood ratio test revealed that
+to *and* the time they made the rating was built. A likelihood ratio test revealed that
 the model including condition and rating time as predictors explained significantly
 more variance than the null ($F$(`r in_paren(e5_condition_interact_model.df)`) = `r printnum(e5_condition_interact_model.LR)`, *p* 
 `r printp(e5_condition_interact_model.p, add_equals = TRUE)`). This model had
@@ -1267,8 +1276,9 @@ E5_beliefs_main_tidy %>%
   theme_ggdist() +
   theme(axis.line.y = element_blank(),
         axis.ticks.y = element_blank(),
-        axis.text.y = element_text(size = 11, colour = "black"),
-        axis.text.x = element_text(size = 11),
+        axis.text.x = element_text(size = 7, colour = "grey30"),
+        axis.text.y = element_text(size = 8, colour = "black"),
+        axis.title = element_text(size = 8, colour = "black"),
         legend.position = "none") +
   labs(x = "Difference Between Ratings Pre- and Post-Plot Viewing",
        y = "") +
@@ -1287,19 +1297,19 @@ e5_lit_model <- clmm(rating ~ 1 + condition + rating_time + condition:rating_tim
                          (1  | participant), 
           data = E5_beliefs_main_tidy)
 
-anova_results(e5_lit_model, e5_condition_interact_model)
+anova_results_e5(e5_lit_model, e5_condition_interact_model)
 
 e5_dc_model <- clmm(rating ~ 1 + condition + rating_time + condition:rating_time * dc_score +
                          (1  | participant), 
           data = E5_beliefs_main_tidy)
 
-anova_results(e5_dc_model, e5_condition_interact_model)
+anova_results_e5(e5_dc_model, e5_condition_interact_model)
 
 e5_emo_model <- clmm(rating ~ 1 + condition + rating_time + condition:rating_time * slider_emotion.response +
                          (1  | participant), 
           data = E5_beliefs_main_tidy)
 
-anova_results(e5_emo_model, e5_condition_interact_model)
+anova_results_e5(e5_emo_model, e5_condition_interact_model)
 ```
 
 Effects were also found of participants' scores on the defensive confidence test 
@@ -1311,7 +1321,7 @@ rated the chosen correlative statement before beginning the block of trials
 ($F$(`r in_paren(e5_emo_model.df)`) = `r printnum(e5_emo_model.LR)`,
 *p* `r printp(e5_emo_model.p, add_equals = TRUE)`). The interactions
 between the main effect and graph literacy, defensive confidence,
-and statement emotional valence in Section \ref{add-analyses-discussion}.
+and statement emotional valence are discussed in Section \ref{add-analyses-discussion}.
 
 ## Discussion {#discussion-e5}
 
@@ -1358,19 +1368,21 @@ ggplot(aes(x = variable_score,
             span = 1,
             vjust = -0.3,
             hjust = 0.9,
-            size = 3.5,
+            size = 2.5,
             text_only = T,
             aes(colour = condition, label = condition)) +
   scale_color_brewer(palette = "Dark2", aesthetics = "color") +
   theme_ggdist() +
-  geom_smooth(method = "loess", span = 1) +
+  geom_smooth(method = "loess", span = 1, size = 0.5) +
   ggh4x::facet_wrap2(~factor(add_variable, c("Graph Literacy (/30)",
                                              "Defensive Confidence (/60)",
                                              "Emotion Rating (1 to 7)")),
                      scales = "free_x") +
   theme(legend.position = "none",
-        axis.title.y = element_text(size = 12, hjust = .9),
-        strip.text = element_text(size = 8)) +
+        axis.text.x = element_text(size = 7, colour = "grey30"),
+        axis.text.y = element_text(size = 8, colour = "black"),
+        axis.title = element_text(size = 8, colour = "black"),
+        strip.text = element_text(size = 7)) +
   labs(x = "",
        y = "Difference in Beliefs") +
   ggh4x::facetted_pos_scales(

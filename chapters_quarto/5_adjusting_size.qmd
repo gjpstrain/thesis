@@ -442,8 +442,8 @@ were prevented from participating. Data were collected from 164 participants.
 14 failed more than 2 out of 6 attention check questions,
 and, as per the pre-registration, had their submissions rejected from the study.
 The data from the remaining 150 participants were included in the full analysis
-(`r printnum(E3_size_adjustments_tidy_gender$M, digits = 0)`% male, `r printnum(E3_size_adjustments_tidy_gender$F, digits = 0)`
-% female, and `r printnum(E3_size_adjustments_tidy_gender$NB, digits = 0)`% non-binary). 
+(`r printnum(E3_size_adjustments_tidy_gender$M)` male, `r printnum(E3_size_adjustments_tidy_gender$F)`
+female, and `r printnum(E3_size_adjustments_tidy_gender$NB)` non-binary). 
 Participants' mean age was `r printnum(E3_size_adjustments_tidy_age$mean)`
 (*SD* = `r printnum(E3_size_adjustments_tidy_age$sd)`). Mean graph literacy score
 was `r printnum(E3_size_adjustments_tidy_graph_literacy$mean)` (*SD* =

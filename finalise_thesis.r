@@ -12,7 +12,7 @@ quarto_render("chapters_quarto/", output_format = "latex")
 
 quarto_render("chapters_quarto/7_belief_change.qmd", output_format = "latex")
 
-# functions to reformat tex are stored in the local directory
+ # functions to reformat tex are stored in the local directory
 
 source("reformat_tex.r")
 

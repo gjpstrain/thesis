@@ -17,8 +17,8 @@ extract_gender <- function(df) {
         df %>%
             distinct(participant, .keep_all = TRUE) %>%
 			group_by(gender_slider.response) %>%
-            summarise(perc = n()/nrow(.)*100) %>%
-			pivot_wider(names_from = gender_slider.response, values_from = perc),
+            summarise(count = n()) %>%
+			pivot_wider(names_from = gender_slider.response, values_from = count),
         envir = .GlobalEnv
     )
 }
@@ -210,10 +210,29 @@ comparison <- function(model) {
   
 }
 
-## anova results function - outputs test statistics to global env
-## compatible with clmm and lme models
+## anova results functions - outputs test statistics to global env
 
 anova_results <- function(model, cmpr_model) {
+  
+  model_name <- deparse(substitute(model))
+  
+  if (class(model) == "buildmer") model <- model@model
+  if (class(cmpr_model) == "buildmer") cmpr_model <- cmpr_model@model
+  
+    anova_output <- anova(model, cmpr_model)
+
+  assign(paste0(model_name, ".Chisq"),
+         anova_output$Chisq[2],
+         envir = .GlobalEnv)
+  assign(paste0(model_name, ".df"),
+         anova_output$Df[2],
+         envir = .GlobalEnv)
+  assign(paste0(model_name, ".p"),
+         anova_output$`Pr(>Chisq)`[2],
+         envir = .GlobalEnv)
+}
+
+anova_results_e5 <- function(model, cmpr_model) {
   
   model_name <- deparse(substitute(model))
   
@@ -228,26 +247,12 @@ anova_results <- function(model, cmpr_model) {
            anova_output$LR.stat[2],
            envir = .GlobalEnv)
     assign(paste0(model_name, ".df"),
-           anova_output$Df[2],
+           anova_output$df[2],
            envir = .GlobalEnv)
     assign(paste0(model_name, ".p"),
            anova_output$`Pr(>Chisq)`[2],
            envir = .GlobalEnv)
   }
-  
-  else
-    
-  anova_output <- anova(model, cmpr_model) 
-                                            
-  assign(paste0(model_name, ".Chisq"),
-         anova_output$Chisq[2],
-         envir = .GlobalEnv)
-  assign(paste0(model_name, ".df"),
-         anova_output$Df[2],
-         envir = .GlobalEnv)
-  assign(paste0(model_name, ".p"),
-         anova_output$`Pr(>Chisq)`[2],
-         envir = .GlobalEnv)
 }
 
 ## function to extract contrasts from model summaries using emmeans

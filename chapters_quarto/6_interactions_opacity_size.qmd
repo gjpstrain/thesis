@@ -609,8 +609,8 @@ were prevented from participating. Data were collected from 158 participants.
 8 failed more than 2 out of 6 attention check questions,
 and, as per the pre-registration, had their submissions rejected from the study.
 The data from the remaining 150 participants were included in the full analysis
-(`r printnum(E4_interactions_tidy_gender$M, digits = 0)`% male, `r printnum(E4_interactions_tidy_gender$F, digits = 0)`
-% female, and `r printnum(E4_interactions_tidy_gender$NB, digits = 0)`% non-binary). 
+(`r printnum(E4_interactions_tidy_gender$M, digits = 0)` male, `r printnum(E4_interactions_tidy_gender$F)`
+female, and `r printnum(E4_interactions_tidy_gender$NB)` non-binary). 
 Participants' mean age was `r printnum(E4_interactions_tidy_age$mean)`
 (*SD* = `r printnum(E4_interactions_tidy_age$sd)`). Mean graph literacy score
 was `r printnum(E4_interactions_tidy_graph_literacy$mean)` (*SD* =
@@ -1318,3 +1318,5 @@ that the combination of non-linear opacity and size decay functions produces
 marked overestimation emphasises this. Exploring exactly how these decay functions
 interact with a view to tuning correlation perception is beyond the scope of this
 thesis; the foundation has, however, been laid.
+
+

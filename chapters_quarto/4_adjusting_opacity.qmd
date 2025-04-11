@@ -686,8 +686,8 @@ had completed the pilot study were prevented from participating. Data were colle
 from 158 participants. 8 failed more than 2 out of 6 attention check questions,
 and, as per the pre-registration, had their submissions rejected from the study.
 The data from the remaining 150 participants were included in the full analysis
-(`r printnum(E1_uniform_adjustments_tidy_gender$M)`% male, `r printnum(E1_uniform_adjustments_tidy_gender$F)`
-% female, and `r printnum(E1_uniform_adjustments_tidy_gender$NB)`% non-binary). 
+(`r printnum(E1_uniform_adjustments_tidy_gender$M)` male, `r printnum(E1_uniform_adjustments_tidy_gender$F)`
+female, and `r printnum(E1_uniform_adjustments_tidy_gender$NB)` non-binary). 
 Participants' mean age was `r printnum(E1_uniform_adjustments_tidy_age$mean)`
 (*SD* = `r printnum(E1_uniform_adjustments_tidy_age$sd)`). Mean graph literacy score
 was `r printnum(E1_uniform_adjustments_tidy_graph_literacy$mean)` (*SD* =
@@ -999,8 +999,8 @@ had completed the pilot study or experiment 1 were prevented from participating.
 from 158 participants. 7 failed more than 2 out of 6 attention check questions,
 and, as per the pre-registration, had their submissions rejected from the study.
 The data from the remaining 150 participants were included in the full analysis
-(`r printnum(E2_spatially_dependent_tidy_gender$M)`% male, `r printnum(E2_spatially_dependent_tidy_gender$F)`
-% female, and `r printnum(E2_spatially_dependent_tidy_gender$NB)`% non-binary). 
+(`r printnum(E2_spatially_dependent_tidy_gender$M)` male, `r printnum(E2_spatially_dependent_tidy_gender$F)`
+female, and `r printnum(E2_spatially_dependent_tidy_gender$NB)` non-binary). 
 Participants' mean age was `r printnum(E2_spatially_dependent_tidy_age$mean)`
 (*SD* = `r printnum(E2_spatially_dependent_tidy_age$sd)`). Mean graph literacy score
 was `r printnum(E2_spatially_dependent_tidy_graph_literacy$mean)` (*SD* =
