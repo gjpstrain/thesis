@@ -5,7 +5,7 @@ output:
     latex:
       
 params:
-  eval_models: false
+  eval_models: true
   
 knitr:
   opts_chunk: 
@@ -580,9 +580,9 @@ A fully repeated-measures, 2 $\times$ 2 factorial design was employed. Each part
 saw each combination of opacity and size decay function scatterplots for a total
 of 180 experimental items. Participants viewed these experimental items, along
 with 6 attention check items, in a fully randomised order. The experiment is
-hosted on Pavlovia [^1].
+hosted on Pavlovia [^4].
 
-[^1]: https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp
+[^4]: https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp
 
 ## Procedure {#procedure-e4}
 
@@ -1018,10 +1018,12 @@ plotting_df <- rbind(all_exp_df, standard_alone)
     geom_errorbar(mapping = aes(ymin = -1*mean + sd, ymax = -1*mean - sd),width = 0.01, size = 0.3) +
     theme_ggdist() +
     scale_y_continuous(breaks = seq(-0.4,1, 0.2)) +
-    theme(strip.text = element_text(size = 6, margin = margin(1,0,1,0, "mm")),
-        axis.text = element_text(size = 7),
-        axis.title.x = ggtext::element_markdown(size = 8),
-        axis.title.y = ggtext::element_markdown(size = 8)) +
+    theme(strip.text = element_text(size = 6,
+                                    margin = margin(1,0,1,0, "mm")),
+          aspect.ratio = 1,
+          axis.text = element_text(size = 7),
+          axis.title.x = ggtext::element_markdown(size = 8),
+          axis.title.y = ggtext::element_markdown(size = 8)) +
     facet_wrap(factor ~., ncol = 4, labeller = labeller(factor = labels_all_exp)) +
     labs(x = "Objective *r*",
          y = "Mean *r* Estimation Error") +

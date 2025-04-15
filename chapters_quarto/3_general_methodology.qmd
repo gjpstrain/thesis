@@ -341,7 +341,7 @@ available, this is included in discussions and analyses.
 
 # Analytical Methods
 
-All analyses in this thesis were conducted using R (version 4.4.2 \cite{r_core}).
+All analyses in this thesis were conducted using R (version 4.5.0 \cite{r_core}).
 To investigate whether the experimental manipulations have actual effects
 on the interpretations participants provide, appropriate statistical
 testing must be employed. This involves taking into account the variability

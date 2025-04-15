@@ -18,28 +18,28 @@ execute:
   include: false     
 ---
 
-# Data Visualisation: A Brief History
+# Data Visualisation: A Brief History {#brief-history}
 
-# Measuring Relatedness
+# Measuring Relatedness {#measuring-relatedness}
 
-# Conceptions of Correlation
+# Conceptions of Correlation {#conceptions-of-correlation}
 
-# Visualising Correlation
+# Visualising Correlation {#visualising-correlation}
 
-## History
+## History {#history-corr-viz}
 
-## Present Landscape
+## Present Landscape {#present-landscape-corr-viz}
 
-## Scatterplots
+## Scatterplots {#scatterplots-corr-viz}
 
-# Correlation Perception
+# Correlation Perception {#corr-percept-related-work}
 
-# Correlation Cognition
+# Correlation Cognition {#corr-cognition}
 
-# Underestimation: What's Really Going On?
+# Underestimation: What's Really Going On? {#underestimation-whats-going-on}
 
-# Underestimation: Potential Consequences
+# Underestimation: Potential Consequences {#underestimation-consequences}
 
-# Data Visualisation Literacy {#graph-literacy-lit-review}
+# Data Visualisation Literacy {#graph-literacy-related-work}
 
-# Objectives and Contributions
+# Objectives and Contributions {#objectives-contributions}
