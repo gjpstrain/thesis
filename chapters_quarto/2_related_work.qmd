@@ -20,6 +20,13 @@ execute:
 
 # Data Visualisation: A Brief History {#brief-history}
 
+Data visualisation, which can be thought of as the practice representing information 
+in a visual modality \cite{hinterberger_2009}, is difficult to concretely define,
+classify, and categorise. With the primacy of vision with regards to our interactions with
+and interpretations of the world around us, data visualisation may be thought of
+as an extension of art and the written word. Both art and writing are ancient 
+phenomena
+
 # Measuring Relatedness {#measuring-relatedness}
 
 # Conceptions of Correlation {#conceptions-of-correlation}
