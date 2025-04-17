@@ -25,7 +25,83 @@ in a visual modality \cite{hinterberger_2009}, is difficult to concretely define
 classify, and categorise. With the primacy of vision with regards to our interactions with
 and interpretations of the world around us, data visualisation may be thought of
 as an extension of art and the written word. Both art and writing are ancient 
-phenomena
+phenomena, with evidence for the former being found in the prehistoric
+period some 66,000 years ago \cite{standish_2025}, and evidence for the latter
+emerging as Mesopotamian cuneiform around 3200 B.C.E \cite{schmandt_2014}.
+Broadly, the literature agrees that art emerged prior to the written word; 
+this speaks volumes of the human instinct to represent our thoughts, feelings,
+emotions, and that which we interact with in the world around us pictorially.
+
+When, then, should we consider to be the emergence of data visualisation as a 
+human practice? Of course, answering this question requires the provision of a 
+definition for the practice itself first. Schmandt-Besserat \cite{schmandt_1978, schmandt_2014}
+considers clay counting tokens to be the direct precursor of the written word.
+While the evidence for this direct link is controversial, the existence of such
+tokens is not. With each shape of token representing a certain amount of a 
+certain good (measures of grain, jars of oil, etc.), this system could be considered
+a very early, very simple form of data visualisation. Similarly, there is 
+limited evidence of ancient cartographic symbols \cite{muhly_1978}, which may also be considered
+a form of, or related to, data visualisation. While I am not asserting
+that data visualisation is older than writing, or that ancient map drawings are
+forms of data visualisation, the existence of these representations emphasises the 
+attractive convenience that symbols and signs represent for humans; making sense
+of our world and the relationships therein is often easier through pictures as
+opposed to words and numbers, a principle which I consider key for this thesis.
+
+Note: much of the rest of this section is heavily inspired by Michael Friendly's
+*A Brief History of Data Visualization* \cite{friendly_2008}. Moving on, then, 
+to the kind of pictorial representation that modern students and scientists would 
+firmly recognise as a "data visualisation". Tufte and Graves-Morris, in 1983's
+seminal *The Visual Display of Quantitative Information* \cite{tufte_1983}, describe
+an unattributed time series illustration from the 10th or 11th century, itself
+described by Funkhouser in 1936 \cite{funkhouser_1936} as being discovered by
+Sigmund Günther in 1877. This illustration is included here in @fig-early-time-series.
+
+```{r}
+#| label: fig-early-time-series
+#| include: true
+#| fig-cap: Reproduced in Tufte and Graves-Morris, 1983 \cite{tufte_1983} from Funkhouser, 1936 \cite{funkhouser_1936}.
+#| out-width: NA
+#| out-height: NA
+
+knitr::include_graphics(path = "../supplied_graphics/tufte_1983.png", dpi = NA)
+```
+
+This purports to show the movements of planetary bodies as a function of time,
+although Funkhouser considered it little more than a "schematic diagram...for
+illustrative purposes" \cite{funkhouser_1936}. Regardless, the recognisable
+grid lines and sinusoidal variation in the curves are ideas that would not appear
+again for another 600-700 years, after which they would become mainstays of 
+visualisation to this day. In the mid-14th century, French philosopher Nicole
+Oresme demonstrated an understanding of graphing by plotting proto-bar charts,
+and by the 16th century, advances in cartography, photography, and mathematics
+laid the ground for an explosion in data visualisation.
+
+The 17th century saw the birth of geometry and coordinate systems, error measurement,
+probability, and demographic statistics. With these scientific advancements
+came the advancements in data visualisation needed to communicate these concepts.
+For example, in 1626, Scheiner used what Tufte would later term the "principle of small multiples"
+\cite{tufte_1983} to illustrate how configurations of sunspots change over time
+(see @fig-sunspots).
+
+```{r}
+#| label: fig-sunspots
+#| include: true
+#| fig-cap: Reproduced in Tufte and Graves-Morris, 1983 \cite{tufte_1983} from Funkhouser, 1936 \cite{funkhouser_1936}.
+#| out-width: NA
+#| out-height: NA
+
+knitr::include_graphics(path = "../supplied_graphics/sunspots.png", dpi = NA)
+```
+
+It is around the turn of the 19th century that forms of data visualisation begin 
+to look remarkably similar to those seen in mass media and scientific publications
+today. The most notable examples of which are John Snow's cholera map, which
+was able to link the incidence of cholera to a contaminated water pump in London,
+and Charles Joseph Minard's map of the Napoleonic invasion of Russia
+
+
+
 
 # Measuring Relatedness {#measuring-relatedness}
 

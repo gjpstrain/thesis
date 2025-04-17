@@ -694,7 +694,7 @@ about correlations. Due to the targeting of lay populations, and my previous
 experience with lay participants failing to understand the term "correlation" 
 (although not the concept), I elected to operationalise correlation 
 as "strength of relatedness". There is evidence that belief change can be
-affected by prior beliefs and attitudes \cite{matejka_2015, xiong_2023}, and that
+affected by prior beliefs and attitudes \cite{markant_2023, xiong_2023}, and that
 emotion, including the content of a visualisation \cite{phelps_2006, harrison_2013}
 and the emotional state of a participant \cite{thoresen_2016} can have perceptual
 effects on participants and their performance. I was unable to find resources
