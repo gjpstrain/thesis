@@ -16,38 +16,44 @@ and evidence for the latter emerging as Mesopotamian cuneiform around
 3200 B.C.E \cite{schmandt_2014}. Broadly, the literature agrees that art
 emerged prior to the written word; this speaks volumes of the human
 instinct to represent our thoughts, feelings, emotions, and that which
-we interact with in the world around us pictorially.
+we interact with in the world around us pictorially. This instinct has
+not waned, and modern computing makes it easier than ever for those of
+us with no technical or artistic skills to create graphics and
+visualisations that \emph{tell stories} about our data in ways which are
+both beautiful and practical.
 
 When, then, should we consider to be the emergence of data visualisation
 as a human practice? Of course, answering this question requires the
 provision of a definition for the practice itself first.
 Schmandt-Besserat \cite{schmandt_1978, schmandt_2014} considers clay
 counting tokens to be the direct precursor of the written word. While
-the evidence for this link is controversial, the existence of such
-tokens is not. With each shape of token representing a certain amount of
-a certain good (measures of grain, jars of oil, etc.), this system could
-be considered a very early, very simple form of data visualisation.
-Similarly, there is limited evidence of prehistoric cartographic
-drawings \cite{muhly_1978}, which may also be considered a form of, or
-related to, data visualisation. While I am not asserting that data
-visualisation is older than writing, or that ancient map drawings are
-equivalent to data visualisation, the existence of these representations
-emphasises the attractive convenience that symbols and signs represent
-for humans; making sense of our world and the relationships therein is
-often easier through pictures as opposed to words and numbers, a
-principle which I consider key for this thesis.
+the evidence for this link is controversial \cite{robson_2007}, the
+existence of such tokens is not. With each shape of token representing a
+certain amount of a certain good (measures of grain, jars of oil, etc.),
+this system could be considered a very early, very simple form of data
+visualisation (or physicalisation \cite{jansen_2015}). Similarly, there
+is limited evidence of prehistoric cartographic drawings
+\cite{muhly_1978}, which may also be considered a form of, or related
+to, data visualisation. While I am not asserting that data visualisation
+is older than writing, or that ancient map drawings are equivalent to
+modern graphics, the existence of these representations emphasises the
+attractive convenience that symbols and signs represent for humans;
+making sense of our world and the relationships therein is often easier
+through pictures as opposed to words and numbers, a principle which I
+consider key for this thesis.
 
 Note: much of the rest of this section is heavily inspired by Michael
 Friendly's \emph{A Brief History of Data Visualization}
-\cite{friendly_2008}. Moving on, then, to the kind of pictorial
-representation that modern students and scientists would firmly
-recognise as a ``data visualisation''. Tufte and Graves-Morris, in
-1983's seminal \emph{The Visual Display of Quantitative Information}
-\cite{tufte_1983}, describe an unattributed time series illustration
-from the 10th or 11th century, itself described by Funkhouser in 1936
-\cite{funkhouser_1936} as being discovered by Sigmund Günther in 1877.
-This illustration is included here in
-Figure~\ref{fig-early-time-series}.
+\cite{friendly_2008}.
+
+Moving on, then, to the kind of pictorial representation that modern
+students and scientists would firmly recognise as a ``data
+visualisation''. Tufte and Graves-Morris, in 1983's seminal \emph{The
+Visual Display of Quantitative Information} \cite{tufte_1983}, describe
+an unattributed time series illustration from the 10th or 11th century,
+itself described by Funkhouser in 1936 \cite{funkhouser_1936} as being
+discovered by Sigmund Günther in 1877. This illustration is included
+here in Figure~\ref{fig-early-time-series}.
 
 \begin{figure}
 
@@ -132,7 +138,7 @@ high rates of attrition.}
 
 \centering{
 
-\includegraphics[width=\textwidth]{../supplied_graphics/minard_napoleon.jpg}
+\includegraphics[width=\textwidth]{../supplied_graphics/nightingale-rose.jpg}
 
 }
 
@@ -146,7 +152,7 @@ campaign to improve sanitation among soldiers.}
 \end{figure}%
 
 The latter half of the 19th century, the so-called ``Golden Age of
-Statistical Graphics'' \cite{friendly_2008} sees the rise of forms of
+Statistical Graphics'' \cite{friendly_2008} saw the rise of forms of
 data visualisation that begin to look remarkably similar to the graphs
 and informatics seen in mass media and scientific publications today.
 The most notable examples of these are John Snow's cholera map, which
@@ -162,22 +168,43 @@ water. In Charles Joseph Minard's flow chart of Napoleon's failed 1812
 invasion of Russia, a total of six variables are displayed to tell the
 data story, allowing the viewer to appreciate the movements of the
 Grande Armée, it's diminishing size owing to attrition, and the freezing
-temperatures that largely caused that attrition. In Florence
-Nightingale's polar area chart depicting the causes of mortality amongst
-British troops in the Crimean War; charts such as this were used to
-successfully campaign for better sanitation in hospitals and the
-frontlines.
+temperatures that largely caused that attrition. Florence Nightingale's
+polar area chart depicts the causes of mortality amongst British troops
+in the Crimean War; charts such as this were used to successfully
+campaign for better sanitation in hospitals and the front lines.
 
 In all of these visualisations, data is used to accentuate storytelling.
 In some cases, this may lead to critical discoveries that save lives,
 and in others, it may simply facilitate a greater understanding and
 appreciation of the data. In either case, visualisation is used
-effectively appeal to our affinity for visual storytelling.
+effectively to appeal to our affinity for visual storytelling.
 
-In both, we see an encoding of variables that facilitates understanding
-beyond prose or tabulated data; this is the magic of data visualisation
-which has ensured its longevity and popularity among scientific
-communicators, journalists, and advertisers alike.
+An appetite for precision defined the approach to statistical thinking,
+and by extension, data visualisation, in the first half of the 20th
+century. Statistical graphics finally became mainstream, and were
+implemented in curricula, and used in government, commerce, and finance.
+This period also marks the beginning of graphical methods being used to
+generate new scientific insights, a trend which would only accelerate
+throughout the next century. The most prominent example of this is Henry
+Moseley's (1913) discovery of the concept of atomic number
+\cite{moseley_1913}, which I will discuss in greater detail in Section
+\ref{history-corr-viz}.
+
+Significant developments in the latter half of the 20th century laid the
+final brick in the foundations of what would become the modern data
+visualisation landscape. John W. Tukey's \emph{The Future of Data
+Analysis} \cite{tukey_1962} proposed a separation between data analysis
+and mathematical statistics. This seminal work would become hugely
+influential, and Tukey would go on to invent a great number of
+analysis-driven data visualisations, including stem-leaf plots and box
+plots, both of which are now commonplace in software packages and
+statistics education. In 1967, Jacques Bertin \cite{bertin_1967}
+published \emph{Sémiologie graphique} (\emph{Semiology of Graphics}),
+organising the perceptual elements of data visualisations according to
+their features and their relationships to the underlying data; this work
+would be influential for Leland Wilkinson's \emph{Grammar of Graphics}
+\cite{wilkinson_1999}, which in turn influenced the \texttt{ggplot2}
+package \cite{wickham_2016} that is used extensively in this paper.
 
 \section{Measuring Relatedness}\label{measuring-relatedness}
 

@@ -614,7 +614,7 @@ further discussion.
 #| label: tbl-efs-e3
 #| include: true
 #| tbl-cap: Cohen's \textit{d} effect sizes (left) and summary statistics (right) for levels of the size decay factor in experiment 3. Each effect size is compared to the reference level, termed, "Standard Size". 
-#| tbl-subcap: ["A", "B"]
+#| tbl-subcap: ["Effect sizes for size decay factor.", "Summary statistics for size decay factor."]
 #| layout-ncol: 2
 
 # this approximation uses t values and the pooled standard deviation of the differences

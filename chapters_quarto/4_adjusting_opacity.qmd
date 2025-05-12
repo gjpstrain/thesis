@@ -333,8 +333,8 @@ separately for each factor.
 ```{r}
 #| label: tbl-emmeans-pilot
 #| include: true
-#| tbl-cap: Estimated Marginal Means of correlation estimation error for plot size (left) and the presence of the opacity decay function (right).
-#| tbl-subcap: ["test1", "test2"]
+#| tbl-cap: Estimated Marginal Means (EMMs) of correlation estimation error for plot size and the presence of the opacity decay function.
+#| tbl-subcap: ["EMMs for plot size factor.", "EMMs for presence or absence of opacity decay function."]
 #| layout-ncol: 2
 
 if (class(pilot_model) == "buildmer") pilot_model <- pilot_model@model
@@ -367,8 +367,8 @@ emmeans(pilot_model, pairwise ~ "present")[[1]] %>%
 ```{r}
 #| label: tbl-contrasts-pilot
 #| include: true
-#| tbl-cap: Contrasts between levels of the size factor (left) and opacity decay factor (right).
-#| tbl-subcap: ["A", "B"]
+#| tbl-cap: Contrasts between levels of the size factor and opacity decay factor.
+#| tbl-subcap: ["Contrasts for size decay factor.", "Contrasts for opacity decay factor."]
 #| layout-ncol: 2
 
 contrasts_extract(pilot_model, "size") %>%
@@ -859,8 +859,8 @@ performance were not as a result of differences in levels of graph literacy.
 ```{r}
 #| label: tbl-efs-e1
 #| include: true
-#| tbl-cap: Cohen's \textit{d} effect sizes (left) and summary statistics (right) for levels of the opacity factor in experiment 1. Each effect size is compared to the reference level, full contrast (alpha = 1).
-#| tbl-subcap: ["A", "B"]
+#| tbl-cap: Cohen's \textit{d} effect sizes and summary statistics for levels of the opacity factor in experiment 1. Each effect size is compared to the reference level, full contrast (alpha = 1).
+#| tbl-subcap: ["Effect sizes for opacity factor.", "Summary statistics."]
 #| layout-ncol: 2
 
 # this approximation uses t values and the pooled standard deviation of the differences
@@ -1242,8 +1242,8 @@ variance ($\chi^2$(`r in_paren(e2_lit_model.df)`) = `r printp(e2_lit_model.Chisq
 ```{r}
 #| label: tbl-efs-e2
 #| include: true
-#| tbl-cap: Cohen's \textit{d} effect sizes (left) and summary statistics (right) for the opacity decay function factor in experiment 2. Each effect size is compared to the reference level, full contrast (alpha = 1).
-#| tbl-subcap: ["A", "B"]
+#| tbl-cap: Cohen's \textit{d} effect sizes and summary statistics for the opacity decay function factor in experiment 2. Each effect size is compared to the reference level, full contrast (alpha = 1).
+#| tbl-subcap: ["Effect sizes for opacity decay factor.", "Summary statistics for opacity decay factor."]
 #| layout-ncol: 2
 
 # this approximation uses t values and the pooled standard deviation of the differences

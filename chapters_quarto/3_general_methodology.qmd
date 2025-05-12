@@ -262,7 +262,7 @@ to use the former due to my familiarity with the system. Despite these findings,
 there has also been evidence of low data quality and skewed demographics affecting
 both general crowdsourcing platforms, such as Amazon's MTurk, and those
 tailored specifically towards academic research. On the 24th of July, 2021,
-the Prolific.co platform went viral on social media \cite{chara_2021}, leading to a participant
+the Prolific.co platform went viral on social media \cite{charalambides_2021}, leading to a participant
 pool heavily skewed towards young people identifying as female. At the time,
 Prolific did not manually balance the participants recruited for a study.
 This was addressed in the pilot study (see Section \ref{pilot-study}) by preventing participants

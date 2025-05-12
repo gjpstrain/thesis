@@ -42,11 +42,18 @@
 \usepackage{tabularx}              % allows fixed width tables
 \usepackage{verbatim}              % enhanced version of built-in verbatim environment
 \usepackage{footnote}              % allows more control over footnote environments
-\usepackage{float}                 % allows H option on floats to force here placement
+%\usepackage{float}                 % allows H option on floats to force here placement
 \usepackage{booktabs}              % improve table line spacing
 \usepackage[base]{babel}           % required for lisum package
 \usepackage{lipsum}                % for adding dummy text here
-\usepackage{subcaption}            % for multiple sub-figures in a single float
+\usepackage{subcaption}
+\captionsetup[subfigure]{justification=centering}
+\captionsetup[subtable]{justification=centering}
+
+% Force top alignment of subtables
+\usepackage{floatrow}
+\floatsetup[table]{style=Plaintop}
+
 \usepackage{siunitx}               % add SI units
 % Add your packages here
 \usepackage{subfiles}
@@ -88,6 +95,10 @@
 
 % Add more .bib files here if wanted
 \addbibresource{thesis.bib}
+
+% trying to address pandoc issue (12.05.2025)
+\newcommand{\pandocbounded}[1]{#1}
+
 
 %%%%%%%%%%%%%%%%%% START DOCUMENT %%%%%%%%%%%%%%%%%%
 \begin{document}
