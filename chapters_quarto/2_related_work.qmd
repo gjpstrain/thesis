@@ -18,6 +18,13 @@ execute:
   include: false     
 ---
 
+```{r}
+#| label: setup
+
+library(tidyverse)
+```
+
+
 # Data Visualisation: A Brief History {#brief-history}
 
 Data visualisation, which can be thought of as the practice of representing information 
@@ -181,20 +188,64 @@ Since then, both the practice and study of data visualisation have become thorou
 mainstream. Students are taught to visualise data early on, and the propagation of
 both software and powerful computing hardware have brought advanced techniques,
 such as high dimensional visualisation, and massive datasets, into the home. To summarise
-the timeline of developments in data visualisation over the last 500 years, I reproduce
-a rug plot, including a density estimate, from Friendly (2008) \cite{friendly_2008}
-in @fig-rug-density.
+the timeline of developments in data visualisation over the last 500 years, I include
+a rug and density plot from Friendly (2008) \cite{friendly_2008} in @fig-rug-density.
 
 ```{r}
+#| label: fig-rug-density
+#| include: true
+#| fig-cap: Major milestones in the development of data visualisation illustrated using a rug plot and density estimate. This figure is taken from Friendly (2008) \cite{friendly_2008}
+#| out-width: NA
+#| out-height: NA
 
-
+knitr::include_graphics(path = "../supplied_graphics/rug_density.png", dpi = NA).
 ```
 
+Recounting a full and detailed history of the practice and study of data visualisation
+would require much more than a single thesis, and has been done to a very high standard
+elsewhere \cite{friendly_2008, friendly_2021}. Given that this thesis is focused on
+the perception of correlation in scatterplots, the remainder of the chapter is primarily
+limited to discussions of relatedness, correlation, and scatterplot visualisations.
+
+# Relatedness & Correlation {#relatedness-and-correlation}
+
+Very early piloting (detailed in Section \ref{general-methods-adjusting-opacity},
+\chap{chap:adjusting_opacity}) revealed that while people understood the concept
+of correlation, they were unsure as to what different degrees of correlation looked
+like. To address this, training was included in experiments 1 to 4. For the same reason,
+correlation was operationalised as *Strength of Relatedness* in experiment 5.
+To make my research accessible, I start from here; two (or more) things are related
+if a change in one is associated with a change in the other(s). In reality, however,
+the data visualisation under investigation, scatterplots, do not visualise
+relatedness, but correlation. Correlation refers to a specific statistical
+relationship, which I explore from first principles below.
+
+Francis Galton was the first to formally introduce the concept of *co-relation*
+in 1888 \cite{galton_1888}. He derived a definition of correlation as a by-product
+of his invention of statistical regression, first describing this new property
+by way of anthropometric data relating to the measurement of different parts of the 
+body. Early in this brief, but significant, paper, Galton posits a basic definition
+of correlation:
+
+\begin{quotation}
+  ``Two variable organs are said to be co-related when the variation of the one is accompanied on the average by more or less variation of the other, and in the same direction.''
+\end{quotation}
+
+Here, Galton is referring to the organs of the body. Measuring a variety of 
+anatomical distances, including head lengths and heights of a range of "not
+wholly fully-grown" males, Galton first provides medians and semi-interquartile ranges
+as a measure of error. Plotting the semi-interquartile ranges (Q units) of two
+variables against each other and calculating the slope of the line allowed
+Galton to devise a new, unitless measure of co-relatedness, which he termed
+r. This has since been lauded as a prime example of a mathematical
+discovery made based on observed data.
 
 
-# Measuring Relatedness {#measuring-relatedness}
 
-# Conceptions of Correlation {#conceptions-of-correlation}
+Have a look at Asuero: The Correlation Coefficient: An Overview (in zotero)
+
+https://galton.org/essays/1880-1889/galton-1888-co-relations-royal-soc/galton_corr.html
+
 
 # Visualising Correlation {#visualising-correlation}
 

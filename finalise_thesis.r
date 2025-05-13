@@ -10,9 +10,9 @@ quarto_render("chapters_quarto/", output_format = "latex")
 
 # use for rendering a single chapter
 
-quarto_render("chapters_quarto/4_adjusting_opacity.qmd", output_format = "latex")
+quarto_render("chapters_quarto/2_related_work.qmd", output_format = "latex")
 
- # functions to reformat tex are stored in the local directory
+# functions to reformat tex are stored in the local directory
 
 source("reformat_tex.r")
 
