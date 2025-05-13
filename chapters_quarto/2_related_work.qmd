@@ -177,6 +177,20 @@ would be influential for Leland Wilkinson's *Grammar of Graphics* \cite{wilkinso
 which in turn influenced the `ggplot2` package \cite{wickham_2016} that is used
 extensively in this paper.
 
+Since then, both the practice and study of data visualisation have become thoroughly
+mainstream. Students are taught to visualise data early on, and the propagation of
+both software and powerful computing hardware have brought advanced techniques,
+such as high dimensional visualisation, and massive datasets, into the home. To summarise
+the timeline of developments in data visualisation over the last 500 years, I reproduce
+a rug plot, including a density estimate, from Friendly (2008) \cite{friendly_2008}
+in @fig-rug-density.
+
+```{r}
+
+
+```
+
+
 
 # Measuring Relatedness {#measuring-relatedness}
 
