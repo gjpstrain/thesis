@@ -65,3 +65,8 @@ replace_before_document <- function(file_path) {
     cat("No \\begin{document} found in", file_path, "\n")
   }
 }
+
+replace_before_document_in_folder <- function(folder_path) {
+  files <- list.files(folder_path, pattern = "\\.tex$", full.names = TRUE)
+  lapply(files, replace_before_document)
+}
