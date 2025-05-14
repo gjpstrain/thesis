@@ -272,9 +272,17 @@ two variables, then divides this values by the product of both variables' standa
 deviations. Completing this calculation provides a measure of the overall
 distance between the observed values and a fitted least squares regression line, and
 provides a single value of *r* that describes how strongly related two variables 
-are. 
+are.
 
 # Visualising Correlation {#visualising-correlation}
+
+Of course, a single value, while mathematically sound, provides no information about
+the distribution of variables from which it was derived. To do this, the data must 
+be examined visually. Here arises a parallel; in much the same way as Francis Galton
+used a proto-scatterplot to formulate his definition of correlation, so must
+data visualisation be used to tell the story behind a value of Pearson's *r*.
+The need for visualisation is most 
+
 
 ## History {#history-corr-viz}
 
