@@ -229,9 +229,88 @@ This figure is taken from Friendly (2008) \cite{friendly_2008}}
 
 \end{figure}%
 
-\section{Measuring Relatedness}\label{measuring-relatedness}
+Recounting a full and detailed history of the practice and study of data
+visualisation would require much more than a single thesis, and has been
+done to a very high standard elsewhere
+\cite{friendly_2008, friendly_2021}. Given that this thesis is focused
+on the perception of correlation in scatterplots, the remainder of the
+chapter is primarily limited to discussions of relatedness, correlation,
+and scatterplot visualisations.
 
-\section{Conceptions of Correlation}\label{conceptions-of-correlation}
+\section{Relatedness \& Correlation}\label{relatedness-and-correlation}
+
+Very early piloting (detailed in Section
+\ref{general-methods-adjusting-opacity}, \chap{chap:adjusting_opacity})
+revealed that while people understood the concept of correlation, they
+were unsure as to what different degrees of correlation looked like. To
+address this, training was included in experiments 1 to 4. For the same
+reason, correlation was operationalised as \emph{Strength of
+Relatedness} in experiment 5. To make my research accessible, I start
+from here; two (or more) things are related if a change in one is
+associated with a change in the other(s). In reality, however, the data
+visualisation under investigation, scatterplots, do not visualise
+relatedness, but correlation. Correlation refers to a specific
+statistical relationship, which I explore from first principles below.
+
+Francis Galton was the first to formally introduce the concept of
+\emph{co-relation} in 1888 \cite{galton_1888}. He derived a definition
+of correlation as a by-product of his invention of statistical
+regression, first describing this new property by way of anthropometric
+data relating to the measurement of different parts of the body. Early
+in this brief, but significant, paper, Galton posits a basic definition
+of correlation:
+
+\begin{quotation}
+  ``Two variable organs are said to be co-related when the variation of the one is accompanied on the average by more or less variation of the other, and in the same direction.''
+\end{quotation}
+
+Here, Galton is referring to the organs of the body. Measuring a variety
+of anatomical distances, including head lengths and heights of a range
+of ``not wholly fully-grown'' males, Galton first provides medians and
+semi-interquartile ranges as a measure of error. Plotting the
+semi-interquartile ranges (Q units) of two variables against each other
+and calculating the slope of the line allowed Galton to devise a new,
+unitless measure of co-relatedness, which he termed r. This has since
+been lauded as a prime example of a mathematical discovery made based on
+observed data. This method is imprecise, as it requires intuition of a
+line-of-best-fit based on a hand drawn plot, but is credited as the
+first full conceptual definition of a measure of correlation. It should
+be noted that Galton did not conceive of negative correlation at this
+point. Galton's work did not take place in isolation, however, and the
+preceding 60 years featured famous names, such as Gauss and Darwin,
+dancing around the idea of correlation without recognising its
+importance; Lee Rodgers \& Nicewander (1988) \cite{lee_1988} provide an
+excellent overview of this period.
+
+Building on Galton's groundbreaking work, his younger, more
+mathematically-minded student, Karl Pearson, developed the Pearson
+Product-Moment correlation in 1895 \cite{lee_1988} based on initial
+formulae by Bravais (1846) \cite{bravais_1846}. This measure has been
+remarkably persistent, remaining unchanged for well over a century. In
+fact, many other measures of correlation, such as Spearman's \(\rho\),
+the point-biserial correlation, and the \(\phi\) coefficient are
+actually special cases of Pearson's \emph{r} applied to different types
+of data \cite{henrysson_1971}; such is the dominance of the measure.
+Equation 2.1 defines Pearson's \emph{r}:
+
+\begin{equation}
+  r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2 \sum_{i=1}^{n} (y_i - \bar{y})^2}}
+\end{equation}
+
+In this equation, \(\bar{x}\) and \(\bar{y}\) are the means of each
+variable. \(x_i\) and \(x_i\) are the individual values of each variable
+in question. In the numerator, the sum of the product of the difference
+between each value of \(x\) and \(x\) is found; this value represents
+the degree of deviation of all points from the regression line. Then, in
+the denominator, this value is divided by the magnitude of the sum of
+the product of said deviations; squaring and finding the square root of
+these values provides the unsigned magnitude. In statistical language,
+Pearson's \emph{r} finds the covariance of two variables, then divides
+this values by the product of both variables' standard deviations.
+Completing this calculation provides a measure of the overall distance
+between the observed values and a fitted least squares regression line,
+and provides a single value of \emph{r} that describes how strongly
+related two variables are.
 
 \section{Visualising Correlation}\label{visualising-correlation}
 
