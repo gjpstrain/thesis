@@ -29,7 +29,6 @@ library(ggdist)
 library(ggpubr)
 ```
 
-
 # Data Visualisation: A Brief History {#brief-history}
 
 Data visualisation, which can be thought of as the practice of representing information 
@@ -307,20 +306,27 @@ ggarrange(anscombe_plot("x1", "y1"),
           anscombe_plot("x3", "y3"),
           anscombe_plot("x4", "y4"),
           ncol = 4)
-
-
 ```
 
 Anscombe's quartet \cite{anscombe_1973} describes four simple datasets that are
 identical with regards to a range of statistical measures. They feature the same
 number of observations, the same means, regression coefficients, regression line
 equations, sums of squares, estimated standard errors, and correlation coefficients.
+A simple examination of these statistics would lead to the conclusion that
+the datasets are almost identical; in reality, there are significant differences
+between them that can only be seen via visualisation.
 
-
-
-
+In this thesis, the primary concern is correlation and the ways in which people
+interpret it from scatterplots. The remainder of this section examines the history
+and current landscape of correlation visualisations; starting with Galton's 
+scatterplot precursors, I then go on to discuss the development of the familiar
+modern scatterplot through the examination of a number of impressive use cases.
+Following that, I review the current landscape of correlation visualisation, including
+the more recent use of other, non-scatterplot graphs.
 
 ## History {#history-corr-viz}
+
+
 
 ## Present Landscape {#present-landscape-corr-viz}
 
