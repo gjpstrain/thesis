@@ -314,6 +314,38 @@ related two variables are.
 
 \section{Visualising Correlation}\label{visualising-correlation}
 
+Of course, while mathematically sound, a single value provides no
+information about the distribution of variables from which it was
+derived. To do this, the data must be examined visually. Here arises a
+parallel; in much the same way as Francis Galton used a
+proto-scatterplot to formulate his definition of correlation, so must
+data visualisation be used to tell the story behind a value of Pearson's
+\emph{r}. The need for visualisation is most viscerally illustrated by
+Anscombe's quartet \cite{anscombe_1973}, which is recreated in
+Figure~\ref{fig-anscombe} using a dataset from the \texttt{datasets}
+core package \cite{r_core} in R.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-anscombe-1.pdf}
+
+}
+
+\caption{\label{fig-anscombe}Anscombe's quartet \cite{anscombe_1973}.
+Each scatterplot depics datasets with identical means (\(x\) = 9, \(y\)
+= 7.5), regression coefficients (\(y\) on \(x\) = 0.5), standard errors
+(0.118), and Pearson's \emph{r} values (≈ 0.816).}
+
+\end{figure}%
+
+Anscombe's quartet \cite{anscombe_1973} describes four simple datasets
+that are identical with regards to a range of statistical measures. They
+feature the same number of observations, the same means, regression
+coefficients, regression line equations, sums of squares, estimated
+standard errors, and correlation coefficients.
+
 \subsection{History}\label{history-corr-viz}
 
 \subsection{Present Landscape}\label{present-landscape-corr-viz}
