@@ -23,24 +23,23 @@ visualisations that \emph{tell stories} about our data in ways which are
 both beautiful and practical.
 
 When, then, should we consider to be the emergence of data visualisation
-as a human practice? Of course, answering this question requires the
-provision of a definition for the practice itself first.
-Schmandt-Besserat \cite{schmandt_1978, schmandt_2014} considers clay
-counting tokens to be the direct precursor of the written word. While
-the evidence for this link is controversial \cite{robson_2007}, the
-existence of such tokens is not. With each shape of token representing a
-certain amount of a certain good (measures of grain, jars of oil, etc.),
-this system could be considered a very early, very simple form of data
-visualisation (or physicalisation \cite{jansen_2015}). Similarly, there
-is limited evidence of prehistoric cartographic drawings
-\cite{muhly_1978}, which may also be considered a form of, or related
-to, data visualisation. While I am not asserting that data visualisation
-is older than writing, or that ancient map drawings are equivalent to
-modern graphics, the existence of these representations emphasises the
-attractive convenience that symbols and signs represent for humans;
-making sense of our world and the relationships therein is often easier
-through pictures as opposed to words and numbers, a principle which I
-consider key for this thesis.
+as a human practice? Schmandt-Besserat
+\cite{schmandt_1978, schmandt_2014} considers clay counting tokens to be
+the direct precursor of the written word. While the evidence for this
+link is controversial \cite{robson_2007}, the existence of such tokens
+is not. With each shape of token representing a certain amount of a
+certain good (measures of grain, jars of oil, etc.), this system could
+be considered a very early, very simple form of data visualisation (or
+physicalisation \cite{jansen_2015}). Similarly, there is limited
+evidence of prehistoric cartographic drawings \cite{muhly_1978}, which
+may also be considered a form of, or related to, data visualisation.
+While I am not asserting that data visualisation is older than writing,
+or that ancient map drawings are equivalent to modern graphics, the
+existence of these representations emphasises the attractive convenience
+that symbols and signs represent for humans; making sense of our world
+and the relationships therein is often easier through pictures as
+opposed to words and numbers, a principle which I consider key for this
+thesis.
 
 Note: much of the rest of this section is heavily inspired by Michael
 Friendly's \emph{A Brief History of Data Visualization}
@@ -69,16 +68,17 @@ Graves-Morris, 1983 \cite{tufte_1983} from Funkhouser, 1936
 
 \end{figure}%
 
-This purports to show the movements of planetary bodies as a function of
-time, although Funkhouser considered it little more than a ``schematic
-diagram\ldots for illustrative purposes'' \cite{funkhouser_1936}.
-Regardless, the recognisable grid lines and sinusoidal variation in the
-curves are ideas that would not appear again for another 600-700 years,
-after which they would become mainstays of visualisation. In the
-mid-14th century, French philosopher Nicole Oresme demonstrated an
-understanding of graphing by plotting proto-bar charts, and by the 16th
-century, advances in cartography, photography, and mathematics laid the
-ground for an explosion in data visualisation.
+This illustration purports to show the movements of planetary bodies as
+a function of time, although Funkhouser considered it little more than a
+``schematic diagram\ldots for illustrative purposes''
+\cite{funkhouser_1936}. Regardless, the recognisable grid lines and
+sinusoidal variation in the curves are ideas that would not appear again
+for another 600-700 years, after which they would become mainstream
+visualisation techniques. In the mid-14th century, French philosopher
+Nicole Oresme demonstrated an understanding of graphing by plotting
+proto-bar charts, and by the 16th century, advances in cartography,
+photography, and mathematics laid the ground for an explosion in data
+visualisation.
 
 The 17th century saw the birth of geometry and coordinate systems, error
 measurement, probability, and demographic statistics. With these
@@ -96,8 +96,7 @@ over time (see Figure~\ref{fig-sunspots}).
 
 }
 
-\caption{\label{fig-sunspots}Reproduced in Tufte and Graves-Morris, 1983
-\cite{tufte_1983} from Funkhouser, 1936 \cite{funkhouser_1936}.}
+\caption{\label{fig-sunspots}placeholder}
 
 \end{figure}%
 
@@ -182,7 +181,7 @@ effectively to appeal to our affinity for visual storytelling.
 An appetite for precision defined the approach to statistical thinking,
 and by extension, data visualisation, in the first half of the 20th
 century. Statistical graphics finally became mainstream, and were
-implemented in curricula, and used in government, commerce, and finance.
+implemented in curricula and used in government, commerce, and finance.
 This period also marks the beginning of graphical methods being used to
 generate new scientific insights, a trend which would only accelerate
 throughout the next century. The most prominent example of this is Henry
@@ -204,13 +203,13 @@ organising the perceptual elements of data visualisations according to
 their features and their relationships to the underlying data; this work
 would be influential for Leland Wilkinson's \emph{Grammar of Graphics}
 \cite{wilkinson_1999}, which in turn influenced the \texttt{ggplot2}
-package \cite{wickham_2016} that is used extensively in this paper.
+package \cite{wickham_2016} that is used extensively in this thesis.
 
 Since then, both the practice and study of data visualisation have
 become thoroughly mainstream. Students are taught to visualise data
 early on, and the propagation of both software and powerful computing
 hardware have brought advanced techniques, such as high dimensional
-visualisation, and massive datasets, into the home. To summarise the
+visualisation and massive datasets, into the home. To summarise the
 timeline of developments in data visualisation over the last 500 years,
 I include a rug and density plot from Friendly (2008)
 \cite{friendly_2008} in Figure~\ref{fig-rug-density}.
@@ -225,7 +224,7 @@ I include a rug and density plot from Friendly (2008)
 
 \caption{\label{fig-rug-density}Major milestones in the development of
 data visualisation illustrated using a rug plot and density estimate.
-This figure is taken from Friendly (2008) \cite{friendly_2008}}
+This figure is taken from Friendly (2008) \cite{friendly_2008}.}
 
 \end{figure}%
 
@@ -261,31 +260,30 @@ in this brief, but significant, paper, Galton posits a basic definition
 of correlation:
 
 \begin{quotation}
-  ``Two variable organs are said to be co-related when the variation of the one is accompanied on the average by more or less variation of the other, and in the same direction.''
+  ``Two variable organs [of the body] are said to be co-related when the variation of the one is accompanied on the average by more or less variation of the other, and in the same direction.''
 \end{quotation}
 
-Here, Galton is referring to the organs of the body. Measuring a variety
-of anatomical distances, including head lengths and heights of a range
-of ``not wholly fully-grown'' males, Galton first provides medians and
-semi-interquartile ranges as a measure of error. Plotting the
-semi-interquartile ranges (Q units) of two variables against each other
-and calculating the slope of the line allowed Galton to devise a new,
-unitless measure of co-relatedness, which he termed r. This has since
-been lauded as a prime example of a mathematical discovery made based on
-observed data. This method is imprecise, as it requires intuition of a
-line-of-best-fit based on a hand drawn plot, but is credited as the
-first full conceptual definition of a measure of correlation. It should
-be noted that Galton did not conceive of negative correlation at this
-point. Galton's work did not take place in isolation, however, and the
-preceding 60 years featured famous names, such as Gauss and Darwin,
-dancing around the idea of correlation without recognising its
-importance; Lee Rodgers \& Nicewander (1988) \cite{lee_1988} provide an
-excellent overview of this period.
+Measuring a variety of anatomical distances, including head lengths and
+heights of a range of ``not wholly fully-grown'' males, Galton first
+provides medians and semi-interquartile ranges as a measure of error.
+Plotting the semi-interquartile ranges (Q-units) of two variables
+against each other and calculating the slope of the line allowed Galton
+to devise a new, unitless measure of co-relatedness, which he termed r.
+This has since been lauded as a prime example of a mathematical
+discovery made based on observed data. This method is imprecise, as it
+requires intuition of a line-of-best-fit based on a hand drawn plot, but
+is credited as the first full conceptual definition of a measure of
+correlation. It should be noted that Galton did not conceive of negative
+correlation at this point. Galton's work did not take place in
+isolation, however, and the preceding 60 years featured famous names,
+such as Gauss and Darwin, dancing around the idea of correlation without
+recognising its importance; Lee Rodgers \& Nicewander (1988)
+\cite{lee_1988} provide an excellent overview of this period.
 
 Building on Galton's groundbreaking work, his younger, more
 mathematically-minded student, Karl Pearson, developed the Pearson
 Product-Moment correlation in 1895 \cite{lee_1988} based on initial
-formulae by Bravais (1846) \cite{bravais_1846}. This measure has been
+formulae by Bravais (1844) \cite{bravais_1844}. This measure has been
 remarkably persistent, remaining unchanged for well over a century. In
 fact, many other measures of correlation, such as Spearman's \(\rho\),
 the point-biserial correlation, and the \(\phi\) coefficient are
@@ -299,8 +297,8 @@ Equation 2.1 defines Pearson's \emph{r}:
 
 In this equation, \(\bar{x}\) and \(\bar{y}\) are the means of each
 variable. \(x_i\) and \(x_i\) are the individual values of each variable
-in question. In the numerator, the sum of the product of the difference
-between each value of \(x\) and \(x\) is found; this value represents
+in question. In the numerator, the sum of the products of the difference
+between each value of \(x\) and \(y\) is found; this value represents
 the degree of deviation of all points from the regression line. Then, in
 the denominator, this value is divided by the magnitude of the sum of
 the product of said deviations; squaring and finding the square root of
@@ -344,9 +342,39 @@ Anscombe's quartet \cite{anscombe_1973} describes four simple datasets
 that are identical with regards to a range of statistical measures. They
 feature the same number of observations, the same means, regression
 coefficients, regression line equations, sums of squares, estimated
-standard errors, and correlation coefficients.
+standard errors, and correlation coefficients. A simple examination of
+these statistics would lead to the conclusion that the datasets are
+almost identical; in reality, there are significant differences between
+them that can only be seen via visualisation.
+
+In this thesis, the primary concern is correlation and the ways in which
+people interpret it from scatterplots. The remainder of this section
+examines the history and current landscape of correlation
+visualisations; starting with Galton's scatterplot precursors, I then go
+on to discuss the development of the familiar modern scatterplot through
+the examination of a number of impressive use cases. Following that, I
+review the current landscape of correlation visualisation, including the
+more recent use of other, non-scatterplot graphs.
 
 \subsection{History}\label{history-corr-viz}
+
+As mentioned in Section \ref{relatedness-and-correlation}, Francis
+Galton based his initial formulation of the correlation coefficient on
+hand-drawn plots of the semi-interquartile ranges of two variables. I
+have recreated the plot using \texttt{ggplot} in
+Figure~\ref{fig-galston-hand-plot}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-galston-hand-plot-1.pdf}
+
+}
+
+\caption{\label{fig-galston-hand-plot}placeholder}
+
+\end{figure}%
 
 \subsection{Present Landscape}\label{present-landscape-corr-viz}
 

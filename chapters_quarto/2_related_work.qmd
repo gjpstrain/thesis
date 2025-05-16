@@ -46,9 +46,12 @@ This instinct has not waned, and modern computing makes it easier than ever for
 those of us with no technical or artistic skills to create graphics and visualisations
 that *tell stories* about our data in ways which are both beautiful and practical.
 
+<!-- When, then, should we consider to be the emergence of data visualisation as a  -->
+<!-- human practice? Of course, answering this question requires the provision of a  -->
+<!-- definition for the practice itself first. -->
+
 When, then, should we consider to be the emergence of data visualisation as a 
-human practice? Of course, answering this question requires the provision of a 
-definition for the practice itself first. Schmandt-Besserat \cite{schmandt_1978, schmandt_2014}
+human practice? Schmandt-Besserat \cite{schmandt_1978, schmandt_2014}
 considers clay counting tokens to be the direct precursor of the written word.
 While the evidence for this link is controversial \cite{robson_2007}, the existence of such
 tokens is not. With each shape of token representing a certain amount of a 
@@ -83,12 +86,12 @@ Sigmund Günther in 1877. This illustration is included here in @fig-early-time-
 knitr::include_graphics(path = "../supplied_graphics/tufte_1983.png", dpi = NA)
 ```
 
-This purports to show the movements of planetary bodies as a function of time,
+This illustration purports to show the movements of planetary bodies as a function of time,
 although Funkhouser considered it little more than a "schematic diagram...for
 illustrative purposes" \cite{funkhouser_1936}. Regardless, the recognisable
 grid lines and sinusoidal variation in the curves are ideas that would not appear
-again for another 600-700 years, after which they would become mainstays of 
-visualisation. In the mid-14th century, French philosopher Nicole
+again for another 600-700 years, after which they would become mainstream 
+visualisation techniques. In the mid-14th century, French philosopher Nicole
 Oresme demonstrated an understanding of graphing by plotting proto-bar charts,
 and by the 16th century, advances in cartography, photography, and mathematics
 laid the ground for an explosion in data visualisation.
@@ -103,7 +106,7 @@ For example, in 1626, Scheiner used what Tufte would later term the "principle o
 ```{r}
 #| label: fig-sunspots
 #| include: true
-#| fig-cap: Reproduced in Tufte and Graves-Morris, 1983 \cite{tufte_1983} from Funkhouser, 1936 \cite{funkhouser_1936}.
+#| fig-cap: placeholder
 
 knitr::include_graphics(path = "../supplied_graphics/sunspots.png", dpi = NA)
 ```
@@ -159,7 +162,7 @@ storytelling.
 
 An appetite for precision defined the approach to statistical thinking, and by
 extension, data visualisation, in the first half of the 20th century. Statistical
-graphics finally became mainstream, and were implemented in curricula, and used
+graphics finally became mainstream, and were implemented in curricula and used
 in government, commerce, and finance. This period also marks the beginning of 
 graphical methods being used to generate new scientific insights, a trend which
 would only accelerate throughout the next century. The most prominent example of this
@@ -178,19 +181,19 @@ Bertin \cite{bertin_1967} published *Sémiologie graphique*
 according to their features and their relationships to the underlying data; this work
 would be influential for Leland Wilkinson's *Grammar of Graphics* \cite{wilkinson_1999},
 which in turn influenced the `ggplot2` package \cite{wickham_2016} that is used
-extensively in this paper.
+extensively in this thesis.
 
 Since then, both the practice and study of data visualisation have become thoroughly
 mainstream. Students are taught to visualise data early on, and the propagation of
 both software and powerful computing hardware have brought advanced techniques,
-such as high dimensional visualisation, and massive datasets, into the home. To summarise
+such as high dimensional visualisation and massive datasets, into the home. To summarise
 the timeline of developments in data visualisation over the last 500 years, I include
 a rug and density plot from Friendly (2008) \cite{friendly_2008} in @fig-rug-density.
 
 ```{r}
 #| label: fig-rug-density
 #| include: true
-#| fig-cap: Major milestones in the development of data visualisation illustrated using a rug plot and density estimate. This figure is taken from Friendly (2008) \cite{friendly_2008}
+#| fig-cap: Major milestones in the development of data visualisation illustrated using a rug plot and density estimate. This figure is taken from Friendly (2008) \cite{friendly_2008}.
 
 knitr::include_graphics(path = "../supplied_graphics/rug_density.png", dpi = NA)
 ```
@@ -222,13 +225,12 @@ body. Early in this brief, but significant, paper, Galton posits a basic definit
 of correlation:
 
 \begin{quotation}
-  ``Two variable organs are said to be co-related when the variation of the one is accompanied on the average by more or less variation of the other, and in the same direction.''
+  ``Two variable organs [of the body] are said to be co-related when the variation of the one is accompanied on the average by more or less variation of the other, and in the same direction.''
 \end{quotation}
 
-Here, Galton is referring to the organs of the body. Measuring a variety of 
-anatomical distances, including head lengths and heights of a range of "not
+Measuring a variety of anatomical distances, including head lengths and heights of a range of "not
 wholly fully-grown" males, Galton first provides medians and semi-interquartile ranges
-as a measure of error. Plotting the semi-interquartile ranges (Q units) of two
+as a measure of error. Plotting the semi-interquartile ranges (Q-units) of two
 variables against each other and calculating the slope of the line allowed
 Galton to devise a new, unitless measure of co-relatedness, which he termed
 r. This has since been lauded as a prime example of a mathematical
@@ -243,7 +245,7 @@ without recognising its importance; Lee Rodgers & Nicewander (1988)
 
 Building on Galton's groundbreaking work, his younger, more mathematically-minded
 student, Karl Pearson, developed the Pearson Product-Moment correlation in 1895
-\cite{lee_1988} based on initial formulae by Bravais (1846) \cite{bravais_1846}.
+\cite{lee_1988} based on initial formulae by Bravais (1844) \cite{bravais_1844}.
 This measure has been remarkably persistent, remaining unchanged
 for well over a century. In fact, many other measures of correlation, such
 as Spearman's $\rho$, the point-biserial correlation, and the $\phi$ coefficient are
@@ -257,7 +259,7 @@ Pearson's *r*:
 
 In this equation, $\bar{x}$ and $\bar{y}$ are the means of each variable. $x_i$
 and $x_i$ are the individual values of each variable in question. In the numerator,
-the sum of the product of the difference between each value of $x$ and $x$ is found;
+the sum of the products of the difference between each value of $x$ and $y$ is found;
 this value represents the degree of deviation of all points from the regression line.
 Then, in the denominator, this value is divided by the magnitude of the sum of the product of said
 deviations; squaring and finding the square root of these values provides the
@@ -326,6 +328,59 @@ the more recent use of other, non-scatterplot graphs.
 
 ## History {#history-corr-viz}
 
+As mentioned in Section \ref{relatedness-and-correlation}, Francis Galton based 
+his initial formulation of the correlation coefficient on hand-drawn plots
+of the semi-interquartile ranges of two variables. I have recreated the plot using
+`ggplot` in @fig-galston-hand-plot
+
+```{r}
+#| label: fig-galston-hand-plot
+#| include: true
+#| fig-cap: placeholder
+#| fig-asp: 1
+
+set.seed(3932)
+n <- 10
+data <- data.frame(
+  stature = runif(n, -1, 1),
+  type = rep(c("x", "o"), times = "5")
+) %>%
+  mutate(cubit = stature)
+
+ggplot(data, aes(stature, cubit)) +
+  geom_jitter(data = subset(data, type == "x"), shape = 4, width = 0.4) +
+  geom_jitter(data = subset(data, type == "o"), shape = 1, width = 0.4) +
+  geom_abline(intercept = -0.5, slope = 1, linetype = "dashed") +
+  geom_abline(intercept = 0.5, slope = 1, linetype = "dashed") +
+  # horizontal grid lines
+  geom_hline(yintercept = 1, colour = "grey") +
+  geom_hline(yintercept = 0, colour = "grey") +
+  geom_hline(yintercept = -1, colour = "grey") +
+  # vertical grid lines
+  geom_vline(xintercept = 1, colour = "grey") +
+  geom_vline(xintercept = 0, colour = "grey") +
+  geom_vline(xintercept = -1, colour = "grey") +
+  # carrying on
+  xlim(-1.5,1.5) +
+  ylim(-1.5,1.5) +
+  geom_smooth(method = "lm", se = F, fullrange = T) +
+  scale_y_continuous(
+    name = "",
+    sec.axis = dup_axis(name = "")) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),                    # Remove default grid
+    panel.border = element_rect(color = "black", fill = NA),  # Add solid box
+    axis.ticks = element_line(color = "black"),
+    axis.text = element_text(color = "black")
+  ) +
+    theme(axis.title = element_blank(),
+          plot.title = element_text(hjust = 0.5),
+          axis.ticks = element_blank()) +
+  labs(title = "STATURE AND CUBIT") +
+  annotate("text", x = -0.25, y = 0.45, angle = 45, label = "Line of Q1 values", size = 7) +
+    annotate("text", x = 0.35, y = -0.35, angle = 45, label = "Line of Q3 values", size = 7)
+```
 
 
 ## Present Landscape {#present-landscape-corr-viz}
