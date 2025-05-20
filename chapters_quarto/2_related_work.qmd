@@ -27,6 +27,9 @@ execute:
 library(tidyverse)
 library(ggdist)
 library(ggpubr)
+library(png)
+library(grid)
+library(cowplot)
 ```
 
 # Data Visualisation: A Brief History {#brief-history}
@@ -330,58 +333,68 @@ the more recent use of other, non-scatterplot graphs.
 
 As mentioned in Section \ref{relatedness-and-correlation}, Francis Galton based 
 his initial formulation of the correlation coefficient on hand-drawn plots
-of the semi-interquartile ranges of two variables. I have recreated the plot using
-`ggplot` in @fig-galston-hand-plot
+of the semi-interquartile ranges of two variables. @fig-galston-hand-plot contains
+a negative scan of Galston's original plot, along with a modern recreation using 
+``ggplot2``.
 
 ```{r}
 #| label: fig-galston-hand-plot
 #| include: true
-#| fig-cap: placeholder
-#| fig-asp: 1
+#| fig-cap: Francis Galton's original plot comparing the semi-interquartile ranges of stature (height) and cubit (forearm length). The plot has been recreated using `ggplot2` on the right.
+#| fig-asp: 0.5
 
 set.seed(3932)
+
 n <- 10
+
 data <- data.frame(
   stature = runif(n, -1, 1),
   type = rep(c("x", "o"), times = "5")
 ) %>%
   mutate(cubit = stature)
 
-ggplot(data, aes(stature, cubit)) +
-  geom_jitter(data = subset(data, type == "x"), shape = 4, width = 0.4) +
-  geom_jitter(data = subset(data, type == "o"), shape = 1, width = 0.4) +
-  geom_abline(intercept = -0.5, slope = 1, linetype = "dashed") +
-  geom_abline(intercept = 0.5, slope = 1, linetype = "dashed") +
-  # horizontal grid lines
-  geom_hline(yintercept = 1, colour = "grey") +
-  geom_hline(yintercept = 0, colour = "grey") +
-  geom_hline(yintercept = -1, colour = "grey") +
-  # vertical grid lines
-  geom_vline(xintercept = 1, colour = "grey") +
-  geom_vline(xintercept = 0, colour = "grey") +
-  geom_vline(xintercept = -1, colour = "grey") +
-  # carrying on
-  xlim(-1.5,1.5) +
-  ylim(-1.5,1.5) +
-  geom_smooth(method = "lm", se = F, fullrange = T) +
-  scale_y_continuous(
-    name = "",
-    sec.axis = dup_axis(name = "")) +
-  theme_minimal() +
-  theme(
-    panel.grid = element_blank(),                    # Remove default grid
-    panel.border = element_rect(color = "black", fill = NA),  # Add solid box
-    axis.ticks = element_line(color = "black"),
-    axis.text = element_text(color = "black")
-  ) +
-    theme(axis.title = element_blank(),
-          plot.title = element_text(hjust = 0.5),
-          axis.ticks = element_blank()) +
-  labs(title = "STATURE AND CUBIT") +
-  annotate("text", x = -0.25, y = 0.45, angle = 45, label = "Line of Q1 values", size = 7) +
-    annotate("text", x = 0.35, y = -0.35, angle = 45, label = "Line of Q3 values", size = 7)
-```
+p1 <-  ggplot(data, aes(stature, cubit)) +
+          geom_jitter(data = subset(data, type == "x"), shape = 4, width = 0.4) +
+          geom_jitter(data = subset(data, type == "o"), shape = 1, width = 0.4) +
+          geom_abline(intercept = -0.5, slope = 1, linetype = "dashed") +
+          geom_abline(intercept = 0.5, slope = 1, linetype = "dashed") +
+          # horizontal grid lines
+          geom_hline(yintercept = 1, colour = "grey") +
+          geom_hline(yintercept = 0, colour = "grey") +
+          geom_hline(yintercept = -1, colour = "grey") +
+          # vertical grid lines
+          geom_vline(xintercept = 1, colour = "grey") +
+          geom_vline(xintercept = 0, colour = "grey") +
+          geom_vline(xintercept = -1, colour = "grey") +
+          # carrying on
+          xlim(-1.5,1.5) +
+          ylim(-1.5,1.5) +
+          geom_smooth(method = "lm", se = F, fullrange = T) +
+          scale_y_continuous(
+            name = "",
+            sec.axis = dup_axis(name = "")) +
+          theme_minimal() +
+          theme(
+            panel.grid = element_blank(),                    # Remove default grid
+            panel.border = element_rect(color = "black", fill = NA),  # Add solid box
+            axis.ticks = element_line(color = "black"),
+            axis.text = element_text(color = "black"),
+            axis.title = element_blank(),
+            plot.title = element_text(hjust = 0.5, size = 7)
+          ) +
+          labs(title = "STATURE AND CUBIT") +
+          annotate("text", x = -0.25, y = 0.45, angle = 45, label = "Line of Q1 values", size = 4) +
+          annotate("text", x = 0.35, y = -0.35, angle = 45, label = "Line of Q3 values", size = 4)
 
+
+img <- readPNG("../supplied_graphics/galton_scan.png")
+
+g <- rasterGrob(img, interpolate = TRUE)
+
+p2 <- ggdraw() + draw_grob(g)
+
+plot_grid(p2, p1, ncol = 2)
+```
 
 ## Present Landscape {#present-landscape-corr-viz}
 
