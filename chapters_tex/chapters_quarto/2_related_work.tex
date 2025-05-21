@@ -361,23 +361,48 @@ more recent use of other, non-scatterplot graphs.
 As mentioned in Section \ref{relatedness-and-correlation}, Francis
 Galton based his initial formulation of the correlation coefficient on
 hand-drawn plots of the semi-interquartile ranges of two variables.
-Figure~\ref{fig-galston-hand-plot} contains a negative scan of Galston's
+Figure~\ref{fig-galton-hand-plot} contains a negative scan of Galton's
 original plot, along with a modern recreation using \texttt{ggplot2}.
 
 \begin{figure}
 
 \centering{
 
-\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-galston-hand-plot-1.pdf}
+\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf}
 
 }
 
-\caption{\label{fig-galston-hand-plot}Francis Galton's original plot
+\caption{\label{fig-galton-hand-plot}Francis Galton's original plot
 comparing the semi-interquartile ranges of stature (height) and cubit
 (forearm length). The plot has been recreated using \texttt{ggplot2} on
 the right.}
 
 \end{figure}%
+
+Despite the importance of graphics like these for Francis Galton's
+discovery of regression, statistical correlation, and the relationship
+between these and the bivariate density function \cite{friendly_2005}, a
+more true example of a scatterplot can be found in much earlier work on
+the orbits of twin starts by John F. W. Herschel
+\textbackslash cite\{herschel\_1833. Unfortunately, this scatterplot was
+never printed in Herschel's 1833 manuscript, however can be inferred
+thanks to a detailed description of both the figure and the logic behind
+it. In short, Herschel wished to figure out the orbits of binary star
+systems by using (often imprecise) astronomical measurements of certain
+angles and distances made over a long period of time. It is the
+imprecision in measurement which necessitated data visualisation, as
+precise measurements would would allow common astronomical principles to
+provide precise solutions. First specifying the axes, angles of position
+(\(y\)) and data of observation (\(x\)), Herschel then describes
+plotting points and drawing, by hand, a line-of-best-fit. A particularly
+enlightening quote, with original emphasis, is reproduced below:
+
+\begin{quotation}
+    ``Our next step, then, must be to draw, by the mere judgement of the eye, and with
+a free but careful hand, not \textit{through}, but \textit{among} them, a curve presenting as few
+and slight departures from them as possible, consistently with this character of 
+large and graceful sinuosity, which must be preserved at all hazards...''
+\end{quotation}
 
 \subsection{Present Landscape}\label{present-landscape-corr-viz}
 
