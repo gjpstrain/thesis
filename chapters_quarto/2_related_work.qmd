@@ -109,7 +109,7 @@ For example, in 1626, Scheiner used what Tufte would later term the "principle o
 ```{r}
 #| label: fig-sunspots
 #| include: true
-#| fig-cap: placeholder
+#| fig-cap: Scheiner's (1626) plot detailing how configurations of sunspots change over time. This technique would later be referred to as the "principle of small multiples" by Tufte.
 
 knitr::include_graphics(path = "../supplied_graphics/sunspots.png", dpi = NA)
 ```
@@ -141,7 +141,7 @@ knitr::include_graphics(path = "../supplied_graphics/nightingale-rose.jpg", dpi 
 The latter half of the 19th century, the so-called "Golden Age of Statistical Graphics"
 \cite{friendly_2008} saw the rise of forms of data visualisation that begin 
 to look remarkably similar to the graphs and informatics seen in mass media and
-scientific publications today. The most notable examples of these are John Snow's cholera map, which
+scientific publication today. The most notable examples of these are John Snow's cholera map, which
 was able to link the incidence of cholera to a contaminated water pump in London
 (@fig-cholera), Charles Joseph Minard's flow chart of the Napoleonic invasion of Russia
 (@fig-napoleon), and Florence Nightingale's rose diagrams (polar area charts in
@@ -168,9 +168,11 @@ extension, data visualisation, in the first half of the 20th century. Statistica
 graphics finally became mainstream, and were implemented in curricula and used
 in government, commerce, and finance. This period also marks the beginning of 
 graphical methods being used to generate new scientific insights, a trend which
-would only accelerate throughout the next century. The most prominent example of this
-is Henry Moseley's (1913) discovery of the concept of atomic number \cite{moseley_1913},
-which I will discuss in greater detail in Section \ref{history-corr-viz}.
+would only accelerate throughout the next century. 
+
+<!-- The most prominent example of this -->
+<!-- is Henry Moseley's (1913) discovery of the concept of atomic number \cite{moseley_1913}, -->
+<!-- which I will discuss in greater detail in Section \ref{history-corr-viz}. -->
 
 Significant developments in the latter half of the 20th century laid the final
 brick in the foundations of what would become the modern data visualisation 
@@ -239,9 +241,9 @@ Galton to devise a new, unitless measure of co-relatedness, which he termed
 r. This has since been lauded as a prime example of a mathematical
 discovery made based on observed data. This method is imprecise, as it requires
 intuition of a line-of-best-fit based on a hand drawn plot, but is credited as
-the first full conceptual definition of a measure of correlation. It should be noted
+the first full conceptual definition of a measure of correlation; it should be noted
 that Galton did not conceive of negative correlation at this point. Galton's work
-did not take place in isolation, however, and the preceding 60 years featured 
+did not take place in isolation, and the preceding 60 years featured 
 famous names, such as Gauss and Darwin, dancing around the idea of correlation
 without recognising its importance; Lee Rodgers & Nicewander (1988)
 \cite{lee_1988} provide an excellent overview of this period. 
@@ -262,8 +264,8 @@ Pearson's *r*:
 
 In this equation, $\bar{x}$ and $\bar{y}$ are the means of each variable. $x_i$
 and $x_i$ are the individual values of each variable in question. In the numerator,
-the sum of the products of the difference between each value of $x$ and $y$ is found;
-this value represents the degree of deviation of all points from the regression line.
+the sum of the products of the difference between each value of $x$ and $y$ and their
+means are found; this value represents the degree of deviation of all points from the regression line.
 Then, in the denominator, this value is divided by the magnitude of the sum of the product of said
 deviations; squaring and finding the square root of these values provides the
 unsigned magnitude. In statistical language, Pearson's *r* finds the covariance of
@@ -396,10 +398,10 @@ p2 <- ggdraw() + draw_grob(g)
 plot_grid(p2, p1, ncol = 2)
 ```
 
-Despite the importance of graphics like these for Francis Galton's discovery of
+Despite the importance of graphics like these for Galton's discovery of
 regression, statistical correlation, and the relationship between these and the
 bivariate density function \cite{friendly_2005}, a more true example of a scatterplot
-can be found in much earlier work on the orbits of twin starts by John F. W. 
+can be found in much earlier work on the orbits of twin stars by John F. W. 
 Herschel \cite{herschel_1833}. Unfortunately, this scatterplot was never printed
 in Herschel's 1833 manuscript, however can be inferred thanks to a detailed 
 description of both the figure and the logic behind it. In short, Herschel wished
@@ -408,7 +410,7 @@ astronomical measurements of certain angles and distances made over a long perio
 of time. It is the imprecision in measurement which necessitated data visualisation,
 as precise measurements would would allow common astronomical principles to 
 provide precise solutions. First specifying the axes, angles of position ($y$)
-and data of observation ($x$), and grid lines, Herschel then describes plotting points and drawing,
+and date of observation ($x$), and grid lines, Herschel then describes plotting points and drawing,
 by hand, a line-of-best-fit. A particularly enlightening quote, with original
 emphasis, is reproduced below:
 
@@ -425,7 +427,7 @@ Galton by more than 50 years to claim the first scatterplot, in a remarkable
 feat of using graphing to solve an astronomical problem. Just a few decades after
 Galton had discovered the concept of correlation, yet another astronomical example
 of a scatterplot can be found in the Hertzsprung-Russell diagram, created independently
-by Ejnar Hertzprung and Henry Norris Russell in 1911-1913 \cite{montmerle_2011}.
+by both Ejnar Hertzprung and Henry Norris Russell in 1911-1913 \cite{montmerle_2011}.
 This type of scatterplot, which still sees use in modern astronomy, plots stellar
 luminosity against colour (temperature). I have plotted an HR diagram in 
 @fig-HR-plot using the HYG database [^1].
@@ -474,15 +476,35 @@ Herschel's initial description and Galton's initial formulation of correlation,
 I hope that I have conveyed the importance of this visualisation type. As we will
 see in Section \ref{present-landscape-corr-viz}, the landscape of correlation
 visualisation is now much broader, however the humble scatterplot still remains
-a crucial part of the visualisers toolbox. From its origins as a way of inferring
+a crucial part of the visualiser's toolbox. From its origins as a way of inferring
 astronomical relationships, to its use in the discovery of correlation, the 
 standard scatterplot remains largely unchanged to this day; this thesis charts
 the development of a new type of scatterplot that draws on key elements of human
 perception to increase its utility in correlation visualisation, however it is 
 important to pay homage to the history of the visualisation as an ever-present
-lab mate to those able to use graphing to solve scientific problems.
+lab mate to those willing and able to use graphing to solve scientific problems.
 
 ## Present Landscape {#present-landscape-corr-viz}
+
+When I began this project in the autumn of 2021, I believed that scatterplots were
+the first and last word when it came to visualising correlation. I soon discovered
+that this was not the case; as scientists often do, a whole host of other 
+visualisation types had been designed in an effort to better visualise correlation.
+Parallel coordinates plots (PCPs) \cite{heinrich_2013}, which are popular in the 
+InfoVis community, are most often used for multidimensional data. Applying them to
+bivariate data results in plots that perform (almost) as well as scatterplots
+with regards to visualising correlation between two variables \cite{kay_2015}.
+@fig-other-corr-viz illustrates parallel coordinates plots, along with 8 other
+types of correlation visualisation, with an *r* value of 0.8.
+
+```{r}
+#| label: fig-other-corr-viz
+#| include: true
+#| fig-cap: placeholder
+
+
+```
+
 
 ## Scatterplots {#scatterplots-corr-viz}
 
