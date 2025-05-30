@@ -44,7 +44,7 @@ period some 66,000 years ago \cite{standish_2025}, and evidence for the latter
 emerging as Mesopotamian cuneiform around 3200 B.C.E \cite{schmandt_2014}.
 Broadly, the literature agrees that art emerged prior to the written word; 
 this speaks volumes of the human instinct to represent our thoughts, feelings,
-emotions, and that which we interact with in the world around us pictorially.
+emotions, and the ways that we interact with the world pictorially.
 This instinct has not waned, and modern computing makes it easier than ever for
 those of us with no technical or artistic skills to create graphics and visualisations
 that *tell stories* about our data in ways which are both beautiful and practical.
@@ -55,8 +55,8 @@ that *tell stories* about our data in ways which are both beautiful and practica
 
 When, then, should we consider to be the emergence of data visualisation as a 
 human practice? Schmandt-Besserat \cite{schmandt_1978, schmandt_2014}
-considers clay counting tokens to be the direct precursor of the written word.
-While the evidence for this link is controversial \cite{robson_2007}, the existence of such
+considers clay counting tokens to be the direct precursor of the written word;
+while the evidence for this link is controversial \cite{robson_2007}, the existence of such
 tokens is not. With each shape of token representing a certain amount of a 
 certain good (measures of grain, jars of oil, etc.), this system could be considered
 a very early, very simple form of data visualisation (or physicalisation
@@ -408,7 +408,7 @@ astronomical measurements of certain angles and distances made over a long perio
 of time. It is the imprecision in measurement which necessitated data visualisation,
 as precise measurements would would allow common astronomical principles to 
 provide precise solutions. First specifying the axes, angles of position ($y$)
-and data of observation ($x$), Herschel then describes plotting points and drawing,
+and data of observation ($x$), and grid lines, Herschel then describes plotting points and drawing,
 by hand, a line-of-best-fit. A particularly enlightening quote, with original
 emphasis, is reproduced below:
 
@@ -418,6 +418,69 @@ a free but careful hand, not \textit{through}, but \textit{among} them, a curve 
 and slight departures from them as possible, consistently with this character of 
 large and graceful sinuosity, which must be preserved at all hazards...''
 \end{quotation}
+
+From this smoothed-by-eye line, Herschel was able to calculate the parameters 
+that determined the rotation of the $\gamma$Virginis system. Herschel beat out
+Galton by more than 50 years to claim the first scatterplot, in a remarkable
+feat of using graphing to solve an astronomical problem. Just a few decades after
+Galton had discovered the concept of correlation, yet another astronomical example
+of a scatterplot can be found in the Hertzsprung-Russell diagram, created independently
+by Ejnar Hertzprung and Henry Norris Russell in 1911-1913 \cite{montmerle_2011}.
+This type of scatterplot, which still sees use in modern astronomy, plots stellar
+luminosity against colour (temperature). I have plotted an HR diagram in 
+@fig-HR-plot using the HYG database [^1].
+
+[^1]: https://www.astronexus.com/projects/hyg
+
+```{r}
+#| label: fig-HR-plot
+#| include: true
+#| fig-cap: Hertzsprung-Russell diagram of colour index against stellar luminosity. The code for this plot was taken from John Russell's (no relation) blog \cite{russell_2025}.
+
+HRG_data <- read_csv("../data/other_data/hygdata_v41.csv") %>%
+  filter(dist < 10000)
+
+options(scipen = 999)
+
+HRG_data %>%
+  ggplot(aes(ci, lum, colour = ci)) +
+  geom_point(size = 0.02, show.legend = F) +
+  scale_y_log10() +
+  scale_x_continuous(limits=c(-.5,2.25)) +
+  scale_color_gradient2(low= "blue", mid="white", high="red",midpoint=0.75) +
+  theme_minimal() +
+  theme(panel.background=element_rect(fill="black"),
+        panel.grid=element_blank(),
+        plot.title = element_text(size = 8),
+        axis.title = element_text(size = 8),
+        axis.text = element_text(size = 6.5)) +
+  labs(title="Hertzsprung-Russell Diagram",
+       y="Luminosity (in comparison to Sun)",
+       x="Color Index (blue magnitude - visual magnitude)")
+```
+
+The clear band that can be seen in @fig-HR-plot from top-left to bottom
+right are "main sequence" stars. It was only by visualisation that astronomers
+were able to determine that there were laws that govern the formation and evolution
+of stars. Spence and Garrison \cite{spence_1993} conducted a detailed analysis
+of the history and development of HR diagrams, and conclude that they represent
+a "shining example of the power of graphic display". Again, it was the ability
+of the data visualisation to facilitate pattern recognition in its human viewers
+that was so crucial to its (continuing) success.
+
+While this section has not been an exhaustive list of every scatterplot and 
+scatterplot-alike that has prominently featured in scientific publishing since
+Herschel's initial description and Galton's initial formulation of correlation,
+I hope that I have conveyed the importance of this visualisation type. As we will
+see in Section \ref{present-landscape-corr-viz}, the landscape of correlation
+visualisation is now much broader, however the humble scatterplot still remains
+a crucial part of the visualisers toolbox. From its origins as a way of inferring
+astronomical relationships, to its use in the discovery of correlation, the 
+standard scatterplot remains largely unchanged to this day; this thesis charts
+the development of a new type of scatterplot that draws on key elements of human
+perception to increase its utility in correlation visualisation, however it is 
+important to pay homage to the history of the visualisation as an ever-present
+lab mate to those able to use graphing to solve scientific problems.
 
 ## Present Landscape {#present-landscape-corr-viz}
 
