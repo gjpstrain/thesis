@@ -30,6 +30,8 @@ library(ggpubr)
 library(png)
 library(grid)
 library(cowplot)
+library(MASS)
+library(GGally)
 ```
 
 # Data Visualisation: A Brief History {#brief-history}
@@ -494,14 +496,86 @@ Parallel coordinates plots (PCPs) \cite{heinrich_2013}, which are popular in the
 InfoVis community, are most often used for multidimensional data. Applying them to
 bivariate data results in plots that perform (almost) as well as scatterplots
 with regards to visualising correlation between two variables \cite{kay_2015}.
-@fig-other-corr-viz illustrates parallel coordinates plots, along with 8 other
+@fig-other-corr-viz illustrates parallel coordinates plots, along with 7 other
 types of correlation visualisation, with an *r* value of 0.8.
 
 ```{r}
 #| label: fig-other-corr-viz
 #| include: true
 #| fig-cap: placeholder
+#| fig-asp: 1
 
+# first import correlation data
+
+source("../shared_functions.R")
+
+# define custom theme
+
+theme_other_viz <- function() {
+  theme_ggdist() %+replace%
+    theme(axis.text = element_blank(),
+          axis.ticks = element_blank(),
+          axis.title.x = element_blank(),
+          axis.title.y = element_blank(),
+          plot.margin = margin(1, 1, 1, 1, unit = "pt"),
+          legend.position = "none"
+      
+    )
+}
+
+# PCP
+
+PCP_plot <- data_with_resid %>% 
+  mutate(ID = seq_len(nrow(data_with_resid))) %>%
+  ggparcoord(columns = 1:2,
+             groupColumn = NULL,
+             showPoints = FALSE,
+             scale = "uniminmax") +
+  theme_other_viz() +
+  coord_cartesian(expand = FALSE, clip = "off")
+
+
+# stacked area
+
+stacked_area_plot <- data_with_resid %>%
+  mutate(ID = seq_len(nrow(data_with_resid))) %>%
+  pivot_longer(cols = c("V1", "V2"),
+               values_to = "value", names_to = "group") %>%
+    mutate(value = value + 2.79) %>%
+  ggplot(aes(x = ID, y = value, fill = group)) +
+    geom_area() +
+    theme_other_viz()
+  
+
+# donut
+
+radial_stack <- data_with_resid %>%
+  mutate(ID = seq_len(nrow(data_with_resid))) %>%
+  pivot_longer(cols = c("V1", "V2"),
+               values_to = "value", names_to = "group") %>%
+    mutate(value = value + 2.79) %>%
+  ggplot(aes(x = ID, y = value, fill = group)) +
+    geom_col() +
+    theme_other_viz() +
+  coord_polar(theta = "y")
+
+# radar
+
+#radar_plot <-
+  
+  data_with_resid %>%
+  mutate(ID = seq_len(nrow(data_with_resid))) %>%
+  pivot_longer(cols = c("V1", "V2"),
+               values_to = "value", names_to = "group") %>%
+    mutate(value = value + 2.79) %>%
+  ggplot(aes(x = ID, y = value, colour = group)) +
+    geom_line() +
+    theme_other_viz() +
+  coord_polar()
+
+# line
+
+# ordered line
 
 ```
 
