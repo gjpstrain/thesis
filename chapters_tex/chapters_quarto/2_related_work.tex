@@ -459,6 +459,35 @@ scientific problems.
 
 \subsection{Present Landscape}\label{present-landscape-corr-viz}
 
+When I began this project in the autumn of 2021, I believed that
+scatterplots were the first and last word when it came to visualising
+correlation. I soon discovered that this was not the case; as scientists
+often do, a whole host of other visualisation types had been designed in
+an effort to better visualise correlation. Parallel coordinates plots
+(PCPs) \cite{heinrich_2013}, which are popular in the InfoVis community,
+are most often used for multidimensional data. Applying them to
+bivariate data results in plots that perform (almost) as well as
+scatterplots with regards to visualising correlation between two
+variables \cite{kay_2015}. Figure~\ref{fig-other-corr-viz} illustrates
+parallel coordinates plots, along with 3 other types of correlation
+visualisation, with an \emph{r} value of 0.8.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf}
+
+}
+
+\caption{\label{fig-other-corr-viz}From left to right: Parallel
+Coordinates Plot (PCP) built with the \texttt{GGally} package
+\cite{ggally}; Stacked area plot; radial stacked bar plot (doughnut
+plot); radar plot. Each plot uses the same dataset with an \emph{r}
+value of 0.8.}
+
+\end{figure}%
+
 \subsection{Scatterplots}\label{scatterplots-corr-viz}
 
 \section{Correlation Perception}\label{corr-percept-related-work}

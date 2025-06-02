@@ -297,15 +297,15 @@ add_fixed_effect <- function(model, term, df) {
 
 ## lme.dscore function, as EMAtools package is no longer available
 
-lme.dscore<-function(mod,data,type){
+lme.dscore <- function (mod, data, type){
 
-    mod1<-lmerTest::lmer(mod,data=data)
-    eff<-cbind(summary(mod1)$coefficients[,4],summary(mod1)$coefficients[,3])
+    mod1 <- lmerTest::lmer(mod, data = data)
+    eff <- cbind(summary(mod1)$coefficients[,4], summary(mod1)$coefficients[,3])
   
-  colnames(eff)<-c("t","df")
-  eff<-as.data.frame(eff)
-  eff$d<-(2*eff$t)/sqrt(eff$df)
-  eff<-eff[-1,]
+  colnames(eff) <- c("t","df")
+  eff <- as.data.frame(eff)
+  eff$d <- (2*eff$t)/sqrt(eff$df)
+  eff <- eff[-1,]
   return(eff)
 }
 

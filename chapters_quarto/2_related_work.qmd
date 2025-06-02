@@ -32,6 +32,7 @@ library(grid)
 library(cowplot)
 library(MASS)
 library(GGally)
+library(hexbin)
 ```
 
 # Data Visualisation: A Brief History {#brief-history}
@@ -491,19 +492,19 @@ lab mate to those willing and able to use graphing to solve scientific problems.
 When I began this project in the autumn of 2021, I believed that scatterplots were
 the first and last word when it came to visualising correlation. I soon discovered
 that this was not the case; as scientists often do, a whole host of other 
-visualisation types had been designed in an effort to better visualise correlation.
+visualisation types had been designed or adapted in an effort to better visualise correlation.
 Parallel coordinates plots (PCPs) \cite{heinrich_2013}, which are popular in the 
 InfoVis community, are most often used for multidimensional data. Applying them to
 bivariate data results in plots that perform (almost) as well as scatterplots
 with regards to visualising correlation between two variables \cite{kay_2015}.
-@fig-other-corr-viz illustrates parallel coordinates plots, along with 7 other
-types of correlation visualisation, with an *r* value of 0.8.
+@fig-other-corr-viz illustrates parallel coordinates plots, along with 3 other
+types of correlation visualisation, with an *r* value of 0.6.
 
 ```{r}
 #| label: fig-other-corr-viz
 #| include: true
-#| fig-cap: placeholder
-#| fig-asp: 1
+#| fig-cap: "From left to right: Parallel Coordinates Plot (PCP) built with the `GGally` package \\cite{ggally}; Stacked area plot; radial stacked bar plot (doughnut plot); radar plot. Each plot uses the same dataset with an *r* value of 0.6."
+#| fig-asp: 0.25
 
 # first import correlation data
 
@@ -517,8 +518,9 @@ theme_other_viz <- function() {
           axis.ticks = element_blank(),
           axis.title.x = element_blank(),
           axis.title.y = element_blank(),
-          plot.margin = margin(1, 1, 1, 1, unit = "pt"),
-          legend.position = "none"
+          #plot.margin = margin(1, 1, 1, 1, unit = "pt"),
+          legend.position = "none",
+          plot.title = element_text(size = 7, hjust = 0.5)
       
     )
 }
@@ -530,9 +532,14 @@ PCP_plot <- data_with_resid %>%
   ggparcoord(columns = 1:2,
              groupColumn = NULL,
              showPoints = FALSE,
-             scale = "uniminmax") +
+             scale = "uniminmax",
+             alphaLines = 0.4) +
   theme_other_viz() +
-  coord_cartesian(expand = FALSE, clip = "off")
+  coord_cartesian(expand = FALSE, clip = "on") +
+  labs(title = "Parallel Coordinates Plot") +
+  xlim("V1","V2") +
+  ylim(0.1,
+       0.9)
 
 
 # stacked area
@@ -541,10 +548,11 @@ stacked_area_plot <- data_with_resid %>%
   mutate(ID = seq_len(nrow(data_with_resid))) %>%
   pivot_longer(cols = c("V1", "V2"),
                values_to = "value", names_to = "group") %>%
-    mutate(value = value + 2.79) %>%
+  mutate(value = value + 2.79) %>%
   ggplot(aes(x = ID, y = value, fill = group)) +
-    geom_area() +
-    theme_other_viz()
+  geom_area() +
+  theme_other_viz() +
+  labs(title = "Stacked Area Plot")
   
 
 # donut
@@ -557,25 +565,78 @@ radial_stack <- data_with_resid %>%
   ggplot(aes(x = ID, y = value, fill = group)) +
     geom_col() +
     theme_other_viz() +
-  coord_polar(theta = "y")
+  coord_polar(theta = "y") +
+  labs(title = "Radial Stacked Bar Plot")
 
 # radar
 
-#radar_plot <-
-  
-  data_with_resid %>%
+radar_plot <- data_with_resid %>%
   mutate(ID = seq_len(nrow(data_with_resid))) %>%
   pivot_longer(cols = c("V1", "V2"),
                values_to = "value", names_to = "group") %>%
-    mutate(value = value + 2.79) %>%
+  mutate(value = value + 2.79) %>%
   ggplot(aes(x = ID, y = value, colour = group)) +
-    geom_line() +
-    theme_other_viz() +
-  coord_polar()
+  geom_line(size = 0.1) +
+  theme_other_viz() +
+  coord_polar() +
+  labs(title = "Radar Plot")
 
-# line
 
-# ordered line
+ggarrange(PCP_plot, stacked_area_plot, radial_stack, radar_plot,
+          ncol = 4)
+```
+
+Despite the existence of plots such as these, scatterplots remain by far the most
+popular way of visualising correlation. With the exception of the charts featured
+in @fig-other-corr-viz, many other ways of visualising correlation are merely
+remixes of traditional scatterplots, such as hex bin plots and Kernel Density Estimate
+plots (see @fig-remixes).
+
+```{r}
+#| label: fig-remixes
+#| include: true
+#| fig-cap: placeholder
+#| fig-asp: 0.5
+
+# create larger dataset for hexbin and KDE plots
+
+set.seed(1234)
+
+my_sample_size = 12800
+
+my_desired_r = 0.6
+
+mean_variable_1 = 0
+sd_variable_1 = 1
+
+mean_variable_2 = 0
+sd_variable_2 = 1
+
+mu <- c(mean_variable_1, mean_variable_2) 
+
+myr <- my_desired_r * sqrt(sd_variable_1) * sqrt(sd_variable_2)
+
+mysigma <- matrix(c(sd_variable_1, myr, myr, sd_variable_2), 2, 2) 
+
+corr_data = as_tibble(mvrnorm(my_sample_size, mu, mysigma, empirical = TRUE))
+
+corr_model <- lm(V2 ~ V1, data = corr_data)
+
+my_residuals <- abs(residuals(corr_model))
+
+large_data <- round(cbind(corr_data, my_residuals), 2)
+
+hex_plot <- large_data %>% 
+  ggplot(aes(V1, V2)) +
+  geom_hex() +
+  scale_fill_viridis_c(option = "plasma") +
+  theme_other_viz()
+
+# KDE_plot <-
+  
+  large_data %>%
+  ggplot(aes(V1, V2)) +
+  geom_density()
 
 ```
 
