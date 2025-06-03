@@ -462,15 +462,30 @@ scientific problems.
 When I began this project in the autumn of 2021, I believed that
 scatterplots were the first and last word when it came to visualising
 correlation. I soon discovered that this was not the case; as scientists
-often do, a whole host of other visualisation types had been designed in
-an effort to better visualise correlation. Parallel coordinates plots
-(PCPs) \cite{heinrich_2013}, which are popular in the InfoVis community,
-are most often used for multidimensional data. Applying them to
-bivariate data results in plots that perform (almost) as well as
-scatterplots with regards to visualising correlation between two
-variables \cite{kay_2015}. Figure~\ref{fig-other-corr-viz} illustrates
+often do, a whole host of other visualisation types had been designed or
+adapted in an effort to better visualise correlation. Parallel
+coordinates plots (PCPs) \cite{heinrich_2013}, which are popular in the
+InfoVis community, are most often used for multidimensional data.
+Applying them to bivariate data results in plots that perform (almost)
+as well as scatterplots with regards to visualising correlation between
+two variables \cite{kay_2015}. \textbf{?@fig-other-corr-viz} illustrates
 parallel coordinates plots, along with 3 other types of correlation
-visualisation, with an \emph{r} value of 0.8.
+visualisation, with an \emph{r} value of 0.6.
+
+\begin{verbatim}
+$`1`
+\end{verbatim}
+
+\begin{verbatim}
+
+$`2`
+\end{verbatim}
+
+\begin{verbatim}
+
+attr(,"class")
+[1] "list"      "ggarrange"
+\end{verbatim}
 
 \begin{figure}
 
@@ -480,15 +495,103 @@ visualisation, with an \emph{r} value of 0.8.
 
 }
 
-\caption{\label{fig-other-corr-viz}From left to right: Parallel
+\caption{\label{fig-other-corr-viz-1}From left to right: Parallel
 Coordinates Plot (PCP) built with the \texttt{GGally} package
 \cite{ggally}; Stacked area plot; radial stacked bar plot (doughnut
 plot); radar plot. Each plot uses the same dataset with an \emph{r}
-value of 0.8.}
+value of 0.6.}
 
 \end{figure}%
 
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-other-corr-viz-2.pdf}
+
+}
+
+\caption{\label{fig-other-corr-viz-2}From left to right: Parallel
+Coordinates Plot (PCP) built with the \texttt{GGally} package
+\cite{ggally}; Stacked area plot; radial stacked bar plot (doughnut
+plot); radar plot. Each plot uses the same dataset with an \emph{r}
+value of 0.6.}
+
+\end{figure}%
+
+Despite the existence of plots such as these, scatterplots remain by far
+the most popular way of visualising correlation. With the exception of
+the charts featured in \textbf{?@fig-other-corr-viz}, many other ways of
+visualising correlation are density-flavoured remixes of traditional
+scatterplots, such as Hexbin plots and Kernel Density Estimate plots
+(see Figure~\ref{fig-remixes}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-remixes-1.pdf}
+
+}
+
+\caption{\label{fig-remixes}Hexbin (left) and Kernel Density Estimation
+(KDE, right) plots. These are binned, density-flavoured versions of
+standard scatterplots.}
+
+\end{figure}%
+
+While there may be many, often more visually appealing ways of
+visualising correlation, traditional scatterplots offer a number of
+distinct advantages.
+
 \subsection{Scatterplots}\label{scatterplots-corr-viz}
+
+In a large scale study, Harrison et al.~\cite{harrison_2014} tested a
+range of correlation visualisation types, including scatterplots and
+those depicted in \textbf{?@fig-other-corr-viz}, to see if precision in
+correlation estimation could be modelled by Weber's law
+\cite{rensink_2010}. A more detailed analysis of the psychophysical laws
+that may determine interactions with correlation visualisations is
+presented in Section \ref{corr-percept-related-work}. In short, the
+perception of differences in correlation has a linear relationship to
+the objective differences in correlation. In this study, itself a
+replication of a previous work investigating Weber's law for the
+modelling of perceived correlation \cite{rensink_2010}, participants
+were asked to make discriminative judgements between side-by-side
+correlation visualisations. An adaptive staircase procedure was employed
+to infer just-noticeable differences (JNDs) for correlation perception
+with nine correlation visualisation types. Both positive and negative
+correlations were tested. Fitting linear models to the JND data revealed
+that correlation discrimination in the nine different visualisations
+tested (scatterplots, PCPs, stacked area charts, stacked line charts,
+stacked bar charts, donut charts, radar charts, line graphs, and ordered
+line graphs) could be modelled using Weber's law. This study also
+provides a ranking of the tested visualisation types with regards to
+participant's correlation discrimination performance; overall,
+traditional scatterplots outperformed all other visualisation types with
+positively correlated data, and were tied with PCPs for negatively
+correlated data.
+
+Rensink (2014) measured correlation discriminability for scatterplots
+presented at 100, 400, or 1600 miliseconds. This study found that
+performance was almost identical for scatterplots presented for either
+400 or 1600 miliseconds, and that there was only a small deterioration
+in performance for those presented for 100 miliseconds. The lack of
+performance improvement for longer presentation times both facilitates
+the rapid collection of large amounts of data and speaks to the
+intuituve, perceptual nature of correlation perception in scatterplots.
+
+Finally, scatterplots, in addition to outperforming other visualisation
+types and featuring rapid interpretation, are also ubiquitous. In 1983,
+scatterplots were estimated to account for between 70\% and 80\% of data
+visualisations in scientific publications \cite{tufte_1983}. With the
+advances in computers and graphing techniques seen since then, this
+proportion is certainly lower today. Regardless, scatterplots, their
+derivatives, and their remixes can be seen not only in scientific and
+technical publication, but also in the news and mass media. This
+combination of advantages makes them particularly suitable for
+scientific study, and was part of the reason I chose to pursue this
+project.
 
 \section{Correlation Perception}\label{corr-percept-related-work}
 
