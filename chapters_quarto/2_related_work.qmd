@@ -704,7 +704,28 @@ decades of research into correlation, scatterplots, and the perception of inform
 from visualisations, there is no definitive solution to this problem. Circumstantial
 evidence exists, however, that points to correlation perception being driven,
 from a top-down point of view, by the shape of the probability distribution
-represented by the scatterplot
+represented by the scatterplot.
+
+Firstly, increasing the $x$ and $y$ scales of a scatterplot such that the size of
+the point cloud increases is associated with an increase in viewers' judgements
+of bivariate association, despite the objective *r* value remaining the same
+\cite{cleveland_1982}. This finding suggests that it is the area of the point cloud
+that viewers may use to judge correlation. This area is easier to visualise in 
+hexbin or KDE plots (see @fig-remixes). With enough data, the point cloud of
+a scatterplot will tend towards a straight line, decreasing the area of the point
+cloud in the same way. @fig-point-cloud-trends illustrates this.
+
+```{r}
+#| label: fig-point-cloud-trends
+#| include: true
+#| fig-cap: placeholder
+
+
+
+
+plot_example_function(data_with_resid, "", 1, 0.2, 7, 0.2)
+```
+
 
 
 # Correlation Cognition {#corr-cognition}
