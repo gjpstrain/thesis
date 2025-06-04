@@ -183,8 +183,8 @@ landscape. John W. Tukey's *The Future of Data Analysis* \cite{tukey_1962} propo
 a separation between data analysis and mathematical statistics. This seminal work
 would become hugely influential, and Tukey would go on to invent a great number of
 analysis-driven data visualisations, including stem-leaf plots and box plots, both
-of which are now commonplace in software packages and statistics education. In 1967, Jacques
-Bertin \cite{bertin_1967} published *Sémiologie graphique* 
+of which are now commonplace in software packages and statistics education. In 1967,
+Jacques Bertin \cite{bertin_1967} published *Sémiologie graphique* 
 (*Semiology of Graphics*), organising the perceptual elements of data visualisations
 according to their features and their relationships to the underlying data; this work
 would be influential for Leland Wilkinson's *Grammar of Graphics* \cite{wilkinson_1999},
@@ -504,7 +504,7 @@ types of correlation visualisation, with an *r* value of 0.6.
 #| label: fig-other-corr-viz
 #| include: true
 #| fig-cap: "From left to right: Parallel Coordinates Plot (PCP) built with the `GGally` package \\cite{ggally}; Stacked area plot; radial stacked bar plot (doughnut plot); radar plot. Each plot uses the same dataset with an *r* value of 0.6."
-#| fig-asp: 0.5
+#| fig-asp: 1
 
 # first import correlation data
 
@@ -535,6 +535,7 @@ PCP_plot <- data_with_resid %>%
              scale = "uniminmax",
              alphaLines = 0.4) +
   theme_other_viz() +
+  theme(aspect.ratio = 1) +
   coord_cartesian(expand = FALSE, clip = "on") +
   labs(title = "Parallel Coordinates Plot") +
   xlim("V1","V2") +
@@ -552,6 +553,7 @@ stacked_area_plot <- data_with_resid %>%
   ggplot(aes(x = ID, y = value, fill = group)) +
   geom_area() +
   theme_other_viz() +
+  theme(aspect.ratio = 1) +
   labs(title = "Stacked Area Plot")
   
 
@@ -581,8 +583,7 @@ radar_plot <- data_with_resid %>%
   coord_polar() +
   labs(title = "Radar Plot")
 
-ggarrange(PCP_plot, stacked_area_plot, radial_stack, radar_plot,
-          ncol = 2)
+plot_grid(PCP_plot, stacked_area_plot, radial_stack, radar_plot)
 ```
 
 Despite the existence of plots such as these, scatterplots remain by far the most
@@ -640,6 +641,7 @@ KDE_plot <- large_data %>%
 ggarrange(hex_plot, KDE_plot, 
           ncol = 2)
 ```
+
 While there may be many, often more visually appealing ways of visualising
 correlation, traditional scatterplots offer a number of distinct advantages.
 
@@ -668,12 +670,12 @@ outperformed all other visualisation types with positively correlated data, and 
 tied with PCPs for negatively correlated data.
 
 Rensink (2014) measured correlation discriminability for scatterplots presented
-at 100, 400, or 1600 miliseconds. This study found that performance was almost
-identical for scatterplots presented for either 400 or 1600 miliseconds, and that
+at 100, 400, or 1600 milliseconds. This study found that performance was almost
+identical for scatterplots presented for either 400 or 1600 milliseconds, and that
 there was only a small deterioration in performance for those presented for 
-100 miliseconds. The lack of performance improvement for longer presentation times
+100 milliseconds. The lack of performance improvement for longer presentation times
 both facilitates the rapid collection of large amounts of data and speaks to
-the intuituve, perceptual nature of correlation perception in scatterplots.
+the intuitive, perceptual nature of correlation perception in scatterplots.
 
 Finally, scatterplots, in addition to outperforming other visualisation types
 and featuring rapid interpretation, are also ubiquitous. In 1983, scatterplots
@@ -685,8 +687,17 @@ only in scientific and technical publication, but also in the news and mass medi
 This combination of advantages makes them particularly suitable for scientific study,
 and was part of the reason I chose to pursue this project.
 
-
 # Correlation Perception {#corr-percept-related-work}
+
+Despite this host of advantages, the estimation of correlation suffers from a 
+bias; it is routinely underestimated by viewers. To understand this bias with
+a view to correcting, I first explore the perception of correlation more generally,
+before briefly discussing the more cognitive aspects of the measure, which are
+especially relevant for the experiment described in \chap{chap:belief_change}.
+I then deal with the problem itself; the underestimation of correlation in
+positively correlated scatterplots, before finishing this chapter by discussing
+data visualisation and statistical literacy and stating the research objectives
+and contributions of this thesis.
 
 # Correlation Cognition {#corr-cognition}
 

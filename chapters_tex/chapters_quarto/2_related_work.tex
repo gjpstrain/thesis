@@ -468,24 +468,9 @@ coordinates plots (PCPs) \cite{heinrich_2013}, which are popular in the
 InfoVis community, are most often used for multidimensional data.
 Applying them to bivariate data results in plots that perform (almost)
 as well as scatterplots with regards to visualising correlation between
-two variables \cite{kay_2015}. \textbf{?@fig-other-corr-viz} illustrates
-parallel coordinates plots, along with 3 other types of correlation
-visualisation, with an \emph{r} value of 0.6.
-
-\begin{verbatim}
-$`1`
-\end{verbatim}
-
-\begin{verbatim}
-
-$`2`
-\end{verbatim}
-
-\begin{verbatim}
-
-attr(,"class")
-[1] "list"      "ggarrange"
-\end{verbatim}
+two variables \cite{kay_2015}. Figure~\ref{fig-other-corr-viz}
+illustrates parallel coordinates plots, along with 3 other types of
+correlation visualisation, with an \emph{r} value of 0.6.
 
 \begin{figure}
 
@@ -495,23 +480,7 @@ attr(,"class")
 
 }
 
-\caption{\label{fig-other-corr-viz-1}From left to right: Parallel
-Coordinates Plot (PCP) built with the \texttt{GGally} package
-\cite{ggally}; Stacked area plot; radial stacked bar plot (doughnut
-plot); radar plot. Each plot uses the same dataset with an \emph{r}
-value of 0.6.}
-
-\end{figure}%
-
-\begin{figure}
-
-\centering{
-
-\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-other-corr-viz-2.pdf}
-
-}
-
-\caption{\label{fig-other-corr-viz-2}From left to right: Parallel
+\caption{\label{fig-other-corr-viz}From left to right: Parallel
 Coordinates Plot (PCP) built with the \texttt{GGally} package
 \cite{ggally}; Stacked area plot; radial stacked bar plot (doughnut
 plot); radar plot. Each plot uses the same dataset with an \emph{r}
@@ -521,8 +490,8 @@ value of 0.6.}
 
 Despite the existence of plots such as these, scatterplots remain by far
 the most popular way of visualising correlation. With the exception of
-the charts featured in \textbf{?@fig-other-corr-viz}, many other ways of
-visualising correlation are density-flavoured remixes of traditional
+the charts featured in Figure~\ref{fig-other-corr-viz}, many other ways
+of visualising correlation are density-flavoured remixes of traditional
 scatterplots, such as Hexbin plots and Kernel Density Estimate plots
 (see Figure~\ref{fig-remixes}).
 
@@ -548,8 +517,8 @@ distinct advantages.
 
 In a large scale study, Harrison et al.~\cite{harrison_2014} tested a
 range of correlation visualisation types, including scatterplots and
-those depicted in \textbf{?@fig-other-corr-viz}, to see if precision in
-correlation estimation could be modelled by Weber's law
+those depicted in Figure~\ref{fig-other-corr-viz}, to see if precision
+in correlation estimation could be modelled by Weber's law
 \cite{rensink_2010}. A more detailed analysis of the psychophysical laws
 that may determine interactions with correlation visualisations is
 presented in Section \ref{corr-percept-related-work}. In short, the
@@ -573,13 +542,13 @@ positively correlated data, and were tied with PCPs for negatively
 correlated data.
 
 Rensink (2014) measured correlation discriminability for scatterplots
-presented at 100, 400, or 1600 miliseconds. This study found that
+presented at 100, 400, or 1600 milliseconds. This study found that
 performance was almost identical for scatterplots presented for either
-400 or 1600 miliseconds, and that there was only a small deterioration
-in performance for those presented for 100 miliseconds. The lack of
+400 or 1600 milliseconds, and that there was only a small deterioration
+in performance for those presented for 100 milliseconds. The lack of
 performance improvement for longer presentation times both facilitates
 the rapid collection of large amounts of data and speaks to the
-intuituve, perceptual nature of correlation perception in scatterplots.
+intuitive, perceptual nature of correlation perception in scatterplots.
 
 Finally, scatterplots, in addition to outperforming other visualisation
 types and featuring rapid interpretation, are also ubiquitous. In 1983,
@@ -594,6 +563,17 @@ scientific study, and was part of the reason I chose to pursue this
 project.
 
 \section{Correlation Perception}\label{corr-percept-related-work}
+
+Despite this host of advantages, the estimation of correlation suffers
+from a bias; it is routinely underestimated by viewers. To understand
+this bias with a view to correcting, I first explore the perception of
+correlation more generally, before briefly discussing the more cognitive
+aspects of the measure, which are especially relevant for the experiment
+described in \chap{chap:belief_change}. I then deal with the problem
+itself; the underestimation of correlation in positively correlated
+scatterplots, before finishing this chapter by discussing data
+visualisation and statistical literacy and stating the research
+objectives and contributions of this thesis.
 
 \section{Correlation Cognition}\label{corr-cognition}
 
