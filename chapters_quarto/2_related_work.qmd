@@ -687,8 +687,6 @@ only in scientific and technical publication, but also in the news and mass medi
 This combination of advantages makes them particularly suitable for scientific study,
 and was part of the reason I chose to pursue this project.
 
-# Correlation Perception {#corr-percept-related-work}
-
 Despite this host of advantages, the estimation of correlation suffers from a 
 bias; it is routinely underestimated by viewers. To understand this bias with
 a view to correcting, I first explore the perception of correlation more generally,
@@ -698,6 +696,16 @@ I then deal with the problem itself; the underestimation of correlation in
 positively correlated scatterplots, before finishing this chapter by discussing
 data visualisation and statistical literacy and stating the research objectives
 and contributions of this thesis.
+
+# Correlation Perception {#corr-percept-related-work}
+
+Understanding the perception of correlation represents a complex problem. Despite 
+decades of research into correlation, scatterplots, and the perception of information
+from visualisations, there is no definitive solution to this problem. Circumstantial
+evidence exists, however, that points to correlation perception being driven,
+from a top-down point of view, by the shape of the probability distribution
+represented by the scatterplot
+
 
 # Correlation Cognition {#corr-cognition}
 
