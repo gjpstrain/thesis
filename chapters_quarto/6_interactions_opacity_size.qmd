@@ -77,6 +77,10 @@ labels_all_exp <- c(additive_manipulation = "Size and Opacity Decay",
 labels_power <- c(size_power = "Size\nPower",
                   opacity_power = "Opacity\nPower",
                   additive_power = "Size and Opacity\nCombined Power")
+
+source("../shared_functions.R")
+
+slopes <- prepare_slopes(0.6)
 ```
 
 ```{r}
@@ -85,8 +89,6 @@ labels_power <- c(size_power = "Size\nPower",
 exp4_anon <- read_csv("../data/exp_4_data.csv", guess_max = 17000) %>%
   mutate("expName" = recode(expName,
                             "size_and_opacity_exp" = "E4_interactions"))
-
-source("../shared_functions.R")
 ```
 
 ```{r}
@@ -480,15 +482,15 @@ Labelled examples of the stimuli used in this experiment can be viewed in
 ```{r}
 #| label: fig-exp4-examples-chap6
 #| include: true
-#| fig-cap: Examples of the stimuli used in experiment 4, demonstrated with an \textit{r} value of 0.6.
+#| fig-cap: Examples of the stimuli used in experiment 4, demonstrated with an \textit{r} value of 0.8.
 #| fig-asp: 0.275
 
-examples_congruent <- ggarrange(plot_example_function(data_with_resid,
+examples_congruent <- ggarrange(plot_example_function(slopes,
                                                       "Typical Orientation Size\nTypical Orientation Opacity",
                                                       (1-slopes$slope_0.25),
                                                       (1-slopes$slope_0.25),
                                                       6.25),
-                                plot_example_function(data_with_resid,
+                                plot_example_function(slopes,
                                                       "Inverted Orientation Size\nInverted Orientation Opacity",
                                                       (1-slopes$slope_inverted),
                                                       (1-slopes$slope_inverted),
@@ -498,12 +500,12 @@ examples_congruent <- ggarrange(plot_example_function(data_with_resid,
            x = 0.5,
            y = 0.07)
 
-examples_incongruent <- ggarrange(plot_example_function(data_with_resid,
+examples_incongruent <- ggarrange(plot_example_function(slopes,
                                                         "Inverted Orientation Size\nTypical Orientation Opacity",
                                                         (1-slopes$slope_inverted),
                                                         (1-slopes$slope_0.25),
                                                         6.25),
-                                  plot_example_function(data_with_resid,
+                                  plot_example_function(slopes,
                                                         "Typical Orientation Size\nInverted Orientation Opacity",
                                                         (1-slopes$slope_inverted),
                                                         (1-slopes$slope_inverted),

@@ -65,6 +65,11 @@ labels_e3_regex <- c(
   "\\bC\\b" = "Inverted Decay",
   "\\bD\\b" = "Standard Size"
 )
+
+
+source("../shared_functions.R")
+
+slopes <- prepare_slopes(0.6)
 ```
 
 ```{r}
@@ -73,8 +78,6 @@ labels_e3_regex <- c(
 exp3_anon <- read_csv("../data/exp_3_data.csv") %>%
   mutate("expName" = recode(expName,
                             "exp_size_only" = "E3_size_adjustments"))
-
-source("../shared_functions.R")
 ```
 
 ```{r}
@@ -336,16 +339,16 @@ can be see in @fig-exp3-examples-chap5.
 ```{r}
 #| label: fig-exp3-examples-chap5
 #| include: true
-#| fig-cap: Examples of the stimuli used in experiment 3, demonstrated with an \textit{r} value of 0.6.
+#| fig-cap: Examples of the stimuli used in experiment 3, demonstrated with an \textit{r} value of 0.8.
 #| fig-asp: 0.275
 
-ggarrange(plot_example_function(data_with_resid, "Standard Size",
+ggarrange(plot_example_function(slopes, "Standard Size",
                                 1, 0.2, 7),
-          plot_example_function(data_with_resid, "Linear Decay",
+          plot_example_function(slopes, "Linear Decay",
                                 1, (1-slopes$slope_linear), 7),
-          plot_example_function(data_with_resid, "Non-linear Decay",
+          plot_example_function(slopes, "Non-linear Decay",
                                 1, (1-slopes$slope_0.25), 7),
-          plot_example_function(data_with_resid, "Inverted\nNon-linear Decay",
+          plot_example_function(slopes, "Inverted\nNon-linear Decay",
                                 1, (1-slopes$slope_inverted), 7),
           nrow = 1)
 ```

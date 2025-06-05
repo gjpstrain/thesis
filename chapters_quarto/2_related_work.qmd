@@ -33,6 +33,10 @@ library(cowplot)
 library(MASS)
 library(GGally)
 library(hexbin)
+
+source("../shared_functions.R")
+
+slopes <- prepare_slopes(0.6)
 ```
 
 # Data Visualisation: A Brief History {#brief-history}
@@ -506,10 +510,6 @@ types of correlation visualisation, with an *r* value of 0.6.
 #| fig-cap: "From left to right: Parallel Coordinates Plot (PCP) built with the `GGally` package \\cite{ggally}; Stacked area plot; radial stacked bar plot (doughnut plot); radar plot. Each plot uses the same dataset with an *r* value of 0.6."
 #| fig-asp: 1
 
-# first import correlation data
-
-source("../shared_functions.R")
-
 # define custom theme
 
 theme_other_viz <- function() {
@@ -527,8 +527,8 @@ theme_other_viz <- function() {
 
 # PCP
 
-PCP_plot <- data_with_resid %>% 
-  mutate(ID = seq_len(nrow(data_with_resid))) %>%
+PCP_plot <- slopes %>% 
+  mutate(ID = seq_len(nrow(slopes))) %>%
   ggparcoord(columns = 1:2,
              groupColumn = NULL,
              showPoints = FALSE,
@@ -545,8 +545,8 @@ PCP_plot <- data_with_resid %>%
 
 # stacked area
 
-stacked_area_plot <- data_with_resid %>%
-  mutate(ID = seq_len(nrow(data_with_resid))) %>%
+stacked_area_plot <- slopes %>%
+  mutate(ID = seq_len(nrow(slopes))) %>%
   pivot_longer(cols = c("V1", "V2"),
                values_to = "value", names_to = "group") %>%
   mutate(value = value + 2.79) %>%
@@ -559,8 +559,8 @@ stacked_area_plot <- data_with_resid %>%
 
 # donut
 
-radial_stack <- data_with_resid %>%
-  mutate(ID = seq_len(nrow(data_with_resid))) %>%
+radial_stack <- slopes %>%
+  mutate(ID = seq_len(nrow(slopes))) %>%
   pivot_longer(cols = c("V1", "V2"),
                values_to = "value", names_to = "group") %>%
     mutate(value = value + 2.79) %>%
@@ -572,8 +572,8 @@ radial_stack <- data_with_resid %>%
 
 # radar
 
-radar_plot <- data_with_resid %>%
-  mutate(ID = seq_len(nrow(data_with_resid))) %>%
+radar_plot <- slopes %>%
+  mutate(ID = seq_len(nrow(slopes))) %>%
   pivot_longer(cols = c("V1", "V2"),
                values_to = "value", names_to = "group") %>%
   mutate(value = value + 2.79) %>%
@@ -718,12 +718,15 @@ cloud in the same way. @fig-point-cloud-trends illustrates this.
 ```{r}
 #| label: fig-point-cloud-trends
 #| include: true
-#| fig-cap: placeholder
+#| fig-cap: Scatterplot with Pearson's \\textit{r} = 0.95 (left) and Pearson's \\textit{r} = 0.4 (right).
 
+slopes_0.4 <- prepare_slopes(0.4)
 
+slopes_0.95 <- prepare_slopes(0.95)
 
-
-plot_example_function(data_with_resid, "", 1, 0.2, 7, 0.2)
+ggarrange(plot_example_function(slopes_0.95, "High Correlation: Pearson's *r* = 0.95", 1, 0.2, 7),
+          plot_example_function(slopes_0.4, "Low Correlation: Pearson's *r* = 0.4", 1, 0.2, 7),
+          ncol = 2)
 ```
 
 

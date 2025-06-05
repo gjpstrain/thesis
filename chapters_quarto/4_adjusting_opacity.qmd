@@ -77,17 +77,17 @@ labels_e2_regex <- c(
   "\\bC\\b" = "Inverted Decay",
   "\\bD\\b" = "Full Opacity"
 )
+
+source("../shared_functions.R")
+
+slopes <- prepare_slopes(0.8)
 ```
 
 ```{r}
 #| label: load-data
 
 exp1_anon <- read_csv("../data/exp_1_data.csv")
-exp2_anon <- read_csv("../data/exp_2_data.csv")# all experimental data lives in this folder
-
-# load in shared functions
-
-source("../shared_functions.R")
+exp2_anon <- read_csv("../data/exp_2_data.csv") # all experimental data lives in this folder
 ```
 
 ```{r}
@@ -698,21 +698,21 @@ time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
 For each of the 45 *r* values, there were four versions of each plot corresponding
 to the four levels of point opacity. Examples of each of these can be seen in
-@fig-exp1-examples-chap4, demonstrated with an *r* value of 0.6.
+@fig-exp1-examples-chap4, demonstrated with an *r* value of 0.8.
 
 ```{r}
 #| label: fig-exp1-examples-chap4
 #| include: true
-#| fig-cap: Examples of the stimuli used in experiment 1, demonstrated with an \textit{r} value of 0.6. Here, "opacity" refers to the alpha value used by ggplot.
+#| fig-cap: Examples of the stimuli used in experiment 1, demonstrated with an \textit{r} value of 0.8. Here, "opacity" refers to the alpha value used by ggplot.
 #| fig-asp: 0.275
 
-ggarrange(plot_example_function(data_with_resid, "Opacity = 0.25",
+ggarrange(plot_example_function(slopes, "Opacity = 0.25",
                                 0.25, 0.2, 7),
-          plot_example_function(data_with_resid, "Opacity = 0.5",
+          plot_example_function(slopes, "Opacity = 0.5",
                                 0.5, 0.2, 7),
-          plot_example_function(data_with_resid, "Opacity = 0.75",
+          plot_example_function(slopes, "Opacity = 0.75",
                                 0.75, 0.2, 7),
-          plot_example_function(data_with_resid, "Opacity = 1",
+          plot_example_function(slopes, "Opacity = 1",
                                 1, 0.2, 7),
           nrow = 1)
 ```
@@ -1012,7 +1012,7 @@ time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 For each of the 45 *r* values in experiment 2, there were four versions 
 of each plot corresponding to the three levels of point opacity decay function and 
 the baseline global full opacity condition. Examples of each of these can be 
-seen in @fig-exp2-examples-chap4, demonstrated with an *r* value of 0.6. Given the
+seen in @fig-exp2-examples-chap4, demonstrated with an *r* value of 0.8. Given the
 shape of the underestimation curve found in previous work (see related work chap
 3 or something), intuition suggested employing a symmetrically opposing curve 
 (see the non-linear decay curve in @fig-opposing-curve) to relate point opacity to residuals.
@@ -1085,7 +1085,7 @@ likely to be found.
 ```{r}
 #| label: fig-exp2-examples-chap4
 #| include: true
-#| fig-cap: Examples of the stimuli used in experiment 2, demonstrated with an \textit{r} value of 0.6. Here, "opacity" refers to the alpha value used by ggplot.
+#| fig-cap: Examples of the stimuli used in experiment 2, demonstrated with an \textit{r} value of 0.8. Here, "opacity" refers to the alpha value used by ggplot.
 #| fig-asp: 0.275
 
 ggarrange(plot_example_function(slopes, "Non-Linear Decay",
@@ -1389,9 +1389,9 @@ to identify the number of, or distance between, points \cite{netzel_2017}.
 #| label: fig-prediction-ellipse
 #| include: true
 #| fig-asp: 1
-#| fig-cap: Plot showing a 95\% prediction ellipse over a scatterplot with an \textit{r} value of 0.6.
+#| fig-cap: Plot showing a 95\% prediction ellipse over a scatterplot with an \textit{r} value of 0.8.
 
-plot_example_function(data_with_resid, "", 1, 0.2, 7) +
+plot_example_function(slopes ,"", 1, 0.2, 7) +
   stat_ellipse(type = "norm")
 ```
 

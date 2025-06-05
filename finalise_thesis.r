@@ -6,7 +6,7 @@
 library(quarto)
 library(tinytex)
 
-#quarto_render("chapters_quarto/", output_format = "latex")
+quarto_render("chapters_quarto/", output_format = "latex")
 
 # use for rendering a single chapter
 

@@ -562,8 +562,6 @@ combination of advantages makes them particularly suitable for
 scientific study, and was part of the reason I chose to pursue this
 project.
 
-\section{Correlation Perception}\label{corr-percept-related-work}
-
 Despite this host of advantages, the estimation of correlation suffers
 from a bias; it is routinely underestimated by viewers. To understand
 this bias with a view to correcting, I first explore the perception of
@@ -574,6 +572,39 @@ itself; the underestimation of correlation in positively correlated
 scatterplots, before finishing this chapter by discussing data
 visualisation and statistical literacy and stating the research
 objectives and contributions of this thesis.
+
+\section{Correlation Perception}\label{corr-percept-related-work}
+
+Understanding the perception of correlation represents a complex
+problem. Despite decades of research into correlation, scatterplots, and
+the perception of information from visualisations, there is no
+definitive solution to this problem. Circumstantial evidence exists,
+however, that points to correlation perception being driven, from a
+top-down point of view, by the shape of the probability distribution
+represented by the scatterplot.
+
+Firstly, increasing the \(x\) and \(y\) scales of a scatterplot such
+that the size of the point cloud increases is associated with an
+increase in viewers' judgements of bivariate association, despite the
+objective \emph{r} value remaining the same \cite{cleveland_1982}. This
+finding suggests that it is the area of the point cloud that viewers may
+use to judge correlation. This area is easier to visualise in hexbin or
+KDE plots (see Figure~\ref{fig-remixes}). With enough data, the point
+cloud of a scatterplot will tend towards a straight line, decreasing the
+area of the point cloud in the same way.
+Figure~\ref{fig-point-cloud-trends} illustrates this.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf}
+
+}
+
+\caption{\label{fig-point-cloud-trends}placeholder}
+
+\end{figure}%
 
 \section{Correlation Cognition}\label{corr-cognition}
 

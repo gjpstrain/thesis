@@ -53,6 +53,10 @@ library(effectsize)
 
 conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
 options(knitr.kable.NA = "")
+
+source("../shared_functions.R")
+
+slopes <- prepare_slopes(0.8)
 ```
 
 ```{r}
@@ -69,9 +73,8 @@ exp_5_main_A_anon <- read_csv("../data/exp_5_main_data_A.csv") %>%
 exp_5_main_T_anon <- read_csv("../data/exp_5_main_data_T.csv") %>%
   mutate("expName" = recode(expName,
                             "atypical_scatterplots_main_test_T" = "E5_beliefs_T"))
-
-source("../shared_functions.R")
 ```
+
 ```{r}
 #| label: retrieve-cached-models-chap7
 
