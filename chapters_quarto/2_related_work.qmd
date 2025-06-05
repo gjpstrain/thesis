@@ -384,8 +384,8 @@ p1 <-  ggplot(data, aes(stature, cubit)) +
             sec.axis = dup_axis(name = "")) +
           theme_minimal() +
           theme(
-            panel.grid = element_blank(),                    # Remove default grid
-            panel.border = element_rect(color = "black", fill = NA),  # Add solid box
+            panel.grid = element_blank(),                    
+            panel.border = element_rect(color = "black", fill = NA), 
             axis.ticks = element_line(color = "black"),
             axis.text = element_text(color = "black"),
             axis.title = element_blank(),
@@ -518,7 +518,6 @@ theme_other_viz <- function() {
           axis.ticks = element_blank(),
           axis.title.x = element_blank(),
           axis.title.y = element_blank(),
-          #plot.margin = margin(1, 1, 1, 1, unit = "pt"),
           legend.position = "none",
           plot.title = element_text(size = 7, hjust = 0.5)
       
@@ -775,6 +774,8 @@ these perceptions may be altered might also result in changes in how viewers
 interpret correlation.
 
 # Correlation Cognition {#corr-cognition}
+
+
 
 # Underestimation: What's Really Going On? {#underestimation-whats-going-on}
 
