@@ -602,9 +602,60 @@ Figure~\ref{fig-point-cloud-trends} illustrates this.
 
 }
 
-\caption{\label{fig-point-cloud-trends}placeholder}
+\caption{\label{fig-point-cloud-trends}Scatterplot with Pearson's
+\textit{r} = 0.95 (left) and Pearson's \textit{r} = 0.4 (right).}
 
 \end{figure}%
+
+In 1997, Meyer et al.~\cite{meyer_1997} asked participants to provide
+estimates of correlation from scatterplots. They found that people's
+estimates of correlation could be related to the objective correlation
+using a psychophysical function taking the following form:
+
+\begin{equation}
+  r_{est} = 1 - aX^b
+\end{equation}
+
+\(a\) and \(b\) are constant coefficients, while X represents the mean
+absolute vertical distance between the scatterplot points and a
+regression line. This modelling provides further evidence that estimates
+of correlation are based on perceptions of the physical arrangement of
+scatterplot points, rather than on any mathematical measure of
+correlation. This finding received later support from a study
+investigating the hypothesis that visual features may be used to judge
+correlations in scatterplots \cite{yang_2019}. In that study, it was
+found that, among other equally predictive visual features, the standard
+deviation of all perpendicular distances between scatterplot points and
+the regression line is predictive of performance on a correlation
+estimation task.
+
+Additionally, equations described by Rensink (2017) \cite{rensink_2017}
+linking subjective and objective \emph{r} values include a \(u\)
+parameter. For both discrimination and magnitude judgements, this
+parameter is small when \emph{r} = 1 and increases as \emph{r}
+approaches 0.This quantity is indifferent to the type of visualisation
+used (e.g.~line graphs and bar charts \cite{harrison_2014} or augmented
+stripplots \cite{rensink_2017}), and is functionally similar to that
+found in work mentioned above
+\cite{cleveland_1982, meyer_1997, yang_2019}. Regarding scatterplots,
+this quantity represents the average distance between data points and
+the regression line, and can be thought of as closely approximating the
+width of the underlying probability distribution. Findings from a
+convolutional neural network that learnt visual features related to
+correlation perception also support the idea that viewers are using an
+aspect of the shape of the point cloud to judge correlation, or some
+measure of what has been termed \emph{dot entropy} \cite{yang_2023},
+again considered a candidate visual proxy for correlation judgements
+\cite{rensink_2017, rensink_2022}.
+
+While none of this is strong evidence that people actually use the width
+of the probability distribution represented by the arrangement of
+scatterplot points as a basis for their judgements of correlation, the
+fact that such measures are \emph{predictive} of performance suggests
+that they are at least a good proxy for what is really going on. This
+naturally led me to believe that ways in which these perceptions may be
+altered might also result in changes in how viewers interpret
+correlation.
 
 \section{Correlation Cognition}\label{corr-cognition}
 
