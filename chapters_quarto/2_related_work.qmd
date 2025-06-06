@@ -668,7 +668,7 @@ correlation discrimination performance; overall, traditional scatterplots
 outperformed all other visualisation types with positively correlated data, and were
 tied with PCPs for negatively correlated data.
 
-Rensink (2014) measured correlation discriminability for scatterplots presented
+Rensink (2014) \cite{rensink_2014} measured correlation discriminability for scatterplots presented
 at 100, 400, or 1600 milliseconds. This study found that performance was almost
 identical for scatterplots presented for either 400 or 1600 milliseconds, and that
 there was only a small deterioration in performance for those presented for 
@@ -775,6 +775,13 @@ interpret correlation.
 
 # Correlation Cognition {#corr-cognition}
 
+Thinking about the ways in which variables are related to one another is more
+complicated than simply perceiving the differences in relatedness. Particularly
+due to the speeds with which people are able to judge correlations \cite{rensink_2014},
+experiments that aim to investigate cognition require more complicated
+designs. Generally, interacting with data visualisation is a complex process
+involving bottom-up and top-down mechanisms \cite{rensink_2017, franconeri_2021,
+xiong_2022}. 
 
 
 # Underestimation: What's Really Going On? {#underestimation-whats-going-on}
