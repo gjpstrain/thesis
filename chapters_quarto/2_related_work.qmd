@@ -783,6 +783,13 @@ designs. Generally, interacting with data visualisation is a complex process
 involving bottom-up and top-down mechanisms \cite{rensink_2017, franconeri_2021,
 xiong_2022}. 
 
+ - read the three vis design papers
+  - Munzer
+    - 
+  - Sedlmair et al.
+  - McKenna et al.
+  
+
 
 # Underestimation: What's Really Going On? {#underestimation-whats-going-on}
 
