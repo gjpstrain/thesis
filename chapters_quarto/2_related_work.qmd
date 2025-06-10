@@ -781,19 +781,59 @@ due to the speeds with which people are able to judge correlations \cite{rensink
 experiments that aim to investigate cognition require more complicated
 designs. Generally, interacting with data visualisation is a complex process
 involving bottom-up and top-down mechanisms \cite{rensink_2017, franconeri_2021,
-xiong_2022}. 
+xiong_2023}. Visualisation design methodologies often begin by clarification of the problem 
+space \cite{munzner_2009, mckenna_2014}; the problem I chose to address was the 
+underestimation of correlation in positively correlated scatterplots. Due to this
+problem being perceptual in nature, I began by focusing on, and attempting to exploit,
+aspects of human perception. Only once I felt that this had been explored did I
+begin examining this problem from a top-down, cognitive point of view; these 
+efforts are detailed in \chap{chap:belief_change}.
 
- - read the three vis design papers
-  - Munzer
-    - 
-  - Sedlmair et al.
-  - McKenna et al.
-  
+Regardless, an account of how correlation is thought about by viewers is not a 
+contribution of this thesis. Section \ref{future-work-chap8} in \chap{chap:conclusion}
+discusses how the findings presented in this thesis may be extended further into
+a cognitive space to more rigorously interrogate the effects found in the final
+experiment.
+
+# The Underestimation of Correlation in Positively Correlated Scatterplots
+
+While the previous section may have painted scatterplots as a shining example
+of data visualisation done right, that is not the full story. Since at least
+the 1970s, studies asking participants to simply provide a numerical estimate
+for the correlation displayed in positively correlated scatterplots
+\cite{strahan_1978, bobko_1979, cleveland_1982, collyer_1990, lane_1985, lauer_1989,
+meyer_1992} and those asking participants to complete a bisection task comparing
+adjacent scatterplots \cite{rensink_2017} find consistent levels of underestimation,
+particularly when 0.2 < *r* < 0.6. The nature of this underestimation has been
+visualised in @fig-underestimation-curve using a function that relates objective
+*r* values to those provided by participants \cite{rensink_2017}.
+
+```{r}
+#| label: fig-underestimation-curve
+#| include: true
+#| fig-cap: Using an equation supplied in Rensink (2017) \cite{rensink_2017}, the nature of correlation underestimation may be visualised. The solid curved line represents underestimation behaviour in that study, while the dashed diagonal line represents theoretically perfect estimation.
+#| fig-asp: 1
+
+y_title <- expression(paste("Subjective ", italic("r"), " value"))
+x_title <- expression(paste("Objective ", italic("r"), " value"))
+
+my_rs <- seq(from = 0, to = 1, length.out = 100)
+as_tibble(my_rs) %>%
+  mutate(under_est = (log(1-0.88*my_rs)/log(1-0.88))) %>%
+  ggplot() +
+  geom_smooth(aes(x = my_rs, y = under_est), colour = "black", size = 0.5) +
+  ylim(0,1) +
+  xlim(0,1) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
+  theme_ggdist() +
+  labs(x = x_title,
+       y = y_title)
+```
 
 
-# Underestimation: What's Really Going On? {#underestimation-whats-going-on}
 
-# Underestimation: Potential Consequences {#underestimation-consequences}
+
+## Underestimation: Potential Consequences {#underestimation-consequences}
 
 # Data Visualisation Literacy {#graph-literacy-related-work}
 

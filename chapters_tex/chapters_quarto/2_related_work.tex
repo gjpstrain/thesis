@@ -541,14 +541,15 @@ traditional scatterplots outperformed all other visualisation types with
 positively correlated data, and were tied with PCPs for negatively
 correlated data.
 
-Rensink (2014) measured correlation discriminability for scatterplots
-presented at 100, 400, or 1600 milliseconds. This study found that
-performance was almost identical for scatterplots presented for either
-400 or 1600 milliseconds, and that there was only a small deterioration
-in performance for those presented for 100 milliseconds. The lack of
-performance improvement for longer presentation times both facilitates
-the rapid collection of large amounts of data and speaks to the
-intuitive, perceptual nature of correlation perception in scatterplots.
+Rensink (2014) \cite{rensink_2014} measured correlation discriminability
+for scatterplots presented at 100, 400, or 1600 milliseconds. This study
+found that performance was almost identical for scatterplots presented
+for either 400 or 1600 milliseconds, and that there was only a small
+deterioration in performance for those presented for 100 milliseconds.
+The lack of performance improvement for longer presentation times both
+facilitates the rapid collection of large amounts of data and speaks to
+the intuitive, perceptual nature of correlation perception in
+scatterplots.
 
 Finally, scatterplots, in addition to outperforming other visualisation
 types and featuring rapid interpretation, are also ubiquitous. In 1983,
@@ -659,10 +660,62 @@ correlation.
 
 \section{Correlation Cognition}\label{corr-cognition}
 
-\section{Underestimation: What's Really Going
-On?}\label{underestimation-whats-going-on}
+Thinking about the ways in which variables are related to one another is
+more complicated than simply perceiving the differences in relatedness.
+Particularly due to the speeds with which people are able to judge
+correlations \cite{rensink_2014}, experiments that aim to investigate
+cognition require more complicated designs. Generally, interacting with
+data visualisation is a complex process involving bottom-up and top-down
+mechanisms \cite{rensink_2017, franconeri_2021,
+xiong_2023}. Visualisation design methodologies often begin by
+clarification of the problem space \cite{munzner_2009, mckenna_2014};
+the problem I chose to address was the underestimation of correlation in
+positively correlated scatterplots. Due to this problem being perceptual
+in nature, I began by focusing on, and attempting to exploit, aspects of
+human perception. Only once I felt that this had been explored did I
+begin examining this problem from a top-down, cognitive point of view;
+these efforts are detailed in \chap{chap:belief_change}.
 
-\section{Underestimation: Potential
+Regardless, an account of how correlation is thought about by viewers is
+not a contribution of this thesis. Section \ref{future-work-chap8} in
+\chap{chap:conclusion} discusses how the findings presented in this
+thesis may be extended further into a cognitive space to more rigorously
+interrogate the effects found in the final experiment.
+
+\section{The Underestimation of Correlation in Positively Correlated
+Scatterplots}\label{the-underestimation-of-correlation-in-positively-correlated-scatterplots}
+
+While the previous section may have painted scatterplots as a shining
+example of data visualisation done right, that is not the full story.
+Since at least the 1970s, studies asking participants to simply provide
+a numerical estimate for the correlation displayed in positively
+correlated scatterplots
+\cite{strahan_1978, bobko_1979, cleveland_1982, collyer_1990, lane_1985, lauer_1989,
+meyer_1992} and those asking participants to complete a bisection task
+comparing adjacent scatterplots \cite{rensink_2017} find consistent
+levels of underestimation, particularly when 0.2 \textless{} \emph{r}
+\textless{} 0.6. The nature of this underestimation has been visualised
+in Figure~\ref{fig-underestimation-curve} using a function that relates
+objective \emph{r} values to those provided by participants
+\cite{rensink_2017}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-underestimation-curve-1.pdf}
+
+}
+
+\caption{\label{fig-underestimation-curve}Using an equation supplied in
+Rensink (2017) \cite{rensink_2017}, the nature of correlation
+underestimation may be visualised. The solid curved line represents
+underestimation behaviour in that study, while the dashed diagonal line
+represents theoretically perfect estimation.}
+
+\end{figure}%
+
+\subsection{Underestimation: Potential
 Consequences}\label{underestimation-consequences}
 
 \section{Data Visualisation Literacy}\label{graph-literacy-related-work}

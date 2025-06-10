@@ -72,18 +72,18 @@ are preferred. These designs do not rely on random allocation, and as each
 participant is able to provide as many data points as there are experimental items in levels
 \cite{charness_2012}, offer a significant boost in statistical power over
 between-participant designs where each participant may only provide data points
-for a portion of the total experimental items. In experiments 1 to 3, each participant saw all experimental stimuli
-and provided a judgement of correlation using a sliding scale between 0 and 1
-(see @fig-slider). Experiment 1 featured a single factor of global scatterplot
-point opacity with 4 levels (see @fig-exp1-examples). Experiment 2 featured a
-single factor of scatterplot point design regarding opacity with 4 levels
+for a portion of the total experimental items. In experiments 1 to 3, each 
+participant saw all experimental stimuli and provided a judgement of correlation
+using a sliding scale between 0 and 1 (see @fig-slider). Experiment 1 featured 
+a single factor of global scatterplot point opacity with 4 levels (see @fig-exp1-examples).
+Experiment 2 featured a single factor of scatterplot point design regarding opacity with 4 levels
 (see @fig-exp2-examples). Experiment 3 featured a single factor of scatterplot
 point design regarding size with 4 levels (see @fig-exp3-examples). Experiment
 4 featured a factorial 2 $\times$ 2 design; IV~1~ was the scatterplot point 
 opacity design used with 2 levels, and IV~2~ was the scatterplot point size design 
 used with 2 levels (see @fig-exp4-examples). Experiment 5 is a departure from 
 the shared experimental paradigm of the previous experiments, and features a 1
-factor, 2 level between-participants design; group A saw scatterplots designed to elict
+factor, 2 level between-participants design; group A saw scatterplots designed to elicit
 greater levels of belief change compared to typical scatterplots, which were
 shown to group B (see @fig-exp5-examples).
 

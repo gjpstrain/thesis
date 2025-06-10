@@ -244,7 +244,7 @@ able to alter the shape of the correlation estimation curve.
 ```{r}
 #| label: fig-bubble-chart
 #| include: true
-#| fig-cap: An example of a bubble chart. This plot compares car engine displacement (cubic inches) with fuel efficiency (miles per gallon). Additionally, the number of cylinders in the cars engine are encoded with point size. One can see from this plot that vehicles with higher engine displacement and lower fuel efficiency tend to have a greater number of engine cylinders.
+#| fig-cap: An example of a bubble chart. This plot compares car engine displacement (cubic inches) with fuel efficiency (miles per gallon). Additionally, the number of cylinders in the car's engine are encoded with point size. One can see from this plot that vehicles with higher engine displacement and lower fuel efficiency tend to have a greater number of engine cylinders.
 #| fig-asp: 0.6
 
 ggplot(aes(x = mpg, y = disp), data = mtcars) +

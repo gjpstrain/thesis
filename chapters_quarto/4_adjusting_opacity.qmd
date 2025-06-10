@@ -445,9 +445,10 @@ partially correct for a historic underestimation bias.
 
 The original paper that this chapter is based on is titled "The Effects of Contrast
 on Correlation Perception in Scatterplots". In response to reviewer comments to
-the paper that forms \label{chap:interactions_opacity_size}, the term "contrast" was changed to "opacity". In order
-to maintain consistency throughout this thesis, the more up-to-date wording (opacity)
-is used, although I discuss the issue of terminology below.
+the paper that forms \label{chap:interactions_opacity_size}, the term "contrast"
+was changed to "opacity". In order to maintain consistency throughout this thesis,
+the more up-to-date wording (opacity) is used, although I discuss the issue of
+terminology below.
 
 Adjusting the opacity of points in scatterplots is an established technique
 used to address issues of overplotting or clutter \cite{bertini_2004, matejka_2015},
@@ -670,8 +671,9 @@ to changes in opacity \cite{rensink_2012, rensink_2014}. Findings from the pre-s
 described above provided evidence against this conclusion, so before proceeding
 with the fine-tuning of the immature point opacity decay function, I felt that
 gaining an understanding of how point opacity and correlation estimation interact
-more generally was important. Owing to the robust effects of altering stimulus opacity on perception described 
-above \cite{wehrhahn_1990, champion_2017}, it was hypothesised that:
+more generally was important. Owing to the robust effects of altering stimulus
+opacity on perception described above \cite{wehrhahn_1990, champion_2017},
+it was hypothesised that:
 
  - H1: A greater spread of estimates of correlation for plots with lower global opacity
 compared to higher opacity plots will be observed.
@@ -766,7 +768,8 @@ items and participants. A likelihood ratio test revealed that the model includin
 global opacity as a fixed effect explained significantly more variance than a 
 null model ($\chi^2$(`r in_paren(e1_model.df)`) = `r printnum(e1_model.Chisq)`,
 *p* `r printp(e1_model.p, add_equals = TRUE)`). @fig-e1-estimates shows the mean
-errors in correlation estimation for each opacity condition, along with 95% confidence intervals.
+errors in correlation estimation for each opacity condition, along with 95% confidence
+intervals.
 
 ```{r}
 #| label: fig-e1-estimates
@@ -1015,7 +1018,8 @@ the baseline global full opacity condition. Examples of each of these can be
 seen in @fig-exp2-examples-chap4, demonstrated with an *r* value of 0.8. Given the
 shape of the underestimation curve found in previous work (see related work chap
 3 or something), intuition suggested employing a symmetrically opposing curve 
-(see the non-linear decay curve in @fig-opposing-curve) to relate point opacity to residuals.
+(see the non-linear decay curve in @fig-opposing-curve) to relate point opacity
+to residuals.
 
 ```{r}
 #| label: fig-opposing-curve
