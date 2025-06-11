@@ -276,7 +276,7 @@ means are found; this value represents the degree of deviation of all points fro
 Then, in the denominator, this value is divided by the magnitude of the sum of the product of said
 deviations; squaring and finding the square root of these values provides the
 unsigned magnitude. In statistical language, Pearson's *r* finds the covariance of
-two variables, then divides this values by the product of both variables' standard
+two variables, then divides this value by the product of both variables' standard
 deviations. Completing this calculation provides a measure of the overall
 distance between the observed values and a fitted least squares regression line, and
 provides a single value of *r* that describes how strongly related two variables 
@@ -415,7 +415,7 @@ description of both the figure and the logic behind it. In short, Herschel wishe
 to figure out the orbits of binary star systems by using (often imprecise) 
 astronomical measurements of certain angles and distances made over a long period
 of time. It is the imprecision in measurement which necessitated data visualisation,
-as precise measurements would would allow common astronomical principles to 
+as precise measurements would allow common astronomical principles to 
 provide precise solutions. First specifying the axes, angles of position ($y$)
 and date of observation ($x$), and grid lines, Herschel then describes plotting points and drawing,
 by hand, a line-of-best-fit. A particularly enlightening quote, with original
@@ -497,7 +497,7 @@ When I began this project in the autumn of 2021, I believed that scatterplots we
 the first and last word when it came to visualising correlation. I soon discovered
 that this was not the case; as scientists often do, a whole host of other 
 visualisation types had been designed or adapted in an effort to better visualise correlation.
-Parallel coordinates plots (PCPs) \cite{heinrich_2013}, which are popular in the 
+Parallel Coordinates Plots (PCPs) \cite{heinrich_2013}, which are popular in the 
 InfoVis community, are most often used for multidimensional data. Applying them to
 bivariate data results in plots that perform (almost) as well as scatterplots
 with regards to visualising correlation between two variables \cite{kay_2015}.
@@ -553,7 +553,8 @@ stacked_area_plot <- slopes %>%
   geom_area() +
   theme_other_viz() +
   theme(aspect.ratio = 1) +
-  labs(title = "Stacked Area Plot")
+  labs(title = "Stacked Area Plot") +
+  scale_color_brewer(palette = "Dark2", aesthetics = "fill")
   
 
 # donut
@@ -567,7 +568,8 @@ radial_stack <- slopes %>%
     geom_col() +
     theme_other_viz() +
   coord_polar(theta = "y") +
-  labs(title = "Radial Stacked Bar Plot")
+  labs(title = "Radial Stacked Bar Plot") +
+  scale_color_brewer(palette = "Dark2", aesthetics = "fill")
 
 # radar
 
@@ -580,7 +582,8 @@ radar_plot <- slopes %>%
   geom_line(size = 0.1) +
   theme_other_viz() +
   coord_polar() +
-  labs(title = "Radar Plot")
+  labs(title = "Radar Plot") +
+  scale_color_brewer(palette = "Dark2", aesthetics = "colour")
 
 plot_grid(PCP_plot, stacked_area_plot, radial_stack, radar_plot)
 ```
@@ -649,9 +652,7 @@ correlation, traditional scatterplots offer a number of distinct advantages.
 In a large scale study, Harrison et al. \cite{harrison_2014} tested a range of correlation
 visualisation types, including scatterplots and those depicted in @fig-other-corr-viz,
 to see if precision in correlation estimation could be modelled by Weber's law 
-\cite{rensink_2010}. A more detailed analysis of the psychophysical laws that
-may determine interactions with correlation visualisations is presented in
-Section \ref{corr-percept-related-work}. In short, the perception of differences
+\cite{rensink_2010}. In short, the perception of differences
 in correlation has a linear relationship to the objective differences in correlation.
 In this study, itself a replication of a previous work investigating Weber's
 law for the modelling of perceived correlation \cite{rensink_2010}, participants
@@ -729,6 +730,7 @@ ggarrange(plot_example_function(slopes_0.95,"", 1, 0.2, 7) +
             ggtitle(expression("Low Correlation: Pearson's " * italic("r") * " = 0.4")),
           ncol = 2)
 ```
+
 In 1997, Meyer et al. \cite{meyer_1997} asked participants to provide estimates
 of correlation from scatterplots. They found that people's estimates of correlation
 could be related to the objective correlation using a psychophysical function
@@ -799,42 +801,132 @@ experiment.
 
 While the previous section may have painted scatterplots as a shining example
 of data visualisation done right, that is not the full story. Since at least
-the 1970s, studies asking participants to simply provide a numerical estimate
+the 1960s, studies asking participants to simply provide a numerical estimate
 for the correlation displayed in positively correlated scatterplots
-\cite{strahan_1978, bobko_1979, cleveland_1982, collyer_1990, lane_1985, lauer_1989,
+\cite{erlick_1966, strahan_1978, bobko_1979, cleveland_1982, lane_1985, lauer_1989, collyer_1990,
 meyer_1992} and those asking participants to complete a bisection task comparing
 adjacent scatterplots \cite{rensink_2017} find consistent levels of underestimation,
-particularly when 0.2 < *r* < 0.6. The nature of this underestimation has been
-visualised in @fig-underestimation-curve using a function that relates objective
-*r* values to those provided by participants \cite{rensink_2017}.
+particularly when 0.2 < *r* < 0.6. Where sufficient data are available to recreate
+a full estimation curve, the nature of this underestimation has been visualised
+in @fig-underestimation-curves. Included are estimation curves derived from 
+medians described by Bobko (1979 \cite{bobko_1979}) and from an equation relating
+subjective to objective correlation derived from JND studies by Rensink (2017
+\cite{rensink_2017}).
 
 ```{r}
-#| label: fig-underestimation-curve
+#| label: fig-underestimation-curves
 #| include: true
-#| fig-cap: Using an equation supplied in Rensink (2017) \cite{rensink_2017}, the nature of correlation underestimation may be visualised. The solid curved line represents underestimation behaviour in that study, while the dashed diagonal line represents theoretically perfect estimation.
+#| fig-cap: Using an equation supplied in Rensink (2017) \cite{rensink_2017}, and recorded median correlation estimates in Bobko (1979 \cite{bobko_1979}), the nature of correlation underestimation may be visualised. The solid lines represents underestimation behaviour, while the dashed diagonal line represents theoretically perfect estimation. 
 #| fig-asp: 1
 
 y_title <- expression(paste("Subjective ", italic("r"), " value"))
 x_title <- expression(paste("Objective ", italic("r"), " value"))
 
+bobko_curve <- data.frame(x = c(.87, .64, .5, .35, .19, 0), y = c(.83, .5, .3, .1, .01, 0))
+
 my_rs <- seq(from = 0, to = 1, length.out = 100)
 as_tibble(my_rs) %>%
-  mutate(under_est = (log(1-0.88*my_rs)/log(1-0.88))) %>%
+  mutate(under_est_rensink = (log(1-0.88*my_rs)/log(1-0.88))) %>%
+  mutate(under_est_collyer = (1.4118*my_rs) - .063) %>%
   ggplot() +
-  geom_smooth(aes(x = my_rs, y = under_est), colour = "black", size = 0.5) +
+  geom_smooth(aes(x = my_rs, y = under_est_rensink), colour = "#1B9E77FF", size = 1) +
+  geom_line(data = bobko_curve, aes(x, y), colour = "#D95F02FF", size = 1) +
   ylim(0,1) +
   xlim(0,1) +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
-  theme_ggdist() +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", size = 1) +
+  theme_ggdist() + 
   labs(x = x_title,
-       y = y_title)
+       y = y_title) +
+  annotate("text",
+           label = "Rensink (2017)",
+           x = 0.75, y = 0.46,
+           angle = 52) +
+    annotate("text",
+           label = "Bobko (1979)",
+           x = 0.55, y = 0.425,
+           angle = 56)
 ```
 
-
-
+The underestimation of correlation in positively correlated scatterplots was also
+observed in experiments 1 to 4 in the current paper, and is detailed in each 
+experimental chapter. \chap{chap:conclusion} also includes figures detailing 
+the underestimation observed throughout this thesis in comparison to previous
+work. Despite this long-standing finding, no efforts have been made to correct
+for this underestimation. Quite why this correction has never been attempted, 
+however, is unclear. The following section argues in favour of seeking a 
+correction to this underestimation bias.
 
 ## Underestimation: Potential Consequences {#underestimation-consequences}
 
+As detailed at the beginning of this chapter, humans have a natural inclination
+towards the pictorial representation of data. There is evidence that statistical
+information is more persuasive than anecdotal and causal information 
+\cite{hoeken_2001, hoeken_2009}, and that, under certain conditions, data 
+visualisations are more persuasive than tabular data \cite{pandey_2014}. Data
+visualisations have been submitted in evidence in court cases \cite{bobko_1979},
+and play key roles in organisational decision making, including in healthcare
+\cite{poly_2019}. Data visualisation also plays a huge role in the 
+communication of vital public health information, including during the COVID-19
+pandemic \cite{clements_2023}; from personal experience, this was when data
+visualisation entered the public conscience for many.
+
+All this is to say that the underestimation of correlation matters. It is not 
+unreasonable to assert that policy decisions have been made based at least in part
+on data visualisations; the long-standing finding that lay people and those 
+educated in statistics underestimate the levels of relatedness between variables
+displayed in scatterplots is not trivial, and has real impact on people's lives.
+Those who design data visualisations have a responsibility to design with *all*
+viewers in mind, not merely those who have made statistics a part of their working
+lives. Designing in this way requires us to understand, on perceptual and cognitive
+levels, how visualisations are interpreted, and to apply this understanding to
+scaffold the hidden processes that allow pictorial representations to convey
+more than words and numbers alone ever could.
+
 # Data Visualisation Literacy {#graph-literacy-related-work}
+
+Proponents of Inclusive Design \cite{clarkson_2010} argue for replacing the idea
+that people are disabled by physical and mental impediments with the idea that
+we are all, at different times, disabled by poor design and a lack of consideration
+of the full range of human capabilities. This concept led me to design and test novel scatterplot
+visualisations solely with lay populations; this is in stark contrast to most
+of the correlation perception studies cited in this thesis, which overwhelmingly
+take place with university staff and students in statistics and psychology
+departments. While I would argue that this leads to more generalisable 
+results, especially as I did not pursue purely perceptual conclusions
+(rather used aspects of perception to inform design), it is also important to
+recognise and account for the differences in ability in lay populations. Research
+has shown that those with a greater level of skill in working with data visualisations
+tend to benefit more from their provision \cite{garcia_2010}, and that differences
+in these skills may account for variations in experimental results regarding
+judgements of magnitude \cite{bradley_2025}.
+
+With this in mind, some measure of a participant's ability to comprehend the data
+visualisation displayed was required. Throughout this thesis, Garcia-Retamero's
+5-item Subjective Graph Literacy (SGL) scale \cite{garcia_2016} was employed to accomplish
+this. Based on Galesic and Garcia-Retamero's 13-item graph literacy scale, which
+is itself based on work by Friel's work on graph comprehension \cite{friel_2001},
+the SGL scale is quick to complete (< 1 minute), and correlates strongly with 
+an objective measure of graph literacy \cite{garcia_2010} that has been shown
+to accurately predict to extent to which participants may benefit from visual 
+aids \cite{garcia_2010}. Using the 13-item scale, it has also been shown
+that those with low graph literacy suffer from higher levels of misinterpretation
+and more often rely on misleading mappings.
+
+The SGL was administered in each experiment described in this thesis, and takes 
+the form of 5 questions to which participants must provide an answer. Generally,
+the scale ascertains participants self-reported competencies when working
+with a small range of visualisations. The SGL test portion of each experiment
+is shown in @fig-sgl-screen.
+
+```{r}
+#| label: fig-sgl-test-screen
+#| include: true
+#| fig-cap: Participants were instructed to use the following interface to complete the Subjective Graph Literacy scale \cite{garcia_2016}
+#| out-width: NA
+#| out-height: NA
+
+knitr::include_graphics(path = "../supplied_graphics/sgl_test_screen.png", dpi = NA)
+```
+
 
 # Objectives and Contributions {#objectives-contributions}
