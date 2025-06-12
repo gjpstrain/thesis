@@ -76,8 +76,8 @@ attractive convenience that symbols and signs represent for humans; making sense
 of our world and the relationships therein is often easier through pictures as
 opposed to words and numbers, a principle which I consider key for this thesis.
 
-Note: much of the rest of this section is heavily inspired by Michael Friendly's
-*A Brief History of Data Visualization* \cite{friendly_2008}.
+<!-- Note: much of the rest of this section is heavily inspired by Michael Friendly's -->
+<!-- *A Brief History of Data Visualization* \cite{friendly_2008}. -->
 
 Moving on, then, to the kind of pictorial representation that modern students and scientists would 
 firmly recognise as a "data visualisation". Tufte and Graves-Morris, in 1983's
@@ -168,9 +168,7 @@ In all of these visualisations, data is used to accentuate storytelling. In some
 cases, this may lead to critical discoveries that save lives, and in others, it
 may simply facilitate a greater understanding and appreciation of the data. In either
 case, visualisation is used effectively to appeal to our affinity for visual
-storytelling.
-
-An appetite for precision defined the approach to statistical thinking, and by
+storytelling. An appetite for precision defined the approach to statistical thinking, and by
 extension, data visualisation, in the first half of the 20th century. Statistical
 graphics finally became mainstream, and were implemented in curricula and used
 in government, commerce, and finance. This period also marks the beginning of 
@@ -195,13 +193,6 @@ would be influential for Leland Wilkinson's *Grammar of Graphics* \cite{wilkinso
 which in turn influenced the `ggplot2` package \cite{wickham_2016} that is used
 extensively in this thesis.
 
-Since then, both the practice and study of data visualisation have become thoroughly
-mainstream. Students are taught to visualise data early on, and the propagation of
-both software and powerful computing hardware have brought advanced techniques,
-such as high dimensional visualisation and massive datasets, into the home. To summarise
-the timeline of developments in data visualisation over the last 500 years, I include
-a rug and density plot from Friendly (2008) \cite{friendly_2008} in @fig-rug-density.
-
 ```{r}
 #| label: fig-rug-density
 #| include: true
@@ -210,6 +201,12 @@ a rug and density plot from Friendly (2008) \cite{friendly_2008} in @fig-rug-den
 knitr::include_graphics(path = "../supplied_graphics/rug_density.png", dpi = NA)
 ```
 
+Since then, both the practice and study of data visualisation have become thoroughly
+mainstream. Students are taught to visualise data early on, and the propagation of
+both software and powerful computing hardware have brought advanced techniques,
+such as high dimensional visualisation and massive datasets, into the home. To summarise
+the timeline of developments in data visualisation over the last 500 years, I include
+a rug and density plot from Friendly (2008) \cite{friendly_2008} in @fig-rug-density. 
 Recounting a full and detailed history of the practice and study of data visualisation
 would require much more than a single thesis, and has been done to a very high standard
 elsewhere \cite{friendly_2008, friendly_2021}. Given that this thesis is focused on
@@ -284,15 +281,6 @@ are.
 
 # Visualising Correlation {#visualising-correlation}
 
-Of course, while mathematically sound, a single value provides no information about
-the distribution of variables from which it was derived. To do this, the data must 
-be examined visually. Here arises a parallel; in much the same way as Francis Galton
-used a proto-scatterplot to formulate his definition of correlation, so must
-data visualisation be used to tell the story behind a value of Pearson's *r*.
-The need for visualisation is most viscerally illustrated by Anscombe's quartet
-\cite{anscombe_1973}, which is recreated in @fig-anscombe using a dataset from the `datasets` 
-core package \cite{r_core} in R.
-
 ```{r}
 #| label: fig-anscombe
 #| include: true
@@ -322,29 +310,30 @@ ggarrange(anscombe_plot("x1", "y1"),
           ncol = 4)
 ```
 
-Anscombe's quartet \cite{anscombe_1973} describes four simple datasets that are
-identical with regards to a range of statistical measures. They feature the same
-number of observations, the same means, regression coefficients, regression line
-equations, sums of squares, estimated standard errors, and correlation coefficients.
-A simple examination of these statistics would lead to the conclusion that
-the datasets are almost identical; in reality, there are significant differences
-between them that can only be seen via visualisation.
+Of course, while mathematically sound, a single value provides no information about
+the distribution of variables from which it was derived. To do this, the data must 
+be examined visually. Here arises a parallel; in much the same way as Francis Galton
+used a proto-scatterplot to formulate his definition of correlation, so must
+data visualisation be used to tell the story behind a value of Pearson's *r*.
+The need for visualisation is most viscerally illustrated by Anscombe's quartet
+\cite{anscombe_1973}, which is recreated in @fig-anscombe using a dataset from the `datasets` 
+core package \cite{r_core} in R. Anscombe's quartet \cite{anscombe_1973} describes
+four simple datasets that are identical with regards to a range of statistical 
+measures. They feature the same number of observations, the same means, regression
+coefficients, regression line equations, sums of squares, estimated standard
+errors, and correlation coefficients. A simple examination of these statistics
+would lead to the conclusion that the datasets are almost identical; in reality,
+there are significant differences between them that can only be seen via visualisation.
 
 In this thesis, the primary concern is correlation and the ways in which people
 interpret it from scatterplots. The remainder of this section examines the history
-and current landscape of correlation visualisations; starting with Galton's 
+and current landscape of correlation visualisations. Starting with Galton's 
 scatterplot precursors, I then go on to discuss the development of the familiar
 modern scatterplot through the examination of a number of impressive use cases.
 Following that, I review the current landscape of correlation visualisation, including
 the more recent use of other, non-scatterplot graphs.
 
 ## History {#history-corr-viz}
-
-As mentioned in Section \ref{relatedness-and-correlation}, Francis Galton based 
-his initial formulation of the correlation coefficient on hand-drawn plots
-of the semi-interquartile ranges of two variables. @fig-galton-hand-plot contains
-a negative scan of Galton's original plot, along with a modern recreation using 
-``ggplot2``.
 
 ```{r}
 #| label: fig-galton-hand-plot
@@ -405,14 +394,18 @@ p2 <- ggdraw() + draw_grob(g)
 plot_grid(p2, p1, ncol = 2)
 ```
 
-Despite the importance of graphics like these for Galton's discovery of
+As mentioned in Section \ref{relatedness-and-correlation}, Francis Galton based 
+his initial formulation of the correlation coefficient on hand-drawn plots
+of the semi-interquartile ranges of two variables. @fig-galton-hand-plot contains
+a negative scan of Galton's original plot, along with a modern recreation using 
+``ggplot2``. Despite the importance of graphics like these for Galton's discovery of
 regression, statistical correlation, and the relationship between these and the
 bivariate density function \cite{friendly_2005}, a more true example of a scatterplot
 can be found in much earlier work on the orbits of twin stars by John F. W. 
 Herschel \cite{herschel_1833}. Unfortunately, this scatterplot was never printed
 in Herschel's 1833 manuscript, however can be inferred thanks to a detailed 
 description of both the figure and the logic behind it. In short, Herschel wished
-to figure out the orbits of binary star systems by using (often imprecise) 
+to ascertain the orbits of binary star systems by using (often imprecise) 
 astronomical measurements of certain angles and distances made over a long period
 of time. It is the imprecision in measurement which necessitated data visualisation,
 as precise measurements would allow common astronomical principles to 
@@ -492,17 +485,6 @@ important to pay homage to the history of the visualisation as an ever-present
 lab mate to those willing and able to use graphing to solve scientific problems.
 
 ## Present Landscape {#present-landscape-corr-viz}
-
-When I began this project in the autumn of 2021, I believed that scatterplots were
-the first and last word when it came to visualising correlation. I soon discovered
-that this was not the case; as scientists often do, a whole host of other 
-visualisation types had been designed or adapted in an effort to better visualise correlation.
-Parallel Coordinates Plots (PCPs) \cite{heinrich_2013}, which are popular in the 
-InfoVis community, are most often used for multidimensional data. Applying them to
-bivariate data results in plots that perform (almost) as well as scatterplots
-with regards to visualising correlation between two variables \cite{kay_2015}.
-@fig-other-corr-viz illustrates parallel coordinates plots, along with 3 other
-types of correlation visualisation, with an *r* value of 0.6.
 
 ```{r}
 #| label: fig-other-corr-viz
@@ -588,12 +570,6 @@ radar_plot <- slopes %>%
 plot_grid(PCP_plot, stacked_area_plot, radial_stack, radar_plot)
 ```
 
-Despite the existence of plots such as these, scatterplots remain by far the most
-popular way of visualising correlation. With the exception of the charts featured
-in @fig-other-corr-viz, many other ways of visualising correlation are density-flavoured
-remixes of traditional scatterplots, such as Hexbin plots and Kernel Density Estimate
-plots (see @fig-remixes).
-
 ```{r}
 #| label: fig-remixes
 #| include: true
@@ -644,7 +620,21 @@ ggarrange(hex_plot, KDE_plot,
           ncol = 2)
 ```
 
-While there may be many, often more visually appealing ways of visualising
+When I began this project in the autumn of 2021, I believed that scatterplots were
+the first and last word when it came to visualising correlation. I soon discovered
+that this was not the case; as scientists often do, a whole host of other 
+visualisation types had been designed or adapted in an effort to better visualise correlation.
+Parallel Coordinates Plots (PCPs) \cite{heinrich_2013}, which are popular in the 
+InfoVis community, are most often used for multidimensional data. Applying them to
+bivariate data results in plots that perform (almost) as well as scatterplots
+with regards to visualising correlation between two variables \cite{kay_2015}.
+@fig-other-corr-viz illustrates parallel coordinates plots, along with 3 other
+types of correlation visualisation, with an *r* value of 0.6. Despite the
+existence of plots such as these, scatterplots remain by far the most
+popular way of visualising correlation. With the exception of the charts featured
+in @fig-other-corr-viz, many other ways of visualising correlation are density-flavoured
+remixes of traditional scatterplots, such as Hexbin plots and Kernel Density Estimate
+plots (see @fig-remixes). While there may be many, often more visually appealing ways of visualising
 correlation, traditional scatterplots offer a number of distinct advantages.
 
 ## Scatterplots {#scatterplots-corr-viz}
@@ -675,7 +665,7 @@ identical for scatterplots presented for either 400 or 1600 milliseconds, and th
 there was only a small deterioration in performance for those presented for 
 100 milliseconds. The lack of performance improvement for longer presentation times
 both facilitates the rapid collection of large amounts of data and speaks to
-the intuitive, perceptual nature of correlation perception in scatterplots.
+the intuitive nature of correlation perception in scatterplots.
 
 Finally, scatterplots, in addition to outperforming other visualisation types
 and featuring rapid interpretation, are also ubiquitous. In 1983, scatterplots
@@ -687,9 +677,9 @@ only in scientific and technical publication, but also in the news and mass medi
 This combination of advantages makes them particularly suitable for scientific study,
 and was part of the reason I chose to pursue this project.
 
-Despite this host of advantages, the estimation of correlation suffers from a 
-bias; it is routinely underestimated by viewers. To understand this bias with
-a view to correcting, I first explore the perception of correlation more generally,
+Despite this host of advantages, the estimation of correlation suffers from
+routine underestimation by viewers. To understand this bias with
+a view to correcting for it, I first explore the perception of correlation more generally,
 before briefly discussing the more cognitive aspects of the measure, which are
 especially relevant for the experiment described in \chap{chap:belief_change}.
 I then deal with the problem itself; the underestimation of correlation in
@@ -743,8 +733,7 @@ taking the following form:
 $a$ and $b$ are constant coefficients, while X represents the mean absolute 
 vertical distance between the scatterplot points and a regression line. This
 modelling provides further evidence that estimates of correlation are based on 
-perceptions of the physical arrangement of scatterplot points, rather than on
-any mathematical measure of correlation. This finding received later support
+perceptions of the physical arrangement of scatterplot points. This finding received later support
 from a study investigating the hypothesis that visual features may be used to
 judge correlations in scatterplots \cite{yang_2019}. In that study, it was found
 that, among other equally predictive visual features, the standard deviation of
@@ -822,7 +811,8 @@ subjective to objective correlation derived from JND studies by Rensink (2017
 y_title <- expression(paste("Subjective ", italic("r"), " value"))
 x_title <- expression(paste("Objective ", italic("r"), " value"))
 
-bobko_curve <- data.frame(x = c(.87, .64, .5, .35, .19, 0), y = c(.83, .5, .3, .1, .01, 0))
+bobko_curve <- data.frame(x = c(.87, .64, .5, .35, .19, 0),
+                          y = c(.83, .5, .3, .1, .01, 0))
 
 my_rs <- seq(from = 0, to = 1, length.out = 100)
 as_tibble(my_rs) %>%
@@ -910,7 +900,7 @@ an objective measure of graph literacy \cite{garcia_2010} that has been shown
 to accurately predict to extent to which participants may benefit from visual 
 aids \cite{garcia_2010}. Using the 13-item scale, it has also been shown
 that those with low graph literacy suffer from higher levels of misinterpretation
-and more often rely on misleading mappings.
+and more often rely on misleading mappings \cite{okan_2016}.
 
 The SGL was administered in each experiment described in this thesis, and takes 
 the form of 5 questions to which participants must provide an answer. Generally,
@@ -919,14 +909,38 @@ with a small range of visualisations. The SGL test portion of each experiment
 is shown in @fig-sgl-screen.
 
 ```{r}
-#| label: fig-sgl-test-screen
+#| label: fig-sgl-screen
 #| include: true
-#| fig-cap: Participants were instructed to use the following interface to complete the Subjective Graph Literacy scale \cite{garcia_2016}
+#| fig-cap: Participants were instructed to use the following interface to complete the Subjective Graph Literacy scale \cite{garcia_2016} before completing trials in each experiment.
 #| out-width: NA
 #| out-height: NA
 
 knitr::include_graphics(path = "../supplied_graphics/sgl_test_screen.png", dpi = NA)
 ```
 
-
 # Objectives and Contributions {#objectives-contributions}
+
+In this thesis, I aim to answer three high-level research questions:
+
+  1. Are there effects of changing the sizes and opacities of scatterplot points
+  on performance on a correlation estimation task?
+  2. Can these changes be used to correct for a historic underestimation bias?
+  3. Are these effects only perceptual, or do participants integrate them 
+  cognitively such that they may influence beliefs about correlations?
+  
+The justifications and motivations for these research questions may be found
+in the experimental chapters where they are most relevant. Both in answering the 
+above questions and in conducting this project more generally, I hope to make 
+the following contributions:
+
+  1. There are clear and strong effects of changing the opacities and sizes of 
+  points on scatterplots, both in uniform ways, and using functions that draw 
+  inspiration from the nature of correlation perception.
+  2. These effects can be used to correct for the historic underestimation bias,
+  without removing data, although significantly more work is needed to find the 
+  exact combinations of size and opacity adjustments that produce 
+  perceptually-optimised estimates.
+  3. These effects do extent into a cognitive space, and are able to influence 
+  people's beliefs about the levels of relatedness between variables.
+  4. This project is exemplar of one done in an entirely open and 
+  reproducible manner.

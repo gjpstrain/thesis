@@ -19,7 +19,7 @@ execute:
 ---
 
 Data visualisation is the practice of pictorially presenting patterns otherwise 
-described by numbers, and has been employed in one form or another for thousands of
+described by numbers or words, and has been employed in one form or another for thousands of
 years \cite{azzam_2013}. Lists or matrices of numbers may be able to communicate
 simple trends, but for more complex patterns, harnessing the human visual system
 \cite{midway_2020} through visualisation is crucial for the communication of science
@@ -38,8 +38,8 @@ public health information \cite{li_2021, koch_2021, clements_2023}, to present
 evidence in court cases \cite{bobko_1979, mclachlan_2021},
 and to facilitate collaboration and encourage engagement on climate change issues
 \cite{nocke_2008, schuster_2024}. Studying data visualisation therefore has the potential
-to change not only the nature of scientific study, but the ways in which the fruit
-of that study is made salient in the minds of the public.
+to change not only the nature of scientific study, but the ways in which the findings
+of that study are made salient in the minds of the public.
 
 Interaction with a data visualisation involves steps from perception (viewing),
 to cognition (interpreting), to behaviour (deciding and acting). These stages must be 
@@ -65,12 +65,12 @@ meaning from the visualisations they engaged with. The ability of data visualisa
 to transcend language and mathematical prowess motivated my study of them; concepts
 such as exponential growth or the relatedness between variables can be displayed
 in simple ways that do not rely on an underlying understanding of exponents
-or correlation coefficients.
+or correlation coefficients, for example.
 
 Using data visualisation in such a way effectively provides a cognitive proxy
 for viewers. This is an efficient way to communicate, however still necessitates
 the presence of accurate and reliable perceptions. While investigating the 
-assumptions data visualisation designers have about the people who view their 
+assumptions data visualisation designers make about the people who view their 
 visualisations, I uncovered a historical perceptual bias that was still being described
 in the literature, seemingly with no attempt at correction. This bias
 was the underestimation of correlation in positively correlated scatterplots.
@@ -81,10 +81,10 @@ collyer_1990, lane_1985, lauer_1989, meyer_1997} and estimation via bisection ta
 The goal of this thesis was therefore to collect empirical evidence on the perception
 of correlation in positively correlated scatterplots, to use that information to 
 create novel visualisations with a view to correcting for the underestimation,
-and to further investigate the potential for these visualisations to effect 
+and to further investigate the potential for these visualisations to affect 
 what people think and believe.
 
-# Contributions {#contributions-introduction}
+# Overview of Contributions {#contributions-introduction}
 
 Through this thesis, I present a series of empirical experiments that provide
 knowledge about how changing visual features in scatterplots can affect how people
@@ -133,7 +133,7 @@ author of all included papers.
 
 # Overview of Thesis
 
-In \chap{chap:related_work}, I conduct a thorough review of the literature and provide the necessary
+In \chap{chap:related_work}, I conduct a review of the literature and provide the necessary
 context for the following experimental chapters. I begin by exploring the history 
 and significance of data visualisation, before discussing concepts of correlation
 and relatedness, and their visualisation using scatterplots. I discuss a long-standing
@@ -171,7 +171,7 @@ points as a function of residual error is able to alter participants'
 estimates of correlation to a greater degree than functions relating point opacity
 and residual error. Additionally, I begin to explore how changing different visual
 features of scatterplots can affect the shape of the curve that describes how
-people related subjective and objective *r* values.
+people relate subjective and objective *r* values.
 
 \chap{chap:interactions_opacity_size} describes an experiment in which point opacity and size adjustments
 are combined. This experiment includes conditions in which point opacity and size
@@ -187,10 +187,10 @@ a cognitive space. In a single experiment, I explore the potential for scatterpl
 using point opacity and size manipulations to change participants' beliefs about 
 levels of relatedness between variables. I show that using such manipulations is able
 to change beliefs to a significantly greater degree compared to standard, unaltered
-scatterplots. This Chapter also describes a pre-study that explores thoughts and 
+scatterplots. This chapter also describes a pre-study that explores thoughts and 
 feelings about relatedness to ascertain a variable pair that is particularly 
 vulnerable to belief-change. The main experiment demonstrates that visual features
-can not only affect perceptions of correlation, but can also affect beliefs.
+that affect perceptions of correlation also affect beliefs about those correlations.
 
 \chap{chap:conclusion} presents a synthesis of the empirical work described in this thesis. I 
 present discussions of the theoretical and practical implications of my findings,
