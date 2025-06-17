@@ -230,7 +230,7 @@ Francis Galton was the first to formally introduce the concept of *co-relation*
 in 1888 \cite{galton_1888}. He derived a definition of correlation as a by-product
 of his invention of statistical regression, first describing this new property
 by way of anthropometric data relating to the measurement of different parts of the 
-body. Early in this brief, but significant, paper, Galton posits a basic definition
+body. Early in this brief, but significant, paper, Galton puts forward a basic definition
 of correlation:
 
 \begin{quotation}
@@ -246,7 +246,7 @@ r. This has since been lauded as a prime example of a mathematical
 discovery made based on observed data. This method is imprecise, as it requires
 intuition of a line-of-best-fit based on a hand drawn plot, but is credited as
 the first full conceptual definition of a measure of correlation; it should be noted
-that Galton did not conceive of negative correlation at this point. Galton's work
+that there was no concept of negative correlation at this point. Galton's work
 did not take place in isolation, and the preceding 60 years featured 
 famous names, such as Gauss and Darwin, dancing around the idea of correlation
 without recognising its importance; Lee Rodgers & Nicewander (1988)
@@ -523,7 +523,6 @@ PCP_plot <- slopes %>%
   ylim(0.1,
        0.9)
 
-
 # stacked area
 
 stacked_area_plot <- slopes %>%
@@ -692,9 +691,8 @@ and contributions of this thesis.
 Understanding the perception of correlation represents a complex problem. Despite 
 decades of research into correlation, scatterplots, and the perception of information
 from visualisations, there is no definitive solution to this problem. Circumstantial
-evidence exists, however, that points to correlation perception being driven,
-from a top-down point of view, by the shape of the probability distribution
-represented by the scatterplot.
+evidence exists, however, that points to correlation perception being driven
+by the shape of the probability distribution represented by the scatterplot.
 
 Firstly, increasing the $x$ and $y$ scales of a scatterplot such that the size of
 the point cloud increases is associated with an increase in viewers' judgements
@@ -702,8 +700,9 @@ of bivariate association, despite the objective *r* value remaining the same
 \cite{cleveland_1982}. This finding suggests that it is the area of the point cloud
 that viewers may use to judge correlation. This area is easier to visualise in 
 hexbin or KDE plots (see @fig-remixes). With enough data, the point cloud of
-a scatterplot will tend towards a straight line, decreasing the area of the point
-cloud in the same way. @fig-point-cloud-trends illustrates this.
+a scatterplot will tend towards a straight line as the *r* value increases,
+decreasing the area of the point cloud in the same way. @fig-point-cloud-trends
+illustrates this.
 
 ```{r}
 #| label: fig-point-cloud-trends
@@ -715,9 +714,11 @@ slopes_0.4 <- prepare_slopes(0.4)
 slopes_0.95 <- prepare_slopes(0.95)
 
 ggarrange(plot_example_function(slopes_0.95,"", 1, 0.2, 7) +
-            ggtitle(expression("High Correlation: Pearson's " * italic("r") * " = 0.95")), 
+            ggtitle(expression("High Correlation: Pearson's " * italic("r") * " = 0.95")) +
+            theme(axis.ticks = element_blank()), 
           plot_example_function(slopes_0.4, "", 1, 0.2, 7) +
-            ggtitle(expression("Low Correlation: Pearson's " * italic("r") * " = 0.4")),
+            ggtitle(expression("Low Correlation: Pearson's " * italic("r") * " = 0.4")) +
+            theme(axis.ticks = element_blank()),
           ncol = 2)
 ```
 
@@ -839,7 +840,7 @@ as_tibble(my_rs) %>%
 
 The underestimation of correlation in positively correlated scatterplots was also
 observed in experiments 1 to 4 in the current paper, and is detailed in each 
-experimental chapter. \chap{chap:conclusion} also includes figures detailing 
+experimental chapter. \chap{chap:conclusion} includes figures detailing 
 the underestimation observed throughout this thesis in comparison to previous
 work. Despite this long-standing finding, no efforts have been made to correct
 for this underestimation. Quite why this correction has never been attempted, 
@@ -853,7 +854,7 @@ towards the pictorial representation of data. There is evidence that statistical
 information is more persuasive than anecdotal and causal information 
 \cite{hoeken_2001, hoeken_2009}, and that, under certain conditions, data 
 visualisations are more persuasive than tabular data \cite{pandey_2014}. Data
-visualisations have been submitted in evidence in court cases \cite{bobko_1979},
+visualisations have been submitted as evidence in court cases \cite{bobko_1979},
 and play key roles in organisational decision making, including in healthcare
 \cite{poly_2019}. Data visualisation also plays a huge role in the 
 communication of vital public health information, including during the COVID-19
@@ -904,7 +905,7 @@ and more often rely on misleading mappings \cite{okan_2016}.
 
 The SGL was administered in each experiment described in this thesis, and takes 
 the form of 5 questions to which participants must provide an answer. Generally,
-the scale ascertains participants self-reported competencies when working
+the scale ascertains each participant's self-reported competencies when working
 with a small range of visualisations. The SGL test portion of each experiment
 is shown in @fig-sgl-screen.
 
