@@ -18,11 +18,47 @@ execute:
   include: false     
 ---
 
+Changing the opacities and sizes of point in positively correlated scatterplots
+has clear effects on the estimation of correlation. This thesis set out to 
+investigate whether visual manipulations of scatterplots based on aspects
+of human perception might be able to change estimates of correlation, and, 
+in particular, whether these visual manipulations could be used to correct for
+a historic underestimation bias present since the 1960s.
+
 # Main Findings
+
+Each published experimental chapter in this work builds on the previous provides
+a unique contribution to knowledge about how changing visual features may affect
+thoughts and perceptions about correlations.
+
+In \chap{chap:adjusting_opacity}, the opacities of scatterplot points were altered
+while participants were tested on a correlation estimation task. The two published
+experiments in this chapter were based partially on an earlier pilot study that
+ultimately remains unpublished due to data quality issues (see \ref{pilot-study}
+for a full account of this). In the first experiment in this chapter, the opacities
+of scatterplot points were changed in a uniform manner; this was done with the
+intent of discovering any general effects of point opacity on correlation estimation.
+Evidence was found for an increase in underestimation error when global point opacity
+was reduced. This result provided evidence that, in disagreement with previous work,
+changing the opacities of scatterplot points could be used to alter estimates
+of the correlation therein.
 
 # Relationship to Prior Work
 
 # Reproducibility
+
+As detailed in \chap{chap:gen_methods}, this project has been conducted according
+to the principles of open and reproducible science \cite{ayris_2018}. Doing so
+effectively facilitates future replication and authentication of my published
+results, in addition to enabling others to learn from where I have succeeded and 
+failed. Materials are provided throughout for the re-creation of each individual
+experimental paper, including Docker containers to reproduce the specific
+computational environments used. This thesis also features an all-in-one Docker
+implementation, details of which can be found in the repository associated with
+this paper. Owing to the accessibility issues present with the PDF format 
+\cite{kumar_2024}, this thesis is also hosted as a website[^1].
+
+[^1]: placeholder
 
 # Contributions {#contributions-conclusion}
 
