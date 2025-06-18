@@ -231,6 +231,16 @@ anon_file %>%
 
 wrangle(exp4_anon)
 
+# write wrangled csv if it does not exist
+
+if (!file.exists(csv_wrangled <- "../data/wrangled_data/chap6_exp1_wrangled.csv")) {
+  
+  E4_interactions_tidy %>%
+    rename(condition = size) %>%
+    mutate(condition = paste0(condition, "_exp3")) %>%
+    write_csv("../data/wrangled_data/chap6_exp1_wrangled.csv")
+}
+
 # set deviation coding for experimental model
 
 contrasts(E4_interactions_tidy$size) <- matrix(c(.5, -.5))
@@ -703,13 +713,33 @@ along with 95% confidence intervals.
 
 if (class(e4_model) == "buildmer") e4_model <- e4_model@model
 
-as_tibble(emmeans(e4_model, pairwise ~ size * opacity)[[1]]) %>%
+plotting_df <- as_tibble(emmeans(e4_model, pairwise ~ size * opacity)[[1]]) %>%
+  mutate(condition = case_when(
+    opacity == "S" & size == "S" ~ "A",
+    opacity == "I" & size == "I" ~ "B",
+    opacity == "S" & size == "I" ~ "X",
+    opacity == "I" & size == "S" ~ "Y",
+    TRUE ~ "placeholder"
+  ))
+
+if (!file.exists(csv_wrangled <- "../data/other_data/exp4_emm_plot.csv")) {
+  
+  plotting_df %>%
+    select(-c("size", "opacity")) %>%
+    mutate(condition = paste0(condition, "_exp4")) %>%
+    write_csv("../data/other_data/exp4_emm_plot.csv")
+  
+}
+
+plotting_df %>%
   mutate("size" = recode(size,
                          "S" = "Typical Orientation Size",
                          "I" = "Inverted Orientation Size"),
-          "opacity" = recode(opacity,
+         "opacity" = recode(opacity,
                          "S" = "Typical Orientation Opacity",
                          "I" = "Inverted Orientation Opacity")) %>%
+
+
   ggplot(aes(x = reorder(size:opacity, emmean), y = emmean*-1)) +
   geom_point(size = 1.75) +
   geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +

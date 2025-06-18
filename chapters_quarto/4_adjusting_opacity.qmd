@@ -182,6 +182,25 @@ walk(list(exp1_anon,
 E1_uniform_adjustments_tidy <- E3_full_exp_tidy
 E2_spatially_dependent_tidy <- E2_full_exp_tidy
 
+# write wrangled csvs if they do not currently exist
+
+if (!file.exists(csv_wrangled <- "../data/wrangled_data/chap4_exp1_wrangled.csv")) {
+  
+  E1_uniform_adjustments_tidy %>%
+    rename(condition = opacity) %>%
+    mutate(condition = paste0(condition, "_exp1")) %>%
+    write_csv("../data/wrangled_data/chap4_exp1_wrangled.csv")
+  
+}
+
+if (!file.exists(csv_wrangled <- "../data/wrangled_data/chap4_exp2_wrangled.csv")) {
+  
+  E2_spatially_dependent_tidy %>%
+    rename(condition = opacity) %>%
+    mutate(condition = paste0(condition, "_exp2")) %>%
+    write_csv("../data/wrangled_data/chap4_exp2_wrangled.csv")
+}
+
 # remove incorrectly named and anon dfs from environment
 
 rm(E3_full_exp_tidy, E2_full_exp_tidy, exp1_anon, exp2_anon, wrangle)
@@ -782,11 +801,21 @@ intervals.
 if (class(e1_model) == "buildmer") e1_model <- e1_model@model
 
 plotting_df <- as_tibble(emmeans(e1_model, pairwise ~ "opacity")[[1]]) %>%
-  mutate(opacity = fct_relevel(opacity, c("A", "B", "C", "D"))) %>%
-  mutate(opacity = recode(opacity, !!!labels_e1)) %>%
-  rename("Condition" = "opacity")
+  mutate(opacity = fct_relevel(opacity, c("A", "B", "C", "D")))
 
-ggplot(aes(x = Condition, y = emmean*-1), data = plotting_df) +
+if (!file.exists(csv_wrangled <- "../data/other_data/exp1_emm_plot.csv")) {
+  
+  plotting_df %>%
+    rename(condition = opacity) %>%
+    mutate(condition = paste0(condition, "_exp1")) %>%
+    write_csv("../data/other_data/exp1_emm_plot.csv")
+  
+}
+
+plotting_df %>%
+  mutate(opacity = recode(opacity, !!!labels_e1)) %>%
+  rename("Condition" = "opacity") %>%
+  ggplot(aes(x = Condition, y = emmean*-1)) +
   geom_point(size = 1.75) +
   geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
   theme_ggdist() +
@@ -1166,22 +1195,33 @@ along with 95% confidence intervals.
 if (class(e2_model) == "buildmer") e2_model <- e2_model@model
 
 plotting_df <- as_tibble(emmeans(e2_model, pairwise ~ "opacity")[[1]]) %>%
-  mutate(opacity = fct_relevel(opacity, c("A", "B", "C", "D"))) %>%
-  mutate(opacity = recode(opacity, !!!labels_e2)) %>%
-  rename("Condition" = "opacity")
+    mutate(opacity = fct_relevel(opacity, c("A", "B", "C", "D")))
 
-ggplot(aes(x = Condition, y = emmean*-1), data = plotting_df) +
-  geom_point(size = 1.75) +
-  geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
-  theme_ggdist() +
-  labs(y = "Estimated Marginal Mean of Error",
-       x = "Condition") +
-  theme(axis.text = element_text(size = 7),
-        axis.title = element_text(size = 8)) +
-  scale_y_continuous(breaks = scales::pretty_breaks(n = 10)) +
-  coord_flip() +
-  geom_abline(intercept = 0, slope = 0, linetype = 2) +
-  annotate(geom = "segment",
+
+if (!file.exists(csv_wrangled <- "../data/other_data/exp2_emm_plot.csv")) {
+  
+  plotting_df %>%
+    rename(condition = opacity) %>%
+    mutate(condition = paste0(condition, "_exp2")) %>%
+    write_csv("../data/other_data/exp2_emm_plot.csv")
+  
+}
+
+ plotting_df %>%
+  mutate(opacity = recode(opacity, !!!labels_e2)) %>%
+  rename("Condition" = "opacity") %>%
+   ggplot(aes(x = Condition, y = emmean*-1)) +
+   geom_point(size = 1.75) +
+   geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
+   theme_ggdist() +
+   labs(y = "Estimated Marginal Mean of Error",
+        x = "Condition") +
+   theme(axis.text = element_text(size = 7),
+         axis.title = element_text(size = 8)) +
+   scale_y_continuous(breaks = scales::pretty_breaks(n = 10)) +
+   coord_flip() +
+   geom_abline(intercept = 0, slope = 0, linetype = 2) +
+   annotate(geom = "segment",
                    x = 4.4,
                    xend = 4.4,
                    y = -.02,

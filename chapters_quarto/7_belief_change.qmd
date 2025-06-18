@@ -445,7 +445,8 @@ correlation was found. Spatially-dependent adjustment of point size, in which
 size is reduced as a function of residual error, was found in \chap{chap:adjusting_size}
 to produce much stronger effects on estimates of correlation; the non-linear decay
 function used in that experiment produced higher levels of correction and resulted
-in highly accurate correlation estimates (see Figure \ref{fig-estimates-by-r-e3}, \chap{chap:adjusting_size}. In \chap{chap:interactions_opacity_size},
+in highly accurate correlation estimates (see Figure \ref{fig-estimates-by-r-e3},
+\chap{chap:adjusting_size}). In \chap{chap:interactions_opacity_size},
 these point opacity and size manipulations were combined. Their combination was
 found to produce stronger effects than would be expected if they were linearly
 additive. While my efforts at correcting for the underestimation bias were successful,

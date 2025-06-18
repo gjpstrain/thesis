@@ -18,6 +18,16 @@ execute:
   include: false     
 ---
 
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(MASS)
+
+source("../shared_functions.R")
+```
+
+
 Changing the opacities and sizes of point in positively correlated scatterplots
 has clear effects on the estimation of correlation. This thesis set out to 
 investigate whether visual manipulations of scatterplots based on aspects
@@ -27,13 +37,13 @@ a historic underestimation bias present since the 1960s.
 
 # Main Findings
 
-Each published experimental chapter in this work builds on the previous provides
+Each published experimental chapter in this work builds on the previous and provides
 a unique contribution to knowledge about how changing visual features may affect
 thoughts and perceptions about correlations.
 
 In \chap{chap:adjusting_opacity}, the opacities of scatterplot points were altered
 while participants were tested on a correlation estimation task. The two published
-experiments in this chapter were based partially on an earlier pilot study that
+experiments in this chapter were partially based on an earlier pilot study that
 ultimately remains unpublished due to data quality issues (see \ref{pilot-study}
 for a full account of this). In the first experiment in this chapter, the opacities
 of scatterplot points were changed in a uniform manner; this was done with the
@@ -41,7 +51,69 @@ intent of discovering any general effects of point opacity on correlation estima
 Evidence was found for an increase in underestimation error when global point opacity
 was reduced. This result provided evidence that, in disagreement with previous work,
 changing the opacities of scatterplot points could be used to alter estimates
-of the correlation therein.
+of the correlation therein. Based on these findings, data from the pilot study,
+and evidence that the arrangement of point in scatterplots may be a good proxy for
+correlation judgements, experiment 2 varied point opacity using functions related
+to each point's distance from a regression line. In this experiment, evidence was
+found that reducing the opacity of a point as it moved further from the regression
+line could bias participant's estimates of correlation upwards to partially correct
+for the underestimation bias. While this effect was small, it showed that estimates
+of correlation could be changed to correct for bias *without* removing any data
+from the plot.
+
+\chap{chap:adjusting_size} expanded these findings to a second visual modality.
+Building on findings from \chap{chap:adjusting_opacity} and evidence that the
+size of a stimulus may have stronger effects on perception than opacity, a single
+experiment took the functions relating opacity and residual distance in the 
+previous chapter and applied them to point size. The effect on correlation estimation
+observed here was much stronger than that observed in \chap{chap:adjusting_opacity}.
+Additionally, several changes in the nature of the estimation curve were
+observed in this experiment. Firstly, while the shape of the estimation curve
+when using point opacity manipulations was identical to that when using no visual
+adjustments, the use of size decay manipulations such that point size decreased
+with residual error resulted in an estimation curve with a visibly altered shape.
+Secondly, in previous work, and in all experiments undertaken in \chap{chap:adjusting_opacity},
+precision in correlation estimation has been observed to increase as the objective
+*r* value itself increases; this behaviour was not observed when employing
+manipulations that alter point size. The non-linear decay condition in this 
+experiment remains the most promising condition with regards to correcting for
+the underestimation bias.
+
+In a final implementation of the same experimental paradigm,
+\chap{chap:interactions_opacity_size} combines point opacity and size manipulations
+from the two previous chapters to further explore the potential for biasing 
+estimates of correlation and the potential mechanisms behind the effects observed.
+Using point opacity and size manipulations together in both congruous (same direction)
+and incongruous (opposing directions) combinations, this single experiment showed
+that employing both manipulations was able to bias correlation estimates further
+than either manipulation in isolation, resulting in a marked overestimation being
+introduced. This combination is not, however, linearly additive, suggesting 
+different mechanisms of action behind the effects of each visual manipulation on
+correlation estimation. This experiment provided evidence that with regards to
+using point opacity and size manipulations to bias correlation estimates, there 
+are few limits.  @fig-mean-all-exp summarises the mean estimation errors from
+all 4 experiments described in \chap{chap:adjusting_opacity},
+\chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}.
+
+```{r}
+#| label: fig-mean-all-exp
+#| include: true
+#| fig-cap: placeholder
+#| fig-asp: 1.5
+
+# grab and merge wrangled csvs together
+
+all_exp_wrangled <- list.files("../data/other_data/",
+                               pattern = "^exp.*\\.csv$",
+                               full.names = TRUE) %>%
+  lapply(read_csv) %>%
+  bind_rows() %>%
+  mutate(exp = condition,
+         exp = sub("^[^_]*_", "", exp))
+
+
+```
+
 
 # Relationship to Prior Work
 

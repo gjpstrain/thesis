@@ -194,6 +194,17 @@ anon_file %>%
 
 wrangle(exp3_anon)
 
+# write wrangled csv if it does not exist
+
+if (!file.exists(csv_wrangled <- "../data/wrangled_data/chap5_exp1_wrangled.csv")) {
+  
+  E3_size_adjustments_tidy %>%
+    rename(condition = size) %>%
+    mutate(condition = paste0(condition, "_exp3")) %>%
+    write_csv("../data/wrangled_data/chap5_exp1_wrangled.csv")
+  
+}
+
 # remove anon df from environment
 
 rm(exp3_anon)
@@ -523,11 +534,21 @@ errors in correlation estimation for each size decay condition, along with 95% c
 if (class(e3_model) == "buildmer") e3_model <- e3_model@model
 
 plotting_df <- as_tibble(emmeans(e3_model, pairwise ~ "size")[[1]]) %>%
-  mutate(size = fct_relevel(size, c("A", "B", "C", "D"))) %>%
-  mutate(size = recode(size, !!!labels_e3)) %>%
-  rename("Condition" = "size")
+  mutate(size = fct_relevel(size, c("A", "B", "C", "D")))
 
-ggplot(aes(x = Condition, y = emmean*-1), data = plotting_df) +
+if (!file.exists(csv_wrangled <- "../data/other_data/exp3_emm_plot.csv")) {
+  
+  plotting_df %>%
+    rename(condition = size) %>%
+    mutate(condition = paste0(condition, "_exp3")) %>%
+    write_csv("../data/other_data/exp3_emm_plot.csv")
+  
+}
+
+plotting_df %>%
+  mutate(size = recode(size, !!!labels_e3)) %>%
+  rename("Condition" = "size") %>%
+  ggplot(aes(x = Condition, y = emmean*-1)) +
   geom_point(size = 1.75) +
   geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
   theme_ggdist() +
