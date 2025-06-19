@@ -23,8 +23,26 @@ execute:
 
 library(tidyverse)
 library(MASS)
+library(ggdist)
 
 source("../shared_functions.R")
+
+labels_all_exp <- c(A_exp1 = "Low Opacity\n(alpha = 0.25)",
+                    B_exp1 = "Medium Opacity\n(alpha = 0.5)",
+                    C_exp1 = "High Opacity\n(alpha = 0.75)",
+                    D_exp1 = "Full Opacity\n(alpha = 1.0)",
+                    A_exp2 = "Non-Linear\nOpacity Decay",
+                    B_exp2 = "Linear\nOpacity Decay",
+                    C_exp2 = "Inverted\nOpacity Decay",
+                    D_exp2 = "Full\n Opacity",
+                    A_exp3 = "Non-Linear\nSize Decay",
+                    B_exp3 = "Linear\nSize Decay",
+                    C_exp3 = "Inverted\nSize Decay",
+                    D_exp3 = "Standard\nSize",
+                    A_exp4 = "Typical Orientation Size\nTypical Orientation Opacity",
+                    B_exp4 = "Inverted Orientation Size\nInverted Orientation Opacity",
+                    X_exp4 = "Typical Orientation Size\nInverted Orientation Opacity",
+                    Y_exp4 = "Inverted Orientation Size\nTypical Orientation Opacity")
 ```
 
 
@@ -103,13 +121,132 @@ all 4 experiments described in \chap{chap:adjusting_opacity},
 
 # grab and merge wrangled csvs together
 
+
 all_exp_wrangled <- list.files("../data/other_data/",
                                pattern = "^exp.*\\.csv$",
                                full.names = TRUE) %>%
   lapply(read_csv) %>%
   bind_rows() %>%
-  mutate(exp = condition,
-         exp = sub("^[^_]*_", "", exp))
+  mutate(
+    exp = sub("^[^_]*_", "", condition),
+    condition = fct_relevel(condition,
+                            "Y_exp4", "X_exp4", "B_exp4", "A_exp4",
+                            "D_exp3", "C_exp3", "B_exp3", "A_exp3",
+                            "D_exp2", "C_exp2", "B_exp2", "A_exp2",
+                            "D_exp1", "C_exp1", "B_exp1", "A_exp1")
+  ) %>%
+  mutate(exp = recode(exp,
+                      exp1 = "Experiment 1",
+                      exp2 = "Experiment 2",
+                      exp3 = "Experiment 3",
+                      exp4 = "Experiment 4"))
+
+# set factor order
+
+# set positions for annotations
+
+all_exp_wrangled %>%
+  mutate(condition = recode(condition, !!!labels_all_exp)) %>%
+  ggplot(aes(x = condition, y = emmean*-1, colour = exp)) +
+  geom_point(size = 1.75) +
+  geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
+  theme_ggdist() +
+  labs(y = "Estimated Marginal Mean of Error",
+       x = "Condition") +
+  theme(axis.text = element_text(size = 7),
+        axis.title = element_text(size = 8),
+        legend.position = "none") +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 10)) +
+  coord_flip() +
+  geom_abline(intercept = 0, slope = 0, linetype = 2) +
+  scale_color_brewer(palette = "Dark2", aesthetics = "colour") +
+  annotate(geom = "segment",
+                   x = 0.95,
+                   xend = 0.95,
+                   y = -.02,
+                   yend = -.08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm" ))) +
+  annotate(geom = "segment",
+                   x = 0.95,
+                   xend = 0.95,
+                   y = .02,
+                   yend = .08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm"))) +
+  annotate(geom = "text",
+           x = 0.7,
+           y = -.05,
+           label = "Underestimation",
+           size = 3) +
+  annotate(geom = "text",
+           x = 0.7,
+           y = .05,
+           label = "Overestimation",
+           size = 3) +
+  
+  # reflected annotations 
+  
+    annotate(geom = "segment",
+                   x = 16,
+                   xend = 16,
+                   y = -.02,
+                   yend = -.08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm" ))) +
+  annotate(geom = "segment",
+                   x = 16,
+                   xend = 16,
+                   y = .02,
+                   yend = .08,
+           arrow = arrow(type = "closed", length = unit(0.1, "cm"))) +
+  annotate(geom = "text",
+           x = 15.75,
+           y = -.05,
+           label = "Underestimation",
+           size = 3) +
+  annotate(geom = "text",
+           x = 15.75,
+           y = .05,
+           label = "Overestimation",
+           size = 3) +
+  
+  # no error annotations
+  
+  annotate(geom = "text",
+           x = 3.5,
+           y = 0.008,
+           label = "No Estimation Error",
+           size = 2.5,
+           angle = 270) +
+  annotate(geom = "text",
+           x = 8.5,
+           y = 0.008,
+           label = "No Estimation Error",
+           size = 2.5,
+           angle = 270) + 
+  annotate(geom = "text",
+           x = 13.5,
+           y = 0.008,
+           label = "No Estimation Error",
+           size = 2.5,
+           angle = 270) +
+
+  # brackets for each experiment
+  
+  geom_bracket(xmin = 1, xmax = 4, y.position = 0.15, label = "", inherit.aes = F,
+               colour = "#E7298AFF") +
+  geom_bracket(xmin = 5, xmax = 8, y.position = 0.15, label = "", inherit.aes = F,
+               colour = "#7570B3FF") +
+  geom_bracket(xmin = 9, xmax = 12, y.position = 0.15, label = "", inherit.aes = F,
+               colour = "#D95F02FF") +
+  geom_bracket(xmin = 13, xmax = 16, y.position = 0.15, label = "", inherit.aes = F,
+               colour = "#1B9E77FF") +
+
+  # labels for each bracket
+
+  annotate("text", x = 2.5, y = 0.17, label = "Experiment 4", angle = 270) +
+  annotate("text", x = 6.5, y = 0.17, label = "Experiment 3", angle = 270) +
+  annotate("text", x = 10.5, y = 0.17, label = "Experiment 2", angle = 270) +
+  annotate("text", x = 14.5, y = 0.17, label = "Experiment 1", angle = 270)
+  
 
 
 ```

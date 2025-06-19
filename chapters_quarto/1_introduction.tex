@@ -1,0 +1,378 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={introduction},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{introduction}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+Data visualisation is the practice of pictorially presenting patterns
+otherwise described by numbers or words, and has been employed in one
+form or another for thousands of years \cite{azzam_2013}. Lists or
+matrices of numbers may be able to communicate simple trends, but for
+more complex patterns, harnessing the human visual system
+\cite{midway_2020} through visualisation is crucial for the
+communication of science and data. Effective data visualisation is able
+to reduce cognitive and perceptual loads on viewers, regardless of their
+background levels of statistical knowledge or experience. This
+outsourcing, while efficient, leaves the viewer vulnerable to the design
+choices that were made when creating the visualisation. For this reason,
+understanding \emph{how} design choices affect interpretation is crucial
+to designing better data visualisations, while simultaneously
+facilitating the inoculation of viewers against poor or malevolent
+design practices.
+
+One cannot understate the importance and ubiquity of data
+visualisations. They are used to communicate with experts, with those
+with no background in science, and with everyone in between. They are
+relied upon to communicate vital public health information
+\cite{li_2021, koch_2021, clements_2023}, to present evidence in court
+cases \cite{bobko_1979, mclachlan_2021}, and to facilitate collaboration
+and encourage engagement on climate change issues
+\cite{nocke_2008, schuster_2024}. Studying data visualisation therefore
+has the potential to change not only the nature of scientific study, but
+the ways in which the findings of that study are made salient in the
+minds of the public.
+
+Interaction with a data visualisation involves steps from perception
+(viewing), to cognition (interpreting), to behaviour (deciding and
+acting). These stages must be examined both separately and together, as
+there are bottom-up and top-down interactions present. In this thesis, I
+therefore present a series of experiments whose aim was to investigate
+and address a long-standing perceptual bias in scatterplots, a common
+form of data visualisation \cite{friendly_2005}. Following successful
+attempts to address this bias, I further investigated the impacts these
+attempts may have had on cognition and behaviour, showing that small,
+simple changes in the visual features of data visualisations can have
+profound effects on the ways we think.
+
+\section{Research Motivation}\label{research-motivation}
+
+Data visualisations were once the preserve of the academic and
+professional classes. Now, however, visualisation is everywhere. This
+became especially apparent to me during the COVID-19 pandemic, when
+people such as my parents, professionals with no background in
+mathematics or statistics, were exposed to data visualisations on a
+daily basis. Despite not being able to fully articulate the complexities
+of what they saw, they were still able to derive meaning from the
+visualisations they engaged with. The ability of data visualisation to
+transcend language and mathematical prowess motivated my study of them;
+concepts such as exponential growth or the relatedness between variables
+can be displayed in simple ways that do not rely on an underlying
+understanding of exponents or correlation coefficients, for example.
+
+Using data visualisation in such a way effectively provides a cognitive
+proxy for viewers. This is an efficient way to communicate, however
+still necessitates the presence of accurate and reliable perceptions.
+While investigating the assumptions data visualisation designers make
+about the people who view their visualisations, I uncovered a historical
+perceptual bias that was still being described in the literature,
+seemingly with no attempt at correction. This bias was the
+underestimation of correlation in positively correlated scatterplots. In
+the literature, this robust effect had been observed in a number of
+experimental paradigms, including direct estimation
+\cite{strahan_1978, bobko_1979, cleveland_1982,
+collyer_1990, lane_1985, lauer_1989, meyer_1997} and estimation via
+bisection tasks \cite{rensink_2017}, and as of 2021, no attempts had
+been made to correct for it. The goal of this thesis was therefore to
+collect empirical evidence on the perception of correlation in
+positively correlated scatterplots, to use that information to create
+novel visualisations with a view to correcting for the underestimation,
+and to further investigate the potential for these visualisations to
+affect what people think and believe.
+
+\section{Overview of Contributions}\label{contributions-introduction}
+
+Through this thesis, I present a series of empirical experiments that
+provide knowledge about how changing visual features in scatterplots can
+affect how people interpret the strength of the correlation displayed. I
+demonstrate that systematically reducing the opacities and sizes of
+points on scatterplots as a function of their distances from a
+regression line can significantly increase estimates of correlation and
+partially correct for the underestimation bias. Following this, I show
+that consequences of employing these techniques are not limited to
+perception, but in fact can be extended into a cognitive space to change
+what people think and believe. I utilise large-sample size, controlled
+experiments with lay populations to provide generalisable conclusions
+and recommendations for visualisation designers and researchers. Through
+this thesis, I provide a framework for the large-scale testing of data
+visualisations with lay audiences. Additionally, I hope to provide an
+example of a project conducted entirely in an open and reproducible
+manner.
+
+\section{Included Publications}\label{included-publications}
+
+The research described in \chap{chap:adjusting_opacity},
+\chap{chap:adjusting_size}, \chap{chap:interactions_opacity_size}, and
+\chap{chap:belief_change} in this thesis is adapted from earlier
+publications. To avoid repetition, information and discussion that would
+be repeated has been consolidated into the literature review and general
+methodology chapters. \emph{Gabriel Strain} is the primary author of all
+included papers.
+
+\begin{itemize}
+\item
+  \emph{The Effects of Contrast on Correlation Perception in
+  Scatterplots} \cite{strain_2023} is reproduced in
+  \chap{chap:adjusting_opacity}. Sections
+  \ref{general-methods-adjusting-opacity}, \ref{method-e1},
+  \ref{method-e2}, \ref{results-e1}, \ref{results-e2},
+  \ref{discussion-e1}, \ref{discussion-e2}, and
+  \ref{general-discussion-adjusting-opacity} contain minimally altered
+  parts of the published article.
+\item
+  \emph{Adjusting Point Size to Facilitate More Accurate Correlation
+  Perception in Scatterplots} \cite{strain_2023b} is reproduced in
+  \chap{chap:adjusting_size}. Sections \ref{method-e3},
+  \ref{results-e3}, and \ref{discussion-e3} contain minimally altered
+  parts of the published article.
+\item
+  \emph{Effects of Point Size and Opacity Adjustments in Scatterplots}
+  \cite{strain_2024} is reproduced in
+  \chap{chap:interactions_opacity_size}. Sections \ref{method-e4},
+  \ref{results-e4}, and \ref{discussion-e4} contain minimally altered
+  parts of the published article.
+\item
+  \emph{Effects of Alternative Scatterplot Designs on Belief}
+  \cite{strain_2025} is reproduced in \chap{chap:belief_change}.
+  Sections \ref{beliefs-e5a}, \ref{method-e5}, \ref{results-e5}, and
+  \ref{discussion-e5} contain minimally altered parts of the published
+  article.
+\end{itemize}
+
+\section{Overview of Thesis}\label{overview-of-thesis}
+
+In \chap{chap:related_work}, I conduct a review of the literature and
+provide the necessary context for the following experimental chapters. I
+begin by exploring the history and significance of data visualisation,
+before discussing concepts of correlation and relatedness, and their
+visualisation using scatterplots. I discuss a long-standing perceptual
+bias in the interpretation of correlation in scatterplots, and thereby
+motivate novel experimental work that seeks to address this bias. I
+provide real-world motivation by exploring the potential for perceptual
+biases to have effects on people's lives and livelihoods. Finally, I
+provide a discussion on issues of graph and statistical literacy as they
+pertain to the interpretation of data visualisation.
+
+\chap{chap:gen_methods} explores the general methodological approaches
+taken by this thesis, with a particular focus on transparency and
+reproducibility. This thesis embodies these principles, and
+justification for them along practical and pedagogical lines is
+presented. This chapter also contains detailed instructions for the full
+reproduction of this thesis, and provides context for the approaches to
+experimental design, recruitment, and analysis featured in the following
+chapters.
+
+\chap{chap:adjusting_opacity} presents a pair of experiments that
+establish the effects of point opacity on correlation perception in
+positively correlated scatterplots. The first experiment demonstrates
+that lowering point opacity in a uniform manner can increase
+participants' levels of error on a correlation estimation task. The
+second experiment describes how employing a function relating point
+opacity to residual error can correct for the correlation
+underestimation bias by shifting estimates upwards. Specifically,
+lowering point contrast as a function of residual error provides
+significant levels of correction for the underestimation bias, and
+demonstrates that, in contrast to previous work, changing visual
+features can alter perceptions of correlation. This finding was
+foundational for the remainder of the work described in this thesis.
+This chapter also includes a discussion of a very early pilot study; I
+describe why this experiment was not included in published work, and
+offer reflections on what I learnt from conducting it in Section
+\ref{pilot-study}.
+
+In \chap{chap:adjusting_size}, I present an experiment that expands the
+technique described in the previous chapter to point size. I show that
+reducing the sizes of scatterplot points as a function of residual error
+is able to alter participants' estimates of correlation to a greater
+degree than functions relating point opacity and residual error.
+Additionally, I begin to explore how changing different visual features
+of scatterplots can affect the shape of the curve that describes how
+people relate subjective and objective \emph{r} values.
+
+\chap{chap:interactions_opacity_size} describes an experiment in which
+point opacity and size adjustments are combined. This experiment
+includes conditions in which point opacity and size are reduced and
+increased together with residual error (congruent conditions), and
+conditions in which one increases while another decreases (incongruent
+conditions). I demonstrate that opacity and size adjustments interact in
+a non-linear fashion, and explore the potential for further tuning of
+these manipulations to create perceptually optimised scatterplots. This
+experiment features the most dramatic manipulation of correlation
+judgements seen in this thesis.
+
+In \chap{chap:belief_change}, I extend the perceptual effects described
+in previous chapters to a cognitive space. In a single experiment, I
+explore the potential for scatterplots using point opacity and size
+manipulations to change participants' beliefs about levels of
+relatedness between variables. I show that using such manipulations is
+able to change beliefs to a significantly greater degree compared to
+standard, unaltered scatterplots. This chapter also describes a
+pre-study that explores thoughts and feelings about relatedness to
+ascertain a variable pair that is particularly vulnerable to
+belief-change. The main experiment demonstrates that visual features
+that affect perceptions of correlation also affect beliefs about those
+correlations.
+
+\chap{chap:conclusion} presents a synthesis of the empirical work
+described in this thesis. I present discussions of the theoretical and
+practical implications of my findings, along with an exploration of
+future directions that my work could inform.
+
+
+
+
+\end{document}
