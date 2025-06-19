@@ -24,6 +24,7 @@ execute:
 library(tidyverse)
 library(MASS)
 library(ggdist)
+library(ggpubr)
 
 source("../shared_functions.R")
 
@@ -155,7 +156,8 @@ all_exp_wrangled %>%
        x = "Condition") +
   theme(axis.text = element_text(size = 7),
         axis.title = element_text(size = 8),
-        legend.position = "none") +
+        legend.position = "none",
+        axis.title.y = element_blank()) +
   scale_y_continuous(breaks = scales::pretty_breaks(n = 10)) +
   coord_flip() +
   geom_abline(intercept = 0, slope = 0, linetype = 2) +
@@ -176,12 +178,12 @@ all_exp_wrangled %>%
            x = 0.7,
            y = -.05,
            label = "Underestimation",
-           size = 3) +
+           size = 2.5) +
   annotate(geom = "text",
            x = 0.7,
            y = .05,
            label = "Overestimation",
-           size = 3) +
+           size = 2.5) +
   
   # reflected annotations 
   
@@ -201,12 +203,12 @@ all_exp_wrangled %>%
            x = 15.75,
            y = -.05,
            label = "Underestimation",
-           size = 3) +
+           size = 2.5) +
   annotate(geom = "text",
            x = 15.75,
            y = .05,
            label = "Overestimation",
-           size = 3) +
+           size = 2.5) +
   
   # no error annotations
   
@@ -242,10 +244,10 @@ all_exp_wrangled %>%
 
   # labels for each bracket
 
-  annotate("text", x = 2.5, y = 0.17, label = "Experiment 4", angle = 270) +
-  annotate("text", x = 6.5, y = 0.17, label = "Experiment 3", angle = 270) +
-  annotate("text", x = 10.5, y = 0.17, label = "Experiment 2", angle = 270) +
-  annotate("text", x = 14.5, y = 0.17, label = "Experiment 1", angle = 270)
+  annotate("text", x = 2.5, y = 0.1625, label = "Experiment 4", angle = 270, size = 3.25) +
+  annotate("text", x = 6.5, y = 0.1625, label = "Experiment 3", angle = 270, size = 3.25) +
+  annotate("text", x = 10.5, y = 0.1625, label = "Experiment 2", angle = 270, size = 3.25) +
+  annotate("text", x = 14.5, y = 0.1625, label = "Experiment 1", angle = 270, size = 3.25)
   
 
 

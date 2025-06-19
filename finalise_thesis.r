@@ -10,7 +10,7 @@ quarto_render("chapters_quarto/", output_format = "latex")
 
 # use for rendering a single chapter
 
-#quarto_render("chapters_quarto/2_related_work.qmd", output_format = "latex")
+quarto_render("chapters_quarto/8_conclusion.qmd", output_format = "latex")
 
 # functions to reformat tex are stored in the local directory
 
