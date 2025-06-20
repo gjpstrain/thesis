@@ -43,18 +43,18 @@ slopes <- prepare_slopes(0.6)
 
 Data visualisation, which can be thought of as the practice of representing information 
 in a visual modality \cite{hinterberger_2009}, is difficult to concretely define,
-classify, and categorise. With the primacy of vision with regards to our interactions with
-and interpretations of the world around us, data visualisation may be thought of
+classify, and categorise. For most of us, vision is the primary way in which we
+interact with the world around us; in this way, data visualisation may be thought of
 as an extension of art and the written word. Both art and writing are ancient 
 phenomena, with evidence for the former being found in the prehistoric
 period some 66,000 years ago \cite{standish_2025}, and evidence for the latter
 emerging as Mesopotamian cuneiform around 3200 B.C.E \cite{schmandt_2014}.
-Broadly, the literature agrees that art emerged prior to the written word; 
+Broadly, the literature indicates that art emerged prior to the written word; 
 this speaks volumes of the human instinct to represent our thoughts, feelings,
 emotions, and the ways that we interact with the world pictorially.
 This instinct has not waned, and modern computing makes it easier than ever for
 those of us with no technical or artistic skills to create graphics and visualisations
-that *tell stories* about our data in ways which are both beautiful and practical.
+that *tell stories* about our data in ways which are both beautiful and informative.
 
 <!-- When, then, should we consider to be the emergence of data visualisation as a  -->
 <!-- human practice? Of course, answering this question requires the provision of a  -->
@@ -66,21 +66,21 @@ considers clay counting tokens to be the direct precursor of the written word;
 while the evidence for this link is controversial \cite{robson_2007}, the existence of such
 tokens is not. With each shape of token representing a certain amount of a 
 certain good (measures of grain, jars of oil, etc.), this system could be considered
-a very early, very simple form of data visualisation (or physicalisation
-\cite{jansen_2015}). Similarly, there is limited evidence of prehistoric cartographic
-drawings \cite{muhly_1978}, which may also be considered
+a very early, simple form of data visualisation (or physicalisation, see 
+Jansen et al., 2015 \cite{jansen_2015}). Similarly, there is limited evidence 
+of prehistoric cartographic drawings \cite{muhly_1978}, which may also be considered
 a form of, or related to, data visualisation. While I am not asserting
 that data visualisation is older than writing, or that ancient map drawings are
-equivalent to modern graphics, the existence of these representations emphasises the 
-attractive convenience that symbols and signs represent for humans; making sense
+equivalent to modern graphics, the existence of these representations emphasises the
+convenience that symbols and signs represent for humans; making sense
 of our world and the relationships therein is often easier through pictures as
-opposed to words and numbers, a principle which I consider key for this thesis.
+opposed to only words and/or numbers, a principle which I consider key for this thesis.
 
 <!-- Note: much of the rest of this section is heavily inspired by Michael Friendly's -->
 <!-- *A Brief History of Data Visualization* \cite{friendly_2008}. -->
 
-Moving on, then, to the kind of pictorial representation that modern students and scientists would 
-firmly recognise as a "data visualisation". Tufte and Graves-Morris, in 1983's
+Moving on, then, to the kind of pictorial representation that modern-day students
+and scientists would firmly recognise as a "data visualisation". Tufte and Graves-Morris, in 1983's
 seminal *The Visual Display of Quantitative Information* \cite{tufte_1983}, describe
 an unattributed time series illustration from the 10th or 11th century, itself
 described by Funkhouser in 1936 \cite{funkhouser_1936} as being discovered by
@@ -158,15 +158,15 @@ to track cases of a deadly disease, and facilitated a novel linkage between chol
 and contaminated drinking water. In Charles Joseph Minard's flow chart of Napoleon's
 failed 1812 invasion of Russia, a total of six variables are displayed to tell the
 data story, allowing the viewer to appreciate the movements of the Grande Armée,
-it's diminishing size owing to attrition, and the freezing temperatures that
+its diminishing size owing to attrition, and the freezing temperatures that
 largely caused that attrition. Florence Nightingale's polar area chart depicts
 the causes of mortality amongst British troops in the Crimean War; charts such as
 this were used to successfully campaign for better sanitation in hospitals and
 the front lines.
 
-In all of these visualisations, data is used to accentuate storytelling. In some
-cases, this may lead to critical discoveries that save lives, and in others, it
-may simply facilitate a greater understanding and appreciation of the data. In either
+In all of these visualisations, data was used to accentuate storytelling. In some
+cases, this lead to critical discoveries that saved lives, and in others, it
+simply facilitated a greater understanding and appreciation of the data. In either
 case, visualisation is used effectively to appeal to our affinity for visual
 storytelling. An appetite for precision defined the approach to statistical thinking, and by
 extension, data visualisation, in the first half of the 20th century. Statistical
@@ -215,11 +215,12 @@ limited to discussions of relatedness, correlation, and scatterplot visualisatio
 
 # Relatedness & Correlation {#relatedness-and-correlation}
 
-Very early piloting (detailed in Section \ref{general-methods-adjusting-opacity},
-\chap{chap:adjusting_opacity}) revealed that while people understood the concept
-of correlation, they were unsure as to what different degrees of correlation looked
-like. To address this, training was included in experiments 1 to 4. For the same reason,
-correlation was operationalised as *Strength of Relatedness* in experiment 5.
+<!-- Very early piloting (detailed in Section \ref{general-methods-adjusting-opacity}, -->
+<!-- \chap{chap:adjusting_opacity}) revealed that while people understood the concept -->
+<!-- of correlation, they were unsure as to what different degrees of correlation looked -->
+<!-- like.  -->
+
+In experiment 5, correlation was operationalised as *Strength of Relatedness*.
 To make my research accessible, I start from here; two (or more) things are related
 if a change in one is associated with a change in the other(s). In reality, however,
 the data visualisation under investigation, scatterplots, do not visualise
@@ -248,7 +249,7 @@ intuition of a line-of-best-fit based on a hand drawn plot, but is credited as
 the first full conceptual definition of a measure of correlation; it should be noted
 that there was no concept of negative correlation at this point. Galton's work
 did not take place in isolation, and the preceding 60 years featured 
-famous names, such as Gauss and Darwin, dancing around the idea of correlation
+famous names, such as Gauss and Darwin, skirting around the idea of correlation
 without recognising its importance; Lee Rodgers & Nicewander (1988)
 \cite{lee_1988} provide an excellent overview of this period. 
 
@@ -284,7 +285,7 @@ are.
 ```{r}
 #| label: fig-anscombe
 #| include: true
-#| fig-cap: Anscombe's quartet \cite{anscombe_1973}. Each scatterplot depics datasets with identical means ($x$ = 9, $y$ = 7.5), regression coefficients ($y$ on $x$ = 0.5), standard errors (0.118), and Pearson's *r* values (≈ 0.816).
+#| fig-cap: Anscombe's quartet \cite{anscombe_1973}. Each scatterplot depicts datasets with identical means ($x$ = 9, $y$ = 7.5), regression coefficients ($y$ on $x$ = 0.5), standard errors (0.118), and Pearson's *r* values (≈ 0.816).
 #| fig-asp: 0.25
 
 anscombe_plot <- function (x_var, y_var) {
@@ -322,7 +323,7 @@ four simple datasets that are identical with regards to a range of statistical
 measures. They feature the same number of observations, the same means, regression
 coefficients, regression line equations, sums of squares, estimated standard
 errors, and correlation coefficients. A simple examination of these statistics
-would lead to the conclusion that the datasets are almost identical; in reality,
+would lead to the conclusion that the datasets are identical; in reality,
 there are significant differences between them that can only be seen via visualisation.
 
 In this thesis, the primary concern is correlation and the ways in which people
@@ -400,10 +401,10 @@ of the semi-interquartile ranges of two variables. @fig-galton-hand-plot contain
 a negative scan of Galton's original plot, along with a modern recreation using 
 ``ggplot2``. Despite the importance of graphics like these for Galton's discovery of
 regression, statistical correlation, and the relationship between these and the
-bivariate density function \cite{friendly_2005}, a more true example of a scatterplot
-can be found in much earlier work on the orbits of twin stars by John F. W. 
+bivariate density function \cite{friendly_2005}, an earlier example of a scatterplot
+can be found in work on the orbits of twin stars by John F. W. 
 Herschel \cite{herschel_1833}. Unfortunately, this scatterplot was never printed
-in Herschel's 1833 manuscript, however can be inferred thanks to a detailed 
+in Herschel's 1833 manuscript, however it can be inferred thanks to a detailed 
 description of both the figure and the logic behind it. In short, Herschel wished
 to ascertain the orbits of binary star systems by using (often imprecise) 
 astronomical measurements of certain angles and distances made over a long period
@@ -411,7 +412,7 @@ of time. It is the imprecision in measurement which necessitated data visualisat
 as precise measurements would allow common astronomical principles to 
 provide precise solutions. First specifying the axes, angles of position ($y$)
 and date of observation ($x$), and grid lines, Herschel then describes plotting points and drawing,
-by hand, a line-of-best-fit. A particularly enlightening quote, with original
+by hand, a line-of-best-fit. A particularly enlightening quote \cite{herschel_1833}, with original
 emphasis, is reproduced below:
 
 \begin{quotation}
@@ -471,7 +472,7 @@ of the data visualisation to facilitate pattern recognition in its human viewers
 that was so crucial to its (continuing) success.
 
 While this section has not been an exhaustive list of every scatterplot and 
-scatterplot-alike that has prominently featured in scientific publishing since
+scatterplot-related plot that has prominently featured in scientific publishing since
 Herschel's initial description and Galton's initial formulation of correlation,
 I hope that I have conveyed the importance of this visualisation type. As we will
 see in Section \ref{present-landscape-corr-viz}, the landscape of correlation
@@ -481,8 +482,7 @@ astronomical relationships, to its use in the discovery of correlation, the
 standard scatterplot remains largely unchanged to this day; this thesis charts
 the development of a new type of scatterplot that draws on key elements of human
 perception to increase its utility in correlation visualisation, however it is 
-important to pay homage to the history of the visualisation as an ever-present
-lab mate to those willing and able to use graphing to solve scientific problems.
+important to pay homage to the history of the visualisation as a valuable tool for those willing and able to use graphing to solve scientific problems.
 
 ## Present Landscape {#present-landscape-corr-viz}
 
