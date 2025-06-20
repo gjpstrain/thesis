@@ -46,7 +46,6 @@ labels_all_exp <- c(A_exp1 = "Low Opacity\n(alpha = 0.25)",
                     Y_exp4 = "Inverted Orientation Size\nTypical Orientation Opacity")
 ```
 
-
 Changing the opacities and sizes of point in positively correlated scatterplots
 has clear effects on the estimation of correlation. This thesis set out to 
 investigate whether visual manipulations of scatterplots based on aspects
@@ -117,11 +116,10 @@ all 4 experiments described in \chap{chap:adjusting_opacity},
 ```{r}
 #| label: fig-mean-all-exp
 #| include: true
-#| fig-cap: placeholder
+#| fig-cap: Estimated Marginal Mean errors in correlation estimation for experiments 1 to 4. This figure is an amalgamation of Figures \ref{fig-e1-estimates}, \ref{fig-e2-estimates}, \ref{fig-e3-estimates}, and \ref{fig-e4-estimates}. 95% confidence intervals are shown as error bars. The vertical dashed line represents no estimation error.
 #| fig-asp: 1.5
 
 # grab and merge wrangled csvs together
-
 
 all_exp_wrangled <- list.files("../data/other_data/",
                                pattern = "^exp.*\\.csv$",
@@ -142,10 +140,6 @@ all_exp_wrangled <- list.files("../data/other_data/",
                       exp3 = "Experiment 3",
                       exp4 = "Experiment 4"))
 
-# set factor order
-
-# set positions for annotations
-
 all_exp_wrangled %>%
   mutate(condition = recode(condition, !!!labels_all_exp)) %>%
   ggplot(aes(x = condition, y = emmean*-1, colour = exp)) +
@@ -162,6 +156,9 @@ all_exp_wrangled %>%
   coord_flip() +
   geom_abline(intercept = 0, slope = 0, linetype = 2) +
   scale_color_brewer(palette = "Dark2", aesthetics = "colour") +
+  
+  # estimation / no estimation text
+  
   annotate(geom = "segment",
                    x = 0.95,
                    xend = 0.95,
@@ -185,7 +182,7 @@ all_exp_wrangled %>%
            label = "Overestimation",
            size = 2.5) +
   
-  # reflected annotations 
+  # reflected estimation / no estimation
   
     annotate(geom = "segment",
                    x = 16,
@@ -248,11 +245,7 @@ all_exp_wrangled %>%
   annotate("text", x = 6.5, y = 0.1625, label = "Experiment 3", angle = 270, size = 3.25) +
   annotate("text", x = 10.5, y = 0.1625, label = "Experiment 2", angle = 270, size = 3.25) +
   annotate("text", x = 14.5, y = 0.1625, label = "Experiment 1", angle = 270, size = 3.25)
-  
-
-
 ```
-
 
 # Relationship to Prior Work
 
