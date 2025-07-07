@@ -641,14 +641,18 @@ correlation, traditional scatterplots offer a number of distinct advantages.
 In a large scale study, Harrison et al. \cite{harrison_2014} tested a range of correlation
 visualisation types, including scatterplots and those depicted in @fig-other-corr-viz,
 to see if precision in correlation estimation could be modelled by Weber's law 
-\cite{rensink_2010}. In short, the perception of differences
-in correlation has a linear relationship to the objective differences in correlation.
-In this study, itself a replication of a previous work investigating Weber's
-law for the modelling of perceived correlation \cite{rensink_2010}, participants
-were asked to make discriminative judgements between side-by-side correlation
-visualisations. An adaptive staircase procedure was employed to infer
-just-noticeable differences (JNDs) for correlation perception with nine correlation
-visualisation types. Both positive and negative correlations were tested. Fitting
+\cite{rensink_2010}. In the context of correlation estimation from scatterplots,
+Weber's law states that the differential change in perception between scatterplots
+with two correlation values can be described by applying a constant ($k$) to the
+actual difference between those correlations \cite{rensink_2010, harrison_2014}.
+This law may also be applied to the discrimination of other physical properties, such
+as weight \cite{coren_2004}. In this Harrison et al.'s study \cite{harrison_2014},
+itself a replication of a previous work investigating Weber's law for the modelling
+of perceived correlation \cite{rensink_2010}, participants were asked to make 
+discriminative judgements between side-by-side correlation visualisations. An 
+adaptive staircase procedure was employed to infer just-noticeable differences
+(JNDs) for correlation perception with nine correlation visualisation types.
+Both positive and negative correlations were tested. Fitting
 linear models to the JND data revealed that correlation discrimination in the nine
 different visualisations tested (scatterplots, PCPs, stacked area charts, stacked 
 line charts, stacked bar charts, donut charts, radar charts, line graphs, and 
@@ -779,23 +783,21 @@ underestimation of correlation in positively correlated scatterplots. Due to thi
 problem being perceptual in nature, I began by focusing on, and attempting to exploit,
 aspects of human perception. Only once I felt that this had been explored did I
 begin examining this problem from a top-down, cognitive point of view; these 
-efforts are detailed in \chap{chap:belief_change}.
-
-Regardless, an account of how correlation is thought about by viewers is not a 
-contribution of this thesis. Section \ref{future-work-chap8} in \chap{chap:conclusion}
-discusses how the findings presented in this thesis may be extended further into
-a cognitive space to more rigorously interrogate the effects found in the final
-experiment.
+efforts are detailed in \chap{chap:belief_change}. It should be noted at this
+point that \chap{chap:belief_change} is not a full account of how correlation 
+is thought about by viewers, but rather a foray into how the findings of the
+previous chapters may be *extended* into a cognitive space.
 
 # The Underestimation of Correlation in Positively Correlated Scatterplots
 
-While the previous section may have painted scatterplots as a shining example
-of data visualisation done right, that is not the full story. Since at least
+While the previous section may have conveyed the idea of scatterplots as being
+"data visualisation done right", that is not the full story. Since at least
 the 1960s, studies asking participants to simply provide a numerical estimate
 for the correlation displayed in positively correlated scatterplots
 \cite{erlick_1966, strahan_1978, bobko_1979, cleveland_1982, lane_1985, lauer_1989, collyer_1990,
 meyer_1992} and those asking participants to complete a bisection task comparing
-adjacent scatterplots \cite{rensink_2017} find consistent levels of underestimation,
+adjacent scatterplots \cite{rensink_2017} find consistent levels of underestimation
+of the strength of the relationship between the two variables,
 particularly when 0.2 < *r* < 0.6. Where sufficient data are available to recreate
 a full estimation curve, the nature of this underestimation has been visualised
 in @fig-underestimation-curves. Included are estimation curves derived from 
@@ -843,9 +845,9 @@ observed in experiments 1 to 4 in the current paper, and is detailed in each
 experimental chapter. \chap{chap:conclusion} includes figures detailing 
 the underestimation observed throughout this thesis in comparison to previous
 work. Despite this long-standing finding, no efforts have been made to correct
-for this underestimation. Quite why this correction has never been attempted, 
-however, is unclear. The following section argues in favour of seeking a 
-correction to this underestimation bias.
+for this perceptual underestimation. Quite why this perceptual bias correction has
+never been attempted, however, is unclear. The following section argues in favour
+of seeking design additions to correct for this.
 
 ## Underestimation: Potential Consequences {#underestimation-consequences}
 
@@ -861,8 +863,17 @@ communication of vital public health information, including during the COVID-19
 pandemic \cite{clements_2023}; from personal experience, this was when data
 visualisation entered the public conscience for many.
 
+```{r}
+#| label: fig-covid-viz
+#| include: true
+#| fig-cap: 'Two visualisations taken from the BBC News article "Covid: Twelve charts on how Covid changed our lives", published on the 15th of December, 2020 \cite{bbc_2020}.'
+
+knitr::include_graphics(path = "../supplied_graphics/covid_bbc.png", dpi = NA)
+
+```
+
 All this is to say that the underestimation of correlation matters. It is not 
-unreasonable to assert that policy decisions have been made based at least in part
+unreasonable to imagine that some policy decisions may have been made based at least in part
 on data visualisations; the long-standing finding that lay people and those 
 educated in statistics underestimate the levels of relatedness between variables
 displayed in scatterplots is not trivial, and has real impact on people's lives.
@@ -913,8 +924,6 @@ is shown in @fig-sgl-screen.
 #| label: fig-sgl-screen
 #| include: true
 #| fig-cap: Participants were instructed to use the following interface to complete the Subjective Graph Literacy scale \cite{garcia_2016} before completing trials in each experiment.
-#| out-width: NA
-#| out-height: NA
 
 knitr::include_graphics(path = "../supplied_graphics/sgl_test_screen.png", dpi = NA)
 ```
@@ -944,4 +953,5 @@ the following contributions:
   3. These effects do extent into a cognitive space, and are able to influence 
   people's beliefs about the levels of relatedness between variables.
   4. This project is exemplar of one done in an entirely open and 
-  reproducible manner.
+  reproducible manner; the latter half of \chap{chap:gen_methods} is concerned
+  with this.
