@@ -721,23 +721,35 @@ concerning each experiment.
 
 \textbf{Chapter 4}
 
-Experiment 1: [https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments](https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments)
+Experiment 1:
 
-Experiment 2: [https://gitlab.pavlovia.org/Strain/exp_spatially_dependent](https://gitlab.pavlovia.org/Strain/exp_spatially_dependent)
+[https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments](https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments)
+
+Experiment 2:
+
+[https://gitlab.pavlovia.org/Strain/exp_spatially_dependent](https://gitlab.pavlovia.org/Strain/exp_spatially_dependent)
 
 \textbf{Chapter 5}
 
-Experiment 3: [https://gitlab.pavlovia.org/Strain/exp_size_only](https://gitlab.pavlovia.org/Strain/exp_size_only)
+Experiment 3:
+
+[https://gitlab.pavlovia.org/Strain/exp_size_only](https://gitlab.pavlovia.org/Strain/exp_size_only)
 
 \textbf{Chapter 6}
 
-Experiment 4: [https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp](https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp)
+Experiment 4:
+
+[https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp](https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp)
 
 \textbf{Chapter 7}
 
-Experiment 5 Pre-Study: [https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest](https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest)
+Experiment 5 Pre-Study:
 
-Experiment 5 Main Study (Group A): [https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a](https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a)
+[https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest](https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest)
+
+Experiment 5 Main Study (Group A):
+
+[https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a](https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a)
 
 Experiment 5 Main Study (Group B):
 

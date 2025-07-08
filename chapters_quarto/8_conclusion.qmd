@@ -109,7 +109,7 @@ introduced. This combination is not, however, linearly additive, suggesting
 different mechanisms of action behind the effects of each visual manipulation on
 correlation estimation. This experiment provided evidence that with regards to
 using point opacity and size manipulations to bias correlation estimates, there 
-are few limits.  @fig-mean-all-exp summarises the mean estimation errors from
+are few limits. @fig-mean-all-exp summarises the mean estimation errors from
 all 4 experiments described in \chap{chap:adjusting_opacity},
 \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}.
 
@@ -246,6 +246,12 @@ all_exp_wrangled %>%
   annotate("text", x = 10.5, y = 0.1625, label = "Experiment 2", angle = 270, size = 3.25) +
   annotate("text", x = 14.5, y = 0.1625, label = "Experiment 1", angle = 270, size = 3.25)
 ```
+```{r}
+df <- read_csv("../data/exp_1_to_4_combined.csv")
+distinct(df, factor)
+```
+
+
 
 # Relationship to Prior Work
 
