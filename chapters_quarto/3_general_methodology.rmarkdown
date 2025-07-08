@@ -40,6 +40,8 @@ source("../shared_functions.R")
 slopes <- prepare_slopes(0.8)
 ```
 
+
+
 # Introduction
 
 In this chapter I describe my research methodologies. The experiments described
@@ -86,6 +88,8 @@ the shared experimental paradigm of the previous experiments, and features a 1
 factor, 2 level between-participants design; group A saw scatterplots designed to elicit
 greater levels of belief change compared to typical scatterplots, which were
 shown to group B (see @fig-exp5-examples).
+
+
 
 ```{r}
 #| label: fig-slider
@@ -192,7 +196,6 @@ example_plots_incongruent <- ggarrange(plot_example_function(slopes,
 ggarrange(example_plots_incongruent, example_plots_congruent, nrow = 1)
 ```
 
-
 ```{r}
 #| label: fig-exp5-examples
 #| include: true
@@ -221,6 +224,8 @@ ggarrange(example_plot_function_exp5(slopes_exp5,
            y = 0.1,
            size = 3)
 ```
+
+
 
 ## Tools for Testing
 
@@ -318,6 +323,8 @@ including axis labels, tick labels, grid lines, and titles. The axis ticks
 themselves were preserved. @fig-scatter-example demonstrates the basic 
 design of the scatterplots used in experiments 1 to 4.
 
+
+
 ```{r}
 #| label: fig-scatter-example
 #| include: true
@@ -328,6 +335,8 @@ design of the scatterplots used in experiments 1 to 4.
   
 plot_example_function(slopes, t = "", o = 1, s = 0.4, 2)  
 ```
+
+
 
 A single random seed was used to generate scatterplot datasets throughout
 this thesis. 45 *r* values were uniformly generated between 0.2 and 0.99,
@@ -377,6 +386,8 @@ may also specify random *slopes*; these are differences in the magnitude of
 the difference between levels of the independent variable for each random effect
 \cite{brown_2021}. @fig-mixed-effects-demo visualises these concepts.
 
+
+
 ```{r}
 #| label: fig-mixed-effects-demo
 #| include: true
@@ -418,6 +429,8 @@ ggplot(df, aes(x = IV)) +
   labs(x = "Independent Variable", y = "Dependent Variable")
 rm(df)
 ```
+
+
 
 Throughout the course of this thesis, analyses attempt to model both random intercepts
 and slopes in order to capture the maximum amount of variability present in our
@@ -657,6 +670,8 @@ be found throughout. I favour permissive and lenient licencing, such as the MIT 
 These enable future researchers to re-use data and code while providing clear guidance
 for appropriate use and facilitating long-term sustainability \cite{jimenez_2017}.
 
+
+
 ```{r}
 #| label: fig-reproducibility-spectrum
 #| include: true
@@ -689,6 +704,8 @@ ggplot() +
   annotate("text", x = 4.5, y = 2.3, label = "Gold standard", size = 3) +
   theme_void()
 ```
+
+
 
 ## Executable Papers and Docker Containers
 
