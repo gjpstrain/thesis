@@ -740,7 +740,9 @@ Experiment 5 Pre-Study: [https://gitlab.pavlovia.org/Strain/beliefs_scatterplots
 Experiment 5 Main Study (Group A): [https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a](https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a)
 
 Experiment 5 Main Study (Group B):
+
 [https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t](https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t)
+
 
 # Conclusion
 
