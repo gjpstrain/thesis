@@ -101,8 +101,8 @@
 \newlength{\logowidth}    \setlength{\logowidth}{40.006mm}
 \newlength{\logoheight}   \setlength{\logoheight}{19.454mm}
 \newlength{\logopad}      \setlength{\logopad}{14.279mm}
-\newlength{\marginleft}   \setlength{\marginleft}{4cm}   % Binding page margin is reccomended at 4cm.
-\newlength{\marginright}  \setlength{\marginright}{1.5cm} 
+\newlength{\marginleft}   \setlength{\marginleft}{2cm}   % Binding page margin is reccomended at 4cm.
+\newlength{\marginright}  \setlength{\marginright}{2cm} 
 \newlength{\margintop}    \setlength{\margintop}{1.5cm}
 \newlength{\marginbottom} \setlength{\marginbottom}{1.5cm}  
 
@@ -112,7 +112,7 @@
 %% Formatting options - mainly for font size
 \setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}
 \setlength{\parindent}{0pt}
-\linespread{1.5}
+\linespread{2}
 \pagestyle{plain} % simple page numbering
 \AtBeginDocument{
   \fontsize{\@@ptsize}{\@@ptsize+1pt}\selectfont

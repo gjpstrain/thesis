@@ -1226,7 +1226,7 @@ orientation conditions respectively. These findings also support dot density \ci
 and featured-based attention bias accounts \cite{hong_2022, sun_2016}. As all
 these mechanisms would produce similar results, making conclusions about the
 relative potential contributions of each is difficult. Nevertheless, on a higher
-level, the evidence generally points towards a probability distribution accounts
+level, the evidence generally points towards a probability distribution account
 \cite{rensink_2017, rensink_2022}. On a lower level, however, numerous candidate
 mechanisms exist. The results from the current experiment provide further
 evidence for a point salience/perceptual weighting account. Hong et al. \cite{hong_2022}
