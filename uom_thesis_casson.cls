@@ -43,7 +43,7 @@
 \RequirePackage{fontspec}                % for font setting
 \RequirePackage{tocloft} % allows precise control over the table of contents and deals with subfigures properly
   \renewcommand{\listfigurename}{List of figures} 
-  \renewcommand{\listtablename}{List of tables} 
+  \renewcommand{\listtablename}{List of tables}                                                                                                                                                                                          
   \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % add dots 
   \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
   \setlength{\cftfignumwidth}{3em}  % modify number width in LoF
@@ -101,8 +101,8 @@
 \newlength{\logowidth}    \setlength{\logowidth}{40.006mm}
 \newlength{\logoheight}   \setlength{\logoheight}{19.454mm}
 \newlength{\logopad}      \setlength{\logopad}{14.279mm}
-\newlength{\marginleft}   \setlength{\marginleft}{2cm}   % Binding page margin is reccomended at 4cm.
-\newlength{\marginright}  \setlength{\marginright}{2cm} 
+\newlength{\marginleft}   \setlength{\marginleft}{4cm}   % Binding page margin is reccomended at 4cm.
+\newlength{\marginright}  \setlength{\marginright}{1.5cm} 
 \newlength{\margintop}    \setlength{\margintop}{1.5cm}
 \newlength{\marginbottom} \setlength{\marginbottom}{1.5cm}  
 

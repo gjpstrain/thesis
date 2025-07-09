@@ -246,14 +246,37 @@ all_exp_wrangled %>%
   annotate("text", x = 10.5, y = 0.1625, label = "Experiment 2", angle = 270, size = 3.25) +
   annotate("text", x = 14.5, y = 0.1625, label = "Experiment 1", angle = 270, size = 3.25)
 ```
-```{r}
-df <- read_csv("../data/exp_1_to_4_combined.csv")
-distinct(df, factor)
-```
 
-
+Extending these findings into a cognitive space, \chap{chap:belief_change} utilised
+the congruous typical orientation size and opacity decay condition from experiment 4,
+contextualised as part of news items, to explore whether the perceptual effects
+found in the previous three chapter might also be able to bias people's beliefs
+about the levels of relatedness between variable pairs. In this experiment,
+people's beliefs about a pair of variables were tested before and after viewing
+a series of data-identical scatterplots with either the congruous typical orientation
+opacity and size decay condition, or with no opacity or size decay present. While
+beliefs about relatedness were changed in each condition, they changed to a 
+greater degree when participants viewed the scatterplots with opacity and size
+decay present. This finding provided evidence that the perceptual effects of 
+systematically altering the opacities and sizes of scatterplot points can be
+extended into a cognitive space, and are able to change what people believe
+about the levels of relatedness between variable pairs.
 
 # Relationship to Prior Work
+
+Overall, the work presented in this thesis contributes to wider evidence that
+simple changes in visual features can have perceptual \cite{hong_2021} and cognitive
+\cite{karduni_2020} effects on those who view such visualisations. The finding
+that changing the opacities and sizes of scatterplot points can affect viewer's
+estimates of correlation is in direct contradiction to earlier work 
+\cite{rensink_2012, rensink_2014}, which found no effects whatsoever of changing
+point opacities and sizes in different ways. The novelty of the findings in this
+thesis necessarily means that commenting on the potential mechanisms behind
+them is difficult. Taking the findings from \chap{chap:adjusting_opacity},
+\chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size} together,
+the balance of evidence suggests that decreasing the opacity or size of more
+exterior scatterplot points is able to bias estimates of correlation upwards by
+reducing the influence of those points when viewers make their estimates.
 
 # Reproducibility
 
