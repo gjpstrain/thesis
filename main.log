@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.3.27)  9 JUL 2025 12:53
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.3.27)  9 JUL 2025 14:55
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1196,15 +1196,7 @@ Package biblatex Info: Automatic encoding selection.
 \openout5 = main.bcf
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
-(./main.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                hong_2021
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
+(./main.bbl)
 Package biblatex Info: Reference section=0 on input line 104.
 Package biblatex Info: Reference segment=0 on input line 104.
 
@@ -1910,13 +1902,9 @@ LaTeX Warning: Float too large for page by 20.031pt on input line 96.
 
 [137<./chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf>]
 
-LaTeX Warning: Citation 'hong_2021' on page 138 undefined on input line 120.
+[138]
 
-
-
-[138])
-
-[139]
+[139])
 
 [140]
 
@@ -2058,12 +2046,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 41726 strings out of 475506
+ 41725 strings out of 475506
  125165,2373549 words of node,token memory allocated
  2004 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 30 glue, 4 kern, 1 glyph, 132 attribute, 117 glue_spec, 132 attribute_list, 2 write, 82 pdf_action nodes
-   avail lists: 1:3,2:1208,3:394,4:307,5:1512,6:699,7:9192,8:66,9:542,10:26,11:811
- 62719 multiletter control sequences out of 65536+600000
+   avail lists: 1:3,2:1208,3:394,4:307,5:1512,6:699,7:9193,8:66,9:542,10:26,11:811
+ 62718 multiletter control sequences out of 65536+600000
  80 fonts using 30848255 bytes
  104i,12n,113p,4561b,3359s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -2111,9 +2099,9 @@ warning  (pdf backend): unreferenced destination with name 'Hfootnote.2'
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
 <c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Windows/Fonts/calibrii.ttf><c:/Windows/Fonts/calibri.ttf><c:/Windows/Fonts/calibrib.ttf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (166 pages, 37227204 bytes).
+Output written on main.pdf (166 pages, 37229262 bytes).
 
-PDF statistics: 4605 PDF objects out of 5155 (max. 8388607)
+PDF statistics: 4607 PDF objects out of 5155 (max. 8388607)
  623 named destinations out of 1000 (max. 131072)
  1311 words of extra memory for PDF output out of 10000 (max. 100000000)
 
