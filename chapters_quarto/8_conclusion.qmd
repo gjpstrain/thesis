@@ -350,7 +350,9 @@ being told.
 On the other hand, this work also provides marked opportunities for designers.
 Where appropriate, using some form of the point opacity and/or size manipulations
 described in this thesis could enhance the communicative efficiency of positively 
-correlated scatterplots.
+correlated scatterplots. I would not recommend this until further work has been done
+on the potential for misinterpretation from scatterplots such as those described
+here (see \ref{future-work-chap8}).
 
 ## For Society
 
