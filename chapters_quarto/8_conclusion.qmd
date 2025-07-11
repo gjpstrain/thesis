@@ -356,6 +356,10 @@ here (see \ref{future-work-chap8}).
 
 ## For Society
 
+Given the ubiquity of scatterplots and the fundamental nature of correlation as a
+mathematical concept, the findings here have the potential to change the way that
+people engage with visualisations depicting relatedness. 
+
 # Limitations
 
 # Future Directions {#future-work-chap8}
