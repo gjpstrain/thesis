@@ -358,9 +358,15 @@ here (see \ref{future-work-chap8}).
 
 Given the ubiquity of scatterplots and the fundamental nature of correlation as a
 mathematical concept, the findings here have the potential to change the way that
-people engage with visualisations depicting relatedness. 
+people engage with visualisations depicting relatedness. This is especially pertinent
+given the findings detailed in \chap{chap:belief_change} that suggest that the
+techniques described here are also able to bias viewer's beliefs about correlations.
+Whether or not such techniques would be appropriate is a question that requires
+further work to answer.
 
 # Limitations
+
+
 
 # Future Directions {#future-work-chap8}
 
