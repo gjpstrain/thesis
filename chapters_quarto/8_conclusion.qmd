@@ -364,9 +364,28 @@ techniques described here are also able to bias viewer's beliefs about correlati
 Whether or not such techniques would be appropriate is a question that requires
 further work to answer.
 
+Additionally, I hope that this project is demonstrative of the need for the 
+re-examination of common data visualisations from the ground up. In an age where everything
+is measured, and the complexity of information increases year on year, data visualisations
+are crucial for the communication of difficult topics to the general public. Many of the most popular,
+widely-used data visualisations are not designed to be accurately interpreted by
+lay people; given that this is the group that represents the greatest viewership,
+and that has the most to gain from engaging with data visualisations, more design
+must take place that acknowledges and addresses the ways in which perceptions and
+cognitions around data visualisations are biased. Designing in this way requires 
+humility; as designers we must recognise that biases exist in common data 
+visualisations and work thoroughly to address them.  
+
 # Limitations
 
-
+For \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size},
+the shared experimental method confers the largest limitation in this thesis. As
+opposed to previous work that employed more psychophysical designs, such as 
+correlation discrimination or magnitude estimation via bisection tasks
+\cite{rensink_2010, rensink_2017}, experiments 1 to 4 in this thesis utilised a 
+direct estimation paradigm more akin to much older correlation perception work
+\cite{strahan_1978, bobko_1979, cleveland_1982, lane_1985, lauer_1989, collyer_1990,
+meyer_1992}.
 
 # Future Directions {#future-work-chap8}
 
