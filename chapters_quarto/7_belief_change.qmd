@@ -989,7 +989,7 @@ ggarrange(example_plot_function_exp5(slopes_exp5,
                                      standard_alpha,
                                      bbc_style()), nrow = 1) +
   annotate(geom = "text",
-           label = "ATypical Scatterplot",
+           label = "Atypical Scatterplot",
            x = 0.25,
            y = 0.1,
            size = 3) +
