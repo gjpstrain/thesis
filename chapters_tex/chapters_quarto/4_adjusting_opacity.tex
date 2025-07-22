@@ -254,7 +254,7 @@ points, it is demonstrated that; lower global point opacity results in
 greater errors in the estimation of positive correlation (Experiment 1);
 and lowering point opacity as a function of the size of a point's
 residual is able to bias estimates of positive correlation upwards to
-partially correct for a historic underestimation bias.
+partially correct for a historic underestimation bias (Experiment 2).
 
 \section{Related Work}\label{related-work-adjusting-opacity}
 
@@ -264,10 +264,10 @@ Definitions}\label{transparency-contrast-opacity-and-formal-definitions}
 The original paper that this chapter is based on is titled ``The Effects
 of Contrast on Correlation Perception in Scatterplots''. In response to
 reviewer comments to the paper that forms
-\label{chap:interactions_opacity_size}, the term ``contrast'' was
-changed to ``opacity''. In order to maintain consistency throughout this
-thesis, the more up-to-date wording (opacity) is used, although I
-discuss the issue of terminology below.
+\chap{chap:interactions_opacity_size}, the term ``contrast'' was changed
+to ``opacity''. In order to maintain consistency throughout this thesis,
+the more up-to-date wording (opacity) is used, although I discuss the
+issue of terminology below.
 
 Adjusting the opacity of points in scatterplots is an established
 technique used to address issues of overplotting or clutter
@@ -290,8 +290,8 @@ of data points.
 
 \caption{\label{fig-overplotting-examples}Adjusting point opacity to
 address overplotting. Contrast between the points and the background is
-full (alpha = 1, full opacity points, Left) or low (alpha = .1, low
-opacity points, Right). The dataset used has 20,000 points.}
+full (alpha = 1, full opacity points, left) or low (alpha = .1, low
+opacity points, right). The dataset used has 20,000 points.}
 
 \end{figure}%
 
@@ -358,16 +358,15 @@ in this chapter and beyond, it is the alpha value specified by
 \texttt{ggplot2}.
 
 \subsection{Effects of Point Opacity on Correlation
-Estimation}\label{effects-of-point-opacity-on-correlation-estimation}
+Estimation}\label{point-opacity-chap4}
 
 Despite the popularity of adjusting opacity to address overplotting
 issues, little investigation had taken place into the effects of
 reducing point opacity on people's perceptions of correlation. In 2012,
 Rensink \cite{rensink_2012} found correlation perception to be invariant
-to changes in point opacity, although this work took place with only
-small sample sizes (n = 12), and using only bisection/JND methodologies
-(see section in related work about ways of testing correlation
-perception).
+to changes in point opacity, although this work took place with a small
+sample (\emph{N} = 12), and using bisection/JND methodologies (see
+Section \ref{scatterplots-corr-viz} in \chap{chap:related_work}).
 
 Changing the contrast between a stimulus and its background (lowering
 its opacity) effectively reduces the strength of its signal. A likely
@@ -388,18 +387,18 @@ contrast, such as speed perception \cite{champion_2017}. With this in
 mind, I argue that the effects of stimulus opacity on perceived
 correlation in scatterplots warrants further investigation.
 
-In 2022, Hong et al.~\cite{hong_2022}, used point opacity and size to
-encode a third variable in trivariate scatterplots, while asking
+In 2022, Hong et al.~\cite{hong_2022} used point opacity and size to
+encode a third variable in trivariate scatterplots while asking
 participants to judge the average position of all the points displayed.
 It was found that participants' estimates of average point position were
 biased towards areas of larger or darker points; this was termed the
 \emph{weighted average illusion}. Together with evidence that darker
-(more opaque) and larger points are more salient \cite{healey_2012}, the
-implication I took from this work was that I could use point opacity to
+(more opaque) and larger points are more salient \cite{healey_2012},
+this work suggested that there was the scope to use point opacity to
 systematically lower the salience of the points representing the widest
-parts of the probability distribution; if participants promptly
-perceived a narrower distribution, I expected this to be able to (at
-least partially) correct for the underestimation bias.
+parts of the probability distribution; if participants perceived a
+narrower distribution, one might expect this to be able to (at least
+partially) correct for the underestimation bias.
 
 One way to correct for an underestimation of correlation in scatterplots
 would be to simply remove outer data points until correlation perception
@@ -465,16 +464,17 @@ displayed for 2.5 seconds before each experimental trial.}
 
 \end{figure}%
 
-Each trial was preceded by text that either told the participant:
+Each experimental trial was preceded by text that either told the
+participant:
 
 \begin{itemize}
 \tightlist
 \item
   Please look at the following plot and use the slider to estimate the
-  correlation (n = 180).
+  correlation (\emph{n} = 180).
 \item
-  Please IGNORE the correlation displayed and set the slider to 1 (n =
-  3) or 0 (n = 3).
+  Please IGNORE the correlation displayed and set the slider to 1
+  (\emph{n} = 3) or 0 (\emph{n} = 3).
 \end{itemize}
 
 The latter instructions were attention checks, and were formatted with
@@ -559,7 +559,7 @@ demonstrated with an \emph{r} value of 0.8.
 
 \caption{\label{fig-exp1-examples-chap4}Examples of the stimuli used in
 Experiment 1, demonstrated with an \textit{r} value of 0.8. Here,
-``opacity'' refers to the alpha value used by ggplot.}
+``opacity'' refers to the alpha value used by \texttt{ggplot2}.}
 
 \end{figure}%
 
@@ -718,26 +718,27 @@ A function from the now archived \texttt{EMAtools} package
 \cite{ematools} was used to calculate an approximation of Cohen's
 \emph{d} between the reference level (full contrast, alpha = 1.0) and
 each other level of the opacity factor. These statistics can be seen in
-Table~\ref{tbl-efs-e1} along with means and standard deviations. The
-largest effect size observed (\emph{d} \textasciitilde{} 0.16) is
+Table~\ref{tbl-efs-e1} (a) along with means and standard deviations (b).
+The largest effect size observed (\emph{d} \textasciitilde{} 0.16) is
 between the low and full opacity conditions, and is small. This was
 unsurprising given the lack of previously reported effects on
 correlation perception of global point opacity \cite{rensink_2012}.
 Figure~\ref{fig-estimates-by-r-e1} shows how participants' estimates of
-correlation change with the objective \emph{r} value in the plot. Points
-represent mean errors in correlation estimation, and standard deviations
-of error are provided as error bars. The dashed horizontal line
-represents hypothetical perfect estimation. As reported in previous
-literature (see Sec in related work), participants underestimated
-\emph{r} in nearly all cases (revise).
+correlation change with the objective \emph{r} value in the plot. The
+line represent mean errors in correlation estimation, and standard
+deviations of error are provided as error bars. The dashed horizontal
+line represents hypothetical perfect estimation. As reported in previous
+literature (see Section \ref{underestimation-related-work} in
+\chap{chap:related_work}), participants underestimated \emph{r} in
+nearly all cases.
 
 \subsection{Discussion}\label{discussion-e1}
 
 The hypothesis, that there would be a greater spread of correlation
 estimates for plots with lower global opacity compared to those with
 higher global opacity, was not supported. As seen in
-Table~\ref{tbl-efs-e1} (right), standard errors for each opacity factor
-are identical to 3 decimal places. Participants' errors in correlation
+Table~\ref{tbl-efs-e1} (b), standard errors for each opacity factor are
+identical to 3 decimal places. Participants' errors in correlation
 estimation were significantly greater when the opacity of all
 scatterplot points was lower compared when it was higher. This held true
 up until alpha was set to 0.75, implying a threshold around this value
@@ -748,10 +749,10 @@ highest global opacity conditions is congruent with the logarithmic
 nature of contrast/brightness perception
 \cite{fechner_1948, varshney_2013}; despite there being equal linear
 distance between the opacity values used, the perceptual distance
-between them was clearly non-linear.
+between them is minimal.
 
 As mentioned previously, Rensink \cite{rensink_2012, rensink_2014}
-present the only other account of experiments that directly test
+presents the only other account of experiments that directly test
 correlation perception as it pertains to the opacities of scatterplot
 points, and report no difference in either bias (error) or variability
 (spread) in correlation perception regarding point opacity
@@ -760,17 +761,18 @@ effect. This effect may be explained by differences in experimental
 power, as it is a small effect, although I argue that methodological
 differences may have also played a small role. Given the small effect
 size (Cohen's \emph{d} = 0.16), the small sample in Rensink (2014)
-\cite{rensink_2014} may have been insufficiently powered. With the large
-sample size in the present work (n = 150), evidence for an effect has
-been found. The experimental methodology utilised here is more
-representative of the use of scatterplots in the wild, and is therefore
-more suited to informing design as opposed to investigating the
-mathematical relationship between real and perceived correlation. While
-the effect is small, it demonstrates definitively that differences in
-the opacities of scatterplot points \emph{can} affect estimates of
-correlation in positively correlated scatterplots. From the results it
-is unclear why lowering global opacity causes greater errors in
-correlation estimation while causing no difference in spread.
+\cite{rensink_2014} may have caused the experiment to be insufficiently
+powered. With the large sample size in the present work (\emph{N} =
+150), evidence for an effect has been found. The experimental
+methodology utilised here is more representative of the use of
+scatterplots in the wild, and is therefore more suited to informing
+design as opposed to investigating the mathematical relationship between
+real and perceived correlation. While the effect is small, it
+demonstrates definitively that differences in the opacities of
+scatterplot points \emph{can} affect estimates of correlation in
+positively correlated scatterplots. From the results it is unclear why
+lowering global opacity causes greater errors in correlation estimation
+while causing no difference in spread.
 
 I suggest that correlation perception functions similarly to speed
 perception \cite{champion_2017} with regards to changes in the contrast
@@ -800,8 +802,11 @@ scatterplots has an effect on the perception of correlation such that
 those scatterplots with higher levels of global point opacity are rated
 as being more strongly correlated. Given this finding, the question
 arises of whether additional changes in correlation perception may be
-observed as a function of the spatial arrangement of point opacity. With
-this in mind, it was hypothesised that:
+observed as a function of the spatial arrangement of point opacity.
+Given the previously reported effects of changing scatterplot point
+opacity on other perceptual metrics (see Section
+\ref{point-opacity-chap4}), and with the findings from Experiment 1 in
+mind, it was hypothesised that:
 
 \begin{itemize}
 \tightlist
@@ -824,7 +829,7 @@ this in mind, it was hypothesised that:
 \cite{prolific}. Normal to corrected-to-normal vision and English
 fluency were required. Participants who had completed the pilot study or
 Experiment 1 were prevented from participating. Data were collected from
-158 participants. 7 failed more than 2 out of 6 attention check
+158 participants. 8 failed more than 2 out of 6 attention check
 questions, and, as per the pre-registration, had their submissions
 rejected from the study. The data from the remaining 150 participants
 were included in the full analysis (77 male, 69 female, and 4
@@ -839,10 +844,11 @@ versions of each plot corresponding to the three levels of point opacity
 decay function and the baseline global full opacity condition. Examples
 of each of these can be seen in Figure~\ref{fig-exp2-examples-chap4},
 demonstrated with an \emph{r} value of 0.8. Given the shape of the
-underestimation curve found in previous work (see related work chap 3 or
-something), intuition suggested employing a symmetrically opposing curve
-(see the non-linear decay curve in Figure~\ref{fig-opposing-curve}) to
-relate point opacity to residuals.
+underestimation curve found in previous work (see Figure
+\ref{fig-underestimation-curves}, \chap{chap:related_work}), intuition
+suggested employing a symmetrically opposing curve (see the non-linear
+decay curve in Figure~\ref{fig-opposing-curve}) to relate point opacity
+to residuals.
 
 \begin{figure}
 
@@ -858,11 +864,11 @@ the alpha value (opacity) rendered.}
 
 \end{figure}%
 
-Equation 4.1 was used to non-linearly map residuals to ggplot alpha
-values. 0.25 was chosen as the value of \emph{b}, as it was felt at the
-time that this rendered plots that maintained point visibility while
-also allowing a large enough point opacity range that, if an effect was
-present, it was likely to be found.
+Equation 4.1 was used to non-linearly map residuals to \texttt{ggplot2}
+alpha values. 0.25 was chosen as the value of \emph{b}, as it was felt
+at the time that this rendered plots that maintained point visibility
+while also allowing a large enough point opacity range that, if an
+effect was present, it was likely to be found.
 
 \begin{equation}
   point_{size/opacity} = 1 - b^{residual}
@@ -878,7 +884,7 @@ present, it was likely to be found.
 
 \caption{\label{fig-exp2-examples-chap4}Examples of the stimuli used in
 Experiment 2, demonstrated with an \textit{r} value of 0.8. Here,
-``opacity'' refers to the alpha value used by ggplot.}
+``opacity'' refers to the alpha value used by \texttt{ggplot2}.}
 
 \end{figure}%
 

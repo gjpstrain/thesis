@@ -37,7 +37,11 @@ library(bbplot)
 
 source("../shared_functions.R")
 
-slopes <- prepare_slopes(0.8)
+slopes <- prepare_slopes(0.6)
+
+# fix conflicts
+
+conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
 ```
 
 # Introduction
@@ -72,7 +76,7 @@ are preferred. These designs do not rely on random allocation, and as each
 participant is able to provide as many data points as there are experimental items in levels
 \cite{charness_2012}, offer a significant boost in statistical power over
 between-participant designs where each participant may only provide data points
-for a portion of the total experimental items. In Experiments 1 to 3, each 
+for a portion of the total experimental items. In Experiments 1 to 4, each 
 participant saw all experimental stimuli and provided a judgement of correlation
 using a sliding scale between 0 and 1 (see @fig-slider). Experiment 1 featured 
 a single factor of global scatterplot point opacity with 4 levels (see @fig-exp1-examples).
@@ -101,7 +105,7 @@ knitr::include_graphics(path = "../supplied_graphics/example_slider.png", dpi = 
 ```{r}
 #| label: fig-exp1-examples
 #| include: true
-#| fig-cap: Examples of the stimuli used in Experiment 1, demonstrated with an \textit{r} value of 0.8. Here, "opacity" refers to the alpha value used by ggplot.
+#| fig-cap: Examples of the stimuli used in Experiment 1, demonstrated with an \textit{r} value of 0.6. Here, "opacity" refers to the alpha value used by ggplot.
 #| out-width: NA
 #| out-height: NA
 #| fig-asp: 0.275
@@ -120,7 +124,7 @@ ggarrange(plot_example_function(slopes, "Opacity = 0.25",
 ```{r}
 #| label: fig-exp2-examples
 #| include: true
-#| fig-cap: Examples of the stimuli used in Experiment 2, demonstrated with an \textit{r} value of 0.8.
+#| fig-cap: Examples of the stimuli used in Experiment 2, demonstrated with an \textit{r} value of 0.6.
 #| out-width: NA
 #| out-height: NA
 #| fig-asp: 0.275
@@ -196,28 +200,28 @@ ggarrange(example_plots_incongruent, example_plots_congruent, nrow = 1)
 ```{r}
 #| label: fig-exp5-examples
 #| include: true
-#| fig-cap: Examples of the stimuli for Experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the right, while group B saw the typical design on the left. 
+#| fig-cap: Examples of the stimuli for Experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the left, while group B saw the typical design on the right. 
 #| fig-asp: 0.7
 
 ggarrange(example_plot_function_exp5(slopes_exp5,
                                      0.6,
-                                     typical,
-                                     standard_alpha,
+                                     slopeI,
+                                     slopeI_floored,
                                      bbc_style()),
           example_plot_function_exp5(slopes_exp5,
                                      0.6,
-                                     slopeI,
-                                     slopeI_floored,
+                                     typical,
+                                     standard_alpha,
                                      bbc_style()),
           nrow = 1) +
   annotate(geom = "text",
            label = "Typical Scatterplot",
-           x = 0.25,
+           x = 0.75,
            y = 0.1,
            size = 3) +
   annotate(geom = "text",
            label = "Atypical Scatterplot",
-           x = 0.75,
+           x = 0.25,
            y = 0.1,
            size = 3)
 ```
@@ -233,7 +237,7 @@ software, such as Gorilla \cite{anwyl_2020} or E-prime \cite{eprime_2020}
 was discounted, as these rely on paid licences and do not allow for the sharing
 of code with future researchers. I settled on using PsychoPy \cite{peirce_2019} due to its open-source status,
 flexibility regarding graphical and code-based experimental design, and high 
-level of timings accuracy \cite{bridges_2020}. Using such a open-source tool not only
+level of timings accuracy \cite{bridges_2020}. Using such an open-source tool not only
 facilitated my own learning with regard to experiment building, but also enables the
 contribution of further examples of visualisation studies by hosting the resulting
 experiments online for use and modification by future researchers.
@@ -300,8 +304,7 @@ and aimed to recruit enough participants to adequately power the experiments
 \cite{brysbaert_2019}. NB: I did not conduct an *a priori* power analysis.
 A post-hoc power analysis of the first experiment revealed a power of 0.54.
 Effect sizes were larger in the subsequent experiments, however to facilitate
-comparison, it was decided that n = 150 would remain the target recruitment rate.
-
+comparison, it was decided that *N* = 150 would remain the target recruitment rate.
 [^1]: this is a more strict rate than the 95% recommended by Peer et al. \cite{peer_2021}.
 
 ## Creating Stimuli {#creating-stimuli}
@@ -316,12 +319,12 @@ perceptual effect; the underestimation of correlation in positively correlated
 scatterplots. To achieve this, confounding extraneous design factors were removed,
 including axis labels, tick labels, grid lines, and titles. The axis ticks
 themselves were preserved. @fig-scatter-example demonstrates the basic 
-design of the scatterplots used in experiments 1 to 4.
+design of the scatterplots used in Experiments 1 to 4.
 
 ```{r}
 #| label: fig-scatter-example
 #| include: true
-#| fig-cap: The basic design of scatterplots in experiments 1 to 4. 
+#| fig-cap: The basic design of scatterplots in Experiments 1 to 4. 
 #| out-width: NA
 #| out-height: NA
 #| fig-asp: 1
@@ -351,7 +354,7 @@ in responses that can be attributed to an experimental manipulation against
 the backdrop of other variability inherent in the dataset. Traditional analysis
 of the data collected throughout this thesis would involve the use of repeated
 measures analysis of variance (ANOVA). This technique assesses whether there 
-are significant differences in means of dependent variables between conditions.
+are significant differences in the means of the dependent variables between conditions.
 While these techniques are commonplace, they do not allow for comparisons of
 differences across the full range of individual participant responses, nor
 do they allow for simultaneous consideration of by-item and by-participant variance.
@@ -425,13 +428,13 @@ datasets. In order to ascertain the goodness-of-fit of models, their ability
 to explain variance is compared to that of a nested null model \cite{singmann_2019};
 such a model is identical bar the removal of the fixed effect of interest. 
 The likelihood ratio test (LRT) is used here to assess goodness-of-fit. In cases
-where a model has in total more than two levels (here, all experiments bar experiment 5),
+where a model has in total more than two levels (here, all experiments bar Experiment 5),
 the `emmeans` package \cite{lenth_2024} is used to calculate estimated marginal 
 means between levels of fixed effects. 
 
 ## Ordinal Modelling
 
-In experiment 5, participants used Likert scales to provide responses. These scales
+In Experiment 5, participants used Likert scales to provide responses. These scales
 capture whether one rating is higher or lower than another, however they do not
 quantify the magnitude of the difference between levels of rating. Metric modelling, 
 such as linear regression, treats the response options to a Likert scale as if they
@@ -527,7 +530,7 @@ and improved integration with tools such as `pandoc` \cite{pandoc}. `knitr` uses
 `Rmarkdown` \cite{xie_2020} to mix markdown-flavoured text with code chunks into
 a document that can be rendered into an appropriately-formatted
 conference or journal pdf; this workflow was used for the papers associated
-with experiments 1, 2, and 3. `Quarto` \cite{allaire_2024}, released in 2022,
+with Experiments 1, 2, and 3. `Quarto` \cite{allaire_2024}, released in 2022,
 further expands on `Rmarkdown` functionality, and removes reliance on R or
 Rstudio. `Quarto` was used for the remainder of the papers associated with
 this project, and for the present thesis.
@@ -559,7 +562,7 @@ These issues were addressed using containers, specifically, those created
 by [Docker](https://www.docker.com/) \cite{merkel_2014, boettiger_2015}.
 1979 saw the development of `chroot` (`change root`), which is
 able to isolate an application's file access to a ‘chroot jail’.
-Since then, we have seen the rapid development and uptake of containerisation software, mostly within the 
+Since then, containerisation software has experienced rapid development and uptake, mostly within the 
 software development and security communities. Docker, released in 2014, is a 
 popular, lightweight containerisation tool that enables a precise recreation
 of computational environments. Recording software versions and dependencies
@@ -695,7 +698,7 @@ ggplot() +
 As detailed above, Quarto and Docker were used to produce executable
 journal/conference papers for each of the published works this thesis describes.
 For simplicity, all analyses from these papers have been repeated using up to
-date packages here. Accordingly, a single implementation of Docker to
+date packages here. Accordingly, a single implementation of Docker
 is provided to reproduce this thesis. All statistics have been checked against those provided in
 the original analyses, and repositories for the corresponding papers are provided
 complete with original Docker implementations.
@@ -723,38 +726,37 @@ concerning each experiment.
 
 Experiment 1:
 
-[https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments](https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments)
+[gitlab.pavlovia.org/Strain/exp_uniform_adjustments](https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments)
 
 Experiment 2:
 
-[https://gitlab.pavlovia.org/Strain/exp_spatially_dependent](https://gitlab.pavlovia.org/Strain/exp_spatially_dependent)
+[gitlab.pavlovia.org/Strain/exp_spatially_dependent](https://gitlab.pavlovia.org/Strain/exp_spatially_dependent)
 
 \textbf{Chapter 5}
 
 Experiment 3:
 
-[https://gitlab.pavlovia.org/Strain/exp_size_only](https://gitlab.pavlovia.org/Strain/exp_size_only)
+[gitlab.pavlovia.org/Strain/exp_size_only](https://gitlab.pavlovia.org/Strain/exp_size_only)
 
 \textbf{Chapter 6}
 
 Experiment 4:
 
-[https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp](https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp)
+[gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp](https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp)
 
 \textbf{Chapter 7}
 
 Experiment 5 Pre-Study:
 
-[https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest](https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest)
+[gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest](https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest)
 
 Experiment 5 Main Study (Group A):
 
-[https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a](https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a)
+[gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a](https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a)
 
 Experiment 5 Main Study (Group B):
 
-[https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t](https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t)
-
+[gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t](https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t)
 
 # Conclusion
 
