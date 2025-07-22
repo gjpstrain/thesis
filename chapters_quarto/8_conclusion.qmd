@@ -79,7 +79,7 @@ for the underestimation bias. While this effect was small, it showed that estima
 of correlation could be changed to correct for bias *without* removing any data
 from the plot.
 
-\chap{chap:adjusting_size} expanded these findings to a second visual modality.
+\chap{chap:adjusting_size} expanded these findings to a second visual modality (point size).
 Building on findings from \chap{chap:adjusting_opacity} and evidence that the
 size of a stimulus may have stronger effects on perception than its opacity, a single
 experiment took the functions relating opacity and residual distance in the 
@@ -98,7 +98,7 @@ experiment remains the most promising condition with regards to correcting for
 the underestimation bias.
 
 In a final implementation of the same experimental paradigm,
-\chap{chap:interactions_opacity_size} combines point opacity and size manipulations
+\chap{chap:interactions_opacity_size} combined point opacity and size manipulations
 from the two previous chapters to further explore the potential for biasing 
 estimates of correlation and the potential mechanisms behind the effects observed.
 Using point opacity and size manipulations together in both congruous (same direction)
