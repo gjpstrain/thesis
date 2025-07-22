@@ -211,12 +211,7 @@ limited to discussions of relatedness, correlation, and scatterplot visualisatio
 
 # Relatedness & Correlation {#relatedness-and-correlation}
 
-<!-- Very early piloting (detailed in Section \ref{general-methods-adjusting-opacity}, -->
-<!-- \chap{chap:adjusting_opacity}) revealed that while people understood the concept -->
-<!-- of correlation, they were unsure as to what different degrees of correlation looked -->
-<!-- like.  -->
-
-In experiment 5, correlation was operationalised as *Strength of Relatedness*.
+In Experiment 5, correlation was operationalised as *Strength of Relatedness*.
 To make my research accessible, I start from here; two (or more) things are related
 if a change in one is associated with a change in the other(s). In reality, however,
 the data visualisation under investigation, scatterplots, do not visualise
@@ -837,7 +832,7 @@ as_tibble(my_rs) %>%
 ```
 
 The underestimation of correlation in positively correlated scatterplots was also
-observed in experiments 1 to 4 in the current paper, and is detailed in each 
+observed in Experiments 1 to 4 in the current paper, and is detailed in each 
 experimental chapter. \chap{chap:conclusion} includes figures detailing 
 the underestimation observed throughout this thesis in comparison to previous
 work. Despite this long-standing finding, no efforts have been made to correct

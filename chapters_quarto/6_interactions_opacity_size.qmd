@@ -492,7 +492,7 @@ Labelled examples of the stimuli used in this experiment can be viewed in
 ```{r}
 #| label: fig-exp4-examples-chap6
 #| include: true
-#| fig-cap: Examples of the stimuli used in experiment 4, demonstrated with an \textit{r} value of 0.8.
+#| fig-cap: Examples of the stimuli used in Experiment 4, demonstrated with an \textit{r} value of 0.8.
 #| fig-asp: 0.275
 
 examples_congruent <- ggarrange(plot_example_function(slopes,
@@ -559,7 +559,7 @@ scored an average of `r printnum(VT$mean_VT_perc_correct)`% ($SD$ =
 and point size constant and scaling factor, some of the smallest, least opaque
 stimuli used were clearly not visible to participants. This was most likely
 due to low contrast between the foreground (scatterplot points) and the background,
-as experiment 4, \chap{chap:adjusting_size} found visibility mostly invariant
+as Experiment 4, \chap{chap:adjusting_size} found visibility mostly invariant
 to point size. In an idealised experimental setup, minimum point opacity and size
 would need to calibrated on a per-monitor basis. Analysis including participants'
 performance on the point visibility task as a fixed effect is detailed in 
@@ -706,7 +706,7 @@ along with 95% confidence intervals.
 ```{r}
 #| label: fig-e4-estimates
 #| include: true
-#| fig-cap: Estimated marginal means for the four conditions tested in experiment 4. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error.
+#| fig-cap: Estimated marginal means for the four conditions tested in Experiment 4. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error.
 #| fig-asp: 0.4
 
 # assign buildmer model to lmer slot
@@ -785,7 +785,7 @@ plotting_df %>%
 ```{r}
 #| label: tbl-contrasts-e4
 #| include: true
-#| tbl-cap: Contrasts between different levels of the opacity and size decay factors in experiment 4.
+#| tbl-cap: Contrasts between different levels of the opacity and size decay factors in Experiment 4.
 
 # assign slot, if it hasn't been assigned already
 
@@ -1070,7 +1070,7 @@ for size decay and opacity decay both in isolation and combination. @fig-all-est
 shows correlation estimation error curves in the present experiment (typical orientation congruent),
 and in the non-linear decay conditions for both opacity decay (\chap{chap:adjusting_opacity})
 and size decay (see \chap{chap:adjusting_size}) conditions. The "no manipulations
-present" plot is averaged from the results of experiments 1 to 3. Using
+present" plot is averaged from the results of Experiments 1 to 3. Using
 opacity decay alone significantly changes the amplitude of the estimation curve,
 while leaving its shape intact; this can be seen by comparing opacity decay
 and standard scatterplot plots in @fig-all-est-curves. Using size decay changes

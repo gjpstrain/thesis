@@ -51,7 +51,7 @@ has clear effects on the estimation of correlation. This thesis set out to
 investigate whether visual manipulations of scatterplots based on aspects
 of human perception might be able to change estimates of correlation, and, 
 in particular, whether these visual manipulations could be used to correct for
-a historic underestimation bias present since the 1960s.
+a historic underestimation bias observed since the 1960s.
 
 # Main Findings
 
