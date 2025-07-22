@@ -230,7 +230,7 @@ discussions of relatedness, correlation, and scatterplot visualisations.
 
 \section{Relatedness \& Correlation}\label{relatedness-and-correlation}
 
-In experiment 5, correlation was operationalised as \emph{Strength of
+In Experiment 5, correlation was operationalised as \emph{Strength of
 Relatedness}. To make my research accessible, I start from here; two (or
 more) things are related if a change in one is associated with a change
 in the other(s). In reality, however, the data visualisation under
@@ -283,7 +283,7 @@ Equation 2.1 defines Pearson's \emph{r}:
 \end{equation}
 
 In this equation, \(\bar{x}\) and \(\bar{y}\) are the means of each
-variable. \(x_i\) and \(x_i\) are the individual values of each variable
+variable. \(x_i\) and \(y_i\) are the individual values of each variable
 in question. In the numerator, the sum of the products of the difference
 between each value of \(x\) and \(y\) and their means are found; this
 value represents the degree of deviation of all points from the
@@ -483,8 +483,8 @@ adapted in an effort to better visualise correlation. Parallel
 Coordinates Plots (PCPs) \cite{heinrich_2013}, which are popular in the
 InfoVis community, are most often used for multidimensional data.
 Applying them to bivariate data results in plots that perform (almost)
-as well as scatterplots with regards to visualising correlation between
-two variables \cite{kay_2015}. Figure~\ref{fig-other-corr-viz}
+as well as scatterplots with regards to visualising the correlation
+between two variables \cite{kay_2015}. Figure~\ref{fig-other-corr-viz}
 illustrates parallel coordinates plots, along with 3 other types of
 correlation visualisation, with an \emph{r} value of 0.6. Despite the
 existence of plots such as these, scatterplots remain by far the most
@@ -505,26 +505,27 @@ in correlation estimation could be modelled by Weber's law
 \cite{rensink_2010}. In the context of correlation estimation from
 scatterplots, Weber's law states that the differential change in
 perception between scatterplots with two correlation values can be
-described by applying a constant (\(k\)) to the actual difference
-between those correlations \cite{rensink_2010, harrison_2014}. This law
-may also be applied to the discrimination of other physical properties,
-such as weight \cite{coren_2004}. In this Harrison et al.'s study
-\cite{harrison_2014}, itself a replication of a previous work
-investigating Weber's law for the modelling of perceived correlation
-\cite{rensink_2010}, participants were asked to make discriminative
-judgements between side-by-side correlation visualisations. An adaptive
-staircase procedure was employed to infer just-noticeable differences
-(JNDs) for correlation perception with nine correlation visualisation
-types. Both positive and negative correlations were tested. Fitting
-linear models to the JND data revealed that correlation discrimination
-in the nine different visualisations tested (scatterplots, PCPs, stacked
-area charts, stacked line charts, stacked bar charts, donut charts,
-radar charts, line graphs, and ordered line graphs) could be modelled
-using Weber's law. This study also provides a ranking of the tested
-visualisation types with regards to participant's correlation
-discrimination performance; overall, traditional scatterplots
-outperformed all other visualisation types with positively correlated
-data, and were tied with PCPs for negatively correlated data.
+described by applying an experimentally-derived constant (\(k\)) to the
+actual difference between those correlations
+\cite{rensink_2010, harrison_2014}. This law may also be applied to the
+discrimination of other physical properties, such as weight
+\cite{coren_2004}. In Harrison et al.'s study \cite{harrison_2014},
+itself a replication of a previous work investigating Weber's law for
+the modelling of perceived correlation \cite{rensink_2010}, participants
+were asked to make discriminative judgements between side-by-side
+correlation visualisations. An adaptive staircase procedure was employed
+to infer just-noticeable differences (JNDs) for correlation perception
+with nine correlation visualisation types. Both positive and negative
+correlations were tested. Fitting linear models to the JND data revealed
+that correlation discrimination in the nine different visualisations
+tested (scatterplots, PCPs, stacked area charts, stacked line charts,
+stacked bar charts, donut charts, radar charts, line graphs, and ordered
+line graphs) could be modelled using Weber's law. This study also
+provides a ranking of the tested visualisation types with regards to
+participant's correlation discrimination performance; overall,
+traditional scatterplots outperformed all other visualisation types with
+positively correlated data, and were tied with PCPs for negatively
+correlated data.
 
 Rensink (2014) \cite{rensink_2014} measured correlation discriminability
 for scatterplots presented at 100, 400, or 1600 milliseconds. This study
@@ -587,7 +588,9 @@ Figure~\ref{fig-point-cloud-trends} illustrates this.
 }
 
 \caption{\label{fig-point-cloud-trends}Scatterplot with Pearson's
-\textit{r} = 0.95 (left) and Pearson's \textit{r} = 0.4 (right).}
+\textit{r} = 0.4 (left) and Pearson's \textit{r} = 0.95 (right). Note
+how as the objective correlation increases, the point cloud tends
+towards a straight line.}
 
 \end{figure}%
 
@@ -672,9 +675,9 @@ a numerical estimate for the correlation displayed in positively
 correlated scatterplots
 \cite{erlick_1966, strahan_1978, bobko_1979, cleveland_1982, lane_1985, lauer_1989, collyer_1990,
 meyer_1992} and those asking participants to complete a bisection task
-comparing adjacent scatterplots \cite{rensink_2017} find consistent
-levels of underestimation of the strength of the relationship between
-the two variables, particularly when 0.2 \textless{} \emph{r}
+comparing adjacent scatterplots \cite{rensink_2017} have found
+consistent levels of underestimation of the strength of the relationship
+between the two variables, particularly when 0.2 \textless{} \emph{r}
 \textless{} 0.6. Where sufficient data are available to recreate a full
 estimation curve, the nature of this underestimation has been visualised
 in Figure~\ref{fig-underestimation-curves}. Included are estimation
@@ -700,7 +703,7 @@ theoretically perfect estimation.}
 \end{figure}%
 
 The underestimation of correlation in positively correlated scatterplots
-was also observed in experiments 1 to 4 in the current paper, and is
+was also observed in Experiments 1 to 4 in the current paper, and is
 detailed in each experimental chapter. \chap{chap:conclusion} includes
 figures detailing the underestimation observed throughout this thesis in
 comparison to previous work. Despite this long-standing finding, no
