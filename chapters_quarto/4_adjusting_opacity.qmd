@@ -50,7 +50,9 @@ library(effectsize)
 
 # fix conflicts
 
-conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
+conflicts_prefer(dplyr::select(),
+                 dplyr::filter(),
+                 lme4::lmer())
 
 # define plotting labels now
 
@@ -78,13 +80,19 @@ labels_e2_regex <- c(
   "\\bD\\b" = "Full Opacity"
 )
 
+# read in shared_functions script
+
 source("../shared_functions.R")
 
-slopes <- prepare_slopes(0.8)
+# prepare slopes for plotting examples
+
+slopes <- prepare_slopes(0.6)
 ```
 
 ```{r}
 #| label: load-data
+
+# load experimental data
 
 exp1_anon <- read_csv("../data/exp_1_data.csv")
 exp2_anon <- read_csv("../data/exp_2_data.csv") # all experimental data lives in this folder
@@ -92,6 +100,8 @@ exp2_anon <- read_csv("../data/exp_2_data.csv") # all experimental data lives in
 
 ```{r}
 #| label: retrieve-cached-models-chap4
+
+# load in cached models
 
 if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
 ```
@@ -104,6 +114,8 @@ if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
 
 wrangle <- function(anon_file) {
   
+  # extract SGL test scores
+  
   literacy <- anon_file %>%
     filter(!is.na(q1_slider.response)) %>%
     rowwise() %>%
@@ -112,8 +124,7 @@ wrangle <- function(anon_file) {
                             q3_slider.response, 
                             q4_slider.response, 
                             q5_slider.response))) %>%
-    select(participant,
-           literacy)
+    select(participant, literacy)
   
 # extract demographic information
 # link slider response numbers to gender categories
@@ -124,20 +135,32 @@ demographics <- anon_file %>%
                                          `1` = "F",
                                          `2` = "M",
                                          `3` = "NB")) %>%
-  dplyr::select(matches(c("participant",
-                          "age_textbox.text",
-                          "gender_slider.response")))
+  select(matches(c("participant",
+                   "age_textbox.text",
+                   "gender_slider.response")))
 
 # split plots_with_labels column into item and contrast condition columns 
 
 anon_file <- anon_file %>%
-  mutate(images = str_replace(images, pattern = "A", replacement = "-A")) %>%
-  mutate(images = str_replace(images, pattern = "B", replacement = "-B")) %>%
-  mutate(images = str_replace(images, pattern = "C", replacement = "-C")) %>%
-  mutate(images = str_replace(images, pattern = "D", replacement = "-D")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "A",
+                              replacement = "-A")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "B",
+                              replacement = "-B")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "C",
+                              replacement = "-C")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "D",
+                              replacement = "-D")) %>%
   separate(images, c("item", "contrast"), sep = "-") %>%
-  mutate(contrast = str_replace(contrast, pattern = ".png", replacement = "")) %>%
-  mutate(item = str_replace(item, pattern = "all_plots/", replacement = ""))
+  mutate(contrast = str_replace(contrast,
+                                pattern = ".png",
+                                replacement = "")) %>%
+  mutate(item = str_replace(item,
+                            pattern = "all_plots/",
+                            replacement = ""))
 
 # select relevant columns
 # select only experimental items
@@ -161,14 +184,20 @@ anon_file %>%
   filter(unique_item_no < 181) %>%
   inner_join(literacy, by = "participant") %>%
   full_join(demographics, by = "participant") %>%
-  mutate(across(c("item", "contrast", "half"), as_factor)) %>%
+  mutate(across(c("item",
+                  "contrast",
+                  "half"),
+                as_factor)) %>%
   dplyr::select(-c("__participant")) %>%
   mutate(difference = my_rs - slider.response) %>%
-  mutate(contrast = fct_relevel(contrast, c('D', 'C', 'B', 'A'))) %>%
-  rename("opacity" = "contrast") %>% #contrast was an earlier term, so is changed here for consistency                                        
+  mutate(contrast = fct_relevel(contrast,
+                                c('D', 'C', 'B','A'))) %>%
+  rename("opacity" = "contrast") %>% # contrast was an earlier term, so is                                                                        # changed here for consistency 
 
-  assign(paste0(unique(anon_file$expName), "_tidy"),
-           value = ., envir = .GlobalEnv)
+  assign(paste0(unique(anon_file$expName),
+                "_tidy"),
+           value = .,
+         envir = .GlobalEnv)
 }
 
 # use wrangle function on anonmyised data files 
@@ -177,7 +206,7 @@ walk(list(exp1_anon,
           exp2_anon),
      wrangle)
 
-# Experiments were incorrectly named, so rename them
+# experiments were incorrectly named, so rename them
 
 E1_uniform_adjustments_tidy <- E3_full_exp_tidy
 E2_spatially_dependent_tidy <- E2_full_exp_tidy
@@ -188,7 +217,8 @@ if (!file.exists(csv_wrangled <- "../data/wrangled_data/chap4_exp1_wrangled.csv"
   
   E1_uniform_adjustments_tidy %>%
     rename(condition = opacity) %>%
-    mutate(condition = paste0(condition, "_exp1")) %>%
+    mutate(condition = paste0(condition,
+                              "_exp1")) %>%
     write_csv("../data/wrangled_data/chap4_exp1_wrangled.csv")
   
 }
@@ -197,15 +227,20 @@ if (!file.exists(csv_wrangled <- "../data/wrangled_data/chap4_exp2_wrangled.csv"
   
   E2_spatially_dependent_tidy %>%
     rename(condition = opacity) %>%
-    mutate(condition = paste0(condition, "_exp2")) %>%
+    mutate(condition = paste0(condition,
+                              "_exp2")) %>%
     write_csv("../data/wrangled_data/chap4_exp2_wrangled.csv")
 }
 
 # remove incorrectly named and anon dfs from environment
 
-rm(E3_full_exp_tidy, E2_full_exp_tidy, exp1_anon, exp2_anon, wrangle)
+rm(E3_full_exp_tidy,
+   E2_full_exp_tidy,
+   exp1_anon,
+   exp2_anon,
+   wrangle) # wrangle function removed
 
-# extract age and gender information
+# extract age and gender information using functions from shared_functions.R
 
 extract_age(E1_uniform_adjustments_tidy)
 
@@ -259,6 +294,8 @@ seen in @fig-pilot-study-examples.
 #| include: true
 #| fig-cap: Examples of the experimental stimuli used in the pilot study (opacity decay factor). On the left, the opacity decay function is visible. Note the linear scaling used.
 
+# include pre-rendered graphics
+
 knitr::include_graphics(path = "../supplied_graphics/pilot_examples.png")
 ```
 
@@ -283,13 +320,26 @@ direction of the research project. I present these results in brief below.
 ```{r}
 #| label: pilot-study-wrangle
 
+# small wrangling script for pilot study
+
 pilot_data <- read_csv("../data/pilot_data.csv") %>%
-  mutate(plots_with_labels = str_replace(plots_with_labels, pattern = "S", replacement = "-S-")) %>%
-  mutate(plots_with_labels = str_replace(plots_with_labels, pattern = "M", replacement = "-M-")) %>%
-  mutate(plots_with_labels = str_replace(plots_with_labels, pattern = "L", replacement = "-L-")) %>%
-  separate(plots_with_labels, c("item", "size", "present"), sep = "-") %>%
-  mutate(present = str_replace(present, pattern = ".png", replacement = "")) %>%
-  mutate(item = str_replace(item, pattern = "all_plots/", replacement = "")) %>%
+  mutate(plots_with_labels = str_replace(plots_with_labels,
+                                         pattern = "S",
+                                         replacement = "-S-")) %>%
+  mutate(plots_with_labels = str_replace(plots_with_labels,
+                                         pattern = "M",
+                                         replacement = "-M-")) %>%
+  mutate(plots_with_labels = str_replace(plots_with_labels,
+                                         pattern = "L",
+                                         replacement = "-L-")) %>%
+  separate(plots_with_labels, c("item", "size", "present"),
+           sep = "-") %>%
+  mutate(present = str_replace(present,
+                               pattern = ".png",
+                               replacement = "")) %>%
+  mutate(item = str_replace(item,
+                            pattern = "all_plots/",
+                            replacement = "")) %>%
   dplyr::select(c("item",
                   "size", 
                   "present",
@@ -303,6 +353,8 @@ pilot_data <- read_csv("../data/pilot_data.csv") %>%
   mutate(difference = my_rs - slider.response) %>%
   filter(!is.na(difference))
 
+# set contrasts for statistical modelling
+
 contrasts(pilot_data$size) = contr.sum(levels(pilot_data$size))
 contrasts(pilot_data$present) = contr.sum(levels(pilot_data$present))
 
@@ -312,6 +364,8 @@ contrasts(pilot_data$present) = contr.sum(levels(pilot_data$present))
 #| label: pilot-model
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
+
+# use buildmer to create model
 
 pilot_model <- buildmer(difference ~ size * present + 
                           (1 + size * present | participant) +
@@ -325,11 +379,17 @@ pilot_model <- buildmer(difference ~ size * present +
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
+# use comparison() function from shared_functions.R to remove fixed effects
+# for null model
+
 pilot_null <- comparison(pilot_model)
 ```
 
 ```{r}
 #| label: anova-results-pilot
+
+# compare experimental and null using function from shared_functions.R
+# this function outputs model statistics to the global environment
 
 anova_results(pilot_model, pilot_null)
 ```
@@ -356,11 +416,17 @@ separately for each condition.
 #| tbl-subcap: ["EMMs for plot size factor.", "EMMs for presence or absence of opacity decay function."]
 #| layout-ncol: 2
 
+# reassign model if needed
+
 if (class(pilot_model) == "buildmer") pilot_model <- pilot_model@model
+
+# use emmeans() to output pairwise comparisons for model
 
 emmeans(pilot_model, pairwise ~ "size")[[1]] %>%
   as_tibble() %>%
-  select(-c(df, asymp.LCL, asymp.UCL)) %>%
+  select(-c(df,
+            asymp.LCL,
+            asymp.UCL)) %>%
   rename(Size = size,
          Mean = emmean,
          "Standard\nError" = SE) %>%
@@ -370,9 +436,13 @@ emmeans(pilot_model, pairwise ~ "size")[[1]] %>%
                          "S" = "Small (62%)")) %>%
   kbl(booktabs = T, digits = c(1, 2, 3))
 
+# as above but for presence factor
+
 emmeans(pilot_model, pairwise ~ "present")[[1]] %>%
   as_tibble() %>%
-  select(-c(df, asymp.LCL, asymp.UCL)) %>%
+  select(-c(df,
+            asymp.LCL,
+            asymp.UCL)) %>%
   rename(Decay = present,
          Mean = emmean,
          "Standard\nError" = SE) %>%
@@ -390,18 +460,28 @@ emmeans(pilot_model, pairwise ~ "present")[[1]] %>%
 #| tbl-subcap: ["Contrasts for size decay factor.", "Contrasts for opacity decay factor."]
 #| layout-ncol: 2
 
+# use contrasts_extract function from shared_functions.R to get experimental
+# contrasts, then use kbl() to create tables for each
+# chunk options specify a pair of side-by-side tables
+
 contrasts_extract(pilot_model, "size") %>%
   mutate(Contrast = str_replace_all(Contrast, labels_pilot_size)) %>%
   mutate(Contrast = str_replace(Contrast, " - ", " | ")) %>%
-  separate(Contrast, into = c(" ", "  "), sep = " \\| ") %>%
-  kbl(booktabs = TRUE, digits = c(0, 2, 2), escape = FALSE) %>%
+  separate(Contrast, into = c(" ", "  "),
+           sep = " \\| ") %>%
+  kbl(booktabs = TRUE,
+      digits = c(0, 2, 2),
+      escape = FALSE) %>%
   add_header_above(c("Contrast" = 2, "Statistics" = 2))
 
 contrasts_extract(pilot_model, "present") %>%
   mutate(Contrast = str_replace_all(Contrast, labels_pilot_present)) %>%
   mutate(Contrast = str_replace(Contrast, " - ", " | ")) %>%
-  separate(Contrast, into = c(" ", "  "), sep = " \\| ") %>%
-  kbl(booktabs = TRUE, digits = c(0, 2, 2), escape = FALSE) %>%
+  separate(Contrast, into = c(" ", "  "),
+           sep = " \\| ") %>%
+  kbl(booktabs = TRUE,
+      digits = c(0, 2, 2),
+      escape = FALSE) %>%
   add_header_above(c("Contrast" = 2, "Statistics" = 2))
 ```
 
@@ -483,20 +563,26 @@ a very high number of data points.
 #| include: true
 #| fig-asp: 0.4
 #| fig-cap: Adjusting point opacity to address overplotting. Contrast between the points and the background is full (alpha = 1, full opacity points, left) or low (alpha = .1, low opacity points, right). The dataset used has 20,000 points.
+
+# set random seed for reproducibility
  
 set.seed(123)
+
+# create overplotting dataframe
 
 data <- data.frame(x = c(rnorm(10000, mean = -1),
                          rnorm(10000, mean = 1)),
                    y = rnorm(20000))
 
-ggplot(data, aes(x = x, y = y)) +
+# create plot using ggplot2
+
+ggplot(data,
+       aes(x = x, y = y)) +
   scale_alpha_identity() +
   geom_point(aes(alpha = ifelse(x > -0.1 & x < 0.1, 0,
                          ifelse(x > 0, 0.1, 1))),
              shape = 16) +
-  geom_vline(xintercept = 0,
-             linetype = "dashed") +
+  geom_vline(xintercept = 0, linetype = "dashed") +
   theme_ggdist() +
   labs(x = "",
        y = "") +
@@ -525,9 +611,13 @@ ratios of interpolation, and are illustrated in @fig-alpha-examples.
 #| fig-asp:  0.2
 #| fig-cap: The relationship between alpha values and rendered point opacity. Higher alpha values result in greater contrast between the foreground (scatterplot point) and background. When alpha = 0, the foreground is ignored and the background is rendered.
 
+# create x and y dataframe for plotting
+
 x1 <- seq(0,1, length.out = 11)
 y1 <- rep(1, times = 11)
 df <- data.frame(x1, y1)
+
+# create plot
 
 ggplot(aes(x1, y1), data = df) +
   geom_point(alpha = x1, size = 14, shape = 16) +
@@ -538,6 +628,8 @@ ggplot(aes(x1, y1), data = df) +
         plot.title = element_text(size = 16),
         axis.text.x = element_text(size = 14)) +
   scale_x_continuous(breaks = scales::pretty_breaks(n = 11))
+
+# remove extraneous df and vectors
 
 rm(x1,y1,df)
 ```
@@ -647,7 +739,7 @@ knitr::include_graphics(path = "../supplied_graphics/example-plots.png", dpi = N
 #| include: true
 #| fig-cap: An example of a visual mask displayed for 2.5 seconds before each experimental trial.
 
-# find training slide png in supplied graphics folder
+# find visual mask png in supplied graphics folder
 
 knitr::include_graphics(path = "../supplied_graphics/visual_mask.png")
 ```
@@ -667,22 +759,22 @@ Each experimental trial was preceded by text that either told the participant:
  randomised order.
  
 ## Open Research {#open-research-chap4}
- 
- Both experiments were conducted according to principles of open and reproducible
- research \cite{ayris_2018}. All data and analysis code for the original paper are available on GitHub [^1].
- This repository also includes a Docker implementation to reproduce the original
- computational environment the paper was written in. Experiment 1 [^2] and 2 [^3]
- are hosted on Pavlovia.org, while the Open Science
- Framework hosts pre-registrations [^4]. It is important to note at this point
- that Experiment 2 was conducted prior to Experiment 1; when the original paper
- was written, the order of presentation of the experiments was swapped to make the
- narrative more cohesive. I preserve this order in the present chapter.
- 
- [^1]: https://github.com/gjpstrain/contrast_and_scatterplots
- [^2]: https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments
- [^3]: https://gitlab.pavlovia.org/Strain/exp_spatially_dependent
- [^4]: Experiment 1 - https://osf.io/tuexh. Experiment 2 - https://osf.io/6f5ev
- 
+
+Both experiments were conducted according to principles of open and reproducible
+research \cite{ayris_2018}. All data and analysis code for the original paper 
+are available on GitHub [^1]. This repository also includes a Docker
+implementation to reproduce the original computational environment the paper
+was written in. Experiment 1 [^2] and 2 [^3] are hosted on Pavlovia.org, 
+while the Open Science Framework hosts pre-registrations [^4]. It is important
+to note at this point that Experiment 2 was conducted prior to Experiment 1; when
+the original paper was written, the order of presentation of the experiments
+was swapped to make the narrative more cohesive. I preserve this order in the present chapter.
+
+[^1]: https://github.com/gjpstrain/contrast_and_scatterplots
+[^2]: https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments
+[^3]: https://gitlab.pavlovia.org/Strain/exp_spatially_dependent
+[^4]: Experiment 1 - https://osf.io/tuexh. Experiment 2 - https://osf.io/6f5ev
+
 # Experiment 1: Uniform Opacity Adjustments
 
 ## Introduction {#introduction-e1}
@@ -721,13 +813,15 @@ time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
 For each of the 45 *r* values, there were four versions of each plot corresponding
 to the four levels of point opacity. Examples of each of these can be seen in
-@fig-exp1-examples-chap4, demonstrated with an *r* value of 0.8.
+@fig-exp1-examples-chap4, demonstrated with an *r* value of 0.6.
 
 ```{r}
 #| label: fig-exp1-examples-chap4
 #| include: true
-#| fig-cap: Examples of the stimuli used in Experiment 1, demonstrated with an \textit{r} value of 0.8. Here, "opacity" refers to the alpha value used by `ggplot2`.
+#| fig-cap: Examples of the stimuli used in Experiment 1, demonstrated with an \textit{r} value of 0.6. Here, "opacity" refers to the alpha value used by `ggplot2`.
 #| fig-asp: 0.275
+
+# create example plots, arrange with ggarrange()
 
 ggarrange(plot_example_function(slopes, "Opacity = 0.25",
                                 0.25, 0.2, 7),
@@ -746,6 +840,8 @@ ggarrange(plot_example_function(slopes, "Opacity = 0.25",
 #| label: model-e1
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
+
+# create experimental model
 
 e1_model <- buildmer(difference ~ opacity +
                        (1 + opacity | participant) +
@@ -768,11 +864,16 @@ e1_lit_model <- add_fixed_effect(e1_model, "literacy", "E1_uniform_adjustments_t
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
+# remove fixed effect to create null model
+
 e1_model_cmpr <- comparison(e1_model)
 ```
 
 ```{r}
 #| label: anova-results-e1
+
+# use anova_results() function from shared_functions.R to output
+# model stats to global environment
 
 anova_results(e1_model, e1_model_cmpr)
 
@@ -802,24 +903,33 @@ intervals.
 
 if (class(e1_model) == "buildmer") e1_model <- e1_model@model
 
+# create plotting df
+
 plotting_df <- as_tibble(emmeans(e1_model, pairwise ~ "opacity")[[1]]) %>%
   mutate(opacity = fct_relevel(opacity, c("A", "B", "C", "D")))
+
+# output emm df to other_data folder
 
 if (!file.exists(csv_wrangled <- "../data/other_data/exp1_emm_plot.csv")) {
   
   plotting_df %>%
     rename(condition = opacity) %>%
-    mutate(condition = paste0(condition, "_exp1")) %>%
+    mutate(condition = paste0(condition,
+                              "_exp1")) %>%
     write_csv("../data/other_data/exp1_emm_plot.csv")
   
 }
 
+# create plot, including manual annotations
+
 plotting_df %>%
   mutate(opacity = recode(opacity, !!!labels_e1)) %>%
   rename("Condition" = "opacity") %>%
-  ggplot(aes(x = Condition, y = emmean*-1)) +
+  ggplot(aes(x = Condition,
+             y = emmean*-1)) +
   geom_point(size = 1.75) +
-  geom_pointrange(aes(ymin = asymp.LCL*-1, ymax = asymp.UCL*-1)) +
+  geom_pointrange(aes(ymin = asymp.LCL*-1,
+                      ymax = asymp.UCL*-1)) +
   theme_ggdist() +
   labs(y = "Estimated Marginal Mean of Error",
        x = "Condition") +
@@ -869,7 +979,7 @@ rm(plotting_df)
 
 if (class(e1_model) == "buildmer") e1_model <- e1_model@model
 
-# make table df
+# make table df, create table with kbl()
 
 contrasts_extract(e1_model, "opacity") %>%
   mutate(Contrast = str_replace_all(Contrast, labels_e1)) %>%
@@ -899,9 +1009,18 @@ performance were not as a result of differences in levels of graph literacy.
 
 # this approximation uses t values and the pooled standard deviation of the differences
 
+# first set kableExtra options
+
 options(knitr.kable.NA = "")
 
-efs <- lme.dscore(e1_model, E1_uniform_adjustments_tidy, type = "lme4") %>%
+# lme.dscore from shared_functions.R is reproduced from the now-defunct
+# EMAtools R package
+
+# create efs df
+
+efs <- lme.dscore(e1_model,
+                  E1_uniform_adjustments_tidy,
+                  type = "lme4") %>%
   as_tibble(rownames = "Effect") %>%
   select(-c(t, df)) %>%
   add_row(Effect = "opacityD", d = NA_real_, .before = 1) %>%
@@ -912,7 +1031,11 @@ efs <- lme.dscore(e1_model, E1_uniform_adjustments_tidy, type = "lme4") %>%
                          "opacityD" = "Full Opacity (alpha = 1.0)")) %>%
   rename("Cohen's \\textit{d}" = "d") 
 
+# use kbl() to create table
+
 kbl(efs, booktabs = TRUE, digits = c(0, 2), escape = FALSE)
+
+# pairwise comparisons
 
 emmeans(e1_model, pairwise ~ "opacity")[[1]] %>%
   as_tibble() %>%
@@ -932,6 +1055,8 @@ emmeans(e1_model, pairwise ~ "opacity")[[1]] %>%
 #| label: fig-estimates-by-r-e1
 #| include: true
 #| fig-cap: Participants' mean errors in correlation estimates grouped by condition and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring higher global point opacity. Error bars show standard deviations of estimates.
+
+# use plot_error_bars_function from shared_functions.R
 
 plot_error_bars_function(E1_uniform_adjustments_tidy %>%
                            mutate(grouping_var = fct_relevel(opacity,
@@ -1049,7 +1174,7 @@ time taken to complete the experiment was 33 minutes (SD = 10 minutes).
 For each of the 45 *r* values in Experiment 2, there were four versions 
 of each plot corresponding to the three levels of point opacity decay function and 
 the baseline global full opacity condition. Examples of each of these can be 
-seen in @fig-exp2-examples-chap4, demonstrated with an *r* value of 0.8. Given the
+seen in @fig-exp2-examples-chap4, demonstrated with an *r* value of 0.6. Given the
 shape of the underestimation curve found in previous work (see Figure 
 \ref{fig-underestimation-curves}, \chap{chap:related_work}), intuition suggested
 employing a symmetrically opposing curve (see the non-linear decay curve
@@ -1060,6 +1185,9 @@ in @fig-opposing-curve) to relate point opacity to residuals.
 #| include: true
 #| fig-cap: Using an \textit{r} value of 0.2 to demonstrate the relationship between the size of a point's residual and the alpha value (opacity) rendered.
 #| fig-asp: 1
+
+# create desired r value for opposing curve illustrative plot
+# note: methodology identical to that used to create exp stimuli
 
 my_desired_r = 0.2
   
@@ -1083,6 +1211,8 @@ my_residuals <- abs(residuals(corr_model))
 
 data_with_resid <- round(cbind(corr_data, my_residuals), 2)
 
+# create opposing slopes df
+
 slopes_opp <- data_with_resid %>%
   mutate(linear_decay = ((-my_residuals/2.6) + 1)) %>%
   mutate(inverted_decay = 1-(0.25)^my_residuals) %>%
@@ -1091,13 +1221,20 @@ slopes_opp <- data_with_resid %>%
                names_to = c("decay"),
                values_to = "transformed_residual")
 
+# create slopes plot, including manual annotations
+
 slopes_opp %>%
   mutate(decay = str_replace_all(decay, pattern = "_", replacement = " ")) %>%
   mutate(decay = str_to_title(decay)) %>%
   group_by(decay) %>%
   ggplot(aes(x = my_residuals, y = transformed_residual)) +
-  geom_textline(aes(colour = decay,label = decay, size = 6, hjust = 0.65, vjust = -0.3)) +
-  scale_x_continuous(breaks = scales::pretty_breaks(n = 10), limits = c(0,2.6)) +
+  geom_textline(aes(colour = decay,
+                    label = decay,
+                    size = 6,
+                    hjust = 0.65,
+                    vjust = -0.3)) +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10),
+                     limits = c(0,2.6)) +
   labs(x = "Residual",
        y = "Alpha (opacity)") +
   theme_ggdist() +
@@ -1131,8 +1268,10 @@ likely to be found.
 ```{r}
 #| label: fig-exp2-examples-chap4
 #| include: true
-#| fig-cap: Examples of the stimuli used in Experiment 2, demonstrated with an \textit{r} value of 0.8. Here, "opacity" refers to the alpha value used by `ggplot2`.
+#| fig-cap: Examples of the stimuli used in Experiment 2, demonstrated with an \textit{r} value of 0.6. Here, "opacity" refers to the alpha value used by `ggplot2`.
 #| fig-asp: 0.275
+
+# example plots for experiment 2, arranged with ggarrange()
 
 ggarrange(plot_example_function(slopes, "Non-Linear Decay",
                                 (1-slopes$slope_0.25), 0.2, 7),
@@ -1152,6 +1291,8 @@ ggarrange(plot_example_function(slopes, "Non-Linear Decay",
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
+# create experimental model
+
 e2_model <- buildmer(difference ~ opacity +
                        (1 + opacity | participant) +
                        (1 + opacity | item),
@@ -1165,7 +1306,9 @@ e2_model <- buildmer(difference ~ opacity +
 
 # build model with literacy added for later
 
-e2_lit_model <- add_fixed_effect(e2_model, "literacy", "E2_spatially_dependent_tidy")
+e2_lit_model <- add_fixed_effect(e2_model,
+                                 "literacy",
+                                 "E2_spatially_dependent_tidy")
 ```
 
 ```{r}
@@ -1173,11 +1316,16 @@ e2_lit_model <- add_fixed_effect(e2_model, "literacy", "E2_spatially_dependent_t
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
+# create null model
+
 e2_model_cmpr <- comparison(e2_model)
 ```
 
 ```{r}
 #| label: anova-results-e2
+
+# anova between null and experimental model
+# function outputs model stats to global env
 
 anova_results(e2_model, e2_model_cmpr)
 
@@ -1207,9 +1355,12 @@ along with 95% confidence intervals.
 
 if (class(e2_model) == "buildmer") e2_model <- e2_model@model
 
+# create plotting df
+
 plotting_df <- as_tibble(emmeans(e2_model, pairwise ~ "opacity")[[1]]) %>%
     mutate(opacity = fct_relevel(opacity, c("A", "B", "C", "D")))
 
+# write EMM csv if it does not exist already
 
 if (!file.exists(csv_wrangled <- "../data/other_data/exp2_emm_plot.csv")) {
   
@@ -1219,6 +1370,8 @@ if (!file.exists(csv_wrangled <- "../data/other_data/exp2_emm_plot.csv")) {
     write_csv("../data/other_data/exp2_emm_plot.csv")
   
 }
+
+# create emm plot, including manual annotations
 
  plotting_df %>%
   mutate(opacity = recode(opacity, !!!labels_e2)) %>%
@@ -1262,6 +1415,8 @@ if (!file.exists(csv_wrangled <- "../data/other_data/exp2_emm_plot.csv")) {
            label = "No Estimation Error",
            size = 2.5,
            angle = 270)
+ 
+# remove extraneous df
 
 rm(plotting_df)
 ```
@@ -1305,7 +1460,14 @@ variance ($\chi^2$(`r in_paren(e2_lit_model.df)`) = `r printp(e2_lit_model.Chisq
 
 # this approximation uses t values and the pooled standard deviation of the differences
 
+# first set kableExtra options
+
 options(knitr.kable.NA = "")
+
+# lme.dscore from shared_functions.R is reproduced from the now-defunct
+# EMAtools R package
+
+# create efs df
 
 efs <- lme.dscore(e2_model, E2_spatially_dependent_tidy, type = "lme4") %>%
   as_tibble(rownames = "Effect") %>%
@@ -1319,6 +1481,8 @@ efs <- lme.dscore(e2_model, E2_spatially_dependent_tidy, type = "lme4") %>%
   rename("Cohen's \\textit{d}" = "d") 
 
 kbl(efs, booktabs = TRUE, digits = c(0, 2), escape = FALSE)
+
+# pairwise comparisons
 
 emmeans(e2_model, pairwise ~ "opacity")[[1]] %>%
   as_tibble() %>%
@@ -1350,6 +1514,8 @@ estimates upwards to partially correct for the underestimation.
 #| include: true
 #| fig-cap: Participants' mean errors in correlation estimates grouped by condition and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring the non-linear opacity decay function. Error bars show standard deviations of estimates.
 
+# plot error bars using function from shared_functions.R
+
 plot_error_bars_function(E2_spatially_dependent_tidy %>%
                            mutate(grouping_var = fct_relevel(opacity,
                                                              c("A",
@@ -1367,9 +1533,13 @@ plot_error_bars_function(E2_spatially_dependent_tidy %>%
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
+# create new low range df by filtering existing df
+
 E2_low_range <- E2_spatially_dependent_tidy %>%
   filter(opacity == c("B", "D")) %>%
   filter(my_rs < 0.6)
+
+# build low range model
 
 e2_model_low_range <- buildmer(difference ~ opacity +
                        (1 + opacity | participant) +
@@ -1382,6 +1552,8 @@ e2_model_low_range <- buildmer(difference ~ opacity +
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
+# create low range comparison model
+
 e2_model_comparison_low_range <- comparison(e2_model_low_range)
 ```
 
@@ -1389,6 +1561,9 @@ e2_model_comparison_low_range <- comparison(e2_model_low_range)
 #| label: anova-results-e2-low-range
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
+
+# anova results for low range model vs null
+# outputs stats to global environment
 
 anova_results(e2_model_low_range, e2_model_comparison_low_range)
 ```
@@ -1446,7 +1621,10 @@ to identify the number of, or distance between, points \cite{netzel_2017}.
 #| label: fig-prediction-ellipse
 #| include: true
 #| fig-asp: 1
-#| fig-cap: Plot showing a 95\% prediction ellipse over a scatterplot with an \textit{r} value of 0.8.
+#| fig-cap: Plot showing a 95\% prediction ellipse over a scatterplot with an \textit{r} value of 0.6.
+
+# use plot_example_function from shared_functions.R to create
+# plot that includes prediction ellipse
 
 plot_example_function(slopes ,"", 1, 0.2, 7) +
   stat_ellipse(type = "norm")
@@ -1508,7 +1686,11 @@ scatterplots to support correlation perception:
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
+# create training model by adding fixed effect of half
+
 e1_training_model <- add_fixed_effect(e1_model, "half", "E1_uniform_adjustments_tidy")
+
+# just use standard experimental model as null
 
 e1_training_cmpr <- e1_model
 ```
@@ -1518,6 +1700,9 @@ e1_training_cmpr <- e1_model
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
+# anova results for training model vs null (exp)
+# outputs stats to global environment
+
 anova_results(e1_training_model, e1_training_cmpr)
 ```
 
@@ -1525,6 +1710,8 @@ anova_results(e1_training_model, e1_training_cmpr)
 #| label: model-e2-training
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
+
+# as above, but for experiment 2
 
 e2_training_model <- add_fixed_effect(e2_model, "half", "E2_spatially_dependent_tidy")
 
@@ -1535,6 +1722,9 @@ e2_training_cmpr <- e2_model
 #| label: model-e2-training-results
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
+
+# anova results for training model vs null (exp)
+# outputs stats to global environment
 
 anova_results(e2_training_model, e2_training_cmpr)
 ```

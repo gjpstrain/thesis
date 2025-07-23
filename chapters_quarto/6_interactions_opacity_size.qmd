@@ -78,13 +78,22 @@ labels_power <- c(size_power = "Size\nPower",
                   opacity_power = "Opacity\nPower",
                   additive_power = "Size and Opacity\nCombined Power")
 
+# read in shared_functions.R
+
 source("../shared_functions.R")
+
+# create slopes df for example plots
 
 slopes <- prepare_slopes(0.6)
 ```
 
 ```{r}
 #| label: load-data
+
+# load data. For some reason dplyr incorrectly reads some of the columns'
+# data types. Setting guess_max higher fixes this
+
+# rename experiment at the same time
 
 exp4_anon <- read_csv("../data/exp_4_data.csv", guess_max = 17000) %>%
   mutate("expName" = recode(expName,
@@ -94,13 +103,15 @@ exp4_anon <- read_csv("../data/exp_4_data.csv", guess_max = 17000) %>%
 ```{r}
 #| label: retrieve-cached-models-chap6
 
+# read in cached models
+
 if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
 ```
 
 ```{r}
 #| label: wrangle-data
 
-## NB: With the exception of anonymization, data are provided as-is from 
+## NB: With the exception of anonymisation, data are provided as-is from 
 ## pavlovia (survey tool). Wrangling function *must* be run first to make
 ## the data set usable
 
@@ -176,13 +187,19 @@ demographics <- anon_file %>%
 # this will be simpler to plot with later
 
 anon_file <- anon_file %>%
-  mutate(images = str_replace(images, pattern = "A", replacement = "-S-S")) %>%
-  mutate(images = str_replace(images, pattern = "B", replacement = "-I-I")) %>%
-  mutate(images = str_replace(images, pattern = "X", replacement = "-S-I")) %>%
-  mutate(images = str_replace(images, pattern = "Y", replacement = "-I-S")) %>%
-  separate(images, c("item",
-                     "opacity",
-                     "size"),
+  mutate(images = str_replace(images,
+                              pattern = "A",
+                              replacement = "-S-S")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "B",
+                              replacement = "-I-I")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "X",
+                              replacement = "-S-I")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "Y",
+                              replacement = "-I-S")) %>%
+  separate(images, c("item", "opacity", "size"),
            sep = "-") %>%
   mutate(size = str_replace(size, pattern = ".png", replacement = "")) %>%
   mutate(condition_abs = case_when(
@@ -325,7 +342,11 @@ and size can bias correlation estimation, I present a single experiment study co
 point opacity and size manipulations from \chap{chap:adjusting_opacity} and \chap{chap:adjusting_size}.
 In a condition where point opacity and size are reduced as a function of residual
 magnitude, correlation estimation is significantly biased upwards, a finding
-that suggests the effects of changing point opacity and size are not linearly additive.
+that suggests there are few limits with regards to using point opacity and size to 
+manipulate perceived contrast. Additionally, this effect is stronger than 
+the effects of changing point opacity and size in isolation, and is greater
+than what might be expected if the effects of point opacity and size on correlation
+estimation were linearly additive.
 
 # Introduction {#introduction-interactions}
 
@@ -342,7 +363,7 @@ this question would not only allow for a deeper exploration of the potential
 mechanisms behind each decay function, but would further empower visualisation
 designers with the knowledge of how altering point opacities and sizes might 
 affect people's interpretations of the correlations displayed therein. In a
-fully-reproducible, large-sample (N = 150) study, I show that combining point opacity
+fully-reproducible, large-sample (*N* = 150) study, I show that combining point opacity
 and size manipulations can produce more powerful effects on correlation estimation
 than either manipulation in isolation. Additionally, I comment on the impact that the adjustment
 of each visual feature may have on correlation estimation, and suggest future work
@@ -401,13 +422,13 @@ effects on correlation perception that go beyond that available through manipula
 only of point opacity.
 
 While the mechanistic driver of the effects of point opacity on correlation
-perception is unclear, the balance of evidence for point size points towards
+perception is unclear, the balance of evidence for point size suggests
 a point salience/perceptual weighting account. There is evidence that larger 
 stimulus size is associated with lower levels of spatial certainty \cite{alais_2004},
 but higher levels of salience \cite{healey_2012}, results which are supported by evidence 
 that reaction times are slower to smaller stimuli \cite{gramazio_2014, osaka_1976}.
 The predicted effects of spatial certainty and salience on correlation perception
-operate in the opposite direction to one another, lead to the conclusion in
+operate in the opposite direction to one another, which lead to the conclusion in
 \chap{chap:adjusting_size} that point salience is a more likely candidate mechanism.
 In an investigation into perceptions of global means in scatterplots, it has been
 found that perceptions are biased towards areas that contain larger points \cite{hong_2022}.
@@ -416,7 +437,7 @@ present work.
 
 # Hypotheses {#hypotheses-interactions}
 
-A single experiment is present in this chapter based on the effects of adjusting
+A single experiment is presented in this chapter based on the effects of adjusting
 point opacity and size on correlation estimation established in \chap{chap:adjusting_opacity}
 and \chap{chap:adjusting_size}. Here, previously independently tested point opacity and size
 manipulations are tested in both typical orientation (point opacity/size is 
@@ -428,12 +449,12 @@ point opacity and size decay act in the same direction (typical or inverted),
 while for *incongruent* conditions, point opacity and size decay act against 
 each other. Due to previous findings that non-linearly reducing point opacity 
 or size as a function of residual magnitude can bias correlation estimates upwards,
-and that increasing point opacity and size can further bias estimates downwards,
-it is hypothesised that:
+and that increasing point opacity and size with residual magnitude can further
+bias estimates downwards, it is hypothesised that:
 
  - H1: an increased reduction in correlation estimation error will be observed
  when congruent typical orientation decay functions are used.
- - H2: the use of a congruent inverted function, such that point opacity and size
+ - H2: the use of congruent inverted functions, such that point opacity and size
  are both increased with residual magnitude, will produce the least accurate
  estimates of correlation.
  
@@ -462,10 +483,11 @@ The hypotheses and analysis plans were pre-registered with the Open Science Fram
 
 ## Stimuli {#stimuli-e4}
 
-The creation of the stimuli in this experiment follows the same general principles
-outline in Section \ref{creating-stimuli}, \chap{chap:gen_methods}. `ggplot2` 
+The creation of the stimuli in this experiment follow the same general principles
+outlined in Section \ref{creating-stimuli}, \chap{chap:gen_methods}. `ggplot2` 
 (version 3.5.0) was used to create the stimuli. Again, equation
-6.1 was used to map point residuals to opacity and size values:
+6.1 was used to map point residuals to opacity and size values, with a value
+of b = 0.25:
 
 \begin{equation}
   point_{size/opacity} = 1 - b^{residual}
@@ -477,8 +499,8 @@ these adjustments resulted in the smallest points having a width of 12 pixels on
 a 1920x1080 pixel monitor, which is consistent with the point size used in 
 \chap{chap:adjusting_opacity} and the minimum point size used in \chap{chap:adjusting_size}.
 With regards to changing the opacities of points, an alpha = 0.2 floor was implemented,
-as informal piloting indicated low levels of visibility when very small points were
-especially transparent. In this experiment, point opacity or size manipulations in which a reduction with
+as informal piloting indicated low levels of visibility when very small points also
+had particularly low opacity. In this experiment, point opacity or size manipulations in which a reduction with
 residual magnitude takes place are referred to as *typical orientation*, while those
 in which point opacity or size are increased with residual magnitude are referred
 to as *inverted orientation*. Additionally, as the current experiment only examines
@@ -492,38 +514,45 @@ Labelled examples of the stimuli used in this experiment can be viewed in
 ```{r}
 #| label: fig-exp4-examples-chap6
 #| include: true
-#| fig-cap: Examples of the stimuli used in Experiment 4, demonstrated with an \textit{r} value of 0.8.
+#| fig-cap: Examples of the stimuli used in Experiment 4, demonstrated with an \textit{r} value of 0.6.
 #| fig-asp: 0.275
 
-examples_congruent <- ggarrange(plot_example_function(slopes,
-                                                      "Typical Orientation Size\nTypical Orientation Opacity",
-                                                      (1-slopes$slope_0.25),
-                                                      (1-slopes$slope_0.25),
-                                                      6.25),
-                                plot_example_function(slopes,
-                                                      "Inverted Orientation Size\nInverted Orientation Opacity",
-                                                      (1-slopes$slope_inverted),
-                                                      (1-slopes$slope_inverted),
-                                                      6.25), nrow = 1) +
+# create congruent and incongruent example plots separately
+
+examples_congruent <- 
+  ggarrange(plot_example_function(slopes,
+                                  "Typical Orientation Size\nTypical Orientation Opacity",
+                                  (1-slopes$slope_0.25),
+                                  (1-slopes$slope_0.25),
+                                  6.25),
+            plot_example_function(slopes,
+                                  "Inverted Orientation Size\nInverted Orientation Opacity",
+                                  (1-slopes$slope_inverted),
+                                  (1-slopes$slope_inverted),
+                                  6.25), nrow = 1) +
   annotate(geom = "text",
            label = "Congruent Plots",
            x = 0.5,
            y = 0.07)
 
-examples_incongruent <- ggarrange(plot_example_function(slopes,
-                                                        "Inverted Orientation Size\nTypical Orientation Opacity",
-                                                        (1-slopes$slope_inverted),
-                                                        (1-slopes$slope_0.25),
-                                                        6.25),
-                                  plot_example_function(slopes,
-                                                        "Typical Orientation Size\nInverted Orientation Opacity",
-                                                        (1-slopes$slope_inverted),
-                                                        (1-slopes$slope_inverted),
-                                                        6.25), nrow = 1) +
-    annotate(geom = "text",
+examples_incongruent <- 
+  ggarrange(plot_example_function(slopes,
+                                  "Inverted Orientation Size\nTypical Orientation Opacity",
+                                  (1-slopes$slope_inverted),
+                                  (1-slopes$slope_0.25),
+                                  6.25),
+            plot_example_function(slopes,
+                                  "Typical Orientation Size\nInverted Orientation Opacity",
+                                  (1-slopes$slope_inverted),
+                                  (1-slopes$slope_inverted),
+                                  6.25),
+            nrow = 1) +
+  annotate(geom = "text",
            label = "Incongruent Plots",
            x = 0.5,
            y = 0.07)
+
+# arrange plots together
 
 ggarrange(examples_congruent, examples_incongruent, nrow = 1)
 ```
@@ -532,6 +561,8 @@ ggarrange(examples_congruent, examples_incongruent, nrow = 1)
 
 ```{r}
 #| label: visibility-e4
+
+# extract visibility testing information
 
 VT <- E4_interactions_tidy %>%
   summarise(mean_VT_no_correct = mean(VT_no_correct),
@@ -569,6 +600,8 @@ Section \ref{results-e4}.
 
 ```{r}
 #| label: dot-pitch-e4
+
+# extract dot pitch information
 
 dot_pitch <- E4_interactions_tidy %>%
   summarise(mean_dp = mean(dot_pitch),
@@ -636,6 +669,8 @@ time taken to complete the experiment was 37 minutes (SD = 12.3 minutes).
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
+# build experimental model
+
 e4_model <- buildmer(difference ~ size * opacity + 
                        (1 + size * opacity | participant) +
                        (1 + size * opacity | item),
@@ -649,21 +684,34 @@ e4_model <- buildmer(difference ~ size * opacity +
 
 # build additional models (literacy, dot pitch, and training)
 
-e4_lit_model <- add_fixed_effect(e4_model, "literacy", "E4_interactions_tidy")
+e4_lit_model <- add_fixed_effect(e4_model,
+                                 "literacy",
+                                 "E4_interactions_tidy")
 
-e4_dot_pitch_model <- add_fixed_effect(e4_model, "dot_pitch", "E4_interactions_tidy")
+e4_dot_pitch_model <- add_fixed_effect(e4_model,
+                                       "dot_pitch",
+                                       "E4_interactions_tidy")
 
-e4_VT_model <- add_fixed_effect(e4_model, "VT_no_correct", "E4_interactions_tidy")
+e4_VT_model <- add_fixed_effect(e4_model,
+                                "VT_no_correct",
+                                "E4_interactions_tidy")
 
-e4_training_model <- add_fixed_effect(e4_model, "half", "E4_interactions_tidy")
+e4_training_model <- add_fixed_effect(e4_model,
+                                      "half",
+                                      "E4_interactions_tidy")
 
-e4_trial_number_model <- add_fixed_effect(e4_model, "trials.thisN", "E4_interactions_tidy")
+e4_trial_number_model <- add_fixed_effect(e4_model,
+                                          "trials.thisN",
+                                          "E4_interactions_tidy")
 ```
 
 ```{r}
 #| label: model-e4-cmpr
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
+
+# build null comparison model using comparison() function from
+# shared_functions.R
 
 e4_model_cmpr <- comparison(e4_model)
 ```
@@ -672,6 +720,7 @@ e4_model_cmpr <- comparison(e4_model)
 #| label: anova-results-e4
 
 # do all anovas now
+# anova_results function ouputs stats to global environment
 
 anova_results(e4_model, e4_model_cmpr)
 
@@ -713,6 +762,8 @@ along with 95% confidence intervals.
 
 if (class(e4_model) == "buildmer") e4_model <- e4_model@model
 
+# create plotting df
+
 plotting_df <- as_tibble(emmeans(e4_model, pairwise ~ size * opacity)[[1]]) %>%
   mutate(condition = case_when(
     opacity == "S" & size == "S" ~ "A",
@@ -722,6 +773,8 @@ plotting_df <- as_tibble(emmeans(e4_model, pairwise ~ size * opacity)[[1]]) %>%
     TRUE ~ "placeholder"
   ))
 
+# create EMM plot df for use in chapter 8
+
 if (!file.exists(csv_wrangled <- "../data/other_data/exp4_emm_plot.csv")) {
   
   plotting_df %>%
@@ -730,6 +783,8 @@ if (!file.exists(csv_wrangled <- "../data/other_data/exp4_emm_plot.csv")) {
     write_csv("../data/other_data/exp4_emm_plot.csv")
   
 }
+
+# create EMM plot, including manual annotations
 
 plotting_df %>%
   mutate("size" = recode(size,
@@ -828,6 +883,8 @@ in @tbl-model-stats-e4.
 #| include: true
 #| tbl-cap: Significances of fixed effects and the interaction between them. Semi-partial R^2^ for each fixed effect and the interaction term is also displayed in lieu of effect sizes.
 
+# use function defined in this document to create model significance table
+
 make_sig_table(e4_model)
 ```
 
@@ -836,6 +893,8 @@ make_sig_table(e4_model)
 #| include: true
 #| fig-cap: Comparing mean errors in correlation estimation by trial number. Points represent unsigned mean errors for each trial number. The plotted line is the locally estimated smoothed curve, with the ribbon representing standard errors.
 #| fig-asp: 0.4
+
+# create plot of error by trial position
 
 E4_interactions_tidy %>%
   drop_na() %>%
@@ -897,6 +956,8 @@ at least as it pertains to correlation estimation in scatterplots.
 #| label: fig-estimates-by-r-e4
 #| include: true
 #| fig-cap: Participants' mean errors in correlation estimates grouped by factor and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots in the congruent, typical orientation condition. Error bars show standard deviations of estimates.
+
+# plot error bars
 
 plot_error_bars_function(E4_interactions_tidy %>%
                            mutate(grouping_var = fct_relevel(condition_abs,
@@ -1013,11 +1074,15 @@ this to the point where precision is restored.
 ```{r}
 #| label: fig-all-est-curves
 #| include: true
-#| fig-cap: Plotting errors in *r* estimation against objective *r* values for opacity and size decay functions. On the left, opacity and size decay functions in combination in the typical orientation congruent condition from the current experiment. The plots in the centre show estimation error for opacity and size decay functions in isolation from previous chapters. The right-hand plot averages the comparitive baseline (standard scatterplotr) conditions from the previous two chapters.
+#| fig-cap: Plotting errors in *r* estimation against objective *r* values for opacity and size decay functions. On the left, opacity and size decay functions in combination in the typical orientation congruent condition from the current experiment. The plots in the centre show estimation error for opacity and size decay functions in isolation from previous chapters. The right-hand plot averages the comparitive baseline (standard scatterplot) conditions from the previous two chapters.
 
 # set facet orders
 
 facet_order <- c("opacity_manipulated", "size_manipulated", "additive_manipulation", "standard_plot")
+
+# a combined dataframe with all data from experiments 1 to 4 is provided
+# in the data folder. Read this in, then create the "standard scatterplot"
+# factor first
 
 standard_alone <- read_csv("../data/exp_1_to_4_combined.csv") %>%
     drop_na() %>%
@@ -1036,6 +1101,8 @@ standard_alone <- read_csv("../data/exp_1_to_4_combined.csv") %>%
   ungroup() %>%
   select(-group)
 
+# use the same csv to create df for other factors
+
 all_exp_df <- read_csv("../data/exp_1_to_4_combined.csv") %>%
     drop_na() %>%
     filter(factor != "standard_plot") %>%
@@ -1043,11 +1110,17 @@ all_exp_df <- read_csv("../data/exp_1_to_4_combined.csv") %>%
     summarise(sd = sd(difference), mean = mean(difference)) %>%
     mutate(factor = factor(factor, levels = facet_order))
 
+# combine standard_alone and other factors into single df
+
 plotting_df <- rbind(all_exp_df, standard_alone)
+
+# create plot
 
   plotting_df %>% 
     ggplot(aes(x = my_rs, y = -1*mean)) + 
-    geom_errorbar(mapping = aes(ymin = -1*mean + sd, ymax = -1*mean - sd),width = 0.01, size = 0.3) +
+    geom_errorbar(mapping = aes(ymin = -1*mean + sd, ymax = -1*mean - sd),
+                  width = 0.01,
+                  size = 0.3) +
     theme_ggdist() +
     scale_y_continuous(breaks = seq(-0.4,1, 0.2)) +
     theme(strip.text = element_text(size = 6,
@@ -1056,7 +1129,8 @@ plotting_df <- rbind(all_exp_df, standard_alone)
           axis.text = element_text(size = 7),
           axis.title.x = ggtext::element_markdown(size = 8),
           axis.title.y = ggtext::element_markdown(size = 8)) +
-    facet_wrap(factor ~., ncol = 4, labeller = labeller(factor = labels_all_exp)) +
+    facet_wrap(factor ~., ncol = 4,
+               labeller = labeller(factor = labels_all_exp)) +
     labs(x = "Objective *r*",
          y = "Mean *r* Estimation Error") +
     geom_smooth(se = FALSE, colour = "black", size = 0.4) +
@@ -1071,7 +1145,7 @@ shows correlation estimation error curves in the present experiment (typical ori
 and in the non-linear decay conditions for both opacity decay (\chap{chap:adjusting_opacity})
 and size decay (see \chap{chap:adjusting_size}) conditions. The "no manipulations
 present" plot is averaged from the results of Experiments 1 to 3. Using
-opacity decay alone significantly changes the amplitude of the estimation curve,
+opacity decay alone significantly changes the amplitude of the estimation curve
 while leaving its shape intact; this can be seen by comparing opacity decay
 and standard scatterplot plots in @fig-all-est-curves. Using size decay changes
 both the amplitude and the shape of the estimation curve. When opacity and size
@@ -1118,43 +1192,69 @@ with opacity and size decay to those made without.
 
 curves <- read_csv("../data/curves_df.csv") 
 
+# set facet order for plotting
+
 facet_order <- c("opacity_power", "size_power", "additive_power")
 
 # create necessary power curve
 
-necessary_power <- curves %>% select(c("my_rs", "standard_curve")) %>%
+necessary_power <- curves %>%
+  select(c("my_rs",
+           "standard_curve")) %>%
   mutate(mirror = my_rs-standard_curve)
 
 # find integrals
 
-int_df <- left_join(curves, necessary_power, by = "my_rs")
+int_df <- left_join(curves,
+                    necessary_power,
+                    by = "my_rs")
 
-area_opac <- round(AUC(int_df$my_rs, int_df$opacity_power) - AUC(int_df$my_rs, int_df$mirror), 3)
+area_opac <- round(AUC(int_df$my_rs,
+                       int_df$opacity_power) - AUC(int_df$my_rs,
+                                                   int_df$mirror), 3)
 
-area_size <- round(AUC(int_df$my_rs, int_df$size_power) - AUC(int_df$my_rs, int_df$mirror), 3)
+area_size <- round(AUC(int_df$my_rs,
+                       int_df$size_power) - AUC(int_df$my_rs,
+                                                int_df$mirror), 3)
 
-area_combined <- round(AUC(int_df$my_rs, int_df$additive_power) - AUC(int_df$my_rs, int_df$mirror), 3)
+area_combined <- round(AUC(int_df$my_rs,
+                           int_df$additive_power) - AUC(int_df$my_rs,
+                                                        int_df$mirror), 3)
 
-int_opac <- round(AUC(int_df$my_rs, int_df$opacity_power), 3)
+int_opac <- round(AUC(int_df$my_rs,
+                      int_df$opacity_power), 3)
 
-int_size <- round(AUC(int_df$my_rs, int_df$size_power), 3)
+int_size <- round(AUC(int_df$my_rs,
+                      int_df$size_power), 3)
 
-int_combined <- round(AUC(int_df$my_rs, int_df$additive_power), 3)
+int_combined <- round(AUC(int_df$my_rs,
+                          int_df$additive_power), 3)
 
-# create area and int labels for facetted plots
+# create area and integral labels for facetted plots
+# these must be created as expressions due to the use of maths symbols
 
 area_labels <- tibble(
-  label = c(substitute(expression(integral(italic(f)(italic(x)) - italic(g)(italic(x))*italic(dx), 0.2, 1) == a), list(a = area_opac)),
-            substitute(expression(integral(italic(f)(italic(x)) - italic(g)(italic(x))*italic(dx), 0.2, 1) == a), list(a = area_size)),
-            substitute(expression(integral(italic(f)(italic(x)) - italic(g)(italic(x))*italic(dx), 0.2, 1) == a), list(a = area_combined))),
-  factor = c("opacity_power", "size_power", "additive_power"),
+  label = c(substitute(expression(integral(italic(f)(italic(x)) - italic(g)(italic(x))*italic(dx), 0.2, 1) == a),
+                       list(a = area_opac)),
+            substitute(expression(integral(italic(f)(italic(x)) - italic(g)(italic(x))*italic(dx), 0.2, 1) == a),
+                       list(a = area_size)),
+            substitute(expression(integral(italic(f)(italic(x)) - italic(g)(italic(x))*italic(dx), 0.2, 1) == a),
+                       list(a = area_combined))),
+  factor = c("opacity_power",
+             "size_power",
+             "additive_power"),
 )
 
 int_labels <- tibble(
-  label = c(substitute(expression(integral(italic(f)(italic(x))*italic(dx), 0.2, 1) == a), list(a = int_opac)),
-            substitute(expression(integral(italic(f)(italic(x))*italic(dx), 0.2, 1) == a), list(a = int_size)),
-            substitute(expression(integral(italic(f)(italic(x))*italic(dx), 0.2, 1) == a), list(a = int_combined))),
-  factor = c("opacity_power", "size_power", "additive_power"),
+  label = c(substitute(expression(integral(italic(f)(italic(x))*italic(dx), 0.2, 1) == a),
+                       list(a = int_opac)),
+            substitute(expression(integral(italic(f)(italic(x))*italic(dx), 0.2, 1) == a),
+                       list(a = int_size)),
+            substitute(expression(integral(italic(f)(italic(x))*italic(dx), 0.2, 1) == a),
+                       list(a = int_combined))),
+  factor = c("opacity_power",
+             "size_power",
+             "additive_power"),
 )
 
 # create plot
@@ -1168,41 +1268,51 @@ int_labels <- tibble(
     pivot_longer(cols = c("opacity_power",
                           "size_power",
                           "additive_power"),
-                 names_to = "factor", values_to = "power") %>%
+                 names_to = "factor",
+                 values_to = "power") %>%
     mutate(factor = factor(factor, levels = facet_order)) %>%
     group_by(factor, my_rs) %>% 
-    summarise(sd = sd(power), mean = mean(power)) %>% 
-    ggplot(aes(x = my_rs, y = mean)) + 
+    summarise(sd = sd(power),
+              mean = mean(power)) %>% 
+    ggplot(aes(x = my_rs,
+               y = mean)) + 
     theme_ggdist() +
-    scale_y_continuous(breaks = seq(-0.4,1, 0.2)) +
-    theme(strip.text = element_text(size = 6, margin = margin(1,0,1,0, "mm")), aspect.ratio = 1,
+    scale_y_continuous(breaks = seq(-0.4, 1, 0.2)) +
+    theme(strip.text = element_text(size = 6, margin = margin(1, 0, 1, 0, "mm")),
+          aspect.ratio = 1,
           axis.text = element_text(size = 7),
           axis.title.x = ggtext::element_markdown(size = 8),
           axis.title.y = ggtext::element_markdown(size = 8)) +
-    facet_wrap(factor ~., ncol = 5, labeller = labeller(factor = labels_power)) +
+    facet_wrap(factor ~.,
+               ncol = 5,
+               labeller = labeller(factor = labels_power)) +
     labs(x = "Objective *r*",
          y = "Power") +
-    geom_smooth(se = FALSE, colour = "black", size = 0.4) +
+    geom_smooth(se = FALSE,
+                colour = "black",
+                size = 0.4) +
     geom_smooth(data = necessary_power,
                 aes(x = my_rs, y = mirror),
                 se = F,
                 linetype = 3,
                 colour = "black",
                 size = 0.4) +
-    xlim(0.2,1) +
-    ylim(-0.1,0.3) +
+    xlim(0.2, 1) +
+    ylim(-0.1, 0.3) +
     geom_text(data = area_labels,
               parse = T,
-              mapping = aes(x = -Inf, y = -Inf, label = gsub("^.(.*).$", "\\1", str_replace(label, "expression", ""))),
-              hjust = -0.4,
-              vjust = -0.2,
-              size = 2.5) +
+              mapping = aes(x = -Inf,
+                            y = -Inf,
+                            label = gsub("^.(.*).$", "\\1",
+                                         str_replace(label, "expression", ""))),
+              hjust = -0.4, vjust = -0.2, size = 2.5) +
        geom_text(data = int_labels,
               parse = T,
-              mapping = aes(x = -Inf, y = -Inf, label = gsub("^.(.*).$", "\\1", str_replace(label, "expression", ""))),
-              hjust = -0.6,
-              vjust = -1.4,
-              size = 2.5)
+              mapping = aes(x = -Inf,
+                            y = -Inf,
+                            label = gsub("^.(.*).$", "\\1",
+                                         str_replace(label, "expression", ""))),
+              hjust = -0.6, vjust = -1.4, size = 2.5)
 
 ```
 
@@ -1212,7 +1322,8 @@ required level of correction, and combining point opacity and size decay results
 in gross overestimation. @fig-power-plot-e4 also includes the integral of each
 power curve over *r* as a measure of the total power of each curve. Subtracting the
 integral of the required power curve from the integral of the observed power
-curve allows a numerical value to be calculated for how far off each manipulation is.
+curve allows a numerical value to be calculated for the discrepancy between observed
+and required power for each manipulation.
 
 ## Mechanisms
 
@@ -1254,8 +1365,8 @@ is not additive, it is difficult to comment precisely on what proportions
 of the observed effects are a result of each manipulation. Previous work \cite{hong_2022},
 as well as the work carried out here and in \chap{chap:adjusting_size},
 suggest that point size has much more potential to change perceptual estimates,
-although the exact ways in which of opacity and size manipulations would require
-future work.
+although ascertaining the exact ways in which opacity and size manipulations 
+interact would require future work.
 
 Due to the extensive testing of "no manipulations present" conditions (*full opacity*
 in \chap{chap:adjusting_opacity} and *standard size* in \chap{chap:adjusting_size}),
@@ -1275,8 +1386,8 @@ as the ones presented here were to appear in the wild, however, it would be
 necessary to clarify that they were designed to aid in the
 rapid and intuitive interpretation of correlation (and *only* this). Irrespective
 of the potential for misinterpretation, strong baseline evidence for 
-a perceptual effect of changing point size and opacity in scatterplots is provided that may
-be expanded on and further exploited in future work.
+a perceptual effect of changing point size and opacity in scatterplots is 
+provided that may be expanded on and further exploited in future work.
 
 ## Future Work {#future-work-e4}
 
@@ -1297,15 +1408,15 @@ scatterplots \cite{sher_2017}. Findings that correlation perception in negativel
 correlated scatterplots functions symmetrically to that of positively correlated
 scatterplots \cite{harrison_2014} suggest that the techniques implemented here
 may be used (in a symmetrical manner) to address the overestimation bias.
-Evidence that the influence of size and opacity decay functions changes according to the direction
-they are operating in means experimental work with negatively correlated
-scatterplots would be required, and results may differ significantly from
-findings related to the underestimation of correlation in positively
-correlated scatterplots.
+Evidence that the influence of size and opacity decay functions changes 
+according to the direction they are operating in means experimental work 
+with negatively correlated scatterplots would be required, and results may 
+differ significantly from findings related to the underestimation of correlation
+in positively correlated scatterplots.
 
 All the work in the present chapter, along with that in \chap{chap:adjusting_opacity}
-and \chap{chap:adjusting_size}, uses the same equation (reproduced below) to relate point residuals
-to specific opacity and size values.
+and \chap{chap:adjusting_size}, uses the same equation (reproduced below) to 
+relate point residuals to specific opacity and size values.
 
 \begin{equation}
   point_{size/opacity} = 1 - b^{residual}
@@ -1315,10 +1426,11 @@ Given the finding that the combination of point opacity and size decay is not ad
 there are a multitude of parameters that may be adjusted and tested to explore
 the relative contributions of each to the effects seen. The value of *b*, which
 so far has only been b = 0.25, is one such parameter, and controls the severity
-of the fall-off in point opacity or size of the decay function in question. The opacity floor, size scaling
-factor, and size constant are other values that might be changed. Of course,
-the equation used is not exhaustive; future work may wish to investigate more
-complicated equations that link the objective *r* value to the decay condition.
+of the fall-off in point opacity or size of the decay function in question. The 
+opacity floor, size scaling factor, and size constant are other values that
+might be changed. Of course, the equation used is not exhaustive; future work 
+may wish to investigate more complicated equations that link the objective *r*
+value to the decay condition.
 
 Future experimental work may use the major axis through the probability ellipse
 instead of the regression line as a baseline to change point sizes and opacities;

@@ -24,6 +24,8 @@ execute:
 ```{r}
 #| label: setup
 
+# load libraries
+
 library(tidyverse)
 library(ggdist)
 library(ggpubr)
@@ -34,7 +36,11 @@ library(MASS)
 library(GGally)
 library(hexbin)
 
+# load shared functions scripts
+
 source("../shared_functions.R")
+
+# prepare slopes df for example plots
 
 slopes <- prepare_slopes(0.6)
 
@@ -93,6 +99,8 @@ Sigmund Günther in 1877. This illustration is included here in @fig-early-time-
 #| out-width: NA
 #| out-height: NA
 
+# include pre-rendered graphics
+
 knitr::include_graphics(path = "../supplied_graphics/tufte_1983.png", dpi = NA)
 ```
 
@@ -118,6 +126,8 @@ For example, in 1626, Scheiner used what Tufte would later term the "principle o
 #| include: true
 #| fig-cap: Scheiner's (1626) plot detailing how configurations of sunspots change over time. This technique would later be referred to as the "principle of small multiples" by Tufte.
 
+# include pre-rendered graphics
+
 knitr::include_graphics(path = "../supplied_graphics/sunspots.png", dpi = NA)
 ```
 
@@ -125,6 +135,8 @@ knitr::include_graphics(path = "../supplied_graphics/sunspots.png", dpi = NA)
 #| label: fig-cholera
 #| include: true
 #| fig-cap: John Snow's (1854) map of cholera cases in Soho, London. Using this data visualisation, Snow was able to demonstrate a link between cholera cases and a contaminated water supply.
+
+# include pre-rendered graphics
 
 knitr::include_graphics(path = "../supplied_graphics/snow_cholera.jpg", dpi = NA)
 ```
@@ -134,6 +146,8 @@ knitr::include_graphics(path = "../supplied_graphics/snow_cholera.jpg", dpi = NA
 #| include: true
 #| fig-cap: Charles Joseph Minard's (1869) flow diagram of Napoleon's botched invasion of Russia in 1812-1813. This diagram shows Napoleon's advance and retreat on Moscow. The width of the orange and black columns encodes the size of the Grande Armée. The temperature scale on the lower portion of the graph illustrates the weather conditions during the retreat, with a freezing Russian winter causing high rates of attrition.
 
+# include pre-rendered graphics
+
 knitr::include_graphics(path = "../supplied_graphics/minard_napoleon.jpg", dpi = NA)
 ```
 
@@ -141,6 +155,8 @@ knitr::include_graphics(path = "../supplied_graphics/minard_napoleon.jpg", dpi =
 #| label: fig-nightingale
 #| include: true
 #| fig-cap: Florence Nightingale's (1858) polar area chart illustrates the causes for mortality among British soldiers during the Crimean War. Data visualisations of this type were used to illustrate that in reality, more British soldiers died from preventable disease than were killed by the enemy, and were used as part of a campaign to improve sanitation among soldiers.
+
+# include pre-rendered graphics
 
 knitr::include_graphics(path = "../supplied_graphics/nightingale-rose.jpg", dpi = NA)
 ```
@@ -197,6 +213,8 @@ extensively in this thesis.
 #| label: fig-rug-density
 #| include: true
 #| fig-cap: Major milestones in the development of data visualisation illustrated using a rug plot and density estimate. This figure is taken from Friendly (2008) \cite{friendly_2008}.
+
+# include pre-rendered graphics
 
 knitr::include_graphics(path = "../supplied_graphics/rug_density.png", dpi = NA)
 ```
@@ -283,6 +301,8 @@ are.
 #| fig-cap: Anscombe's quartet \cite{anscombe_1973}. Each scatterplot depicts datasets with identical means ($x$ = 9, $y$ = 7.5), regression coefficients ($y$ on $x$ = 0.5), standard errors (0.118), and Pearson's *r* values (≈ 0.816).
 #| fig-asp: 0.25
 
+# write function to create plots for Anscombe's quartet
+
 anscombe_plot <- function (x_var, y_var) {
   datasets::anscombe %>%
     as_tibble() %>%
@@ -298,6 +318,8 @@ anscombe_plot <- function (x_var, y_var) {
     xlim(3,20) +
     ylim(3,13)
 }
+
+# use function on dataset::anscombe
 
 ggarrange(anscombe_plot("x1", "y1"),
           anscombe_plot("x2", "y2"),
@@ -337,9 +359,15 @@ the more recent use of other, non-scatterplot graphs.
 #| fig-cap: Francis Galton's original plot comparing the semi-interquartile ranges of stature (height) and cubit (forearm length). The plot has been recreated using `ggplot2` on the right.
 #| fig-asp: 0.5
 
+# set random seed for reproducibility
+
 set.seed(3932)
 
+# set number of data points
+
 n <- 10
+
+# create plotting df
 
 data <- data.frame(
   stature = runif(n, -1, 1),
@@ -347,7 +375,9 @@ data <- data.frame(
 ) %>%
   mutate(cubit = stature)
 
-p1 <-  ggplot(data, aes(stature, cubit)) +
+# use ggplot2 to create reproduction of Galton's origin plot
+
+p1 <- ggplot(data, aes(stature, cubit)) +
           geom_jitter(data = subset(data, type == "x"), shape = 4, width = 0.4) +
           geom_jitter(data = subset(data, type == "o"), shape = 1, width = 0.4) +
           geom_abline(intercept = -0.5, slope = 1, linetype = "dashed") +
@@ -380,12 +410,19 @@ p1 <-  ggplot(data, aes(stature, cubit)) +
           annotate("text", x = -0.25, y = 0.45, angle = 45, label = "Line of Q1 values", size = 4) +
           annotate("text", x = 0.35, y = -0.35, angle = 45, label = "Line of Q3 values", size = 4)
 
+# include pre-rendered graphics
 
 img <- readPNG("../supplied_graphics/galton_scan.png")
 
+# convert suppled image to graphic object (grob)
+
 g <- rasterGrob(img, interpolate = TRUE)
 
+# draw plotting area and suppled graphic
+
 p2 <- ggdraw() + draw_grob(g)
+
+# combine plots into one
 
 plot_grid(p2, p1, ncol = 2)
 ```
@@ -435,26 +472,32 @@ luminosity against colour (temperature). I have plotted an HR diagram in
 #| include: true
 #| fig-cap: Hertzsprung-Russell diagram of colour index against stellar luminosity. The code for this plot was taken from John Russell's (no relation) blog \cite{russell_2025}.
 
+# read HRG dataset from other_data folder
+
 HRG_data <- read_csv("../data/other_data/hygdata_v41.csv") %>%
   filter(dist < 10000)
 
+# set option to remove scientific notations in plot
+
 options(scipen = 999)
+
+# create HR diagram
 
 HRG_data %>%
   ggplot(aes(ci, lum, colour = ci)) +
   geom_point(size = 0.02, show.legend = F) +
   scale_y_log10() +
-  scale_x_continuous(limits=c(-.5,2.25)) +
-  scale_color_gradient2(low= "blue", mid="white", high="red",midpoint=0.75) +
+  scale_x_continuous(limits = c(-.5,2.25)) +
+  scale_color_gradient2(low = "blue", mid = "white", high = "red",midpoint=0.75) +
   theme_minimal() +
-  theme(panel.background=element_rect(fill="black"),
-        panel.grid=element_blank(),
+  theme(panel.background = element_rect(fill = "black"),
+        panel.grid = element_blank(),
         plot.title = element_text(size = 8),
         axis.title = element_text(size = 8),
         axis.text = element_text(size = 6.5)) +
   labs(title="Hertzsprung-Russell Diagram",
-       y="Luminosity (in comparison to Sun)",
-       x="Color Index (blue magnitude - visual magnitude)")
+       y = "Luminosity (in comparison to Sun)",
+       x = "Color Index (blue magnitude - visual magnitude)")
 ```
 
 The clear band that can be seen in @fig-HR-plot from top-left to bottom
@@ -501,7 +544,7 @@ theme_other_viz <- function() {
     )
 }
 
-# PCP
+# create Parallel Coordinates Plot
 
 PCP_plot <- slopes %>% 
   mutate(ID = seq_len(nrow(slopes))) %>%
@@ -518,7 +561,7 @@ PCP_plot <- slopes %>%
   ylim(0.1,
        0.9)
 
-# stacked area
+# create stacked area chart
 
 stacked_area_plot <- slopes %>%
   mutate(ID = seq_len(nrow(slopes))) %>%
@@ -532,8 +575,7 @@ stacked_area_plot <- slopes %>%
   labs(title = "Stacked Area Plot") +
   scale_color_brewer(palette = "Dark2", aesthetics = "fill")
   
-
-# donut
+# create donut plot
 
 radial_stack <- slopes %>%
   mutate(ID = seq_len(nrow(slopes))) %>%
@@ -547,7 +589,7 @@ radial_stack <- slopes %>%
   labs(title = "Radial Stacked Bar Plot") +
   scale_color_brewer(palette = "Dark2", aesthetics = "fill")
 
-# radar
+# create radar plot
 
 radar_plot <- slopes %>%
   mutate(ID = seq_len(nrow(slopes))) %>%
@@ -561,6 +603,8 @@ radar_plot <- slopes %>%
   labs(title = "Radar Plot") +
   scale_color_brewer(palette = "Dark2", aesthetics = "colour")
 
+# combine all above plots into grid
+
 plot_grid(PCP_plot, stacked_area_plot, radial_stack, radar_plot)
 ```
 
@@ -570,7 +614,9 @@ plot_grid(PCP_plot, stacked_area_plot, radial_stack, radar_plot)
 #| fig-cap: Hexbin (left) and Kernel Density Estimation (KDE, right) plots. These are binned, density-flavoured versions of standard scatterplots.
 #| fig-asp: 0.5
 
-# create larger dataset for hexbin and KDE plots
+# create larger dataset for Hexbin and KDE plots
+# this methodology is the same as that used for creating scatterplot
+# datasets based on defined correlation values
 
 set.seed(1234)
 
@@ -598,17 +644,23 @@ my_residuals <- abs(residuals(corr_model))
 
 large_data <- round(cbind(corr_data, my_residuals), 2)
 
+# create Hexbin plot
+
 hex_plot <- large_data %>% 
   ggplot(aes(V1, V2)) +
   geom_hex() +
   scale_fill_viridis_c(option = "plasma") +
   theme_other_viz()
 
+# create Kernel Density Estimate plot
+
 KDE_plot <- large_data %>% 
   ggplot(aes(V1, V2)) +
   stat_density_2d(aes(fill = ..level..), geom = "polygon") + 
   scale_fill_viridis_c(option = "plasma") + 
   theme_other_viz()
+
+# combine plots into side-by-side arrangment
 
 ggarrange(hex_plot, KDE_plot, 
           ncol = 2)
@@ -708,9 +760,14 @@ illustrates this.
 #| include: true
 #| fig-cap: Scatterplot with Pearson's \textit{r} = 0.4 (left) and Pearson's \textit{r} = 0.95 (right). Note how as the objective correlation increases, the point cloud tends towards a straight line.
 
+# use prepare_slopes function from shared_functions script to create plotting dfs
+
 slopes_0.4 <- prepare_slopes(0.4)
 
 slopes_0.95 <- prepare_slopes(0.95)
+
+# use plot_example_function within ggarrange() to create scatterplots with
+# high and low correlations
 
 ggarrange(plot_example_function(slopes_0.4, "", 1, 0.2, 7) +
             ggtitle(expression("Low Correlation: Pearson's " * italic("r") * " = 0.4")) +
@@ -806,13 +863,23 @@ subjective to objective correlation derived from JND studies by Rensink (2017
 #| fig-cap: Using an equation supplied in Rensink (2017) \cite{rensink_2017}, and recorded median correlation estimates in Bobko (1979 \cite{bobko_1979}), the nature of correlation underestimation may be visualised. The solid lines represents underestimation behaviour, while the dashed diagonal line represents theoretically perfect estimation. 
 #| fig-asp: 1
 
+# titles must be defined as expressions first, as they include italic text
+
 y_title <- expression(paste("Subjective ", italic("r"), " value"))
 x_title <- expression(paste("Objective ", italic("r"), " value"))
+
+# raw data from Bobko (1979) are not available, so create the dataframe based on
+# values found in the paper
 
 bobko_curve <- data.frame(x = c(.87, .64, .5, .35, .19, 0),
                           y = c(.83, .5, .3, .1, .01, 0))
 
+# define sequence of r values
+
 my_rs <- seq(from = 0, to = 1, length.out = 100)
+
+# create plot showing estimation curves and perfect estimation line
+
 as_tibble(my_rs) %>%
   mutate(under_est_rensink = (log(1-0.88*my_rs)/log(1-0.88))) %>%
   ggplot() +
@@ -863,8 +930,9 @@ examples of two COVID-19 visualisations created by the BBC.
 #| include: true
 #| fig-cap: 'Two visualisations taken from the BBC News article "Covid: Twelve charts on how Covid changed our lives", published on the 15th of December, 2020 \cite{bbc_2020}.'
 
-knitr::include_graphics(path = "../supplied_graphics/covid_bbc.png", dpi = NA)
+# include pre-rendered graphics
 
+knitr::include_graphics(path = "../supplied_graphics/covid_bbc.png", dpi = NA)
 ```
 
 All this is to say that the underestimation of correlation matters. It is not 
@@ -919,6 +987,8 @@ is shown in @fig-sgl-screen.
 #| label: fig-sgl-screen
 #| include: true
 #| fig-cap: Participants were instructed to use the following interface to complete the Subjective Graph Literacy scale \cite{garcia_2016} before completing trials in each experiment.
+
+# include pre-rendered graphics
 
 knitr::include_graphics(path = "../supplied_graphics/sgl_test_screen.png", dpi = NA)
 ```

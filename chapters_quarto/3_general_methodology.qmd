@@ -37,6 +37,8 @@ library(bbplot)
 
 source("../shared_functions.R")
 
+# use prepare_slopes function to create df for plotting example plots
+
 slopes <- prepare_slopes(0.6)
 
 # fix conflicts
@@ -99,6 +101,8 @@ shown to group B (see @fig-exp5-examples).
 #| out-height: NA
 # find slider png in supplied graphics folder
 
+# include pre-rendered graphics
+
 knitr::include_graphics(path = "../supplied_graphics/example_slider.png", dpi = NA)
 ```
 
@@ -109,6 +113,8 @@ knitr::include_graphics(path = "../supplied_graphics/example_slider.png", dpi = 
 #| out-width: NA
 #| out-height: NA
 #| fig-asp: 0.275
+
+# use plot_example_function within ggarrange() to create examples of experimental plots
 
 ggarrange(plot_example_function(slopes, "Opacity = 0.25",
                                 0.25, 0.2, 6.5),
@@ -129,6 +135,8 @@ ggarrange(plot_example_function(slopes, "Opacity = 0.25",
 #| out-height: NA
 #| fig-asp: 0.275
 
+# use plot_example_function within ggarrange() to create examples of experimental plots
+
 ggarrange(plot_example_function(slopes, "Full Opacity",
                                 1, 0.2, 6.5),
           plot_example_function(slopes, "Linear Decay",
@@ -148,6 +156,8 @@ ggarrange(plot_example_function(slopes, "Full Opacity",
 #| out-height: NA
 #| fig-asp: 0.275
 
+# use plot_example_function within ggarrange() to create examples of experimental plots
+
 ggarrange(plot_example_function(slopes, "Standard Size",
                                 1, 0.2, 6.5),
           plot_example_function(slopes, "Linear Decay",
@@ -166,6 +176,10 @@ ggarrange(plot_example_function(slopes, "Standard Size",
 #| out-width: NA
 #| out-height: NA
 #| fig-asp: 0.275
+
+# use plot_example_function within ggarrange() to create examples of experimental plots
+# do this separately for each class of plot, then combine with a second
+# ggarrange() implementation
 
 example_plots_congruent <- ggarrange(plot_example_function(slopes,
                                                            "Typical Orientation Size\nTypical Orientation Opacity",
@@ -203,6 +217,8 @@ ggarrange(example_plots_incongruent, example_plots_congruent, nrow = 1)
 #| fig-cap: Examples of the stimuli for Experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the left, while group B saw the typical design on the right. 
 #| fig-asp: 0.7
 
+# create example plots for experiment 5
+
 ggarrange(example_plot_function_exp5(slopes_exp5,
                                      0.6,
                                      slopeI,
@@ -214,6 +230,9 @@ ggarrange(example_plot_function_exp5(slopes_exp5,
                                      standard_alpha,
                                      bbc_style()),
           nrow = 1) +
+  
+  # add labels for typical/atypical class
+  
   annotate(geom = "text",
            label = "Typical Scatterplot",
            x = 0.75,
@@ -328,6 +347,8 @@ design of the scatterplots used in Experiments 1 to 4.
 #| out-width: NA
 #| out-height: NA
 #| fig-asp: 1
+
+# create basic design of experimental items scatterplot
   
 plot_example_function(slopes, t = "", o = 1, s = 0.4, 2)  
 ```
@@ -388,7 +409,13 @@ the difference between levels of the independent variable for each random effect
 #| out-height: NA
 #| fig-asp: 0.6
 
+# set random seed for reproducibility
+
 set.seed(123)
+
+# create dataframe for plotting
+# values have been manually calculated
+
 df <- data.frame(
   IV = c(0, 2, 4, 6, 8, 10),
   DV_mean = c(500, 700, 900, 1100, 1300, 1500),
@@ -397,6 +424,9 @@ df <- data.frame(
   DV_3 = c(800, 800, 900, 1000, 1100, 2300),
   DV_4 = c(400, 500, 600, 700, 800, 1200)
 )
+
+# create plot for illustrating linear mixed effects modelling
+
 ggplot(df, aes(x = IV)) +
   geom_textsmooth(aes(y = DV_mean, label = "Grand Mean",
                       hjust = 1, vjust = 1.1),
@@ -419,6 +449,9 @@ ggplot(df, aes(x = IV)) +
                   linetype = "dashed", size = 3, linewidth = 0.5) +
   theme_ggdist() +
   labs(x = "Independent Variable", y = "Dependent Variable")
+
+# remove extraneous plotting dataframe
+
 rm(df)
 ```
 
@@ -668,17 +701,24 @@ for appropriate use and facilitating long-term sustainability \cite{jimenez_2017
 #| out-height: NA
 #| fig-asp: 0.2
 
+# create plotting dataframe for reproducibility spectrum
+
 df <- data.frame(
   section = c("Publication\nonly",
               "Code",
               "Code\nand\ndata",
               "Linked and\nexecutable\ncode and data",
               "Full\nreplication"),
+  
+  # manually specify locations for each label
+  
   xmin = c(0, 1, 2, 3, 4),
   xmax = c(1, 2, 3, 4, 5),
   ymin = c(1, 1, 1, 1, 1),
   ymax = c(2, 2, 2, 2, 2)
 )
+
+# create plot with geom_rect()
 
 ggplot() +
   geom_rect(data = df, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), 
@@ -690,6 +730,9 @@ ggplot() +
            arrow = arrow(type = "closed", length = unit(0.3, "cm")), color = "grey") +
   annotate("text", x = 0.5, y = 2.3, label = "Not reproducible", size = 3) +
   annotate("text", x = 4.5, y = 2.3, label = "Gold standard", size = 3) +
+  
+  # use theme_void() to remove extra stuff we don't want
+  
   theme_void()
 ```
 

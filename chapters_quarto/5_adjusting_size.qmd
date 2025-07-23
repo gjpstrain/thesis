@@ -50,7 +50,9 @@ library(effectsize)
 
 # fix conflicts
 
-conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
+conflicts_prefer(dplyr::select(),
+                 dplyr::filter(),
+                 lme4::lmer())
 
 # define plotting labels now
 
@@ -66,14 +68,19 @@ labels_e3_regex <- c(
   "\\bD\\b" = "Standard Size"
 )
 
+# read in shared_functions
 
 source("../shared_functions.R")
+
+# prepare a slopes df for plotting example plots
 
 slopes <- prepare_slopes(0.6)
 ```
 
 ```{r}
 #| label: load-data
+
+# load in data, rename experiment
 
 exp3_anon <- read_csv("../data/exp_3_data.csv") %>%
   mutate("expName" = recode(expName,
@@ -82,6 +89,8 @@ exp3_anon <- read_csv("../data/exp_3_data.csv") %>%
 
 ```{r}
 #| label: retrieve-cached-models-chap5
+
+# load cached models
 
 if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
 ```
@@ -112,8 +121,12 @@ wrangle <- function(anon_file) {
   visual_thresholds <- anon_file %>%
     filter(!is.na(VT_with_labels)) %>%
     select(c("VT_with_labels", "participant", "VT_textbox2.text")) %>%
-    mutate(VT_answer = str_replace(VT_with_labels, pattern = "vis_threshold_plots/", replacement = "")) %>%
-    mutate(VT_answer = str_replace(VT_answer, pattern = "_VT.png", replacement = "")) %>%
+    mutate(VT_answer = str_replace(VT_with_labels,
+                                   pattern = "vis_threshold_plots/",
+                                   replacement = "")) %>%
+    mutate(VT_answer = str_replace(VT_answer,
+                                   pattern = "_VT.png",
+                                   replacement = "")) %>%
     mutate(correct_VT = case_when(
       VT_answer == VT_textbox2.text ~ "y",
       VT_answer != VT_textbox2.text ~ "n",
@@ -150,13 +163,25 @@ wrangle <- function(anon_file) {
 # split images column into item and condition columns 
 
 anon_file <- anon_file %>%
-  mutate(images = str_replace(images, pattern = "A", replacement = "-A")) %>%
-  mutate(images = str_replace(images, pattern = "B", replacement = "-B")) %>%
-  mutate(images = str_replace(images, pattern = "C", replacement = "-C")) %>%
-  mutate(images = str_replace(images, pattern = "D", replacement = "-D")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "A",
+                              replacement = "-A")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "B",
+                              replacement = "-B")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "C",
+                              replacement = "-C")) %>%
+  mutate(images = str_replace(images,
+                              pattern = "D",
+                              replacement = "-D")) %>%
   separate(images, c("item", "size"), sep = "-") %>%
-  mutate(size = str_replace(size, pattern = ".png", replacement = "")) %>%
-  mutate(item = str_replace(item, pattern = "all_plots/", replacement = ""))
+  mutate(size = str_replace(size,
+                            pattern = ".png",
+                            replacement = "")) %>%
+  mutate(item = str_replace(item,
+                            pattern = "all_plots/",
+                            replacement = ""))
 
 # select relevant columns
 # select only experimental items
@@ -182,12 +207,16 @@ anon_file %>%
   inner_join(demographics, by = "participant") %>%
   inner_join(monitor_information, by = "participant") %>%
   inner_join(visual_thresholds, by = "participant") %>%
-  mutate(across(matches(c("item", "size")), as_factor)) %>%
+  mutate(across(matches(c("item",
+                          "size")),
+                as_factor)) %>%
   select(-c("__participant")) %>%
   mutate(difference = my_rs - slider.response) %>%
   mutate(size = fct_relevel(size, c('D', 'C', 'B', 'A'))) %>% 
-  assign(paste0(unique(anon_file$expName), "_tidy"),
-           value = ., envir = .GlobalEnv)
+  assign(paste0(unique(anon_file$expName),
+                "_tidy"),
+           value = .,
+         envir = .GlobalEnv)
 }
 
 # use wrangle function on anonmyised data file 
@@ -258,6 +287,8 @@ able to alter the shape of the correlation estimation curve.
 #| fig-cap: An example of a bubble chart. This plot compares car engine displacement (cubic inches) with fuel efficiency (miles per gallon). Additionally, the number of cylinders in the car's engine are encoded with point size. One can see from this plot that vehicles with higher engine displacement and lower fuel efficiency tend to have a greater number of engine cylinders.
 #| fig-asp: 0.6
 
+# create bubble chart plot by setting size as a function of "cyl"
+
 ggplot(aes(x = mpg, y = disp), data = mtcars) +
   geom_point(aes(size = cyl), shape = 16) +
   theme_ggdist() +
@@ -315,7 +346,7 @@ the wider literature described above, two hypotheses are made:
 ## Open Research {#open-research-chap5}
 
 The experiment was conducted according to the principles of open and reproducible 
-research. All data and code for the original paper are maintained in a GitHub
+research \cite{ayris_2018}. All data and code for the original paper are maintained in a GitHub
 repository [^1]. This repository also features an implementation of a Docker
 container that enables the full recreation of the computational environment
 the original paper was written in. The experiment itself is hosted on GitLab [^2].
@@ -353,6 +384,8 @@ can be see in @fig-exp3-examples-chap5.
 #| fig-cap: Examples of the stimuli used in Experiment 3, demonstrated with an \textit{r} value of 0.8.
 #| fig-asp: 0.275
 
+# example plots for experiment 3, arranged with ggarrange()
+
 ggarrange(plot_example_function(slopes, "Standard Size",
                                 1, 0.2, 7),
           plot_example_function(slopes, "Linear Decay",
@@ -369,6 +402,9 @@ ggarrange(plot_example_function(slopes, "Standard Size",
 ```{r}
 #| label: dot-pitch-e3
 
+# get mean, sd, and range of dot pitch measurements
+# save these in the global environment so they can referenced in text
+
 mean_dot_pitch <- mean(E3_size_adjustments_tidy$dot_pitch)
 
 sd_dot_pitch <- sd(E3_size_adjustments_tidy$dot_pitch)
@@ -381,9 +417,11 @@ range_dot_pitch <- range(E3_size_adjustments_tidy$dot_pitch)
 #| include: true
 #| fig-cap: A mock-up of the screen scale \cite{screenscale} task used to infer the sizes of participants' monitors.
 
-# find training slide png in supplied graphics folder
+# find screen scale illustration png in supplied graphics folder
+# this was handmade using royalty-free graphics found online
 
-knitr::include_graphics(path = "../supplied_graphics/screen_scale_illustration.png", dpi = NA)
+knitr::include_graphics(path = "../supplied_graphics/screen_scale_illustration.png",
+                        dpi = NA)
 ```
 
 When the experiments described in \chap{chap:adjusting_opacity} took place, no method
@@ -408,6 +446,9 @@ that takes into account the physical on-screen sizes of scatterplot points.
 
 ```{r}
 #| label: visibility-e3
+
+# extract a dataframe of participants' 
+# performance on the visibility threshold testing
 
 vis_df_e3 <- E3_size_adjustments_tidy %>%
   group_by(VT_no_correct) %>%
@@ -472,6 +513,8 @@ time taken to complete the experiment was 39 minutes (SD = 14 minutes).
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
+# create experiment 3 model
+
 e3_model <- buildmer(difference ~ size +
                        (1 + size | participant) +
                        (1 + size | item),
@@ -485,17 +528,25 @@ e3_model <- buildmer(difference ~ size +
 
 # build additional models (literacy, dot pitch, and training)
 
-e3_lit_model <- add_fixed_effect(e3_model, "literacy", "E3_size_adjustments_tidy")
+e3_lit_model <- add_fixed_effect(e3_model,
+                                 "literacy",
+                                 "E3_size_adjustments_tidy")
 
-e3_dot_pitch_model <- add_fixed_effect(e3_model, "dot_pitch", "E3_size_adjustments_tidy")
+e3_dot_pitch_model <- add_fixed_effect(e3_model,
+                                       "dot_pitch",
+                                       "E3_size_adjustments_tidy")
 
-e3_training_model <- add_fixed_effect(e3_model, "half", "E3_size_adjustments_tidy")
+e3_training_model <- add_fixed_effect(e3_model,
+                                      "half",
+                                      "E3_size_adjustments_tidy")
 ```
 
 ```{r}
 #| label: model-e3-cmpr
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
+
+# create null model for comparison purposes
 
 e3_model_cmpr <- comparison(e3_model)
 ```
@@ -504,6 +555,8 @@ e3_model_cmpr <- comparison(e3_model)
 #| label: anova-results-e3
 
 # do all anovas now
+# anova_results function from shared_functions.R outputs model statistics 
+# to global environment
 
 anova_results(e3_model, e3_model_cmpr)
 
@@ -650,7 +703,14 @@ further discussion.
 
 # this approximation uses t values and the pooled standard deviation of the differences
 
+# first set kableExtra options
+
 options(knitr.kable.NA = "")
+
+# lme.dscore from shared_functions.R is reproduced from the now-defunct
+# EMAtools R package
+
+# create efs df
 
 efs <- lme.dscore(e3_model, E3_size_adjustments_tidy, type = "lme4") %>%
   as_tibble(rownames = "Effect") %>%
@@ -663,7 +723,11 @@ efs <- lme.dscore(e3_model, E3_size_adjustments_tidy, type = "lme4") %>%
                          "sizeD" = "Standard Size")) %>%
   rename("Cohen's \\textit{d}" = "d") 
 
+# use kbl() to create table
+
 kbl(efs, booktabs = TRUE, digits = c(0, 2), escape = FALSE)
+
+# pairwise comparisons
 
 emmeans(e3_model, pairwise ~ "size")[[1]] %>%
   as_tibble() %>%
@@ -683,6 +747,8 @@ emmeans(e3_model, pairwise ~ "size")[[1]] %>%
 #| label: fig-estimates-by-r-e3
 #| include: true
 #| fig-cap: Participants' mean errors in correlation estimates grouped by condition and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring the non-linear size decay function. Error bars show standard deviations of estimates.
+
+# plot error bars for experiment 3
 
 plot_error_bars_function(E3_size_adjustments_tidy %>%
                            mutate(grouping_var = fct_relevel(size,
