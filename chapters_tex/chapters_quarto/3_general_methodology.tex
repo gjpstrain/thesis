@@ -37,7 +37,7 @@ participant is able to provide as many data points as there are
 experimental items in levels \cite{charness_2012}, offer a significant
 boost in statistical power over between-participant designs where each
 participant may only provide data points for a portion of the total
-experimental items. In Experiments 1 to 3, each participant saw all
+experimental items. In Experiments 1 to 4, each participant saw all
 experimental stimuli and provided a judgement of correlation using a
 sliding scale between 0 and 1 (see Figure~\ref{fig-slider}). Experiment
 1 featured a single factor of global scatterplot point opacity with 4
@@ -78,7 +78,7 @@ estimate correlation in Experiments 1-4.}
 }
 
 \caption{\label{fig-exp1-examples}Examples of the stimuli used in
-Experiment 1, demonstrated with an \textit{r} value of 0.8. Here,
+Experiment 1, demonstrated with an \textit{r} value of 0.6. Here,
 ``opacity'' refers to the alpha value used by ggplot.}
 
 \end{figure}%
@@ -92,7 +92,7 @@ Experiment 1, demonstrated with an \textit{r} value of 0.8. Here,
 }
 
 \caption{\label{fig-exp2-examples}Examples of the stimuli used in
-Experiment 2, demonstrated with an \textit{r} value of 0.8.}
+Experiment 2, demonstrated with an \textit{r} value of 0.6.}
 
 \end{figure}%
 
@@ -132,8 +132,8 @@ Experiment 4, demonstrated with an \textit{r} value of 0.6.}
 
 \caption{\label{fig-exp5-examples}Examples of the stimuli for Experiment
 5 using an \textit{r} value of 0.6. Group A saw the alternative
-scatterplot presented on the right, while group B saw the typical design
-on the left.}
+scatterplot presented on the left, while group B saw the typical design
+on the right.}
 
 \end{figure}%
 
@@ -149,7 +149,7 @@ software, such as Gorilla \cite{anwyl_2020} or E-prime
 not allow for the sharing of code with future researchers. I settled on
 using PsychoPy \cite{peirce_2019} due to its open-source status,
 flexibility regarding graphical and code-based experimental design, and
-high level of timings accuracy \cite{bridges_2020}. Using such a
+high level of timings accuracy \cite{bridges_2020}. Using such an
 open-source tool not only facilitated my own learning with regard to
 experiment building, but also enables the contribution of further
 examples of visualisation studies by hosting the resulting experiments
@@ -215,9 +215,7 @@ issues; specifically, it was required that participants:
 \item
   Had previously completed at least 100 studies on Prolific.
 \item
-  Had an acceptance rate of at least 99\% for those studies. \footnote{this
-    is a more strict rate than the 95\% recommended by Peer et
-    al.~\cite{peer_2021}.}
+  Had an acceptance rate of at least 99\% for those studies. {[}\^{}1{]}
 \end{itemize}
 
 Following implementation of these pre-screen criteria, the rejection
@@ -234,8 +232,9 @@ enough participants to adequately power the experiments
 \cite{brysbaert_2019}. NB: I did not conduct an \emph{a priori} power
 analysis. A post-hoc power analysis of the first experiment revealed a
 power of 0.54. Effect sizes were larger in the subsequent experiments,
-however to facilitate comparison, it was decided that n = 150 would
-remain the target recruitment rate.
+however to facilitate comparison, it was decided that \emph{N} = 150
+would remain the target recruitment rate. {[}\^{}1{]}: this is a more
+strict rate than the 95\% recommended by Peer et al.~\cite{peer_2021}.
 
 \subsection{Creating Stimuli}\label{creating-stimuli}
 
@@ -251,7 +250,7 @@ correlated scatterplots. To achieve this, confounding extraneous design
 factors were removed, including axis labels, tick labels, grid lines,
 and titles. The axis ticks themselves were preserved.
 Figure~\ref{fig-scatter-example} demonstrates the basic design of the
-scatterplots used in experiments 1 to 4.
+scatterplots used in Experiments 1 to 4.
 
 \begin{figure}
 
@@ -262,7 +261,7 @@ scatterplots used in experiments 1 to 4.
 }
 
 \caption{\label{fig-scatter-example}The basic design of scatterplots in
-experiments 1 to 4.}
+Experiments 1 to 4.}
 
 \end{figure}%
 
@@ -291,7 +290,7 @@ experimental manipulation against the backdrop of other variability
 inherent in the dataset. Traditional analysis of the data collected
 throughout this thesis would involve the use of repeated measures
 analysis of variance (ANOVA). This technique assesses whether there are
-significant differences in means of dependent variables between
+significant differences in the means of the dependent variables between
 conditions. While these techniques are commonplace, they do not allow
 for comparisons of differences across the full range of individual
 participant responses, nor do they allow for simultaneous consideration
@@ -349,13 +348,13 @@ to that of a nested null model \cite{singmann_2019}; such a model is
 identical bar the removal of the fixed effect of interest. The
 likelihood ratio test (LRT) is used here to assess goodness-of-fit. In
 cases where a model has in total more than two levels (here, all
-experiments bar experiment 5), the \texttt{emmeans} package
+experiments bar Experiment 5), the \texttt{emmeans} package
 \cite{lenth_2024} is used to calculate estimated marginal means between
 levels of fixed effects.
 
 \subsection{Ordinal Modelling}\label{ordinal-modelling}
 
-In experiment 5, participants used Likert scales to provide responses.
+In Experiment 5, participants used Likert scales to provide responses.
 These scales capture whether one rating is higher or lower than another,
 however they do not quantify the magnitude of the difference between
 levels of rating. Metric modelling, such as linear regression, treats
@@ -467,7 +466,7 @@ functionality and improved integration with tools such as
 \cite{xie_2020} to mix markdown-flavoured text with code chunks into a
 document that can be rendered into an appropriately-formatted conference
 or journal pdf; this workflow was used for the papers associated with
-experiments 1, 2, and 3. \texttt{Quarto} \cite{allaire_2024}, released
+Experiments 1, 2, and 3. \texttt{Quarto} \cite{allaire_2024}, released
 in 2022, further expands on \texttt{Rmarkdown} functionality, and
 removes reliance on R or Rstudio. \texttt{Quarto} was used for the
 remainder of the papers associated with this project, and for the
@@ -505,9 +504,9 @@ These issues were addressed using containers, specifically, those
 created by \href{https://www.docker.com/}{Docker}
 \cite{merkel_2014, boettiger_2015}. 1979 saw the development of
 \texttt{chroot} (\texttt{change\ root}), which is able to isolate an
-application's file access to a `chroot jail'. Since then, we have seen
-the rapid development and uptake of containerisation software, mostly
-within the software development and security communities. Docker,
+application's file access to a `chroot jail'. Since then,
+containerisation software has experienced rapid development and uptake,
+mostly within the software development and security communities. Docker,
 released in 2014, is a popular, lightweight containerisation tool that
 enables a precise recreation of computational environments. Recording
 software versions and dependencies avoids the potential for broken code
@@ -637,7 +636,7 @@ As detailed above, Quarto and Docker were used to produce executable
 journal/conference papers for each of the published works this thesis
 describes. For simplicity, all analyses from these papers have been
 repeated using up to date packages here. Accordingly, a single
-implementation of Docker to is provided to reproduce this thesis. All
+implementation of Docker is provided to reproduce this thesis. All
 statistics have been checked against those provided in the original
 analyses, and repositories for the corresponding papers are provided
 complete with original Docker implementations.
@@ -667,37 +666,37 @@ provided in the sections concerning each experiment.
 
 Experiment 1:
 
-\url{https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments}
+\href{https://gitlab.pavlovia.org/Strain/exp_uniform_adjustments}{gitlab.pavlovia.org/Strain/exp\_uniform\_adjustments}
 
 Experiment 2:
 
-\url{https://gitlab.pavlovia.org/Strain/exp_spatially_dependent}
+\href{https://gitlab.pavlovia.org/Strain/exp_spatially_dependent}{gitlab.pavlovia.org/Strain/exp\_spatially\_dependent}
 
 \textbf{Chapter 5}
 
 Experiment 3:
 
-\url{https://gitlab.pavlovia.org/Strain/exp_size_only}
+\href{https://gitlab.pavlovia.org/Strain/exp_size_only}{gitlab.pavlovia.org/Strain/exp\_size\_only}
 
 \textbf{Chapter 6}
 
 Experiment 4:
 
-\url{https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp}
+\href{https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp}{gitlab.pavlovia.org/Strain/size\_and\_opacity\_additive\_exp}
 
 \textbf{Chapter 7}
 
 Experiment 5 Pre-Study:
 
-\url{https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest}
+\href{https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest}{gitlab.pavlovia.org/Strain/beliefs\_scatterplots\_pretest}
 
 Experiment 5 Main Study (Group A):
 
-\url{https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a}
+\href{https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_a}{gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_a}
 
 Experiment 5 Main Study (Group B):
 
-\url{https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t}
+\href{https://gitlab.pavlovia.org/Strain/atypical_scatterplots_main_t}{gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_t}
 
 \section{Conclusion}\label{conclusion}
 

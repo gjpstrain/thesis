@@ -27,13 +27,13 @@ correlation in positively correlated scatterplots in
 were changed was minimal. Figure \ref{fig-estimates-by-r-e2} illustrates
 how participants' mean errors in \emph{r} estimation changed as a
 function of the subjective \emph{r} value. Scatterplots employing
-non-linear opacity decay produced the most drastic changes in
+non-linear inverted opacity decay produced the most drastic changes in
 correlation estimation, however these changes were still small, with an
-effect size of Cohen's \emph{d} = 0.19. Recent evidence suggests that
+effect size of Cohen's \emph{d} = 0.23. Recent evidence suggests that
 with regards to altering percepts in scatterplots, changes in point size
 may be more effective than changes in opacity. In a fully-reproducible,
-large sample (N = 150) study, I show that systematically altering point
-size using the same function is not only able to more effectively
+large sample (\emph{N} = 150) study, I show that systematically altering
+point size using the same function is not only able to more effectively
 correct for the correlation underestimation bias, but is also able to
 alter the shape of the correlation estimation curve.
 
@@ -65,7 +65,7 @@ issues of overplotting and clutter in scatterplots
 \ref{fig-overplotting-examples} in \chap{chap:adjusting_opacity}
 demonstrates this usage. Practicality also dictates that scatterplots
 visualising sufficiently large datasets inherently require their points
-to be smaller to prevent obfuscation of the data they portray. Aside
+to be smaller to minimise obfuscation of the data they portray. Aside
 from being used to increase point visibility, point size changes in
 scatterplots have also been employed in the creation of bubble charts;
 here, the size of a scatterplot point is mapped to a third variable.
@@ -85,14 +85,13 @@ point position to a greater degree than point opacity can
 \cite{hong_2022}, in what is termed the \emph{weighted average
 illusion}. Outside of scatterplots and scatterplot-adjacent chart types,
 there is evidence that increased size can result in faster reaction
-times to peripherally presented stimuli \cite{grice_1983}, and there is
-evidence that larger stimuli are associated with lower levels of spatial
-certainty \cite{alais_2004}, but higher levels of salience
-\cite{healey_2012}. The current experiment should therefore facilitate
-discrimination between these candidate drivers of the effects observed
-in a way that was not possible when manipulating opacity, as in that
-case effects of salience or spatial certainty would operate in the same
-direction.
+times to peripherally presented stimuli \cite{grice_1983}, and that
+larger stimuli are associated with lower levels of spatial certainty
+\cite{alais_2004}, but higher levels of salience \cite{healey_2012}. The
+current experiment should therefore facilitate discrimination between
+these candidate drivers of the effects observed in a way that was not
+possible when manipulating opacity, as in that case effects of salience
+or spatial certainty would operate in the same direction.
 
 \section{Hypotheses}\label{hypotheses}
 
@@ -104,13 +103,13 @@ made:
 \tightlist
 \item
   H1: The non-linear decay parameter, in which scatterplots points
-  become smaller as they move further from the regression line, will
+  become smaller when they reside further from the regression line, will
   result in lower mean errors in correlation estimation than for linear
   decay and standard size conditions.
 \item
   H2: The use of an inverted non-linear decay parameter, in which
-  scatterplot points become larger as they get further away from the
-  regression line, will result in higher mean errors in correlation
+  scatterplot points become larger when they reside further away from
+  the regression line, will result in higher mean errors in correlation
   estimation than for all other conditions.
 \end{itemize}
 
@@ -119,14 +118,14 @@ made:
 \subsection{Open Research}\label{open-research-chap5}
 
 The experiment was conducted according to the principles of open and
-reproducible research. All data and code for the original paper are
-maintained in a GitHub repository \footnote{https://github.com/gjpstrain/size\_and\_scatterplots}.
+reproducible research \cite{ayris_2018}. All data and code for the
+original paper are maintained in a GitHub repository \footnote{https://github.com/gjpstrain/size\_and\_scatterplots}.
 This repository also features an implementation of a Docker container
 that enables the full recreation of the computational environment the
 original paper was written in. The experiment itself is hosted on GitLab
 \footnote{https://gitlab.pavlovia.org/Strain/exp\_size\_only}. The
 hypotheses and analysis plans were pre-registered with the Open Science
-Framework (OSF) \footnote{https://osf.io/k4gd8}, and there were non
+Framework (OSF) \footnote{https://osf.io/k4gd8}, and there were no
 deviations from them.
 
 \subsection{Stimuli}\label{stimuli-e3}
@@ -191,16 +190,16 @@ a requirement for the subsequent calculation of the physical on-screen
 sizes of the scatterplot points that participants saw. In the preamble
 to the current experiment, participants were asked to hold a standard
 size credit/debit/ID card up to the monitor, and then to resize a
-corresponding on-screen image until it matched the size of their
-physical card \cite{screenscale}. These cards have a universal standard
-size (ISO/IEC 7810 ID-1), which when combined with the monitor
-resolution information recorded by Psychopy, and assuming a widescreen
-16:9 aspect ratio, allows for the inference of dot pitch and therefore
-the physical size of the points in the experiment. Mean dot pitch was
-0.33mm (\(SD = 0.06\)), corresponding to a physical size on the screen
-of 4.32mm for the smallest points displayed. Section \ref{results-e3}
-includes analysis that takes into account the physical on-screen sizes
-of scatterplot points.
+corresponding on-screen image using their keyboard arrows until it
+matched the size of their physical card \cite{screenscale}. These cards
+have a universal standard size (ISO/IEC 7810 ID-1), which when combined
+with the monitor resolution information recorded by PsychoPy, and
+assuming a widescreen 16:9 aspect ratio, allows for the inference of dot
+pitch and therefore the physical size of the points in the experiment.
+Mean dot pitch was 0.33mm (\(SD = 0.06\)), corresponding to a physical
+size on the screen of 4.32mm for the smallest points displayed. Section
+\ref{results-e3} includes analysis that takes into account the physical
+on-screen sizes of scatterplot points.
 
 \subsection{Point Visibility Testing}\label{point-visibility-testing-e3}
 
@@ -235,7 +234,7 @@ Participants then completed the 5-item Subjective Graph Literacy test
 \cite{garcia_2016}, followed by the screen scale and point visibility
 tasks described above. Participants were shown example of scatterplots
 depicting \emph{r} values of 0.2, 0.5, 0.8, and 0.95. Section
-\ref{results-e3} contains discussion of the potential effects of this
+\ref{results-e3} contains a discussion of the potential effects of this
 training. Following two practice trials, participants worked through the
 series of 180 experimental and six attention check trials in a
 randomised order. Visual masks preceded each plot.
@@ -340,7 +339,7 @@ substantial enough to warrant further discussion.
 \caption{\label{tbl-efs-e3}Cohen's \textit{d} effect sizes (left) and
 summary statistics (right) for levels of the size decay factor in
 Experiment 3. Each effect size is compared to the reference level,
-termed, ``Standard Size''.}
+termed ``Standard Size''.}
 
 \begin{minipage}{0.50\linewidth}
 
@@ -457,7 +456,7 @@ perceived width of the distribution of data points around the regression
 line, biasing estimates of correlation upwards and leading to a higher
 degree of accuracy. Other candidate mechanisms do exist; similar results
 would be expected if a feature-based attentional bias was responsible
-\cite{sun_2016, hong_2022}; the current methodology does not allow for
+\cite{sun_2016, hong_2022}. The current methodology does not allow for
 distinguishing between these explanations, and it may be that both are
 partially responsible.
 
@@ -477,7 +476,7 @@ making more accurate estimates of correlation in the inverted decay
 condition compared to the standard size condition. It was suggested in
 \chap{chap:adjusting_opacity} that inverted opacity manipulations may be
 employed to correct for the \emph{overestimation} of correlation
-observed with negatively correlation scatterplots \cite{sher_2017};
+observed with negatively correlated scatterplots \cite{sher_2017};
 findings here indicate that using an inverted size decay function in
 this way may not be appropriate.
 
@@ -522,9 +521,10 @@ hindrance.
 Before beginning the experimental trials, participants viewed plots
 depicting \emph{r} = 0.2, 0.5, 0.8, and 0.95 for a minimum of 8 seconds.
 Comparing a model including session half as a fixed effect with the
-origin experimental model revealed no significant effect (\(\chi^2\)(1)
-= 1.06, \emph{p} = 0.30), suggesting that having more recently viewed
-the example plots did not have an effect on participants' performance.
+original experimental model revealed no significant effect
+(\(\chi^2\)(1) = 1.06, \emph{p} = 0.30), suggesting that having more
+recently viewed the example plots did not have an effect on
+participants' performance.
 
 \subsection{Limitations}\label{limitations-e3}
 

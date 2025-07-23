@@ -33,9 +33,9 @@ people's daily lives due to the COVID-19 pandemic, and the increasing
 adoption of wearable devices \cite{shandhi_2024}. The first experiment
 conducted therefore examined how perceptions of correlation changed
 according to the size of a scatterplot. Additionally, a very early
-version of the opacity decay factor from Experiment 2 was included,
-however the implementation of this factor was immature. In Experiment 2
-onwards, if a scatterplot point resided in a particular place on a
+version of the opacity decay condition from Experiment 2 was included,
+however the implementation of this condition was immature. In Experiment
+2 onwards, if a scatterplot point resided in a particular place on a
 scatterplot, it would always have the same opacity or size. In the pilot
 study, the code that set the opacity of each point always scaled the
 opacity values such that the point with the highest residual had the
@@ -92,13 +92,13 @@ interaction between plot size and the presence or absence of the opacity
 decay function. The \texttt{emmeans} \cite{lenth_2024} package was used
 to explore estimated marginal means (see Table~\ref{tbl-emmeans-pilot})
 and contrasts (see Table~\ref{tbl-contrasts-pilot}) separately for each
-factor.
+condition.
 
 \begin{table}
 
 \caption{\label{tbl-emmeans-pilot}Estimated Marginal Means (EMMs) of
-correlation estimation error for plot size and the presence of the
-opacity decay function.}
+correlation estimation error for plot size (a) and the presence of the
+opacity decay function (b).}
 
 \begin{minipage}{0.50\linewidth}
 
@@ -147,7 +147,7 @@ Present & 0.11 & 0.013\\
 \begin{table}
 
 \caption{\label{tbl-contrasts-pilot}Contrasts between levels of the size
-factor and opacity decay factor.}
+factor (a) and opacity decay factor (b).}
 
 \begin{minipage}{0.50\linewidth}
 
@@ -547,7 +547,7 @@ was 33 minutes (SD = 10 minutes).
 For each of the 45 \emph{r} values, there were four versions of each
 plot corresponding to the four levels of point opacity. Examples of each
 of these can be seen in Figure~\ref{fig-exp1-examples-chap4},
-demonstrated with an \emph{r} value of 0.8.
+demonstrated with an \emph{r} value of 0.6.
 
 \begin{figure}
 
@@ -558,7 +558,7 @@ demonstrated with an \emph{r} value of 0.8.
 }
 
 \caption{\label{fig-exp1-examples-chap4}Examples of the stimuli used in
-Experiment 1, demonstrated with an \textit{r} value of 0.8. Here,
+Experiment 1, demonstrated with an \textit{r} value of 0.6. Here,
 ``opacity'' refers to the alpha value used by \texttt{ggplot2}.}
 
 \end{figure}%
@@ -646,9 +646,10 @@ a result of differences in levels of graph literacy.
 
 \begin{table}
 
-\caption{\label{tbl-efs-e1}Cohen's \textit{d} effect sizes and summary
-statistics for levels of the opacity factor in Experiment 1. Each effect
-size is compared to the reference level, full contrast (alpha = 1).}
+\caption{\label{tbl-efs-e1}Cohen's \textit{d} effect sizes (a) and
+summary statistics (b) for levels of the opacity factor in Experiment 1.
+Each effect size is compared to the reference level, full contrast
+(alpha = 1).}
 
 \begin{minipage}{0.50\linewidth}
 
@@ -707,7 +708,7 @@ Low Opacity (alpha = 0.25) & 0.18 & 0.016\\
 }
 
 \caption{\label{fig-estimates-by-r-e1}Participants' mean errors in
-correlation estimates grouped by factor and by \textit{r} value. The
+correlation estimates grouped by condition and by \textit{r} value. The
 dashed horizontal line represents perfect estimation. Participants were
 most accurate when presented with the plots featuring higher global
 point opacity. Error bars show standard deviations of estimates.}
@@ -737,8 +738,8 @@ nearly all cases.
 The hypothesis, that there would be a greater spread of correlation
 estimates for plots with lower global opacity compared to those with
 higher global opacity, was not supported. As seen in
-Table~\ref{tbl-efs-e1} (b), standard errors for each opacity factor are
-identical to 3 decimal places. Participants' errors in correlation
+Table~\ref{tbl-efs-e1} (b), standard errors for each opacity condition
+are identical to 3 decimal places. Participants' errors in correlation
 estimation were significantly greater when the opacity of all
 scatterplot points was lower compared when it was higher. This held true
 up until alpha was set to 0.75, implying a threshold around this value
@@ -843,7 +844,7 @@ For each of the 45 \emph{r} values in Experiment 2, there were four
 versions of each plot corresponding to the three levels of point opacity
 decay function and the baseline global full opacity condition. Examples
 of each of these can be seen in Figure~\ref{fig-exp2-examples-chap4},
-demonstrated with an \emph{r} value of 0.8. Given the shape of the
+demonstrated with an \emph{r} value of 0.6. Given the shape of the
 underestimation curve found in previous work (see Figure
 \ref{fig-underestimation-curves}, \chap{chap:related_work}), intuition
 suggested employing a symmetrically opposing curve (see the non-linear
@@ -883,7 +884,7 @@ effect was present, it was likely to be found.
 }
 
 \caption{\label{fig-exp2-examples-chap4}Examples of the stimuli used in
-Experiment 2, demonstrated with an \textit{r} value of 0.8. Here,
+Experiment 2, demonstrated with an \textit{r} value of 0.6. Here,
 ``opacity'' refers to the alpha value used by \texttt{ggplot2}.}
 
 \end{figure}%
@@ -892,13 +893,13 @@ Experiment 2, demonstrated with an \textit{r} value of 0.8. Here,
 
 To investigate the effects of the opacity decay functions on
 participants' estimates of correlation, a linear mixed effects model was
-built whereby decay function condition is a predictor for the difference
+built with decay function condition as a predictor for the difference
 between objective \emph{r} values for each plot and participants'
 estimates of \emph{r}. This model has random intercepts for items and
 participants. A likelihood ratio test revealed that the model including
 opacity decay function as a fixed effect explained significantly more
 variance than a null model (\(\chi^2\)(3) = 1,157.62, \emph{p}
-\textless{} .001). Figure~\ref{fig-e1-estimates} shows the mean errors
+\textless{} .001). Figure~\ref{fig-e2-estimates} shows the mean errors
 in correlation estimation for each opacity decay function condition,
 along with 95\% confidence intervals.
 
@@ -956,10 +957,10 @@ again explained no additional variance (\(\chi^2\)(1) = .242, \emph{p} =
 
 \begin{table}
 
-\caption{\label{tbl-efs-e2}Cohen's \textit{d} effect sizes and summary
-statistics for the opacity decay function factor in Experiment 2. Each
-effect size is compared to the reference level, full contrast (alpha =
-1).}
+\caption{\label{tbl-efs-e2}Cohen's \textit{d} effect sizes (a) and
+summary statistics (b) for the opacity decay function condition in
+Experiment 2. Each effect size is compared to the reference level, full
+contrast (alpha = 1).}
 
 \begin{minipage}{0.50\linewidth}
 
@@ -1031,7 +1032,7 @@ partially correct for the underestimation.
 }
 
 \caption{\label{fig-estimates-by-r-e2}Participants' mean errors in
-correlation estimates grouped by factor and by \textit{r} value. The
+correlation estimates grouped by condition and by \textit{r} value. The
 dashed horizontal line represents perfect estimation. Participants were
 most accurate when presented with the plots featuring the non-linear
 opacity decay function. Error bars show standard deviations of
@@ -1110,7 +1111,7 @@ between, points \cite{netzel_2017}.
 }
 
 \caption{\label{fig-prediction-ellipse}Plot showing a 95\% prediction
-ellipse over a scatterplot with an \textit{r} value of 0.8.}
+ellipse over a scatterplot with an \textit{r} value of 0.6.}
 
 \end{figure}%
 
@@ -1225,7 +1226,7 @@ unnecessary.
 The simplicity of the direct estimation task employed confers some
 limitations on the conclusions that can be drawn, although these
 limitations do not prevent the data gathered from being practically
-useful. The methods used to not allow for investigation of absolute
+useful. The methods used do not allow for the investigation of absolute
 correlation perception, as JND or bisection methodologies might. The
 finding that mean errors in judgements of correlation for full opacity
 conditions were different between Experiments 1 (0.149) and 2 (0.123)
@@ -1241,7 +1242,8 @@ findings that people may overestimate the correlation of negatively
 correlated scatterplots in a similar way \cite{sher_2017}. The
 techniques presented here could be adapted to bias perceptions of
 correlation down and correct for this overestimation. The non-linear
-opacity decay function demonstrated here may be able to accomplish this.
+inverted opacity decay function demonstrated here may be able to
+accomplish this.
 
 The opacity decay function conditions in Experiment 2 used the vertical
 distance between a particular point and the regression line to set that
@@ -1251,7 +1253,8 @@ more accurate predictor of performance on correlation estimation tasks
 \cite{cleveland_1982, rensink_2017, yang_2019}. Future work exploring
 these manipulations further may wish to investigate whether there are
 differences between using perpendicular and vertical residual distance
-as bases for setting for opacity with regard to correlation estimation.
+as bases for setting point opacity with regard to correlation
+estimation.
 
 Finally, the most exciting avenue for related future work is the
 possibility of combining the techniques developed and tested here with

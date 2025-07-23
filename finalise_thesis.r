@@ -10,7 +10,7 @@ quarto_render("chapters_quarto/", output_format = "latex")
 
 # use for rendering a single chapter
 
-quarto_render("chapters_quarto/4_adjusting_opacity.qmd", output_format = "latex")
+quarto_render("chapters_quarto/7_belief_change.qmd", output_format = "latex")
 
 # functions to reformat tex are stored in the local directory
 
@@ -34,8 +34,8 @@ replace_before_document_in_folder(folder_path)
 
 #tinytex::tlmgr_install("luatex85")
 
-#sometimes the Tex Gyres Termes font is not found, so manually install it via
-#tinytex
+# sometimes the Tex Gyres Termes font is not found, so manually install it via
+# tinytex
 
 #tinytex::tlmgr_install("tex-gyre")
 

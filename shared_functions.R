@@ -139,7 +139,7 @@ standard_alpha <- (slopes_exp5$standard_alpha)
 
 # function for creating example plots for exp 5
 
-example_plot_function_exp5 <- function(slopes, my_desired_r, size_value, opacity_value, theme) {
+example_plot_function_exp5 <- function(slopes, size_value, opacity_value, theme) {
   
   p <- ggplot(slopes, aes(x = V1, y = V2)) +
     scale_size_identity() +

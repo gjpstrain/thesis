@@ -51,16 +51,28 @@ library(effectsize)
 
 # fix conflicts now using the conflicted package
 
-conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
+conflicts_prefer(dplyr::select(),
+                 dplyr::filter(),
+                 lme4::lmer())
+
+# set kbl() options now
+
 options(knitr.kable.NA = "")
 
+# read in shared_functions.R
+
 source("../shared_functions.R")
+
+# create slopes df for plotting example plots now
 
 slopes <- prepare_slopes(0.8)
 ```
 
 ```{r}
 #| label: load-data
+
+# load in experimental data for pre and main experiments
+# rename experiments at the same time
 
 exp_5_pre_test_anon <- read_csv("../data/exp_5_pre_test_data.csv") %>%
   mutate("expName" = recode(expName,
@@ -77,6 +89,8 @@ exp_5_main_T_anon <- read_csv("../data/exp_5_main_data_T.csv") %>%
 
 ```{r}
 #| label: retrieve-cached-models-chap7
+
+# retrieve cached models
 
 if (!params$eval_models){ lazyload_cache_dir("../thesis_cache/") }
 ```
@@ -97,6 +111,8 @@ demographics <- anon_file %>%
   select(matches(c("participant",
                    "age_textbox.text",
                    "gender_slider.response")))
+
+# extract time taken per participant information
 
 time_taken <- anon_file %>%
   filter(!is.na(final.stopped)) %>%
@@ -155,10 +171,10 @@ defensive_confidence <- anon_file %>%
          DC_7 = q3_slider_DC_2.response, DC_8 = q4_slider_DC_2.response,
          DC_9 = q1_slider_DC_3.response, DC_10 = q2_slider_DC_3.response,
          DC_11 = q3_slider_DC_3.response, DC_12 = q4_slider_DC_3.response) %>%
-  mutate(DC_3 = 6 - DC_3,  # reverse score items 3, 4, 10, 12
-         DC_4 = 6 - DC_4,
-         DC_10 = 6 - DC_10,
-         DC_12 = 6 - DC_12) %>%
+  mutate(DC_3 = 6 - DC_3,         # reverse score item 3
+         DC_4 = 6 - DC_4,         # reverse score item 4
+         DC_10 = 6 - DC_10,       # reverse score item 10
+         DC_12 = 6 - DC_12) %>%   # reverse score item 12
   group_by(participant) %>%
   summarise(
     dc_score = sum(DC_1, DC_2, DC_3, DC_4,
@@ -198,6 +214,8 @@ belief <- anon_file %>%
   ) %>%
   mutate(belief_diff = post_bel - pre_bel) %>%
   select(participant, belief_diff, pre_bel, post_bel)
+
+# extract emotionality response
 
 emotion <- anon_file %>%
   filter(!is.na(slider_emotion.response)) %>%
@@ -239,7 +257,7 @@ anon_file %>%
            value = ., envir = .GlobalEnv)
 }
 
-# use wrangling function on anonymized data files
+# use wrangling function on anonymised data files
 
 wrangle_pre_test(exp_5_pre_test_anon)
 
@@ -261,8 +279,6 @@ E5_beliefs_main_tidy <- rbind(E5_beliefs_A_tidy,
 
 rm(E5_beliefs_A_tidy, E5_beliefs_T_tidy, exp_5_main_A_anon,
    exp_5_main_T_anon, exp_5_pre_test_anon)
-
-# write functions to extract chapter-specific
 
 # extract gender, age, and graph literacy
 
@@ -449,7 +465,7 @@ in highly accurate correlation estimates (see Figure \ref{fig-estimates-by-r-e3}
 \chap{chap:adjusting_size}). In \chap{chap:interactions_opacity_size},
 these point opacity and size manipulations were combined. Their combination was
 found to produce stronger effects than would be expected if they were linearly
-additive. While my efforts at correcting for the underestimation bias were successful,
+additive. While my efforts at correcting for the underestimation bias have seen success,
 my work has not yet attempted to investigate whether any of the techniques developed
 in this thesis may be used to change people's cognitions about data. Therefore, for my final 
 experimental chapter, I show that scatterplot manipulations that are able to correct for a historical
@@ -503,7 +519,7 @@ or negative outcomes with regard to health and policy more generally, especially
 given findings that in certain contexts, they are more persuasive than textual 
 information \cite{pandey_2014}. Studying the potential for new designs to alter
 beliefs about relatedness facilitates better visualisation techniques,
-but also effects understanding about how these designs might be used by
+but also effects an understanding about how these designs might be used by
 malevolent actors with a view to inoculating those who engage with them.
 To this end, I present a two-experiment study. First, crowdsourcing is used to
 select part of the experimental stimuli. The propensity for previously established
@@ -524,9 +540,14 @@ and defensive confidence of participants.
 # in the data folder 
 # set facet orders
 
-facet_order <- c("standard_plot", "opacity_manipulated", "size_manipulated", "additive_manipulation")
+facet_order <- c("standard_plot",
+                 "opacity_manipulated",
+                 "size_manipulated",
+                 "additive_manipulation")
 
 # make data frame of behaviours observed with standard plot
+
+# first, do standard scatterplot by itself
 
 standard_alone <- read_csv("../data/exp_1_to_4_combined.csv") %>%
     drop_na() %>%
@@ -546,13 +567,21 @@ standard_alone <- read_csv("../data/exp_1_to_4_combined.csv") %>%
   select(-group) %>%
   mutate(slider.response = (log(1-0.88*my_rs)/log(1-0.88)))
 
+# then do the other conditions
+
 all_exp_df <- read_csv("../data/exp_1_to_4_combined.csv") %>%
     drop_na() %>%
     filter(factor != "standard_plot") %>%
     group_by(factor, my_rs) %>%
     mutate(factor = factor(factor, levels = facet_order))
 
+# combine these together
+
 plotting_df <- rbind(all_exp_df, standard_alone)
+
+# create function for plotting previous estimation behaviour
+# without a y-axis
+# this is hacky, but is needed for the plots to line up
 
 plot_est_prev_no_y <- function(filter) {
   
@@ -561,20 +590,21 @@ plot_est_prev_no_y <- function(filter) {
     ggplot(aes(x = my_rs, y = slider.response)) + 
     theme_ggdist() +
     theme(scale_y_continuous(breaks = seq(-0.4,1, 0.2)),
-        axis.text = element_text(size = 7),
+        axis.text = element_text(size = 6.4),
         axis.title.x = element_blank(),
         axis.text.y = element_blank(),
         axis.title.y = element_blank(),
         axis.ticks.y = element_blank(),
         plot.margin = unit(c(0,0,0.2,0), "cm")) +
     geom_abline(slope = 1, intercept = 0, linetype = 3) +
-    labs(x = "Objective *r") +
     geom_smooth(se = FALSE, colour = "black", size = 0.4) +
     xlim(0.2,1) +
     ylim(0.1,1)
   
   return(plot)
 }
+
+# arrange example plots for previous experiments
 
 example_plots_prev <- ggarrange(
                       plot_example_function(slopes,
@@ -599,6 +629,8 @@ example_plots_prev <- ggarrange(
                                             title_size = 7),
                       nrow = 1)
 
+# arrange previous correlation estimation behaviour plots
+
 est_prev <- ggarrange(
   plot_est_prev_no_y("standard_plot"),
   plot_est_prev_no_y("opacity_manipulated"),
@@ -606,7 +638,11 @@ est_prev <- ggarrange(
   plot_est_prev_no_y("additive_manipulation"), nrow = 1
 )
 
-p <- ggarrange(example_plots_prev, est_prev, nrow = 2) + annotate("line", x = 0, end = 1, y = 0.5, yend = 0)
+# combine example plots and previous estimation plots together
+
+p <- ggarrange(example_plots_prev, est_prev, nrow = 2) 
+
+# define labels. These must be done as expressions due to italics
 
 x_label <- text_grob(expression("Objective " * italic("r") * " value"))
 
@@ -618,9 +654,10 @@ rm(example_plots_prev, plot_prev_est_no_y,    # trying to prevent env clogging
    all_exp_df, standard_alone,
    facet_order)
 
-annotate_figure(p,
-                bottom = x_label,
-                left = y_label)
+# use annotate_figure() function from ggpubr package to
+# add x and y labels to final plot
+
+annotate_figure(p, bottom = x_label, left = y_label)
 ```
 
 In contradiction to previous work \cite{rensink_2014, rensink_2017}, this thesis
@@ -629,7 +666,7 @@ and sizes of scatterplot points on participants' estimates of correlation in
 positively correlated scatterplots. While \chap{chap:adjusting_size}, in which
 point sizes were lowered as a function of residual distance, provided
 the best level of correction seen so far, \chap{chap:interactions_opacity_size}
-featured the most dramatic level of correction. In that that particular condition,
+featured the most dramatic level of correction. In that particular condition,
 both point opacity and size were lowered as a function of residual distance
 using equation 7.1:
 
@@ -644,7 +681,7 @@ specified employs the labelled non-linear decay function(s). The present experim
 investigates the potential for alternative scatterplot designs to have effects on
 cognition. For this reason, and to facilitate comparison to the work carried out
 in Experiments 1 to 4, the same design protocols have been utilised here, including
-the number of points (n = 128), the value of *b* (0.25), and the size scaling
+the number of points (*n* = 128), the value of *b* (0.25), and the size scaling
 factor, additional constant, and opacity floor. For the alternative scatterplot
 condition here, the manipulation which has been previously shown to cause the
 most dramatic change in participants' estimates of correlation was used: the combination
@@ -760,7 +797,7 @@ attention check items, in a fully randomised order.
 
 ### Procedure {#procedure-e5a}
 
-Participants viewed the PIS and were asked to provide through key presses
+Participants viewed the PIS and were asked to provide consent through key presses
 in response to consent statements. They were prompted to provide their
 age in a free text box and their gender identity. Participants were told
 that they would be asked to read statements about the relatedness between a 
@@ -795,7 +832,8 @@ minutes (*SD* = `r printnum(time_taken_e5a$sd, digits = 1)` minutes).
 pre_test_emot <- E5_beliefs_pre_test_tidy %>%
   select(c("participant", "slider_emotion.response", "item_no"))
 
-emot_matrix <- xtabs(slider_emotion.response ~ item_no + participant, data = pre_test_emot)
+emot_matrix <- xtabs(slider_emotion.response ~ item_no + participant,
+                     data = pre_test_emot)
 
 emot_matrix <- as.matrix(emot_matrix)
 
@@ -806,7 +844,8 @@ emot_kappa <- kappam.fleiss(emot_matrix)
 pre_test_belief <- E5_beliefs_pre_test_tidy %>%
   select(c("participant", "slider_belief.response", "item_no"))
 
-belief_matrix <- xtabs(slider_belief.response ~ item_no + participant, data = pre_test_belief)
+belief_matrix <- xtabs(slider_belief.response ~ item_no + participant,
+                       data = pre_test_belief)
 
 belief_matrix <- as.matrix(belief_matrix)
 
@@ -825,7 +864,8 @@ agreement_df_belief <- E5_beliefs_pre_test_tidy %>%
             std_dev_belief = sd(slider_belief.response)) %>%
   arrange(std_dev_belief)
 
-ratings_df <- full_join(agreement_df_belief, agreement_df_emot, by = "item_no")
+ratings_df <- full_join(agreement_df_belief, agreement_df_emot,
+                        by = "item_no")
 
 # calculate average topic emotionality ratings
 
@@ -855,13 +895,20 @@ and strength of relatedness ($\kappa$ = `r printnum(belief_kappa$value, digits =
 #| include: true
 #| tbl-cap: Statements with neutral average emotional valence ratings.
 
+# define candidate statements
+
 candidates <- avg_emot$item_no
+
+# read in statements dataframe, then filter for 
+# matches with average emotional valence ratings
 
 candidate_statements <- read_csv("../data/experimental_dataframes/e5a_exp_dataframe.csv") %>%
   filter(item_no %in% candidates) %>%
   select(c("item_no","statement")) %>%
   rename("Statement" = "statement",
          "Item" = "item_no")
+
+# create table
 
 kbl(candidate_statements, booktabs = TRUE, format = "latex")
 ```
@@ -880,7 +927,7 @@ about the strength of relatedness between the variables in question. Statement n
 `r printnum(add_and_to_numbers(consensus_df$item_no[2]), digits = 0)` was therefore
 selected: "Higher consumption of spicy foods is associated with a lower risk of 
 certain types of cancer", however the wording was modified such that the variables
-(food consumption and cancer risk) are positively correlated. While the work
+(food consumption and cancer risk) were positively correlated. While the work
 carried out in \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
 \chap{chap:interactions_opacity_size} show that opacity and size adjustments
 in scatterplots can affect estimates of positive correlation, no work regarding
@@ -979,13 +1026,14 @@ of emotional valence are also collected during the main study.
 #| fig-cap: Examples of the experimental stimuli for Experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the left, while group B saw the typical design on the right. The labels below the plots are included for the reader's convenience, and were not a part of the experimental stimuli. 
 #| fig-asp: 0.7
 
+# arrange example plots for experiment 5
+# experiment 5 uses its own example plot function
+
 ggarrange(example_plot_function_exp5(slopes_exp5,
-                                     0.6,
                                      slopeI,
                                      slopeI_floored,
                                      bbc_style()),
           example_plot_function_exp5(slopes_exp5,
-                                     0.6,
                                      typical,
                                      standard_alpha,
                                      bbc_style()), nrow = 1) +
@@ -1118,8 +1166,8 @@ anova_results_e5(e5_rating_time_model, e5_rating_time_model_cmpr)
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
-# modelling effect of condition on difference between belief strength before and
-# after viewing plot
+# modelling effect of condition on difference between 
+# belief strength before and after viewing plot
 
 e5_condition_interact_model <- buildclmm(rating ~ rating_time * condition +
                               (1 | participant),
@@ -1180,6 +1228,8 @@ viewing scatterplots in either the standard or alternative condition.
 #| include: true
 #| tbl-cap: "Statistics for the significant main effect of rating time. Odds ratio and the equivalent Cohen's \\textit{d} value is also supplied."
 
+# use significance table function defined above to make model table
+
 make_sig_table_rating_time(e5_rating_time_model)
 ```
 
@@ -1187,6 +1237,8 @@ make_sig_table_rating_time(e5_rating_time_model)
 #| label: tbl-condition-interact
 #| include: true
 #| tbl-cap: "Statistics for the significant main effect of rating time and the significant interaction between rating time and condition on the difference between pre- and post-scatterplot viewing ratings for standard and alternative plots. Odds ratios and equivalent Cohen's *d* effect sizes are also shown."
+
+# use significance table function defined above to make model table
 
 make_sig_table_interact(e5_condition_interact_model)
 ```
@@ -1196,6 +1248,8 @@ make_sig_table_interact(e5_condition_interact_model)
 #| include: true
 #| fig-asp: 0.6
 #| fig-cap: Dot plots for pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplot conditions. Mean ratings are also shown as points.
+
+# create dot plot for pre and post viewing beliefs
 
 E5_beliefs_main_tidy %>%
   mutate("condition" = recode(condition,
@@ -1267,7 +1321,9 @@ to the alternative scatterplot condition.
 #| include: true
 #| fig-env: "figure*"
 #| fig-asp: 0.4
-#| fig-cap: Histograms illustrating the magnitudes of the difference between pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplots. Median values are plotted as points.     
+#| fig-cap: Histograms illustrating the magnitudes of the difference between pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplots. Median values are plotted as points.
+
+# create histograms for magnitude of difference for standard and alternative plots
     
 E5_beliefs_main_tidy %>%
   select(participant, item_no, condition, rating_time, rating) %>%
@@ -1297,6 +1353,9 @@ E5_beliefs_main_tidy %>%
 #| label: add-analyses-e5
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
+
+# use clmm function from ordinal package to create models for 
+# additional participant characteristics
 
 e5_lit_model <- clmm(rating ~ 1 + condition + rating_time + condition:rating_time * literacy +
                          (1  | participant), 
@@ -1351,6 +1410,9 @@ scatterplot designs with regards to producing more persuasive visualisations.
 #| fig-asp: 0.4
 #| fig-cap: Illustrating how differences in beliefs about strength of relatedness change as a function of participants' scores on the graph literacy test (left), their scores on the defensive confidence test (centre), and their ratings of statement emotional valence (right). Locally smoothed curves with 95% CI ribbons are shown separately for standard and alternative scatterplot viewing conditions. Lower ratings of Difference in Beliefs ($y$ axis) corresponds to lower levels of belief change between pre- and post-scatterplot viewing times.
 
+# make plot for additional analyses
+# first, make plotting df
+
 add_analyses_plotting_df <- E5_beliefs_main_tidy %>%
   mutate("condition" = recode(condition,
                               "A" = "Alternative",
@@ -1363,6 +1425,10 @@ add_analyses_plotting_df <- E5_beliefs_main_tidy %>%
                                  "dc_score" = "Defensive Confidence (/60)",
                                  "slider_emotion.response" = "Emotion Rating (1 to 7)")) %>%
   mutate(add_variable = as_factor(add_variable))
+
+# create plot
+# facet_wrap2 from the ggh4x package is used here so that each
+# facet can have a different x axis
 
 ggplot(aes(x = variable_score,
            y = belief_diff,

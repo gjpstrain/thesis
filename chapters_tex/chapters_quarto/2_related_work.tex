@@ -500,9 +500,9 @@ scatterplots offer a number of distinct advantages.
 
 In a large scale study, Harrison et al.~\cite{harrison_2014} tested a
 range of correlation visualisation types, including scatterplots and
-those depicted in Figure~\ref{fig-other-corr-viz}, to see if precision
-in correlation estimation could be modelled by Weber's law
-\cite{rensink_2010}. In the context of correlation estimation from
+those depicted in Figure~\ref{fig-other-corr-viz}, to investigate
+whether precision in correlation estimation could be modelled by Weber's
+law \cite{rensink_2010}. In the context of correlation estimation from
 scatterplots, Weber's law states that the differential change in
 perception between scatterplots with two correlation values can be
 described by applying an experimentally-derived constant (\(k\)) to the
@@ -522,7 +522,7 @@ tested (scatterplots, PCPs, stacked area charts, stacked line charts,
 stacked bar charts, donut charts, radar charts, line graphs, and ordered
 line graphs) could be modelled using Weber's law. This study also
 provides a ranking of the tested visualisation types with regards to
-participant's correlation discrimination performance; overall,
+participants' correlation discrimination performance; overall,
 traditional scatterplots outperformed all other visualisation types with
 positively correlated data, and were tied with PCPs for negatively
 correlated data.
@@ -543,7 +543,7 @@ visualisations in scientific publications \cite{tufte_1983}. With the
 advances in computers and graphing techniques seen since then, this
 proportion is certainly lower today. Regardless, scatterplots, their
 derivatives, and their remixes can be seen not only in scientific and
-technical publication, but also in the news and mass media. This
+technical publications, but also in the news and mass media. This
 combination of advantages makes them particularly suitable for
 scientific study, and was part of the reason I chose to pursue this
 project.
@@ -561,12 +561,12 @@ contributions of this thesis.
 
 \section{Correlation Perception}\label{corr-percept-related-work}
 
-Understanding the perception of correlation represents a complex
-problem. Despite decades of research into correlation, scatterplots, and
-the perception of information from visualisations, there is no
-definitive solution to this problem. Circumstantial evidence exists,
-however, that points to correlation perception being driven by the shape
-of the probability distribution represented by the scatterplot.
+Understanding the perception of correlation is a complex problem.
+Despite decades of research into correlation, scatterplots, and the
+perception of information from visualisations, there is no definitive
+solution to this problem. Circumstantial evidence exists, however, that
+points to correlation perception being driven by the shape of the
+probability distribution represented by the scatterplot.
 
 Firstly, increasing the \(x\) and \(y\) scales of a scatterplot such
 that the size of the point cloud increases is associated with an
@@ -603,8 +603,8 @@ using a psychophysical function taking the following form:
   r_{est} = 1 - aX^b
 \end{equation}
 
-\(a\) and \(b\) are constant coefficients, while X represents the mean
-absolute vertical distance between the scatterplot points and a
+\(a\) and \(b\) are constant coefficients, while \(X\) represents the
+mean absolute vertical distance between the scatterplot points and a
 regression line. This modelling provides further evidence that estimates
 of correlation are based on perceptions of the physical arrangement of
 scatterplot points. This finding received later support from a study
@@ -619,7 +619,7 @@ Additionally, equations described by Rensink (2017) \cite{rensink_2017}
 linking subjective and objective \emph{r} values include a \(u\)
 parameter. For both discrimination and magnitude judgements, this
 parameter is small when \emph{r} = 1 and increases as \emph{r}
-approaches 0.This quantity is indifferent to the type of visualisation
+approaches 0. This quantity is indifferent to the type of visualisation
 used (e.g.~line graphs and bar charts \cite{harrison_2014} or augmented
 stripplots \cite{rensink_2017}), and is functionally similar to that
 found in work mentioned above
@@ -649,8 +649,8 @@ Thinking about the ways in which variables are related to one another is
 more complicated than simply perceiving the differences in relatedness.
 Particularly due to the speeds with which people are able to judge
 correlations \cite{rensink_2014}, experiments that aim to investigate
-cognition require more complicated designs. Generally, interacting with
-data visualisation is a complex process involving bottom-up and top-down
+cognition require more nuanced designs. Generally, interacting with data
+visualisation is a complex process involving bottom-up and top-down
 mechanisms \cite{rensink_2017, franconeri_2021,
 xiong_2023}. Visualisation design methodologies often begin by
 clarification of the problem space \cite{munzner_2009, mckenna_2014};
@@ -666,7 +666,7 @@ how the findings of the previous chapters may be \emph{extended} into a
 cognitive space.
 
 \section{The Underestimation of Correlation in Positively Correlated
-Scatterplots}\label{the-underestimation-of-correlation-in-positively-correlated-scatterplots}
+Scatterplots}\label{underestimation-related-work}
 
 While the previous section may have conveyed the idea of scatterplots as
 being ``data visualisation done right'', that is not the full story.
@@ -704,9 +704,9 @@ theoretically perfect estimation.}
 
 The underestimation of correlation in positively correlated scatterplots
 was also observed in Experiments 1 to 4 in the current paper, and is
-detailed in each experimental chapter. \chap{chap:conclusion} includes
-figures detailing the underestimation observed throughout this thesis in
-comparison to previous work. Despite this long-standing finding, no
+detailed in each experimental chapter. Figure \ref{fig-mean-all-exp} in
+\chap{chap:conclusion} summarises the mean estimation behaviour for
+observed throughout this thesis. Despite this long-standing finding, no
 efforts have been made to correct for this perceptual underestimation.
 Quite why this perceptual bias correction has never been attempted,
 however, is unclear. The following section argues in favour of seeking
@@ -726,7 +726,7 @@ organisational decision making, including in healthcare
 \cite{poly_2019}. Data visualisation also plays a huge role in the
 communication of vital public health information, including during the
 COVID-19 pandemic \cite{clements_2023}; from personal experience, this
-was when data visualisation entered the public conscience for many.
+was when data visualisation entered the public consciousness for many.
 Figure~\ref{fig-covid-viz} includes examples of two COVID-19
 visualisations created by the BBC.
 
@@ -772,7 +772,7 @@ statistics and psychology departments. While I would argue that this
 leads to more generalisable results, especially as I did not pursue
 purely perceptual conclusions (rather used aspects of perception to
 inform design), it is also important to recognise and account for the
-differences in ability in lay populations. Research has shown that those
+differences in ability in all populations. Research has shown that those
 with a greater level of skill in working with data visualisations tend
 to benefit more from their provision \cite{garcia_2010}, and that
 differences in these skills may account for variations in experimental
@@ -848,7 +848,7 @@ generally, I hope to make the following contributions:
   needed to find the exact combinations of size and opacity adjustments
   that produce perceptually-optimised estimates.
 \item
-  These effects do extent into a cognitive space, and are able to
+  These effects do extend into a cognitive space, and are able to
   influence people's beliefs about the levels of relatedness between
   variables.
 \item
