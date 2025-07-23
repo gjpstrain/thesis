@@ -239,11 +239,11 @@ While I was successful at changing participants' perceptions of correlation in
 positively correlated scatterplots in \chap{chap:adjusting_opacity}, the extent to which these perceptions
 were changed was minimal. Figure \ref{fig-estimates-by-r-e2} illustrates how participants'
 mean errors in *r* estimation changed as a function of the subjective *r* value.
-Scatterplots employing non-linear opacity decay produced the most drastic changes
+Scatterplots employing non-linear inverted opacity decay produced the most drastic changes
 in correlation estimation, however these changes were still small, with an effect size of 
-Cohen's *d* = 0.19. Recent evidence suggests that with regards to altering percepts
+Cohen's *d* = 0.23. Recent evidence suggests that with regards to altering percepts
 in scatterplots, changes in point size may be more effective than changes in 
-opacity. In a fully-reproducible, large sample (N = 150) study, I show that 
+opacity. In a fully-reproducible, large sample (*N* = 150) study, I show that 
 systematically altering point size using the same function is not only able to
 more effectively correct for the correlation underestimation bias, but is also
 able to alter the shape of the correlation estimation curve.
@@ -272,7 +272,7 @@ Opacity adjustments in scatterplots have been used extensively to solve issues
 of overplotting and clutter in scatterplots \cite{bertini_2004, matejka_2015}.
 Figure \ref{fig-overplotting-examples} in \chap{chap:adjusting_opacity} demonstrates this
 usage. Practicality also dictates that scatterplots visualising sufficiently large datasets 
-inherently require their points to be smaller to prevent obfuscation of the data 
+inherently require their points to be smaller to minimise obfuscation of the data 
 they portray. Aside from being used to increase point visibility, point size changes
 in scatterplots have also been employed in the creation of bubble charts; here,
 the size of a scatterplot point is mapped to a third variable. @fig-bubble-chart
@@ -290,7 +290,7 @@ mean point position to a greater degree than point opacity can \cite{hong_2022},
 in what is termed the *weighted average illusion*. Outside of scatterplots
 and scatterplot-adjacent chart types, there is evidence that increased size
 can result in faster reaction times to peripherally presented stimuli \cite{grice_1983},
-and there is evidence that larger stimuli are associated with lower
+and that larger stimuli are associated with lower
 levels of spatial certainty \cite{alais_2004}, but higher levels of salience \cite{healey_2012}. The
 current experiment should therefore facilitate discrimination between
 these candidate drivers of the effects observed in a way that was
@@ -303,10 +303,10 @@ Based on the findings from \chap{chap:adjusting_opacity}, and on evidence from
 the wider literature described above, two hypotheses are made:
 
   - H1: The non-linear decay parameter, in which scatterplots points become
-  smaller as they move further from the regression line, will result in lower
+  smaller when they reside further from the regression line, will result in lower
   mean errors in correlation estimation than for linear decay and standard size conditions.
   - H2: The use of an inverted non-linear decay parameter, in which scatterplot
-  points become larger as they get further away from the regression line,
+  points become larger when they reside further away from the regression line,
   will result in higher mean errors in correlation estimation than for all other
   conditions.
 
@@ -320,7 +320,7 @@ repository [^1]. This repository also features an implementation of a Docker
 container that enables the full recreation of the computational environment
 the original paper was written in. The experiment itself is hosted on GitLab [^2].
 The hypotheses and analysis plans were pre-registered with the Open Science Framework (OSF)
-[^3], and there were non deviations from them.
+[^3], and there were no deviations from them.
 
 [^1]: https://github.com/gjpstrain/size_and_scatterplots
 [^2]: https://gitlab.pavlovia.org/Strain/exp_size_only
@@ -393,9 +393,10 @@ that make up each pixel. Calculating dot pitch is a requirement for the subseque
 calculation of the physical on-screen sizes of the scatterplot points that participants
 saw. In the preamble to the current experiment, participants were asked to hold
 a standard size credit/debit/ID card up to the monitor, and then to resize a
-corresponding on-screen image until it matched the size of their physical card \cite{screenscale}.
+corresponding on-screen image using their keyboard arrows
+until it matched the size of their physical card \cite{screenscale}.
 These cards have a universal standard size (ISO/IEC 7810 ID-1), which when combined
-with the monitor resolution information recorded by Psychopy, and assuming a widescreen
+with the monitor resolution information recorded by PsychoPy, and assuming a widescreen
 16:9 aspect ratio, allows for the inference of dot pitch and therefore the
 physical size of the points in the experiment. Mean dot pitch was
 `r printnum(mean_dot_pitch)`mm ($SD = `r printnum(sd_dot_pitch)`$),
@@ -443,7 +444,7 @@ box, followed by their gender identity. Participants then completed the 5-item
 Subjective Graph Literacy test \cite{garcia_2016}, followed by the screen scale
 and point visibility tasks described above. Participants were shown example of 
 scatterplots depicting *r* values of 0.2, 0.5, 0.8, and 0.95. Section \ref{results-e3}
-contains discussion of the potential effects of this training. Following two
+contains a discussion of the potential effects of this training. Following two
 practice trials, participants worked through the series of 180 experimental and
 six attention check trials in a randomised order. Visual masks preceded each plot.
 
@@ -536,6 +537,8 @@ if (class(e3_model) == "buildmer") e3_model <- e3_model@model
 plotting_df <- as_tibble(emmeans(e3_model, pairwise ~ "size")[[1]]) %>%
   mutate(size = fct_relevel(size, c("A", "B", "C", "D")))
 
+# if it doesn't exist, output emmeans dataframe for use in Chapter 8
+
 if (!file.exists(csv_wrangled <- "../data/other_data/exp3_emm_plot.csv")) {
   
   plotting_df %>%
@@ -544,6 +547,8 @@ if (!file.exists(csv_wrangled <- "../data/other_data/exp3_emm_plot.csv")) {
     write_csv("../data/other_data/exp3_emm_plot.csv")
   
 }
+
+# plot EMMs
 
 plotting_df %>%
   mutate(size = recode(size, !!!labels_e3)) %>%
@@ -588,6 +593,8 @@ plotting_df %>%
            size = 2.5,
            angle = 270)
 
+# remove extraneous plotting dataframe 
+
 rm(plotting_df)
 ```
 
@@ -600,7 +607,7 @@ rm(plotting_df)
 
 if (class(e3_model) == "buildmer") e3_model <- e3_model@model
 
-# make table df
+# make table df, then use kblExtra to create table
 
 contrasts_extract(e3_model, "size") %>%
   mutate(Contrast = str_replace_all(Contrast, labels_e3_regex)) %>%
@@ -637,7 +644,7 @@ further discussion.
 ```{r}
 #| label: tbl-efs-e3
 #| include: true
-#| tbl-cap: Cohen's \textit{d} effect sizes (left) and summary statistics (right) for levels of the size decay factor in Experiment 3. Each effect size is compared to the reference level, termed, "Standard Size". 
+#| tbl-cap: Cohen's \textit{d} effect sizes (left) and summary statistics (right) for levels of the size decay factor in Experiment 3. Each effect size is compared to the reference level, termed "Standard Size". 
 #| tbl-subcap: ["Effect sizes for size decay factor.", "Summary statistics for size decay factor."]
 #| layout-ncol: 2
 
@@ -731,7 +738,7 @@ reduced point size in the exterior of the scatterplot reduces the perceived widt
 of the distribution of data points around the regression line, biasing estimates
 of correlation upwards and leading to a higher degree of accuracy. Other candidate
 mechanisms do exist; similar results would be expected if a feature-based attentional
-bias was responsible \cite{sun_2016, hong_2022}; the current methodology does not
+bias was responsible \cite{sun_2016, hong_2022}. The current methodology does not
 allow for distinguishing between these explanations, and it may be that both are 
 partially responsible.
 
@@ -748,7 +755,7 @@ In the present experiment, this resulted in participants making more accurate
 estimates of correlation in the inverted decay condition compared to the 
 standard size condition. It was suggested in \chap{chap:adjusting_opacity} that
 inverted opacity manipulations may be employed to correct for the *overestimation*
-of correlation observed with negatively correlation scatterplots \cite{sher_2017};
+of correlation observed with negatively correlated scatterplots \cite{sher_2017};
 findings here indicate that using an inverted size decay function in this way may
 not be appropriate.
 
@@ -786,7 +793,7 @@ other chart types, the use of the size manipulation may in fact be a hindrance.
 
 Before beginning the experimental trials, participants viewed plots depicting
 *r* = 0.2, 0.5, 0.8, and 0.95 for a minimum of 8 seconds. Comparing a model
-including session half as a fixed effect with the origin experimental model
+including session half as a fixed effect with the original experimental model
 revealed no significant effect ($\chi^2$(`r in_paren(e3_training_model.df)`)
 = `r printnum(e3_training_model.Chisq)`, *p* `r printnum(e3_training_model.p, add_equals = TRUE)`),
 suggesting that having more recently viewed the example plots did not have an effect

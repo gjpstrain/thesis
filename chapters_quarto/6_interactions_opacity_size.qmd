@@ -591,8 +591,8 @@ Analysis including dot pitch as a fixed effect is provided in Section \ref{resul
 A fully repeated-measures, 2 $\times$ 2 factorial design was employed. Each participant
 saw each combination of opacity and size decay function scatterplots for a total
 of 180 experimental items. Participants viewed these experimental items, along
-with 6 attention check items, in a fully randomised order. The experiment is
-hosted on Pavlovia [^4].
+with 6 attention check items, in a fully randomised order. The experiment was built
+using PsychoPy and hosted on Pavlovia [^4].
 
 [^4]: https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp
 

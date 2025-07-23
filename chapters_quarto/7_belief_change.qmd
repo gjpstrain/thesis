@@ -754,7 +754,8 @@ population in order to ascertain consensus. It was hypothesised that:
 
 ### Design {#design-e5a}
 
-The pre-study featured a within-subjects design. Each participant saw all 25 survey items (see Appendix A), along with the six
+The pre-study featured a within-subjects design. Each participant saw all 25 
+survey items (see Appendix A), along with the six
 attention check items, in a fully randomised order. 
 
 ### Procedure {#procedure-e5a}
