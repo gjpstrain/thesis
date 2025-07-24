@@ -192,9 +192,8 @@ anon_file %>%
   mutate(difference = my_rs - slider.response) %>%
   mutate(contrast = fct_relevel(contrast,
                                 c('D', 'C', 'B','A'))) %>%
-  rename("opacity" = "contrast") %>% # contrast was an earlier term, so is                                                                        # changed here for consistency 
-
-  assign(paste0(unique(anon_file$expName),
+  rename("opacity" = "contrast") %>%       # contrast was an earlier term, so is                                                                        
+  assign(paste0(unique(anon_file$expName), # changed here for consistency
                 "_tidy"),
            value = .,
          envir = .GlobalEnv)

@@ -110,9 +110,9 @@ Using point opacity and size manipulations together in both congruous (same dire
 and incongruous (opposing directions) combinations, this single experiment showed
 that employing both manipulations was able to bias correlation estimates further
 than either manipulation in isolation, resulting in a marked overestimation being
-introduced. This combination is not, however, linearly additive, suggesting 
-different mechanisms of action behind the effects of each visual manipulation on
-correlation estimation. This experiment provided evidence that with regards to
+introduced. This combination is not, however, linearly additive, adding support to
+the idea that there are different mechanisms of action behind the effects of each visual manipulation on
+correlation estimation. This experiment provided evidence that, with regards to
 using point opacity and size manipulations to bias correlation estimates, there 
 are few limits. @fig-mean-all-exp summarises the mean estimation errors from
 all 4 experiments described in \chap{chap:adjusting_opacity},
@@ -121,7 +121,7 @@ all 4 experiments described in \chap{chap:adjusting_opacity},
 ```{r}
 #| label: fig-mean-all-exp
 #| include: true
-#| fig-cap: Estimated Marginal Mean errors in correlation estimation for Experiments 1 to 4. This figure is an amalgamation of Figures \ref{fig-e1-estimates}, \ref{fig-e2-estimates}, \ref{fig-e3-estimates}, and \ref{fig-e4-estimates}. 95% confidence intervals are shown as error bars. The vertical dashed line represents no estimation error.
+#| fig-cap: Estimated Marginal Mean errors in correlation estimation for Experiments 1 to 4. This figure is an amalgam of Figures \ref{fig-e1-estimates}, \ref{fig-e2-estimates}, \ref{fig-e3-estimates}, and \ref{fig-e4-estimates}. 95% confidence intervals are shown as error bars. The vertical dashed line represents no estimation error.
 #| fig-asp: 1.5
 
 # grab and merge wrangled csvs together
@@ -289,7 +289,7 @@ about data visualisations can also be altered by small changes in visual
 presentation. This is in line with a large body of work demonstrating that 
 small changes in visual presentation - often of the kind that may be considered
 only as aesthetic preference by designers - can lead to large changes in perceptions
-and the conclusions that viewers of visualisations draw; see Fygenson et al./ 2023 \cite{fygenson_2023}
+and the conclusions that viewers of visualisations draw; see Fygenson et al., 2023 \cite{fygenson_2023}
 for examples with bar chart spacing and arrangement, Moritz et al., 2023 \cite{moritz_2023}
 for examples with line graphs, and Bradley et al., 2025 \cite{bradley_2025}
 for examples with axis limits and truncation. Franconeri et al. (2021 \cite{franconeri_2021})
@@ -300,14 +300,14 @@ how poor design can lead to visualisation-driven miscommunication and bias.
 
 As detailed in \chap{chap:gen_methods}, this project has been conducted according
 to the principles of open and reproducible science \cite{ayris_2018}. Doing so
-effectively facilitates future replication and authentication of my published
+effectively facilitates future replication and authentication of the published
 results, in addition to enabling others to learn from where I have succeeded and 
 failed. Materials are provided throughout for the re-creation of each individual
 experimental paper, including Docker containers to reproduce the specific
 computational environments used. This thesis also features an all-in-one Docker
 implementation, details of which can be found in the repository associated with
-this paper. Owing to the accessibility issues present with the PDF format 
-\cite{kumar_2024}, this thesis is also hosted as a website[^1].
+this paper and in Appendix X. Owing to the accessibility issues present with the PDF format 
+\cite{kumar_2024}, this thesis is also hosted as a website[^1] using GitHub Pages.
 
 [^1]: placeholder
 
@@ -342,7 +342,7 @@ one PhD project may look like.
 It is clear from the results presented in this thesis that designers must be
 aware of the potential effects on perception and cognition of aesthetic 
 choices in data visualisation design. This is particularly salient given that
-point opacity changes and point size changes are both common techniques in
+changes in point opacity and size are both common techniques in
 scatterplot design. The former is often used to reduce overplotting issues, while
 the latter is used to create trivariate bubble charts. Given that many data 
 visualisations are designed with a range of communicative intentions, designers 
@@ -378,7 +378,7 @@ lay people; given that this is the group that represents the greatest viewership
 and that has the most to gain from engaging with data visualisations, more design
 must take place that acknowledges and addresses the ways in which perceptions and
 cognitions around data visualisations are biased. Designing in this way requires 
-humility; as designers we must recognise that biases exist in common data 
+humility; as designers, we must recognise that biases exist in common data 
 visualisations and work thoroughly to address them.  
 
 # Limitations
@@ -401,8 +401,8 @@ normal, day-to-day visualisation viewing.
 All experiments presented in this thesis were conducted entirely online. Doing so
 allowed for the rapid collection of large amounts of high quality data, however 
 necessarily limits the amount of additional data that can be collected. A method
-for determining the dot pitch of participants' monitors was employed from \chap{chap:adjusting_opacity}
-and included in statistical modelling paradigms. Generally, this explained little
+for determining the dot pitch of participants' monitors was employed from \chap{chap:adjusting_size}
+onwards and was included in statistical modelling paradigms. Generally, this explained little
 to no variance in participants' responses. Online experimentation does not allow
 for the determination of other factors that may explain variance, such as head-to-monitor
 distance or monitor specifications that may influence the visual quality of scatterplots
