@@ -518,7 +518,7 @@ assume that data visualisations are used to make decisions that result in positi
 or negative outcomes with regard to health and policy more generally, especially 
 given findings that in certain contexts, they are more persuasive than textual 
 information \cite{pandey_2014}. Studying the potential for new designs to alter
-beliefs about relatedness facilitates better visualisation techniques,
+beliefs about relatedness facilitates the development of better visualisation techniques,
 but also effects an understanding about how these designs might be used by
 malevolent actors with a view to inoculating those who engage with them.
 To this end, I present a two-experiment study. First, crowdsourcing is used to
