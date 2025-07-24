@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.7.16)  24 JUL 2025 09:47
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.7.16)  24 JUL 2025 11:10
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1851,26 +1851,26 @@ Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figu
 [127<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf>]
 
 [128]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf, id=3322, 372.39125pt x 209.78375pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf, id=3323, 372.39125pt x 209.78375pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf  used on input line 634.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf  used on input line 635.
 (luatex.def)             Requested size: 483.69687pt x 272.49794pt.
 
 
 [129]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf, id=3331, 372.39125pt x 144.54pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf, id=3332, 372.39125pt x 144.54pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf  used on input line 673.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf  used on input line 674.
 (luatex.def)             Requested size: 483.69687pt x 187.74977pt.
 
 
 [130<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf>]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf, id=3347, 387.4475pt x 132.495pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf, id=3348, 387.4475pt x 132.495pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf  used on input line 720.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf  used on input line 721.
 (luatex.def)             Requested size: 483.69687pt x 165.41211pt.
 
 
@@ -1883,13 +1883,15 @@ Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figu
 [134])
 
 [135]
+
+[136]
 Chapter 8.
 (./chapters_tex/chapters_quarto/8_conclusion.tex
 
-[136
+[137
 
 ]
-<chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf, id=3429, 386.44376pt x 586.19pt>
+<chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf, id=3435, 386.44376pt x 586.19pt>
 File: chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf  used on input line 86.
@@ -1899,38 +1901,38 @@ LaTeX Warning: Float too large for page by 20.031pt on input line 97.
 
 
 
-[137]
+[138]
 
-[138<./chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf>]
-
-[139]
+[139<./chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf>]
 
 [140]
 
 [141]
 
-[142])
+[142]
 
-[143]
+[143])
 
-[144
+[144]
+
+[145
 
 ]
-
-[145]
 
 [146]
 
 [147]
+
+[148]
 Overfull \hbox (7.97084pt too wide) in paragraph at lines 184--184
 \TU/Calibri(0)/m/n/12 Subjects Re-search: Com-par-isons be-tween MTurk, Pro-lific, CloudResearch, Qualtrics, and SONA''.
  []
 
 
 
-[148]
-
 [149]
+
+[150]
 Overfull \hbox (10.91403pt too wide) in paragraph at lines 184--184
 []\TU/Calibri(0)/m/n/12 Matthias Gamer, Jim Lemon, and Ian Fel-lows Pus-pendra Singh ¡pus-pendra.pusp22@gmail.com¿.
  []
@@ -1942,83 +1944,83 @@ Overfull \hbox (3.5351pt too wide) in paragraph at lines 184--184
 
 
 
-[150]
-
 [151]
+
+[152]
 Overfull \hbox (10.23024pt too wide) in paragraph at lines 184--184
 \TU/Calibri(0)/m/n/12 dence in Sup-port-ing Prob-a-bil-ity Claims? The Role of Ar-gu-ment Ty-peAb-stractAb-stractAb-stractAb-
  []
 
 
 
-[152]
-
 [153]
+
+[154]
 Overfull \hbox (5.74077pt too wide) in paragraph at lines 184--184
 []\TU/Calibri(0)/m/n/12 Tom Koch. ``Wel-come to the Rev-o-lu-tion: COVID-19 and the De-moc-ra-ti-za-tion of Spatial-Temporal
  []
 
 
 
-[154]
+[155]
 Overfull \hbox (0.13637pt too wide) in paragraph at lines 184--184
 \TU/Calibri(0)/m/n/12 pp. 328–348. \TU/Calibri(0)/m/sc/12 󰀬󰁛󰁛󰁂\TU/Calibri(0)/m/n/12 : 0022-1031. \TU/Calibri(0)/m/sc/12 󰀕󰁈󰀬\TU/Calibri(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1016 / j . jesp . 2018 . 08 . 009$[]\TU/Calibri(0)/m/n/12 . (Vis-ited on 09/03/2024)
  []
 
 
 
-[155]
-
 [156]
 
 [157]
+
+[158]
 Overfull \hbox (12.6478pt too wide) in paragraph at lines 184--184
 \TU/Calibri(0)/m/it/12 ence \TU/Calibri(0)/m/n/12 349.6251 (Aug. 2015), aac4716. \TU/Calibri(0)/m/sc/12 󰀕󰁈󰀬\TU/Calibri(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1126 / science . aac4716$[]\TU/Calibri(0)/m/n/12 . (Vis-ited on 10/10/2024)
  []
 
 
 
-[158]
-
 [159]
 
 [160]
+
+[161]
 Overfull \hbox (51.91745pt too wide) in paragraph at lines 184--184
 []\TU/Calibri(0)/m/n/12 John Rus-sell. \TU/Calibri(0)/m/it/12 Con-struct-ing the Hertzsprung-Russell Di-a-gram\TU/Calibri(0)/m/n/12 . https://dr-john-rus-sell.github.io/posts/2025-
  []
 
 
 
-[161]
+[162]
 Overfull \hbox (2.35187pt too wide) in paragraph at lines 184--184
 []\TU/Calibri(0)/m/n/12 Bar-ret Schlo-erke, Di Cook, Joseph Lar-marange, Fran-cois Bri-atte, Moritz Mar-bach, Ed-win Thoen,
  []
 
 
 
-[162]
-
 [163]
+
+[164]
 Overfull \hbox (0.3138pt too wide) in paragraph at lines 184--184
 []\TU/Calibri(0)/m/it/12 The MIT Li-cense\TU/Calibri(0)/m/n/12 . https://open-source.org/li-cense/mit. (Vis-ited on 10/15/2024) (cited on p. []60[]). 
  []
 
 
 
-[164]
-
 [165]
+
+[166]
 Overfull \hbox (5.12677pt too wide) in paragraph at lines 184--184
 []\TU/Calibri(0)/m/n/12 Yi-hui Xie, Christophe Dervieux, and Emily Riederer. \TU/Calibri(0)/m/it/12 R Mark-down Cook-book\TU/Calibri(0)/m/n/12 . Boca Ra-ton, Florida:
  []
 
 
 
-[166]
-
 [167]
 
-[168
+[168]
+
+[169
 
 
 ]
@@ -2029,7 +2031,7 @@ See the caption package documentation for explanation.
 
 
 
-[169
+[170
 
 
 ] (./main.aux)
@@ -2043,11 +2045,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 41670 strings out of 470133
+ 41671 strings out of 470133
  125165,2373549 words of node,token memory allocated
  2004 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 30 glue, 4 kern, 1 glyph, 132 attribute, 117 glue_spec, 132 attribute_list, 2 write, 82 pdf_action nodes
-   avail lists: 1:3,2:1193,3:369,4:317,5:1514,6:688,7:9212,8:61,9:542,10:26,11:812
+   avail lists: 1:3,2:1193,3:369,4:318,5:1531,6:688,7:9227,8:61,9:542,10:26,11:808
  68042 multiletter control sequences out of 65536+600000
  80 fonts using 30848255 bytes
  104i,12n,113p,4561b,3358s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2094,9 +2096,9 @@ warning  (pdf backend): unreferenced destination with name 'Hfootnote.2'
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
 <c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Windows/Fonts/calibrii.ttf><c:/Windows/Fonts/calibri.ttf><c:/Windows/Fonts/calibrib.ttf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (169 pages, 37252110 bytes).
+Output written on main.pdf (170 pages, 37253820 bytes).
 
-PDF statistics: 4749 PDF objects out of 5155 (max. 8388607)
- 625 named destinations out of 1000 (max. 131072)
+PDF statistics: 4755 PDF objects out of 5155 (max. 8388607)
+ 626 named destinations out of 1000 (max. 131072)
  1311 words of extra memory for PDF output out of 10000 (max. 100000000)
 

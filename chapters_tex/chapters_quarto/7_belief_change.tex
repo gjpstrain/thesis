@@ -383,9 +383,9 @@ news source had requested their identity be obscured. They were
 debriefed that this was not the case, and in fact the data were false,
 at the end of the experiment. Based on evidence that beliefs can change
 after viewing visualisations \cite{karduni_2020, markant_2023}, and that
-scatterplots employing point opacity and size manipulations described in
-Section \ref{related-work-beliefs} are able to affect perceptual
-estimates, the following hypotheses were made:
+scatterplots employing the point opacity and size manipulations
+described in Section \ref{related-work-beliefs} are able to affect
+perceptual estimates, the following hypotheses were made:
 
 \subsection{Hypotheses}\label{hypotheses-e5}
 
@@ -434,7 +434,7 @@ on more cognitively demanding visualisation tasks
 used \cite{garcia_2016} is extremely short; in the present study, this
 took participants an average of 27 seconds (\emph{SD} = 16 seconds).
 
-\subsubsection{Emotionality}\label{emotionality}
+\subsubsection{Emotional Valence}\label{emotional-valence}
 
 The emotional content of a visualisation and the emotional state of a
 participant may have cognitive and perceptual effects on performance in
@@ -504,7 +504,7 @@ response to displayed consent statements. Participants were then asked
 to provide their age and gender identity. Following this, participants
 completed the 5-item Subjective Graph Literacy scale as in previous
 experiments \cite{garcia_2016}, and Albarracín and Mitchell's
-\cite{albarracin_2004} 12-item defensive confidence scale . To give
+\cite{albarracin_2004} 12-item defensive confidence scale. To give
 legitimacy to the data visualisations with the hope of maximising any
 potential belief change, participants were told that the graphs they
 would see were taken from a well-known British news source, but that the
@@ -515,15 +515,16 @@ hypotheses were made based on these data, and therefore they were not
 analysed further. Following instructions, which included textual
 descriptions of scatterplots and Pearson's \emph{r}, participants were
 given two practice trials; these trials took the form of a typical
-``standard scatterplot'' trial from Experiment 1. Participants were then
-asked to indicate their beliefs about emotional valence and strength of
-relatedness described in the chosen correlative statement; these data
-were captured using Likert scales identical to those described
-previously. After completing 45 experimental trials, participants were
-then asked again, using the same Likert scales, to indicate their
-beliefs about emotional valence and strength of relatedness.
-Interspersed among the experimental items were four attention check
-trials which explicitly asked participants to set the slider to 0 or 1.
+``Opacity = 1'' trial from Experiment 1 (see
+\ref{fig-exp1-examples-chap4}). Participants were then asked to indicate
+their beliefs about emotional valence and strength of relatedness
+described in the chosen correlative statement; these data were captured
+using Likert scales identical to those described previously. After
+completing 45 experimental trials, participants were then asked again,
+using the same Likert scales, to indicate their beliefs about emotional
+valence and strength of relatedness. Interspersed among the experimental
+items were four attention check trials which explicitly asked
+participants to set the slider to 0 or 1.
 
 \subsubsection{Participants}\label{participants-e5}
 
@@ -557,11 +558,11 @@ ratings, such as linear regression, is therefore inappropriate
 (version 2023.12-4.1 \cite{ordinal}) was used to build cumulative link
 mixed effects models to analyse Likert scale data \footnote{The linked
   pre-registration (see Section \ref{open-research-chap7}) specifies
-  linear mixed effects models. This was an oversight; conclusions are
-  identical when using said models.}. As in previous chapters, the
-\textbf{buildmer} (version 2.11 \cite{buildmer}) package is used to
-automate the selection of the random effects structure (see Section
-\ref{model-construction} for further details). Odds ratios and
+  linear mixed effects models. This was an oversight, however
+  conclusions are identical when using said models.}. As in previous
+chapters, the \textbf{buildmer} (version 2.11 \cite{buildmer}) package
+is used to automate the selection of the random effects structure (see
+Section \ref{model-construction} for further details). Odds ratios and
 equivalent Cohen's \emph{d} effect size values are calculated using the
 \textbf{effectsize} package (version 1.0.0 \cite{effectsize}).
 
@@ -619,7 +620,7 @@ shown.}
 \midrule
 Rating Time & 4.15 & 0.063 & 66.34 & <0.001 & 63.33 & 2.29\\
 Condition & 0.49 & 0.390 & 1.25 & 0.211 & 1.63 & 0.27\\
-Rating Time $x$ Condition & -0.72 & 0.071 & -10.22 & <0.001 & 2.06 & 0.40\\
+Rating Time $X$ Condition & -0.72 & 0.071 & -10.22 & <0.001 & 2.06 & 0.40\\
 \bottomrule
 \end{tabular}
 
@@ -810,14 +811,16 @@ scatterplot, I can conclude with strong evidence that alternative
 scatterplot design was responsible for increasing the level of belief
 change amongst participants.
 
-An alternative (although not competing) explanation for the results have
-seen here comes from recent work on the incorporation of uncertainty
+An alternative (although not competing) explanation for the results seen
+here comes from recent work on the incorporation of uncertainty
 visualisations in scatterplots. Karduni et al.~\cite{karduni_2020} found
-in 2020 that visualisations that encode uncertainty produce lower levels
-of belief change compared to those that do not. The alternative
-scatterplot design employed in the main experiment can be thought of as
-masking some of the uncertainty inherent in a scatterplot point cloud by
-reducing the salience of the most exterior points.
+that visualisations that encode uncertainty produce lower levels of
+belief change compared to those that do not. The alternative scatterplot
+design employed in the main experiment can be thought of as masking some
+of the uncertainty inherent in a scatterplot point cloud by reducing the
+salience of the most exterior points. If this was the case, then the
+results seen here are congruent with those found by Karduni et
+al.~\cite{karduni_2020}.
 
 Previous work has provided support for the idea that it is the shape of
 the point cloud, more specifically, the width of the probability
@@ -839,10 +842,10 @@ design was simple; multiple correlative statements were not
 investigated, nor was the propensity for strongly held beliefs to be
 changed or the effect of topics with strong or polarised emotional
 components. A simple, blunt measure of belief about relatedness was
-utilised, and only one of the alternative scatterplot visualisations
+utilised, and only one of the 10 alternative scatterplot visualisations
 described in this thesis was used. Each of these components deserves
 study, and each is ripe for future work to investigate the contributions
-of each factor to the effects we have seen here.
+of each factor to the effects seen here.
 
 Section \ref{add-analyses-discussion} describes the effects that graph
 literacy, defensive confidence, and participants' ratings of the
