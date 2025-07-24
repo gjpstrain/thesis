@@ -221,12 +221,10 @@ ggarrange(example_plots_incongruent, example_plots_congruent, nrow = 1)
 # create example plots for experiment 5
 
 ggarrange(example_plot_function_exp5(slopes_exp5,
-                                     0.6,
                                      slopeI,
                                      slopeI_floored,
                                      bbc_style()),
           example_plot_function_exp5(slopes_exp5,
-                                     0.6,
                                      typical,
                                      standard_alpha,
                                      bbc_style()),
