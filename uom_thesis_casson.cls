@@ -238,7 +238,13 @@
 \newcommand{\uomdeclarations}{
   \phantomsection\addcontentsline{toc}{chapter}{Declaration of originality}
   \chapter*{Declaration of originality}
-  I hereby confirm that no portion of the work referred to in the thesis has been submitted in support of an application for another degree or qualification of this or any other university or other institute of learning.
+  \begin{itemize}
+	\item I hereby confirm that no portion of the work referred to in the thesis has been submitted in support of an application for another degree or qualification of this or any other university or other institute of learning.
+	\item did raphael help with one?
+	\item Charlotte helped with the next, I think
+  \end{itemize}
+  
+  
   \clearpage
   
   \phantomsection\addcontentsline{toc}{chapter}{Copyright statement}
