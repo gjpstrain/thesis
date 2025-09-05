@@ -239,9 +239,9 @@
   \phantomsection\addcontentsline{toc}{chapter}{Declaration of originality}
   \chapter*{Declaration of originality}
   \begin{itemize}
+	\item Experiment 1 described in Chapter 4 was conducted in collaboration with Nikoletta Kaiser, who submitted an independently written report in partial fulfilment of her MRes Experimental Psychology with Data Science degree at the University of Manchester (2022). The report written within this thesis is my own work.
+	\item The experiment described in Chapter 7 was conducted in collaboration with Charlotte Rutherford, who is included as an author on the corresponding paper. I currently co-supervise Charlotte's PhD program.
 	\item I hereby confirm that no portion of the work referred to in the thesis has been submitted in support of an application for another degree or qualification of this or any other university or other institute of learning.
-	\item did raphael help with one?
-	\item Charlotte helped with the next, I think
   \end{itemize}
   
   
