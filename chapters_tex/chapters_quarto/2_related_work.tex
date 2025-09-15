@@ -7,19 +7,19 @@
 Data visualisation, which can be thought of as the practice of
 representing information in a visual modality \cite{hinterberger_2009},
 is difficult to concretely define, classify, and categorise. For most of
-us, vision is the primary way in which we interact with the world around
-us; in this way, data visualisation may be thought of as an extension of
-art and the written word. Both art and writing are ancient phenomena,
-with evidence for the former being found in the prehistoric period some
-66,000 years ago \cite{standish_2025}, and evidence for the latter
-emerging as Mesopotamian cuneiform around 3200 B.C.E
+us, vision is the primary medium through which we interact with the
+world around us; in this way, data visualisation may be thought of as an
+extension of art and the written word. Both art and writing are ancient
+phenomena, with evidence for the former being found in the prehistoric
+period some 66,000 years ago \cite{standish_2025}, and evidence for the
+latter emerging as Mesopotamian cuneiform around 3200 B.C.E
 \cite{schmandt_2014}. Broadly, the literature indicates that art emerged
 prior to the written word; this speaks volumes of the human instinct to
 represent our thoughts, feelings, emotions, and the ways that we
 interact with the world pictorially. This instinct has not waned, and
-modern computing makes it easier than ever for those of us with no
-technical or artistic skills to create graphics and visualisations that
-\emph{tell stories} about our data in ways which are both beautiful and
+modern computing makes it easier than ever for those with no technical
+or artistic skills to create graphics and visualisations that \emph{tell
+stories} about our data in ways which are both beautiful and
 informative.
 
 When, then, should we consider to be the emergence of data visualisation
@@ -42,7 +42,7 @@ as opposed to only words and/or numbers, a principle which I consider
 key for this thesis.
 
 Moving on, then, to the kind of pictorial representation that modern-day
-students and scientists would firmly recognise as a ``data
+students and scientists would firmly recognise as ``data
 visualisation''. Tufte and Graves-Morris, in 1983's seminal \emph{The
 Visual Display of Quantitative Information} \cite{tufte_1983}, describe
 an unattributed time series illustration from the 10th or 11th century,
@@ -144,7 +144,7 @@ chart illustrates the causes for mortality among British soldiers during
 the Crimean War. Data visualisations of this type were used to
 illustrate that in reality, more British soldiers died from preventable
 disease than were killed by the enemy, and were used as part of a
-campaign to improve sanitation among soldiers.}
+campaign to improve sanitation on the front lines.}
 
 \end{figure}%
 
@@ -168,7 +168,7 @@ Grande Armée, its diminishing size owing to attrition, and the freezing
 temperatures that largely caused that attrition. Florence Nightingale's
 polar area chart depicts the causes of mortality amongst British troops
 in the Crimean War; charts such as this were used to successfully
-campaign for better sanitation in hospitals and the front lines.
+campaign for better sanitation in hospitals and on the front lines.
 
 In all of these visualisations, data was used to accentuate
 storytelling. In some cases, this lead to critical discoveries that
@@ -187,17 +187,17 @@ Significant developments in the latter half of the 20th century laid the
 final brick in the foundations of what would become the modern data
 visualisation landscape. John W. Tukey's \emph{The Future of Data
 Analysis} \cite{tukey_1962} proposed a separation between data analysis
-and mathematical statistics. This seminal work would become hugely
-influential, and Tukey would go on to invent a great number of
-analysis-driven data visualisations, including stem-leaf plots and box
-plots, both of which are now commonplace in software packages and
-statistics education. In 1967, Jacques Bertin \cite{bertin_1967}
-published \emph{Sémiologie graphique} (\emph{Semiology of Graphics}),
-organising the perceptual elements of data visualisations according to
-their features and their relationships to the underlying data; this work
-would be influential for Leland Wilkinson's \emph{Grammar of Graphics}
-\cite{wilkinson_1999}, which in turn influenced the \texttt{ggplot2}
-package \cite{wickham_2016} that is used extensively in this thesis.
+and mathematical statistics. This work would become hugely influential,
+and Tukey would go on to invent a great number of analysis-driven data
+visualisations, including stem-leaf plots and box plots, both of which
+are now commonplace in software packages and statistics education. In
+1967, Jacques Bertin \cite{bertin_1967} published \emph{Sémiologie
+graphique} (\emph{Semiology of Graphics}), organising the perceptual
+elements of data visualisations according to their features and their
+relationships to the underlying data; this work would be influential for
+Leland Wilkinson's \emph{Grammar of Graphics} \cite{wilkinson_1999},
+which in turn influenced the \texttt{ggplot2} package
+\cite{wickham_2016} that is used extensively in this thesis.
 
 \begin{figure}
 
@@ -269,14 +269,14 @@ recognising its importance; Lee Rodgers \& Nicewander (1988)
 
 Building on Galton's groundbreaking work, his younger, more
 mathematically-minded student, Karl Pearson, developed the Pearson
-Product-Moment correlation in 1895 \cite{lee_1988} based on initial
-formulae by Bravais (1844) \cite{bravais_1844}. This measure has been
-remarkably persistent, remaining unchanged for well over a century. In
-fact, many other measures of correlation, such as Spearman's \(\rho\),
-the point-biserial correlation, and the \(\phi\) coefficient are
-actually special cases of Pearson's \emph{r} applied to different types
-of data \cite{henrysson_1971}; such is the dominance of the measure.
-Equation 2.1 defines Pearson's \emph{r}:
+Product-Moment correlation (Pearson's \emph{r}) in 1895 \cite{lee_1988}
+based on initial formulae by Bravais (1844) \cite{bravais_1844}. This
+measure has been remarkably persistent, remaining unchanged for well
+over a century. In fact, many other measures of correlation, such as
+Spearman's \(\rho\), the point-biserial correlation, and the \(\phi\)
+coefficient are actually special cases of Pearson's \emph{r} applied to
+different types of data \cite{henrysson_1971}; such is the dominance of
+the measure. Equation 2.1 defines Pearson's \emph{r}:
 
 \begin{equation}
   r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2 \sum_{i=1}^{n} (y_i - \bar{y})^2}}
@@ -377,7 +377,7 @@ measurements of certain angles and distances made over a long period of
 time. It is the imprecision in measurement which necessitated data
 visualisation, as precise measurements would allow common astronomical
 principles to provide precise solutions. First specifying the axes,
-angles of position (\(y\)) and date of observation (\(x\)), and grid
+angle of position (\(y\)) and date of observation (\(x\)), and grid
 lines, Herschel then describes plotting points and drawing, by hand, a
 line-of-best-fit. A particularly enlightening quote
 \cite{herschel_1833}, with original emphasis, is reproduced below:
@@ -424,7 +424,7 @@ Garrison \cite{spence_1993} conducted a detailed analysis of the history
 and development of HR diagrams, and conclude that they represent a
 ``shining example of the power of graphic display''. Again, it was the
 ability of the data visualisation to facilitate pattern recognition in
-its human viewers that was so crucial to its (continuing) success.
+its human viewers that was so crucial to its success.
 
 While this section has not been an exhaustive list of every scatterplot
 and scatterplot-related plot that has prominently featured in scientific
@@ -453,8 +453,8 @@ scientific problems.
 
 }
 
-\caption{\label{fig-other-corr-viz}From left to right: Parallel
-Coordinates Plot (PCP) built with the \texttt{GGally} package
+\caption{\label{fig-other-corr-viz}From top-left to bottom-right:
+Parallel Coordinates Plot (PCP) built with the \texttt{GGally} package
 \cite{ggally}; Stacked area plot; radial stacked bar plot (doughnut
 plot); radar plot. Each plot uses the same dataset with an \emph{r}
 value of 0.6.}
@@ -510,8 +510,8 @@ actual difference between those correlations
 \cite{rensink_2010, harrison_2014}. This law may also be applied to the
 discrimination of other physical properties, such as weight
 \cite{coren_2004}. In Harrison et al.'s study \cite{harrison_2014},
-itself a replication of a previous work investigating Weber's law for
-the modelling of perceived correlation \cite{rensink_2010}, participants
+itself a replication of previous work investigating Weber's law for the
+modelling of perceived correlation \cite{rensink_2010}, participants
 were asked to make discriminative judgements between side-by-side
 correlation visualisations. An adaptive staircase procedure was employed
 to infer just-noticeable differences (JNDs) for correlation perception
@@ -548,12 +548,12 @@ combination of advantages makes them particularly suitable for
 scientific study, and was part of the reason I chose to pursue this
 project.
 
-Despite this host of advantages, the estimation of correlation suffers
-from routine underestimation by viewers. To understand this bias with a
-view to correcting for it, I first explore the perception of correlation
-more generally, before briefly discussing the more cognitive aspects of
-the measure, which are especially relevant for the experiment described
-in \chap{chap:belief_change}. I then deal with the problem itself; the
+Despite this host of advantages, correlation suffers from routine
+underestimation by viewers. To understand this bias with a view to
+correcting for it, I first explore the perception of correlation more
+generally, before briefly discussing the more cognitive aspects of the
+measure, which are especially relevant for the experiment described in
+\chap{chap:belief_change}. I then deal with the problem itself; the
 underestimation of correlation in positively correlated scatterplots,
 before finishing this chapter by discussing data visualisation and
 statistical literacy and stating the research objectives and
@@ -622,7 +622,7 @@ parameter is small when \emph{r} = 1 and increases as \emph{r}
 approaches 0. This quantity is indifferent to the type of visualisation
 used (e.g.~line graphs and bar charts \cite{harrison_2014} or augmented
 stripplots \cite{rensink_2017}), and is functionally similar to that
-found in work mentioned above
+found in the work mentioned above
 \cite{cleveland_1982, meyer_1997, yang_2019}. Regarding scatterplots,
 this quantity represents the average distance between data points and
 the regression line, and can be thought of as closely approximating the
@@ -705,12 +705,12 @@ theoretically perfect estimation.}
 The underestimation of correlation in positively correlated scatterplots
 was also observed in Experiments 1 to 4 in the current paper, and is
 detailed in each experimental chapter. Figure \ref{fig-mean-all-exp} in
-\chap{chap:conclusion} summarises the mean estimation behaviour for
-observed throughout this thesis. Despite this long-standing finding, no
-efforts have been made to correct for this perceptual underestimation.
-Quite why this perceptual bias correction has never been attempted,
-however, is unclear. The following section argues in favour of seeking
-design additions to correct for this.
+\chap{chap:conclusion} summarises the mean estimation behaviour observed
+for each experiment throughout this thesis. Despite this long-standing
+finding, no efforts have been made to correct for this perceptual
+underestimation. Quite why this perceptual bias correction has never
+been attempted, however, is unclear. The following section argues in
+favour of seeking design additions to correct for this.
 
 \subsection{Underestimation: Potential
 Consequences}\label{underestimation-consequences}
@@ -783,14 +783,14 @@ the data visualisation displayed was required. Throughout this thesis,
 Garcia-Retamero's 5-item Subjective Graph Literacy (SGL) scale
 \cite{garcia_2016} was employed to accomplish this. Based on Galesic and
 Garcia-Retamero's 13-item graph literacy scale, which is itself based on
-work by Friel's work on graph comprehension \cite{friel_2001}, the SGL
-scale is quick to complete (\textless{} 1 minute), and correlates
-strongly with an objective measure of graph literacy \cite{garcia_2010}
-that has been shown to accurately predict to extent to which
-participants may benefit from visual aids \cite{garcia_2010}. Using the
-13-item scale, it has also been shown that those with low graph literacy
-suffer from higher levels of misinterpretation and more often rely on
-misleading mappings \cite{okan_2016}.
+Friel's work on graph comprehension \cite{friel_2001}, the SGL scale is
+quick to complete (\textless{} 1 minute), and correlates strongly with
+an objective measure of graph literacy \cite{garcia_2010} that has been
+shown to accurately predict the extent to which participants may benefit
+from visual aids \cite{garcia_2010}. Using the 13-item scale, it has
+also been shown that those with low graph literacy suffer from higher
+levels of misinterpretation and more often rely on misleading mappings
+\cite{okan_2016}.
 
 The SGL was administered in each experiment described in this thesis,
 and takes the form of 5 questions to which participants must provide an
@@ -820,7 +820,7 @@ In this thesis, I aim to answer three high-level research questions:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Are there effects of changing the sizes and opacities of scatterplot
+  Are there effects of changing the opacities and sizes of scatterplot
   points on performance on a correlation estimation task?
 \item
   Can these changes be used to correct for a historic underestimation
@@ -833,20 +833,21 @@ In this thesis, I aim to answer three high-level research questions:
 The justifications and motivations for these research questions may be
 found in the experimental chapters where they are most relevant. Both in
 answering the above questions and in conducting this project more
-generally, I hope to make the following contributions:
+generally, I hope to have made the following contributions:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   There are clear and strong effects of changing the opacities and sizes
-  of points on scatterplots, both in uniform ways, and using functions
-  that draw inspiration from the nature of correlation perception.
+  of points on scatterplots on correlation estimation, both in uniform
+  ways, and using functions that draw inspiration from the nature of
+  correlation perception itself.
 \item
   These effects can be used to correct for the historic underestimation
-  bias, without removing data, although significantly more work is
-  needed to find the exact combinations of size and opacity adjustments
-  that produce perceptually-optimised estimates.
+  bias without removing data, although significantly more work is needed
+  to find the exact combinations of size and opacity adjustments that
+  produce perceptually-optimised estimates.
 \item
   These effects do extend into a cognitive space, and are able to
   influence people's beliefs about the levels of relatedness between

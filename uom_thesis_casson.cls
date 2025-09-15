@@ -166,7 +166,7 @@
 \def\submitdate#1{\gdef\@submitdate{#1}}
 \newcommand{\titletext}[1]
 {
-  \ifthenelse{\equal{#1}{thesis}}{A thesis submitted to the University of Manchester for the degree of\ \linebreak Doctor of Philosophy\ \linebreak in the Faculty of \@faculty}{}
+  \ifthenelse{\equal{#1}{thesis}}{A thesis submitted to the University of Manchester for the degree of\ \linebreak Doctor of Philosophy\ \linebreak in the Faculty of Science and Engineering}{}
   \ifthenelse{\equal{#1}{first}}{Nine month progress report}{}
   \ifthenelse{\equal{#1}{second}}{End of second year report}{}
 }
@@ -251,8 +251,8 @@
   \phantomsection\addcontentsline{toc}{chapter}{Declaration of originality}
   \chapter*{Declaration of originality}
   \begin{itemize}
-	\item Experiment 1 described in Chapter 4 was conducted in collaboration with Nikoletta Kaiser, who submitted an independently written report in partial fulfilment of her MRes Experimental Psychology with Data Science degree at the University of Manchester (2022). The report written within this thesis is my own work.
-	\item The experiment described in Chapter 7 was conducted in collaboration with Charlotte Rutherford, who is included as an author on the corresponding paper. I currently co-supervise Charlotte's PhD program.
+	\item Experiment 1, described in Chapter 4, was conducted in collaboration with Nikoletta Kaiser, who submitted an independently written report in partial fulfilment of her MRes Experimental Psychology with Data Science degree at the University of Manchester (2022). The report written within this thesis is my own work.
+	\item The experiment described in Chapter 7 was conducted in collaboration with Charlotte Rutherford, who is included as an author on the corresponding paper. The report written within this thesis is my own work. I currently co-supervise Charlotte's PhD program.
 	\item I hereby confirm that no portion of the work referred to in the thesis has been submitted in support of an application for another degree or qualification of this or any other university or other institute of learning.
   \end{itemize}
   

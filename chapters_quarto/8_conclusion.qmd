@@ -52,70 +52,72 @@ conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
 ```
 
 Changing the opacities and sizes of point in positively correlated scatterplots
-has clear effects on the estimation of correlation. This thesis set out to 
-investigate whether visual manipulations of scatterplots based on aspects
-of human perception might be able to change estimates of correlation, and, 
-in particular, whether these visual manipulations could be used to correct for
-a historic underestimation bias observed since the 1960s.
+has clear effects on the estimation of correlation. This thesis set out to
+investigate whether visual manipulations of scatterplots based on aspects of
+human perception might be able to change estimates of correlation, and, in
+particular, whether these visual manipulations could be used to correct for a
+historic underestimation bias observed since the 1960s.
 
 # Main Findings
 
-Each published experimental chapter in this work builds on the previous and provides
-a unique contribution to knowledge about how changing visual features may affect
-thoughts and perceptions about correlations.
+Each published experimental chapter in this work builds on the previous and
+provides a unique contribution to knowledge about how changing visual features
+may affect thoughts and perceptions about correlations.
 
-In \chap{chap:adjusting_opacity}, the opacities of scatterplot points were altered
-while participants were tested on a correlation estimation task. The two published
-experiments in this chapter were partially based on an earlier pilot study that
-ultimately remains unpublished due to data quality issues (see \ref{pilot-study}
-for a full account of this). In the first experiment in this chapter, the opacities
-of scatterplot points were changed in a uniform manner; this was done with the
-intent of discovering any general effects of point opacity on correlation estimation.
-Evidence was found for an increase in underestimation error when global point opacity
-was reduced. This result provided evidence that, in disagreement with previous work,
-changing the opacities of scatterplot points could be used to alter estimates
-of the correlation therein. Based on these findings, data from the pilot study,
-and evidence that the arrangement of points in scatterplots may be a good proxy for
-correlation judgements, Experiment 2 varied point opacity using functions related
-to each point's distance from a regression line. In this experiment, evidence was
-found that reducing the opacity of a point as it moved further from the regression
-line could bias participants' estimates of correlation upwards to partially correct
-for the underestimation bias. While this effect was small, it showed that estimates
-of correlation could be changed to correct for bias *without* removing any data
-from the plot.
+In \chap{chap:adjusting_opacity}, the opacities of scatterplot points were
+altered while participants were tested on a correlation estimation task. The two
+published experiments in this chapter were partially based on an earlier pilot
+study that ultimately remains unpublished due to data quality issues (see
+\ref{pilot-study} for a full account of this). In the first experiment in this
+chapter, the opacities of scatterplot points were changed in a uniform manner;
+this was done with the intent of discovering any general effects of point
+opacity on correlation estimation. Evidence was found for an increase in
+underestimation error when global point opacity was reduced. This result
+provided evidence that, in disagreement with previous work, changing the
+opacities of scatterplot points could be used to alter estimates of the
+correlation therein. Based on these findings, data from the pilot study, and
+evidence that the arrangement of points in scatterplots may be a good proxy for
+correlation judgements, Experiment 2 varied point opacity using functions
+related to each point's distance from a regression line. In this experiment,
+evidence was found that reducing the opacity of a point as it moved further from
+the regression line could bias participants' estimates of correlation upwards to
+partially correct for the underestimation bias. While this effect was small, it
+showed that estimates of correlation could be changed to correct for bias
+*without* removing any data from the plot.
 
-\chap{chap:adjusting_size} expanded these findings to a second visual modality (point size).
-Building on findings from \chap{chap:adjusting_opacity} and evidence that the
-size of a stimulus may have stronger effects on perception than its opacity, a single
-experiment took the functions relating opacity and residual distance in the 
-previous chapter and applied them to point size. The effect on correlation estimation
-observed here was much stronger than that observed in \chap{chap:adjusting_opacity}.
-Additionally, several changes in the nature of the estimation curve were
-observed in this experiment. Firstly, while the shape of the estimation curve
-when using point opacity manipulations was identical to that when using no visual
-adjustments, the use of size decay manipulations such that point size decreased
-with residual error resulted in an estimation curve with a visibly altered shape.
-Secondly, in previous work, and in all experiments undertaken in \chap{chap:adjusting_opacity},
-precision in correlation estimation increases as the objective
-*r* value itself increases; this behaviour was not observed when employing
-manipulations that alter point size. The non-linear decay condition in this 
-experiment remains the most promising condition with regards to correcting for
-the underestimation bias.
+\chap{chap:adjusting_size} expanded these findings to a second visual modality
+(point size). Building on findings from \chap{chap:adjusting_opacity} and
+evidence that the size of a stimulus may have stronger effects on perception
+than its opacity, a single experiment took the functions relating opacity and
+residual magnitude in the previous chapter and applied them to point size. The
+effect on correlation estimation observed here was much stronger than that
+observed in \chap{chap:adjusting_opacity}. Additionally, several changes in the
+nature of the estimation curve were observed in this experiment. Firstly, while
+the shape of the estimation curve when using point opacity manipulations was
+identical to that when using no visual adjustments, the use of size decay
+manipulations such that point size decreased with residual magnitude resulted in
+an estimation curve with a visibly altered shape. Secondly, in previous work,
+and in all experiments undertaken in \chap{chap:adjusting_opacity}, precision in
+correlation estimation increases as the objective *r* value itself increases;
+this behaviour was not observed when employing manipulations that alter point
+size. The non-linear decay condition in this experiment remains the most
+promising condition with regards to correcting for the underestimation bias.
 
 In a final implementation of the same experimental paradigm,
-\chap{chap:interactions_opacity_size} combined point opacity and size manipulations
-from the two previous chapters to further explore the potential for biasing 
-estimates of correlation and the potential mechanisms behind the effects observed.
-Using point opacity and size manipulations together in both congruous (same direction)
-and incongruous (opposing directions) combinations, this single experiment showed
-that employing both manipulations was able to bias correlation estimates further
-than either manipulation in isolation, resulting in a marked overestimation being
-introduced. This combination is not, however, linearly additive, adding support to
-the idea that there are different mechanisms of action behind the effects of each visual manipulation on
+\chap{chap:interactions_opacity_size} combined point opacity and size
+manipulations from the two previous chapters to further explore the potential
+for biasing estimates of correlation and the potential mechanisms behind the
+effects observed. Using point opacity and size manipulations together in both
+congruous (same direction) and incongruous (opposing directions) combinations,
+this single experiment showed that employing both manipulations was able to bias
+correlation estimates further than either manipulation in isolation, resulting
+in a marked overestimation being introduced. This combination is not, however,
+linearly additive, adding support to the idea that there are different
+mechanisms of action behind the effects of each visual manipulation on
 correlation estimation. This experiment provided evidence that, with regards to
-using point opacity and size manipulations to bias correlation estimates, there 
-are few limits. @fig-mean-all-exp summarises the mean estimation errors from
-all 4 experiments described in \chap{chap:adjusting_opacity},
+using point opacity and size manipulations to bias correlation estimates, there
+are few limits. @fig-mean-all-exp summarises the mean estimation errors from all
+4 experiments described in \chap{chap:adjusting_opacity},
 \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}.
 
 ```{r}
@@ -254,60 +256,63 @@ all_exp_wrangled %>%
   annotate("text", x = 14.5, y = 0.1625, label = "Experiment 1", angle = 270, size = 3.25)
 ```
 
-Extending these findings into a cognitive space, \chap{chap:belief_change} utilised
-the congruous typical orientation size and opacity decay condition from Experiment 4,
-contextualised as part of news items, to explore whether the perceptual effects
-found in the previous three chapters might also be able to bias people's beliefs
-about the levels of relatedness between variable pairs. In this experiment,
-people's beliefs about a pair of variables were tested before and after viewing
-a series of data-identical scatterplots with either the congruous typical orientation
-opacity and size decay condition, or with no opacity or size decay present. While
-beliefs about relatedness were changed in each condition, they changed to a 
-greater degree when participants viewed the scatterplots with opacity and size
-decay present. This finding provided evidence that the perceptual effects of 
-systematically altering the opacities and sizes of scatterplot points can be
-extended into a cognitive space, and are able to change what people believe
-about the levels of relatedness between variable pairs.
+Extending these findings into a cognitive space, \chap{chap:belief_change}
+utilised the congruous typical orientation size and opacity decay condition from
+Experiment 4, contextualised as part of news items, to explore whether the
+perceptual effects found in the previous three chapters might also be able to
+bias people's beliefs about the levels of relatedness between variable pairs. In
+this experiment, people's beliefs about a pair of variables were tested before
+and after viewing a series of data-identical scatterplots with either the
+congruous typical orientation opacity and size decay condition, or with no
+opacity or size decay present. While beliefs about relatedness were changed in
+each condition, they changed to a greater degree when participants viewed the
+scatterplots with opacity and size decay present. This finding provided evidence
+that the perceptual effects of systematically altering the opacities and sizes
+of scatterplot points can be extended into a cognitive space, and are able to
+change what people believe about the levels of relatedness between variable
+pairs.
 
 # Relationship to Prior Work
 
 Overall, the work presented in this thesis contributes to wider evidence that
-simple changes in visual features can have perceptual \cite{hong_2022} and cognitive
-\cite{karduni_2020} effects on those who view such visualisations. The finding
-that changing the opacities and sizes of scatterplot points can affect viewers'
-estimates of correlation is in direct contradiction to earlier work 
-\cite{rensink_2012, rensink_2014}, which found no effects of changing
-point opacities and sizes in different ways. The novelty of the findings in this
-thesis necessarily means that commenting on the potential mechanisms behind
-them is difficult. Taking the findings from \chap{chap:adjusting_opacity},
+simple changes in visual features can have perceptual \cite{hong_2022} and
+cognitive \cite{karduni_2020} effects on those who view such visualisations. The
+finding that changing the opacities and sizes of scatterplot points can affect
+viewers' estimates of correlation is in direct contradiction to earlier work
+\cite{rensink_2012, rensink_2014}, which found no effects of changing point
+opacities and sizes in different ways. The novelty of the findings in this
+thesis necessarily means that commenting on the potential mechanisms behind them
+is difficult. Taking the findings from \chap{chap:adjusting_opacity},
 \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size} together,
 the balance of evidence suggests that decreasing the opacity or size of more
 exterior scatterplot points is able to bias estimates of correlation upwards by
-reducing the influence of those points when viewers make their estimates. The 
+reducing the influence of those points when viewers make their estimates. The
 results presented in \chap{chap:belief_change} provide evidence that cognitions
-about data visualisations can also be altered by small changes in visual 
-presentation. This is in line with a large body of work demonstrating that 
-small changes in visual presentation - often of the kind that may be considered
-only as aesthetic preference by designers - can lead to large changes in perceptions
-and the conclusions that viewers of visualisations draw; see Fygenson et al., 2023 \cite{fygenson_2023}
-for examples with bar chart spacing and arrangement, Moritz et al., 2023 \cite{moritz_2023}
-for examples with line graphs, and Bradley et al., 2025 \cite{bradley_2025}
-for examples with axis limits and truncation. Franconeri et al. (2021 \cite{franconeri_2021})
-and Szafir (2018 \cite{szafir_2018}) both provide excellent wider reviews on
-how poor design can lead to visualisation-driven miscommunication and bias.
+about data visualisations can also be altered by small changes in visual
+presentation. This is in line with a large body of work demonstrating that small
+changes in visual presentation - often of the kind that may be considered only
+as aesthetic preference by designers - can lead to large changes in perceptions
+and the conclusions that viewers of visualisations draw; see Fygenson et al.,
+2023 \cite{fygenson_2023} for examples with bar chart spacing and arrangement,
+Moritz et al., 2023 \cite{moritz_2023} for examples with line graphs, and
+Bradley et al., 2025 \cite{bradley_2025} for examples with axis limits and
+truncation. Franconeri et al. (2021 \cite{franconeri_2021}) and Szafir (2018
+\cite{szafir_2018}) both provide excellent wider reviews on how poor design can
+lead to visualisation-driven miscommunication and bias.
 
 # Reproducibility
 
-As detailed in \chap{chap:gen_methods}, this project has been conducted according
-to the principles of open and reproducible science \cite{ayris_2018}. Doing so
-effectively facilitates future replication and authentication of the published
-results, in addition to enabling others to learn from where I have succeeded and 
-failed. Materials are provided throughout for the re-creation of each individual
-experimental paper, including Docker containers to reproduce the specific
-computational environments used. This thesis also features an all-in-one Docker
-implementation, details of which can be found in the repository associated with
-this paper and in Appendix X. Owing to the accessibility issues present with the PDF format 
-\cite{kumar_2024}, this thesis is also hosted as a website[^1] using GitHub Pages.
+As detailed in \chap{chap:gen_methods}, this project has been conducted
+according to the principles of open and reproducible science \cite{ayris_2018}.
+Doing so effectively facilitates future replication and authentication of the
+published results, in addition to enabling others to learn from where I have
+succeeded and failed. Materials are provided throughout for the re-creation of
+each individual experimental paper, including Docker containers to reproduce the
+specific computational environments used. This thesis also features an
+all-in-one Docker implementation, details of which can be found in the
+repository associated with this paper and in Appendix X. Owing to the
+accessibility issues present with the PDF format \cite{kumar_2024}, this thesis
+is also hosted as a website[^1] using GitHub Pages.
 
 [^1]: placeholder
 
@@ -317,22 +322,23 @@ This thesis addresses a long-standing bias in the interpretation of correlation
 in positively correlated scatterplots by drawing on influences from perceptual
 psychology and data visualisation design. A thorough exploration of the effects
 of two salient visual features (opacity and size) on correlation estimation was
-carried out over a series of well-powered experiments in \chap{chap:adjusting_opacity},
-\chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}. Furthermore,
-it was shown that the effects of point opacity and size with regards to the estimation
-of positive correlation could be extended into a cognitive space to change peoples'
-beliefs about the levels of relatedness between a pair of variables.
+carried out over a series of well-powered experiments in
+\chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
+\chap{chap:interactions_opacity_size}. Furthermore, it was shown that the
+effects of point opacity and size with regards to the estimation of positive
+correlation could be extended into a cognitive space to change peoples' beliefs
+about the levels of relatedness between a pair of variables.
 
 The most important contribution this thesis makes is to the visualisation design
-and HCI audiences; secondarily, I add to a growing body of work that, taken together,
-may one day be able to reveal precisely how viewers' interpret correlation from
-scatterplots.
+and HCI audiences; secondarily, I add to a growing body of work that, taken
+together, may one day be able to reveal precisely how viewers' interpret
+correlation from scatterplots.
 
 Additionally, I hope to have provided an example of a PhD project conducted from
-the ground up in an open and reproducible manner. A PhD project is as much a story
-as it is a piece of research, and through acknowledgement of the successes and
-failures of the work I have done, along with the employment of a host of 
-reproducibility-enabling tools, I hope to contribute an honest account of what 
+the ground up in an open and reproducible manner. A PhD project is as much a
+story as it is a piece of research, and through acknowledgement of the successes
+and failures of the work I have done, along with the employment of a host of
+reproducibility-enabling tools, I hope to contribute an honest account of what
 one PhD project may look like.
 
 # Implications
@@ -340,110 +346,116 @@ one PhD project may look like.
 ## For Design
 
 It is clear from the results presented in this thesis that designers must be
-aware of the potential effects on perception and cognition of aesthetic 
-choices in data visualisation design. This is particularly salient given that
-changes in point opacity and size are both common techniques in
-scatterplot design. The former is often used to reduce overplotting issues, while
-the latter is used to create trivariate bubble charts. Given that many data 
-visualisations are designed with a range of communicative intentions, designers 
-may be inadvertently sacrificing effectiveness in one modality (correlation perception),
-for clarity in another (reduction in overplotting, for example); while this trade-off
-may be acceptable, it is important for designers to be aware of the effects their
-designs have on people's thoughts and feelings about the data stories they are
-being told.
+aware of the potential effects on perception and cognition of aesthetic choices
+in data visualisation design. This is particularly salient given that changes in
+point opacity and size are both common techniques in scatterplot design. The
+former is often used to reduce overplotting issues, while the latter is used to
+create trivariate bubble charts. Given that many data visualisations are
+designed with a range of communicative intentions, designers may be
+inadvertently sacrificing effectiveness in one modality (correlation
+perception), for clarity in another (reduction in overplotting, for example);
+while this trade-off may be acceptable, it is important for designers to be
+aware of the effects their designs have on people's thoughts and feelings about
+the data stories they are being told.
 
-On the other hand, this work also provides marked opportunities.
-Where appropriate, using some form of the point opacity and/or size manipulations
-described in this thesis could enhance the communicative efficacy of positively 
-correlated scatterplots. I would not recommend this until further work has been done
-on the potential for misinterpretation from scatterplots such as those described
-here (see Section \ref{future-work-chap8}).
+On the other hand, this work also provides marked opportunities. Where
+appropriate, using some form of the point opacity and/or size manipulations
+described in this thesis could enhance the communicative efficacy of positively
+correlated scatterplots. I would not recommend this until further work has been
+done on the potential for misinterpretation from scatterplots such as those
+described here (see Section \ref{future-work-chap8}).
 
 ## For Society
 
-Given the ubiquity of scatterplots and the fundamental nature of correlation as a
-mathematical concept, the findings here have the potential to change the way that
-people engage with visualisations depicting relatedness. This is especially pertinent
-given the findings detailed in \chap{chap:belief_change} that suggest that the
-techniques described here are also able to bias viewers' beliefs about correlations.
-Whether or not such techniques would be appropriate is a question that requires
-further work to answer.
+Given the ubiquity of scatterplots and the fundamental nature of correlation as
+a mathematical concept, the findings here have the potential to change the way
+that people engage with visualisations depicting relatedness. This is especially
+pertinent given the findings detailed in \chap{chap:belief_change} that suggest
+that the techniques described here are also able to bias viewers' beliefs about
+correlations. Whether or not such techniques would be appropriate is a question
+that requires further work to answer.
 
-Additionally, I hope that this project is demonstrative of the need for the 
-re-examination of common data visualisations from the ground up. In an age where everything
-is measured, and the complexity of information increases year on year, data visualisations
-are crucial for the communication of difficult topics to the general public. Many of the most popular,
-widely-used data visualisations are not designed to be accurately interpreted by
-lay people; given that this is the group that represents the greatest viewership,
-and that has the most to gain from engaging with data visualisations, more design
-must take place that acknowledges and addresses the ways in which perceptions and
-cognitions around data visualisations are biased. Designing in this way requires 
-humility; as designers, we must recognise that biases exist in common data 
-visualisations and work thoroughly to address them.  
+Additionally, I hope that this project is demonstrative of the need for the
+re-examination of common data visualisations from the ground up. In an age where
+everything is measured, and the complexity of information increases year on
+year, data visualisations are crucial for the communication of difficult topics
+to the general public. Many of the most popular, widely-used data visualisations
+are not designed to be accurately interpreted by lay people; given that this is
+the group that represents the greatest viewership, and that has the most to gain
+from engaging with data visualisations, more design must take place that
+acknowledges and addresses the ways in which perceptions and cognitions around
+data visualisations are biased. Designing in this way requires humility; as
+designers, we must recognise that biases exist in common data visualisations and
+work thoroughly to address them.
 
 # Limitations
 
-For \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size},
-the shared experimental method confers the largest limitation in this thesis. As
-opposed to previous work that employed more psychophysical designs, such as 
-correlation discrimination or magnitude estimation via bisection tasks
-\cite{rensink_2010, rensink_2017}, Experiments 1 to 4 in this thesis utilised a 
-direct estimation paradigm more akin to much older correlation perception work
+For \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
+\chap{chap:interactions_opacity_size}, the shared experimental method confers
+the largest limitation in this thesis. As opposed to previous work that employed
+more psychophysical designs, such as correlation discrimination or magnitude
+estimation via bisection tasks \cite{rensink_2010, rensink_2017}, Experiments 1
+to 4 in this thesis utilised a direct estimation paradigm more akin to much
+older correlation perception work
 \cite{strahan_1978, bobko_1979, cleveland_1982, lane_1985, lauer_1989, collyer_1990,
 meyer_1992}. While this technique supplies robust conclusions for the HCI and
 design audiences, it means that making claims about the precise mathematical
-relationship between perceived and actual correlation is difficult based on
-the data gathered. Similarly, the correlation judgements that participants made
-in these experiments must be considered in context; it would not be expected that
-people may view 180 data visualisations in sequence during the course of 
-normal, day-to-day visualisation viewing.
+relationship between perceived and actual correlation is difficult based on the
+data gathered. Similarly, the correlation judgements that participants made in
+these experiments must be considered in context; it would not be expected that
+people may view 180 data visualisations in sequence during the course of normal,
+day-to-day visualisation viewing.
 
-All experiments presented in this thesis were conducted entirely online. Doing so
-allowed for the rapid collection of large amounts of high quality data, however 
-necessarily limits the amount of additional data that can be collected. A method
-for determining the dot pitch of participants' monitors was employed from \chap{chap:adjusting_size}
-onwards and was included in statistical modelling paradigms. Generally, this explained little
-to no variance in participants' responses. Online experimentation does not allow
-for the determination of other factors that may explain variance, such as head-to-monitor
-distance or monitor specifications that may influence the visual quality of scatterplots
-with altered point opacities or sizes.
+All experiments presented in this thesis were conducted entirely online. Doing
+so allowed for the rapid collection of large amounts of high quality data,
+however necessarily limits the amount of additional data that can be collected.
+A method for determining the dot pitch of participants' monitors was employed
+from \chap{chap:adjusting_size} onwards and was included in statistical
+modelling paradigms. Generally, this explained little to no variance in
+participants' responses. Online experimentation does not allow for the
+determination of other factors that may explain variance, such as
+head-to-monitor distance or monitor specifications that may influence the visual
+quality of scatterplots with altered point opacities or sizes.
 
 # Future Directions {#future-work-chap8}
 
-There are numerous avenues for future work based on this thesis, many of which are
-relatively simple extensions of the techniques described. Firstly, all experiments
-in this thesis took place using positively correlated scatterplots. There is evidence
-that, similarly to how viewers *underestimate* correlation in positively correlated
-scatterplots, they may also *overestimate* correlation in negatively correlated
-scatterplots \cite{sher_2017}. Uniquely among correlation visualisations,
-the visual forms of positively and negatively correlated scatterplots are
-symmetrical \cite{harrison_2014}, suggesting that the techniques modifying point
-opacity and size described in this thesis may be used (in a symmetrical manner)
-to address the overestimation bias. Doing so would require a relatively simple replication
-of a subset of the experiments described here using negatively correlated scatterplots.
+There are numerous avenues for future work based on this thesis, many of which
+are relatively simple extensions of the techniques described. Firstly, all
+experiments in this thesis took place using positively correlated scatterplots.
+There is evidence that, similarly to how viewers *underestimate* correlation in
+positively correlated scatterplots, they may also *overestimate* correlation in
+negatively correlated scatterplots \cite{sher_2017}. Uniquely among correlation
+visualisations, the visual forms of positively and negatively correlated
+scatterplots are symmetrical \cite{harrison_2014}, suggesting that the
+techniques modifying point opacity and size described in this thesis may be used
+(in a symmetrical manner) to address the overestimation bias. Doing so would
+require a relatively simple replication of a subset of the experiments described
+here using negatively correlated scatterplots.
 
-This thesis represents a large amount of quantitative data on how viewers perceive
-correlation in scatterplots, and how their beliefs about relatedness may be changed
-following scatterplot viewing. Before recommendations can be firmly made about 
-the potential use of these techniques, however, qualitative work should take place
-investigating users' thoughts and feelings about novel visualisations that have been
-designed based on perceptual metrics. It may be the case that any potential advantages
-of the novel scatterplots described herein are outweighed by distrust or 
-unfamiliarity with novel designs.
+This thesis represents a large amount of quantitative data on how viewers
+perceive correlation in scatterplots, and how their beliefs about relatedness
+may be changed following scatterplot viewing. Before recommendations can be
+firmly made about the potential use of these techniques, however, qualitative
+work should take place investigating users' thoughts and feelings about novel
+visualisations that have been designed based on perceptual metrics. It may be
+the case that any potential advantages of the novel scatterplots described
+herein are outweighed by distrust or unfamiliarity with novel designs.
 
 Finally, to further investigate precisely *why* the techniques described in this
-thesis work, lab-based experiments should be conducted. While more costly and 
-time-consuming, this would allow for far more control over the precise experimental
-set-up, and would additionally allow for the employment of eye-tracking to understand
-how changing point opacities and sizes may influence perceptions of correlation.
+thesis work, lab-based experiments should be conducted. While more costly and
+time-consuming, this would allow for far more control over the precise
+experimental set-up, and would additionally allow for the employment of
+eye-tracking to understand how changing point opacities and sizes may influence
+perceptions of correlation.
 
 # Closing Remarks
 
-The design of data visualisations should be based, at least partially, on the ways
-in which those data visualisations are perceived by the people that use them. 
-The opacities and sizes of points in positively correlated scatterplots have clear,
-strong effects on the perceptions of correlation based on them. The extent to
-which viewers update their beliefs following scatterplot-viewing can also depend
-on the opacities and sizes of scatterplot points. These findings highlight that
-small changes in the visual features of common data visualisations may produce
-large changes in the perceptions and cognitions of viewers.
+The design of data visualisations should be based, at least partially, on the
+ways in which those data visualisations are perceived by the people that use
+them. The opacities and sizes of points in positively correlated scatterplots
+have clear, strong effects on the perceptions of correlation based on them. The
+extent to which viewers update their beliefs following scatterplot-viewing can
+also depend on the opacities and sizes of scatterplot points. These findings
+highlight that small changes in the visual features of common data
+visualisations may produce large changes in the perceptions and cognitions of
+viewers.

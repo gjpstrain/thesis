@@ -50,49 +50,50 @@ conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
 # Introduction
 
 In this chapter I describe my research methodologies. The experiments described
-in \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and 
+in \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
 \chap{chap:interactions_opacity_size} share most aspects of experimental method,
 and are therefore described in full in this chapter. \chap{chap:belief_change}
-features a different methodology, and is described therein.
-This chapter discusses experimental designs, the tools used to build
-and run the experiments, the approach to statistical analyses, and the computational
-methods and practices employed, particularly with regards to reproducibility
-and open science.
+features a different methodology, and is described therein. This chapter
+discusses experimental designs, the tools used to build and run the experiments,
+the approach to statistical analyses, and the computational methods and
+practices employed, particularly with regards to reproducibility and open
+science.
 
 # Experimental Methods
 
-It is important to acknowledge that the way in which we conduct experiments influences
-what research questions we can ask and the conclusions that we may draw. The decisions
-that lead us to designing experiments in certain ways must be based not only
-on theory, but also on the external constraints imposed on (and by)
-the research team. Concerns such as time, practicality, and cost must be addressed,
-and a compromise between research that is *valuable* and research that is *doable*
-must be reached.
+It is important to acknowledge that the way in which we conduct experiments
+influences what research questions we can ask and the conclusions that we may
+draw. The decisions that lead us to designing experiments in certain ways must
+be based not only on theory, but also on the external constraints imposed on
+(and by) the research team. Concerns such as time, practicality, and cost must
+be addressed, and a compromise between research that is *valuable* and research
+that is *doable* must be reached.
 
 ## Experimental Design
 
-All but the final experiment utilised within-participants designs. In such a design,
-each participant is exposed to each level of the intervention. This is in contrast
-with between-participants designs, where separate groups are exposed to only a 
-single level of the intervention each. Where possible, within-participants designs
-are preferred. These designs do not rely on random allocation, and as each 
-participant is able to provide as many data points as there are experimental items in levels
-\cite{charness_2012}, offer a significant boost in statistical power over
-between-participant designs where each participant may only provide data points
-for a portion of the total experimental items. In Experiments 1 to 4, each 
-participant saw all experimental stimuli and provided a judgement of correlation
-using a sliding scale between 0 and 1 (see @fig-slider). Experiment 1 featured 
-a single factor of global scatterplot point opacity with 4 levels (see @fig-exp1-examples).
-Experiment 2 featured a single factor of scatterplot point design regarding opacity with 4 levels
-(see @fig-exp2-examples). Experiment 3 featured a single factor of scatterplot
-point design regarding size with 4 levels (see @fig-exp3-examples). Experiment
-4 featured a factorial 2 $\times$ 2 design; IV~1~ was the scatterplot point 
-opacity design used with 2 levels, and IV~2~ was the scatterplot point size design 
-used with 2 levels (see @fig-exp4-examples). Experiment 5 is a departure from 
-the shared experimental paradigm of the previous experiments, and features a 1
-factor, 2 level between-participants design; group A saw scatterplots designed to elicit
-greater levels of belief change compared to typical scatterplots, which were
-shown to group B (see @fig-exp5-examples).
+All but the final experiment utilised within-participants designs. In such a
+design, each participant is exposed to each level of the intervention. This is
+in contrast with between-participants designs, where separate groups are exposed
+to only a single level of the intervention each. Where possible,
+within-participants designs are preferred. These designs do not rely on random
+allocation, and as each participant is able to provide as many data points as
+there are experimental items in levels \cite{charness_2012}, offer a significant
+boost in statistical power over between-participant designs where each
+participant may only provide data points for a portion of the total experimental
+items. In Experiments 1 to 4, each participant saw all experimental stimuli and
+provided a judgement of correlation using a sliding scale between 0 and 1 (see
+@fig-slider). Experiment 1 featured a single factor of global scatterplot point
+opacity with 4 levels (see @fig-exp1-examples). Experiment 2 featured a single
+factor of scatterplot point design regarding opacity with 4 levels (see
+@fig-exp2-examples). Experiment 3 featured a single factor of scatterplot point
+design regarding size with 4 levels (see @fig-exp3-examples). Experiment 4
+featured a factorial 2 $\times$ 2 design; IV~1~ was the scatterplot point
+opacity design used with 2 levels, and IV~2~ was the scatterplot point size
+design used with 2 levels (see @fig-exp4-examples). Experiment 5 is a departure
+from the shared experimental paradigm of the previous experiments, and features
+a 1 factor, 2 level between-participants design; group A saw scatterplots
+designed to elicit greater levels of belief change compared to typical
+scatterplots, which were shown to group B (see @fig-exp5-examples).
 
 ```{r}
 #| label: fig-slider
@@ -211,7 +212,6 @@ example_plots_incongruent <- ggarrange(plot_example_function(slopes,
 ggarrange(example_plots_incongruent, example_plots_congruent, nrow = 1)
 ```
 
-
 ```{r}
 #| label: fig-exp5-examples
 #| include: true
@@ -246,97 +246,103 @@ ggarrange(example_plot_function_exp5(slopes_exp5,
 
 ## Tools for Testing
 
-However we design experiments, software plays a crucial role in allowing 
-us to carry them out. Fortunately, there is a wealth of 
-tools available to facilitate the testing of visualisations both in traditional
-lab-based tests and in online experiments. Following the principles of 
-open and reproducible research \cite{ayris_2018}, closed-source
-software, such as Gorilla \cite{anwyl_2020} or E-prime \cite{eprime_2020}
-was discounted, as these rely on paid licences and do not allow for the sharing
-of code with future researchers. I settled on using PsychoPy \cite{peirce_2019} due to its open-source status,
-flexibility regarding graphical and code-based experimental design, and high 
-level of timings accuracy \cite{bridges_2020}. Using such an open-source tool not only
-facilitated my own learning with regard to experiment building, but also enables the
-contribution of further examples of visualisation studies by hosting the resulting
+However we design experiments, software plays a crucial role in allowing us to
+carry them out. Fortunately, there is a wealth of tools available to facilitate
+the testing of visualisations both in traditional lab-based tests and in online
+experiments. Following the principles of open and reproducible research
+\cite{ayris_2018}, closed-source software, such as Gorilla \cite{anwyl_2020} or
+E-prime \cite{eprime_2020} was discounted, as these rely on paid licences and do
+not allow for the sharing of code with future researchers. I settled on using
+PsychoPy \cite{peirce_2019} due to its open-source status, flexibility regarding
+graphical and code-based experimental design, and high level of timings accuracy
+\cite{bridges_2020}. Using such an open-source tool not only facilitated my own
+learning with regard to experiment building, but also enables the contribution
+of further examples of visualisation studies by hosting the resulting
 experiments online for use and modification by future researchers.
 
-I elected to pursue online testing throughout this thesis. Doing so is 
-much quicker than carrying out in-person lab-based testing, facilitating
-the collection of data from a much larger number of participants. This reduces the chances of detecting
-false positives during analysis and ensures adequate levels of power despite the
-potential for small effects sizes (see Section \ref{recruitment}). Online testing also affords access to 
-diverse groups of participants across our populations of interest, especially
-when compared to the relatively homogeneous student populations usually accessed
-in the lab by doctoral researchers. Research has identified online experimentation as producing
-reliable results that closely match those found in traditional lab-based 
-experiments \cite{arechar_2018, hirao_2021, prisse_2022}, especially with large
-sample sizes. Due to its integration with PsychoPy, 
-[Pavlovia](pavlovia.org) was used to host all the experiments described in this thesis.
-Section \ref{experimental-resources} contains links to all experiments publicly hosted
-on Pavlovia's GitLab instance; these links are also provided as experiments
-are described in each chapter.
+I elected to pursue online testing throughout this thesis. Doing so is much
+quicker than carrying out in-person lab-based testing, facilitating the
+collection of data from a much larger number of participants. This reduces the
+chances of detecting false positives during analysis and ensures adequate levels
+of power despite the potential for small effects sizes (see Section
+\ref{recruitment}). Online testing also affords access to diverse groups of
+participants across our populations of interest, especially when compared to the
+relatively homogeneous student populations usually accessed in the lab by
+doctoral researchers. Research has identified online experimentation as
+producing reliable results that closely match those found in traditional
+lab-based experiments \cite{arechar_2018, hirao_2021, prisse_2022}, especially
+with large sample sizes. Due to its integration with PsychoPy,
+[Pavlovia](pavlovia.org) was used to host all the experiments described in this
+thesis. Section \ref{experimental-resources} contains links to all experiments
+publicly hosted on Pavlovia's GitLab instance; these links are also provided as
+experiments are described in each chapter.
 
-## Recruitment \& Participants {#recruitment}
+## Recruitment & Participants {#recruitment}
 
-Recruitment of participants online is possible through a range of service providers,
-each with advantages and disadvantages. Research evaluating a number of these
-providers recently found that Prolific \cite{prolific} and CloudResearch 
-provide the highest quality data for the lowest cost \cite{douglas_2023}; I elected
-to use the former due to my familiarity with the system. Despite these findings,
-there has also been evidence of low data quality and skewed demographics affecting
-both general crowdsourcing platforms, such as Amazon's MTurk, and those
-tailored specifically towards academic research. On the 24th of July, 2021,
-the Prolific.co platform went viral on social media \cite{charalambides_2021}, leading to a participant
-pool heavily skewed towards young people identifying as female. At the time,
-Prolific did not manually balance the participants recruited for a study.
-This was addressed in the pilot study (see Section \ref{pilot-study}) by preventing participants
-who joined after this date from participating, in addition to manually requesting
-a 1:1 ratio of male to female participants. The demographic issues settled quickly,
-however the screened 1:1 ratio was maintained for the remainder of the experiments.
+Recruitment of participants online is possible through a range of service
+providers, each with advantages and disadvantages. Research evaluating a number
+of these providers recently found that Prolific \cite{prolific} and
+CloudResearch provide the highest quality data for the lowest cost
+\cite{douglas_2023}; I elected to use the former due to my familiarity with the
+system. Despite these findings, there has also been evidence of low data quality
+and skewed demographics affecting both general crowdsourcing platforms, such as
+Amazon's MTurk, and those tailored specifically towards academic research. On
+the 24th of July, 2021, the Prolific.co platform went viral on social media
+\cite{charalambides_2021}, leading to a participant pool heavily skewed towards
+young people identifying as female. At the time, Prolific did not manually
+balance the participants recruited for a study. This was addressed in the pilot
+study (see Section \ref{pilot-study}) by preventing participants who joined
+after this date from participating, in addition to manually requesting a 1:1
+ratio of male to female participants. The demographic issues settled quickly,
+however the screened 1:1 ratio was maintained for the remainder of the
+experiments.
 
-The first experiment conducted was a pilot study (see Section \ref{pilot-study} for full details)
-investigating a very early iteration of the point opacity manipulation in combination
-with exploratory work around plot size and correlation estimation. At the time,
-I was relatively naive to the intricacies of recruiting research participants
-online, and thus experienced issues regarding participant engagement. Each
-experiment included attention check questions in which participants
-were instructed to ignore the stimulus and provide a specific answer.
-The advert for each experiment stated that failure of more than 2 attention check items
-would result in a submission being rejected. This pilot study suffered from a 
-rejection rate of 57.5\%, indicating very low levels of participant engagement.
-For the following studies, published guidelines \cite{peer_2021} were followed
-to address these issues; specifically, it was required that participants:
+The first experiment conducted was a pilot study (see Section \ref{pilot-study}
+for full details) investigating a very early iteration of the point opacity
+manipulation in combination with exploratory work around plot size and
+correlation estimation. At the time, I was relatively naive to the intricacies
+of recruiting research participants online, and thus experienced issues
+regarding participant engagement. Each experiment included attention check
+questions in which participants were instructed to ignore the stimulus and
+provide a specific answer. The advert for each experiment stated that failure of
+more than 2 attention check items would result in a submission being rejected.
+This pilot study suffered from a rejection rate of 57.5%, indicating very low
+levels of participant engagement. For the following studies, published
+guidelines \cite{peer_2021} were followed to address these issues; specifically,
+it was required that participants:
 
-  - Had previously completed at least 100 studies on Prolific.
-  - Had an acceptance rate of at least 99% for those studies. [^1]
-  
-Following implementation of these pre-screen criteria, the rejection rate
-for the next experiment fell to ~5\%. Rejection rates were similar for the remainder
-of experiments. Exact numbers of accepted and rejected participants can be
-found in the \textbf{Participants} sections of each experiment.
+-   Had previously completed at least 100 studies on Prolific.
+-   Had an acceptance rate of at least 99% for those studies. \[\^1\]
 
-Each full experiment recruited until 150 participants had completed successfully.
-Due to the novelty of this work, it was difficult to get a sense of the effect
-sizes that would be seen. I assumed a small effect size (Cohen’s *d* ~ 0.2),
-and aimed to recruit enough participants to adequately power the experiments 
-\cite{brysbaert_2019}. NB: I did not conduct an *a priori* power analysis.
-A post-hoc power analysis of the first experiment revealed a power of 0.54.
-Effect sizes were larger in the subsequent experiments, however to facilitate
-comparison, it was decided that *N* = 150 would remain the target recruitment rate.
-[^1]: this is a more strict rate than the 95% recommended by Peer et al. \cite{peer_2021}.
+Following implementation of these pre-screen criteria, the rejection rate for
+the next experiment fell to \~5%. Rejection rates were similar for the remainder
+of experiments. Exact numbers of accepted and rejected participants can be found
+in the \textbf{Participants} sections of each experiment.
+
+Each full experiment recruited until 150 participants had completed
+successfully. Due to the novelty of this work, it was difficult to get a sense
+of the effect sizes that would be seen. I assumed a small effect size (Cohen’s
+*d* \~ 0.2), and aimed to recruit enough participants to adequately power the
+experiments \cite{brysbaert_2019}. NB: I did not conduct an *a priori* power
+analysis. A post-hoc power analysis of the first experiment revealed a power of
+0.54. Effect sizes were larger in the subsequent experiments, however to
+facilitate comparison, it was decided that *N* = 150 would remain the target
+recruitment rate. \[\^1\]: this is a more strict rate than the 95% recommended
+by Peer et al. \cite{peer_2021}.
 
 ## Creating Stimuli {#creating-stimuli}
 
-All stimuli were created using `ggplot2` \cite{wickham_2016} in R. Specific versions numbers
-are provided with regard to the specific visualisations produced for each experiment. 
-Identical principles were followed regarding data visualisation design
-for each experiment bar the last, which is discussed \textit{in situ}. 
+All stimuli were created using `ggplot2` \cite{wickham_2016} in R. Specific
+versions numbers are provided with regard to the specific visualisations
+produced for each experiment. Identical principles were followed regarding data
+visualisation design for each experiment bar the last, which is discussed
+\textit{in situ}.
 
 Experiments were designed with the intention of isolating and addressing a
 perceptual effect; the underestimation of correlation in positively correlated
-scatterplots. To achieve this, confounding extraneous design factors were removed,
-including axis labels, tick labels, grid lines, and titles. The axis ticks
-themselves were preserved. @fig-scatter-example demonstrates the basic 
+scatterplots. To achieve this, confounding extraneous design factors were
+removed, including axis labels, tick labels, grid lines, and titles. The axis
+ticks themselves were preserved. @fig-scatter-example demonstrates the basic
 design of the scatterplots used in Experiments 1 to 4.
 
 ```{r}
@@ -352,53 +358,56 @@ design of the scatterplots used in Experiments 1 to 4.
 plot_example_function(slopes, t = "", o = 1, s = 0.4, 2)  
 ```
 
-A single random seed was used to generate scatterplot datasets throughout
-this thesis. 45 *r* values were uniformly generated between 0.2 and 0.99,
-as there is evidence that little correlation is perceived below *r* = 0.2
-\cite{strahan_1978, bobko_1979, cleveland_1982}. The data that forms the scatterplots
-was randomly generated from bivariate normal distributions with standard
-deviations of 1 in each direction. Scatterplots always had a 1:1
-aspect ratio, and were configured such that they occupied the same proportion of
-the experimental window regardless of the size or resolution of a participant's
-monitor. From \chap{chap:adjusting_size} onwards, a measure of dot pitch is included, which facilitates
-the approximation of the physical size of scatterplot points on-screen; where
-available, this is included in discussions and analyses.
+A single random seed was used to generate scatterplot datasets throughout this
+thesis. 45 *r* values were uniformly generated between 0.2 and 0.99, as there is
+evidence that little correlation is perceived below *r* = 0.2
+\cite{strahan_1978, bobko_1979, cleveland_1982}. The data that forms the
+scatterplots was randomly generated from bivariate normal distributions with
+standard deviations of 1 in each direction. Scatterplots always had a 1:1 aspect
+ratio, and were configured such that they occupied the same proportion of the
+experimental window regardless of the size or resolution of a participant's
+monitor. From \chap{chap:adjusting_size} onwards, a measure of dot pitch is
+included, which facilitates the approximation of the physical size of
+scatterplot points on-screen; where available, this is included in discussions
+and analyses.
 
 # Analytical Methods
 
-All analyses in this thesis were conducted using R (version 4.5.0 \cite{r_core}).
-To investigate whether the experimental manipulations have actual effects
-on the interpretations participants provide, appropriate statistical
-testing must be employed. This involves taking into account the variability
-in responses that can be attributed to an experimental manipulation against
-the backdrop of other variability inherent in the dataset. Traditional analysis
-of the data collected throughout this thesis would involve the use of repeated
-measures analysis of variance (ANOVA). This technique assesses whether there 
-are significant differences in the means of the dependent variables between conditions.
-While these techniques are commonplace, they do not allow for comparisons of
-differences across the full range of individual participant responses, nor
-do they allow for simultaneous consideration of by-item and by-participant variance.
-It is for these reasons that linear mixed-effects models were used throughout.
-Linear mixed-effects modelling is a reliable approach that is resistant to a 
-variety of distributional assumption violations \cite{schielzeth_2020}, and
-facilitates the appreciation of the data story in a broader and more detailed fashion.
+All analyses in this thesis were conducted using R (version 4.5.0
+\cite{r_core}). To investigate whether the experimental manipulations have
+actual effects on the interpretations participants provide, appropriate
+statistical testing must be employed. This involves taking into account the
+variability in responses that can be attributed to an experimental manipulation
+against the backdrop of other variability inherent in the dataset. Traditional
+analysis of the data collected throughout this thesis would involve the use of
+repeated measures analysis of variance (ANOVA). This technique assesses whether
+there are significant differences in the means of the dependent variables
+between conditions. While these techniques are commonplace, they do not allow
+for comparisons of differences across the full range of individual participant
+responses, nor do they allow for simultaneous consideration of by-item and
+by-participant variance. It is for these reasons that linear mixed-effects
+models were used throughout. Linear mixed-effects modelling is a reliable
+approach that is resistant to a variety of distributional assumption violations
+\cite{schielzeth_2020}, and facilitates the appreciation of the data story in a
+broader and more detailed fashion.
 
 ## Linear Mixed-Effects Models
 
 In a mixed-effects modelling paradigm, a distinction is made between variability
-that is thought to arise as a result of an experimental manipulation (fixed effects),
-and that which arises due to differences between, for example, participants or 
-particular experimental items (random effects). When a variable is manipulated 
-by a researcher in an experiment, each level of that variable is present, meaning
-it is appropriate to be modelled as a fixed effect. When only a *subset* of levels
-of a variable is present, such as a sample of all possible participants or
-experimental items, then this variable is appropriate for modelling as a random effect.
-Typically, mixed-effects models require the specification of *intercepts*; these
-are different baselines for each participant or item that reflect random
-deviations from the mean of the dependent variable. Mixed-effects models
-may also specify random *slopes*; these are differences in the magnitude of
-the difference between levels of the independent variable for each random effect
-\cite{brown_2021}. @fig-mixed-effects-demo visualises these concepts.
+that is thought to arise as a result of an experimental manipulation (fixed
+effects), and that which arises due to differences between, for example,
+participants or particular experimental items (random effects). When a variable
+is manipulated by a researcher in an experiment, each level of that variable is
+present, meaning it is appropriate to be modelled as a fixed effect. When only a
+*subset* of levels of a variable is present, such as a sample of all possible
+participants or experimental items, then this variable is appropriate for
+modelling as a random effect. Typically, mixed-effects models require the
+specification of *intercepts*; these are different baselines for each
+participant or item that reflect random deviations from the mean of the
+dependent variable. Mixed-effects models may also specify random *slopes*; these
+are differences in the magnitude of the difference between levels of the
+independent variable for each random effect \cite{brown_2021}.
+@fig-mixed-effects-demo visualises these concepts.
 
 ```{r}
 #| label: fig-mixed-effects-demo
@@ -454,177 +463,186 @@ ggplot(df, aes(x = IV)) +
 rm(df)
 ```
 
-Throughout the course of this thesis, analyses attempt to model both random intercepts
-and slopes in order to capture the maximum amount of variability present in our
-datasets. In order to ascertain the goodness-of-fit of models, their ability
-to explain variance is compared to that of a nested null model \cite{singmann_2019};
-such a model is identical bar the removal of the fixed effect of interest. 
-The likelihood ratio test (LRT) is used here to assess goodness-of-fit. In cases
-where a model has in total more than two levels (here, all experiments bar Experiment 5),
-the `emmeans` package \cite{lenth_2024} is used to calculate estimated marginal 
-means between levels of fixed effects. 
+Throughout the course of this thesis, analyses attempt to model both random
+intercepts and slopes in order to capture the maximum amount of variability
+present in our datasets. In order to ascertain the goodness-of-fit of models,
+their ability to explain variance is compared to that of a nested null model
+\cite{singmann_2019}; such a model is identical bar the removal of the fixed
+effect of interest. The likelihood ratio test (LRT) is used here to assess
+goodness-of-fit. In cases where a model has in total more than two levels (here,
+all experiments bar Experiment 5), the `emmeans` package \cite{lenth_2024} is
+used to calculate estimated marginal means between levels of fixed effects.
 
 ## Ordinal Modelling
 
-In Experiment 5, participants used Likert scales to provide responses. These scales
-capture whether one rating is higher or lower than another, however they do not
-quantify the magnitude of the difference between levels of rating. Metric modelling, 
-such as linear regression, treats the response options to a Likert scale as if they
-were numeric. Doing so assumes equal levels of difference between ratings, when in
-reality there is no theoretical reason to make this assumption. Metric modelling is
-therefore considered inappropriate for modelling responses to Likert scale data \cite{liddell_2018}.
-In light of these issues, the `ordinal` package \cite{ordinal} in R was
-used to build cumulative link mixed-effects models for the analysis of Likert 
-scale data. This allows for the treatment of Likert responses as
-ordered factors as opposed to continuous response scales.
+In Experiment 5, participants used Likert scales to provide responses. These
+scales capture whether one rating is higher or lower than another, however they
+do not quantify the magnitude of the difference between levels of rating. Metric
+modelling, such as linear regression, treats the response options to a Likert
+scale as if they were numeric. Doing so assumes equal levels of difference
+between ratings, when in reality there is no theoretical reason to make this
+assumption. Metric modelling is therefore considered inappropriate for modelling
+responses to Likert scale data \cite{liddell_2018}. In light of these issues,
+the `ordinal` package \cite{ordinal} in R was used to build cumulative link
+mixed-effects models for the analysis of Likert scale data. This allows for the
+treatment of Likert responses as ordered factors as opposed to continuous
+response scales.
 
 ## Model Construction {#model-construction}
 
 Choices are inherent in every type of statistical analysis, and can play a large
-role in the conclusions that are drawn from them. In linear mixed-effects modelling,
-deciding *what* is a fixed or random effect is straightforward; deciding
-*how to specify* random effects is a more complicated matter. Barr et al. \cite{barr_2013}
-argue that for fully repeated measures designs, a maximal model should be preferred;
-one with random intercepts and slopes for each participant and experimental item. More
-recently, Bates et al. \cite{bates_2018} have argued that attempting to specify
-maximal models for insufficiently rich datasets may lead to overfitting and
-unreliable conclusions. In light of this I sought a more systematic approach to
-selecting the random effects structure of a given model.
+role in the conclusions that are drawn from them. In linear mixed-effects
+modelling, deciding *what* is a fixed or random effect is straightforward;
+deciding *how to specify* random effects is a more complicated matter. Barr et
+al. \cite{barr_2013} argue that for fully repeated measures designs, a maximal
+model should be preferred; one with random intercepts and slopes for each
+participant and experimental item. More recently, Bates et al. \cite{bates_2018}
+have argued that attempting to specify maximal models for insufficiently rich
+datasets may lead to overfitting and unreliable conclusions. In light of this I
+sought a more systematic approach to selecting the random effects structure of a
+given model.
 
 In an attempt to balance simplicity, explanatory power, and model convergence
-(whether or not a solution can be found), the `buildmer`
-package \cite{buildmer} in R was used to automate the selection of model specifications.
-Having been provided with a maximal model, `buildmer` uses stepwise regression
-to select the most complex model structure that successfully converges. Following
-this, random effects terms that fail to explain a significant amount of variance
-in the dataset are dropped; this stepwise elimination of terms is evaluated
-using successive likelihood ratio tests. This results in a model that captures the maximal
-amount of feasible variability while minimising redundancy. Note that `buildmer`
-was not relied upon as a modelling *panacea*; models are still based on theoretical
-underpinnings and are evaluated critically.
+(whether or not a solution can be found), the `buildmer` package \cite{buildmer}
+in R was used to automate the selection of model specifications. Having been
+provided with a maximal model, `buildmer` uses stepwise regression to select the
+most complex model structure that successfully converges. Following this, random
+effects terms that fail to explain a significant amount of variance in the
+dataset are dropped; this stepwise elimination of terms is evaluated using
+successive likelihood ratio tests. This results in a model that captures the
+maximal amount of feasible variability while minimising redundancy. Note that
+`buildmer` was not relied upon as a modelling *panacea*; models are still based
+on theoretical underpinnings and are evaluated critically.
 
 ## Effects Sizes
 
-My approach to effects sizes evolved throughout the course of the research project
-due to reviewer feedback and a growing appreciation of the complexities
+My approach to effects sizes evolved throughout the course of the research
+project due to reviewer feedback and a growing appreciation of the complexities
 of effect sizes when discussing linear mixed-effects models. Experiments 1, 2,
 and 3 featured a condition with no scatterplot manipulation present (henceforth
-referred to as a *baseline*); accordingly, the `EMAtools` package \cite{ematools}
-was used to calculate equivalent Cohen's *d* effect sizes of manipulation-present
-conditions relative to the baseline. Experiment 4 did not feature a baseline
-condition, meaning Cohen's *d* was deemed inappropriate. The `r2glmm` package
-\cite{r2glmm} was used instead to calculate semi-partial R^2^. In lieu of a traditional
-measure of effect size, this demonstrated the unique variance in the dependent
-variable explained by each level of the independent \cite{nakagawa_2013}. Experiment
-5 features a much simpler modelling situation, and returns to providing equivalent
-Cohen's *d* values for the pre- vs. post- plot viewing conditions, this time
-calculated by converting odds ratios using the `effectsize` package \cite{effectsize}.
-More details on specific calculations, measures, and conclusions can be found *in situ*.
+referred to as a *baseline*); accordingly, the `EMAtools` package
+\cite{ematools} was used to calculate equivalent Cohen's *d* effect sizes of
+manipulation-present conditions relative to the baseline. Experiment 4 did not
+feature a baseline condition, meaning Cohen's *d* was deemed inappropriate. The
+`r2glmm` package \cite{r2glmm} was used instead to calculate semi-partial R^2^.
+In lieu of a traditional measure of effect size, this demonstrated the unique
+variance in the dependent variable explained by each level of the independent
+\cite{nakagawa_2013}. Experiment 5 features a much simpler modelling situation,
+and returns to providing equivalent Cohen's *d* values for the pre- vs. post-
+plot viewing conditions, this time calculated by converting odds ratios using
+the `effectsize` package \cite{effectsize}. More details on specific
+calculations, measures, and conclusions can be found *in situ*.
 
 ## Reporting Analyses
 
 Throughout this thesis, a broad approach to the reporting of statistical
-analyses was taken; while I consider our analytical methods and conclusions valid,
-I also present a range of statistics to allow the reader to draw their own
-conclusions, should they wish. Statistical results are visualised where 
-appropriate, and where visualisation aids understanding and interpretation.
-In addition, details about model structures and the issues I tackled
-when modelling are included for transparency \cite{meteyard_2020}.
+analyses was taken; while I consider our analytical methods and conclusions
+valid, I also present a range of statistics to allow the reader to draw their
+own conclusions, should they wish. Statistical results are visualised where
+appropriate, and where visualisation aids understanding and interpretation. In
+addition, details about model structures and the issues I tackled when modelling
+are included for transparency \cite{meteyard_2020}.
 
 # Computational Methods
 
-The approach to computational methods in this thesis sought to marry practicality,
-simplicity, and reproducibility. Often, this meant that what would otherwise
-be a makeshift script followed by copy-pasting of results into [Overleaf](https://www.overleaf.com/)
-ended up being an involved exercise in literate programming \cite{knuth_1984} and code wrangling.
-This involved effort and time, particularly in the early stages of the project,
-however has yielded a number of benefits. Many of the techniques developed 
-early in the project proved to be instrumental later on, resulting in time-savings
-overall. Additionally, these techniques, principles, and 
-practices are shared to enable future researchers to learn, where I struggled. In
-this section, I detail my approach to computational methods, including
-how the idea of **executable papers** was utilised, and how containerised
-environments were used to capture a freeze-frame of the analyses.
+The approach to computational methods in this thesis sought to marry
+practicality, simplicity, and reproducibility. Often, this meant that what would
+otherwise be a makeshift script followed by copy-pasting of results into
+[Overleaf](https://www.overleaf.com/) ended up being an involved exercise in
+literate programming \cite{knuth_1984} and code wrangling. This involved effort
+and time, particularly in the early stages of the project, however has yielded a
+number of benefits. Many of the techniques developed early in the project proved
+to be instrumental later on, resulting in time-savings overall. Additionally,
+these techniques, principles, and practices are shared to enable future
+researchers to learn, where I struggled. In this section, I detail my approach
+to computational methods, including how the idea of **executable papers** was
+utilised, and how containerised environments were used to capture a freeze-frame
+of the analyses.
 
 ## Executable Reporting
 
 Each paper published throughout this project, and this thesis, has been written
 to be executable. Packaging research in such a way means a lay person can follow
-simple instructions to recreate the work, while also facilitating and encouraging literate
-programming, or the close alignment of documentation and underlying code \cite{piccolo_2016}.
+simple instructions to recreate the work, while also facilitating and
+encouraging literate programming, or the close alignment of documentation and
+underlying code \cite{piccolo_2016}.
 
-The use of a literate programming paradigm to generate reports (usually using LaTeX) has
-a rich history. This section focuses on this history as it pertains
+The use of a literate programming paradigm to generate reports (usually using
+LaTeX) has a rich history. This section focuses on this history as it pertains
 to the language used throughout this project, R. `Sweave` \cite{leisch_2002},
 written in 2002, allowed R code to be integrated into LaTeX documents. This was
-followed by Yihui Xie's `knitr` \cite{xie_2015}, which expanded `Sweave` functionality
-and improved integration with tools such as `pandoc` \cite{pandoc}. `knitr` uses
-`Rmarkdown` \cite{xie_2020} to mix markdown-flavoured text with code chunks into
-a document that can be rendered into an appropriately-formatted
-conference or journal pdf; this workflow was used for the papers associated
-with Experiments 1, 2, and 3. `Quarto` \cite{allaire_2024}, released in 2022,
-further expands on `Rmarkdown` functionality, and removes reliance on R or
-Rstudio. `Quarto` was used for the remainder of the papers associated with
-this project, and for the present thesis.
+followed by Yihui Xie's `knitr` \cite{xie_2015}, which expanded `Sweave`
+functionality and improved integration with tools such as `pandoc`
+\cite{pandoc}. `knitr` uses `Rmarkdown` \cite{xie_2020} to mix
+markdown-flavoured text with code chunks into a document that can be rendered
+into an appropriately-formatted conference or journal pdf; this workflow was
+used for the papers associated with Experiments 1, 2, and 3. `Quarto`
+\cite{allaire_2024}, released in 2022, further expands on `Rmarkdown`
+functionality, and removes reliance on R or Rstudio. `Quarto` was used for the
+remainder of the papers associated with this project, and for the present
+thesis.
 
-Writing executable or dynamic documents allows results to be re-generated whenever
-the document is rendered. This includes any associated data visualisation and statistical
-modelling. Structuring documents like this effectively "opens up" research by allowing
-others to view the code that performed the analysis and generated the
-data visualisations, in addition to guarding against accusations of questionable research
-practices (QRPs) through high levels of transparency \cite{holmes_2021}. This paradigm
-also allows for the caching of computationally expensive statistical models.
+Writing executable or dynamic documents allows results to be re-generated
+whenever the document is rendered. This includes any associated data
+visualisation and statistical modelling. Structuring documents like this
+effectively "opens up" research by allowing others to view the code that
+performed the analysis and generated the data visualisations, in addition to
+guarding against accusations of questionable research practices (QRPs) through
+high levels of transparency \cite{holmes_2021}. This paradigm also allows for
+the caching of computationally expensive statistical models.
 
 ## Containerised Environments
 
-Providing the code associated with a project, even when that code is integrated into
-a literately programmed executable paper, is necessary, but not sufficient, for 
-enabling adequate reproducibility. Previous work has found many instances where
-publicly-accessible code could not reproduce the results included in the corresponding
-document or failed to run entirely \cite{collberg_2016, trisovic_2022, samuel_2024}.
-Poor programming practices accounted for a significant portion of these 
-problems, highlighting the issue of researchers without technical backgrounds being
-expected to produce high quality technical documentation. Elsewhere, differences
-in computational environment, package versions, and operating systems have been
-identified as responsible for the non-replication of results. Large research
-projects, such as this, can include hundreds of functions from scores of packages,
-meaning that small changes can critically break code.
+Providing the code associated with a project, even when that code is integrated
+into a literately programmed executable paper, is necessary, but not sufficient,
+for enabling adequate reproducibility. Previous work has found many instances
+where publicly-accessible code could not reproduce the results included in the
+corresponding document or failed to run entirely
+\cite{collberg_2016, trisovic_2022, samuel_2024}. Poor programming practices
+accounted for a significant portion of these problems, highlighting the issue of
+researchers without technical backgrounds being expected to produce high quality
+technical documentation. Elsewhere, differences in computational environment,
+package versions, and operating systems have been identified as responsible for
+the non-replication of results. Large research projects, such as this, can
+include hundreds of functions from scores of packages, meaning that small
+changes can critically break code.
 
-These issues were addressed using containers, specifically, those created
-by [Docker](https://www.docker.com/) \cite{merkel_2014, boettiger_2015}.
-1979 saw the development of `chroot` (`change root`), which is
-able to isolate an application's file access to a ‘chroot jail’.
-Since then, containerisation software has experienced rapid development and uptake, mostly within the 
-software development and security communities. Docker, released in 2014, is a 
-popular, lightweight containerisation tool that enables a precise recreation
-of computational environments. Recording software versions and dependencies
-avoids the potential for broken code in the future, and publicly hosting papers as
-GitHub repositories that build into Docker containers ensures that future researchers
-can interact with code and data in the same computational environment used
-when carrying out the research. While virtual machines make isolated sections
-of hardware available, containers abstract protected parts of the operating system
-\cite{merkel_2014}. This makes containers smaller and more lightweight than full
-virtual machines, while still conferring the advantages of virtualisation. For the
-Docker implementation here, portable R environments provided by the Rocker project
-\cite{boettiger_2017} are used. These environments are agnostic regarding the host
-operating system, allowing the reader to reproduce the analyses featured here
-in a replica of the computational environment they were conducted in.
+These issues were addressed using containers, specifically, those created by
+[Docker](https://www.docker.com/) \cite{merkel_2014, boettiger_2015}. 1979 saw
+the development of `chroot` (`change root`), which is able to isolate an
+application's file access to a ‘chroot jail’. Since then, containerisation
+software has experienced rapid development and uptake, mostly within the
+software development and security communities. Docker, released in 2014, is a
+popular, lightweight containerisation tool that enables a precise recreation of
+computational environments. Recording software versions and dependencies avoids
+the potential for broken code in the future, and publicly hosting papers as
+GitHub repositories that build into Docker containers ensures that future
+researchers can interact with code and data in the same computational
+environment used when carrying out the research. While virtual machines make
+isolated sections of hardware available, containers abstract protected parts of
+the operating system \cite{merkel_2014}. This makes containers smaller and more
+lightweight than full virtual machines, while still conferring the advantages of
+virtualisation. For the Docker implementation here, portable R environments
+provided by the Rocker project \cite{boettiger_2017} are used. These
+environments are agnostic regarding the host operating system, allowing the
+reader to reproduce the analyses featured here in a replica of the computational
+environment they were conducted in.
 
-Building Docker containers is facilitated through a Dockerfile. This file instructs
-Docker to build a container with the appropriate version of R, the files required,
-and the correct package versions used during analysis. Below is the Dockerfile
-used to reproduce this thesis.
+Building Docker containers is facilitated through a Dockerfile. This file
+instructs Docker to build a container with the appropriate version of R, the
+files required, and the correct package versions used during analysis. Below is
+the Dockerfile used to reproduce this thesis.
 
-I first specify the Rocker image that will form the basis of the container. This 
-includes the version of R required (version 4.4.2), the Rstudio Integrated Development
-Environment (IDE), Quarto, and the `tidyverse` package.
+I first specify the Rocker image that will form the basis of the container. This
+includes the version of R required (version 4.4.2), the Rstudio Integrated
+Development Environment (IDE), Quarto, and the `tidyverse` package.
 
 `FROM rocker/version:4.4.2`
 
 Next, I add the files and folders required, including the Quarto document and
-related files, chapter folder, bibliography, additional scripts, LaTeX class 
-file and template, the folders containing the cached models and raw data,
-and the R project file:
+related files, chapter folder, bibliography, additional scripts, LaTeX class
+file and template, the folders containing the cached models and raw data, and
+the R project file:
 
 `ADD thesis.qmd /home/rstudio/`
 
@@ -650,8 +668,9 @@ and the R project file:
 
 `ADD thesis.Rproj /home/rstudio/`
 
-Finally, I add the specific versions of the R packages used throughout the course
-of this thesis. For brevity, I only display the addition of the first three here:
+Finally, I add the specific versions of the R packages used throughout the
+course of this thesis. For brevity, I only display the addition of the first
+three here:
 
 `RUN R -e "devtools::install_version('MASS', version = '7.3-60', dependencies = T)"`
 
@@ -663,34 +682,37 @@ of this thesis. For brevity, I only display the addition of the first three here
 
 # Reproducibility In This Thesis
 
-Reproducibility is a broad spectrum \cite{peng_2011} (see @fig-reproducibility-spectrum).
-As discussed above, even when code and data are provided, results are often not replicable, and this is before
-issues around poor research practice, inappropriate analysis, and dishonest science
-even rear their heads. While for most, the reproducibility crisis \cite{osf_2015} crystallised in
-the early 2010s \cite{peng_2015}, serious concerns had been voiced since at least the late
-1960s \cite{romero_2019}. Since coming into the wider academic consciousness, numerous
-studies have identified reasons for the crisis, ranging from poor practice
-(e.g. Potti et al., 2006 \cite{potti_2006}) to outright deception and fabrication
-(e.g. the Woo-Suk Hwang scandal \cite{saunders_2008}). These issues led this project to
-strive for a gold standard \cite{peng_2011} of reproducibility throughout. In this 
-section, I detail how this was accomplished, and in doing so, expose my work to welcome critique.
+Reproducibility is a broad spectrum \cite{peng_2011} (see
+@fig-reproducibility-spectrum). As discussed above, even when code and data are
+provided, results are often not replicable, and this is before issues around
+poor research practice, inappropriate analysis, and dishonest science even rear
+their heads. While for most, the reproducibility crisis \cite{osf_2015}
+crystallised in the early 2010s \cite{peng_2015}, serious concerns had been
+voiced since at least the late 1960s \cite{romero_2019}. Since coming into the
+wider academic consciousness, numerous studies have identified reasons for the
+crisis, ranging from poor practice (e.g. Potti et al., 2006 \cite{potti_2006})
+to outright deception and fabrication (e.g. the Woo-Suk Hwang scandal
+\cite{saunders_2008}). These issues led this project to strive for a gold
+standard \cite{peng_2011} of reproducibility throughout. In this section, I
+detail how this was accomplished, and in doing so, expose my work to welcome
+critique.
 
 ## Sharing Data and Code
 
 The open and public sharing of data and code facilitates external assessment
-\cite{klein_2018, alter_2018} and secondary use of data \cite{tamuhla_2023},
-and guards against reproducibility issues \cite{miyakawa_2020}. Quite aside
-from external motivating factors, I found that developing and embedding
-the reproducibility practices described here have resulted in longer term
-savings in time and effort. Favouring a gold-standard reproducible 
-approach is also a way of "paying it forward"; having come from a non-technical
-background, I found previous work that adhered to the same standard
-critical for my own learning and development. GitHub is used to host both this thesis
-and the papers associated with the project; links to these repositories can
-be found throughout. I favour permissive and lenient licencing, such as the MIT licence
-\cite{mit} for GitHub repositories and the CC-BY 4.0 license for pre-registrations.
-These enable future researchers to re-use data and code while providing clear guidance
-for appropriate use and facilitating long-term sustainability \cite{jimenez_2017}.
+\cite{klein_2018, alter_2018} and secondary use of data \cite{tamuhla_2023}, and
+guards against reproducibility issues \cite{miyakawa_2020}. Quite aside from
+external motivating factors, I found that developing and embedding the
+reproducibility practices described here have resulted in longer term savings in
+time and effort. Favouring a gold-standard reproducible approach is also a way
+of "paying it forward"; having come from a non-technical background, I found
+previous work that adhered to the same standard critical for my own learning and
+development. GitHub is used to host both this thesis and the papers associated
+with the project; links to these repositories can be found throughout. I favour
+permissive and lenient licencing, such as the MIT licence \cite{mit} for GitHub
+repositories and the CC-BY 4.0 license for pre-registrations. These enable
+future researchers to re-use data and code while providing clear guidance for
+appropriate use and facilitating long-term sustainability \cite{jimenez_2017}.
 
 ```{r}
 #| label: fig-reproducibility-spectrum
@@ -740,28 +762,28 @@ ggplot() +
 As detailed above, Quarto and Docker were used to produce executable
 journal/conference papers for each of the published works this thesis describes.
 For simplicity, all analyses from these papers have been repeated using up to
-date packages here. Accordingly, a single implementation of Docker
-is provided to reproduce this thesis. All statistics have been checked against those provided in
-the original analyses, and repositories for the corresponding papers are provided
-complete with original Docker implementations.
+date packages here. Accordingly, a single implementation of Docker is provided
+to reproduce this thesis. All statistics have been checked against those
+provided in the original analyses, and repositories for the corresponding papers
+are provided complete with original Docker implementations.
 
 ## Pre-Registration of Hypotheses and Analysis Plans
 
-Often touted as a low-cost entry point into reproducible research practices \cite{logg_2021},
-pre-registration is the practice of formally clarifying hypotheses and analysis
-plans prior to data collection. While this may not be able to prevent 
-research fraud and QRPs entirely, it does lend credibility to the researcher
-\cite{simmons_2021}. All hypotheses and analysis plans were pre-registered 
-with the Open Science Framework \cite{OSF}. Pre-registrations are embargoed 
-by the research team prior to data collection, and then made public in a
-frozen state following publication of the corresponding research. Where I felt
-it necessary to deviate from these plans, details are provided in the methods sections
-of the corresponding experiments.
+Often touted as a low-cost entry point into reproducible research practices
+\cite{logg_2021}, pre-registration is the practice of formally clarifying
+hypotheses and analysis plans prior to data collection. While this may not be
+able to prevent research fraud and QRPs entirely, it does lend credibility to
+the researcher \cite{simmons_2021}. All hypotheses and analysis plans were
+pre-registered with the Open Science Framework \cite{OSF}. Pre-registrations are
+embargoed by the research team prior to data collection, and then made public in
+a frozen state following publication of the corresponding research. Where I felt
+it necessary to deviate from these plans, details are provided in the methods
+sections of the corresponding experiments.
 
 ## Experimental Resources {#experimental-resources}
 
-Everything needed to run each experiment is included in the corresponding
-GitLab repository. Links to these repositories are also provided in the sections
+Everything needed to run each experiment is included in the corresponding GitLab
+repository. Links to these repositories are also provided in the sections
 concerning each experiment.
 
 \textbf{Chapter 4}
@@ -802,17 +824,17 @@ Experiment 5 Main Study (Group B):
 
 # Conclusion
 
-In this chapter, I have established the broad methodological approach
-taken by this thesis. This project sought to investigate novel ways of visualising
-data and their effects on perception and cognition. I have provided justifications
-for the designs used, the methodological challenges faced, and how the use
-of a broad array of tools and techniques was able to overcome these challenges.
-Throughout, I have detailed how I have learnt from my mistakes. Open
-research and reproducibility is at the core of the work described here,
-and I hope this thesis can serve as an example for future work
-facing similar challenges and with similar commitments to open science.
-To this end, I have produced a [template](https://github.com/gjpstrain/UoM_reproducible_thesis_template)
-to facilitate future reproducible theses. FAIR (**F**indable, **A**ccessible,
+In this chapter, I have established the broad methodological approach taken by
+this thesis. This project sought to investigate novel ways of visualising data
+and their effects on perception and cognition. I have provided justifications
+for the designs used, the methodological challenges faced, and how the use of a
+broad array of tools and techniques was able to overcome these challenges.
+Throughout, I have detailed how I have learnt from my mistakes. Open research
+and reproducibility is at the core of the work described here, and I hope this
+thesis can serve as an example for future work facing similar challenges and
+with similar commitments to open science. To this end, I have produced a
+[template](https://github.com/gjpstrain/UoM_reproducible_thesis_template) to
+facilitate future reproducible theses. FAIR (**F**indable, **A**ccessible,
 **I**nteropable, and **R**eusable) data principles \cite{wilkinson_2016} are
-satisfied through public sharing of data and code, literate programming,
-and containerisation.
+satisfied through public sharing of data and code, literate programming, and
+containerisation.
