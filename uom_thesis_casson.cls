@@ -29,7 +29,9 @@
 %% Class definition - based upon report class
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{uom_thesis_casson}[2022/10/15 - Alex Casson - University of Manchester thesis format]
-\LoadClass[a4paper, oneside]{report}
+\LoadClass[a4paper, oneside, openany]{report}
+
+\let\cleardoublepage\clearpage
 
 %% Load packages
 \RequirePackage[a-3u]{pdfx}
@@ -123,6 +125,17 @@
 \renewcommand{\floatpagefraction}{0.75}
 \setlength{\footskip}{26pt}
 
+\newcommand{\blankpage}{%
+  \clearpage
+  \thispagestyle{empty}% no headers/footers
+  \vspace*{-1cm}% adjust upward if needed
+  \begin{center}
+    Blank Page
+  \end{center}
+  \clearpage
+}
+
+
 % Format captions
 \DeclareCaptionFormat{myformat}{\fontsize{\ds@10pt}{\@@ptsize plus 1pt}\selectfont#1#2#3}
 \captionsetup{justification=centering,labelformat=simple,labelsep=period,format=myformat}
@@ -144,7 +157,7 @@
   \chapter*{COVID-19 impact statement}
   \pagenumbering{gobble}
 }
-{\clearpage}
+{\blankpage}
 
 %% Title page
 \makeatletter
@@ -232,7 +245,6 @@
   \phantomsection\addcontentsline{toc}{chapter}{Lay abstract}
   \chapter*{Lay abstract}
 }
-{\clearpage}
 
 %% Declarations
 \newcommand{\uomdeclarations}{
