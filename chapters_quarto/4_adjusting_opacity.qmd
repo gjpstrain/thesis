@@ -252,6 +252,13 @@ extract_age(E2_spatially_dependent_tidy)
 extract_gender(E2_spatially_dependent_tidy)
 
 extract_literacy(E2_spatially_dependent_tidy)
+
+# due to the missing age value, manually add 1 to male gender for 
+# experiment 1
+
+E1_uniform_adjustments_tidy_gender <- E1_uniform_adjustments_tidy_gender %>%
+  select(-c("NA")) %>%
+  mutate(M = M + 1)
 ```
 
 # Abstract {#abstract-adjusting-opacity}
@@ -302,7 +309,7 @@ knitr::include_graphics(path = "../supplied_graphics/pilot_examples.png")
 
 This provided no consistency between different experimental stimuli, making it
 difficult to comment on the effects of changing levels of opacity in various
-parts of a plot on correlation estimation. This was later addressed by
+parts of a plot on correlation estimation behaviour. This was later addressed by
 hardcoding residual magnitude to a specific value of opacity or size. The pilot
 also suffered extensively from poor data quality. Of the 260 participants
 tested, data from only 118 was included in the final analyses due to failed
@@ -909,7 +916,7 @@ To investigate the effects of opacity condition on participants' estimates of
 correlation, a linear mixed effects model was built whereby opacity condition is
 a predictor for the difference between objective *r* values for each plot and
 participants' estimates of *r*. This model has random intercepts for items and
-participants. A likelihood ratio test revealed that the model including global
+participants. A likelihood ratio test revealed that the model including global point 
 opacity as a fixed effect explained significantly more variance than a null
 model ($\chi^2$(`r in_paren(e1_model.df)`) = `r printnum(e1_model.Chisq)`, *p*
 `r printp(e1_model.p, add_equals = TRUE)`). @fig-e1-estimates shows the mean
@@ -1094,7 +1101,7 @@ plot_error_bars_function(E1_uniform_adjustments_tidy %>%
 
 A function from the now archived `EMAtools` package \cite{ematools} was used to
 calculate an approximation of Cohen's *d* between the reference level (full
-contrast, alpha = 1.0) and each other level of the opacity factor. These
+opacity, alpha = 1.0) and each other level of the opacity factor. These
 statistics can be seen in @tbl-efs-e1 (a) along with means and standard
 deviations (b). The largest effect size observed (*d* \~ 0.16) is between the
 low and full opacity conditions, and is small. This was unsurprising given the
@@ -1131,7 +1138,7 @@ either bias (error) or variability (spread) in correlation perception regarding
 point opacity manipulations. In comparison, the results observed here do report
 an effect. This effect may be explained by differences in experimental power, as
 it is a small effect, although I argue that methodological differences may have
-also played a small role. Given the small effect size (Cohen's *d* = 0.16), the
+also played a role. Given the small effect size (Cohen's *d* = 0.16), the
 small sample in Rensink (2014) \cite{rensink_2014} may have caused the
 experiment to be insufficiently powered. With the large sample size in the
 present work (*N* = 150), evidence for an effect has been found. The
@@ -1150,7 +1157,7 @@ targets (in this case scatterplot points) and the background; the greater
 spatial uncertainty brought on by reduced point opacity, while not eliciting
 greater spread in correlation estimates, might be responsible for the effects
 observed via an increase in the perceived width of the probability distribution
-displayed by the scatterplot
+displayed by the scatterplot.
 
 From the results it is clear that a scatterplot optimised for correlation
 perception should have contrast between the foreground (points) and background
@@ -1486,7 +1493,7 @@ again explained no additional variance ($\chi^2$(`r in_paren(e2_lit_model.df)`)
 ```{r}
 #| label: tbl-efs-e2
 #| include: true
-#| tbl-cap: Cohen's \textit{d} effect sizes (a) and summary statistics (b) for the opacity decay function condition in Experiment 2. Each effect size is compared to the reference level, full contrast (alpha = 1).
+#| tbl-cap: Cohen's \textit{d} effect sizes (a) and summary statistics (b) for the opacity decay function condition in Experiment 2. Each effect size is compared to the reference level, full opacity (alpha = 1).
 #| tbl-subcap: ["Effect sizes for opacity decay factor.", "Summary statistics for opacity decay factor."]
 #| layout-ncol: 2
 
@@ -1847,8 +1854,7 @@ Finally, the most exciting avenue for related future work is the possibility of
 combining the techniques developed and tested here with other novel scatterplot
 visualisation techniques that have a basis in the literature.
 \chap{chap:adjusting_size} investigates the use of point size in place of
-opacity with the techniques described, while \chap{chap:belief_change} combines
-the two to explore how these different modalities work together with regards to
+opacity with the techniques described, while \chap{chap:interactions_opacity_size} combines the two to explore how these different modalities work together with regards to
 the estimation of positive correlation.
 
 # Conclusion {#conclusion-chap4}
@@ -1857,7 +1863,7 @@ In a pair of experiments, I varied the opacity of point in scatterplots both
 uniformly (Experiment 1) and using functions relating point opacity to the size
 of a particular point's residual (Experiment 2). In Experiment 1, I showed that,
 in contradiction with previous work, changing the opacity of all points in a
-scatterplot can effect participants' performance on a correlation estimation
+scatterplot can affect participants' performance on a correlation estimation
 task. In Experiment 2, I showed that varying point opacity as a function of a
 point's residual magnitude is able to significantly change participants'
 correlation estimates and partially correct for a long-standing underestimation

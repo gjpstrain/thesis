@@ -181,8 +181,8 @@ service providers, each with advantages and disadvantages. Research
 evaluating a number of these providers recently found that Prolific
 \cite{prolific} and CloudResearch provide the highest quality data for
 the lowest cost \cite{douglas_2023}; I elected to use the former due to
-my familiarity with the system. Despite these findings, there has also
-been evidence of low data quality and skewed demographics affecting both
+my familiarity with the system. Despite these findings, there has been
+evidence of low data quality and skewed demographics affecting both
 general crowdsourcing platforms, such as Amazon's MTurk, and those
 tailored specifically towards academic research. On the 24th of July,
 2021, the Prolific.co platform went viral on social media
@@ -215,7 +215,9 @@ issues; specifically, it was required that participants:
 \item
   Had previously completed at least 100 studies on Prolific.
 \item
-  Had an acceptance rate of at least 99\% for those studies. {[}\^{}1{]}
+  Had an acceptance rate of at least 99\% for those studies.\footnote{this
+    is a more strict rate than the 95\% recommended by Peer et
+    al.~\cite{peer_2021}.}
 \end{itemize}
 
 Following implementation of these pre-screen criteria, the rejection
@@ -233,8 +235,7 @@ enough participants to adequately power the experiments
 analysis. A post-hoc power analysis of the first experiment revealed a
 power of 0.54. Effect sizes were larger in the subsequent experiments,
 however to facilitate comparison, it was decided that \emph{N} = 150
-would remain the target recruitment rate. {[}\^{}1{]}: this is a more
-strict rate than the 95\% recommended by Peer et al.~\cite{peer_2021}.
+would remain the target recruitment rate.
 
 \subsection{Creating Stimuli}\label{creating-stimuli}
 
@@ -281,7 +282,7 @@ where available, this is included in discussions and analyses.
 
 \section{Analytical Methods}\label{analytical-methods}
 
-All analyses in this thesis were conducted using R (version 4.5.0
+All analyses in this thesis were conducted using R (version 4.5.1
 \cite{r_core}). To investigate whether the experimental manipulations
 have actual effects on the interpretations participants provide,
 appropriate statistical testing must be employed. This involves taking
@@ -389,12 +390,12 @@ convergence (whether or not a solution can be found), the
 selection of model specifications. Having been provided with a maximal
 model, \texttt{buildmer} uses stepwise regression to select the most
 complex model structure that successfully converges. Following this,
-random effects terms that fail to explain a significant amount of
-variance in the dataset are dropped; this stepwise elimination of terms
-is evaluated using successive likelihood ratio tests. This results in a
-model that captures the maximal amount of feasible variability while
-minimising redundancy. Note that \texttt{buildmer} was not relied upon
-as a modelling \emph{panacea}; models are still based on theoretical
+terms that fail to explain a significant amount of variance in the
+dataset are dropped; this stepwise elimination of terms is evaluated
+using successive likelihood ratio tests. This results in a model that
+captures the maximal amount of feasible variability while minimising
+redundancy. Note that \texttt{buildmer} was not relied upon as a
+modelling \emph{panacea}; models are still based on theoretical
 underpinnings and are evaluated critically.
 
 \subsection{Effects Sizes}\label{effects-sizes}
@@ -507,7 +508,7 @@ created by \href{https://www.docker.com/}{Docker}
 application's file access to a `chroot jail'. Since then,
 containerisation software has experienced rapid development and uptake,
 mostly within the software development and security communities. Docker,
-released in 2014, is a popular, lightweight containerisation tool that
+released in 2013, is a popular, lightweight containerisation tool that
 enables a precise recreation of computational environments. Recording
 software versions and dependencies avoids the potential for broken code
 in the future, and publicly hosting papers as GitHub repositories that
@@ -530,11 +531,11 @@ of R, the files required, and the correct package versions used during
 analysis. Below is the Dockerfile used to reproduce this thesis.
 
 I first specify the Rocker image that will form the basis of the
-container. This includes the version of R required (version 4.4.2), the
+container. This includes the version of R required (version 4.5.1), the
 Rstudio Integrated Development Environment (IDE), Quarto, and the
 \texttt{tidyverse} package.
 
-\texttt{FROM\ rocker/version:4.4.2}
+\texttt{FROM\ rocker/version:4.5.1}
 
 Next, I add the files and folders required, including the Quarto
 document and related files, chapter folder, bibliography, additional
@@ -547,9 +548,9 @@ cached models and raw data, and the R project file:
 
 \texttt{ADD\ chapters\_quarto/\ /home/rstudio/chapters\_quarto/}
 
-\texttt{ADD\ thesis.bib\ /home/studio/}
+\texttt{ADD\ thesis.bib\ /home/rstudio/}
 
-\texttt{ADD\ reformat\_tex.R\ /home/studio/}
+\texttt{ADD\ reformat\_tex.R\ /home/rstudio/}
 
 \texttt{ADD\ finalise\_thesis.R\ /home/rstudio/}
 
@@ -710,8 +711,7 @@ detailed how I have learnt from my mistakes. Open research and
 reproducibility is at the core of the work described here, and I hope
 this thesis can serve as an example for future work facing similar
 challenges and with similar commitments to open science. To this end, I
-have produced a
-\href{https://github.com/gjpstrain/UoM_reproducible_thesis_template}{template}
+have produced a template\footnote{https://github.com/gjpstrain/UoM\_reproducible\_thesis\_template}
 to facilitate future reproducible theses. FAIR (\textbf{F}indable,
 \textbf{A}ccessible, \textbf{I}nteropable, and \textbf{R}eusable) data
 principles \cite{wilkinson_2016} are satisfied through public sharing of

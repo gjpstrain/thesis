@@ -58,12 +58,12 @@ opacity decay function is visible. Note the linear scaling used.}
 
 This provided no consistency between different experimental stimuli,
 making it difficult to comment on the effects of changing levels of
-opacity in various parts of a plot on correlation estimation. This was
-later addressed by hardcoding residual magnitude to a specific value of
-opacity or size. The pilot also suffered extensively from poor data
-quality. Of the 260 participants tested, data from only 118 was included
-in the final analyses due to failed attention checks. It is for this
-reason that the pre-screen requirements detailed in Section
+opacity in various parts of a plot on correlation estimation behaviour.
+This was later addressed by hardcoding residual magnitude to a specific
+value of opacity or size. The pilot also suffered extensively from poor
+data quality. Of the 260 participants tested, data from only 118 was
+included in the final analyses due to failed attention checks. It is for
+this reason that the pre-screen requirements detailed in Section
 \ref{recruitment} were implemented.
 
 Participants viewed 180 experimental plots in a 3x2 factorial design.
@@ -537,10 +537,10 @@ were prevented from participating. Data were collected from 158
 participants. 8 failed more than 2 out of 6 attention check questions,
 and, as per the pre-registration, had their submissions rejected from
 the study. The data from the remaining 150 participants were included in
-the full analysis (76 male, 71 female, and 2 non-binary). Participants'
-mean age was 28.29 (\emph{SD} = 8.59). Mean graph literacy score was
-21.79 (\emph{SD} = 4.47). The mean time taken to complete the experiment
-was 33 minutes (SD = 10 minutes).
+the full analysis (77.00 male, 71 female, and 2 non-binary).
+Participants' mean age was 28.29 (\emph{SD} = 8.59). Mean graph literacy
+score was 21.79 (\emph{SD} = 4.47). The mean time taken to complete the
+experiment was 33 minutes (SD = 10 minutes).
 
 \subsubsection{Design}\label{design-e1}
 
@@ -570,9 +570,9 @@ estimates of correlation, a linear mixed effects model was built whereby
 opacity condition is a predictor for the difference between objective
 \emph{r} values for each plot and participants' estimates of \emph{r}.
 This model has random intercepts for items and participants. A
-likelihood ratio test revealed that the model including global opacity
-as a fixed effect explained significantly more variance than a null
-model (\(\chi^2\)(3) = 223.13, \emph{p} \textless{} .001).
+likelihood ratio test revealed that the model including global point
+opacity as a fixed effect explained significantly more variance than a
+null model (\(\chi^2\)(3) = 223.13, \emph{p} \textless{} .001).
 Figure~\ref{fig-e1-estimates} shows the mean errors in correlation
 estimation for each opacity condition, along with 95\% confidence
 intervals.
@@ -717,7 +717,7 @@ point opacity. Error bars show standard deviations of estimates.}
 
 A function from the now archived \texttt{EMAtools} package
 \cite{ematools} was used to calculate an approximation of Cohen's
-\emph{d} between the reference level (full contrast, alpha = 1.0) and
+\emph{d} between the reference level (full opacity, alpha = 1.0) and
 each other level of the opacity factor. These statistics can be seen in
 Table~\ref{tbl-efs-e1} (a) along with means and standard deviations (b).
 The largest effect size observed (\emph{d} \textasciitilde{} 0.16) is
@@ -760,8 +760,8 @@ points, and report no difference in either bias (error) or variability
 manipulations. In comparison, the results observed here do report an
 effect. This effect may be explained by differences in experimental
 power, as it is a small effect, although I argue that methodological
-differences may have also played a small role. Given the small effect
-size (Cohen's \emph{d} = 0.16), the small sample in Rensink (2014)
+differences may have also played a role. Given the small effect size
+(Cohen's \emph{d} = 0.16), the small sample in Rensink (2014)
 \cite{rensink_2014} may have caused the experiment to be insufficiently
 powered. With the large sample size in the present work (\emph{N} =
 150), evidence for an effect has been found. The experimental
@@ -782,7 +782,7 @@ background; the greater spatial uncertainty brought on by reduced point
 opacity, while not eliciting greater spread in correlation estimates,
 might be responsible for the effects observed via an increase in the
 perceived width of the probability distribution displayed by the
-scatterplot
+scatterplot.
 
 From the results it is clear that a scatterplot optimised for
 correlation perception should have contrast between the foreground
@@ -960,7 +960,7 @@ again explained no additional variance (\(\chi^2\)(1) = .242, \emph{p} =
 \caption{\label{tbl-efs-e2}Cohen's \textit{d} effect sizes (a) and
 summary statistics (b) for the opacity decay function condition in
 Experiment 2. Each effect size is compared to the reference level, full
-contrast (alpha = 1).}
+opacity (alpha = 1).}
 
 \begin{minipage}{0.50\linewidth}
 
@@ -1261,9 +1261,9 @@ possibility of combining the techniques developed and tested here with
 other novel scatterplot visualisation techniques that have a basis in
 the literature. \chap{chap:adjusting_size} investigates the use of point
 size in place of opacity with the techniques described, while
-\chap{chap:belief_change} combines the two to explore how these
-different modalities work together with regards to the estimation of
-positive correlation.
+\chap{chap:interactions_opacity_size} combines the two to explore how
+these different modalities work together with regards to the estimation
+of positive correlation.
 
 \section{Conclusion}\label{conclusion-chap4}
 
@@ -1271,7 +1271,7 @@ In a pair of experiments, I varied the opacity of point in scatterplots
 both uniformly (Experiment 1) and using functions relating point opacity
 to the size of a particular point's residual (Experiment 2). In
 Experiment 1, I showed that, in contradiction with previous work,
-changing the opacity of all points in a scatterplot can effect
+changing the opacity of all points in a scatterplot can affect
 participants' performance on a correlation estimation task. In
 Experiment 2, I showed that varying point opacity as a function of a
 point's residual magnitude is able to significantly change participants'

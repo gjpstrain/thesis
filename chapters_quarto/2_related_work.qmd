@@ -982,6 +982,16 @@ working with data visualisations tend to benefit more from their provision
 variations in experimental results regarding judgements of magnitude
 \cite{bradley_2025}.
 
+```{r}
+#| label: fig-sgl-screen
+#| include: true
+#| fig-cap: Participants were instructed to use the following interface to complete the Subjective Graph Literacy scale \cite{garcia_2016} before completing trials in each experiment.
+
+# include pre-rendered graphics
+
+knitr::include_graphics(path = "../supplied_graphics/sgl_test_screen.png", dpi = NA)
+```
+
 With this in mind, some measure of a participant's ability to comprehend the
 data visualisation displayed was required. Throughout this thesis,
 Garcia-Retamero's 5-item Subjective Graph Literacy (SGL) scale
@@ -1000,16 +1010,6 @@ the form of 5 questions to which participants must provide an answer. Generally,
 the scale ascertains each participant's self-reported competencies when working
 with a small range of visualisations. The SGL test portion of each experiment is
 shown in @fig-sgl-screen.
-
-```{r}
-#| label: fig-sgl-screen
-#| include: true
-#| fig-cap: Participants were instructed to use the following interface to complete the Subjective Graph Literacy scale \cite{garcia_2016} before completing trials in each experiment.
-
-# include pre-rendered graphics
-
-knitr::include_graphics(path = "../supplied_graphics/sgl_test_screen.png", dpi = NA)
-```
 
 # Objectives and Contributions {#objectives-contributions}
 
