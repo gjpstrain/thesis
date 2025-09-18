@@ -672,10 +672,10 @@ participants were included in the full analysis
 (`r printnum(E4_interactions_tidy_gender$M, digits = 0)` male,
 `r printnum(E4_interactions_tidy_gender$F)` female, and
 `r printnum(E4_interactions_tidy_gender$NB)` non-binary). Participants' mean age
-was `r printnum(E4_interactions_tidy_age$mean)` (*SD* =
-`r printnum(E4_interactions_tidy_age$sd)`). Mean graph literacy score was
-`r printnum(E4_interactions_tidy_graph_literacy$mean)` (*SD* =
-`r printnum(E4_interactions_tidy_graph_literacy$sd)`). The average time taken to
+was `r printnum(E4_interactions_tidy_age$mean, digits = 1)` (*SD* =
+`r printnum(E4_interactions_tidy_age$sd, digits = 1)`). Mean graph literacy score was
+`r printnum(E4_interactions_tidy_graph_literacy$mean, digits = 1)` (*SD* =
+`r printnum(E4_interactions_tidy_graph_literacy$sd, digits = 1)`). The average time taken to
 complete the experiment was 37 minutes (SD = 12.3 minutes).
 
 # Results {#results-e4}

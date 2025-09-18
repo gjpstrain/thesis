@@ -720,7 +720,7 @@ relatedness between variables.
 All experiments in this chapter were conducted according to the principles of
 open and reproducible research \cite{ayris_2018}. All experimental code,
 materials, and instructions are hosted on GitLab for the pretest[^1] and for
-the main test as a pair of separate experiments[^2][^3]. The original paper is
+the main test as a pair of separate experiments[^2]^,^[^3]. The original paper is
 maintained as a GitHub repository[^4]. This repository contains all code,
 analysis, and visualisation. The repository also contains instructions for
 building a Docker container to recreate the computational environment the paper
@@ -911,7 +911,7 @@ above chance on statement emotional valence ($\kappa$ =
 ```{r}
 #| label: tbl-candidate-statements
 #| include: true
-#| tbl-cap: Statements with neutral average emotional valence ratings.+
+#| tbl-cap: Statements with neutral average emotional valence ratings.
 
 # define candidate statements
 
@@ -1018,7 +1018,7 @@ with all other points being unlabelled.
 No effect of graph literacy was found in Experiments 1 to 4 (see
 \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
 \chap{chap:interactions_opacity_size}). Despite this, the scale was included
-here due to the higher predicted cognitive load of the current tasks, as there
+here due to the higher predicted cognitive load of the current task, as there
 is evidence that graph literacy may affect performance on more cognitively
 demanding visualisation tasks \cite{canham_2010, okan_2012}. Additionally, the
 graph literacy test used \cite{garcia_2016} is extremely short; in the present
@@ -1545,7 +1545,7 @@ paradigm.
 
 Further experimental work is required to provide more comprehensive explanations
 for the interactive effects of graph literacy, defensive confidence, and
-statement emotionality as they pertain to belief change after scatterplot
+statement emotional valence as they pertain to belief change after scatterplot
 viewing.
 
 # General Discussion {#general-discussion-e5}
@@ -1583,7 +1583,7 @@ broadly consequential. For data visualisation designers, they provide strong
 evidence that utilising the alternative scatterplot designs described in this
 thesis can affect beliefs about levels of relatedness without requiring the
 removal of data. For researchers, these results pave the way for work in a
-number of directions, which is discussed in Section \ref{future-work-e5}.
+number of directions.
 
 # Future Work {#future-work-e5}
 
@@ -1596,7 +1596,7 @@ polarised emotional components. A simple, blunt measure of belief about
 relatedness was utilised, and only one of the alternative scatterplot
 visualisations described in this thesis was used. Each of these components
 deserves study, and each is ripe for future work to investigate the
-contributions of each factor to the effects we have seen here.
+contributions of each factor to the effects have seen here.
 
 Section \ref{add-analyses-discussion} describes the effects that graph literacy,
 defensive confidence, and participants' ratings of the emotional valence of the

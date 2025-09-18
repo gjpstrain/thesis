@@ -51,7 +51,7 @@ labels_all_exp <- c(A_exp1 = "Low Opacity\n(alpha = 0.25)",
 conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
 ```
 
-Changing the opacities and sizes of point in positively correlated scatterplots
+Changing the opacities and sizes of points in positively correlated scatterplots
 has clear effects on the estimation of correlation. This thesis set out to
 investigate whether visual manipulations of scatterplots based on aspects of
 human perception might be able to change estimates of correlation, and, in
@@ -68,7 +68,7 @@ In \chap{chap:adjusting_opacity}, the opacities of scatterplot points were
 altered while participants were tested on a correlation estimation task. The two
 published experiments in this chapter were partially based on an earlier pilot
 study that ultimately remains unpublished due to data quality issues (see
-\ref{pilot-study} for a full account of this). In the first experiment in this
+Section \ref{pilot-study} for a full account of this). In the first experiment in this
 chapter, the opacities of scatterplot points were changed in a uniform manner;
 this was done with the intent of discovering any general effects of point
 opacity on correlation estimation. Evidence was found for an increase in
@@ -98,7 +98,7 @@ identical to that when using no visual adjustments, the use of size decay
 manipulations such that point size decreased with residual magnitude resulted in
 an estimation curve with a visibly altered shape. Secondly, in previous work,
 and in all experiments undertaken in \chap{chap:adjusting_opacity}, precision in
-correlation estimation increases as the objective *r* value itself increases;
+correlation estimation increased as the objective *r* value itself increases;
 this behaviour was not observed when employing manipulations that alter point
 size. The non-linear decay condition in this experiment remains the most
 promising condition with regards to correcting for the underestimation bias.
@@ -108,7 +108,7 @@ In a final implementation of the same experimental paradigm,
 manipulations from the two previous chapters to further explore the potential
 for biasing estimates of correlation and the potential mechanisms behind the
 effects observed. Using point opacity and size manipulations together in both
-congruous (same direction) and incongruous (opposing directions) combinations,
+congruent (same direction) and incongruent (opposing directions) combinations,
 this single experiment showed that employing both manipulations was able to bias
 correlation estimates further than either manipulation in isolation, resulting
 in a marked overestimation being introduced. This combination is not, however,
@@ -257,13 +257,13 @@ all_exp_wrangled %>%
 ```
 
 Extending these findings into a cognitive space, \chap{chap:belief_change}
-utilised the congruous typical orientation size and opacity decay condition from
+utilised the congruent typical orientation size and opacity decay condition from
 Experiment 4, contextualised as part of news items, to explore whether the
 perceptual effects found in the previous three chapters might also be able to
 bias people's beliefs about the levels of relatedness between variable pairs. In
 this experiment, people's beliefs about a pair of variables were tested before
 and after viewing a series of data-identical scatterplots with either the
-congruous typical orientation opacity and size decay condition, or with no
+congruent typical orientation opacity and size decay condition, or with no
 opacity or size decay present. While beliefs about relatedness were changed in
 each condition, they changed to a greater degree when participants viewed the
 scatterplots with opacity and size decay present. This finding provided evidence
@@ -310,7 +310,7 @@ succeeded and failed. Materials are provided throughout for the re-creation of
 each individual experimental paper, including Docker containers to reproduce the
 specific computational environments used. This thesis also features an
 all-in-one Docker implementation, details of which can be found in the
-repository associated with this paper and in Appendix X. Owing to the
+repository associated with this paper. Owing to the
 accessibility issues present with the PDF format \cite{kumar_2024}, this thesis
 is also hosted as a website[^1] using GitHub Pages.
 
@@ -324,8 +324,8 @@ psychology and data visualisation design. A thorough exploration of the effects
 of two salient visual features (opacity and size) on correlation estimation was
 carried out over a series of well-powered experiments in
 \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
-\chap{chap:interactions_opacity_size}. Furthermore, it was shown that the
-effects of point opacity and size with regards to the estimation of positive
+\chap{chap:interactions_opacity_size}. Furthermore, it was shown in 
+\chap{chap:belief_change} that the effects of point opacity and size with regards to the estimation of positive
 correlation could be extended into a cognitive space to change peoples' beliefs
 about the levels of relatedness between a pair of variables.
 
@@ -378,7 +378,7 @@ that requires further work to answer.
 Additionally, I hope that this project is demonstrative of the need for the
 re-examination of common data visualisations from the ground up. In an age where
 everything is measured, and the complexity of information increases year on
-year, data visualisations are crucial for the communication of difficult topics
+year, data visualisations are crucial for the communication of difficult and complex topics
 to the general public. Many of the most popular, widely-used data visualisations
 are not designed to be accurately interpreted by lay people; given that this is
 the group that represents the greatest viewership, and that has the most to gain

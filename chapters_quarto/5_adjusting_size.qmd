@@ -511,10 +511,10 @@ the study. The data from the remaining 150 participants were included in the
 full analysis (`r printnum(E3_size_adjustments_tidy_gender$M)` male,
 `r printnum(E3_size_adjustments_tidy_gender$F)` female, and
 `r printnum(E3_size_adjustments_tidy_gender$NB)` non-binary). Participants' mean
-age was `r printnum(E3_size_adjustments_tidy_age$mean)` (*SD* =
-`r printnum(E3_size_adjustments_tidy_age$sd)`). Mean graph literacy score was
-`r printnum(E3_size_adjustments_tidy_graph_literacy$mean)` (*SD* =
-`r printnum(E3_size_adjustments_tidy_graph_literacy$sd)`). The average time
+age was `r printnum(E3_size_adjustments_tidy_age$mean, digits = 1)` (*SD* =
+`r printnum(E3_size_adjustments_tidy_age$sd, digits = 1)`). Mean graph literacy score was
+`r printnum(E3_size_adjustments_tidy_graph_literacy$mean, digits = 1)` (*SD* =
+`r printnum(E3_size_adjustments_tidy_graph_literacy$sd, digits = 1)`). The average time
 taken to complete the experiment was 39 minutes (SD = 14 minutes).
 
 # Results {#results-e3}
@@ -789,7 +789,9 @@ dashed horizontal line represents hypothetical perfect estimation. Expectedly,
 while participants still underestimated *r* in all conditions, the non-linear
 size decay condition provided the most promising correction to date; the average
 estimation error is approaching a flat line (see the left-most plot in
-@fig-estimates-by-r-e3).
+@fig-estimates-by-r-e3). The change in the shape of the correlation estimation
+is a novel finding seen with the non-linear and linear decay conditions.
+
 
 # Discussion {#discussion-e3}
 

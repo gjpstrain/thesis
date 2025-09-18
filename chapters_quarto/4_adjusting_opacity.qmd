@@ -833,10 +833,10 @@ participants were included in the full analysis
 (`r printnum(E1_uniform_adjustments_tidy_gender$M)` male,
 `r printnum(E1_uniform_adjustments_tidy_gender$F)` female, and
 `r printnum(E1_uniform_adjustments_tidy_gender$NB)` non-binary). Participants'
-mean age was `r printnum(E1_uniform_adjustments_tidy_age$mean)` (*SD* =
-`r printnum(E1_uniform_adjustments_tidy_age$sd)`). Mean graph literacy score was
-`r printnum(E1_uniform_adjustments_tidy_graph_literacy$mean)` (*SD* =
-`r printnum(E1_uniform_adjustments_tidy_graph_literacy$sd)`). The mean time
+mean age was `r printnum(E1_uniform_adjustments_tidy_age$mean, digits = 1)` (*SD* =
+`r printnum(E1_uniform_adjustments_tidy_age$sd, digits = 1)`). Mean graph literacy score was
+`r printnum(E1_uniform_adjustments_tidy_graph_literacy$mean, digits = 1)` (*SD* =
+`r printnum(E1_uniform_adjustments_tidy_graph_literacy$sd, digits = 1)`). The mean time
 taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
 ### Design {#design-e1}
@@ -1202,10 +1202,10 @@ participants were included in the full analysis
 (`r printnum(E2_spatially_dependent_tidy_gender$M)` male,
 `r printnum(E2_spatially_dependent_tidy_gender$F)` female, and
 `r printnum(E2_spatially_dependent_tidy_gender$NB)` non-binary). Participants'
-mean age was `r printnum(E2_spatially_dependent_tidy_age$mean)` (*SD* =
-`r printnum(E2_spatially_dependent_tidy_age$sd)`). Mean graph literacy score was
-`r printnum(E2_spatially_dependent_tidy_graph_literacy$mean)` (*SD* =
-`r printnum(E2_spatially_dependent_tidy_graph_literacy$sd)`). The average time
+mean age was `r printnum(E2_spatially_dependent_tidy_age$mean, digits = 1)` (*SD* =
+`r printnum(E2_spatially_dependent_tidy_age$sd, digits = 1)`). Mean graph literacy score was
+`r printnum(E2_spatially_dependent_tidy_graph_literacy$mean, digits = 1)` (*SD* =
+`r printnum(E2_spatially_dependent_tidy_graph_literacy$sd, digits = 1)`). The average time
 taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
 ### Design {#design-e2}
