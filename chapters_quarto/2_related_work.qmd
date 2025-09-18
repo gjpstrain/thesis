@@ -680,7 +680,7 @@ visualise correlation. Parallel Coordinates Plots (PCPs) \cite{heinrich_2013},
 which are popular in the InfoVis community, are most often used for
 multidimensional data. Applying them to bivariate data results in plots that
 perform (almost) as well as scatterplots with regards to visualising the
-correlation between two variables \cite{kay_2015}. @fig-other-corr-viz
+correlation between two variables \cite{kay_2016}. @fig-other-corr-viz
 illustrates parallel coordinates plots, along with 3 other types of correlation
 visualisation, with an *r* value of 0.6. Despite the existence of plots such as
 these, scatterplots remain by far the most popular way of visualising

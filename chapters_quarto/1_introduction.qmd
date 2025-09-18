@@ -38,7 +38,7 @@ and with everyone in between. They are relied upon to communicate vital public
 health information \cite{li_2021, koch_2021, clements_2023}, to present evidence
 in court cases \cite{bobko_1979, mclachlan_2021}, and to facilitate
 collaboration and encourage engagement on climate change issues
-\cite{nocke_2008, schuster_2024}. The study of data visualisation therefore has
+\cite{nocke_2008, tominski_2011, schuster_2024}. The study of data visualisation therefore has
 the potential to change the ways in which science is communicated with members
 of the public.
 

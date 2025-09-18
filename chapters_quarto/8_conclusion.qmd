@@ -276,7 +276,7 @@ pairs.
 
 Overall, the work presented in this thesis contributes to wider evidence that
 simple changes in visual features can have perceptual \cite{hong_2022} and
-cognitive \cite{karduni_2020} effects on those who view such visualisations. The
+cognitive \cite{karduni_2021} effects on those who view such visualisations. The
 finding that changing the opacities and sizes of scatterplot points can affect
 viewers' estimates of correlation is in direct contradiction to earlier work
 \cite{rensink_2012, rensink_2014}, which found no effects of changing point
