@@ -454,8 +454,8 @@ irr_corr <- kappa2(matrix(c(all_ratings$Strength_of_Correlation_A,
 
 \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
 \chap{chap:interactions_opacity_size} show through four experiments that point
-opacity and size changes can have powerful effects on participants' estimates of
-correlation in positively correlated scatterplots. In
+opacity and size manipulations can have powerful effects on participants'
+estimates of correlation in positively correlated scatterplots. In
 \chap{chap:adjusting_opacity}, global and spatially-dependent adjustments in
 point opacity were employed, and a small, but statistically significant level of
 correction for the underestimation of positive correlation was found.
@@ -537,10 +537,25 @@ the statement and the graph literacy and defensive confidence of participants.
 
 ## Scatterplots: Developments in This Thesis
 
+In contradiction to previous work \cite{rensink_2014, rensink_2017}, this thesis
+has found clear and powerful effects of systematically changing the opacities
+and sizes of scatterplot points on participants' estimates of correlation in
+positively correlated scatterplots. While \chap{chap:adjusting_size}, in which
+point sizes were lowered as a function of residual magnitude, provided the best
+level of correction seen so far, \chap{chap:interactions_opacity_size} featured
+the most dramatic level of correction. In that particular condition, both point
+opacity and size were lowered as a function of residual magnitude using equation
+7.1:
+
+\begin{equation}
+  point_{size/opacity} = 1 - b^{residual}
+\end{equation}
+
 ```{r}
 #| label: fig-previous-manipulations
 #| include: true
 #| fig-cap: "Top row: Examples of scatterplot manipulations from previous work using an \\textit{r} value of 0.6. Bottom row: the corresponding correlation estimation behaviour across values of \\textit{r} between 0.2 and 0.99. The dashed diagonal line represents hypothetically accurate estimation, while the solid line is what is observed when participants are asked to estimate correlation."
+#| fig-pos: "H"
 
 # dataframe containing values from previous work and the current is included
 # in the data folder 
@@ -666,20 +681,6 @@ rm(example_plots_prev, plot_prev_est_no_y,    # trying to prevent env clogging
 annotate_figure(p, bottom = x_label, left = y_label)
 ```
 
-In contradiction to previous work \cite{rensink_2014, rensink_2017}, this thesis
-has found clear and powerful effects of systematically changing the opacities
-and sizes of scatterplot points on participants' estimates of correlation in
-positively correlated scatterplots. While \chap{chap:adjusting_size}, in which
-point sizes were lowered as a function of residual magnitude, provided the best
-level of correction seen so far, \chap{chap:interactions_opacity_size} featured
-the most dramatic level of correction. In that particular condition, both point
-opacity and size were lowered as a function of residual magnitude using equation
-7.1:
-
-\begin{equation}
-  point_{size/opacity} = 1 - b^{residual}
-\end{equation}
-
 @fig-previous-manipulations contains a summary of the point opacity and size
 manipulations from the previous three chapters in this thesis, along with their
 effects on performance on a correlation estimation task. Each manipulation
@@ -718,13 +719,13 @@ relatedness between variables.
 
 All experiments in this chapter were conducted according to the principles of
 open and reproducible research \cite{ayris_2018}. All experimental code,
-materials, and instructions are hosted on GitLab for the pretest [^1] and for
-the main test as a pair of separate experiments [^2] [^3]. The original paper is
-maintained as a GitHub repository [^4]. This repository contains all code,
+materials, and instructions are hosted on GitLab for the pretest[^1] and for
+the main test as a pair of separate experiments[^2][^3]. The original paper is
+maintained as a GitHub repository[^4]. This repository contains all code,
 analysis, and visualisation. The repository also contains instructions for
 building a Docker container to recreate the computational environment the paper
-was written in. Pre-registrations for both the pre-test [^5] and the main
-experiment [^6] are hosted on the Open Science Framework (OSF), and any
+was written in. Pre-registrations for both the pre-test[^5] and the main
+experiment[^6] are hosted on the Open Science Framework (OSF), and any
 deviations are noted where relevant in this chapter.
 
 [^1]: https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest
@@ -767,7 +768,7 @@ a list of candidate statements, I used the ChatGPT4 Large Language Model (LLM)
     Try to match all the statements on emotionality.''
 \end{quotation}
 
-The full list of statements can be found in Appendix X. Myself and a co-author
+The full list of statements can be found in the supplementary material. A co-author and I
 rated each statement on emotional valence and belief about strength of
 relatedness using Likert scales from 1 to 7. Both statement emotional valence
 and strength of relatedness were anchored at points 1 and 7: *Very Negative* and
@@ -784,7 +785,7 @@ for both emotional valence ($\kappa$ = `r printnum(irr_emot$value, digits = 2)`,
 agreement in both cases \cite{cohen_1968, fleiss_1969}. Together, we selected
 strongly and weakly correlated statements with the highest levels of absolute
 agreement, resulting in 14 strongly and 11 weakly correlated statements. These
-statements are reproduced in Appendix X2.
+statements are reproduced in the supplementary material.
 
 ## Hypotheses {#hypotheses-e5a}
 
@@ -808,7 +809,7 @@ population in order to ascertain consensus. It was hypothesised that:
 ### Design {#design-e5a}
 
 The pre-study featured a within-subjects design. Each participant saw all 25
-survey items (see Appendix A), along with the six attention check items, in a
+survey items (see supplementary material), along with the six attention check items, in a
 fully randomised order.
 
 ### Procedure {#procedure-e5a}
@@ -910,7 +911,7 @@ above chance on statement emotional valence ($\kappa$ =
 ```{r}
 #| label: tbl-candidate-statements
 #| include: true
-#| tbl-cap: Statements with neutral average emotional valence ratings.
+#| tbl-cap: Statements with neutral average emotional valence ratings.+
 
 # define candidate statements
 
@@ -939,8 +940,8 @@ greatest consensus, standard deviations of ratings for statement emotional
 valence and strength of relatedness were summed. Due to concerns about
 experimental power, and in line with evidence that propensity for belief change
 is highest when prior beliefs are not strongly held
-\cite{xiong_2023, markant_2023}, at this point the decision was made to test
-only the statement corresponding to weak beliefs about the strength of
+\cite{xiong_2023, markant_2023}, at this point the decision was made to only test
+a statement corresponding to weak beliefs about the strength of
 relatedness between the variables in question. Statement number
 `r printnum(add_and_to_numbers(consensus_df$item_no[2]), digits = 0)` was
 therefore selected: "Higher consumption of spicy foods is associated with a
@@ -955,7 +956,7 @@ correlated scatterplots has been completed.
 ## Discussion {#discussion-e5a}
 
 Fleiss' Kappa values for interrater agreement on both statement emotional
-valence and strength of correlation scales are low ($\kappa$ =
+valence and strength of relatedness scales are low ($\kappa$ =
 `r printnum(emot_kappa$value, digits = 2)` and $\kappa$ =
 `r printnum(belief_kappa$value, digits = 2)` respectively), however do exceed
 that which would be expected by chance. In light of this, decisions regarding
@@ -983,7 +984,7 @@ in fact the data were false, at the end of the experiment. Based on evidence
 that beliefs can change after viewing visualisations
 \cite{karduni_2020, markant_2023}, and that scatterplots employing point opacity
 and size manipulations described in Section \ref{related-work-beliefs} are able
-to affect perceptual estimates, the following hypotheses were made:
+to affect perceptual estimates, the following hypotheses were made.
 
 ## Hypotheses {#hypotheses-e5}
 
@@ -1003,9 +1004,9 @@ statement used. Analysis including each of these factors can be found in Section
 
 In line with evidence that those who are more confident in their ability to
 defend their own positions are more susceptible to having those positions
-changed \cite{albarracin_2004}, participant's defensive confidence was measured
+changed \cite{albarracin_2004}, participants' defensive confidence was measured
 using Albarracín and Mitchell's \cite{albarracin_2004} 12-item scale. This scale
-is replicated from previous work in Appendix B, and has been utilised more
+is replicated from previous work in the supplementary material, and has been utilised more
 recently \cite{markant_2023} to explore the potential for attitude change
 specifically with regard to correlations in scatterplots. Participants provide
 answers to the 12 scale items using a 5-point Likert scale anchored at points 1
@@ -1087,8 +1088,7 @@ alternative scatterplot conditions can be seen in @fig-exp5-examples-chap7.
 
 Unlike all previous experiments, a between-participants design was employed
 here. Each participant was randomly assigned either to group A, in which they
-viewed standard scatterplots, or group B, in which they viewed alternative
-scatterplots designed deliberately to elicit higher levels of belief change.
+viewed alternative scatterplots designed deliberately to elicit higher levels of belief change, or group B, in which they viewed standard scatterplots.
 Participants saw all 45 experimental items for their group, along with 4
 attention check items, in a fully randomised order. The dependent variable was
 the level of belief change induced by viewing the scatterplot visualisations, so
@@ -1103,7 +1103,7 @@ to displayed consent statements. Participants were then asked to provide their
 age and gender identity. Following this, participants completed the 5-item
 Subjective Graph Literacy scale as in previous experiments \cite{garcia_2016},
 and Albarracín and Mitchell's \cite{albarracin_2004} 12-item defensive
-confidence scale . To give legitimacy to the data visualisations with the hope
+confidence scale. To give legitimacy to the data visualisations with the hope
 of maximising any potential belief change, participants were told that the
 graphs they would see were taken from a well-known British news source, but that
 the identity of this source had been obscured at their request. To promote
@@ -1112,14 +1112,13 @@ to estimate the correlation displayed in each scatterplot; no hypotheses were
 made based on these data, and therefore they were not analysed further.
 Following instructions, which included textual descriptions of scatterplots and
 Pearson's *r*, participants were given two practice trials; these trials took
-the form of a typical "standard scatterplot" trial from Experiment 1.
+the form of a typical full opacity trial from Experiment 1.
 Participants were then asked to indicate their beliefs about emotional valence
 and strength of relatedness described in the chosen correlative statement; these
 data were captured using Likert scales identical to those described previously.
 After completing 45 experimental trials, participants were then asked again,
-using the same Likert scales, to indicate their beliefs about emotional valence
-and strength of relatedness. Interspersed among the experimental items were four
-attention check trials which explicitly asked participants to set the slider to
+using the same Likert scales, to indicate their belief about the strength of relatedness
+described in the correlative statement. Interspersed among the experimental items were four attention check trials which explicitly asked participants to set the slider to
 0 or 1.
 
 ### Participants {#participants-e5}
@@ -1224,7 +1223,7 @@ however they do not quantify the differences between levels of rating. Metric
 modelling assuming equal levels of difference between ratings, such as linear
 regression, is therefore inappropriate \cite{liddell_2018}. In light of this,
 the **ordinal** package (version 2023.12-4.1 \cite{ordinal}) was used to build
-cumulative link mixed effects models to analyse Likert scale data [^8]. As in
+cumulative link mixed effects models to analyse Likert scale data[^8]. As in
 previous chapters, the **buildmer** (version 2.11 \cite{buildmer}) package is
 used to automate the selection of the random effects structure (see Section
 \ref{model-construction} for further details). Odds ratios and equivalent

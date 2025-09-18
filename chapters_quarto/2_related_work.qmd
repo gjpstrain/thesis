@@ -467,7 +467,7 @@ example of a scatterplot can be found in the Hertzsprung-Russell diagram,
 created independently by both Ejnar Hertzprung and Henry Norris Russell in
 1911-1913 \cite{montmerle_2011}. This type of scatterplot, which still sees use
 in modern astronomy, plots stellar luminosity against colour (temperature). I
-have plotted an HR diagram in @fig-HR-plot using the HYG database [^1].
+have plotted an HR diagram in @fig-HR-plot using the HYG database[^1].
 
 [^1]: https://www.astronexus.com/projects/hyg
 
@@ -1017,7 +1017,7 @@ In this thesis, I aim to answer three high-level research questions:
 
 1.  Are there effects of changing the opacities and sizes of scatterplot points
     on performance on a correlation estimation task?
-2.  Can these changes be used to correct for a historic underestimation bias?
+2.  Can these changes be used to correct for a historical underestimation bias?
 3.  Are these effects only perceptual, or do participants integrate them
     cognitively such that they may influence beliefs about correlations?
 
@@ -1030,7 +1030,7 @@ made the following contributions:
     points on scatterplots on correlation estimation, both in uniform ways, and
     using functions that draw inspiration from the nature of correlation
     perception itself.
-2.  These effects can be used to correct for the historic underestimation bias
+2.  These effects can be used to correct for the historical underestimation bias
     without removing data, although significantly more work is needed to find
     the exact combinations of size and opacity adjustments that produce
     perceptually-optimised estimates.

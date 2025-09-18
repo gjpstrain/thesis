@@ -6,7 +6,7 @@
 
 \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, and
 \chap{chap:interactions_opacity_size} show through four experiments that
-point opacity and size changes can have powerful effects on
+point opacity and size manipulations can have powerful effects on
 participants' estimates of correlation in positively correlated
 scatterplots. In \chap{chap:adjusting_opacity}, global and
 spatially-dependent adjustments in point opacity were employed, and a
@@ -98,7 +98,22 @@ confidence of participants.
 \subsection{Scatterplots: Developments in This
 Thesis}\label{scatterplots-developments-in-this-thesis}
 
-\begin{figure}
+In contradiction to previous work \cite{rensink_2014, rensink_2017},
+this thesis has found clear and powerful effects of systematically
+changing the opacities and sizes of scatterplot points on participants'
+estimates of correlation in positively correlated scatterplots. While
+\chap{chap:adjusting_size}, in which point sizes were lowered as a
+function of residual magnitude, provided the best level of correction
+seen so far, \chap{chap:interactions_opacity_size} featured the most
+dramatic level of correction. In that particular condition, both point
+opacity and size were lowered as a function of residual magnitude using
+equation 7.1:
+
+\begin{equation}
+  point_{size/opacity} = 1 - b^{residual}
+\end{equation}
+
+\begin{figure}[H]
 
 \centering{
 
@@ -115,21 +130,6 @@ is what is observed when participants are asked to estimate
 correlation.}
 
 \end{figure}%
-
-In contradiction to previous work \cite{rensink_2014, rensink_2017},
-this thesis has found clear and powerful effects of systematically
-changing the opacities and sizes of scatterplot points on participants'
-estimates of correlation in positively correlated scatterplots. While
-\chap{chap:adjusting_size}, in which point sizes were lowered as a
-function of residual magnitude, provided the best level of correction
-seen so far, \chap{chap:interactions_opacity_size} featured the most
-dramatic level of correction. In that particular condition, both point
-opacity and size were lowered as a function of residual magnitude using
-equation 7.1:
-
-\begin{equation}
-  point_{size/opacity} = 1 - b^{residual}
-\end{equation}
 
 Figure~\ref{fig-previous-manipulations} contains a summary of the point
 opacity and size manipulations from the previous three chapters in this
@@ -174,16 +174,16 @@ participants' beliefs about the levels of relatedness between variables.
 All experiments in this chapter were conducted according to the
 principles of open and reproducible research \cite{ayris_2018}. All
 experimental code, materials, and instructions are hosted on GitLab for
-the pretest \footnote{https://gitlab.pavlovia.org/Strain/beliefs\_scatterplots\_pretest}
-and for the main test as a pair of separate experiments \footnote{https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_t}
-\footnote{https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_a}.
-The original paper is maintained as a GitHub repository \footnote{https://github.com/gjpstrain/beliefs\_alternative\_scatterplots}.
+the pretest\footnote{https://gitlab.pavlovia.org/Strain/beliefs\_scatterplots\_pretest}
+and for the main test as a pair of separate
+experiments\footnote{https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_t}\footnote{https://gitlab.pavlovia.org/Strain/atypical\_scatterplots\_main\_a}.
+The original paper is maintained as a GitHub repository\footnote{https://github.com/gjpstrain/beliefs\_alternative\_scatterplots}.
 This repository contains all code, analysis, and visualisation. The
 repository also contains instructions for building a Docker container to
 recreate the computational environment the paper was written in.
-Pre-registrations for both the pre-test \footnote{https://osf.io/xuf4d}
-and the main experiment \footnote{https://osf.io/anmez} are hosted on
-the Open Science Framework (OSF), and any deviations are noted where
+Pre-registrations for both the pre-test\footnote{https://osf.io/xuf4d}
+and the main experiment\footnote{https://osf.io/anmez} are hosted on the
+Open Science Framework (OSF), and any deviations are noted where
 relevant in this chapter.
 
 \section{Pre-Study: Investigating Beliefs About Relatedness
@@ -555,7 +555,7 @@ rating. Metric modelling assuming equal levels of difference between
 ratings, such as linear regression, is therefore inappropriate
 \cite{liddell_2018}. In light of this, the \textbf{ordinal} package
 (version 2023.12-4.1 \cite{ordinal}) was used to build cumulative link
-mixed effects models to analyse Likert scale data \footnote{The linked
+mixed effects models to analyse Likert scale data\footnote{The linked
   pre-registration (see Section \ref{open-research-chap7}) specifies
   linear mixed effects models. This was an oversight; conclusions are
   identical when using said models.}. As in previous chapters, the

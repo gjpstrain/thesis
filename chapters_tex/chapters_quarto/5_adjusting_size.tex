@@ -59,8 +59,8 @@ to have a greater number of engine cylinders.}
 
 \end{figure}%
 
-Opacity adjustments in scatterplots have been used extensively to solve
-issues of overplotting and clutter in scatterplots
+Opacity adjustments have been used extensively to solve issues of
+overplotting and clutter in scatterplots
 \cite{bertini_2004, matejka_2015}. Figure
 \ref{fig-overplotting-examples} in \chap{chap:adjusting_opacity}
 demonstrates this usage. Practicality also dictates that scatterplots
@@ -102,12 +102,12 @@ made:
 \begin{itemize}
 \tightlist
 \item
-  H1: The non-linear decay parameter, in which scatterplots points
-  become smaller when they reside further from the regression line, will
-  result in lower mean errors in correlation estimation than for linear
-  decay and standard size conditions.
+  H1: The non-linear decay function, in which scatterplots points become
+  smaller when they reside further from the regression line, will result
+  in lower mean errors in correlation estimation than for linear decay
+  and standard size conditions.
 \item
-  H2: The use of an inverted non-linear decay parameter, in which
+  H2: The use of an inverted non-linear decay function, in which
   scatterplot points become larger when they reside further away from
   the regression line, will result in higher mean errors in correlation
   estimation than for all other conditions.
@@ -119,19 +119,19 @@ made:
 
 The experiment was conducted according to the principles of open and
 reproducible research \cite{ayris_2018}. All data and code for the
-original paper are maintained in a GitHub repository \footnote{https://github.com/gjpstrain/size\_and\_scatterplots}.
+original paper are maintained in a GitHub repository\footnote{https://github.com/gjpstrain/size\_and\_scatterplots}.
 This repository also features an implementation of a Docker container
 that enables the full recreation of the computational environment the
-original paper was written in. The experiment itself is hosted on GitLab
-\footnote{https://gitlab.pavlovia.org/Strain/exp\_size\_only}. The
+original paper was written in. The experiment itself is hosted on
+GitLab\footnote{https://gitlab.pavlovia.org/Strain/exp\_size\_only}. The
 hypotheses and analysis plans were pre-registered with the Open Science
-Framework (OSF) \footnote{https://osf.io/k4gd8}, and there were no
+Framework (OSF)\footnote{https://osf.io/k4gd8}, and there were no
 deviations from them.
 
 \subsection{Stimuli}\label{stimuli-e3}
 
 The creation of stimuli in this experiment follows the same general
-principles outlined in Section \ref{creating-stimuli},
+principles as outlined in Section \ref{creating-stimuli},
 \chap{chap:gen_methods}, and was performed using \texttt{ggplot2}
 (version 3.4.4). As in \chap{chap:adjusting_opacity}, equation 5.1 was
 used to map point residuals to size values in the two non-linear decay
@@ -145,7 +145,7 @@ Again, a value of \(b = 0.25\) was used. As in
 \chap{chap:adjusting_opacity}, the use of this equation produces a curve
 around the identity line symmetrically opposing the underestimation
 curve found in previous work. Additionally, a constant of 0.2 was added
-to each raw size value, and a scaling factor of 4 was utilised; these
+to each raw size value and a scaling factor of 4 was utilised; these
 adjustments resulted in the smallest points in the present experiment
 having a width of 12 pixels on a 1920 \(\times\) 1080 pixel monitor,
 which is consistent with the point size used in the experiments
@@ -161,7 +161,7 @@ in this experiment can be see in Figure~\ref{fig-exp3-examples-chap5}.
 }
 
 \caption{\label{fig-exp3-examples-chap5}Examples of the stimuli used in
-Experiment 3, demonstrated with an \textit{r} value of 0.8.}
+Experiment 3, demonstrated with an \textit{r} value of 0.6.}
 
 \end{figure}%
 
@@ -185,21 +185,21 @@ monitors.}
 When the experiments described in \chap{chap:adjusting_opacity} took
 place, no method of obtaining dot pitch was implemented. Dot pitch is
 defined as the distance between the dots (sub-pixels)
-\cite{castellano_1992} that make up each pixel. Calculating dot pitch is
-a requirement for the subsequent calculation of the physical on-screen
-sizes of the scatterplot points that participants saw. In the preamble
-to the current experiment, participants were asked to hold a standard
-size credit/debit/ID card up to the monitor, and then to resize a
-corresponding on-screen image using their keyboard arrows until it
-matched the size of their physical card \cite{screenscale}. These cards
-have a universal standard size (ISO/IEC 7810 ID-1), which when combined
-with the monitor resolution information recorded by PsychoPy, and
-assuming a widescreen 16:9 aspect ratio, allows for the inference of dot
-pitch and therefore the physical size of the points in the experiment.
-Mean dot pitch was 0.33mm (\(SD = 0.06\)), corresponding to a physical
-size on the screen of 4.32mm for the smallest points displayed. Section
-\ref{results-e3} includes analysis that takes into account the physical
-on-screen sizes of scatterplot points.
+\cite{castellano_1992} that make up each individual pixel. Calculating
+dot pitch is a requirement for the subsequent calculation of the
+physical on-screen sizes of the scatterplot points that participants
+saw. In the preamble to the current experiment, participants were asked
+to hold a standard size credit/debit/ID card up to the monitor, and then
+to resize a corresponding on-screen image using their keyboard arrows
+until it matched the size of their physical card \cite{screenscale}.
+These cards have a universal standard size (ISO/IEC 7810 ID-1), which
+when combined with the monitor resolution information recorded by
+PsychoPy, and assuming a widescreen 16:9 aspect ratio, allows for the
+inference of dot pitch and therefore the physical size of the points in
+the experiment. Mean dot pitch was 0.33mm (\(SD = 0.06\)), corresponding
+to a physical size on the screen of 4.32mm for the smallest points
+displayed. Section \ref{results-e3} includes analysis that takes into
+account the physical on-screen sizes of scatterplot points.
 
 \subsection{Point Visibility Testing}\label{point-visibility-testing-e3}
 
@@ -232,7 +232,7 @@ in response to consent statements. Participants were asked to provide
 their age in a free text box, followed by their gender identity.
 Participants then completed the 5-item Subjective Graph Literacy test
 \cite{garcia_2016}, followed by the screen scale and point visibility
-tasks described above. Participants were shown example of scatterplots
+tasks described above. Participants were shown examples of scatterplots
 depicting \emph{r} values of 0.2, 0.5, 0.8, and 0.95. Section
 \ref{results-e3} contains a discussion of the potential effects of this
 training. Following two practice trials, participants worked through the
@@ -257,10 +257,10 @@ was 39 minutes (SD = 14 minutes).
 \section{Results}\label{results-e3}
 
 To investigate the effects of point size adjustments on participants'
-estimates of correlation, a linear mixed effects model was built whereby
-the point size condition is a predictor for the difference between
-objective \emph{r} values for each plot and participants' estimates of
-\emph{r}. This model has random intercepts for participants and items. A
+estimates of correlation, a linear mixed effects model with point size
+condition as a predictor for the difference between objective \emph{r}
+values for each plot and participants' estimates of \emph{r} was built.
+This model has random intercepts for participants and items. A
 likelihood ratio test revealed that the model including size decay
 function as a fixed effect explained significantly more variance than
 the null model (\(\chi^2\)(3) = 3,508.84, \emph{p} \textless{} .001).
@@ -336,10 +336,10 @@ substantial enough to warrant further discussion.
 
 \begin{table}
 
-\caption{\label{tbl-efs-e3}Cohen's \textit{d} effect sizes (left) and
-summary statistics (right) for levels of the size decay factor in
-Experiment 3. Each effect size is compared to the reference level,
-termed ``Standard Size''.}
+\caption{\label{tbl-efs-e3}Cohen's \textit{d} effect sizes (a) and
+summary statistics (b) for levels of the size decay factor in Experiment
+3. Each effect size is compared to the reference level, termed
+``Standard Size''.}
 
 \begin{minipage}{0.50\linewidth}
 
@@ -437,8 +437,8 @@ observed for the standard size condition.
 Accuracy}\label{increased-correlation-estimation-accuracy}
 
 The mean error in correlation estimation for the non-linear size decay
-condition in this experiment was .025, while for the equivalent opacity
-decay condition described in Experiment 2 (see
+condition in this experiment was .025, while the error associated with
+the equivalent opacity decay condition described in Experiment 2 (see
 \chap{chap:adjusting_opacity}) was .086. This finding, along with the
 significantly higher Cohen's \emph{d} effect size reported in this
 experiment compared to Experiment 2 for the non-linear decay conditions
@@ -500,8 +500,8 @@ inverted non-linear decay condition in \chap{chap:adjusting_opacity},
 the finding that precision increased with \emph{r} was robust. Its
 absence here is curious given that the standard size decay condition
 here is identical to the full opacity condition in that chapter. Relying
-on relative judgements means the interplay between scatterplots with
-different visual features must be accounted for within a particular
+on relative judgements means that the interplay between scatterplots
+with different visual features must be accounted for within a particular
 experiment. The stimuli as \emph{r} approaches 1 in the current study
 exhibit greater levels of visual variance than the stimuli in
 Experiments 1 and 2 (see \chap{chap:adjusting_opacity}), which may
