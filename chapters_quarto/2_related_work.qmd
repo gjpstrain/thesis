@@ -164,7 +164,7 @@ knitr::include_graphics(path = "../supplied_graphics/nightingale-rose.jpg", dpi 
 ```
 
 The latter half of the 19th century, the so-called "Golden Age of Statistical
-Graphics" \cite{friendly_2008} saw the rise of forms of data visualisation that
+Graphics" \cite{friendly_2008b} saw the rise of forms of data visualisation that
 begin to look remarkably similar to the graphs and informatics seen in mass
 media and scientific publication today. The most notable examples of these are
 John Snow's cholera map, which was able to link the incidence of cholera to a
@@ -212,7 +212,7 @@ package \cite{wickham_2016} that is used extensively in this thesis.
 ```{r}
 #| label: fig-rug-density
 #| include: true
-#| fig-cap: Major milestones in the development of data visualisation illustrated using a rug plot and density estimate. This figure is taken from Friendly (2008) \cite{friendly_2008}.
+#| fig-cap: Major milestones in the development of data visualisation illustrated using a rug plot and density estimate. This figure is taken from Friendly (2008) \cite{friendly_2008b}.
 
 # include pre-rendered graphics
 
@@ -225,10 +225,10 @@ propagation of both software and powerful computing hardware have brought
 advanced techniques, such as high dimensional visualisation and massive
 datasets, into the home. To summarise the timeline of developments in data
 visualisation over the last 500 years, I include a rug and density plot from
-Friendly (2008) \cite{friendly_2008} in @fig-rug-density. Recounting a full and
+Friendly (2008) \cite{friendly_2008b} in @fig-rug-density. Recounting a full and
 detailed history of the practice and study of data visualisation would require
 much more than a single thesis, and has been done to a very high standard
-elsewhere \cite{friendly_2008, friendly_2021}. Given that this thesis is focused
+elsewhere \cite{friendly_2008a, friendly_2021}. Given that this thesis is focused
 on the perception of correlation in scatterplots, the remainder of the chapter
 is primarily limited to discussions of relatedness, correlation, and scatterplot
 visualisations.

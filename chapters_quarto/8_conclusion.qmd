@@ -293,7 +293,7 @@ presentation. This is in line with a large body of work demonstrating that small
 changes in visual presentation - often of the kind that may be considered only
 as aesthetic preference by designers - can lead to large changes in perceptions
 and the conclusions that viewers of visualisations draw; see Fygenson et al.,
-2023 \cite{fygenson_2023} for examples with bar chart spacing and arrangement,
+2024 \cite{fygenson_2024} for examples with bar chart spacing and arrangement,
 Moritz et al., 2023 \cite{moritz_2023} for examples with line graphs, and
 Bradley et al., 2025 \cite{bradley_2025} for examples with axis limits and
 truncation. Franconeri et al. (2021 \cite{franconeri_2021}) and Szafir (2018

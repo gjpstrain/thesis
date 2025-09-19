@@ -1568,7 +1568,7 @@ level of belief change amongst participants.
 
 An alternative (although not competing) explanation for the results have seen
 here comes from recent work on the incorporation of uncertainty visualisations
-in scatterplots. Karduni et al. \cite{karduni_2021} found in 2020 that
+in scatterplots. Karduni et al. \cite{karduni_2021} found in 2021 that
 visualisations that encode uncertainty produce lower levels of belief change
 compared to those that do not. The alternative scatterplot design employed in
 the main experiment can be thought of as masking some of the uncertainty
