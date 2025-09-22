@@ -310,11 +310,7 @@ succeeded and failed. Materials are provided throughout for the re-creation of
 each individual experimental paper, including Docker containers to reproduce the
 specific computational environments used. This thesis also features an
 all-in-one Docker implementation, details of which can be found in the
-repository associated with this paper. Owing to the
-accessibility issues present with the PDF format \cite{kumar_2024}, this thesis
-is also hosted as a website[^1] using GitHub Pages.
-
-[^1]: placeholder
+repository associated with this paper.
 
 # Contributions {#contributions-conclusion}
 

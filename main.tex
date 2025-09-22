@@ -10,8 +10,6 @@
 % - Note there is more documentation in the header of uom_these_casson.cls file if you need more help
 % - Link to the presentation of theses policy: http://www.regulations.manchester.ac.uk/pgr-presentation-theses/
 
-
-
 %%%%%%%%%%%%%%%%%% META DATA SETUP %%%%%%%%%%%%%%%%%%
 % This is where the document title and author are set. Other details for the title page are set later
 \begin{filecontents*}{\jobname.xmpdata}
@@ -22,12 +20,8 @@
   % More meta-data fielda can be added here if wanted, see https://ctan.org/pkg/pdfx?lang=en for fields
 \end{filecontents*}
 
-
-
 %%%%%%%%%%%%%%%%%% DOCUMENT SETUP %%%%%%%%%%%%%%%%%%
 \documentclass[calibri,thesis]{uom_thesis_casson} % See above for font options Year can be: first, second or thesis.
-
-
 
 %%%%%%%%%%%%%%%%%% PACKAGES AND COMMANDS %%%%%%%%%%%%%%%%%%
 
@@ -79,26 +73,21 @@
 \newcommand{\appx}[1]{Appendix~\ref{#1}}
 % Add your commands here
 
-
-
 %%%%%%%%%%%%%%%%%% REFERENCES SETUP %%%%%%%%%%%%%%%%%%
 
 % Setup your references here. Change the reference style here if wanted
 \usepackage[style=numeric-comp,backend=biber, maxbibnames = 99, maxcitenames=3, minnames=1, backref=true,hyperref=auto,natbib=true]{biblatex}
 % Note backref=true adds a page number (and hyperlink) to each reference so you can easily go back from the references to the main document. You may prefer backref=false if you need to stick strictly to a given reference style
 
-
 % Fixes which can't be applied in the .cls file
 \DefineBibliographyStrings{english}{backrefpage = {cited on p\adddot},  backrefpages = {cited on pp\adddot}}
   \renewcommand*{\bibfont}{\large}
-
 
 % Add more .bib files here if wanted
 \addbibresource{thesis.bib}
 
 % trying to address pandoc issue (12.05.2025)
 \newcommand{\pandocbounded}[1]{#1}
-
 
 %%%%%%%%%%%%%%%%%% START DOCUMENT %%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -114,11 +103,9 @@
 % Set the below yourself
 \faculty{Science and Engineering}                  % "Faculty of" is added automatically
 \department{Department of Computer Science} % regulations allow School, Division, or Department to be put here
-\submitdate{2024}                                  % regulations ask only for the year, not month
-\wordcount{36,991}		                           % use \wordcount{} to set the count, \thewordcount to print in the text
+\submitdate{2025}                                  % regulations ask only for the year, not month
+\wordcount{36,969}		                           % use \wordcount{} to set the count, \thewordcount to print in the text
 \maketitle
-
-
 
 %%%%%%%%%%%%%%%%%% LISTS OF CONTENT %%%%%%%%%%%%%%%%%%
 
@@ -146,13 +133,11 @@ The work in this thesis reveals how changing the opacities and sizes of points o
 % Put list of revisions here. Only required for resubmitted theses. Delete if not needed
 % \end{uomlotr} 
 
-
-
 %%%%%%%%%%%%%%%%%% ACKNOWLEDGEMENTS %%%%%%%%%%%%%%%%%%
 \begin{uomacknowledgements} % probably don't need unless final thesis
 None of the work described in this thesis took place in isolation, and none of it would have been possible without my family, friends, and colleagues; in many instances, happily, these identities intersect. The academic journey I took to arrive at this point was equal parts meandering and exhilarating. It required a strong foundation of support, which has come, over the years, from places too numerous to fully recount here; these acknowledgements are by no means exhaustive.
 
-First and foremost I thank my wife, Hannah. Your love, support, and companionship are all I ever really needed. I thank my supervisors, Andrew Stewart, Caroline Jay, and Paul Warren. Your encouragement to always continue learning has been inspirational, and I consider myself extremely lucky to have received such a high level of personal, professional, and academic support; I look forward to many more years of collaboration and fun. I would like to thank everyone I worked with in the lab over the years, in particular David, Chris (\#1), Chris (\#2), and Hamila. You made the lab a place I looked forward to being in, which in turn made my PhD a joy to complete. Special thanks goes to David; meeting one of my closest friends through postgraduate study has been the unexpected icing on an already-delicious cake. I would like to thank Jamie and David for their biweekly squash sessions; there are few things I look forward to more after spending the day staring at computer screens and thinking about scatterplots.
+First and foremost I thank my wife, Hannah. Your love, support, and companionship are all I ever really needed. I thank my supervisors, Andrew Stewart, Caroline Jay, and Paul Warren. Your encouragement to always continue learning has been inspirational, and I consider myself extremely lucky to have received such a high level of personal, professional, and academic support; I look forward to many more years of collaboration and fun. I would like to thank everyone I worked with in the lab over the years, in particular David, Chris (\#1), Chris (\#2), Duncan, and Hamila. You made the lab a place I looked forward to being in, which in turn made my PhD a joy to complete. Special thanks goes to David; meeting one of my closest friends through postgraduate study has been the unexpected icing on an already-delicious cake. I would like to thank Jamie and David for their biweekly squash sessions; there are few things I look forward to more after spending the day staring at computer screens and thinking about scatterplots.
 
 Finally, I would like to thank my family. From you I learnt curiosity, an appreciation of vigorous debate, and the need to not take anything in life too seriously.
 \end{uomacknowledgements}

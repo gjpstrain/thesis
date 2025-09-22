@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.9.19)  22 SEP 2025 12:44
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.9.19)  22 SEP 2025 13:51
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1047,33 +1047,33 @@ Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 104.
-LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
 (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
 (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 104.
+Package hyperref Info: Link coloring OFF on input line 93.
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
@@ -1115,56 +1115,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 104.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 104.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 104.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 104.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 104.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 104.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 104.
-LaTeX Font Info:    Redeclaring math accent \check on input line 104.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 104.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 104.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 104.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 104.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 104.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 93.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 93.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 93.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 93.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 93.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 93.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 93.
+LaTeX Font Info:    Redeclaring math accent \check on input line 93.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 93.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 93.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 93.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 93.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 93.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 104.
+(Font)              `operators' in the math version `normal' on input line 93.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/Calibri(0)/m/n on input line 104.
+(Font)                  OT1/cmr/m/n --> TU/Calibri(0)/m/n on input line 93.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 104.
+(Font)              `operators' in the math version `bold' on input line 93.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/Calibri(0)/m/n on input line 104.
+(Font)                  OT1/cmr/bx/n --> TU/Calibri(0)/m/n on input line 93.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/Calibri(0)/m/n --> TU/Calibri(0)/m/n on input line 104.
+(Font)                  TU/Calibri(0)/m/n --> TU/Calibri(0)/m/n on input line 93.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/Calibri(0)/m/it on input line 104.
+(Font)                  OT1/cmr/m/it --> TU/Calibri(0)/m/it on input line 93.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/Calibri(0)/b/n on input line 104.
+(Font)                  OT1/cmr/bx/n --> TU/Calibri(0)/b/n on input line 93.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 104.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 93.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 104.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 93.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/Calibri(0)/m/n --> TU/Calibri(0)/b/n on input line 104.
+(Font)                  TU/Calibri(0)/m/n --> TU/Calibri(0)/b/n on input line 93.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/Calibri(0)/b/it on input line 104.
+(Font)                  OT1/cmr/bx/it --> TU/Calibri(0)/b/it on input line 93.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 104.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 93.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 104.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 93.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: floatrow package is loaded.
@@ -1196,8 +1196,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 104.
-Package biblatex Info: Reference segment=0 on input line 104.
+Package biblatex Info: Reference section=0 on input line 93.
+Package biblatex Info: Reference segment=0 on input line 93.
 
 warning  (file uom_logo.pdf) (pdf inclusion): PDF inclusion: found PDF version '1.5', but at most version '1.4' allowed
 
@@ -1917,7 +1917,7 @@ LaTeX Warning: Float too large for page by 20.031pt on input line 97.
 [146]
 
 [147]
-Overfull \hbox (7.97084pt too wide) in paragraph at lines 179--179
+Overfull \hbox (7.97084pt too wide) in paragraph at lines 164--164
 \TU/Calibri(0)/m/n/12 Subjects Re-search: Com-par-isons be-tween MTurk, Pro-lific, CloudResearch, Qualtrics, and SONA''.
  []
 
@@ -1934,25 +1934,25 @@ Overfull \hbox (7.97084pt too wide) in paragraph at lines 179--179
 [152]
 
 [153]
-Overfull \hbox (5.74077pt too wide) in paragraph at lines 179--179
+Overfull \hbox (5.74077pt too wide) in paragraph at lines 164--164
 []\TU/Calibri(0)/m/n/12 Tom Koch. ``Wel-come to the Rev-o-lu-tion: COVID-19 and the De-moc-ra-ti-za-tion of Spatial-Temporal
  []
 
 
 
 [154]
-
-[155]
-Overfull \hbox (45.73103pt too wide) in paragraph at lines 179--179
+Overfull \hbox (45.73103pt too wide) in paragraph at lines 164--164
 \TU/Calibri(0)/m/n/12 Missed''. In: \TU/Calibri(0)/m/it/12 In-for-ma-tion Vi-su-al-iza-tion \TU/Calibri(0)/m/n/12 20.2-3 (2021), pp. 192–204. \TU/Calibri(0)/m/sc/12 󰀕󰁈󰀬\TU/Calibri(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1177 / 14738716211012608$[]\TU/Calibri(0)/m/n/12 .
  []
 
 
 
+[155]
+
 [156]
 
 [157]
-Overfull \hbox (12.6478pt too wide) in paragraph at lines 179--179
+Overfull \hbox (12.6478pt too wide) in paragraph at lines 164--164
 \TU/Calibri(0)/m/it/12 ence \TU/Calibri(0)/m/n/12 349.6251 (Aug. 2015), aac4716. \TU/Calibri(0)/m/sc/12 󰀕󰁈󰀬\TU/Calibri(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1126 / science . aac4716$[]\TU/Calibri(0)/m/n/12 . (Vis-ited on 10/10/2024)
  []
 
@@ -1961,19 +1961,19 @@ Overfull \hbox (12.6478pt too wide) in paragraph at lines 179--179
 [158]
 
 [159]
-
-[160]
-Overfull \hbox (16.12518pt too wide) in paragraph at lines 179--179
+Overfull \hbox (16.12518pt too wide) in paragraph at lines 164--164
 \TU/Calibri(0)/m/n/12 14.11 (2019), e12633. \TU/Calibri(0)/m/sc/12 󰀕󰁈󰀬\TU/Calibri(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1111 / phc3 . 12633$[]\TU/Calibri(0)/m/n/12 . eprint: []$\TU/lmtt/m/n/12 https : / / compass . onlinelibrary .
  []
 
 
-Overfull \hbox (51.91745pt too wide) in paragraph at lines 179--179
+
+[160]
+Overfull \hbox (51.91745pt too wide) in paragraph at lines 164--164
 []\TU/Calibri(0)/m/n/12 John Rus-sell. \TU/Calibri(0)/m/it/12 Con-struct-ing the Hertzsprung-Russell Di-a-gram\TU/Calibri(0)/m/n/12 . https://dr-john-rus-sell.github.io/posts/2025-
  []
 
 
-Overfull \hbox (2.35187pt too wide) in paragraph at lines 179--179
+Overfull \hbox (2.35187pt too wide) in paragraph at lines 164--164
 []\TU/Calibri(0)/m/n/12 Bar-ret Schlo-erke, Di Cook, Joseph Lar-marange, Fran-cois Bri-atte, Moritz Mar-bach, Ed-win Thoen,
  []
 
@@ -1984,7 +1984,7 @@ Overfull \hbox (2.35187pt too wide) in paragraph at lines 179--179
 [162]
 
 [163]
-Overfull \hbox (0.3138pt too wide) in paragraph at lines 179--179
+Overfull \hbox (0.3138pt too wide) in paragraph at lines 164--164
 []\TU/Calibri(0)/m/it/12 The MIT Li-cense\TU/Calibri(0)/m/n/12 . https://open-source.org/li-cense/mit. (Vis-ited on 10/15/2024) (cited on p. []59[]). 
  []
 
@@ -1993,7 +1993,7 @@ Overfull \hbox (0.3138pt too wide) in paragraph at lines 179--179
 [164]
 
 [165]
-Overfull \hbox (5.12677pt too wide) in paragraph at lines 179--179
+Overfull \hbox (5.12677pt too wide) in paragraph at lines 164--164
 []\TU/Calibri(0)/m/n/12 Yi-hui Xie, Christophe Dervieux, and Emily Riederer. \TU/Calibri(0)/m/it/12 R Mark-down Cook-book\TU/Calibri(0)/m/n/12 . Boca Ra-ton, Florida:
  []
 
@@ -2001,7 +2001,7 @@ Overfull \hbox (5.12677pt too wide) in paragraph at lines 179--179
 
 [166]
 
-Package caption Warning: Unused \captionsetup[subfigure] on input line 50.
+Package caption Warning: Unused \captionsetup[subfigure] on input line 44.
 See the caption package documentation for explanation.
 
 
@@ -2017,16 +2017,14 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 41642 strings out of 476291
+ 41636 strings out of 476291
  125165,1977958 words of node,token memory allocated
- 2263 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 29 glue, 4 kern, 1 glyph, 158 attribute, 117 glue_spec, 158 attribute_list, 2 write, 109 pdf_action nodes
-   avail lists: 1:1,2:1131,3:401,4:317,5:1336,6:535,7:8600,8:84,9:542,10:24,11:818
- 61866 multiletter control sequences out of 65536+600000
+ 2252 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 28 glue, 4 kern, 1 glyph, 157 attribute, 117 glue_spec, 157 attribute_list, 2 write, 109 pdf_action nodes
+   avail lists: 1:1,2:1107,3:415,4:316,5:1336,6:535,7:8600,8:84,9:542,10:24,11:818
+ 61862 multiletter control sequences out of 65536+600000
  80 fonts using 30848255 bytes
- 104i,12n,113p,1283b,3354s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-warning  (pdf backend): unreferenced destination with name 'Hfootnote.23'
+ 104i,12n,113p,1283b,3350s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.22'
 
@@ -2072,9 +2070,9 @@ warning  (pdf backend): unreferenced destination with name 'Hfootnote.2'
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
 <c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Windows/Fonts/calibrii.ttf><c:/Windows/Fonts/calibri.ttf><c:/Windows/Fonts/calibrib.ttf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (167 pages, 37266547 bytes).
+Output written on main.pdf (167 pages, 37264382 bytes).
 
-PDF statistics: 4782 PDF objects out of 5155 (max. 8388607)
- 621 named destinations out of 1000 (max. 131072)
+PDF statistics: 4776 PDF objects out of 5155 (max. 8388607)
+ 619 named destinations out of 1000 (max. 131072)
  1279 words of extra memory for PDF output out of 10000 (max. 100000000)
 
