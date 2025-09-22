@@ -1222,13 +1222,13 @@ Likert scales capture whether one rating is higher or lower than another,
 however they do not quantify the differences between levels of rating. Metric
 modelling assuming equal levels of difference between ratings, such as linear
 regression, is therefore inappropriate \cite{liddell_2018}. In light of this,
-the **ordinal** package (version 2023.12-4.1 \cite{ordinal}) was used to build
+the `ordinal` package (version 2023.12-4.1 \cite{ordinal}) was used to build
 cumulative link mixed effects models to analyse Likert scale data[^8]. As in
-previous chapters, the **buildmer** (version 2.11 \cite{buildmer}) package is
+previous chapters, the `buildmer` (version 2.12 \cite{buildmer}) package is
 used to automate the selection of the random effects structure (see Section
 \ref{model-construction} for further details). Odds ratios and equivalent
-Cohen's *d* effect size values are calculated using the **effectsize** package
-(version 1.0.0 \cite{effectsize}).
+Cohen's *d* effect size values are calculated using the `effectsize` package
+(version 1.0.1 \cite{effectsize}).
 
 [^8]: The linked pre-registration (see Section \ref{open-research-chap7})
     specifies linear mixed effects models. This was an oversight; conclusions

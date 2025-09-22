@@ -349,9 +349,9 @@ to that of a nested null model \cite{singmann_2019}; such a model is
 identical bar the removal of the fixed effect of interest. The
 likelihood ratio test (LRT) is used here to assess goodness-of-fit. In
 cases where a model has in total more than two levels (here, all
-experiments bar Experiment 5), the \texttt{emmeans} package
-\cite{lenth_2024} is used to calculate estimated marginal means between
-levels of fixed effects.
+experiments bar Experiment 5), the \texttt{emmeans} package (version
+1.11.2-8 \cite{lenth_2024}) is used to calculate estimated marginal
+means between levels of fixed effects.
 
 \subsection{Ordinal Modelling}\label{ordinal-modelling}
 
@@ -364,10 +364,10 @@ assumes equal levels of difference between ratings, when in reality
 there is no theoretical reason to make this assumption. Metric modelling
 is therefore considered inappropriate for modelling responses to Likert
 scale data \cite{liddell_2018}. In light of these issues, the
-\texttt{ordinal} package \cite{ordinal} in R was used to build
-cumulative link mixed-effects models for the analysis of Likert scale
-data. This allows for the treatment of Likert responses as ordered
-factors as opposed to continuous response scales.
+\texttt{ordinal} package (version 2023.12-4.1 \cite{ordinal}) in R was
+used to build cumulative link mixed-effects models for the analysis of
+Likert scale data. This allows for the treatment of Likert responses as
+ordered factors as opposed to continuous response scales.
 
 \subsection{Model Construction}\label{model-construction}
 
@@ -386,16 +386,16 @@ random effects structure of a given model.
 
 In an attempt to balance simplicity, explanatory power, and model
 convergence (whether or not a solution can be found), the
-\texttt{buildmer} package \cite{buildmer} in R was used to automate the
-selection of model specifications. Having been provided with a maximal
-model, \texttt{buildmer} uses stepwise regression to select the most
-complex model structure that successfully converges. Following this,
-terms that fail to explain a significant amount of variance in the
-dataset are dropped; this stepwise elimination of terms is evaluated
-using successive likelihood ratio tests. This results in a model that
-captures the maximal amount of feasible variability while minimising
-redundancy. Note that \texttt{buildmer} was not relied upon as a
-modelling \emph{panacea}; models are still based on theoretical
+\texttt{buildmer} package (version 2.12 \cite{buildmer}) in R was used
+to automate the selection of model specifications. Having been provided
+with a maximal model, \texttt{buildmer} uses stepwise regression to
+select the most complex model structure that successfully converges.
+Following this, terms that fail to explain a significant amount of
+variance in the dataset are dropped; this stepwise elimination of terms
+is evaluated using successive likelihood ratio tests. This results in a
+model that captures the maximal amount of feasible variability while
+minimising redundancy. Note that \texttt{buildmer} was not relied upon
+as a modelling \emph{panacea}; models are still based on theoretical
 underpinnings and are evaluated critically.
 
 \subsection{Effects Sizes}\label{effects-sizes}
@@ -409,16 +409,17 @@ accordingly, the \texttt{EMAtools} package \cite{ematools} was used to
 calculate equivalent Cohen's \emph{d} effect sizes of
 manipulation-present conditions relative to the baseline. Experiment 4
 did not feature a baseline condition, meaning Cohen's \emph{d} was
-deemed inappropriate. The \texttt{r2glmm} package \cite{r2glmm} was used
-instead to calculate semi-partial R\textsuperscript{2}. In lieu of a
-traditional measure of effect size, this demonstrated the unique
-variance in the dependent variable explained by each level of the
-independent \cite{nakagawa_2013}. Experiment 5 features a much simpler
-modelling situation, and returns to providing equivalent Cohen's
-\emph{d} values for the pre- vs.~post- plot viewing conditions, this
-time calculated by converting odds ratios using the \texttt{effectsize}
-package \cite{effectsize}. More details on specific calculations,
-measures, and conclusions can be found \emph{in situ}.
+deemed inappropriate. The \texttt{r2glmm} package (version 0.1.3
+\cite{r2glmm}) was used instead to calculate semi-partial
+R\textsuperscript{2}. In lieu of a traditional measure of effect size,
+this demonstrated the unique variance in the dependent variable
+explained by each level of the independent \cite{nakagawa_2013}.
+Experiment 5 features a much simpler modelling situation, and returns to
+providing equivalent Cohen's \emph{d} values for the pre- vs.~post- plot
+viewing conditions, this time calculated by converting odds ratios using
+the \texttt{effectsize} package (version 1.0.1 \cite{effectsize}). More
+details on specific calculations, measures, and conclusions can be found
+\emph{in situ}.
 
 \subsection{Reporting Analyses}\label{reporting-analyses}
 
@@ -528,7 +529,7 @@ they were conducted in.
 Building Docker containers is facilitated through a Dockerfile. This
 file instructs Docker to build a container with the appropriate version
 of R, the files required, and the correct package versions used during
-analysis. Below is the Dockerfile used to reproduce this thesis.
+analysis. Below is a minimal example of a Dockerfile.
 
 I first specify the Rocker image that will form the basis of the
 container. This includes the version of R required (version 4.5.1), the
@@ -554,8 +555,6 @@ cached models and raw data, and the R project file:
 
 \texttt{ADD\ finalise\_thesis.R\ /home/rstudio/}
 
-\texttt{ADD\ helper\_functions.R\ /home/rstudio/}
-
 \texttt{ADD\ uom\_thesis\_casson.cls\ /home/rstudio/}
 
 \texttt{ADD\ main.tex\ /home/rstudio/}
@@ -570,11 +569,11 @@ Finally, I add the specific versions of the R packages used throughout
 the course of this thesis. For brevity, I only display the addition of
 the first three here:
 
-\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}MASS\textquotesingle{},\ version\ =\ \textquotesingle{}7.3-60\textquotesingle{},\ dependencies\ =\ T)"}
+\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}MASS\textquotesingle{},\ version\ =\ \textquotesingle{}7.3-65\textquotesingle{},\ dependencies\ =\ T)"}
 
-\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}buildmer\textquotesingle{},\ version\ =\ \textquotesingle{}2.10.1\textquotesingle{},\ dependencies\ =\ T)"}
+\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}ggdist\textquotesingle{},\ version\ =\ \textquotesingle{}3.3.3\textquotesingle{},\ dependencies\ =\ T)"}
 
-\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}emmeans\textquotesingle{},\ version\ =\ \textquotesingle{}1.8.8\textquotesingle{},\ dependencies\ =\ T)"}
+\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}ggpubr\textquotesingle{},\ version\ =\ \textquotesingle{}0.6.1\textquotesingle{},\ dependencies\ =\ T)"}
 
 \texttt{...}
 

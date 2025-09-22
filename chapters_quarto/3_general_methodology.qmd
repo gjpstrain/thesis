@@ -471,7 +471,7 @@ their ability to explain variance is compared to that of a nested null model
 \cite{singmann_2019}; such a model is identical bar the removal of the fixed
 effect of interest. The likelihood ratio test (LRT) is used here to assess
 goodness-of-fit. In cases where a model has in total more than two levels (here,
-all experiments bar Experiment 5), the `emmeans` package \cite{lenth_2024} is
+all experiments bar Experiment 5), the `emmeans` package (version 1.11.2-8 \cite{lenth_2024}) is
 used to calculate estimated marginal means between levels of fixed effects.
 
 ## Ordinal Modelling
@@ -484,7 +484,7 @@ scale as if they were numeric. Doing so assumes equal levels of difference
 between ratings, when in reality there is no theoretical reason to make this
 assumption. Metric modelling is therefore considered inappropriate for modelling
 responses to Likert scale data \cite{liddell_2018}. In light of these issues,
-the `ordinal` package \cite{ordinal} in R was used to build cumulative link
+the `ordinal` package (version 2023.12-4.1 \cite{ordinal}) in R was used to build cumulative link
 mixed-effects models for the analysis of Likert scale data. This allows for the
 treatment of Likert responses as ordered factors as opposed to continuous
 response scales.
@@ -504,7 +504,7 @@ sought a more systematic approach to selecting the random effects structure of a
 given model.
 
 In an attempt to balance simplicity, explanatory power, and model convergence
-(whether or not a solution can be found), the `buildmer` package \cite{buildmer}
+(whether or not a solution can be found), the `buildmer` package (version 2.12 \cite{buildmer})
 in R was used to automate the selection of model specifications. Having been
 provided with a maximal model, `buildmer` uses stepwise regression to select the
 most complex model structure that successfully converges. Following this,
@@ -525,13 +525,13 @@ referred to as a *baseline*); accordingly, the `EMAtools` package
 \cite{ematools} was used to calculate equivalent Cohen's *d* effect sizes of
 manipulation-present conditions relative to the baseline. Experiment 4 did not
 feature a baseline condition, meaning Cohen's *d* was deemed inappropriate. The
-`r2glmm` package \cite{r2glmm} was used instead to calculate semi-partial R^2^.
+`r2glmm` package (version 0.1.3 \cite{r2glmm}) was used instead to calculate semi-partial R^2^.
 In lieu of a traditional measure of effect size, this demonstrated the unique
 variance in the dependent variable explained by each level of the independent
 \cite{nakagawa_2013}. Experiment 5 features a much simpler modelling situation,
 and returns to providing equivalent Cohen's *d* values for the pre- vs. post-
 plot viewing conditions, this time calculated by converting odds ratios using
-the `effectsize` package \cite{effectsize}. More details on specific
+the `effectsize` package (version 1.0.1 \cite{effectsize}). More details on specific
 calculations, measures, and conclusions can be found *in situ*.
 
 ## Reporting Analyses
@@ -632,7 +632,7 @@ environment they were conducted in.
 Building Docker containers is facilitated through a Dockerfile. This file
 instructs Docker to build a container with the appropriate version of R, the
 files required, and the correct package versions used during analysis. Below is
-the Dockerfile used to reproduce this thesis.
+a minimal example of a Dockerfile.
 
 I first specify the Rocker image that will form the basis of the container. This
 includes the version of R required (version 4.5.1), the Rstudio Integrated
@@ -657,8 +657,6 @@ the R project file:
 
 `ADD finalise_thesis.R /home/rstudio/`
 
-`ADD helper_functions.R /home/rstudio/`
-
 `ADD uom_thesis_casson.cls /home/rstudio/`
 
 `ADD main.tex /home/rstudio/`
@@ -673,11 +671,11 @@ Finally, I add the specific versions of the R packages used throughout the
 course of this thesis. For brevity, I only display the addition of the first
 three here:
 
-`RUN R -e "devtools::install_version('MASS', version = '7.3-60', dependencies = T)"`
+`RUN R -e "devtools::install_version('MASS', version = '7.3-65', dependencies = T)"`
 
-`RUN R -e "devtools::install_version('buildmer', version = '2.10.1', dependencies = T)"`
+`RUN R -e "devtools::install_version('ggdist', version = '3.3.3', dependencies = T)"`
 
-`RUN R -e "devtools::install_version('emmeans', version = '1.8.8', dependencies = T)"`
+`RUN R -e "devtools::install_version('ggpubr', version = '0.6.1', dependencies = T)"`
 
 `...`
 

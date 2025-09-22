@@ -533,7 +533,7 @@ solve scientific problems.
 ```{r}
 #| label: fig-other-corr-viz
 #| include: true
-#| fig-cap: "From top-left to bottom-right: Parallel Coordinates Plot (PCP) built with the `GGally` package \\cite{ggally}; Stacked area plot; radial stacked bar plot (doughnut plot); radar plot. Each plot uses the same dataset with an *r* value of 0.6."
+#| fig-cap: "From top-left to bottom-right: Parallel Coordinates Plot (PCP) built with the `GGally` package (version 2.4.0 \\cite{ggally}); Stacked area plot; radial stacked bar plot (doughnut plot); radar plot. Each plot uses the same dataset with an *r* value of 0.6."
 #| fig-asp: 1
 
 # define custom theme

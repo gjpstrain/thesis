@@ -17,6 +17,7 @@ ADD thesis.bib /home/rstudio/
 ADD thesis.Rproj /home/rstudio/
 ADD uom_logo.pdf /home/rstudio/
 ADD uom_thesis_casson.cls /home/rstudio/
+ADD thesis.Rproj /home/rstudio/
 
 # Fix permissions so that the rstudio user can write to all files
 RUN chown -R rstudio:rstudio /home/rstudio
@@ -61,7 +62,6 @@ RUN R -e "devtools::install_version('ordinal', version = '2023.12-4.1', dependen
 RUN R -e "devtools::install_version('ggrain', version = '0.0.4', dependencies = T)"
 RUN R -e "devtools::install_version('quarto', version = '1.5.1', dependencies = T)"
 RUN R -e "devtools::install_github('bbc/bbplot', dependencies = T)"
-
 
 # install required tex packages
 

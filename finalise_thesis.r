@@ -1,16 +1,29 @@
-# First, run all .qmd chapters
+# If you only want to compile the final thesis, go straight to line 55
 
-#install.packages("quarto")
-#install.packages("tinytex")
+# If you want to compile each chapter from scratch, start from line 10
+
+# NB if you are running the Docker container, you don't need to install 
+# additional tex packages; this is handled by the Dockerfile
+
+################################################################################
+
+# First, install required packages
+
+install.packages("quarto")
+install.packages("tinytex")
+
+# Load packages in
 
 library(quarto)
 library(tinytex)
 
+# Following command renders all quarto chapters:
+
 quarto_render("chapters_quarto/", output_format = "latex")
 
-# use for rendering a single chapter
+# Following command renders only a single chapter:
 
-#quarto_render("chapters_quarto/2_related_work.qmd", output_format = "latex")
+quarto_render("chapters_quarto/2_related_work.qmd", output_format = "latex")
 
 # functions to reformat tex are stored in the local directory
 
@@ -29,7 +42,7 @@ replace_before_document_in_folder(folder_path)
 #install.packages("tinytex")
 #tinytex::reinstall_tinytex()
 
-# because the UoM template uses lualatex, we may have to manually install
+# because the UoM template uses lualatex, we have to manually install
 # an additional package (just uncomment and run)
 
 #tinytex::tlmgr_install("luatex85")
