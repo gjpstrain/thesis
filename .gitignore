@@ -9,6 +9,8 @@
 
 *.xmpdata
 *.xmpi
+*.pl
+*.log
 
 
 /.quarto/
