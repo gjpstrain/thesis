@@ -799,7 +799,7 @@ function taking the following form:
   r_{est} = 1 - aX^b
 \end{equation}
 
-$a$ and $b$ are constant coefficients, while $X$ represents the mean absolute
+$a$ is a constant coefficient and $b$ is an exponent. $X$ represents the mean absolute
 vertical distance between the scatterplot points and a regression line. This
 modelling provides further evidence that estimates of correlation are based on
 perceptions of the physical arrangement of scatterplot points. This finding
@@ -1036,5 +1036,5 @@ made the following contributions:
     perceptually-optimised estimates.
 3.  These effects do extend into a cognitive space, and are able to influence
     people's beliefs about the levels of relatedness between variables.
-4.  This project is exemplar of one done in an entirely open and reproducible
+4.  This project is exemplary of one done in an entirely open and reproducible
     manner; the latter half of \chap{chap:gen_methods} is concerned with this.

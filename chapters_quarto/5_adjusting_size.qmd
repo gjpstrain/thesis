@@ -336,7 +336,7 @@ direction.
 Based on the findings from \chap{chap:adjusting_opacity}, and on evidence from
 the wider literature described above, two hypotheses are made:
 
--   H1: The non-linear decay function, in which scatterplots points become
+-   H1: The non-linear decay function, in which scatterplot points become
     smaller when they reside further from the regression line, will result in
     lower mean errors in correlation estimation than for linear decay and
     standard size conditions.

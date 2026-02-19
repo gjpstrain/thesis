@@ -483,7 +483,7 @@ modelling, such as linear regression, treats the response options to a Likert
 scale as if they were numeric. Doing so assumes equal levels of difference
 between ratings, when in reality there is no theoretical reason to make this
 assumption. Metric modelling is therefore considered inappropriate for modelling
-responses to Likert scale data \cite{liddell_2018}. In light of these issues,
+Likert scale response data \cite{liddell_2018}. In light of these issues,
 the `ordinal` package (version 2023.12-4.1 \cite{ordinal}) in R was used to build cumulative link
 mixed-effects models for the analysis of Likert scale data. This allows for the
 treatment of Likert responses as ordered factors as opposed to continuous

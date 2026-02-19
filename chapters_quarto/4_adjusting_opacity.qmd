@@ -1022,7 +1022,7 @@ This effect was driven by significant differences between means of correlation
 estimation error between all conditions bar high and full opacity. Statistical
 tests for contrasts were performed using the `emmeans` package
 \cite{lenth_2024}, and are shown in @tbl-contrasts-e1. To test whether the
-observed results could be explained by difference in participants' levels of
+observed results could be explained by differences in participants' levels of
 graph literacy, an additional model was built. This model is identical to the
 experimental model, but also includes graph literacy as a fixed effect.
 Including graph literacy as a fixed effect explained no additional variance
@@ -1034,7 +1034,7 @@ result of differences in levels of graph literacy.
 ```{r}
 #| label: tbl-efs-e1
 #| include: true
-#| tbl-cap: Cohen's \textit{d} effect sizes (a) and summary statistics (b) for levels of the opacity factor in Experiment 1. Each effect size is compared to the reference level, full contrast (alpha = 1).
+#| tbl-cap: Cohen's \textit{d} effect sizes (a) and summary statistics (b) for levels of the opacity factor in Experiment 1. Each effect size is compared to the reference level, full opacity (alpha = 1).
 #| tbl-subcap: ["Effect sizes for opacity factor.", "Summary statistics."]
 #| layout-ncol: 2
 
@@ -1103,7 +1103,7 @@ A function from the now archived `EMAtools` package \cite{ematools} was used to
 calculate an approximation of Cohen's *d* between the reference level (full
 opacity, alpha = 1.0) and each other level of the opacity factor. These
 statistics can be seen in @tbl-efs-e1 (a) along with means and standard
-deviations (b). The largest effect size observed (*d* \~ 0.16) is between the
+errors (b). The largest effect size observed (*d* \~ 0.16) is between the
 low and full opacity conditions, and is small. This was unsurprising given the
 lack of previously reported effects on correlation perception of global point
 opacity \cite{rensink_2012}. @fig-estimates-by-r-e1 shows how participants'
@@ -1193,7 +1193,7 @@ was hypothesised that:
 ### Participants {#participants-e2}
 
 150 participants were recruited using the Prolific platform \cite{prolific}.
-Normal to corrected-to-normal vision and English fluency were required.
+Normal or corrected-to-normal vision and English fluency were required.
 Participants who had completed the pilot study or Experiment 1 were prevented
 from participating. Data were collected from 158 participants. 8 failed more
 than 2 out of 6 attention check questions, and, as per the pre-registration, had
@@ -1802,7 +1802,7 @@ estimates than any training effects.
 
 The results in Experiment 2 provide evidence that reducing the salience of
 points as they move further from the regression line can increase people's
-estimates of correlation, at least when plots like these are presented alongside
+estimates of correlation, at least when plots like these are presented sequentially with
 conventional ones. Testing whether this phenomenon would exist with a plot in
 isolation would present a number of difficulties. As can be seen in
 @fig-estimates-by-r-e1 and @fig-estimates-by-r-e2, participants' estimates of
@@ -1859,7 +1859,7 @@ the estimation of positive correlation.
 
 # Conclusion {#conclusion-chap4}
 
-In a pair of experiments, I varied the opacity of point in scatterplots both
+In a pair of experiments, I varied the opacity of points in scatterplots both
 uniformly (Experiment 1) and using functions relating point opacity to the size
 of a particular point's residual (Experiment 2). In Experiment 1, I showed that,
 in contradiction with previous work, changing the opacity of all points in a

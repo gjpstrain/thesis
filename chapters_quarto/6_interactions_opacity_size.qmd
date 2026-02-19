@@ -505,7 +505,7 @@ was used to map point residuals to opacity and size values, with a value of b =
 For the changes made to point size in this experiment, a constant of 0.2 was
 added to each raw value, along with a scaling factor of 4; as in
 \chap{chap:adjusting_size}, these adjustments resulted in the smallest points
-having a width of 12 pixels on a 1920x1080 pixel monitor, which is consistent
+having a width of 12 pixels on a 1920$\times$1080 pixel monitor, which is consistent
 with the point size used in \chap{chap:adjusting_opacity} and the minimum point
 size used in \chap{chap:adjusting_size}. With regards to changing the opacities
 of points, an alpha = 0.2 floor was implemented, as informal piloting indicated
