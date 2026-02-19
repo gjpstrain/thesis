@@ -537,10 +537,10 @@ were prevented from participating. Data were collected from 158
 participants. 8 failed more than 2 out of 6 attention check questions,
 and, as per the pre-registration, had their submissions rejected from
 the study. The data from the remaining 150 participants were included in
-the full analysis (77.00 male, 71 female, and 2 non-binary).
-Participants' mean age was 28.3 (\emph{SD} = 8.6). Mean graph literacy
-score was 21.8 (\emph{SD} = 4.5). The mean time taken to complete the
-experiment was 33 minutes (SD = 10 minutes).
+the full analysis (77 male, 71 female, and 2 non-binary). Participants'
+mean age was 28.3 (\emph{SD} = 8.6). Mean graph literacy score was 21.8
+(\emph{SD} = 4.5). The mean time taken to complete the experiment was 33
+minutes (SD = 10 minutes).
 
 \subsubsection{Design}\label{design-e1}
 
@@ -620,6 +620,7 @@ High Opacity
 High Opacity
 (alpha = 0.75) & Low Opacity
 (alpha = 0.25) & -12.071 & <0.001\\
+\addlinespace
 Medium Opacity
 (alpha = 0.5) & Low Opacity
 (alpha = 0.25) & -6.631 & <0.001\\
@@ -635,20 +636,20 @@ correlation estimation error between all conditions bar high and full
 opacity. Statistical tests for contrasts were performed using the
 \texttt{emmeans} package \cite{lenth_2024}, and are shown in
 Table~\ref{tbl-contrasts-e1}. To test whether the observed results could
-be explained by difference in participants' levels of graph literacy, an
-additional model was built. This model is identical to the experimental
-model, but also includes graph literacy as a fixed effect. Including
-graph literacy as a fixed effect explained no additional variance
-(\(\chi^2\)(1) = .002, \emph{p} = .962), indicating that the differences
-observed in participants' correlation estimation performance were not as
-a result of differences in levels of graph literacy.
+be explained by differences in participants' levels of graph literacy,
+an additional model was built. This model is identical to the
+experimental model, but also includes graph literacy as a fixed effect.
+Including graph literacy as a fixed effect explained no additional
+variance (\(\chi^2\)(1) = .002, \emph{p} = .962), indicating that the
+differences observed in participants' correlation estimation performance
+were not as a result of differences in levels of graph literacy.
 
 \begin{table}
 
 \caption{\label{tbl-efs-e1}Cohen's \textit{d} effect sizes (a) and
 summary statistics (b) for levels of the opacity factor in Experiment 1.
-Each effect size is compared to the reference level, full contrast
-(alpha = 1).}
+Each effect size is compared to the reference level, full opacity (alpha
+= 1).}
 
 \begin{minipage}{0.50\linewidth}
 
@@ -718,8 +719,8 @@ A function from the now archived \texttt{EMAtools} package
 \cite{ematools} was used to calculate an approximation of Cohen's
 \emph{d} between the reference level (full opacity, alpha = 1.0) and
 each other level of the opacity factor. These statistics can be seen in
-Table~\ref{tbl-efs-e1} (a) along with means and standard deviations (b).
-The largest effect size observed (\emph{d} \textasciitilde{} 0.16) is
+Table~\ref{tbl-efs-e1} (a) along with means and standard errors (b). The
+largest effect size observed (\emph{d} \textasciitilde{} 0.16) is
 between the low and full opacity conditions, and is small. This was
 unsurprising given the lack of previously reported effects on
 correlation perception of global point opacity \cite{rensink_2012}.
@@ -826,7 +827,7 @@ mind, it was hypothesised that:
 \subsubsection{Participants}\label{participants-e2}
 
 150 participants were recruited using the Prolific platform
-\cite{prolific}. Normal to corrected-to-normal vision and English
+\cite{prolific}. Normal or corrected-to-normal vision and English
 fluency were required. Participants who had completed the pilot study or
 Experiment 1 were prevented from participating. Data were collected from
 158 participants. 8 failed more than 2 out of 6 attention check
@@ -934,6 +935,7 @@ Full Opacity & Linear Decay & 1.6 & 0.405\\
 Full Opacity & Non-Linear Decay & 15.3 & <0.001\\
 Inverted Decay & Linear Decay & 20.4 & <0.001\\
 Inverted Decay & Non-Linear Decay & 34.2 & <0.001\\
+\addlinespace
 Linear Decay & Non-Linear Decay & 13.7 & <0.001\\
 \bottomrule
 \end{tabular}
@@ -1200,10 +1202,10 @@ a greater effect on estimates than any training effects.
 The results in Experiment 2 provide evidence that reducing the salience
 of points as they move further from the regression line can increase
 people's estimates of correlation, at least when plots like these are
-presented alongside conventional ones. Testing whether this phenomenon
-would exist with a plot in isolation would present a number of
-difficulties. As can be seen in Figure~\ref{fig-estimates-by-r-e1} and
-Figure~\ref{fig-estimates-by-r-e2}, participants' estimates of
+presented sequentially with conventional ones. Testing whether this
+phenomenon would exist with a plot in isolation would present a number
+of difficulties. As can be seen in Figure~\ref{fig-estimates-by-r-e1}
+and Figure~\ref{fig-estimates-by-r-e2}, participants' estimates of
 correlation, especially between 0.2 and 0.7, suffer from high variance.
 High numbers of trials and participants ameliorate this to an extent,
 but this does prevent commentary on single plot judgements of
@@ -1265,7 +1267,7 @@ of positive correlation.
 
 \section{Conclusion}\label{conclusion-chap4}
 
-In a pair of experiments, I varied the opacity of point in scatterplots
+In a pair of experiments, I varied the opacity of points in scatterplots
 both uniformly (Experiment 1) and using functions relating point opacity
 to the size of a particular point's residual (Experiment 2). In
 Experiment 1, I showed that, in contradiction with previous work,

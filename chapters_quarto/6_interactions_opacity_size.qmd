@@ -68,10 +68,10 @@ labels_e4_regex <- c(
   "\\bY\\b" = "Inverted Orientation Size\nTypical Orientation Opacity"
 )
 
-labels_all_exp <- c(additive_manipulation = "Size and Opacity Decay",
-                    opacity_manipulated = "Opacity Decay",
-                    size_manipulated = "Size Decay",
-                    standard_plot = "Typical Scatterplot")
+labels_all_exp <- c(additive_manipulation = "<b>Chapter 6</b><br>Size and Opacity Decay",
+                    opacity_manipulated = "<b>Chapter 4</b><br>Opacity Decay",
+                    size_manipulated = "<b>Chapter 5</b><br>Size Decay",
+                    standard_plot = "<b>Chapter 4 & 5</b><br>Typical Scatterplot")
 
 
 labels_power <- c(size_power = "Size\nPower",
@@ -675,7 +675,7 @@ participants were included in the full analysis
 was `r printnum(E4_interactions_tidy_age$mean, digits = 1)` (*SD* =
 `r printnum(E4_interactions_tidy_age$sd, digits = 1)`). Mean graph literacy score was
 `r printnum(E4_interactions_tidy_graph_literacy$mean, digits = 1)` (*SD* =
-`r printnum(E4_interactions_tidy_graph_literacy$sd, digits = 1)`). The average time taken to
+`r printnum(E4_interactions_tidy_graph_literacy$sd, digits = 1)`). The mean time taken to
 complete the experiment was 37 minutes (SD = 12.3 minutes).
 
 # Results {#results-e4}
@@ -856,7 +856,7 @@ plotting_df %>%
 ```{r}
 #| label: tbl-contrasts-e4
 #| include: true
-#| tbl-cap: Contrasts between different levels of the opacity and size decay factors in Experiment 4.
+#| tbl-cap: Contrasts between different levels of the opacity and size decay factors in Experiment 4. TO = Typical Orientation. IO = Inverted Orientation.
 
 # assign slot, if it hasn't been assigned already
 
@@ -1153,7 +1153,8 @@ plotting_df <- rbind(all_exp_df, standard_alone)
           aspect.ratio = 1,
           axis.text = element_text(size = 7),
           axis.title.x = ggtext::element_markdown(size = 8),
-          axis.title.y = ggtext::element_markdown(size = 8)) +
+          axis.title.y = ggtext::element_markdown(size = 8),
+          strip.text.x.top = element_markdown()) +
     facet_wrap(factor ~., ncol = 4,
                labeller = labeller(factor = labels_all_exp)) +
     labs(x = "Objective *r*",
@@ -1187,7 +1188,8 @@ Using an opacity decay function in isolation has a small effect on correlation
 estimation. It does little to change the shape of the underestimation curve, but
 rather slightly biases *r* estimates upwards to partially correct for the
 underestimation observed with standard scatterplots. Importantly, it also
-preserves the increase in correlation estimation precision with *r* expected.
+preserves the increase in correlation estimation precision that we expect as
+the true *r* value increases.
 Using the size decay function in isolation has a more dramatic effect. Size
 decay over-corrects at lower *r* values, leading to an overestimation effect; at
 higher values, underestimation still occurs. At mid-range values of *r*,
@@ -1333,14 +1335,14 @@ int_labels <- tibble(
                             y = -Inf,
                             label = gsub("^.(.*).$", "\\1",
                                          str_replace(label, "expression", ""))),
-              hjust = -0.4, vjust = -0.2, size = 2.5) +
+              hjust = -0.4, vjust = -0.2, size = 2.25) +
        geom_text(data = int_labels,
               parse = T,
               mapping = aes(x = -Inf,
                             y = -Inf,
                             label = gsub("^.(.*).$", "\\1",
                                          str_replace(label, "expression", ""))),
-              hjust = -0.6, vjust = -1.4, size = 2.5)
+              hjust = -0.6, vjust = -1.4, size = 2.25)
 
 ```
 

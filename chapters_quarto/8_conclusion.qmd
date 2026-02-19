@@ -327,7 +327,7 @@ about the levels of relatedness between a pair of variables.
 
 The most important contribution this thesis makes is to the visualisation design
 and HCI audiences; secondarily, I add to a growing body of work that, taken
-together, may one day be able to reveal precisely how viewers' interpret
+together, may one day be able to reveal precisely how viewers interpret
 correlation from scatterplots.
 
 Additionally, I hope to have provided an example of a PhD project conducted from

@@ -794,13 +794,13 @@ relatedness and emotional valence in the main study, the 25 candidate statements
 selected by myself and a co-author were then tested with a representative UK
 population in order to ascertain consensus. It was hypothesised that:
 
--   H1: there will be a significant difference in the average ratings of
+-   H1: there will be a significant difference in the mean ratings of
     emotional valence between statements.[^7]
--   H2: there will be a significant difference in the average ratings of
+-   H2: there will be a significant difference in the mean ratings of
     strength of relatedness between statements.
 
 [^7]: The pre-registration for this hypothesis refers to "emotionality", as did
-    an earlier draft of this paper. In response to reviewer comments, I clarify
+    an earlier draft of the paper corresponding to this chapter. In response to reviewer comments, I clarify
     that it is really emotional valence that is being tested, and therefore this
     wording is used here.
 
@@ -835,7 +835,7 @@ out of 6 attention check items, and therefore data from all 100 were included in
 the full analysis (`r printnum(E5_beliefs_pre_test_tidy_gender$Male)` male and
 `r printnum(E5_beliefs_pre_test_tidy_gender$Female)` female). Participants' mean
 age was `r printnum(E5_beliefs_pre_test_tidy_age$mean, digits = 1)` (*SD* =
-`r printnum(E5_beliefs_pre_test_tidy_age$sd, digits = 1)`). The average time
+`r printnum(E5_beliefs_pre_test_tidy_age$sd, digits = 1)`). The mean time
 taken to complete the survey was `r printnum(time_taken_e5$mean, digits = 1)`
 minutes (*SD* = `r printnum(time_taken_e5a$sd, digits = 1)` minutes).
 
@@ -911,7 +911,7 @@ above chance on statement emotional valence ($\kappa$ =
 ```{r}
 #| label: tbl-candidate-statements
 #| include: true
-#| tbl-cap: Statements with neutral average emotional valence ratings.
+#| tbl-cap: Statements with neutral mean emotional valence ratings.
 
 # define candidate statements
 
@@ -933,7 +933,7 @@ kbl(candidate_statements, booktabs = TRUE, format = "latex")
 
 Statements representing neutral emotional valence were selected to control for
 the potential effects of statement emotionality in the main experiment.
-Statements with average emotionality ratings between 3 and 5 are statements
+Statements with mean emotionality ratings between 3 and 5 are statements
 `r printnum(add_and_to_numbers(avg_emot$item_no), digits = 0)`, which can be
 seen in @tbl-candidate-statements. To ascertain which statements represent the
 greatest consensus, standard deviations of ratings for statement emotional
@@ -967,7 +967,7 @@ main study and included as fixed effects as part of the analyses.
 
 # Main Experiment: Alternative Scatterplot Designs and Beliefs {#beliefs-main-e5}
 
-The statement selected exhibits the lowest average level of belief about
+The statement selected exhibits the lowest mean level of belief about
 strength of relatedness and the 2^nd^ highest level of consensus. Modified for
 directionality, the statement reads:
 
@@ -1044,7 +1044,7 @@ study.
 ```{r}
 #| label: fig-exp5-examples-chap7
 #| include: true
-#| fig-cap: Examples of the experimental stimuli for Experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the left, while group B saw the typical design on the right. The labels below the plots are included for the reader's convenience, and were not a part of the experimental stimuli. 
+#| fig-cap: Examples of the experimental stimuli for Experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the left, while group B saw the standard design on the right. The labels below the plots are included for the reader's convenience, and were not a part of the experimental stimuli. 
 #| fig-asp: 0.7
 
 # arrange example plots for experiment 5
@@ -1059,12 +1059,12 @@ ggarrange(example_plot_function_exp5(slopes_exp5,
                                      standard_alpha,
                                      bbc_style()), nrow = 1) +
   annotate(geom = "text",
-           label = "Atypical Scatterplot",
+           label = "Alternative Scatterplot",
            x = 0.25,
            y = 0.1,
            size = 3) +
   annotate(geom = "text",
-           label = "Typical Scatterplot",
+           label = "Standard Scatterplot",
            x = 0.75,
            y = 0.1,
            size = 3)
@@ -1112,7 +1112,7 @@ to estimate the correlation displayed in each scatterplot; no hypotheses were
 made based on these data, and therefore they were not analysed further.
 Following instructions, which included textual descriptions of scatterplots and
 Pearson's *r*, participants were given two practice trials; these trials took
-the form of a typical full opacity trial from Experiment 1.
+the form of a full opacity trial from Experiment 1.
 Participants were then asked to indicate their beliefs about emotional valence
 and strength of relatedness described in the chosen correlative statement; these
 data were captured using Likert scales identical to those described previously.
@@ -1524,13 +1524,14 @@ information with lower levels of attention to the fact it opposes their beliefs.
 The present study provides additional evidence in favour of this phenomenon.
 While the general pattern of results is expected based on previous work, the
 interaction present between defensive confidence and scatterplot condition is
-novel. It would appear that despite following the normal pattern of results for
-low to moderate levels of defensive confidence, those participants who viewed
-the standard scatterplots experienced a drop in belief change as defensive
-confidence increased past \~ 36/60. It may be that the unfamiliar nature of the
-alternative scatterplots was protective against an unexpected behaviour whereby
-very high levels of defensive confidence decrease susceptibility to belief
-change.
+novel. Despite following the normal pattern of results for
+low to moderate levels of defensive confidence, the relationship between
+scatterplot type, defensive confidence, and belief change diverges past \~ 36/60
+on the defensive confidence scale. It is unclear why the alternative scatterplot
+condition is associated with high levels of belief change in those with high defensive
+confidence. Further work would be required to explore the interaction between novel
+visualisation types (such as the alternative scatterplot in the present
+experiment) and defensive confidence.
 
 The effect of statement emotional valence on belief change is also illustrated
 in @fig-add-analyses-plots. There is a broad research space regarding

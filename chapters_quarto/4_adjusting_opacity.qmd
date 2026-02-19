@@ -703,7 +703,7 @@ correlation in scatterplots warrants further investigation.
 In 2022, Hong et al. \cite{hong_2022} used point opacity and size to encode a
 third variable in trivariate scatterplots while asking participants to judge the
 average position of all the points displayed. It was found that participants'
-estimates of average point position were biased towards areas of larger or
+estimates of mean point position were biased towards areas of larger or
 darker points; this was termed the *weighted average illusion*. Together with
 evidence that darker (more opaque) and larger points are more salient
 \cite{healey_2012}, this work suggested that there was the scope to use point
@@ -789,7 +789,8 @@ research \cite{ayris_2018}. All data and analysis code for the original paper
 are available on GitHub[^1]. This repository also includes a Docker
 implementation to reproduce the original computational environment the paper was
 written in. Experiment 1[^2] and 2[^3] are hosted on Pavlovia.org, while the
-Open Science Framework hosts pre-registrations[^4]. It is important to note at
+Open Science Framework hosts pre-registrations[^4]. There were no deviations 
+from the pre-registrations. It is important to note at
 this point that Experiment 2 was conducted prior to Experiment 1; when the
 original paper was written, the order of presentation of the experiments was
 swapped to make the narrative more cohesive. I preserve this order in the
@@ -813,7 +814,7 @@ pre-study described above provided evidence against this conclusion, so before
 proceeding with the fine-tuning of the immature point opacity decay function, I
 felt that gaining an understanding of how point opacity and correlation
 estimation interact more generally was important. Owing to the robust effects of
-altering stimulus opacity on perception described above
+altering stimulus opacity on perception described in Section \ref{related-work-adjusting-opacity}
 \cite{wehrhahn_1990, champion_2017}, it was hypothesised that:
 
 -   H1: A greater spread of estimates of correlation for plots with lower global
@@ -830,7 +831,7 @@ participating. Data were collected from 158 participants. 8 failed more than 2
 out of 6 attention check questions, and, as per the pre-registration, had their
 submissions rejected from the study. The data from the remaining 150
 participants were included in the full analysis
-(`r printnum(E1_uniform_adjustments_tidy_gender$M)` male,
+(`r printnum(E1_uniform_adjustments_tidy_gender$M, digits = 0)` male,
 `r printnum(E1_uniform_adjustments_tidy_gender$F)` female, and
 `r printnum(E1_uniform_adjustments_tidy_gender$NB)` non-binary). Participants'
 mean age was `r printnum(E1_uniform_adjustments_tidy_age$mean, digits = 1)` (*SD* =
@@ -1035,7 +1036,7 @@ result of differences in levels of graph literacy.
 #| label: tbl-efs-e1
 #| include: true
 #| tbl-cap: Cohen's \textit{d} effect sizes (a) and summary statistics (b) for levels of the opacity factor in Experiment 1. Each effect size is compared to the reference level, full opacity (alpha = 1).
-#| tbl-subcap: ["Effect sizes for opacity factor.", "Summary statistics."]
+#| tbl-subcap: ["Effect sizes for opacity factor.", "Means and standard errors of estimation error."]
 #| layout-ncol: 2
 
 # this approximation uses t values and the pooled standard deviation of the differences
@@ -1108,7 +1109,7 @@ low and full opacity conditions, and is small. This was unsurprising given the
 lack of previously reported effects on correlation perception of global point
 opacity \cite{rensink_2012}. @fig-estimates-by-r-e1 shows how participants'
 estimates of correlation change with the objective *r* value in the plot. The
-line represent mean errors in correlation estimation, and standard deviations of
+line shows mean errors in correlation estimation, and standard deviations of
 error are provided as error bars. The dashed horizontal line represents
 hypothetical perfect estimation. As reported in previous literature (see Section
 \ref{underestimation-related-work} in \chap{chap:related_work}), participants
@@ -1121,7 +1122,7 @@ for plots with lower global opacity compared to those with higher global
 opacity, was not supported. As seen in @tbl-efs-e1 (b), standard errors for each
 opacity condition are identical to 3 decimal places. Participants' errors in
 correlation estimation were significantly greater when the opacity of all
-scatterplot points was lower compared when it was higher. This held true up
+scatterplot points was lower compared to when it was higher. This held true up
 until alpha was set to 0.75, implying a threshold around this value past which
 there is little variation in the perception of opacity, at least as far as it is
 associated with correlation estimation. This lack of significant difference in
@@ -1139,7 +1140,7 @@ point opacity manipulations. In comparison, the results observed here do report
 an effect. This effect may be explained by differences in experimental power, as
 it is a small effect, although I argue that methodological differences may have
 also played a role. Given the small effect size (Cohen's *d* = 0.16), the
-small sample in Rensink (2014) \cite{rensink_2014} may have caused the
+small sample (*N* = 12) in Rensink (2014) \cite{rensink_2014} may have caused the
 experiment to be insufficiently powered. With the large sample size in the
 present work (*N* = 150), evidence for an effect has been found. The
 experimental methodology utilised here is more representative of the use of
@@ -1205,7 +1206,7 @@ participants were included in the full analysis
 mean age was `r printnum(E2_spatially_dependent_tidy_age$mean, digits = 1)` (*SD* =
 `r printnum(E2_spatially_dependent_tidy_age$sd, digits = 1)`). Mean graph literacy score was
 `r printnum(E2_spatially_dependent_tidy_graph_literacy$mean, digits = 1)` (*SD* =
-`r printnum(E2_spatially_dependent_tidy_graph_literacy$sd, digits = 1)`). The average time
+`r printnum(E2_spatially_dependent_tidy_graph_literacy$sd, digits = 1)`). The mean time
 taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
 ### Design {#design-e2}
@@ -1300,7 +1301,7 @@ enough point opacity range that, if an effect was present, it was likely to be
 found.
 
 \begin{equation}
-  point_{size/opacity} = 1 - b^{residual}
+  point_{opacity} = 1 - b^{residual}
 \end{equation}
 
 ```{r}
@@ -1487,14 +1488,13 @@ was performed using the `emmeans` package \cite{lenth_2024}, and are shown in
 differences in graph literacy, a model including participants' graph literacy
 scores as a fixed effect was built. Including graph literacy as a fixed effect
 again explained no additional variance ($\chi^2$(`r in_paren(e2_lit_model.df)`)
-= `r printp(e2_lit_model.Chisq)`, *p*
-`r printp(e2_lit_model.p, add_equals = TRUE)`).
+= `r printp(e2_lit_model.Chisq)`, *p* `r printp(e2_lit_model.p, add_equals = TRUE)`).
 
 ```{r}
 #| label: tbl-efs-e2
 #| include: true
 #| tbl-cap: Cohen's \textit{d} effect sizes (a) and summary statistics (b) for the opacity decay function condition in Experiment 2. Each effect size is compared to the reference level, full opacity (alpha = 1).
-#| tbl-subcap: ["Effect sizes for opacity decay factor.", "Summary statistics for opacity decay factor."]
+#| tbl-subcap: ["Effect sizes for opacity decay factor.", "Means and standard errors of estimation error."]
 #| layout-ncol: 2
 
 # this approximation uses t values and the pooled standard deviation of the differences

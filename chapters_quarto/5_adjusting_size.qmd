@@ -316,7 +316,7 @@ Despite the popularity of such charts, at the time of writing, very little
 investigation into how point size affects correlation perception in scatterplots
 had taken place. That which had been completed found bias and variability in
 correlation perception performance to be invariant to changes in point size
-\cite{rensink_2012, rensink_2014}, however these studies were low-powered
+\cite{rensink_2012, rensink_2014}, however these studies were low-powered (*N* = 12)
 considering the small effect sizes found in the experiments described in
 \chap{chap:adjusting_opacity}. From the wider literature, there is evidence that
 larger points in scatterplots can bias judgements of mean point position to a
@@ -514,7 +514,7 @@ full analysis (`r printnum(E3_size_adjustments_tidy_gender$M)` male,
 age was `r printnum(E3_size_adjustments_tidy_age$mean, digits = 1)` (*SD* =
 `r printnum(E3_size_adjustments_tidy_age$sd, digits = 1)`). Mean graph literacy score was
 `r printnum(E3_size_adjustments_tidy_graph_literacy$mean, digits = 1)` (*SD* =
-`r printnum(E3_size_adjustments_tidy_graph_literacy$sd, digits = 1)`). The average time
+`r printnum(E3_size_adjustments_tidy_graph_literacy$sd, digits = 1)`). The mean time
 taken to complete the experiment was 39 minutes (SD = 14 minutes).
 
 # Results {#results-e3}
