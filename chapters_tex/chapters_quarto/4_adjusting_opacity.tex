@@ -34,13 +34,19 @@ adoption of wearable devices \cite{shandhi_2024}. The first experiment
 conducted therefore examined how perceptions of correlation changed
 according to the size of a scatterplot. Additionally, a very early
 version of the opacity decay condition from Experiment 2 was included,
-however the implementation of this condition was immature. In Experiment
-2 onwards, if a scatterplot point resided in a particular place on a
-scatterplot, it would always have the same opacity or size. In the pilot
-study, the code that set the opacity of each point always scaled the
-opacity values such that the point with the highest residual had the
-lowest possible opacity, and vice versa, resulting in the plots seen in
-Figure~\ref{fig-pilot-study-examples}.
+however the implementation of this condition was immature. Throughout
+this thesis, \textbf{decay} refers to the way in which the opacity or
+size of a point is changed according to its distance from the regression
+line; a \textbf{decay function} refers, therefore, to the mathematical
+relationship between a point's opacity or size and its residual
+magnitude.
+
+In Experiment 2 onwards, if a scatterplot point resided in a particular
+place on a scatterplot, it would always have the same opacity or size.
+In the pilot study, the code that set the opacity of each point always
+scaled the opacity values such that the point with the highest residual
+had the lowest possible opacity, and vice versa, resulting in the plots
+seen in Figure~\ref{fig-pilot-study-examples}.
 
 \begin{figure}
 
@@ -390,7 +396,7 @@ correlation in scatterplots warrants further investigation.
 In 2022, Hong et al.~\cite{hong_2022} used point opacity and size to
 encode a third variable in trivariate scatterplots while asking
 participants to judge the average position of all the points displayed.
-It was found that participants' estimates of average point position were
+It was found that participants' estimates of mean point position were
 biased towards areas of larger or darker points; this was termed the
 \emph{weighted average illusion}. Together with evidence that darker
 (more opaque) and larger points are more salient \cite{healey_2012},
@@ -498,11 +504,12 @@ original computational environment the paper was written in. Experiment
 and 2\footnote{https://gitlab.pavlovia.org/Strain/exp\_spatially\_dependent}
 are hosted on Pavlovia.org, while the Open Science Framework hosts
 pre-registrations\footnote{Experiment 1 - https://osf.io/tuexh.
-  Experiment 2 - https://osf.io/6f5ev}. It is important to note at this
-point that Experiment 2 was conducted prior to Experiment 1; when the
-original paper was written, the order of presentation of the experiments
-was swapped to make the narrative more cohesive. I preserve this order
-in the present chapter.
+  Experiment 2 - https://osf.io/6f5ev}. There were no deviations from
+the pre-registrations. It is important to note at this point that
+Experiment 2 was conducted prior to Experiment 1; when the original
+paper was written, the order of presentation of the experiments was
+swapped to make the narrative more cohesive. I preserve this order in
+the present chapter.
 
 \section{Experiment 1: Uniform Opacity
 Adjustments}\label{experiment-1-uniform-opacity-adjustments}
@@ -516,7 +523,8 @@ this conclusion, so before proceeding with the fine-tuning of the
 immature point opacity decay function, I felt that gaining an
 understanding of how point opacity and correlation estimation interact
 more generally was important. Owing to the robust effects of altering
-stimulus opacity on perception described above
+stimulus opacity on perception described in Section
+\ref{related-work-adjusting-opacity}
 \cite{wehrhahn_1990, champion_2017}, it was hypothesised that:
 
 \begin{itemize}
@@ -674,7 +682,8 @@ Low Opacity (alpha = 0.25) & 0.16\\
 %
 \begin{minipage}{0.50\linewidth}
 
-\subcaption{\label{tbl-efs-e1-2}Summary statistics.}
+\subcaption{\label{tbl-efs-e1-2}Means and standard errors of estimation
+error.}
 
 \centering{
 
@@ -726,7 +735,7 @@ unsurprising given the lack of previously reported effects on
 correlation perception of global point opacity \cite{rensink_2012}.
 Figure~\ref{fig-estimates-by-r-e1} shows how participants' estimates of
 correlation change with the objective \emph{r} value in the plot. The
-line represent mean errors in correlation estimation, and standard
+line shows mean errors in correlation estimation, and standard
 deviations of error are provided as error bars. The dashed horizontal
 line represents hypothetical perfect estimation. As reported in previous
 literature (see Section \ref{underestimation-related-work} in
@@ -741,11 +750,11 @@ higher global opacity, was not supported. As seen in
 Table~\ref{tbl-efs-e1} (b), standard errors for each opacity condition
 are identical to 3 decimal places. Participants' errors in correlation
 estimation were significantly greater when the opacity of all
-scatterplot points was lower compared when it was higher. This held true
-up until alpha was set to 0.75, implying a threshold around this value
-past which there is little variation in the perception of opacity, at
-least as far as it is associated with correlation estimation. This lack
-of significant difference in correlation estimation between the two
+scatterplot points was lower compared to when it was higher. This held
+true up until alpha was set to 0.75, implying a threshold around this
+value past which there is little variation in the perception of opacity,
+at least as far as it is associated with correlation estimation. This
+lack of significant difference in correlation estimation between the two
 highest global opacity conditions is congruent with the logarithmic
 nature of contrast/brightness perception
 \cite{fechner_1948, varshney_2013}; despite there being equal linear
@@ -761,12 +770,12 @@ manipulations. In comparison, the results observed here do report an
 effect. This effect may be explained by differences in experimental
 power, as it is a small effect, although I argue that methodological
 differences may have also played a role. Given the small effect size
-(Cohen's \emph{d} = 0.16), the small sample in Rensink (2014)
-\cite{rensink_2014} may have caused the experiment to be insufficiently
-powered. With the large sample size in the present work (\emph{N} =
-150), evidence for an effect has been found. The experimental
-methodology utilised here is more representative of the use of
-scatterplots in the wild, and is therefore more suited to informing
+(Cohen's \emph{d} = 0.16), the small sample (\emph{N} = 12) in Rensink
+(2014) \cite{rensink_2014} may have caused the experiment to be
+insufficiently powered. With the large sample size in the present work
+(\emph{N} = 150), evidence for an effect has been found. The
+experimental methodology utilised here is more representative of the use
+of scatterplots in the wild, and is therefore more suited to informing
 design as opposed to investigating the mathematical relationship between
 real and perceived correlation. While the effect is small, it
 demonstrates definitively that differences in the opacities of
@@ -803,7 +812,37 @@ scatterplots has an effect on the perception of correlation such that
 those scatterplots with higher levels of global point opacity are rated
 as being more strongly correlated. Given this finding, the question
 arises of whether additional changes in correlation perception may be
-observed as a function of the spatial arrangement of point opacity.
+observed as a function of the spatial arrangement of point opacity. This
+experiment builds on the immature opacity decay employed in the
+unpublished pilot study (see Section \ref{pilot-study}. In that study,
+point opacity was decreased as a function of residual magnitude, but the
+range of opacity values used for each plot was the same. In the present
+experiment, residual magnitude is hardcoded to point opacity, meaning
+that if a point has a certain residual magnitude value, it will always
+have the same opacity value. Additionally, in this experiment, I
+introduce the concept of different types of decay. Linear decay refers
+to conditions with a linear relationship between residual magnitude and
+opacity. Non-linear decay conditions use equation 4.1 to map residual
+magnitude to opacity values. Inverted decay conditions feature
+scatterplots whose points increase in opacity as a function of residual
+magnitude. Figure \ref{fig-opposing-curve} demonstrates the relationship
+between residual magnitude and opacity value in each of these condition
+types using an \emph{r} value of 0.6.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf}
+
+}
+
+\caption{\label{fig-opposing-curve}Using an \textit{r} value of 0.6 to
+demonstrate the relationship between the size of a point's residual and
+the alpha value (opacity) rendered.}
+
+\end{figure}%
+
 Given the previously reported effects of changing scatterplot point
 opacity on other perceptual metrics (see Section
 \ref{point-opacity-chap4}), and with the findings from Experiment 1 in
@@ -835,8 +874,8 @@ questions, and, as per the pre-registration, had their submissions
 rejected from the study. The data from the remaining 150 participants
 were included in the full analysis (77 male, 69 female, and 4
 non-binary). Participants' mean age was 27.1 (\emph{SD} = 7.4). Mean
-graph literacy score was 21.7 (\emph{SD} = 4.1). The average time taken
-to complete the experiment was 33 minutes (SD = 10 minutes).
+graph literacy score was 21.7 (\emph{SD} = 4.1). The mean time taken to
+complete the experiment was 33 minutes (SD = 10 minutes).
 
 \subsubsection{Design}\label{design-e2}
 
@@ -849,21 +888,9 @@ underestimation curve found in previous work (see Figure
 \ref{fig-underestimation-curves}, \chap{chap:related_work}), intuition
 suggested employing a symmetrically opposing curve (see the non-linear
 decay curve in Figure~\ref{fig-opposing-curve}) to relate point opacity
-to residuals.
-
-\begin{figure}
-
-\centering{
-
-\includegraphics[width=\textwidth]{4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf}
-
-}
-
-\caption{\label{fig-opposing-curve}Using an \textit{r} value of 0.2 to
-demonstrate the relationship between the size of a point's residual and
-the alpha value (opacity) rendered.}
-
-\end{figure}%
+to residuals. An minimum alpha value of 0.025 was used to ensure that
+all points were visibly rendered, however, unlike in later chapters,
+visibility testing was not carried out.
 
 Equation 4.1 was used to non-linearly map residuals to \texttt{ggplot2}
 alpha values. 0.25 was chosen as the value of \emph{b}, as it was felt
@@ -872,7 +899,7 @@ while also allowing a large enough point opacity range that, if an
 effect was present, it was likely to be found.
 
 \begin{equation}
-  point_{size/opacity} = 1 - b^{residual}
+  point_{opacity} = 1 - b^{residual}
 \end{equation}
 
 \begin{figure}
@@ -985,8 +1012,8 @@ Non-Linear Decay & -0.19\\
 %
 \begin{minipage}{0.50\linewidth}
 
-\subcaption{\label{tbl-efs-e2-2}Summary statistics for opacity decay
-factor.}
+\subcaption{\label{tbl-efs-e2-2}Means and standard errors of estimation
+error.}
 
 \centering{
 
@@ -1256,10 +1283,9 @@ differences between using perpendicular and vertical residual distance
 as bases for setting point opacity with regard to correlation
 estimation.
 
-Finally, the most exciting avenue for related future work is the
-possibility of combining the techniques developed and tested here with
-other novel scatterplot visualisation techniques that have a basis in
-the literature. \chap{chap:adjusting_size} investigates the use of point
+Finally, the most exciting avenue for related future work is expanding
+the technique developed here to other visual features in isolation and
+combination. \chap{chap:adjusting_size} investigates the use of point
 size in place of opacity with the techniques described, while
 \chap{chap:interactions_opacity_size} combines the two to explore how
 these different modalities work together with regards to the estimation

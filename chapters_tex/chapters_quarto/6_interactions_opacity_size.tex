@@ -26,7 +26,7 @@ using point opacity and size to manipulate perceived contrast.
 Additionally, this effect is stronger than the effects of changing point
 opacity and size in isolation, and is greater than what might be
 expected if the effects of point opacity and size on correlation
-estimation were linearly additive.
+estimation were simply additive.
 
 \section{Introduction}\label{introduction-interactions}
 
@@ -201,7 +201,7 @@ to opacity and size values, with a value of b = 0.25:
 For the changes made to point size in this experiment, a constant of 0.2
 was added to each raw value, along with a scaling factor of 4; as in
 \chap{chap:adjusting_size}, these adjustments resulted in the smallest
-points having a width of 12 pixels on a 1920\$\times\$1080 pixel
+points having a width of 12 pixels on a 1920 \(\times\) 1080 pixel
 monitor, which is consistent with the point size used in
 \chap{chap:adjusting_opacity} and the minimum point size used in
 \chap{chap:adjusting_size}. With regards to changing the opacities of
@@ -312,8 +312,8 @@ check questions, and, as per the pre-registration, had their submissions
 rejected from the study. The data from the remaining 150 participants
 were included in the full analysis (76 male, 73 female, and 1
 non-binary). Participants' mean age was 30.6 (\emph{SD} = 8.6). Mean
-graph literacy score was 22.5 (\emph{SD} = 3.5). The average time taken
-to complete the experiment was 37 minutes (SD = 12.3 minutes).
+graph literacy score was 22.5 (\emph{SD} = 3.5). The mean time taken to
+complete the experiment was 37 minutes (SD = 12.3 minutes).
 
 \section{Results}\label{results-e4}
 
@@ -353,7 +353,8 @@ The vertical dashed line represents no estimation error.}
 \begin{table}
 
 \caption{\label{tbl-contrasts-e4}Contrasts between different levels of
-the opacity and size decay factors in Experiment 4.}
+the opacity and size decay factors in Experiment 4. TO = Typical
+Orientation. IO = Inverted Orientation.}
 
 \centering{
 
@@ -653,29 +654,29 @@ correlation estimation. It does little to change the shape of the
 underestimation curve, but rather slightly biases \emph{r} estimates
 upwards to partially correct for the underestimation observed with
 standard scatterplots. Importantly, it also preserves the increase in
-correlation estimation precision with \emph{r} expected. Using the size
-decay function in isolation has a more dramatic effect. Size decay
-over-corrects at lower \emph{r} values, leading to an overestimation
-effect; at higher values, underestimation still occurs. At mid-range
-values of \emph{r}, however, the size decay function performs
-significantly better than all others. One option for tuning correlation
-estimation using the decay functions described in this thesis would
-therefore be to use size decay in isolation for mid-range \emph{r}
-values (around 0.3 to 0.75), and to use opacity decay in isolation
-outside of this range. Combining the decay functions, however, allows
-for the exploitation of the power of the size decay function while
-maintaining the expected increase in \emph{r} estimation precision that
-the opacity decay function confers. The simple combination used in the
-present experiment does not represent an ideal tuning, as participants
-overestimated \emph{r} for the majority of values; the findings here do,
-however, confirm that there is the scope to bias \emph{r} estimation to
-greater degrees compared to scatterplots that use point opacity or size
-decay functions in isolation. Precise values for the contributions of
-each encoding channel when they are used simultaneously would be needed
-to begin doing this work. To describe the effect that each decay
-function (and their combination) has on correlation estimates, new
-curves can be derived that compare estimates made with opacity and size
-decay to those made without.
+correlation estimation precision that we expect as the true \emph{r}
+value increases. Using the size decay function in isolation has a more
+dramatic effect. Size decay over-corrects at lower \emph{r} values,
+leading to an overestimation effect; at higher values, underestimation
+still occurs. At mid-range values of \emph{r}, however, the size decay
+function performs significantly better than all others. One option for
+tuning correlation estimation using the decay functions described in
+this thesis would therefore be to use size decay in isolation for
+mid-range \emph{r} values (around 0.3 to 0.75), and to use opacity decay
+in isolation outside of this range. Combining the decay functions,
+however, allows for the exploitation of the power of the size decay
+function while maintaining the expected increase in \emph{r} estimation
+precision that the opacity decay function confers. The simple
+combination used in the present experiment does not represent an ideal
+tuning, as participants overestimated \emph{r} for the majority of
+values; the findings here do, however, confirm that there is the scope
+to bias \emph{r} estimation to greater degrees compared to scatterplots
+that use point opacity or size decay functions in isolation. Precise
+values for the contributions of each encoding channel when they are used
+simultaneously would be needed to begin doing this work. To describe the
+effect that each decay function (and their combination) has on
+correlation estimates, new curves can be derived that compare estimates
+made with opacity and size decay to those made without.
 
 \begin{figure}[H]
 

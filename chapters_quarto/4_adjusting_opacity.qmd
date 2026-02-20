@@ -290,7 +290,13 @@ and the increasing adoption of wearable devices \cite{shandhi_2024}. The first
 experiment conducted therefore examined how perceptions of correlation changed
 according to the size of a scatterplot. Additionally, a very early version of
 the opacity decay condition from Experiment 2 was included, however the
-implementation of this condition was immature. In Experiment 2 onwards, if a
+implementation of this condition was immature. Throughout this thesis, **decay**
+refers to the way in which the opacity or size of a point is changed according
+to its distance from the regression line; a **decay function** refers, therefore,
+to the mathematical relationship between a point's opacity or size and its residual
+magnitude. 
+
+In Experiment 2 onwards, if a
 scatterplot point resided in a particular place on a scatterplot, it would
 always have the same opacity or size. In the pilot study, the code that set the
 opacity of each point always scaled the opacity values such that the point with
@@ -1177,59 +1183,31 @@ an effect on the perception of correlation such that those scatterplots with
 higher levels of global point opacity are rated as being more strongly
 correlated. Given this finding, the question arises of whether additional
 changes in correlation perception may be observed as a function of the spatial
-arrangement of point opacity. Given the previously reported effects of changing
-scatterplot point opacity on other perceptual metrics (see Section
-\ref{point-opacity-chap4}), and with the findings from Experiment 1 in mind, it
-was hypothesised that:
-
--   H1: the non-linear decay parameter in which point opacity falls with
-    residual magnitude will result in lower mean errors in correlation
-    estimation compared to linear decay and full global opacity conditions.
--   H2: the use of the inverted non-linear decay parameter, in which point
-    opacity becomes greater with residual magnitude, will result in higher mean
-    errors in correlation estimation than for all other conditions.
-
-## Method {#method-e2}
-
-### Participants {#participants-e2}
-
-150 participants were recruited using the Prolific platform \cite{prolific}.
-Normal or corrected-to-normal vision and English fluency were required.
-Participants who had completed the pilot study or Experiment 1 were prevented
-from participating. Data were collected from 158 participants. 8 failed more
-than 2 out of 6 attention check questions, and, as per the pre-registration, had
-their submissions rejected from the study. The data from the remaining 150
-participants were included in the full analysis
-(`r printnum(E2_spatially_dependent_tidy_gender$M)` male,
-`r printnum(E2_spatially_dependent_tidy_gender$F)` female, and
-`r printnum(E2_spatially_dependent_tidy_gender$NB)` non-binary). Participants'
-mean age was `r printnum(E2_spatially_dependent_tidy_age$mean, digits = 1)` (*SD* =
-`r printnum(E2_spatially_dependent_tidy_age$sd, digits = 1)`). Mean graph literacy score was
-`r printnum(E2_spatially_dependent_tidy_graph_literacy$mean, digits = 1)` (*SD* =
-`r printnum(E2_spatially_dependent_tidy_graph_literacy$sd, digits = 1)`). The mean time
-taken to complete the experiment was 33 minutes (SD = 10 minutes).
-
-### Design {#design-e2}
-
-For each of the 45 *r* values in Experiment 2, there were four versions of each
-plot corresponding to the three levels of point opacity decay function and the
-baseline global full opacity condition. Examples of each of these can be seen in
-@fig-exp2-examples-chap4, demonstrated with an *r* value of 0.6. Given the shape
-of the underestimation curve found in previous work (see Figure
-\ref{fig-underestimation-curves}, \chap{chap:related_work}), intuition suggested
-employing a symmetrically opposing curve (see the non-linear decay curve in
-@fig-opposing-curve) to relate point opacity to residuals.
+arrangement of point opacity. This experiment builds on the immature opacity
+decay employed in the unpublished pilot study (see Section \ref{pilot-study}.
+In that study, point opacity was decreased as a function of residual magnitude, but
+the range of opacity values used for each plot was the same. In the present experiment,
+residual magnitude is hardcoded to point opacity, meaning that if a point has a 
+certain residual magnitude value, it will always have the same opacity value.
+Additionally, in this experiment, I introduce the concept of different types 
+of decay. Linear decay refers to conditions with a linear relationship between
+residual magnitude and opacity. Non-linear decay conditions use equation 4.1 to
+map residual magnitude to opacity values. Inverted decay conditions feature
+scatterplots whose points increase in opacity as a function of residual magnitude.
+Figure \ref{fig-opposing-curve} demonstrates the relationship between residual
+magnitude and opacity value in each of these condition types using an *r* 
+value of 0.6.
 
 ```{r}
 #| label: fig-opposing-curve
 #| include: true
-#| fig-cap: Using an \textit{r} value of 0.2 to demonstrate the relationship between the size of a point's residual and the alpha value (opacity) rendered.
+#| fig-cap: Using an \textit{r} value of 0.6 to demonstrate the relationship between the size of a point's residual and the alpha value (opacity) rendered.
 #| fig-asp: 1
 
 # create desired r value for opposing curve illustrative plot
 # note: methodology identical to that used to create exp stimuli
 
-my_desired_r = 0.2
+my_desired_r = 0.6
   
 my_sample_size = 128
 mean_variable_1 = 0
@@ -1293,6 +1271,51 @@ slopes_opp %>%
            y = 0,
            label = "Fully Transparent")
 ```
+
+Given the previously reported effects of changing
+scatterplot point opacity on other perceptual metrics (see Section
+\ref{point-opacity-chap4}), and with the findings from Experiment 1 in mind, it
+was hypothesised that:
+
+-   H1: the non-linear decay parameter in which point opacity falls with
+    residual magnitude will result in lower mean errors in correlation
+    estimation compared to linear decay and full global opacity conditions.
+-   H2: the use of the inverted non-linear decay parameter, in which point
+    opacity becomes greater with residual magnitude, will result in higher mean
+    errors in correlation estimation than for all other conditions.
+
+## Method {#method-e2}
+
+### Participants {#participants-e2}
+
+150 participants were recruited using the Prolific platform \cite{prolific}.
+Normal or corrected-to-normal vision and English fluency were required.
+Participants who had completed the pilot study or Experiment 1 were prevented
+from participating. Data were collected from 158 participants. 8 failed more
+than 2 out of 6 attention check questions, and, as per the pre-registration, had
+their submissions rejected from the study. The data from the remaining 150
+participants were included in the full analysis
+(`r printnum(E2_spatially_dependent_tidy_gender$M)` male,
+`r printnum(E2_spatially_dependent_tidy_gender$F)` female, and
+`r printnum(E2_spatially_dependent_tidy_gender$NB)` non-binary). Participants'
+mean age was `r printnum(E2_spatially_dependent_tidy_age$mean, digits = 1)` (*SD* =
+`r printnum(E2_spatially_dependent_tidy_age$sd, digits = 1)`). Mean graph literacy score was
+`r printnum(E2_spatially_dependent_tidy_graph_literacy$mean, digits = 1)` (*SD* =
+`r printnum(E2_spatially_dependent_tidy_graph_literacy$sd, digits = 1)`). The mean time
+taken to complete the experiment was 33 minutes (SD = 10 minutes).
+
+### Design {#design-e2}
+
+For each of the 45 *r* values in Experiment 2, there were four versions of each
+plot corresponding to the three levels of point opacity decay function and the
+baseline global full opacity condition. Examples of each of these can be seen in
+@fig-exp2-examples-chap4, demonstrated with an *r* value of 0.6. Given the shape
+of the underestimation curve found in previous work (see Figure
+\ref{fig-underestimation-curves}, \chap{chap:related_work}), intuition suggested
+employing a symmetrically opposing curve (see the non-linear decay curve in
+@fig-opposing-curve) to relate point opacity to residuals. An minimum alpha value of 0.025
+was used to ensure that all points were visibly rendered, however, unlike in later
+chapters, visibility testing was not carried out.
 
 Equation 4.1 was used to non-linearly map residuals to `ggplot2` alpha values.
 0.25 was chosen as the value of *b*, as it was felt at the time that this
@@ -1850,9 +1873,8 @@ manipulations further may wish to investigate whether there are differences
 between using perpendicular and vertical residual distance as bases for setting
 point opacity with regard to correlation estimation.
 
-Finally, the most exciting avenue for related future work is the possibility of
-combining the techniques developed and tested here with other novel scatterplot
-visualisation techniques that have a basis in the literature.
+Finally, the most exciting avenue for related future work is expanding the technique
+developed here to other visual features in isolation and combination.
 \chap{chap:adjusting_size} investigates the use of point size in place of
 opacity with the techniques described, while \chap{chap:interactions_opacity_size} combines the two to explore how these different modalities work together with regards to
 the estimation of positive correlation.

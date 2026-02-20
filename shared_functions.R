@@ -81,7 +81,7 @@ plot_example_function <- function (df, t, o, s, title_size) {
                    alpha = o), shape = 16)  +
     labs(x = "", y = "",
          title = t) +
-    theme_ggdist() +
+    theme_classic() +
     theme(axis.text = element_blank(),
           plot.margin = unit(c(0,0,0.4,0), "cm"),
           legend.position = "none",

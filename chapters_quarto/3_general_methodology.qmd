@@ -349,7 +349,7 @@ design of the scatterplots used in Experiments 1 to 4.
 ```{r}
 #| label: fig-scatter-example
 #| include: true
-#| fig-cap: The basic design of scatterplots in Experiments 1 to 4. 
+#| fig-cap: The basic design of scatterplots in Experiments 1 to 4.
 #| out-width: NA
 #| out-height: NA
 #| fig-asp: 1
