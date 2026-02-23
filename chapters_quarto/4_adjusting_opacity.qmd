@@ -286,7 +286,8 @@ screen size. This proposal is included in the supplemental materials. This was
 prompted by recent research demonstrating consistent perceptual biases in
 scatterplots due to geometric scaling \cite{wei_2020}, the growing prevalence of
 data visualisations in lay people's daily lives due to the COVID-19 pandemic,
-and the increasing adoption of wearable devices \cite{shandhi_2024}. The first
+and the increasing adoption of wearable devices, which by their nature result
+in users viewing visualisations of a range of sizes \cite{shandhi_2024}. The first
 experiment conducted therefore examined how perceptions of correlation changed
 according to the size of a scatterplot. Additionally, a very early version of
 the opacity decay condition from Experiment 2 was included, however the
@@ -843,7 +844,7 @@ participants were included in the full analysis
 mean age was `r printnum(E1_uniform_adjustments_tidy_age$mean, digits = 1)` (*SD* =
 `r printnum(E1_uniform_adjustments_tidy_age$sd, digits = 1)`). Mean graph literacy score was
 `r printnum(E1_uniform_adjustments_tidy_graph_literacy$mean, digits = 1)` (*SD* =
-`r printnum(E1_uniform_adjustments_tidy_graph_literacy$sd, digits = 1)`). The mean time
+`r printnum(E1_uniform_adjustments_tidy_graph_literacy$sd, digits = 1)`) out of 30. The mean time
 taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
 ### Design {#design-e1}
@@ -861,13 +862,13 @@ be seen in @fig-exp1-examples-chap4, demonstrated with an *r* value of 0.6.
 # create example plots, arrange with ggarrange()
 
 ggarrange(plot_example_function(slopes, "Opacity = 0.25",
-                                0.25, 0.2, 7),
+                                0.25, 0.2, 6.5),
           plot_example_function(slopes, "Opacity = 0.5",
-                                0.5, 0.2, 7),
+                                0.5, 0.2, 6.5),
           plot_example_function(slopes, "Opacity = 0.75",
-                                0.75, 0.2, 7),
+                                0.75, 0.2, 6.5),
           plot_example_function(slopes, "Opacity = 1",
-                                1, 0.2, 7),
+                                1, 0.2, 6.5),
           nrow = 1)
 ```
 
@@ -1249,7 +1250,7 @@ slopes_opp %>%
   geom_textline(aes(colour = decay,
                     label = decay,
                     size = 6,
-                    hjust = 0.65,
+                    hjust = 0.8,
                     vjust = -0.3)) +
   scale_x_continuous(breaks = scales::pretty_breaks(n = 10),
                      limits = c(0,2.6)) +
@@ -1301,7 +1302,7 @@ participants were included in the full analysis
 mean age was `r printnum(E2_spatially_dependent_tidy_age$mean, digits = 1)` (*SD* =
 `r printnum(E2_spatially_dependent_tidy_age$sd, digits = 1)`). Mean graph literacy score was
 `r printnum(E2_spatially_dependent_tidy_graph_literacy$mean, digits = 1)` (*SD* =
-`r printnum(E2_spatially_dependent_tidy_graph_literacy$sd, digits = 1)`). The mean time
+`r printnum(E2_spatially_dependent_tidy_graph_literacy$sd, digits = 1)`) out of 30. The mean time
 taken to complete the experiment was 33 minutes (SD = 10 minutes).
 
 ### Design {#design-e2}
@@ -1335,14 +1336,14 @@ found.
 
 # example plots for experiment 2, arranged with ggarrange()
 
-ggarrange(plot_example_function(slopes, "Non-Linear Decay",
-                                (1-slopes$slope_0.25), 0.2, 7),
+ggarrange(plot_example_function(slopes, "Full Opacity",
+                                1, 0.2, 6.5),
           plot_example_function(slopes, "Linear Decay",
-                                (1-slopes$slope_linear), 0.2, 7),
-          plot_example_function(slopes, "Inverted Decay",
-                                (1-slopes$slope_inverted), 0.2, 7),
-          plot_example_function(slopes, "Full Opacity",
-                                1, 0.2, 7),
+                                (1-slopes$slope_linear), 0.2, 6.5),
+          plot_example_function(slopes, "Non-linear Decay",
+                                (1-slopes$slope_0.25), 0.2, 6.5),
+          plot_example_function(slopes, "Inverted Non-linear Decay",
+                                (1-slopes$slope_inverted), 0.2, 6.5),
           nrow = 1)
 ```
 

@@ -768,7 +768,7 @@ a list of candidate statements, I used the ChatGPT4 Large Language Model (LLM)
     Try to match all the statements on emotionality.''
 \end{quotation}
 
-The full list of statements can be found in the supplementary material. A co-author and I
+The full list of statements can be found in the Appendix A. A co-author and I
 rated each statement on emotional valence and belief about strength of
 relatedness using Likert scales from 1 to 7. Both statement emotional valence
 and strength of relatedness were anchored at points 1 and 7: *Very Negative* and
@@ -785,7 +785,24 @@ for both emotional valence ($\kappa$ = `r printnum(irr_emot$value, digits = 2)`,
 agreement in both cases \cite{cohen_1968, fleiss_1969}. Together, we selected
 strongly and weakly correlated statements with the highest levels of absolute
 agreement, resulting in 14 strongly and 11 weakly correlated statements. These
-statements are reproduced in the supplementary material.
+statements are reproduced in @tbl-all-statements.
+
+```{r}
+#| label: tbl-all-statements
+#| include: true
+#| tbl-cap: Statements tested with participants in the pre-study.
+
+statements <- read_csv("../data/experimental_dataframes/e5a_exp_dataframe.csv") %>%
+  filter(item_no <= 25) %>%
+  select(c("item_no","statement")) %>%
+  rename("Statement" = "statement",
+         "Item" = "item_no")
+
+# create table
+
+kbl(statements, booktabs = TRUE, format = "latex")
+```
+
 
 ## Hypotheses {#hypotheses-e5a}
 
@@ -814,6 +831,8 @@ fully randomised order.
 
 ### Procedure {#procedure-e5a}
 
+Ethical approval for this experiment was granted by the University of 
+Manchester’s Computer Science Departmental Panel (Ref: 2024-19426-33939).
 Participants viewed the PIS and were asked to provide consent through key
 presses in response to consent statements. They were prompted to provide their
 age in a free text box and their gender identity. Participants were told that
@@ -1006,12 +1025,26 @@ In line with evidence that those who are more confident in their ability to
 defend their own positions are more susceptible to having those positions
 changed \cite{albarracin_2004}, participants' defensive confidence was measured
 using Albarracín and Mitchell's \cite{albarracin_2004} 12-item scale. This scale
-is replicated from previous work in the supplementary material, and has been utilised more
+is replicated from previous work in @tbl-def-con-scale, and has been utilised more
 recently \cite{markant_2023} to explore the potential for attitude change
 specifically with regard to correlations in scatterplots. Participants provide
 answers to the 12 scale items using a 5-point Likert scale anchored at points 1
 (*not at all characteristic of me*) and 5 (*extremely characteristic of me*),
 with all other points being unlabelled.
+
+```{r}
+#| label: tbl-def-con-scale
+#| include: true
+#| tbl-cap: "The 12-item Defensive Confidence scale from using Albarracín and Mitchell \\cite{albarracin_2004}"
+
+
+
+def_con_scale <- read_csv("../data/def_con_scale.csv")
+
+# create table
+
+kbl(def_con_scale, booktabs = TRUE, format = "latex")
+```
 
 ### Graph Literacy {#graph-literacy-e5}
 
@@ -1098,6 +1131,8 @@ viewing the experimental items.
 
 ### Procedure {#procedure-e5}
 
+Ethical approval for this experiment was granted by the University of 
+Manchester’s Computer Science Departmental Panel (Ref: 2024-19426-33939).
 Participants viewed the PIS and provided consent through key presses in response
 to displayed consent statements. Participants were then asked to provide their
 age and gender identity. Following this, participants completed the 5-item

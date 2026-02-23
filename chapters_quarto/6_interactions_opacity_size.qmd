@@ -530,42 +530,33 @@ used in this experiment can be viewed in @fig-exp4-examples-chap6.
 
 # create congruent and incongruent example plots separately
 
-examples_congruent <- 
-  ggarrange(plot_example_function(slopes,
-                                  "Typical Orientation Size\nTypical Orientation Opacity",
-                                  (1-slopes$slope_0.25),
-                                  (1-slopes$slope_0.25),
-                                  6.25),
-            plot_example_function(slopes,
-                                  "Inverted Orientation Size\nInverted Orientation Opacity",
-                                  (1-slopes$slope_inverted),
-                                  (1-slopes$slope_inverted),
-                                  6.25), nrow = 1) +
+example_plots_congruent <- ggarrange(plot_example_function(slopes,
+                                                           "Typical Orientation Size\nTypical Orientation Opacity",
+                                                           (1-slopes$slope_0.25),
+                                                           (1-slopes$slope_0.25), 6.5),
+                                     plot_example_function(slopes,
+                                                           "Inverted Orientation Size\nInverted Orientation Opacity",
+                                                           (1-slopes$slope_inverted),
+                                                           (1-slopes$slope_inverted), 6.5), nrow = 1) +
   annotate(geom = "text",
            label = "Congruent Plots",
            x = 0.5,
-           y = 0.07)
-
-examples_incongruent <- 
-  ggarrange(plot_example_function(slopes,
-                                  "Inverted Orientation Size\nTypical Orientation Opacity",
-                                  (1-slopes$slope_inverted),
-                                  (1-slopes$slope_0.25),
-                                  6.25),
-            plot_example_function(slopes,
-                                  "Typical Orientation Size\nInverted Orientation Opacity",
-                                  (1-slopes$slope_0.25),
-                                  (1-slopes$slope_inverted),
-                                  6.25),
-            nrow = 1) +
+           y = 0.05, size = 3)
+                   
+example_plots_incongruent <- ggarrange(plot_example_function(slopes,
+                                                             "Typical Orientation Size\nInverted Orientation Opacity",
+                                                             (1-slopes$slope_inverted),
+                                                             (1-slopes$slope_0.25), 6.5),
+                                       plot_example_function(slopes,
+                                                             "Inverted Orientation Size\nTypical Orientation Opacity",
+                                                             (1-slopes$slope_0.25),
+                                                             (1-slopes$slope_inverted), 6.5), nrow = 1) +
   annotate(geom = "text",
            label = "Incongruent Plots",
            x = 0.5,
-           y = 0.07)
+           y = 0.05, size = 3)
 
-# arrange plots together
-
-ggarrange(examples_congruent, examples_incongruent, nrow = 1)
+ggarrange(example_plots_congruent, example_plots_incongruent, nrow = 1)
 ```
 
 ## Point Visibility Testing {#point-visibility-testing-e4}
@@ -635,8 +626,10 @@ fixed effect is provided in Section \ref{results-e4}.
 
 ## Design {#design-e4}
 
-A fully repeated-measures, 2 $\times$ 2 factorial design was employed. Each
-participant saw each combination of opacity and size decay function scatterplots
+A fully repeated-measures, 2 $\times$ 2 factorial design was employed. The first
+factor, point opacity decay, had two levels; typical orientation and inverted orientation.
+The second factor, point size decay, also had two levels; typical orientation 
+and inverted orientation. Each participant saw each combination of opacity and size decay function scatterplots
 for a total of 180 experimental items. Participants viewed these experimental
 items, along with 6 attention check items, in a fully randomised order. The
 experiment was built using PsychoPy and hosted on Pavlovia[^4].
@@ -645,6 +638,8 @@ experiment was built using PsychoPy and hosted on Pavlovia[^4].
 
 ## Procedure {#procedure-e4}
 
+Ethical approval for this experiment was granted by the University of 
+Manchester’s Computer Science Departmental Panel (Ref: 2022-14660-24397). 
 Participants viewed the PIS and provided consent through key presses in response
 to consent statements. Participants were asked to provide their age and gender
 identity. Participants completed the 5-item Subjective Graph Literacy test
@@ -655,7 +650,7 @@ with correlations of 0.2, 0.5, 0.8, and 0.95. Section \ref{results-e4} contains
 a discussion of the potential effects of this training. Two practice trials were
 allowed before the experiment began. Participants worked through a series of 180
 experimental and 6 attention check trials in a fully randomised order while
-being asked to use a slider (see Figure \ref{fig-slider},
+being asked to use a slider (see Figure \ref{fig-exp-illustrate},
 \chap{chap:gen_methods}) to estimate the correlation to two decimal places.
 Visual masks preceded each trial. The attention check trials explicitly asked
 participants to set the slider to 0 or 1.
@@ -676,7 +671,7 @@ participants were included in the full analysis
 was `r printnum(E4_interactions_tidy_age$mean, digits = 1)` (*SD* =
 `r printnum(E4_interactions_tidy_age$sd, digits = 1)`). Mean graph literacy score was
 `r printnum(E4_interactions_tidy_graph_literacy$mean, digits = 1)` (*SD* =
-`r printnum(E4_interactions_tidy_graph_literacy$sd, digits = 1)`). The mean time taken to
+`r printnum(E4_interactions_tidy_graph_literacy$sd, digits = 1)`) out of 30. The mean time taken to
 complete the experiment was 37 minutes (SD = 12.3 minutes).
 
 # Results {#results-e4}

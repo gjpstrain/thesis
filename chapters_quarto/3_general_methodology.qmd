@@ -71,6 +71,19 @@ that is *doable* must be reached.
 
 ## Experimental Design
 
+```{r}
+#| label: fig-exp-illustrate
+#| include: true
+#| fig-cap: An example of an experimental trial in Experiments 1-4, including the scatterplot stimulus (A), the slider that participants were instructed to use to estimate correlation (B), and the trial counter (C).
+#| out-width: NA
+#| out-height: NA
+# find exp example png in supplied graphics folder
+
+# include pre-rendered graphics
+
+knitr::include_graphics(path = "../supplied_graphics/example_exp.png", dpi = NA)
+```
+
 All but the final experiment utilised within-participants designs. In such a
 design, each participant is exposed to each level of the intervention. This is
 in contrast with between-participants designs, where separate groups are exposed
@@ -82,7 +95,7 @@ boost in statistical power over between-participant designs where each
 participant may only provide data points for a portion of the total experimental
 items. In Experiments 1 to 4, each participant saw all experimental stimuli and
 provided a judgement of correlation using a sliding scale between 0 and 1 (see
-@fig-slider). Experiment 1 featured a single factor of global scatterplot point
+@fig-exp-illustrate). Experiment 1 featured a single factor of global scatterplot point
 opacity with 4 levels (see @fig-exp1-examples). Experiment 2 featured a single
 factor of scatterplot point design regarding opacity with 4 levels (see
 @fig-exp2-examples). Experiment 3 featured a single factor of scatterplot point
@@ -94,19 +107,6 @@ from the shared experimental paradigm of the previous experiments, and features
 a 1 factor, 2 level between-participants design; group A saw scatterplots
 designed to elicit greater levels of belief change compared to typical
 scatterplots, which were shown to group B (see @fig-exp5-examples).
-
-```{r}
-#| label: fig-slider
-#| include: true
-#| fig-cap: An example of the slider participants used to estimate correlation in Experiments 1-4.
-#| out-width: NA
-#| out-height: NA
-# find slider png in supplied graphics folder
-
-# include pre-rendered graphics
-
-knitr::include_graphics(path = "../supplied_graphics/example_slider.png", dpi = NA)
-```
 
 ```{r}
 #| label: fig-exp1-examples
@@ -197,11 +197,11 @@ example_plots_congruent <- ggarrange(plot_example_function(slopes,
            y = 0.05, size = 3)
                    
 example_plots_incongruent <- ggarrange(plot_example_function(slopes,
-                                                             "Inverted Orientation Size\nTypical Orientation Opacity",
+                                                             "Typical Orientation Size\nInverted Orientation Opacity",
                                                              (1-slopes$slope_inverted),
                                                              (1-slopes$slope_0.25), 6.5),
                                        plot_example_function(slopes,
-                                                             "Typical Orientation Size\nInverted Orientation Opacity",
+                                                             "Inverted Orientation Size\nTypical Orientation Opacity",
                                                              (1-slopes$slope_0.25),
                                                              (1-slopes$slope_inverted), 6.5), nrow = 1) +
   annotate(geom = "text",
@@ -209,7 +209,7 @@ example_plots_incongruent <- ggarrange(plot_example_function(slopes,
            x = 0.5,
            y = 0.05, size = 3)
 
-ggarrange(example_plots_incongruent, example_plots_congruent, nrow = 1)
+ggarrange(example_plots_congruent, example_plots_incongruent, nrow = 1)
 ```
 
 ```{r}
@@ -295,9 +295,10 @@ study (see Section \ref{pilot-study}) by preventing participants who joined
 after this date from participating, in addition to manually requesting a 1:1
 ratio of male to female participants. The demographic issues settled quickly,
 however the screened 1:1 ratio was maintained for the remainder of the
-experiments.
+experiments. Participants were only permitted to complete any of the experiments
+on desktop or laptop computers, not on phones or tablets.
 
-The first experiment conducted was a pilot study (see Section \ref{pilot-study}
+Chronologically, the first experiment conducted was a pilot study (see Section \ref{pilot-study}
 for full details) investigating a very early iteration of the point opacity
 manipulation in combination with exploratory work around plot size and
 correlation estimation. At the time, I was relatively naive to the intricacies
@@ -343,8 +344,9 @@ Experiments were designed with the intention of isolating and addressing a
 perceptual effect; the underestimation of correlation in positively correlated
 scatterplots. To achieve this, confounding extraneous design factors were
 removed, including axis labels, tick labels, grid lines, and titles. The axis
-ticks themselves were preserved. @fig-scatter-example demonstrates the basic
-design of the scatterplots used in Experiments 1 to 4.
+ticks themselves were preserved. Scatterplots always featured 128 data points and
+points had a hard size minimum of 12 pixels. @fig-scatter-example demonstrates 
+the basic design of the scatterplots used in Experiments 1 to 4.
 
 ```{r}
 #| label: fig-scatter-example
