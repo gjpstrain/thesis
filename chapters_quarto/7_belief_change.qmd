@@ -768,7 +768,7 @@ a list of candidate statements, I used the ChatGPT4 Large Language Model (LLM)
     Try to match all the statements on emotionality.''
 \end{quotation}
 
-The full list of statements can be found in the Appendix A. A co-author and I
+The full list of statements can be found in Appendix \ref{chap:appendix_A}. A co-author and I
 rated each statement on emotional valence and belief about strength of
 relatedness using Likert scales from 1 to 7. Both statement emotional valence
 and strength of relatedness were anchored at points 1 and 7: *Very Negative* and
@@ -826,7 +826,7 @@ population in order to ascertain consensus. It was hypothesised that:
 ### Design {#design-e5a}
 
 The pre-study featured a within-subjects design. Each participant saw all 25
-survey items (see supplementary material), along with the six attention check items, in a
+survey items (see @tbl-all-statements), along with the six attention check items, in a
 fully randomised order.
 
 ### Procedure {#procedure-e5a}
@@ -1037,13 +1037,12 @@ with all other points being unlabelled.
 #| include: true
 #| tbl-cap: "The 12-item Defensive Confidence scale from using Albarracín and Mitchell \\cite{albarracin_2004}"
 
-
-
 def_con_scale <- read_csv("../data/def_con_scale.csv")
 
 # create table
 
-kbl(def_con_scale, booktabs = TRUE, format = "latex")
+kbl(def_con_scale, booktabs = TRUE, format = "latex") %>%
+  column_spec(2, width = "40em")
 ```
 
 ### Graph Literacy {#graph-literacy-e5}

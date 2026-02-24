@@ -1,0 +1,192 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+
+\section{Investigating How People Perceive Correlation in Scatterplots
+Across Devices with Different Screen
+Sizes}\label{investigating-how-people-perceive-correlation-in-scatterplots-across-devices-with-different-screen-sizes}
+
+\subsection{Introduction}\label{introduction}
+
+It is hard to understate the ubiquity of data visualisations in our
+everyday lives. From financial reporting (Financial Times, 2021) and
+visualisations about COVID-19 statistics (The Visual and Data Journalism
+Team, BBC News, 2021), to physical activity data on our phones and
+wearable devices and weather data that most of us engage with regularly,
+one could not argue that the age of Big Data is here, and here to stay.
+Professional fields such as academic research, business, and visual
+analytics also make use of data visualisations to enable collaboration
+and effective communication about strategy and insights.
+
+While visualisations are everywhere, research into how people extract
+meaning from them is relatively scarce (Abdul-Rahman et al., 2019),
+especially when compared to the related and saturated field of
+perceptual psychology, despite sharing common ground. With the ubiquity
+of visualisations comes the fact that people will view them on different
+devices, with different screen sizes, and in different contexts. This is
+a more pertinent issue than ever before, with around 20\% of UK (and
+over a quarter of US) households having access to wearable smartwatch
+technology (AudienceProject, 2020), and most of us from 16 to 64 owning
+a smartphone (Ofcom, 2020).
+
+There is a clear need to verify that what we are trying to communicate
+is understood in the same way across increasingly large numbers of
+different devices, from wearable smartwatches to the largest ultra high
+definition stationary displays employed in business intelligence and
+collaborative visual analytics (e.g., Bradel et al., 2013; Horak et al.,
+2018). Where our current understandings fall short, it is important to
+be active in designing and empirically testing alternate visualisations
+and alterations to visualisations that can help transform data
+visualisation from an art into a science.
+
+In order to address the lack of empirical validation for equivalent
+visualisations across a range of devices, I propose a series of
+carefully designed studies that will, using perception of correlation in
+scatterplots, aim to achieve perception-parity across a range of digital
+device sizes. This will be accomplished via an interdisciplinary
+approach between human--computer interaction (HCI) and perceptual
+psychology, and will utilise crowdsourcing and novel measures of
+attention to explore what differences there might be, and what might be
+behind those differences, in how people extract meaning from
+visualisations across different sizes of devices.
+
+The proposed set of experiments will be restricted to using simulated
+devices in order to reduce the number of potential confounds, such as
+context of use, but further research could also investigate these
+factors. In keeping with the principles of open science, all experiments
+will be pre-registered, and all data and analysis scripts will be
+permanently and publicly accessible on a public repository (GitHub).
+
+\subsection{Why Study Perception of Correlation in
+Scatterplots?}\label{why-study-perception-of-correlation-in-scatterplots}
+
+There are a vast number of different data visualisations that are
+currently used, from simple bar and line graphs to complex, multiclass
+visualisations. Scatterplots represent a happy medium; they communicate
+bivariate data in two dimensions, and have been shown empirically to
+exhibit low levels of inter-individual variance (Kay \& Heer, 2015;
+Gleicher et al., 2013).
+
+In the case of Kay and Heer, scatterplots exhibited lower
+inter-individual variance than a number of other tested visualisations,
+including parallel coordinate plots, stacked bar plots, and donut plots.
+Uniquely, it was also found that people were equally accurate estimating
+correlation with both negatively and positively correlated scatterplots,
+which was not the case for the range of other plots tested.
+
+Very recent research has found that geometric scaling of scatterplots
+produces consistent perceptual biases (Wei et al., 2020), but to my
+knowledge no research exists that tests these biases across different
+devices with different screen sizes. These properties make scatterplots
+well positioned to act as a test platform for achieving perceptual
+parity across a range of devices.
+
+\subsection{Why Crowdsource?}\label{why-crowdsource}
+
+With the COVID-19 pandemic ongoing, academic research has been largely
+forced online. While the crowdsourcing of experimental participants has
+surged in the last decade, in the current climate it is invaluable.
+
+For this style of interdisciplinary research, crowdsourcing has several
+advantages over traditional experimental testing. Firstly, crowdsourcing
+has the built-in advantage of maintaining a native delivery method
+(Cawthon \& Moere, 2007); most visualisations are presented on screens
+to people sitting in their homes or offices, not in labs. This results
+in data that are more generalisable, as the test conditions are more
+naturalistic.
+
+Secondly, despite recent worry about a reduction in data quality with
+Amazon's Mechanical Turk service (Chmielewski \& Kucker, 2020), proper
+data screening and the use of response validity indicators can mean
+crowdsourcing can be utilised to inexpensively and time-efficiently
+produce large amounts of high-quality data (Buhrmester et al., 2011).
+The use of more academically-oriented crowdsourcing platforms, such as
+Prolific, goes even further to ensure high-quality data are gathered,
+and adds the benefit of recording the device that was used.
+
+Crowdsourcing offers the ability to gather much larger amounts of
+high-quality data in a much faster and cheaper manner than traditional
+lab-based methods.
+
+\subsection{Methodology}\label{methodology}
+
+\subsubsection{Experiment 1}\label{experiment-1}
+
+The first experiment will investigate whether there are differences in
+correlation perception across a range of different device sizes. Because
+there exists large variability in smartphone screen sizes, for the first
+version of E1, which will use simulated phone screens, the average
+display size of 5.5 inches (IDC, 2021) will be used.
+
+Wei et al.~(2020) found that perception of correlation is biased when
+scatterplots are geometrically scaled up or down. A total of N = 200
+participants will be recruited via the Prolific platform in a fully
+between-subjects design with two levels reflecting the two most commonly
+used device sizes in our digital lives: smartphone and laptop/desktop
+computer.
+
+A two-interval forced-choice method will be used, as in Wei et
+al.~(2020), to determine the just-noticeable differences (JNDs). After
+obtaining these JNDs, linear mixed-effects models will be constructed
+and compared to previous models of correlation perception generated by
+Harrison et al.~(2014) and Kay and Heer (2015).
+
+\subsubsection{Experiment 2}\label{experiment-2}
+
+Experiment 2 will re-run E1 with n = 200 participants, introducing a
+second independent variable: point radius. Point radius will be varied
+in smaller increments to determine the optimal value for each screen
+size for reducing bias.
+
+\subsubsection{Experiment 3}\label{experiment-3}
+
+The third experiment will investigate attentional differences across
+devices. BubbleView (Kim et al., 2017) will be used to approximate
+eye-tracking data. Participants will estimate correlation after one
+minute of exploration.
+
+Machine learning techniques, including a modified DBSCAN algorithm
+(Schubert et al., 2017), will be used to analyse clustering patterns
+across devices.
+
+\subsection{Additional Information}\label{additional-information}
+
+All stimulus materials will be generated in R. Experimental tasks will
+be constructed in PsychoPy and distributed via Pavlovia. All analyses
+will be conducted in R.
+
+\subsection{Timeline}\label{timeline}
+
+\subsubsection{Year 1
+(September--January)}\label{year-1-septemberjanuary}
+
+Literature review, construct and pilot E1.
+
+\subsubsection{Year 1 (February--August)}\label{year-1-februaryaugust}
+
+Collect and analyse E1 data.
+
+\subsubsection{Year 2
+(September--January)}\label{year-2-septemberjanuary}
+
+Collect and analyse E2 data.
+
+\subsubsection{Year 2 (February--August)}\label{year-2-februaryaugust}
+
+Machine learning training and BubbleView validation.
+
+\subsubsection{Year 3
+(September--January)}\label{year-3-septemberjanuary}
+
+Collect and analyse E3 data.
+
+\subsubsection{Year 3 (February--August)}\label{year-3-februaryaugust}
+
+Final synthesis and paper preparation.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+
+
+
+\end{document}
