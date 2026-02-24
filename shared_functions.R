@@ -72,23 +72,28 @@ prepare_slopes <- function (my_desired_r) {
   return(slopes)
 }
 
-plot_example_function <- function (df, t, o, s, title_size) {
+plot_example_function <- function (df, t = NULL, o, s, title_size) {
   
-  ggplot(df, aes(x = V1, y = V2)) +
+  p <- ggplot(df, aes(x = V1, y = V2)) +
     scale_alpha_identity() +
     scale_size_identity() +
     geom_point(aes(size = (s + 0.7),
                    alpha = o), shape = 16)  +
-    labs(x = "", y = "",
-         title = t) +
     theme_classic() +
     theme(axis.text = element_blank(),
           plot.margin = unit(c(0,0,0.4,0), "cm"),
           legend.position = "none",
-          plot.title = element_text(size = title_size, vjust = -0.1),
           axis.title.x = element_blank(),
           axis.title.y = element_blank(),
           axis.line = element_line(linewidth = 0.25))
+  
+  if (!is.null(t)) {
+    p <- p +
+      labs(title = t) +
+      theme(plot.title = element_text(size = title_size, vjust = -0.1, hjust = 0.5))
+  }
+  
+  p
 }
 
 ## plot example function for experiment 5

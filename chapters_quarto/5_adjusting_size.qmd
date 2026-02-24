@@ -72,9 +72,11 @@ labels_e3_regex <- c(
 
 source("../shared_functions.R")
 
-# prepare a slopes df for plotting example plots
+# prepare slopes for plotting examples
 
-slopes <- prepare_slopes(0.6)
+slopes_0.2 <- prepare_slopes(0.2)
+slopes_0.6 <- prepare_slopes(0.6)
+slopes_0.99 <- prepare_slopes(0.99)
 ```
 
 ```{r}
@@ -388,20 +390,48 @@ the stimuli used in this experiment can be see in @fig-exp3-examples-chap5.
 ```{r}
 #| label: fig-exp3-examples-chap5
 #| include: true
-#| fig-cap: Examples of the stimuli used in Experiment 3, demonstrated with an \textit{r} value of 0.6.
-#| fig-asp: 0.275
+#| fig-cap: Examples of the stimuli used in Experiment 3, demonstrated with \textit{r} values of 0.2, 0.6, and 0.99.
+#| fig-asp: 0.8
 
 # example plots for experiment 3, arranged with ggarrange()
 
-ggarrange(plot_example_function(slopes, "Standard Size",
-                                1, 0.2, 7),
-          plot_example_function(slopes, "Linear Decay",
-                                1, (1-slopes$slope_linear), 7),
-          plot_example_function(slopes, "Non-linear Decay",
-                                1, (1-slopes$slope_0.25), 7),
-          plot_example_function(slopes, "Inverted\nNon-linear Decay",
-                                1, (1-slopes$slope_inverted), 7),
-          nrow = 1)
+row_1 <- ggarrange(plot_example_function(slopes_0.2, "Standard Size",
+                                         1, 0.2, 8),
+                   plot_example_function(slopes_0.2, "Linear Decay",
+                                         1, (1-slopes_0.2$slope_linear), 8),
+                   plot_example_function(slopes_0.2, "Non-linear Decay",
+                                         1, (1-slopes_0.2$slope_0.25), 8),
+                   plot_example_function(slopes_0.2, "Inverted Non-linear Decay",
+                                         1, (1-slopes_0.2$slope_inverted), 7),
+                   nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+row_2 <- ggarrange(plot_example_function(slopes_0.6, NULL,
+                                         1, 0.2, 7),
+                   plot_example_function(slopes_0.6, NULL,
+                                         1, (1-slopes_0.6$slope_linear), 7),
+                   plot_example_function(slopes_0.6, NULL,
+                                         1, (1-slopes_0.6$slope_0.25), 7),
+                   plot_example_function(slopes_0.6, NULL,
+                                         1, (1-slopes_0.6$slope_inverted), 7),
+                   nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+row_3 <- ggarrange(plot_example_function(slopes_0.99, NULL,
+                                         1, 0.2, 7),
+                   plot_example_function(slopes_0.99, NULL,
+                                         1, (1-slopes_0.99$slope_linear), 7),
+                   plot_example_function(slopes_0.99, NULL,
+                                         1, (1-slopes_0.99$slope_0.25), 7),
+                   plot_example_function(slopes_0.99, NULL,
+                                         1, (1-slopes_0.99$slope_inverted), 7),
+                   nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.99", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+ggarrange(row_1, row_2, row_3, ncol = 1)
 ```
 
 ## Dot Pitch in Crowdsourced Experiments {#dot-pitch-chap5}
