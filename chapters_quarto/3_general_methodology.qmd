@@ -172,7 +172,7 @@ row_1 <- ggarrange(plot_example_function(slopes_0.2, "Full Opacity",
                    plot_example_function(slopes_0.2, "Non-linear Decay",
                                          (1-slopes_0.2$slope_0.25), 0.2, 8),
                    plot_example_function(slopes_0.2, "Inverted Non-linear Decay",
-                                         (1-slopes_0.2$slope_inverted), 0.2, 10),
+                                         (1-slopes_0.2$slope_inverted), 0.2, 7),
                    nrow = 1) %>%
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
                                                  gp = grid::gpar(fontsize = 10)))
@@ -254,74 +254,172 @@ ggarrange(row_1, row_2, row_3, ncol = 1)
 ```{r}
 #| label: fig-exp4-examples
 #| include: true
-#| fig-cap: Examples of the stimuli used in Experiment 4, demonstrated with an \textit{r} value of 0.6.
-#| out-width: NA
-#| out-height: NA
-#| fig-asp: 0.275
+#| fig-cap: Examples of the stimuli used in Experiment 4, demonstrated with \textit{r} values of 0.2, 0.6, and 0.99.
+#| fig-asp: 0.8
 
-# use plot_example_function within ggarrange() to create examples of experimental plots
-# do this separately for each class of plot, then combine with a second
-# ggarrange() implementation
+########################### 0.2 plots ###########################
 
-example_plots_congruent <- ggarrange(plot_example_function(slopes,
+example_plots_congruent_02 <- ggarrange(plot_example_function(slopes_0.2,
                                                            "Typical Orientation Size\nTypical Orientation Opacity",
-                                                           (1-slopes$slope_0.25),
-                                                           (1-slopes$slope_0.25), 6.5),
-                                     plot_example_function(slopes,
+                                                           (1-slopes_0.2$slope_0.25),
+                                                           (1-slopes_0.2$slope_0.25), 7),
+                                     plot_example_function(slopes_0.2,
                                                            "Inverted Orientation Size\nInverted Orientation Opacity",
-                                                           (1-slopes$slope_inverted),
-                                                           (1-slopes$slope_inverted), 6.5), nrow = 1) +
+                                                           (1-slopes_0.2$slope_inverted),
+                                                           (1-slopes_0.2$slope_inverted), 7), nrow = 1)
+                   
+example_plots_incongruent_02 <- ggarrange(plot_example_function(slopes_0.2,
+                                                             "Typical Orientation Size\nInverted Orientation Opacity",
+                                                             (1-slopes_0.2$slope_inverted),
+                                                             (1-slopes_0.2$slope_0.25), 7),
+                                       plot_example_function(slopes_0.2,
+                                                             "Inverted Orientation Size\nTypical Orientation Opacity",
+                                                             (1-slopes_0.2$slope_0.25),
+                                                             (1-slopes_0.2$slope_inverted), 7), nrow = 1)
+
+plots_02 <- ggarrange(example_plots_congruent_02,
+                      example_plots_incongruent_02,
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### 0.6 plots ###########################
+
+example_plots_congruent_06 <- ggarrange(plot_example_function(slopes_0.6,
+                                                           NULL,
+                                                           (1-slopes_0.6$slope_0.25),
+                                                           (1-slopes_0.6$slope_0.25), 8),
+                                     plot_example_function(slopes_0.6,
+                                                           NULL,
+                                                           (1-slopes_0.6$slope_inverted),
+                                                           (1-slopes_0.6$slope_inverted), 8), nrow = 1)
+                   
+example_plots_incongruent_06 <- ggarrange(plot_example_function(slopes_0.6,
+                                                             NULL,
+                                                             (1-slopes_0.6$slope_inverted),
+                                                             (1-slopes_0.6$slope_0.25), 8),
+                                       plot_example_function(slopes_0.6,
+                                                             NULL,
+                                                             (1-slopes_0.6$slope_0.25),
+                                                             (1-slopes_0.6$slope_inverted), 8), nrow = 1)
+
+plots_06 <- ggarrange(example_plots_congruent_06,
+                      example_plots_incongruent_06,
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### 0.99 plots ###########################
+
+example_plots_congruent_99 <- ggarrange(plot_example_function(slopes_0.99,
+                                                           NULL,
+                                                           (1-slopes_0.99$slope_0.25),
+                                                           (1-slopes_0.99$slope_0.25), 8),
+                                     plot_example_function(slopes_0.99,
+                                                           NULL,
+                                                           (1-slopes_0.99$slope_inverted),
+                                                           (1-slopes_0.99$slope_inverted), 8), nrow = 1) +
   annotate(geom = "text",
            label = "Congruent Plots",
            x = 0.5,
            y = 0.05, size = 3)
                    
-example_plots_incongruent <- ggarrange(plot_example_function(slopes,
-                                                             "Typical Orientation Size\nInverted Orientation Opacity",
-                                                             (1-slopes$slope_inverted),
-                                                             (1-slopes$slope_0.25), 6.5),
-                                       plot_example_function(slopes,
-                                                             "Inverted Orientation Size\nTypical Orientation Opacity",
-                                                             (1-slopes$slope_0.25),
-                                                             (1-slopes$slope_inverted), 6.5), nrow = 1) +
+example_plots_incongruent_99 <- ggarrange(plot_example_function(slopes_0.99,
+                                                             NULL,
+                                                             (1-slopes_0.99$slope_inverted),
+                                                             (1-slopes_0.99$slope_0.25), 8),
+                                       plot_example_function(slopes_0.99,
+                                                             NULL,
+                                                             (1-slopes_0.99$slope_0.25),
+                                                             (1-slopes_0.99$slope_inverted), 8), nrow = 1) +
   annotate(geom = "text",
            label = "Incongruent Plots",
            x = 0.5,
            y = 0.05, size = 3)
 
-ggarrange(example_plots_congruent, example_plots_incongruent, nrow = 1)
+plots_99 <- ggarrange(example_plots_congruent_99,
+                      example_plots_incongruent_99,
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.99", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### COMBINE ALL ###########################
+
+ggarrange(plots_02, plots_06, plots_99, ncol = 1)
+
+
 ```
 
 ```{r}
 #| label: fig-exp5-examples
 #| include: true
 #| fig-cap: Examples of the stimuli for Experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the left, while group B saw the typical design on the right. 
-#| fig-asp: 0.7
+#| fig-asp: 1.5
 
 # create example plots for experiment 5
 
-ggarrange(example_plot_function_exp5(slopes_exp5,
-                                     slopeI,
-                                     slopeI_floored,
-                                     bbc_style()),
-          example_plot_function_exp5(slopes_exp5,
-                                     typical,
-                                     standard_alpha,
-                                     bbc_style()),
-          nrow = 1) +
-  
-  # add labels for typical/atypical class
-  
-  annotate(geom = "text",
-           label = "Typical Scatterplot",
-           x = 0.75,
-           y = 0.1,
-           size = 3) +
-  annotate(geom = "text",
-           label = "Atypical Scatterplot",
-           x = 0.25,
-           y = 0.1,
-           size = 3)
+########################### 0.2 plots ###########################
+
+plots_02 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
+                                                 slopeI_02,
+                                                 slopeI_floored_02,
+                                                 bbc_style()),
+                      example_plot_function_exp5(slopes_exp5_02,
+                                                 typical_02,
+                                                 standard_alpha_02,
+                                                 bbc_style()),
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### 0.6 plots ###########################
+
+plots_06 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
+                                                 slopeI_06,
+                                                 slopeI_floored_06,
+                                                 bbc_style()),
+                      example_plot_function_exp5(slopes_exp5_06,
+                                                 typical_06,
+                                                 standard_alpha_06,
+                                                 bbc_style()),
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### 0.99 plots ###########################
+
+plots_99 <- annotate_figure(
+  ggarrange(
+    example_plot_function_exp5(slopes_exp5_99,
+                               slopeI_99,
+                               slopeI_floored_99,
+                               bbc_style()),
+    example_plot_function_exp5(slopes_exp5_99,
+                               typical_99,
+                               standard_alpha_99,
+                               bbc_style()),
+    nrow = 1
+  ) +
+    annotate("text",
+             label = "Typical Scatterplot",
+             x = 0.75,
+             y = 0.1,
+             size = 3) +
+    annotate("text",
+             label = "Atypical Scatterplot",
+             x = 0.25,
+             y = 0.1,
+             size = 3),
+  left = gridtext::richtext_grob(
+    "<i>r</i> = 0.99",
+    rot = 90,
+    gp = grid::gpar(fontsize = 10)
+  )
+)
+
+########################### COMBINE ALL ###########################
+
+ggarrange(plots_02, plots_06, plots_99, ncol = 1)
 ```
 
 ## Tools for Testing
@@ -438,7 +536,7 @@ the basic design of the scatterplots used in Experiments 1 to 4.
 
 # create basic design of experimental items scatterplot
   
-plot_example_function(slopes, t = "", o = 1, s = 0.4, 2)  
+plot_example_function(slopes_0.6, t = "", o = 1, s = 0.4, 2)  
 ```
 
 A single random seed was used to generate scatterplot datasets throughout this

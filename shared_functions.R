@@ -90,7 +90,7 @@ plot_example_function <- function (df, t = NULL, o, s, title_size) {
   if (!is.null(t)) {
     p <- p +
       labs(title = t) +
-      theme(plot.title = element_text(size = title_size, vjust = -0.1, hjust = 0.5))
+      theme(plot.title = element_text(size = title_size, hjust = 0.5))
   }
   
   p
@@ -134,13 +134,34 @@ exp5_slope_function <- function(my_desired_r) {
   return(slopes_exp5)
 }
 
-# manually specify variables from slopes_exp5 df
+## manually specify variables from slopes_exp5 df
 
-slopes_exp5 <- exp5_slope_function(0.6)
-slopeI <- (slopes_exp5$slope_inverted)
-slopeI_floored <- (slopes_exp5$slope_inverted_floored)
-typical <- (slopes_exp5$typical)
-standard_alpha <- (slopes_exp5$standard_alpha)
+# first, do the r = 0.2 slopes
+
+slopes_exp5_02 <- exp5_slope_function(0.2)
+
+  slopeI_02 <- (slopes_exp5_02$slope_inverted)
+  slopeI_floored_02 <- (slopes_exp5_02$slope_inverted_floored)
+  typical_02 <- (slopes_exp5_02$typical)
+  standard_alpha_02 <- (slopes_exp5_02$standard_alpha)
+
+# next, r = 0.6
+
+slopes_exp5_06 <- exp5_slope_function(0.6)
+
+  slopeI_06 <- (slopes_exp5_06$slope_inverted)
+  slopeI_floored_06 <- (slopes_exp5_06$slope_inverted_floored)
+  typical_06 <- (slopes_exp5_06$typical)
+  standard_alpha_06 <- (slopes_exp5_06$standard_alpha)
+  
+# finally, the r = 0.99 slopes
+  
+slopes_exp5_99 <- exp5_slope_function(0.99)
+  
+  slopeI_99 <- (slopes_exp5_99$slope_inverted)
+  slopeI_floored_99 <- (slopes_exp5_99$slope_inverted_floored)
+  typical_99 <- (slopes_exp5_99$typical)
+  standard_alpha_99 <- (slopes_exp5_99$standard_alpha)
 
 # function for creating example plots for exp 5
 
