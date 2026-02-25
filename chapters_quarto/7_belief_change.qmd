@@ -959,23 +959,25 @@ summary_df <- E5_beliefs_pre_test_tidy %>%
   mutate(statement = factor(statement, levels = rev(statement_levels)))
 
   ggplot(plot_df,aes(x = mean, y = statement, color = measure, shape = measure)) +
-  geom_pointrange(aes(xmin = mean - sd, xmax = mean + sd),
-                 position = position_dodge(width = 0.4)) +
+    geom_vline(xintercept = 3.5, linetype = 5) +
+    geom_pointrange(aes(xmin = mean - sd, xmax = mean + sd),
+                 position = position_dodge(width = 0.6)) +
   geom_point(size = 2, position = position_dodge(width = 0.5)) +
   scale_x_continuous(breaks = 1:7, limits = c(1, 7.6)) +
   scale_color_manual(values = c("corr" = "#E69F00", "emot" = "#0072B2"),
-                     labels = c("Correctness", "Emotion")) +
+                     labels = c("Strength of Relatedness", "Emotional Valence")) +
   scale_shape_manual(values = c("corr" = 16, "emot" = 17),
-                     labels = c("Correctness", "Emotion")) +
+                     labels = c("Strength of Relatedness", "Emotional Valence")) +
   labs(x = "Score", y = NULL, color = NULL, shape = NULL) +
   theme_ggdist() +
     theme(axis.text.y = element_text(size = 8),
-          legend.position = c(0.175, 0.975)) +
-  geom_text(
+          legend.position = c(0.23, 0.975)) +
+geom_text(
   data = summary_df,
-  aes(x = 7.6, y = statement, label = item_no),
+  aes(x = 1, y = statement, label = formatC(item_no, width = 2, flag = " ")),
+  size = 3,
   inherit.aes = FALSE,
-  hjust = 0
+  hjust = 1.3  # monospaced font makes fixed-width padding work properly
 )
 ```
 
