@@ -431,7 +431,7 @@ row_3 <- ggarrange(plot_example_function(slopes_0.99, NULL,
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.99", rot = 90,
                                                  gp = grid::gpar(fontsize = 10)))
 
-ggarrange(row_1, row_2, row_3, ncol = 1)
+ggarrange(row_1, row_2, row_3, ncol = 1, heights = c(1.2, 1, 1))
 ```
 
 ## Dot Pitch in Crowdsourced Experiments {#dot-pitch-chap5}

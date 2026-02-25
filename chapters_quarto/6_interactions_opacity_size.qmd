@@ -83,9 +83,11 @@ labels_power <- c(size_power = "Size\nPower",
 
 source("../shared_functions.R")
 
-# create slopes df for example plots
+# prepare slopes for plotting examples
 
-slopes <- prepare_slopes(0.6)
+slopes_0.2 <- prepare_slopes(0.2)
+slopes_0.6 <- prepare_slopes(0.6)
+slopes_0.99 <- prepare_slopes(0.99)
 ```
 
 ```{r}
@@ -525,38 +527,98 @@ used in this experiment can be viewed in @fig-exp4-examples-chap6.
 ```{r}
 #| label: fig-exp4-examples-chap6
 #| include: true
-#| fig-cap: Examples of the stimuli used in Experiment 4, demonstrated with an \textit{r} value of 0.6.
-#| fig-asp: 0.275
+#| fig-cap: Examples of the stimuli used in Experiment 4, demonstrated with \textit{r} values of 0.2, 0.6, and 0.99.
+#| fig-asp: 0.8
 
-# create congruent and incongruent example plots separately
+########################### 0.2 plots ###########################
 
-example_plots_congruent <- ggarrange(plot_example_function(slopes,
+example_plots_congruent_02 <- ggarrange(plot_example_function(slopes_0.2,
                                                            "Typical Orientation Size\nTypical Orientation Opacity",
-                                                           (1-slopes$slope_0.25),
-                                                           (1-slopes$slope_0.25), 6.5),
-                                     plot_example_function(slopes,
+                                                           (1-slopes_0.2$slope_0.25),
+                                                           (1-slopes_0.2$slope_0.25), 7),
+                                     plot_example_function(slopes_0.2,
                                                            "Inverted Orientation Size\nInverted Orientation Opacity",
-                                                           (1-slopes$slope_inverted),
-                                                           (1-slopes$slope_inverted), 6.5), nrow = 1) +
+                                                           (1-slopes_0.2$slope_inverted),
+                                                           (1-slopes_0.2$slope_inverted), 7), nrow = 1)
+                   
+example_plots_incongruent_02 <- ggarrange(plot_example_function(slopes_0.2,
+                                                             "Typical Orientation Size\nInverted Orientation Opacity",
+                                                             (1-slopes_0.2$slope_inverted),
+                                                             (1-slopes_0.2$slope_0.25), 7),
+                                       plot_example_function(slopes_0.2,
+                                                             "Inverted Orientation Size\nTypical Orientation Opacity",
+                                                             (1-slopes_0.2$slope_0.25),
+                                                             (1-slopes_0.2$slope_inverted), 7), nrow = 1)
+
+plots_02 <- ggarrange(example_plots_congruent_02,
+                      example_plots_incongruent_02,
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### 0.6 plots ###########################
+
+example_plots_congruent_06 <- ggarrange(plot_example_function(slopes_0.6,
+                                                           NULL,
+                                                           (1-slopes_0.6$slope_0.25),
+                                                           (1-slopes_0.6$slope_0.25), 8),
+                                     plot_example_function(slopes_0.6,
+                                                           NULL,
+                                                           (1-slopes_0.6$slope_inverted),
+                                                           (1-slopes_0.6$slope_inverted), 8), nrow = 1)
+                   
+example_plots_incongruent_06 <- ggarrange(plot_example_function(slopes_0.6,
+                                                             NULL,
+                                                             (1-slopes_0.6$slope_inverted),
+                                                             (1-slopes_0.6$slope_0.25), 8),
+                                       plot_example_function(slopes_0.6,
+                                                             NULL,
+                                                             (1-slopes_0.6$slope_0.25),
+                                                             (1-slopes_0.6$slope_inverted), 8), nrow = 1)
+
+plots_06 <- ggarrange(example_plots_congruent_06,
+                      example_plots_incongruent_06,
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### 0.99 plots ###########################
+
+example_plots_congruent_99 <- ggarrange(plot_example_function(slopes_0.99,
+                                                           NULL,
+                                                           (1-slopes_0.99$slope_0.25),
+                                                           (1-slopes_0.99$slope_0.25), 8),
+                                     plot_example_function(slopes_0.99,
+                                                           NULL,
+                                                           (1-slopes_0.99$slope_inverted),
+                                                           (1-slopes_0.99$slope_inverted), 8), nrow = 1) +
   annotate(geom = "text",
            label = "Congruent Plots",
            x = 0.5,
            y = 0.05, size = 3)
                    
-example_plots_incongruent <- ggarrange(plot_example_function(slopes,
-                                                             "Typical Orientation Size\nInverted Orientation Opacity",
-                                                             (1-slopes$slope_inverted),
-                                                             (1-slopes$slope_0.25), 6.5),
-                                       plot_example_function(slopes,
-                                                             "Inverted Orientation Size\nTypical Orientation Opacity",
-                                                             (1-slopes$slope_0.25),
-                                                             (1-slopes$slope_inverted), 6.5), nrow = 1) +
+example_plots_incongruent_99 <- ggarrange(plot_example_function(slopes_0.99,
+                                                             NULL,
+                                                             (1-slopes_0.99$slope_inverted),
+                                                             (1-slopes_0.99$slope_0.25), 8),
+                                       plot_example_function(slopes_0.99,
+                                                             NULL,
+                                                             (1-slopes_0.99$slope_0.25),
+                                                             (1-slopes_0.99$slope_inverted), 8), nrow = 1) +
   annotate(geom = "text",
            label = "Incongruent Plots",
            x = 0.5,
            y = 0.05, size = 3)
 
-ggarrange(example_plots_congruent, example_plots_incongruent, nrow = 1)
+plots_99 <- ggarrange(example_plots_congruent_99,
+                      example_plots_incongruent_99,
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.99", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### COMBINE ALL ###########################
+
+ggarrange(plots_02, plots_06, plots_99, ncol = 1, heights = c(1.2, 1, 1))
 ```
 
 ## Point Visibility Testing {#point-visibility-testing-e4}

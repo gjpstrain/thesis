@@ -21,9 +21,9 @@ library(tinytex)
 
 quarto_render("chapters_quarto/", output_format = "latex")
 
-# Following command renders only a single chapter:
+ # Following command renders only a single chapter:
 
-quarto_render("chapters_quarto/3_general_methodology.qmd", output_format = "latex")
+quarto_render("chapters_quarto/7_belief_change.qmd", output_format = "latex")
 
 # functions to reformat tex are stored in the local directory
 

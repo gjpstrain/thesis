@@ -66,7 +66,7 @@ source("../shared_functions.R")
 
 # create slopes df for plotting example plots now
 
-slopes <- prepare_slopes(0.8)
+slopes <- prepare_slopes(0.6)
 ```
 
 ```{r}
@@ -803,7 +803,6 @@ statements <- read_csv("../data/experimental_dataframes/e5a_exp_dataframe.csv") 
 kbl(statements, booktabs = TRUE, format = "latex")
 ```
 
-
 ## Hypotheses {#hypotheses-e5a}
 
 In an attempt to control for the potential effects of belief about strength of
@@ -923,7 +922,63 @@ above chance on statement emotional valence ($\kappa$ =
 `r printnum(emot_kappa$value, digits = 2)`, *p*
 `r printp(emot_kappa$p.value, add_equals = TRUE)`) and strength of relatedness
 ($\kappa$ = `r printnum(belief_kappa$value, digits = 2)`, *p*
-`r printp(belief_kappa$p.value, add_equals = TRUE)`).
+`r printp(belief_kappa$p.value, add_equals = TRUE)`). Results for all 25 
+statements are shown in @fig-all-statements-results.
+
+```{r}
+#| label: fig-all-statements-results
+#| include: true
+#| fig-asp: 1.5
+#| fig-cap: placeholder
+
+summary_df <- E5_beliefs_pre_test_tidy %>%
+  select(statement,
+         item_no,
+         slider_belief.response,
+         slider_emotion.response) %>%
+  group_by(statement, item_no) %>%
+  summarise(mean_corr = mean(slider_belief.response),
+            sd_corr   = sd(slider_belief.response),
+            mean_emot = mean(slider_emotion.response),
+            sd_emot   = sd(slider_emotion.response),
+            .groups = "drop") %>%
+  mutate(statement = str_replace(
+    str_extract(str_replace_all(statement, "-", " "),
+                "^\\w+\\s+\\w+\\s+\\w+\\s+\\w+"),
+    "^(\\w+\\s+\\w+)\\s+(\\w+\\s+\\w+)$",
+    "\\1\n\\2..."
+  )) %>%
+  arrange(item_no)
+
+  statement_levels <- summary_df$statement
+  
+  plot_df <- summary_df %>%
+  pivot_longer(cols = c(mean_corr, mean_emot, sd_corr, sd_emot),
+               names_to = c(".value", "measure"),
+               names_pattern = "(mean|sd)_(.*)") %>%
+  mutate(statement = factor(statement, levels = rev(statement_levels)))
+
+  ggplot(plot_df,aes(x = mean, y = statement, color = measure, shape = measure)) +
+  geom_pointrange(aes(xmin = mean - sd, xmax = mean + sd),
+                 position = position_dodge(width = 0.4)) +
+  geom_point(size = 2, position = position_dodge(width = 0.5)) +
+  scale_x_continuous(breaks = 1:7, limits = c(1, 7.6)) +
+  scale_color_manual(values = c("corr" = "#E69F00", "emot" = "#0072B2"),
+                     labels = c("Correctness", "Emotion")) +
+  scale_shape_manual(values = c("corr" = 16, "emot" = 17),
+                     labels = c("Correctness", "Emotion")) +
+  labs(x = "Score", y = NULL, color = NULL, shape = NULL) +
+  theme_ggdist() +
+    theme(axis.text.y = element_text(size = 8),
+          legend.position = c(0.175, 0.975)) +
+  geom_text(
+  data = summary_df,
+  aes(x = 7.6, y = statement, label = item_no),
+  inherit.aes = FALSE,
+  hjust = 0
+)
+```
+
 
 ## Selecting Statements for the Main Experiment {#selecting-statements-e5a}
 
@@ -1076,30 +1131,73 @@ study.
 ```{r}
 #| label: fig-exp5-examples-chap7
 #| include: true
-#| fig-cap: Examples of the experimental stimuli for Experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the left, while group B saw the standard design on the right. The labels below the plots are included for the reader's convenience, and were not a part of the experimental stimuli. 
-#| fig-asp: 0.7
+#| fig-cap: Examples of the stimuli for Experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the left, while group B saw the typical design on the right. 
+#| fig-asp: 1.5
 
-# arrange example plots for experiment 5
-# experiment 5 uses its own example plot function
+# create example plots for experiment 5
 
-ggarrange(example_plot_function_exp5(slopes_exp5,
-                                     slopeI,
-                                     slopeI_floored,
-                                     bbc_style()),
-          example_plot_function_exp5(slopes_exp5,
-                                     typical,
-                                     standard_alpha,
-                                     bbc_style()), nrow = 1) +
-  annotate(geom = "text",
-           label = "Alternative Scatterplot",
-           x = 0.25,
-           y = 0.1,
-           size = 3) +
-  annotate(geom = "text",
-           label = "Standard Scatterplot",
-           x = 0.75,
-           y = 0.1,
-           size = 3)
+########################### 0.2 plots ###########################
+
+plots_02 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
+                                                 slopeI_02,
+                                                 slopeI_floored_02,
+                                                 bbc_style()),
+                      example_plot_function_exp5(slopes_exp5_02,
+                                                 typical_02,
+                                                 standard_alpha_02,
+                                                 bbc_style()),
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### 0.6 plots ###########################
+
+plots_06 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
+                                                 slopeI_06,
+                                                 slopeI_floored_06,
+                                                 bbc_style()),
+                      example_plot_function_exp5(slopes_exp5_06,
+                                                 typical_06,
+                                                 standard_alpha_06,
+                                                 bbc_style()),
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### 0.99 plots ###########################
+
+plots_99 <- annotate_figure(
+  ggarrange(
+    example_plot_function_exp5(slopes_exp5_99,
+                               slopeI_99,
+                               slopeI_floored_99,
+                               bbc_style()),
+    example_plot_function_exp5(slopes_exp5_99,
+                               typical_99,
+                               standard_alpha_99,
+                               bbc_style()),
+    nrow = 1
+  ) +
+    annotate("text",
+             label = "Typical Scatterplot",
+             x = 0.75,
+             y = 0.1,
+             size = 3) +
+    annotate("text",
+             label = "Atypical Scatterplot",
+             x = 0.25,
+             y = 0.1,
+             size = 3),
+  left = gridtext::richtext_grob(
+    "<i>r</i> = 0.99",
+    rot = 90,
+    gp = grid::gpar(fontsize = 10)
+  )
+)
+
+########################### COMBINE ALL ###########################
+
+ggarrange(plots_02, plots_06, plots_99, ncol = 1)
 ```
 
 After selecting a correlative statement describing a weak relationship and with

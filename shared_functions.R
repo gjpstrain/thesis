@@ -90,7 +90,8 @@ plot_example_function <- function (df, t = NULL, o, s, title_size) {
   if (!is.null(t)) {
     p <- p +
       labs(title = t) +
-      theme(plot.title = element_text(size = title_size, hjust = 0.5))
+      theme(plot.title = element_text(size = title_size, vjust = -0.1, hjust = 0.5),
+            plot.margin = unit(c(0.4, 0, 0.4, 0), "cm"))
   }
   
   p

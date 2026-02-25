@@ -864,16 +864,16 @@ be seen in @fig-exp1-examples-chap4, demonstrated with an *r* value of 0.6.
 # create example plots, arrange with ggarrange()
 
 row_1 <- ggarrange(plot_example_function(slopes_0.2, "Opacity = 0.25",
-                                         0.25, 0.2, 12),
+                                         0.25, 0.2, 8),
                    plot_example_function(slopes_0.2, "Opacity = 0.5",
-                                         0.5, 0.2, 12),
+                                         0.5, 0.2, 8),
                    plot_example_function(slopes_0.2, "Opacity = 0.75",
-                                         0.75, 0.2, 12),
+                                         0.75, 0.2, 8),
                    plot_example_function(slopes_0.2, "Opacity = 1",
-                                         1, 0.2, 12),
+                                         1, 0.2, 8),
                    nrow = 1) %>%
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
-                                                 gp = grid::gpar(fontsize = 12)))
+                                                 gp = grid::gpar(fontsize = 10)))
 
 row_2 <- ggarrange(plot_example_function(slopes_0.6, NULL,
                                         0.25, 0.2, 6.5),
@@ -885,7 +885,7 @@ row_2 <- ggarrange(plot_example_function(slopes_0.6, NULL,
                                         1, 0.2, 6.5),
                   nrow = 1) %>%
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
-                                                 gp = grid::gpar(fontsize = 12)))
+                                                 gp = grid::gpar(fontsize = 10)))
 
 row_3 <- ggarrange(plot_example_function(slopes_0.99, NULL,
                                         0.25, 0.2, 6.5),
@@ -897,9 +897,9 @@ row_3 <- ggarrange(plot_example_function(slopes_0.99, NULL,
                                         1, 0.2, 6.5),
                   nrow = 1) %>%
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.99", rot = 90,
-                                                 gp = grid::gpar(fontsize = 12)))
+                                                 gp = grid::gpar(fontsize = 10)))
 
-ggarrange(row_1, row_2, row_3, ncol = 1)
+ggarrange(row_1, row_2, row_3, ncol = 1, heights = c(1.2, 1, 1))
 ```
 
 ## Results {#results-e1}
@@ -1367,16 +1367,16 @@ found.
 # example plots for experiment 2, arranged with ggarrange()
 
 row_1 <- ggarrange(plot_example_function(slopes_0.2, "Full Opacity",
-                                         1, 0.2, 6.5),
+                                         1, 0.2, 8),
                    plot_example_function(slopes_0.2, "Linear Decay",
-                                         (1-slopes_0.2$slope_linear), 0.2, 6.5),
+                                         (1-slopes_0.2$slope_linear), 0.2, 8),
                    plot_example_function(slopes_0.2, "Non-linear Decay",
-                                         (1-slopes_0.2$slope_0.25), 0.2, 6.5),
+                                         (1-slopes_0.2$slope_0.25), 0.2, 8),
                    plot_example_function(slopes_0.2, "Inverted Non-linear Decay",
-                                         (1-slopes_0.2$slope_inverted), 0.2, 6.5),
+                                         (1-slopes_0.2$slope_inverted), 0.2, 7),
                    nrow = 1) %>%
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
-                                                 gp = grid::gpar(fontsize = 14)))
+                                                 gp = grid::gpar(fontsize = 10)))
 
 row_2 <- ggarrange(plot_example_function(slopes_0.6, NULL,
                                          1, 0.2, 6.5),
@@ -1388,7 +1388,7 @@ row_2 <- ggarrange(plot_example_function(slopes_0.6, NULL,
                                          (1-slopes_0.6$slope_inverted), 0.2, 6.5),
                    nrow = 1) %>%
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
-                                                 gp = grid::gpar(fontsize = 14)))
+                                                 gp = grid::gpar(fontsize = 10)))
 
 row_3 <- ggarrange(plot_example_function(slopes_0.99, NULL,
                                          1, 0.2, 6.5),
@@ -1400,9 +1400,9 @@ row_3 <- ggarrange(plot_example_function(slopes_0.99, NULL,
                                          (1-slopes_0.99$slope_inverted), 0.2, 6.5),
                    nrow = 1) %>%
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.99", rot = 90,
-                                                 gp = grid::gpar(fontsize = 14)))
+                                                 gp = grid::gpar(fontsize = 10)))
 
-ggarrange(row_1, row_2, row_3, ncol = 1)
+ggarrange(row_1, row_2, row_3, ncol = 1, heights = c(1.2, 1, 1))
 ```
 
 ## Results {#results-e2}

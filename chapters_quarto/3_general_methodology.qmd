@@ -119,13 +119,13 @@ scatterplots, which were shown to group B (see @fig-exp5-examples).
 # create example plots, arrange with ggarrange()
 
 row_1 <- ggarrange(plot_example_function(slopes_0.2, "Opacity = 0.25",
-                                         0.25, 0.2, 10),
+                                         0.25, 0.2, 8),
                    plot_example_function(slopes_0.2, "Opacity = 0.5",
-                                         0.5, 0.2, 10),
+                                         0.5, 0.2, 8),
                    plot_example_function(slopes_0.2, "Opacity = 0.75",
-                                         0.75, 0.2, 10),
+                                         0.75, 0.2, 8),
                    plot_example_function(slopes_0.2, "Opacity = 1",
-                                         1, 0.2, 10),
+                                         1, 0.2, 8),
                    nrow = 1) %>%
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
                                                  gp = grid::gpar(fontsize = 10)))
@@ -154,7 +154,7 @@ row_3 <- ggarrange(plot_example_function(slopes_0.99, NULL,
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.99", rot = 90,
                                                  gp = grid::gpar(fontsize = 10)))
 
-ggarrange(row_1, row_2, row_3, ncol = 1)
+ggarrange(row_1, row_2, row_3, ncol = 1, heights = c(1.2, 1, 1))
 ```
 
 ```{r}
@@ -201,7 +201,7 @@ row_3 <- ggarrange(plot_example_function(slopes_0.99, NULL,
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.99", rot = 90,
                                                  gp = grid::gpar(fontsize = 10)))
 
-ggarrange(row_1, row_2, row_3, ncol = 1)
+ggarrange(row_1, row_2, row_3, ncol = 1, heights = c(1.2, 1, 1))
 ```
 
 ```{r}
@@ -248,7 +248,7 @@ row_3 <- ggarrange(plot_example_function(slopes_0.99, NULL,
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.99", rot = 90,
                                                  gp = grid::gpar(fontsize = 10)))
 
-ggarrange(row_1, row_2, row_3, ncol = 1)
+ggarrange(row_1, row_2, row_3, ncol = 1, heights = c(1.2, 1, 1))
 ```
 
 ```{r}
@@ -345,9 +345,7 @@ plots_99 <- ggarrange(example_plots_congruent_99,
 
 ########################### COMBINE ALL ###########################
 
-ggarrange(plots_02, plots_06, plots_99, ncol = 1)
-
-
+ggarrange(plots_02, plots_06, plots_99, ncol = 1, heights = c(1.2, 1, 1))
 ```
 
 ```{r}
