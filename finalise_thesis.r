@@ -21,7 +21,7 @@ library(tinytex)
 
 quarto_render("chapters_quarto/", output_format = "latex")
 
- # Following command renders only a single chapter:
+# Following command renders only a single chapter:
 
 quarto_render("chapters_quarto/7_belief_change.qmd", output_format = "latex")
 
