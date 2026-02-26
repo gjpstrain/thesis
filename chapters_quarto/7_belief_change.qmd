@@ -968,14 +968,18 @@ summary_df <- E5_beliefs_pre_test_tidy %>%
                      labels = c("Strength of Relatedness", "Emotional Valence")) +
   scale_shape_manual(values = c("corr" = 16, "emot" = 17),
                      labels = c("Strength of Relatedness", "Emotional Valence")) +
-  labs(x = "Score", y = NULL, color = NULL, shape = NULL) +
+  labs(x = "Mean\nRating", y = NULL, color = NULL, shape = NULL) +
   theme_ggdist() +
     theme(axis.text.y = element_text(size = 8),
-          legend.position = c(0.23, 0.975)) +
+          legend.position = "bottom",
+          legend.text = element_text(size = 8),
+          axis.title.x = element_text(hjust = 0, size = 8),
+          legend.box.margin = margin(t = -30),
+          legend.box.just = "right") +
 geom_text(
   data = summary_df,
   aes(x = 1, y = statement, label = formatC(item_no, width = 2, flag = " ")),
-  size = 3,
+  size = 2,
   inherit.aes = FALSE,
   hjust = 1.3  # monospaced font makes fixed-width padding work properly
 )
