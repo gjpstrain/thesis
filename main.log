@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.2.19)  26 FEB 2026 13:31
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.2.18)  27 FEB 2026 13:50
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -7,8 +7,8 @@ L3 programming layer <2026-01-19>
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended collection.
-luaotfload | conf : Root cache directory is "C:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names".
-luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-resolved path "c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/luatex/luaotfload/fontloader-2023-12-28.lua".
+luaotfload | conf : Root cache directory is "C:/Users/gabri/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-resolved path "c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/luatex/luaotfload/fontloader-2023-12-28.lua".
 Lua-only attribute luaotfload@noligature = 1
 luaotfload | init : Context OpenType loader version 3.134
 Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
@@ -16,7 +16,7 @@ Inserting `luaotfload.node_processor' in `hpack_filter'.
 Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
 Inserting `luaotfload.define_font' in `define_font'.
 Lua-only attribute luaotfload_color_attribute = 2
-luaotfload | conf : Root cache directory is "C:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names".
+luaotfload | conf : Root cache directory is "C:/Users/gabri/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names".
 Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
 Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
 Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
@@ -41,11 +41,11 @@ LaTeX Info: File `main.xmpdata' already exists on the system.
 
 (./uom_thesis_casson.cls
 Document Class: uom_thesis_casson 2022/10/15 - Alex Casson - University of Manchester thesis format
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/report.cls
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
-luaotfload | db : Font names database loaded from C:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+luaotfload | db : Font names database loaded from C:/Users/gabri/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
 \c@part=\count273
 \c@chapter=\count274
 \c@section=\count275
@@ -58,38 +58,38 @@ luaotfload | db : Font names database loaded from C:/Users/mbch4gs2/AppData/Roam
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen147
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfx/pdfx.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfx/pdfx.sty
 Package: pdfx 2024/06/24 v1.6.5f PDF/X and PDF/A support (CVR/HTH/RRM/PS)
 \pdfx@minorversion=\count282
 \pdfx@majorversion=\count283
 \pdfmajorversion=\count284
 \pdfminorversion=\count285
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifluatex.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
-)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifpdf.sty
+)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/everyshi/everyshi.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/everyshi/everyshi.sty
 Package: everyshi 2020/11/18 v4.00 EveryShipout Package
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/luatex85/luatex85.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/luatex85/luatex85.sty
 Package: luatex85 2016/06/15 v1.4 pdftex aliases for luatex
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 \pdftexcmds@toks=\toks17
-){c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+){c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 warning  (map file): entry for 'dummy-space' already exists, duplicates ignored
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfx/l8u-penc.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfx/l8u-penc.def
 File: l8u-penc.def 2017/06/23 v0.8 Custom LaTeX file, for UTF8 encoded letters and symbols
 LaTeX Encoding Info:    Redeclaring text command \textdoubletilde (encoding L8U) on input line 210.
 LaTeX Encoding Info:    Redeclaring text command \texttipaG (encoding L8U) on input line 256.
@@ -110,18 +110,18 @@ LaTeX Encoding Info:    Redeclaring text command \textdownstep (encoding L8U) on
 LaTeX Encoding Info:    Redeclaring text command \textcopyleft (encoding L8U) on input line 3810.
 )
 \pdfxsafeforxmp@toks=\toks18
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 
 Package xcolor Warning: Package option `hyperref' is obsolete and ignored on input line 265.
 
 Package xcolor Info: Driver file: luatex.def on input line 274.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/luatex.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/luatex.def
 File: luatex.def 2025/09/29 v1.2f Graphics/color driver for luatex
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
@@ -133,45 +133,45 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
 \pdfx@tmptoks=\toks19
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks20
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count286
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count287
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
 \@linkdim=\dimen148
 \Hy@linkcounter=\count288
 \Hy@pagecounter=\count289
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count290
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `pdfa' set `true' on input line 4072.
@@ -183,15 +183,15 @@ Package hyperref Info: Backreferencing OFF on input line 4221.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4468.
 \c@Hy@tempcnt=\count291
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4807.
 \XeTeXLinkMargin=\dimen149
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count292
@@ -209,14 +209,14 @@ Package hyperref Info: PDF/A mode ON on input line 6112.
 \c@Hfootnote=\count295
 )
 Package hyperref Info: Driver: hluatex.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hluatex.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hluatex.def
 File: hluatex.def 2026-01-29 v7.01p Hyperref driver for luaTeX
 Package hyperref Info: 񑙳.񑙴:=1.4 on input line 238.
 \Fld@listcount=\count296
 \c@bookmark@seq@number=\count297
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
@@ -224,15 +224,15 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip51
 )
 Package hyperref Info: Option `psdextra' set `true' on input line 1535.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/psdextra.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/psdextra.def
 File: psdextra.def 2026-01-29 v7.01p Hyperref: Additions to PDF string support
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/colorprofiles/colorprofiles.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/colorprofiles/colorprofiles.sty
 Package: colorprofiles 2018/11/01 v1.0.1 color profiles for PDF/X and PDF/A support
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/colorprofiles/colorprofiles.tex)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfx/AdobeColorProfiles.tex)
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/colorprofiles/colorprofiles.tex)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfx/AdobeColorProfiles.tex)
 ** pdfx: Metadata file main.xmpdata read successfully.
-(./main.xmpdata)<<sRGB.icc>> (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftex/glyphtounicode.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfx/glyphtounicode-cmr.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfx/glyphtounicode-ntx.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
+(./main.xmpdata)<<sRGB.icc>> (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftex/glyphtounicode.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfx/glyphtounicode-cmr.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdfx/glyphtounicode-ntx.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xmpincl/xmpincl.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xmpincl/xmpincl.sty
 Package: xmpincl 2021/09/22 v2.4 Include XMP data in pdflatex
 )
 Using XMP template file: pdfa.xmp
@@ -248,7 +248,7 @@ consistent with the Color Model for PDF/A  on input line 3126.
 )
 Package hyperref Info: Option `colorlinks' set `false' on input line 39.
 Package hyperref Info: Option `breaklinks' set `true' on input line 39.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \ttl@box=\box53
 \beforetitleunit=\skip52
@@ -259,9 +259,9 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \titlewidth=\dimen154
 \titlewidthlast=\dimen155
 \titlewidthfirst=\dimen156
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
 \Gm@cnth=\count298
@@ -276,35 +276,35 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen163
 \Gm@layoutvoffset=\dimen164
 \Gm@dimlist=\toks22
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: luatex.def on input line 106.
 )
 \Gin@req@height=\dimen165
 \Gin@req@width=\dimen166
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks23
 \pgfutil@tempdima=\dimen167
 \pgfutil@tempdimb=\dimen168
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
 \pgfutil@abb=\box54
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
-)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks24
 \pgfkeys@temptoks=\toks25
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
 \pgfkeys@tmptoks=\toks26
 ))
 \pgf@x=\dimen169
@@ -327,32 +327,32 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 \t@pgf@tokb=\toks28
 \t@pgf@tokc=\toks29
 \pgf@sys@id@count=\count305
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
 Driver file for pgf: pgfsys-luatex.def
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
 File: pgfsys-luatex.def 2025-08-29 v3.1.11a (3.1.11a)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
-))) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+))) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfsyssoftpath@smallbuffer@items=\count306
 \pgfsyssoftpath@bigbuffer@items=\count307
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen179
 \pgfmath@count=\count308
 \pgfmath@box=\box55
 \pgfmath@toks=\toks30
 \pgfmath@stack@operand=\toks31
 \pgfmath@stack@operation=\toks32
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count309
-)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@picminx=\dimen180
 \pgf@picmaxx=\dimen181
@@ -368,65 +368,65 @@ File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@yy=\dimen191
 \pgf@zx=\dimen192
 \pgf@zy=\dimen193
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@path@lastx=\dimen194
 \pgf@path@lasty=\dimen195
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@shorten@end@additional=\dimen196
 \pgf@shorten@start@additional=\dimen197
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box56
 \pgf@hbox=\box57
 \pgf@layerbox@main=\box58
 \pgf@picture@serial@count=\count310
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgflinewidth=\dimen198
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@pt@x=\dimen199
 \pgf@pt@y=\dimen256
 \pgf@pt@temp=\dimen257
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
 File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
 File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfarrowsep=\dimen258
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@max=\dimen259
 \pgf@sys@shading@range@num=\count311
 \pgf@shadingcount=\count312
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfexternal@startupbox=\box59
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
 File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
 File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
 File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+))) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2026-01-19 L3 programming layer (loader) 
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2025-10-09 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count313
 Inserting `l3color' in `luaotfload.parse_color'.))
 Package: xparse 2025-10-09 L3 Experimental document command parser
 )
 Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
-Lua module: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
+Lua module: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
 Package: fontspec-luatex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
 \l__fontspec_script_int=\count314
 \l__fontspec_language_int=\count315
@@ -442,9 +442,9 @@ Package: fontspec-luatex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTe
 \l__fontspec_tmpa_dim=\dimen260
 \l__fontspec_tmpb_dim=\dimen261
 \l__fontspec_tmpc_dim=\dimen262
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tocloft/tocloft.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
 Package tocloft Info: The document has chapter divisions on input line 51.
 \cftparskip=\skip54
@@ -483,12 +483,12 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cftbeforetabskip=\skip85
 \cfttabindent=\skip86
 \cfttabnumwidth=\skip87
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 \BKM@id=\count327
-)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/enumitem/enumitem.sty
+)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip88
 \enit@outerparindent=\dimen263
@@ -496,14 +496,14 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box60
 \enit@count@id=\count328
 \enitdp@description=\count329
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/appendix/appendix.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@pps=\count330
 \c@@ppsavesec=\count331
 \c@@ppsaveapp=\count332
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen264
 \captionmargin=\dimen265
@@ -519,7 +519,7 @@ Package caption Info: Standard document class detected.
 \c@continuedfloat=\count334
 Package caption Info: hyperref package is loaded.
 )
-luaotfload | cache : Lookup cache loaded from C:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc.
+luaotfload | cache : Lookup cache loaded from C:/Users/gabri/AppData/Roaming/TinyTeX/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc.
 
 Package fontspec Info: 
 (fontspec)             Font family 'Calibri(0)' created for font 'Calibri'
@@ -552,20 +552,20 @@ Package fontspec Info:
 \marginright=\skip93
 \margintop=\skip94
 \marginbottom=\skip95
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip96
 For additional information on amsmath, use the `?' option.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks34
 \ex@=\dimen272
-)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen273
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count335
@@ -615,33 +615,33 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \mathdisplay@stack=\toks38
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/rotating.sty
+)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/rotating.sty
 Package: rotating 2025/01/14 v2.16e rotated objects in LaTeX
 \c@r@tfl@t=\count347
 \rotFPtop=\skip99
 \rotFPbot=\skip100
 \rot@float@box=\box63
 \rot@mess@toks=\toks39
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@colwidth=\skip101
 \multirow@cntb=\count348
 \multirow@dima=\skip102
 \bigstrutjot=\dimen281
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen282
 \ar@mcellbox=\box64
@@ -658,16 +658,16 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \TX@delta=\dimen288
 \TX@cols=\count349
 \TX@ftn=\toks41
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks42
 \verbatim@line=\toks43
 \verbatim@in@stream=\read4
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \fn@notes=\box66
 \fn@width=\dimen289
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen290
 \lightrulewidth=\dimen291
@@ -686,34 +686,31 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count352
 \@lastruleclass=\count353
 \@thisrulewidth=\dimen302
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2026/02/14 v26.3 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2026/02/14 v26.3 Babel common definitions
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/luababel.def
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/luababel.def
 \bbl@readstream=\read5
 \l@dumylang=\language2
 Package babel Info: Non-standard hyphenation setup on input line 118.
 \l@nohyphenation=\language3
-\l@ukenglish=\language4
-\l@usenglishmax=\language5
-\l@french=\language6
 \babelcatcodetablenum=\catcodetable14
 \bbl@pattcodes=\catcodetable15
-)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lipsum/lipsum.sty (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lipsum/lipsum.sty (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2025-10-09 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count354
 \l__lipsum_a_int=\count355
 \l__lipsum_b_int=\count356
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/subcaption.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count357
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count358
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/floatrow/floatrow.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/floatrow/floatrow.sty
 Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
 \c@float@type=\count359
 \float@exts=\toks44
@@ -749,7 +746,7 @@ Package floatrow Info: Modified rotfloat package code loaded on input line 473.
 \LTleft=\skip117
 \LTright=\skip118
 \flrow@types=\toks46
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/siunitx/siunitx.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
 \l__siunitx_number_uncert_offset_int=\count366
 \l__siunitx_number_exponent_fixed_int=\count367
@@ -778,13 +775,13 @@ Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
 \l__siunitx_unit_tmp_int=\count377
 \l__siunitx_unit_position_int=\count378
 \l__siunitx_unit_total_int=\count379
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfiles/subfiles.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/import/import.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/import/import.sty
 Package: import 2020/04/01  v 6.2
-)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/bibentry.sty
+)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/bibentry.sty
 Package: bibentry 2007/10/30 1.5 (PWD)
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
 \LTleft=\skip119
 \LTright=\skip120
@@ -802,17 +799,17 @@ Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
 \c@LT@tables=\count383
 \c@LT@chunks=\count384
 \LT@p@ftn=\toks47
-) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyref/fancyref.sty
+) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyref/fancyref.sty
 Package: fancyref 1999/02/03 v0.9c Fancy cross-referencing
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/varioref.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/varioref.sty
 Package: varioref 2025/01/14 v1.6g package for extended references (FMi)
 \c@vrcnt=\count385
-)) (c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.sty
+)) (c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
 \lrq@indent=\count386
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
 \c@tabx@nest=\count387
@@ -868,13 +865,13 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibhang=\skip130
 \blx@bcfin=\read6
 \blx@bcfout=\write5
-\blx@langwohyphens=\language7
+\blx@langwohyphens=\language4
 \c@mincomprange=\count430
 \c@maxcomprange=\count431
 \c@mincompwidth=\count432
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-dm.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-dm.def
 File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
@@ -965,15 +962,15 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \localshorteditorwidth=\skip144
 Package biblatex Info: Trying to load enhanced support for Unicode engines...
 Package biblatex Info: ... file 'blx-unicode.def' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-unicode.def)
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-unicode.def)
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-compat.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-compat.def
 File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
 \c@textcitecount=\count501
 \c@textcitetotal=\count502
@@ -991,28 +988,28 @@ File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load natbib compatibility...
 Package biblatex Info: ... file 'blx-natbib.def' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-natbib.def
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-natbib.def
 File: blx-natbib.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
 Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, overwriting.
 )
 Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
 Package biblatex Info: ... file 'numeric-comp.bbx' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
 File: numeric-comp.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
 File: numeric.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count510
 \c@bbx:relatedtotal=\count511
 )))
 Package biblatex Info: Trying to load citation style 'numeric-comp'...
 Package biblatex Info: ... file 'numeric-comp.cbx' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
 File: numeric-comp.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
 \c@cbx@tempcnta=\count512
 \c@cbx@tempcntb=\count513
@@ -1032,7 +1029,7 @@ Package biblatex Info: Redefining '\smartcites'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.cfg
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 )
 Package biblatex Info: LuaTeX detected.
@@ -1042,7 +1039,7 @@ Package biblatex Info: ... and expl3
 (biblatex)             2026-01-19 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 ))
 \@quotelevel=\count516
@@ -1070,10 +1067,10 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
 LaTeX Font Info:    ... okay on input line 93.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
 LaTeX Font Info:    ... okay on input line 93.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 93.
@@ -1173,13 +1170,13 @@ Package caption Info: float package is loaded.
 Package caption Info: floatrow package is loaded.
 Package caption Info: floatrow package is loaded.
 Package caption Info: longtable package is loaded.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: Fixing longtable code of `floatrow' package.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/floatrow/fr-longtable.sty
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/floatrow/fr-longtable.sty
 Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 \flrow@LT@lasthead=\box83
 \flrow@LT@prelastfoot=\box84
@@ -1187,7 +1184,7 @@ Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 )
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 )
 Package biblatex Info: LuaTeX detected.
@@ -1208,11 +1205,11 @@ warning  (file uom_logo.pdf) (pdf inclusion): PDF inclusion: found PDF version '
 
 <./uom_logo.pdf>] (./main.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
-(c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+(c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2] [3] [4] [5] [6])
 \tf@toc=\write6
@@ -1258,86 +1255,86 @@ Chapter 2.
 (./chapters_tex/chapters_quarto/2_related_work.tex [25
 
 ]
-<chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png, id=863, 1623.06375pt x 914.66719pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png, id=867, 1623.06375pt x 914.66719pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png  used on input line 57.
 (luatex.def)             Requested size: 483.69687pt x 272.5879pt.
 [26<./chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png>]
-<chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png, id=875, 1451.4225pt x 1120.9378pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png, id=879, 1451.4225pt x 1120.9378pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png  used on input line 91.
 (luatex.def)             Requested size: 483.69687pt x 373.5538pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg, id=876, 1211.9679pt x 1136.86732pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg, id=880, 1211.9679pt x 1136.86732pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg Graphic file (type jpg)
 <use chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg  used on input line 105.
 (luatex.def)             Requested size: 483.69687pt x 453.73274pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg, id=877, 1462.19pt x 697.15pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg, id=881, 1462.19pt x 697.15pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg Graphic file (type jpg)
 <use chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg  used on input line 120.
 (luatex.def)             Requested size: 483.69687pt x 230.62401pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg, id=878, 7022.235pt x 3840.3475pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg, id=882, 7022.235pt x 3840.3475pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg Graphic file (type jpg)
 <use chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg  used on input line 138.
 (luatex.def)             Requested size: 483.69687pt x 264.51547pt.
 [27<./chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png>] [28<./chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg>] [29<./chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg><./chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg>]
-<chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png, id=901, 914.66719pt x 593.21625pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png, id=905, 914.66719pt x 593.21625pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png  used on input line 206.
 (luatex.def)             Requested size: 483.69687pt x 313.70613pt.
 [30<./chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png>] [31]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf, id=932, 385.44pt x 87.32625pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf, id=936, 385.44pt x 87.32625pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf  used on input line 306.
 (luatex.def)             Requested size: 483.69687pt x 109.58794pt.
 [32<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf>]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf, id=956, 389.455pt x 198.7425pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf, id=960, 389.455pt x 198.7425pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf  used on input line 351.
 (luatex.def)             Requested size: 483.69687pt x 246.8445pt.
 [33<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf>]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf, id=979, 387.4475pt x 242.9075pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf, id=983, 387.4475pt x 242.9075pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf  used on input line 409.
 (luatex.def)             Requested size: 483.69687pt x 303.25554pt.
 [34]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf, id=993, 378.41376pt x 384.43625pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf, id=997, 378.41376pt x 384.43625pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf  used on input line 452.
 (luatex.def)             Requested size: 483.69687pt x 491.40211pt.
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf, id=995, 385.44pt x 186.6975pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf, id=999, 385.44pt x 186.6975pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf  used on input line 468.
 (luatex.def)             Requested size: 483.69687pt x 234.29144pt.
 [35<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf>] [36<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf>] [37<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf>] [38]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf, id=1059, 396.48125pt x 226.8475pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf, id=1063, 396.48125pt x 226.8475pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf  used on input line 584.
 (luatex.def)             Requested size: 483.69687pt x 276.75354pt.
 [39<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf>] [40]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf, id=1116, 387.4475pt x 385.44pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf, id=1120, 387.4475pt x 385.44pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf  used on input line 690.
 (luatex.def)             Requested size: 483.69687pt x 481.19891pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png, id=1128, 979.66pt x 1399.2275pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png, id=1132, 979.66pt x 1399.2275pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png  used on input line 735.
 (luatex.def)             Requested size: 483.69687pt x 690.83699pt.
 [41] [42<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf>] [43<./chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png>]
-<chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png, id=1166, 1212.02812pt x 706.89093pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png, id=1170, 1212.02812pt x 706.89093pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png  used on input line 783.
@@ -1345,7 +1342,7 @@ Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/sgl_t
 [44<./chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png>] [45]) [46]
 Chapter 3.
 (./chapters_tex/chapters_quarto/3_general_methodology.tex
-<chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png, id=1207, 1811.76875pt x 1062.97125pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png, id=1211, 1811.76875pt x 1062.97125pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png  used on input line 34.
@@ -1353,39 +1350,39 @@ Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/examp
 [47
 
 ]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf, id=1220, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf, id=1224, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf  used on input line 78.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf, id=1221, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf, id=1225, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf  used on input line 92.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf, id=1222, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf, id=1226, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf  used on input line 106.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf, id=1223, 395.4775pt x 305.14pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf, id=1227, 395.4775pt x 305.14pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf  used on input line 120.
 (luatex.def)             Requested size: 483.69687pt x 373.21075pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf, id=1224, 396.48125pt x 577.15625pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf, id=1228, 396.48125pt x 577.15625pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf  used on input line 134.
 (luatex.def)             Requested size: 483.69687pt x 704.1296pt.
 [48<./chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png>] [49<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf>] [50<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf>] [51<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf>] [52<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf>] [53<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf>]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf, id=1853, 399.4925pt x 368.37625pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf, id=1857, 399.4925pt x 368.37625pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf  used on input line 268.
 (luatex.def)             Requested size: 483.69687pt x 446.04578pt.
 [54] [55<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf, id=1878, 387.4475pt x 228.855pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf, id=1882, 387.4475pt x 228.855pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf  used on input line 338.
@@ -1406,7 +1403,7 @@ Overfull \hbox (4.51056pt too wide) in paragraph at lines 584--585
  []
 
 [61]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf, id=1985, 363.3575pt x 77.28876pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf, id=1989, 363.3575pt x 77.28876pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf  used on input line 630.
@@ -1416,47 +1413,47 @@ Chapter 4.
 (./chapters_tex/chapters_quarto/4_adjusting_opacity.tex [65
 
 ]
-<chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png, id=2045, 2409.0pt x 1204.5pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png, id=2049, 2409.0pt x 1204.5pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png  used on input line 55.
 (luatex.def)             Requested size: 483.69687pt x 241.83307pt.
 [66<./chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png>] [67] [68]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf, id=2080, 370.38374pt x 131.49126pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf, id=2084, 370.38374pt x 131.49126pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf  used on input line 294.
 (luatex.def)             Requested size: 483.69687pt x 171.72108pt.
 [69]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf, id=2092, 374.39874pt x 56.21pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf, id=2096, 374.39874pt x 56.21pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf  used on input line 329.
 (luatex.def)             Requested size: 483.69687pt x 72.62354pt.
 [70<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf><./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf>] [71]
-<chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png, id=2148, 1256.44406pt x 665.48625pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png, id=2152, 1256.44406pt x 665.48625pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png  used on input line 451.
 (luatex.def)             Requested size: 483.69687pt x 256.1876pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png, id=2149, 289.08pt x 289.08pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png, id=2153, 289.08pt x 289.08pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png  used on input line 465.
 (luatex.def)             Requested size: 483.69687pt x 483.72346pt.
 [72] [73<./chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png>] [74<./chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png>]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf, id=2184, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf, id=2188, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf  used on input line 565.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf, id=2186, 387.4475pt x 148.555pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf, id=2190, 387.4475pt x 148.555pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf  used on input line 593.
 (luatex.def)             Requested size: 483.69687pt x 185.46207pt.
 [75] [76<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf><./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf>]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf, id=2217, 388.45125pt x 128.48pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf, id=2221, 388.45125pt x 128.48pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf  used on input line 716.
@@ -1466,31 +1463,31 @@ Overfull \hbox (2.2366pt too wide) in paragraph at lines 788--796
 \TU/Calibri(0)/m/n/12 ground; the greater spa-tial un-cer-tainty brought on by re-duced point opac-ity, while not elic-it-ing greater
  []
 
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf, id=2252, 387.4475pt x 387.4475pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf, id=2256, 387.4475pt x 387.4475pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf  used on input line 837.
 (luatex.def)             Requested size: 483.69687pt x 483.70515pt.
 [79] [80<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf>]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf, id=2275, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf, id=2279, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf  used on input line 910.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
 [81]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf, id=2284, 387.4475pt x 148.555pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf, id=2288, 387.4475pt x 148.555pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf  used on input line 938.
 (luatex.def)             Requested size: 483.69687pt x 185.46207pt.
 [82<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf>]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf, id=2529, 388.45125pt x 128.48pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf, id=2533, 388.45125pt x 128.48pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf  used on input line 1058.
 (luatex.def)             Requested size: 483.69687pt x 159.98596pt.
 [83<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf>] [84<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf>]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf, id=2564, 399.4925pt x 363.3575pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf, id=2568, 399.4925pt x 363.3575pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf  used on input line 1137.
@@ -1500,30 +1497,30 @@ Chapter 5.
 (./chapters_tex/chapters_quarto/5_adjusting_size.tex [90
 
 ]
-<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf, id=2624, 391.4625pt x 232.87pt>
+<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf, id=2628, 391.4625pt x 232.87pt>
 File: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf  used on input line 49.
 (luatex.def)             Requested size: 483.69687pt x 287.75375pt.
 [91<./chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf>] [92]
-<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf, id=2667, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf, id=2671, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf  used on input line 159.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png, id=2668, 1445.4pt x 1129.21875pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png, id=2672, 1445.4pt x 1129.21875pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png  used on input line 176.
 (luatex.def)             Requested size: 483.69687pt x 377.88141pt.
 [93] [94<./chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf>] [95<./chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png>]
-<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf, id=2707, 387.4475pt x 148.555pt>
+<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf, id=2711, 387.4475pt x 148.555pt>
 File: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf  used on input line 278.
 (luatex.def)             Requested size: 483.69687pt x 185.46207pt.
 [96]
-<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf, id=2715, 388.45125pt x 128.48pt>
+<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf, id=2719, 388.45125pt x 128.48pt>
 File: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf  used on input line 396.
@@ -1543,37 +1540,37 @@ Overfull \hbox (4.92422pt too wide) in paragraph at lines 69--91
  []
 
 [104] [105] [106]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf, id=2861, 395.4775pt x 305.14pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf, id=2865, 395.4775pt x 305.14pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf  used on input line 227.
 (luatex.def)             Requested size: 483.69687pt x 373.21075pt.
 [107] [108<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf>] [109]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf, id=3106, 387.4475pt x 148.555pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf, id=3110, 387.4475pt x 148.555pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf  used on input line 350.
 (luatex.def)             Requested size: 483.69687pt x 185.46207pt.
 [110]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf, id=3119, 387.4475pt x 146.5475pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf, id=3123, 387.4475pt x 146.5475pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf  used on input line 435.
 (luatex.def)             Requested size: 483.69687pt x 182.95581pt.
 [111<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf>]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf, id=3133, 388.45125pt x 128.48pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf, id=3137, 388.45125pt x 128.48pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf  used on input line 479.
 (luatex.def)             Requested size: 483.69687pt x 159.98596pt.
 [112<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf>] [113<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf>] [114]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf, id=3185, 388.45125pt x 128.48pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf, id=3189, 388.45125pt x 128.48pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf  used on input line 621.
 (luatex.def)             Requested size: 483.69687pt x 159.98596pt.
 [115<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf>]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf, id=3207, 387.4475pt x 158.5925pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf, id=3211, 387.4475pt x 158.5925pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf  used on input line 692.
@@ -1583,49 +1580,56 @@ Chapter 7.
 (./chapters_tex/chapters_quarto/7_belief_change.tex [121
 
 ] [122]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf, id=3308, 395.4775pt x 237.88875pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf, id=3312, 395.4775pt x 248.93pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf  used on input line 120.
-(luatex.def)             Requested size: 483.69687pt x 290.95706pt.
-[123] [124<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf>] [125] [126] [127]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf, id=3483, 387.4475pt x 577.15625pt>
+(luatex.def)             Requested size: 483.69687pt x 304.46141pt.
+[123] [124<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf>] [125] [126]
+<chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png, id=3479, 1229.34282pt x 678.28406pt>
+File: chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png Graphic file (type png)
+<use chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png>
+Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png  used on input line 328.
+(luatex.def)             Requested size: 483.69687pt x 266.8791pt.
+[127]
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf, id=3488, 387.4475pt x 577.15625pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf  used on input line 362.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf  used on input line 367.
 (luatex.def)             Requested size: 483.69687pt x 720.54524pt.
 
-LaTeX Warning: Float too large for page by 6.85664pt on input line 371.
+LaTeX Warning: Float too large for page by 18.85664pt on input line 378.
 
-[128] [129<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf>] [130] [131]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf, id=3534, 396.48125pt x 577.15625pt>
+[128<./chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png>] [129<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf>] [130] [131]
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf, id=3542, 396.48125pt x 577.15625pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf  used on input line 555.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf  used on input line 562.
 (luatex.def)             Requested size: 483.69687pt x 704.1296pt.
-[132] [133<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf>] [134] [135]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf, id=3674, 372.39125pt x 209.78375pt>
+[132] [133] [134<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf>] [135]
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf, id=3681, 372.39125pt x 209.78375pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf  used on input line 734.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf  used on input line 741.
 (luatex.def)             Requested size: 483.69687pt x 272.49794pt.
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf, id=3677, 372.39125pt x 144.54pt>
+[136]
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf, id=3690, 372.39125pt x 144.54pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf  used on input line 773.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf  used on input line 780.
 (luatex.def)             Requested size: 483.69687pt x 187.74977pt.
-[136] [137<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf><./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf>]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf, id=3704, 387.4475pt x 132.495pt>
+[137<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf>]
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf, id=3706, 387.4475pt x 132.495pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf  used on input line 820.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf  used on input line 827.
 (luatex.def)             Requested size: 483.69687pt x 165.41211pt.
-[138<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf>] [139] [140] [141]) [142]
+[138<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf>] [139<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf>] [140] [141] [142]) [143]
 Chapter 8.
-(./chapters_tex/chapters_quarto/8_conclusion.tex [143
+(./chapters_tex/chapters_quarto/8_conclusion.tex [144
 
 ]
-<chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf, id=3779, 386.44376pt x 586.19pt>
+<chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf, id=3791, 386.44376pt x 586.19pt>
 File: chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf  used on input line 86.
@@ -1633,24 +1637,24 @@ Package luatex.def Info: chapters_tex/chapters_quarto/8_conclusion_files/figure-
 
 LaTeX Warning: Float too large for page by 20.031pt on input line 97.
 
-[144] [145<./chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf>] [146] [147] [148] [149]) [150] [151
+[145] [146<./chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf>] [147] [148] [149] [150]) [151] [152
 
-] [152] [153] [154]
+] [153] [154] [155]
 Overfull \hbox (7.97084pt too wide) in paragraph at lines 164--164
 \TU/Calibri(0)/m/n/12 Subjects Re-search: Com-par-isons be-tween MTurk, Pro-lific, CloudResearch, Qualtrics, and SONA''.
  []
 
-[155] [156] [157] [158] [159] [160]
+[156] [157] [158] [159] [160] [161]
 Overfull \hbox (5.74077pt too wide) in paragraph at lines 164--164
 []\TU/Calibri(0)/m/n/12 Tom Koch. ``Wel-come to the Rev-o-lu-tion: COVID-19 and the De-moc-ra-ti-za-tion of Spatial-Temporal
  []
 
-[161]
+[162]
 Overfull \hbox (45.73103pt too wide) in paragraph at lines 164--164
 \TU/Calibri(0)/m/n/12 Missed''. In: \TU/Calibri(0)/m/it/12 In-for-ma-tion Vi-su-al-iza-tion \TU/Calibri(0)/m/n/12 20.2-3 (2021), pp. 192–204. \TU/Calibri(0)/m/sc/12 󰀕󰁈󰀬\TU/Calibri(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1177 / 14738716211012608$[]\TU/Calibri(0)/m/n/12 .
  []
 
-[162] [163] [164] [165] [166]
+[163] [164] [165] [166] [167]
 Overfull \hbox (16.12518pt too wide) in paragraph at lines 164--164
 \TU/Calibri(0)/m/n/12 14.11 (2019), e12633. \TU/Calibri(0)/m/sc/12 󰀕󰁈󰀬\TU/Calibri(0)/m/n/12 : []$\TU/lmtt/m/n/12 10 . 1111 / phc3 . 12633$[]\TU/Calibri(0)/m/n/12 . eprint: []$\TU/lmtt/m/n/12 https : / / compass . onlinelibrary .
  []
@@ -1660,22 +1664,22 @@ Overfull \hbox (51.91745pt too wide) in paragraph at lines 164--164
 []\TU/Calibri(0)/m/n/12 John Rus-sell. \TU/Calibri(0)/m/it/12 Con-struct-ing the Hertzsprung-Russell Di-a-gram\TU/Calibri(0)/m/n/12 . https://dr-john-rus-sell.github.io/posts/2025-
  []
 
-[167]
+[168]
 Overfull \hbox (2.35187pt too wide) in paragraph at lines 164--164
 []\TU/Calibri(0)/m/n/12 Bar-ret Schlo-erke, Di Cook, Joseph Lar-marange, Fran-cois Bri-atte, Moritz Mar-bach, Ed-win Thoen,
  []
 
-[168] [169] [170]
+[169] [170] [171]
 Overfull \hbox (0.3138pt too wide) in paragraph at lines 164--164
 []\TU/Calibri(0)/m/it/12 The MIT Li-cense\TU/Calibri(0)/m/n/12 . https://open-source.org/li-cense/mit. (Vis-ited on 10/15/2024) (cited on p. []62[]). 
  []
 
-[171] [172]
+[172] [173]
 Overfull \hbox (5.12677pt too wide) in paragraph at lines 164--164
 []\TU/Calibri(0)/m/n/12 Yi-hui Xie, Christophe Dervieux, and Emily Riederer. \TU/Calibri(0)/m/it/12 R Mark-down Cook-book\TU/Calibri(0)/m/n/12 . Boca Ra-ton, Florida:
  []
 
-[173] [174] [175
+[174] [175] [176
 
 
 ]
@@ -1705,18 +1709,18 @@ Overfull \hbox (0.39885pt too wide) in alignment at lines 23--144
  [][] 
  []
 
-ignored error Infinite glue shrinkage found in box being split [176
+ignored error Infinite glue shrinkage found in box being split [177
 
 
 ]
-ignored error Infinite glue shrinkage found in box being split [177]
 ignored error Infinite glue shrinkage found in box being split [178]
-ignored error Infinite glue shrinkage found in box being split [179])
+ignored error Infinite glue shrinkage found in box being split [179]
+ignored error Infinite glue shrinkage found in box being split [180])
 
 Package caption Warning: Unused \captionsetup[subfigure] on input line 44.
 See the caption package documentation for explanation.
 
-[180] (./main.aux)
+[181] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1727,16 +1731,14 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 41736 strings out of 476076
+ 41746 strings out of 476076
  244490,1977958 words of node,token memory allocated
- 2332 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 28 glue, 4 kern, 1 glyph, 165 attribute, 117 glue_spec, 165 attribute_list, 2 write, 117 pdf_action nodes
-   avail lists: 1:2,2:1667,3:482,4:317,5:2804,6:434,7:21323,8:84,9:1927,10:24,11:1622
- 62136 multiletter control sequences out of 65536+600000
- 80 fonts using 30848255 bytes
+ 2364 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 30 glue, 4 kern, 1 glyph, 168 attribute, 117 glue_spec, 168 attribute_list, 2 write, 118 pdf_action nodes
+   avail lists: 1:2,2:1667,3:482,4:320,5:2804,6:436,7:21323,8:84,9:1927,10:24,11:1622
+ 62137 multiletter control sequences out of 65536+600000
+ 80 fonts using 30873215 bytes
  104i,12n,113p,1283b,3352s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-warning  (pdf backend): unreferenced destination with name 'Hfootnote.22'
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.21'
 
@@ -1779,10 +1781,10 @@ warning  (pdf backend): unreferenced destination with name 'Hfootnote.3'
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.2'
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
-<c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Windows/Fonts/calibrii.ttf><c:/Windows/Fonts/calibri.ttf><c:/Windows/Fonts/calibrib.ttf><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/mbch4gs2/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (180 pages, 37921239 bytes).
+<c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Windows/Fonts/calibrii.ttf><c:/Windows/Fonts/calibri.ttf><c:/Windows/Fonts/calibrib.ttf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (181 pages, 37986059 bytes).
 
-PDF statistics: 5160 PDF objects out of 6186 (max. 8388607)
+PDF statistics: 5170 PDF objects out of 6186 (max. 8388607)
  639 named destinations out of 1000 (max. 131072)
- 1295 words of extra memory for PDF output out of 10000 (max. 100000000)
+ 1287 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -627,23 +627,42 @@ plot_est_prev_no_y <- function(filter) {
 
 # arrange example plots for previous experiments
 
+plot_example_function_special <- function (df, t, o, s, title_size) {
+  
+  ggplot(df, aes(x = V1, y = V2)) +
+    scale_alpha_identity() +
+    scale_size_identity() +
+    geom_point(aes(size = (s + 0.7),
+                   alpha = o), shape = 16)  +
+    labs(x = "", y = "",
+         title = t) +
+    theme_ggdist() +
+    theme(axis.text = element_blank(),
+          plot.margin = unit(c(0,0,0.4,0), "cm"),
+          legend.position = "none",
+          plot.title = element_text(size = title_size, vjust = -0.1),
+          axis.title.x = element_blank(),
+          axis.title.y = element_blank(),
+          axis.line = element_line(linewidth = 0.25))
+}
+
 example_plots_prev <- ggarrange(
-                      plot_example_function(slopes,
+                      plot_example_function_special(slopes,
                                             "Standard Scatterplot",
                                             1,
                                             0.2,
                                             7),
-                      plot_example_function(slopes,
+                      plot_example_function_special(slopes,
                                             "Opacity Manipulation",
                                             (1-slopes$slope_0.25),
                                             0.2,
                                             title_size = 7),
-                      plot_example_function(slopes,
+                      plot_example_function_special(slopes,
                                             "Size Manipulation",
                                             1,
                                             (1-slopes$slope_0.25),
                                             title_size = 7),
-                      plot_example_function(slopes,
+                      plot_example_function_special(slopes,
                                             "Both Manipulations",
                                             (1-slopes$slope_0.25),
                                             (1-slopes$slope_0.25),
@@ -753,7 +772,11 @@ belief change can be affected by prior beliefs and attitudes
 \cite{markant_2023, xiong_2023}, and that emotion, including the content of a
 visualisation \cite{phelps_2006, harrison_2013} and the emotional state of a
 participant \cite{thoresen_2016} can have perceptual effects on participants and
-their performance. I was unable to find resources for correlative statements
+their performance.
+
+## Materials
+
+I was unable to find resources for correlative statements
 that included ratings for belief strength and emotional valence, so elected to
 create my own. To control for these factors as much as possible, the pre-study
 was run with the intent of finding a correlative statement that was matched on
@@ -803,22 +826,11 @@ statements <- read_csv("../data/experimental_dataframes/e5a_exp_dataframe.csv") 
 kbl(statements, booktabs = TRUE, format = "latex")
 ```
 
-## Hypotheses {#hypotheses-e5a}
 
 In an attempt to control for the potential effects of belief about strength of
 relatedness and emotional valence in the main study, the 25 candidate statements
 selected by myself and a co-author were then tested with a representative UK
-population in order to ascertain consensus. It was hypothesised that:
-
--   H1: there will be a significant difference in the mean ratings of
-    emotional valence between statements.[^7]
--   H2: there will be a significant difference in the mean ratings of
-    strength of relatedness between statements.
-
-[^7]: The pre-registration for this hypothesis refers to "emotionality", as did
-    an earlier draft of the paper corresponding to this chapter. In response to reviewer comments, I clarify
-    that it is really emotional valence that is being tested, and therefore this
-    wording is used here.
+population in order to ascertain consensus.
 
 ## Method {#method-e5a}
 
@@ -840,6 +852,25 @@ variables, after which they would be asked to answer some questions. To
 familiarise themselves with the sliders used to collect responses, they were
 asked to complete a practice trial in response to the statement: "As
 participation in online experiments increases, society becomes happier".
+
+In the experiment, participants were asked to read the 25 correlative statements
+shown in @tbl-all-statements, and to indicate their beliefs about topic emotionality
+and strength of relatedness. Stimuli were presented in a randomised order, with 6
+attention checks interleaved. A screenshot of an experimental trial can be seen
+in @fig-e5-trial-example.
+
+```{r}
+#| label: fig-e5-trial-example
+#| include: true
+#| fig-cap: An example of an experimental trial in the pre-test, including the text stimulus participants were asked to read, and the Likert scales they were asked to use to indicate their beliefs about topic emotionality and strength of relatedness.
+#| out-width: NA
+#| out-height: NA
+# find exp example png in supplied graphics folder
+
+# include pre-rendered graphics
+
+knitr::include_graphics(path = "../supplied_graphics/e5_pre_test_trial.png", dpi = NA)
+```
 
 ### Participants {#participants-e5a}
 
@@ -929,7 +960,7 @@ statements are shown in @fig-all-statements-results.
 #| label: fig-all-statements-results
 #| include: true
 #| fig-asp: 1.5
-#| fig-cap: Dot plots showing average ratings of strength of relatedness and emotionality across the 25 tested statements. The vertical dashed line represents the midpoint on both Likert scales. Standard deviations are plotted as errorbars.
+#| fig-cap: Dot plots showing average ratings of strength of relatedness and emotionality across the 25 tested statements. The vertical dashed line represents the midpoint on both Likert scales. Standard deviations are plotted as errorbars. See @tbl-all-statements for the full text of each statement. Statement 22 was eventually selected for the main experiment.
 
 summary_df <- E5_beliefs_pre_test_tidy %>%
   select(statement,
@@ -963,7 +994,7 @@ summary_df <- E5_beliefs_pre_test_tidy %>%
     geom_pointrange(aes(xmin = mean - sd, xmax = mean + sd),
                  position = position_dodge(width = 0.6)) +
   geom_point(size = 2, position = position_dodge(width = 0.5)) +
-  scale_x_continuous(breaks = 1:7, limits = c(1, 7.6)) +
+  scale_x_continuous(breaks = 1:7, limits = c(1, 7.352)) +
   scale_color_manual(values = c("corr" = "#E69F00", "emot" = "#0072B2"),
                      labels = c("Strength of Relatedness", "Emotional Valence")) +
   scale_shape_manual(values = c("corr" = 16, "emot" = 17),
@@ -999,7 +1030,7 @@ geom_text(
            colour = "gray30") +
       annotate(geom = "text",
            x = 3.25,
-           y = 22.7,
+           y = 21.7,
            label = "Neutral",
            size = 3,
            angle = 90,
