@@ -1130,7 +1130,141 @@ Exploratory investigations also took place taking into account participants'
 scores on a defensive confidence test, their scores on a graph literacy test,
 and each participant's rating of the emotional valence of the correlative
 statement used. Analysis including each of these factors can be found in Section
-\ref{add-analyses-e5}, and their inclusion is justified below.
+\ref{add-analyses-e5}.
+
+## Method {#method-e5}
+
+### Stimuli {#stimuli-e5}
+
+```{r}
+#| label: fig-exp5-examples-chap7
+#| include: true
+#| fig-cap: Examples of the stimuli for Experiment 5 using \textit{r} values of 0.2, 0.6, and 0.99. Group A saw the alternative scatterplot presented on the left, while group B saw the standard design on the right. 
+#| fig-asp: 1.75
+
+# create example plots for experiment 5
+
+########################### 0.2 plots ###########################
+
+plots_02 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
+                                                 slopeI_02,
+                                                 slopeI_floored_02,
+                                                 bbc_style()),
+                      example_plot_function_exp5(slopes_exp5_02,
+                                                 typical_02,
+                                                 standard_alpha_02,
+                                                 bbc_style()),
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### 0.6 plots ###########################
+
+plots_06 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
+                                                 slopeI_06,
+                                                 slopeI_floored_06,
+                                                 bbc_style()),
+                      example_plot_function_exp5(slopes_exp5_06,
+                                                 typical_06,
+                                                 standard_alpha_06,
+                                                 bbc_style()),
+                      nrow = 1) %>%
+  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
+                                                 gp = grid::gpar(fontsize = 10)))
+
+########################### 0.99 plots ###########################
+
+plots_99 <- annotate_figure(
+  ggarrange(
+    example_plot_function_exp5(slopes_exp5_99,
+                               slopeI_99,
+                               slopeI_floored_99,
+                               bbc_style()),
+    example_plot_function_exp5(slopes_exp5_99,
+                               typical_99,
+                               standard_alpha_99,
+                               bbc_style()),
+    nrow = 1
+  ) +
+    annotate("text",
+             label = "Standard Scatterplot",
+             x = 0.75,
+             y = 0.1,
+             size = 3) +
+    annotate("text",
+             label = "Alternative Scatterplot",
+             x = 0.25,
+             y = 0.1,
+             size = 3),
+  left = gridtext::richtext_grob(
+    "<i>r</i> = 0.99",
+    rot = 90,
+    gp = grid::gpar(fontsize = 10)
+  )
+)
+
+########################### COMBINE ALL ###########################
+
+ggarrange(plots_02, plots_06, plots_99, ncol = 1)
+```
+
+After selecting a correlative statement describing a weak relationship and with
+a high level of consensus between participants, the `ggplot2` package (version
+3.5.1) \cite{wickham_2016} was used to create the stimuli for the main
+experiment. As the statement was rated as describing a low level of relatedness,
+scatterplots describing a strong relationship (0.6 \< *r* \< 0.99) were used
+with the intent of inducing belief change. Plots in the alternative scatterplot
+condition were created using a combination of non-linear opacity and size decay,
+as this particular condition was shown to bias correlation estimates to a
+greater degree than either point opacity or size decay alone (see Experiment 4
+in \chap{chap:interactions_opacity_size}). 45 *r* values uniformly distributed
+between 0.6 and 0.99 were used to create 45 scatterplots for each condition.
+Examples of stimuli using an *r* value of 0.6 for both the standard and
+alternative scatterplot conditions can be seen in @fig-exp5-examples-chap7.
+
+### Design {#design-e5}
+
+Unlike all previous experiments, a between-participants design was employed
+here. Each participant was randomly assigned either to group A, in which they
+viewed alternative scatterplots designed deliberately to elicit higher levels 
+of belief change, or group B, in which they viewed standard scatterplots.
+Participants saw all 45 experimental items for their group, along with 4
+attention check items, in a fully randomised order. The dependent variable was
+the level of belief change induced by viewing the scatterplot visualisations, so
+participants were tested on how strongly related they believed the variables
+described by the correlative statement were both **before** and **after**
+viewing the experimental items.
+
+### Procedure {#procedure-e5}
+
+Ethical approval for this experiment was granted by the University of 
+Manchester’s Computer Science Departmental Panel (Ref: 2024-19426-33939).
+Participants viewed the PIS and provided consent through key presses in response
+to displayed consent statements. Participants were then asked to provide their
+age and gender identity. Following this, participants completed the 5-item
+Subjective Graph Literacy scale as in previous experiments \cite{garcia_2016},
+and Albarracín and Mitchell's \cite{albarracin_2004} 12-item defensive
+confidence scale. To give legitimacy to the data visualisations with the hope
+of maximising any potential belief change, participants were told that the
+graphs they would see were taken from a well-known British news source, but that
+the identity of this source had been obscured at their request. To promote
+engagement with the visualisations, participants were instructed to use a slider
+to estimate the correlation displayed in each scatterplot; no hypotheses were
+made based on these data, and therefore they were not analysed further.
+Following instructions, which included textual descriptions of scatterplots and
+Pearson's *r*, participants were given two practice trials; these trials took
+the form of a full opacity trial from Experiment 1.
+Participants were then asked to indicate their beliefs about emotional valence
+and strength of relatedness described in the chosen correlative statement; these
+data were captured using Likert scales identical to those described previously.
+After completing 45 experimental trials, participants were then asked again,
+using the same Likert scales, to indicate their belief about the strength of relatedness
+described in the correlative statement. Interspersed among the 
+experimental items were four attention check trials which explicitly 
+asked participants to set the slider to
+0 or 1. Justification for the inclusion of the defensive confidence and graph
+literacy scales, and for collecting participants' views of the emotional content
+of the chosen statement, are provided below.
 
 ### Defensive Confidence {#def-con-e5}
 
@@ -1181,135 +1315,6 @@ guaranteed that each participant considers the emotional content of the
 correlative statement to be the same. To account for these individual
 differences, ratings of emotional valence are also collected during the main
 study.
-
-## Method {#method-e5}
-
-### Stimuli {#stimuli-e5}
-
-```{r}
-#| label: fig-exp5-examples-chap7
-#| include: true
-#| fig-cap: Examples of the stimuli for Experiment 5 using an \textit{r} value of 0.6. Group A saw the alternative scatterplot presented on the left, while group B saw the typical design on the right. 
-#| fig-asp: 1.5
-
-# create example plots for experiment 5
-
-########################### 0.2 plots ###########################
-
-plots_02 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
-                                                 slopeI_02,
-                                                 slopeI_floored_02,
-                                                 bbc_style()),
-                      example_plot_function_exp5(slopes_exp5_02,
-                                                 typical_02,
-                                                 standard_alpha_02,
-                                                 bbc_style()),
-                      nrow = 1) %>%
-  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
-                                                 gp = grid::gpar(fontsize = 10)))
-
-########################### 0.6 plots ###########################
-
-plots_06 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
-                                                 slopeI_06,
-                                                 slopeI_floored_06,
-                                                 bbc_style()),
-                      example_plot_function_exp5(slopes_exp5_06,
-                                                 typical_06,
-                                                 standard_alpha_06,
-                                                 bbc_style()),
-                      nrow = 1) %>%
-  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
-                                                 gp = grid::gpar(fontsize = 10)))
-
-########################### 0.99 plots ###########################
-
-plots_99 <- annotate_figure(
-  ggarrange(
-    example_plot_function_exp5(slopes_exp5_99,
-                               slopeI_99,
-                               slopeI_floored_99,
-                               bbc_style()),
-    example_plot_function_exp5(slopes_exp5_99,
-                               typical_99,
-                               standard_alpha_99,
-                               bbc_style()),
-    nrow = 1
-  ) +
-    annotate("text",
-             label = "Typical Scatterplot",
-             x = 0.75,
-             y = 0.1,
-             size = 3) +
-    annotate("text",
-             label = "Atypical Scatterplot",
-             x = 0.25,
-             y = 0.1,
-             size = 3),
-  left = gridtext::richtext_grob(
-    "<i>r</i> = 0.99",
-    rot = 90,
-    gp = grid::gpar(fontsize = 10)
-  )
-)
-
-########################### COMBINE ALL ###########################
-
-ggarrange(plots_02, plots_06, plots_99, ncol = 1)
-```
-
-After selecting a correlative statement describing a weak relationship and with
-a high level of consensus between participants, the `ggplot2` package (version
-3.5.1) \cite{wickham_2016} was used to create the stimuli for the main
-experiment. As the statement was rated as describing a low level of relatedness,
-scatterplots describing a strong relationship (0.6 \< *r* \< 0.99) were used
-with the intent of inducing belief change. Plots in the alternative scatterplot
-condition were created using a combination of non-linear opacity and size decay,
-as this particular condition was shown to bias correlation estimates to a
-greater degree than either point opacity or size decay alone (see Experiment 4
-in \chap{chap:interactions_opacity_size}). 45 *r* values uniformly distributed
-between 0.6 and 0.99 were used to create 45 scatterplots for each condition.
-Examples of stimuli using an *r* value of 0.6 for both the standard and
-alternative scatterplot conditions can be seen in @fig-exp5-examples-chap7.
-
-### Design {#design-e5}
-
-Unlike all previous experiments, a between-participants design was employed
-here. Each participant was randomly assigned either to group A, in which they
-viewed alternative scatterplots designed deliberately to elicit higher levels of belief change, or group B, in which they viewed standard scatterplots.
-Participants saw all 45 experimental items for their group, along with 4
-attention check items, in a fully randomised order. The dependent variable was
-the level of belief change induced by viewing the scatterplot visualisations, so
-participants were tested on how strongly related they believed the variables
-described by the correlative statement were both **before** and **after**
-viewing the experimental items.
-
-### Procedure {#procedure-e5}
-
-Ethical approval for this experiment was granted by the University of 
-Manchester’s Computer Science Departmental Panel (Ref: 2024-19426-33939).
-Participants viewed the PIS and provided consent through key presses in response
-to displayed consent statements. Participants were then asked to provide their
-age and gender identity. Following this, participants completed the 5-item
-Subjective Graph Literacy scale as in previous experiments \cite{garcia_2016},
-and Albarracín and Mitchell's \cite{albarracin_2004} 12-item defensive
-confidence scale. To give legitimacy to the data visualisations with the hope
-of maximising any potential belief change, participants were told that the
-graphs they would see were taken from a well-known British news source, but that
-the identity of this source had been obscured at their request. To promote
-engagement with the visualisations, participants were instructed to use a slider
-to estimate the correlation displayed in each scatterplot; no hypotheses were
-made based on these data, and therefore they were not analysed further.
-Following instructions, which included textual descriptions of scatterplots and
-Pearson's *r*, participants were given two practice trials; these trials took
-the form of a full opacity trial from Experiment 1.
-Participants were then asked to indicate their beliefs about emotional valence
-and strength of relatedness described in the chosen correlative statement; these
-data were captured using Likert scales identical to those described previously.
-After completing 45 experimental trials, participants were then asked again,
-using the same Likert scales, to indicate their belief about the strength of relatedness
-described in the correlative statement. Interspersed among the experimental items were four attention check trials which explicitly asked participants to set the slider to
-0 or 1.
 
 ### Participants {#participants-e5}
 
