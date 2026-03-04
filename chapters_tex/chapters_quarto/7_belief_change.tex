@@ -201,15 +201,18 @@ evidence that belief change can be affected by prior beliefs and
 attitudes \cite{markant_2023, xiong_2023}, and that emotion, including
 the content of a visualisation \cite{phelps_2006, harrison_2013} and the
 emotional state of a participant \cite{thoresen_2016} can have
-perceptual effects on participants and their performance. I was unable
-to find resources for correlative statements that included ratings for
-belief strength and emotional valence, so elected to create my own. To
-control for these factors as much as possible, the pre-study was run
-with the intent of finding a correlative statement that was matched on
-emotional valence and level of belief strength. As opposed to manually
-creating a list of candidate statements, I used the ChatGPT4 Large
-Language Model (LLM) \cite{chatGPT}. On the 9th April, 2024, ChatGPT was
-asked:
+perceptual effects on participants and their performance.
+
+\subsection{Materials}\label{materials}
+
+I was unable to find resources for correlative statements that included
+ratings for belief strength and emotional valence, so elected to create
+my own. To control for these factors as much as possible, the pre-study
+was run with the intent of finding a correlative statement that was
+matched on emotional valence and level of belief strength. As opposed to
+manually creating a list of candidate statements, I used the ChatGPT4
+Large Language Model (LLM) \cite{chatGPT}. On the 9th April, 2024,
+ChatGPT was asked:
 
 \begin{quotation}
     ``Generate 100 statements that describe the correlation between two variables, such as:
@@ -478,8 +481,90 @@ Exploratory investigations also took place taking into account
 participants' scores on a defensive confidence test, their scores on a
 graph literacy test, and each participant's rating of the emotional
 valence of the correlative statement used. Analysis including each of
-these factors can be found in Section \ref{add-analyses-e5}, and their
-inclusion is justified below.
+these factors can be found in Section \ref{add-analyses-e5}.
+
+\subsection{Method}\label{method-e5}
+
+\subsubsection{Stimuli}\label{stimuli-e5}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf}
+
+}
+
+\caption{\label{fig-exp5-examples-chap7}Examples of the stimuli for
+Experiment 5 using \textit{r} values of 0.2, 0.6, and 0.99. Group A saw
+the alternative scatterplot presented on the left, while group B saw the
+standard design on the right.}
+
+\end{figure}%
+
+After selecting a correlative statement describing a weak relationship
+and with a high level of consensus between participants, the
+\texttt{ggplot2} package (version 3.5.1) \cite{wickham_2016} was used to
+create the stimuli for the main experiment. As the statement was rated
+as describing a low level of relatedness, scatterplots describing a
+strong relationship (0.6 \textless{} \emph{r} \textless{} 0.99) were
+used with the intent of inducing belief change. Plots in the alternative
+scatterplot condition were created using a combination of non-linear
+opacity and size decay, as this particular condition was shown to bias
+correlation estimates to a greater degree than either point opacity or
+size decay alone (see Experiment 4 in
+\chap{chap:interactions_opacity_size}). 45 \emph{r} values uniformly
+distributed between 0.6 and 0.99 were used to create 45 scatterplots for
+each condition. Examples of stimuli using an \emph{r} value of 0.6 for
+both the standard and alternative scatterplot conditions can be seen in
+Figure~\ref{fig-exp5-examples-chap7}.
+
+\subsubsection{Design}\label{design-e5}
+
+Unlike all previous experiments, a between-participants design was
+employed here. Each participant was randomly assigned either to group A,
+in which they viewed alternative scatterplots designed deliberately to
+elicit higher levels of belief change, or group B, in which they viewed
+standard scatterplots. Participants saw all 45 experimental items for
+their group, along with 4 attention check items, in a fully randomised
+order. The dependent variable was the level of belief change induced by
+viewing the scatterplot visualisations, so participants were tested on
+how strongly related they believed the variables described by the
+correlative statement were both \textbf{before} and \textbf{after}
+viewing the experimental items.
+
+\subsubsection{Procedure}\label{procedure-e5}
+
+Ethical approval for this experiment was granted by the University of
+Manchester's Computer Science Departmental Panel (Ref:
+2024-19426-33939). Participants viewed the PIS and provided consent
+through key presses in response to displayed consent statements.
+Participants were then asked to provide their age and gender identity.
+Following this, participants completed the 5-item Subjective Graph
+Literacy scale as in previous experiments \cite{garcia_2016}, and
+Albarracín and Mitchell's \cite{albarracin_2004} 12-item defensive
+confidence scale. To give legitimacy to the data visualisations with the
+hope of maximising any potential belief change, participants were told
+that the graphs they would see were taken from a well-known British news
+source, but that the identity of this source had been obscured at their
+request. To promote engagement with the visualisations, participants
+were instructed to use a slider to estimate the correlation displayed in
+each scatterplot; no hypotheses were made based on these data, and
+therefore they were not analysed further. Following instructions, which
+included textual descriptions of scatterplots and Pearson's \emph{r},
+participants were given two practice trials; these trials took the form
+of a full opacity trial from Experiment 1. Participants were then asked
+to indicate their beliefs about emotional valence and strength of
+relatedness described in the chosen correlative statement; these data
+were captured using Likert scales identical to those described
+previously. After completing 45 experimental trials, participants were
+then asked again, using the same Likert scales, to indicate their belief
+about the strength of relatedness described in the correlative
+statement. Interspersed among the experimental items were four attention
+check trials which explicitly asked participants to set the slider to 0
+or 1. Justification for the inclusion of the defensive confidence and
+graph literacy scales, and for collecting participants' views of the
+emotional content of the chosen statement, are provided below.
 
 \subsubsection{Defensive Confidence}\label{def-con-e5}
 
@@ -550,87 +635,6 @@ Nevertheless, it is not guaranteed that each participant considers the
 emotional content of the correlative statement to be the same. To
 account for these individual differences, ratings of emotional valence
 are also collected during the main study.
-
-\subsection{Method}\label{method-e5}
-
-\subsubsection{Stimuli}\label{stimuli-e5}
-
-\begin{figure}
-
-\centering{
-
-\includegraphics[width=\textwidth]{7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf}
-
-}
-
-\caption{\label{fig-exp5-examples-chap7}Examples of the stimuli for
-Experiment 5 using an \textit{r} value of 0.6. Group A saw the
-alternative scatterplot presented on the left, while group B saw the
-typical design on the right.}
-
-\end{figure}%
-
-After selecting a correlative statement describing a weak relationship
-and with a high level of consensus between participants, the
-\texttt{ggplot2} package (version 3.5.1) \cite{wickham_2016} was used to
-create the stimuli for the main experiment. As the statement was rated
-as describing a low level of relatedness, scatterplots describing a
-strong relationship (0.6 \textless{} \emph{r} \textless{} 0.99) were
-used with the intent of inducing belief change. Plots in the alternative
-scatterplot condition were created using a combination of non-linear
-opacity and size decay, as this particular condition was shown to bias
-correlation estimates to a greater degree than either point opacity or
-size decay alone (see Experiment 4 in
-\chap{chap:interactions_opacity_size}). 45 \emph{r} values uniformly
-distributed between 0.6 and 0.99 were used to create 45 scatterplots for
-each condition. Examples of stimuli using an \emph{r} value of 0.6 for
-both the standard and alternative scatterplot conditions can be seen in
-Figure~\ref{fig-exp5-examples-chap7}.
-
-\subsubsection{Design}\label{design-e5}
-
-Unlike all previous experiments, a between-participants design was
-employed here. Each participant was randomly assigned either to group A,
-in which they viewed alternative scatterplots designed deliberately to
-elicit higher levels of belief change, or group B, in which they viewed
-standard scatterplots. Participants saw all 45 experimental items for
-their group, along with 4 attention check items, in a fully randomised
-order. The dependent variable was the level of belief change induced by
-viewing the scatterplot visualisations, so participants were tested on
-how strongly related they believed the variables described by the
-correlative statement were both \textbf{before} and \textbf{after}
-viewing the experimental items.
-
-\subsubsection{Procedure}\label{procedure-e5}
-
-Ethical approval for this experiment was granted by the University of
-Manchester's Computer Science Departmental Panel (Ref:
-2024-19426-33939). Participants viewed the PIS and provided consent
-through key presses in response to displayed consent statements.
-Participants were then asked to provide their age and gender identity.
-Following this, participants completed the 5-item Subjective Graph
-Literacy scale as in previous experiments \cite{garcia_2016}, and
-Albarracín and Mitchell's \cite{albarracin_2004} 12-item defensive
-confidence scale. To give legitimacy to the data visualisations with the
-hope of maximising any potential belief change, participants were told
-that the graphs they would see were taken from a well-known British news
-source, but that the identity of this source had been obscured at their
-request. To promote engagement with the visualisations, participants
-were instructed to use a slider to estimate the correlation displayed in
-each scatterplot; no hypotheses were made based on these data, and
-therefore they were not analysed further. Following instructions, which
-included textual descriptions of scatterplots and Pearson's \emph{r},
-participants were given two practice trials; these trials took the form
-of a full opacity trial from Experiment 1. Participants were then asked
-to indicate their beliefs about emotional valence and strength of
-relatedness described in the chosen correlative statement; these data
-were captured using Likert scales identical to those described
-previously. After completing 45 experimental trials, participants were
-then asked again, using the same Likert scales, to indicate their belief
-about the strength of relatedness described in the correlative
-statement. Interspersed among the experimental items were four attention
-check trials which explicitly asked participants to set the slider to 0
-or 1.
 
 \subsubsection{Participants}\label{participants-e5}
 
