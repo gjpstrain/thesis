@@ -1140,7 +1140,8 @@ statement used. Analysis including each of these factors can be found in Section
 #| label: fig-exp5-examples-chap7
 #| include: true
 #| fig-cap: Examples of the stimuli for Experiment 5 using \textit{r} values of 0.2, 0.6, and 0.99. Group A saw the alternative scatterplot presented on the left, while group B saw the standard design on the right. 
-#| fig-asp: 1.75
+#| fig-asp: 1.5
+#| out-width: "100%"
 
 # create example plots for experiment 5
 
@@ -1160,17 +1161,55 @@ plots_02 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
 
 ########################### 0.6 plots ###########################
 
-plots_06 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
-                                                 slopeI_06,
-                                                 slopeI_floored_06,
-                                                 bbc_style()),
-                      example_plot_function_exp5(slopes_exp5_06,
-                                                 typical_06,
-                                                 standard_alpha_06,
-                                                 bbc_style()),
-                      nrow = 1) %>%
-  annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
-                                                 gp = grid::gpar(fontsize = 10)))
+plots_06 <- annotate_figure(
+  ggarrange(
+    example_plot_function_exp5(slopes_exp5_06,
+                               slopeI_06,
+                               slopeI_floored_06,
+                               bbc_style()),
+    example_plot_function_exp5(slopes_exp5_06,
+                               typical_06,
+                               standard_alpha_06,
+                               bbc_style()),
+    nrow = 1
+  ) +
+    annotate("text",
+             label = "Standard Scatterplot",
+             x = 0.75,
+             y = 0.05,
+             size = 3) +
+    annotate("text",
+             label = "Alternative Scatterplot",
+             x = 0.25,
+             y = 0.05,
+             size = 3),
+  left = gridtext::richtext_grob(
+    "<i>r</i> = 0.6",
+    rot = 90,
+    gp = grid::gpar(fontsize = 10)
+  )
+)
+
+########################### COMBINE ALL ###########################
+
+ggarrange(plots_02, plots_06, ncol = 1)
+```
+
+```{r}
+#| results: asis
+
+cat("\\ContinuedFloat")
+```
+
+```{=latex}
+\addtocounter{figure}{-1}
+```
+
+```{r}
+#| label: fig-exp5-examples-chap7-cont
+#| fig-cap: "(Continued)"
+#| fig-asp: 0.75
+#| include: true
 
 ########################### 0.99 plots ###########################
 
@@ -1189,12 +1228,12 @@ plots_99 <- annotate_figure(
     annotate("text",
              label = "Standard Scatterplot",
              x = 0.75,
-             y = 0.1,
+             y = 0.05,
              size = 3) +
     annotate("text",
              label = "Alternative Scatterplot",
              x = 0.25,
-             y = 0.1,
+             y = 0.05,
              size = 3),
   left = gridtext::richtext_grob(
     "<i>r</i> = 0.99",
@@ -1203,10 +1242,12 @@ plots_99 <- annotate_figure(
   )
 )
 
-########################### COMBINE ALL ###########################
+plots_99
 
-ggarrange(plots_02, plots_06, plots_99, ncol = 1)
 ```
+
+
+
 
 After selecting a correlative statement describing a weak relationship and with
 a high level of consensus between participants, the `ggplot2` package (version
