@@ -1,0 +1,6 @@
+Experiment,Visual Channel,Manipulation Type,Dependent Variable,Baseline Condition,Design,Location
+1,Opacity,Global,\textit{r} estimate,Yes,Within-Subjects, "Section \ref{exp1-overview-table}, \chap{chap:adjusting_opacity}"
+2,Opacity,Spatially Dependent,\textit{r} estimate,Yes,Within-Subjects,plcae
+3,Size,Spatially Dependent,\textit{r} estimate,Yes,Within-Subjects,plcae
+4,Opacity + Size,Spatially Dependent,\textit{r} estimate,No,Within-Subjects,plcae
+5,Opacity + Size,Spatially Dependent,Change in Belief,No,Between-Subjects,plcae

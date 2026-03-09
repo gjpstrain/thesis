@@ -1748,23 +1748,23 @@ ggplot(aes(x = variable_score,
 
 Mean differences in pre- and post-plot viewing ratings of strength of
 relatedness by Subjective Graph Literacy score can be seen in
-@fig-add-analyses-plots. Generally, participants with higher scores on a graph
+@fig-add-analyses-plots. Participants with higher scores on a graph
 literacy test experienced smaller changes in their ratings of strength of
-relatedness. This is in line with previous work suggesting that those with
+relatedness when viewing standard scatterplots. This is in line with previous work suggesting that those with
 higher levels of graph or visualisation literacy show better performance in
 inference tasks related to visualisations \cite{canham_2010}, are more capable
 of describing effects that visualisations aim to communicate \cite{shah_2011},
 and can preferentially attend to relevant features of visualisations to a
 greater degree \cite{okan_2016}, than those with lower levels of graph literacy.
-In the present study, evidence is provided that those with greater levels of
-graph literacy are *less susceptible* to having their beliefs changed by
-visualisations. The use of the alternative plot manipulation largely removes
-this effect, suggesting that there is less systematic reliance on graph literacy
-when participants are faced with an unfamiliar data visualisation.
+An opposing pattern of results is seen when participants viewed alternative
+scatterplots designed to elicit higher levels of belief change; difference
+in belief is mostly stable across different levels of graph literacy. A potential
+explanations for this phenomena include the presumably unfamiliar nature of the stimuli in
+the alternative scatterplot condition causing participants to attend to the 
+stimuli differently, however further work would be required to explore
+this in more detail.
 
-An opposing pattern of results is observed when examining the effects of
-defensive confidence on participants' propensity for belief change. Generally,
-participants with higher scores on the defensive confidence test experienced
+Up to a point, all participants with higher scores on the defensive confidence test experienced
 greater levels of belief change. This is in line with evidence that those who
 are more confident in their ability to defend their own beliefs are more liable
 to having those beliefs changed in light of evidence \cite{albarracin_2004}.
@@ -1884,7 +1884,14 @@ limitation of the present chapter. The exploratory nature of the work means I
 cannot comment specifically on how different forms of size and opacity
 manipulation in scatterplots may change beliefs in different ways, although
 addressing this using the framework presented here would be simple to
-accomplish. To date, there has been no qualitative work performed on alternative
+accomplish. Similarly, the size and opacity decay parameters utilised in the
+alternative scatterplot condition have resulted in a large amount of point overlap
+as *r* approaches 1, meaning individual point discriminability suffered 
+(see @fig-exp5-examples-chap7). Further tuning of these decay functions, with
+potential adjustment for overlap, would be required if plots such as these were
+to be used in real-life visualisations.
+
+To date, there has been no qualitative work performed on alternative
 scatterplot designs such as those utilised here; it may be that any perceptual
 or cognitive benefits are outweighed by distrust or unfamiliarity with novel
 designs. The dependent variable in the main experiment was represented to

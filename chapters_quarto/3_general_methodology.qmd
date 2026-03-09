@@ -33,6 +33,7 @@ library(geomtextpath)
 library(ggpubr)
 library(bbplot)
 library(conflicted)
+library(kableExtra)
 
 # load shared functions
 
@@ -457,6 +458,19 @@ plots_99 <- annotate_figure(
 plots_99
 
 ```
+
+```{r}
+#| label: tbl-exp-summary
+#| include: true
+#| tbl-cap: placeholder
+
+table_df <- read_csv("../data/exp_summary.csv")
+
+kbl(table_df, booktabs = TRUE, escape = FALSE)
+
+```
+
+
 
 ## Tools for Testing
 
