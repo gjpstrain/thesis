@@ -554,7 +554,7 @@ opacity and size were lowered as a function of residual magnitude using equation
 ```{r}
 #| label: fig-previous-manipulations
 #| include: true
-#| fig-cap: "Top row: Examples of scatterplot manipulations from previous work using an \\textit{r} value of 0.6. Bottom row: the corresponding correlation estimation behaviour across values of \\textit{r} between 0.2 and 0.99. The dashed diagonal line represents hypothetically accurate estimation, while the solid line is what is observed when participants are asked to estimate correlation."
+#| fig-cap: "Top row: Examples of scatterplot manipulations from previous work using an \\textit{r} value of 0.6. In each case, the manipulation used is non-linear, typical orientation decay. Bottom row: the corresponding correlation estimation behaviour across values of \\textit{r} between 0.2 and 0.99. The dashed diagonal line represents hypothetically accurate estimation, while the solid line is the mean of what is observed when participants are asked to estimate correlation."
 #| fig-pos: "H"
 
 # dataframe containing values from previous work and the current is included
@@ -1524,7 +1524,7 @@ make_sig_table_interact(e5_condition_interact_model)
 #| label: fig-descriptives-e5
 #| include: true
 #| fig-asp: 0.6
-#| fig-cap: Dot plots for pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplot conditions. Mean ratings are also shown as points.
+#| fig-cap: Dot plots showing individual pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplot conditions. Mean ratings are also shown as points.
 
 # create dot plot for pre and post viewing beliefs
 
@@ -1600,7 +1600,7 @@ the participants who were exposed to the alternative scatterplot condition.
 #| include: true
 #| fig-env: "figure*"
 #| fig-asp: 0.4
-#| fig-cap: Histograms illustrating the magnitudes of the difference between pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplots. Median values are plotted as points.
+#| fig-cap: Histograms illustrating the magnitudes of the difference between pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplots. Difference is calculated by subtracting the ratings made before viewing plots from the ratings made after. Median values are plotted as points.
 
 # create histograms for magnitude of difference for standard and alternative plots
     
