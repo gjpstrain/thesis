@@ -109,7 +109,9 @@ design used with 2 levels (see @fig-exp4-examples). Experiment 5 is a departure
 from the shared experimental paradigm of the previous experiments, and features
 a 1 factor, 2 level between-participants design; group A saw scatterplots
 designed to elicit greater levels of belief change compared to typical
-scatterplots, which were shown to group B (see @fig-exp5-examples).
+scatterplots, which were shown to group B (see @fig-exp5-examples). Characteristics
+of all experiments are summarised in @tbl-exp-summary, which also includes
+locations for full descriptions of stimuli.
 
 ```{r}
 #| label: fig-exp1-examples
@@ -462,12 +464,20 @@ plots_99
 ```{r}
 #| label: tbl-exp-summary
 #| include: true
-#| tbl-cap: placeholder
+#| tbl-cap: Experimental summary table showing the visual channeln manipulated, the type of manipulation, dependent variable, presence or absence of a baseline condition, experimental design, location, and chapter.
 
 table_df <- read_csv("../data/exp_summary.csv")
 
-kbl(table_df, booktabs = TRUE, escape = FALSE)
-
+kbl(table_df, booktabs = TRUE, escape = FALSE) %>%
+  kable_styling(latex_options = c("scale_down")) %>%
+  column_spec(1, width = "1cm") %>%   
+  column_spec(2, width = "2cm") %>%     
+  column_spec(3, width = "2.5cm") %>%   
+  column_spec(4, width = "2.5cm") %>%   
+  column_spec(5, width = "2cm") %>%     
+  column_spec(6, width = "2.5cm") %>%   
+  column_spec(7, width = "1.5cm")   %>% 
+  column_spec(8, width = "1.5cm")
 ```
 
 

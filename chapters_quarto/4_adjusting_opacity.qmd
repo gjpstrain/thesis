@@ -813,7 +813,7 @@ present chapter.
 
 [^4]: Experiment 1 - https://osf.io/tuexh. Experiment 2 - https://osf.io/6f5ev
 
-# Experiment 1: Uniform Opacity Adjustments {#exp1-overview-table}
+# Experiment 1: Uniform Opacity Adjustments
 
 ## Introduction {#introduction-e1}
 

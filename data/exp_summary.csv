@@ -1,6 +1,6 @@
-Experiment,Visual Channel,Manipulation Type,Dependent Variable,Baseline Condition,Design,Location
-1,Opacity,Global,\textit{r} estimate,Yes,Within-Subjects, "Section \ref{exp1-overview-table}, \chap{chap:adjusting_opacity}"
-2,Opacity,Spatially Dependent,\textit{r} estimate,Yes,Within-Subjects,plcae
-3,Size,Spatially Dependent,\textit{r} estimate,Yes,Within-Subjects,plcae
-4,Opacity + Size,Spatially Dependent,\textit{r} estimate,No,Within-Subjects,plcae
-5,Opacity + Size,Spatially Dependent,Change in Belief,No,Between-Subjects,plcae
+Exp.,Visual Channel,Manipulation Type,Dependent Variable,Baseline Condition,Design,Section,Chapter
+1,Opacity,Global,\textit{r} estimate,Yes,Within-Subjects,\ref{design-e1}, \chap{chap:adjusting_opacity}
+2,Opacity,Spatially Dependent,\textit{r} estimate,Yes,Within-Subjects,\ref{design-e2}, \chap{chap:adjusting_opacity}
+3,Size,Spatially Dependent,\textit{r} estimate,Yes,Within-Subjects,\ref{stimuli-e3}, \chap{chap:adjusting_size}
+4,Opacity + Size,Spatially Dependent,\textit{r} estimate,No,Within-Subjects,\ref{stimuli-e4}, \chap{chap:interactions_opacity_size}
+5,Opacity + Size,Spatially Dependent,Belief change,No,Between-Subjects,\ref{stimuli-e5}, \chap{chap:belief_change}

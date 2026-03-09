@@ -1,5 +1,171 @@
-\documentclass[../main.tex]{subfiles}
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={related\_work},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{related\_work}
+\author{}
+\date{}
 \begin{document}
+\maketitle
 
 
 \section{Data Visualisation: A Brief History}\label{brief-history}
@@ -54,7 +220,7 @@ here in Figure~\ref{fig-early-time-series}.
 
 \centering{
 
-\includegraphics[width=\textwidth]{../supplied_graphics/tufte_1983.png}
+\pandocbounded{\includegraphics[keepaspectratio]{../supplied_graphics/tufte_1983.png}}
 
 }
 
@@ -88,7 +254,7 @@ over time (see Figure~\ref{fig-sunspots}).
 
 \centering{
 
-\includegraphics[width=\textwidth]{../supplied_graphics/sunspots.png}
+\pandocbounded{\includegraphics[keepaspectratio]{../supplied_graphics/sunspots.png}}
 
 }
 
@@ -102,7 +268,7 @@ be referred to as the ``principle of small multiples'' by Tufte.}
 
 \centering{
 
-\includegraphics[width=\textwidth]{../supplied_graphics/snow_cholera.jpg}
+\pandocbounded{\includegraphics[keepaspectratio]{../supplied_graphics/snow_cholera.jpg}}
 
 }
 
@@ -117,7 +283,7 @@ supply.}
 
 \centering{
 
-\includegraphics[width=\textwidth]{../supplied_graphics/minard_napoleon.jpg}
+\pandocbounded{\includegraphics[keepaspectratio]{../supplied_graphics/minard_napoleon.jpg}}
 
 }
 
@@ -135,7 +301,7 @@ high rates of attrition.}
 
 \centering{
 
-\includegraphics[width=\textwidth]{../supplied_graphics/nightingale-rose.jpg}
+\pandocbounded{\includegraphics[keepaspectratio]{../supplied_graphics/nightingale-rose.jpg}}
 
 }
 
@@ -203,7 +369,7 @@ which in turn influenced the \texttt{ggplot2} package
 
 \centering{
 
-\includegraphics[width=\textwidth]{../supplied_graphics/rug_density.png}
+\pandocbounded{\includegraphics[keepaspectratio]{../supplied_graphics/rug_density.png}}
 
 }
 
@@ -303,7 +469,7 @@ describes how strongly related two variables are.
 
 \centering{
 
-\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-anscombe-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{2_related_work_files/figure-latex/fig-anscombe-1.pdf}}
 
 }
 
@@ -348,7 +514,7 @@ more recent use of other, non-scatterplot graphs.
 
 \centering{
 
-\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf}}
 
 }
 
@@ -406,7 +572,7 @@ using the HYG database\footnote{https://www.astronexus.com/projects/hyg}.
 
 \centering{
 
-\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-HR-plot-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{2_related_work_files/figure-latex/fig-HR-plot-1.pdf}}
 
 }
 
@@ -449,7 +615,7 @@ problems.
 
 \centering{
 
-\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf}}
 
 }
 
@@ -465,7 +631,7 @@ an \emph{r} value of 0.6.}
 
 \centering{
 
-\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-remixes-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{2_related_work_files/figure-latex/fig-remixes-1.pdf}}
 
 }
 
@@ -581,7 +747,7 @@ Figure~\ref{fig-point-cloud-trends} illustrates this.
 
 \centering{
 
-\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf}}
 
 }
 
@@ -687,7 +853,7 @@ derived from JND studies by Rensink (2017 \cite{rensink_2017}).
 
 \centering{
 
-\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf}}
 
 }
 
@@ -732,7 +898,7 @@ visualisations created by the BBC.
 
 \centering{
 
-\includegraphics[width=\textwidth]{../supplied_graphics/covid_bbc.png}
+\pandocbounded{\includegraphics[keepaspectratio]{../supplied_graphics/covid_bbc.png}}
 
 }
 
@@ -780,7 +946,7 @@ results regarding judgements of magnitude \cite{bradley_2025}.
 
 \centering{
 
-\includegraphics[width=\textwidth]{../supplied_graphics/sgl_test_screen.png}
+\pandocbounded{\includegraphics[keepaspectratio]{../supplied_graphics/sgl_test_screen.png}}
 
 }
 
