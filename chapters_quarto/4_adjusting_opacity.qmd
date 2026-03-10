@@ -48,6 +48,7 @@ library(conflicted)
 library(formattable)
 library(effectsize)
 library(gridtext)
+library(ggtext)
 
 # fix conflicts
 
@@ -1251,75 +1252,104 @@ magnitudes and opacity values in each condition using *r* values of 0.2, 0.6, an
 ```{r}
 #| label: fig-opposing-curve
 #| include: true
-#| fig-cap: Using an \textit{r} value of 0.6 to demonstrate the relationship between the size of a point's residual and the alpha value (opacity) rendered.
-#| fig-asp: 1
+#| fig-cap: Using \textit{r} values of 0.2, 0.6, and 0.99 to demonstrate the relationship between the size of a point's residual and the alpha value (opacity) rendered. Note that 
+#| fig-asp: 0.45
 
-# create desired r value for opposing curve illustrative plot
-# note: methodology identical to that used to create exp stimuli
 
-my_desired_r = 0.6
+plot_decay_slopes <- function(r_values,
+                              hjust_inverted, hjust_linear, hjust_non_linear) {
   
-my_sample_size = 128
-mean_variable_1 = 0
-sd_variable_1 = 1
-mean_variable_2 = 0
-sd_variable_2 = 1
+  my_sample_size <- 128
+  mean_variable_1 <- 0
+  sd_variable_1 <- 1
+  mean_variable_2 <- 0
+  sd_variable_2 <- 1
 
-mu <- c(mean_variable_1, mean_variable_2) 
+  # Build per-facet hjust lookup: r_label -> decay -> hjust
+  r_labels <- paste0("*r* = ", r_values)
+  hjust_map <- setNames(
+    map(seq_along(r_values), function(i) {
+      c(
+        "Inverted Decay"   = hjust_inverted[[i]],
+        "Linear Decay"     = hjust_linear[[i]],
+        "Non Linear Decay" = hjust_non_linear[[i]]
+      )
+    }),
+    r_labels
+  )
+  
+  all_data <- map_dfr(r_values, function(my_desired_r) {
+    
+    mu <- c(mean_variable_1, mean_variable_2)
+    myr <- my_desired_r * sqrt(sd_variable_1) * sqrt(sd_variable_2)
+    mysigma <- matrix(c(sd_variable_1, myr, myr, sd_variable_2), 2, 2)
+    
+    corr_data <- as_tibble(mvrnorm(my_sample_size, mu, mysigma, empirical = TRUE))
+    corr_model <- lm(V2 ~ V1, data = corr_data)
+    my_residuals <- abs(residuals(corr_model))
+    data_with_resid <- round(cbind(corr_data, my_residuals), 2)
+    
+    data_with_resid %>%
+      mutate(
+        linear_decay     = ((-my_residuals / 2.6) + 1),
+        inverted_decay   = 1 - (0.25)^my_residuals,
+        non_linear_decay = (1 + (0.25)^my_residuals) - 1,
+        r_value          = paste0("*r* = ", my_desired_r)
+      ) %>%
+      pivot_longer(
+        cols      = ends_with("ay"),
+        names_to  = "decay",
+        values_to = "transformed_residual"
+      ) %>%
+      mutate(
+        decay = str_replace_all(decay, "_", " "),
+        decay = str_to_title(decay)
+      )
+  }) %>%
+    # Join hjust values per r_value + decay combination
+    mutate(label_hjust = map2_dbl(r_value, decay, ~ hjust_map[[.x]][[.y]]))
+  
+  all_data %>%
+    group_by(decay, r_value) %>%
+    ggplot(aes(x = my_residuals, y = transformed_residual)) +
+    geom_textline(aes(
+      colour = decay,
+      label  = decay,
+      hjust  = label_hjust,       # now a per-row column
+      vjust  = -0.3
+    ), size = 2) +
+    scale_x_continuous(
+      breaks = scales::pretty_breaks(n = 10),
+      limits = c(0, 2.6)
+    ) +
+    labs(
+      x = "Residual Magnitude",
+      y = "Alpha (opacity)"
+    ) +
+    theme_ggdist() +
+    theme(
+      legend.title    = element_blank(),
+      legend.position = "none",
+      axis.text       = element_text(size = 7),
+      axis.title      = element_text(size = 8),
+      plot.title      = element_blank(),
+      strip.text      = element_markdown()
+    ) +
+    coord_cartesian(xlim = c(0, 2.6), ylim = c(0, 1)) +
+    scale_colour_manual(values = c("black", "black", "black")) +
+    facet_wrap(~ r_value) +
+    annotate("text", x = 0.4, y = 1, size = 2, label = "Fully Opaque") +
+    annotate("text", x = 0.4, y = 0, size = 2, label = "Fully Transparent")
+}
 
-myr <- my_desired_r * sqrt(sd_variable_1) * sqrt(sd_variable_2)
+# Each hjust argument is now a vector with one value per r
+plot_decay_slopes(
+  r_values       = c(0.2,  0.6,  0.9),
+  hjust_inverted = c(0.8,  0.8,  1.31),
+  hjust_linear   = c(0.7,  0.7,  1.275),
+  hjust_non_linear = c(0.5, 0.7, 1)
+)
 
-mysigma <- matrix(c(sd_variable_1, myr, myr, sd_variable_2), 2, 2) 
-
-corr_data = as_tibble(mvrnorm(my_sample_size, mu, mysigma, empirical = TRUE))
-
-corr_model <- lm(V2 ~ V1, data = corr_data)
-
-my_residuals <- abs(residuals(corr_model))
-
-data_with_resid <- round(cbind(corr_data, my_residuals), 2)
-
-# create opposing slopes df
-
-slopes_opp <- data_with_resid %>%
-  mutate(linear_decay = ((-my_residuals/2.6) + 1)) %>%
-  mutate(inverted_decay = 1-(0.25)^my_residuals) %>%
-  mutate(non_linear_decay = (1 + (0.25)^ my_residuals)-1) %>%
-  pivot_longer(cols = ends_with("ay"),
-               names_to = c("decay"),
-               values_to = "transformed_residual")
-
-# create slopes plot, including manual annotations
-
-slopes_opp %>%
-  mutate(decay = str_replace_all(decay, pattern = "_", replacement = " ")) %>%
-  mutate(decay = str_to_title(decay)) %>%
-  group_by(decay) %>%
-  ggplot(aes(x = my_residuals, y = transformed_residual)) +
-  geom_textline(aes(colour = decay,
-                    label = decay,
-                    size = 6,
-                    hjust = 0.8,
-                    vjust = -0.3)) +
-  scale_x_continuous(breaks = scales::pretty_breaks(n = 10),
-                     limits = c(0,2.6)) +
-  labs(x = "Residual Magnitude",
-       y = "Alpha (opacity)") +
-  theme_ggdist() +
-  theme(legend.title = element_blank(),
-        legend.position = "none",
-        axis.text = element_text(size = 7),
-        axis.title = element_text(size = 8)) +
-  coord_cartesian(xlim = c(0,2.6), ylim = c(0,1)) +
-  scale_colour_manual(values = c("black", "black", "black")) +
-  annotate("text",
-           x = 0.4,
-           y = 1,
-           label = "Fully Opaque") +
-    annotate("text",
-           x = 0.4,
-           y = 0,
-           label = "Fully Transparent")
 ```
 
 Given the previously reported effects of changing

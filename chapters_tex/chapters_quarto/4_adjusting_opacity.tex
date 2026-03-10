@@ -491,8 +491,26 @@ that was displayed for 2.5 seconds. Participants were instructed to make
 their judgements as quickly and accurately as possible, but there was no
 time limit per trial. Both experiments described here use a fully
 repeated-measures, within-participants design. All 150 participants saw
-all 180 experimental items, corresponding to \textasciitilde27,000
-individual judgements per experiment, in a fully randomised order.
+all 4 (factor levels) \(\times\) 45 (\emph{r} values) = 180 experimental
+items, corresponding to \textasciitilde27,000 individual judgements per
+experiment, in a fully randomised order.
+
+\subsection{Materials}\label{shared-materials-chap4}
+
+Both experiments used the same 45-\emph{r} value dataset. This dataset
+was generated using a uniform distribution for 0.2 \textless{} \emph{r}
+\textless{} 0.99. Each experiment featured a single factor. In
+Experiment 1, this was the alpha value applied to each individual point,
+and had four levels; alpha = 0.25, 0.5, 0.75, and 1 (full opacity).
+Examples of stimuli in experiment 1 can be seen in
+Figure~\ref{fig-exp1-examples-chap4}. In experiment 2, the factor was
+the implementation of the point opacity decay function, and had four
+levels; full opacity, linear decay, in which point opacity is decreased
+linearly with residual magnitude, non-linear decay, in which point
+opacity is decreased with residual magnitude using equation 4.1, and
+inverted non-linear decay, in which point opacity is increased with
+residual magnitude using equation 4.1. Examples of the stimuli used in
+experiment 2 can be seen in Figure~\ref{fig-exp2-examples-chap4}.
 
 \subsection{Open Research}\label{open-research-chap4}
 
@@ -556,7 +574,7 @@ experiment was 33 minutes (SD = 10 minutes).
 For each of the 45 \emph{r} values, there were four versions of each
 plot corresponding to the four levels of point opacity. Examples of each
 of these can be seen in Figure~\ref{fig-exp1-examples-chap4},
-demonstrated with an \emph{r} value of 0.6.
+demonstrated with \emph{r} values of 0.2, 0.6, and 0.99.
 
 \begin{figure}
 
@@ -826,9 +844,12 @@ to conditions with a linear relationship between residual magnitude and
 opacity. Non-linear decay conditions use equation 4.1 to map residual
 magnitude to opacity values. Inverted decay conditions feature
 scatterplots whose points increase in opacity as a function of residual
-magnitude. Figure \ref{fig-opposing-curve} demonstrates the relationship
-between residual magnitude and opacity value in each of these condition
-types using an \emph{r} value of 0.6.
+magnitude. Due to alpha values being hard coded to residual magnitudes,
+the full range of opacities is not always accessed depending on the
+\emph{r} value and the particular condition. To illustrate this, Figure
+\ref{fig-opposing-curve} demonstrates the relationships between residual
+magnitudes and opacity values in each condition using \emph{r} values of
+0.2, 0.6, and 0.99.
 
 \begin{figure}
 
@@ -838,9 +859,9 @@ types using an \emph{r} value of 0.6.
 
 }
 
-\caption{\label{fig-opposing-curve}Using an \textit{r} value of 0.6 to
-demonstrate the relationship between the size of a point's residual and
-the alpha value (opacity) rendered.}
+\caption{\label{fig-opposing-curve}Using \textit{r} values of 0.2, 0.6,
+and 0.99 to demonstrate the relationship between the size of a point's
+residual and the alpha value (opacity) rendered. Note that}
 
 \end{figure}%
 
@@ -884,8 +905,8 @@ For each of the 45 \emph{r} values in Experiment 2, there were four
 versions of each plot corresponding to the three levels of point opacity
 decay function and the baseline global full opacity condition. Examples
 of each of these can be seen in Figure~\ref{fig-exp2-examples-chap4},
-demonstrated with an \emph{r} value of 0.6. Given the shape of the
-underestimation curve found in previous work (see Figure
+demonstrated with \emph{r} values of 0.2, 0.6, and 0.99. Given the shape
+of the underestimation curve found in previous work (see Figure
 \ref{fig-underestimation-curves}, \chap{chap:related_work}), intuition
 suggested employing a symmetrically opposing curve (see the non-linear
 decay curve in Figure~\ref{fig-opposing-curve}) to relate point opacity
