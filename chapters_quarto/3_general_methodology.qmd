@@ -286,7 +286,7 @@ plots_02 <- ggarrange(example_plots_congruent_02,
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.2", rot = 90,
                                                  gp = grid::gpar(fontsize = 10)))
 
-########################### 0.6 plots ###########################
+########################### 0.6 plots ########################### 
 
 example_plots_congruent_06 <- ggarrange(plot_example_function(slopes_0.6,
                                                            NULL,
@@ -312,7 +312,7 @@ plots_06 <- ggarrange(example_plots_congruent_06,
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.6", rot = 90,
                                                  gp = grid::gpar(fontsize = 10)))
 
-########################### 0.99 plots ###########################
+########################### 0.99 plots ########################### 
 
 example_plots_congruent_99 <- ggarrange(plot_example_function(slopes_0.99,
                                                            NULL,
@@ -346,7 +346,7 @@ plots_99 <- ggarrange(example_plots_congruent_99,
   annotate_figure(left = gridtext::richtext_grob("<i>r</i> = 0.99", rot = 90,
                                                  gp = grid::gpar(fontsize = 10)))
 
-########################### COMBINE ALL ###########################
+########################### COMBINE ALL ########################### 
 
 ggarrange(plots_02, plots_06, plots_99, ncol = 1, heights = c(1.2, 1, 1))
 ```
@@ -360,7 +360,7 @@ ggarrange(plots_02, plots_06, plots_99, ncol = 1, heights = c(1.2, 1, 1))
 
 # create example plots for experiment 5
 
-########################### 0.2 plots ###########################
+########################### 0.2 plots ########################### 
 
 plots_02 <- ggarrange(example_plot_function_exp5(slopes_exp5_02,
                                                  slopeI_02,
@@ -480,6 +480,94 @@ kbl(table_df, booktabs = TRUE, escape = FALSE) %>%
   column_spec(8, width = "1.5cm")
 ```
 
+### A Note on Ink
+
+```{r}
+#| label: fig-ink-test
+#| include: true
+#| fig-cap: placehodler
+#| fig-asp: 1
+
+
+library(png)
+library(tidyverse)
+
+INPUT_DIR  <- "../data/exp_plots/exp_1_all_plots/"
+
+ROW_END    <- 1132   
+COL_START  <- 68     
+
+CONDITION_ALPHA <- c(A = 0.25, B = 0.50, C = 0.75, D = 1.00)
+
+measure_ink <- function(path) {
+  img <- readPNG(path)
+  
+  rgb <- img[, , 1:3]
+  brightness <- (rgb[, , 1] + rgb[, , 2] + rgb[, , 3]) / 3
+  
+  darkness <- 1 - brightness
+  
+  interior <- darkness[1:ROW_END, COL_START:ncol(darkness)]
+  
+  list(
+    ink_total      = sum(interior),
+    ink_normalised = mean(interior),
+    n_pixels       = length(interior)
+  )
+}
+
+png_files <- list.files(INPUT_DIR, pattern = "\\.png$", full.names = FALSE)
+
+parsed <- tibble(filename = png_files) %>%
+  mutate(
+    item      = str_extract(filename, "^\\d+"),
+    condition = str_extract(filename, "(?<=\\d)[A-Da-d](?=\\.png$)") %>% toupper()
+  ) %>%
+  filter(!is.na(item), !is.na(condition))
+
+skipped <- setdiff(png_files, parsed$filename)
+if (length(skipped) > 0)
+  message("Skipped ", length(skipped), " unrecognised file(s): ",
+          paste(head(skipped, 5), collapse = ", "))
+
+results <- parsed %>%
+  mutate(alpha = CONDITION_ALPHA[condition]) %>%
+  mutate(metrics = map(
+    file.path(INPUT_DIR, filename),
+    \(p) { message("Processing: ", basename(p)); measure_ink(p) }
+  ))
+
+results <- unnest_wider(results, metrics)
+
+condition_labels <- c(
+  A = "alpha = 0.25",
+  B = "alpha = 0.50",
+  C = "alpha = 0.75",
+  D = "alpha = 1.00"
+)
+
+results %>%
+  mutate(
+    item = factor(as.integer(item)),
+    condition_label = condition_labels[condition]
+  ) %>%
+  ggplot(aes(x = item, y = ink_total ##, fill = condition)) +
+  )) +geom_col() +
+  # scale_fill_manual(values = c(A = "#4393c3", B = "#74c476",
+  #                              C = "#fd8d3c", D = "#e31a1c"),
+                    # guide = "none") +
+  facet_wrap(~ condition_label, nrow = 4) +
+  labs(
+    x     = "Plot number",
+    y     = "Total ink"
+  ) +
+  theme_ggdist(base_size = 12) +
+  theme(
+    plot.title   = element_text(hjust = 0.5),
+    axis.text.x  = element_text(vjust = 0.5, size = 7),
+    strip.text   = element_text()
+  )
+```
 
 
 ## Tools for Testing

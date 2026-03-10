@@ -1233,7 +1233,7 @@ higher levels of global point opacity are rated as being more strongly
 correlated. Given this finding, the question arises of whether additional
 changes in correlation perception may be observed as a function of the spatial
 arrangement of point opacity. This experiment builds on the immature opacity
-decay employed in the unpublished pilot study (see Section \ref{pilot-study}.
+decay employed in the unpublished pilot study (see Section \ref{pilot-study}).
 In that study, point opacity was decreased as a function of residual magnitude, but
 the range of opacity values used for each plot was the same. In the present experiment,
 residual magnitude is hardcoded to point opacity, meaning that if a point has a 
@@ -1252,7 +1252,7 @@ magnitudes and opacity values in each condition using *r* values of 0.2, 0.6, an
 ```{r}
 #| label: fig-opposing-curve
 #| include: true
-#| fig-cap: Using \textit{r} values of 0.2, 0.6, and 0.99 to demonstrate the relationship between the size of a point's residual and the alpha value (opacity) rendered. Note that 
+#| fig-cap: Using \textit{r} values of 0.2, 0.6, and 0.9 to demonstrate the relationship between the size of a point's residual and the alpha value (opacity) rendered. Note that as the \textit{r} value increases, the range of alpha values that can be applied to points decreases.
 #| fig-asp: 0.45
 
 
@@ -1265,7 +1265,6 @@ plot_decay_slopes <- function(r_values,
   mean_variable_2 <- 0
   sd_variable_2 <- 1
 
-  # Build per-facet hjust lookup: r_label -> decay -> hjust
   r_labels <- paste0("*r* = ", r_values)
   hjust_map <- setNames(
     map(seq_along(r_values), function(i) {
@@ -1316,8 +1315,9 @@ plot_decay_slopes <- function(r_values,
       colour = decay,
       label  = decay,
       hjust  = label_hjust,       # now a per-row column
-      vjust  = -0.3
-    ), size = 2) +
+      vjust  = -0.3,
+    ), size = 2,
+    linewidth = 0.25) +
     scale_x_continuous(
       breaks = scales::pretty_breaks(n = 10),
       limits = c(0, 2.6)
@@ -1330,22 +1330,21 @@ plot_decay_slopes <- function(r_values,
     theme(
       legend.title    = element_blank(),
       legend.position = "none",
-      axis.text       = element_text(size = 7),
-      axis.title      = element_text(size = 8),
+      axis.text       = element_text(size = 6),
+      axis.title      = element_text(size = 7),
       plot.title      = element_blank(),
-      strip.text      = element_markdown()
+      strip.text      = element_markdown(size = 7)
     ) +
     coord_cartesian(xlim = c(0, 2.6), ylim = c(0, 1)) +
     scale_colour_manual(values = c("black", "black", "black")) +
     facet_wrap(~ r_value) +
-    annotate("text", x = 0.4, y = 1, size = 2, label = "Fully Opaque") +
-    annotate("text", x = 0.4, y = 0, size = 2, label = "Fully Transparent")
+    annotate("text", x = 0.75, y = 1, size = 2, label = "Fully Opaque") +
+    annotate("text", x = 0.75, y = 0, size = 2, label = "Fully Transparent")
 }
 
-# Each hjust argument is now a vector with one value per r
 plot_decay_slopes(
   r_values       = c(0.2,  0.6,  0.9),
-  hjust_inverted = c(0.8,  0.8,  1.31),
+  hjust_inverted = c(0.8,  0.875,  1.31),
   hjust_linear   = c(0.7,  0.7,  1.275),
   hjust_non_linear = c(0.5, 0.7, 1)
 )
