@@ -504,7 +504,7 @@ kbl(table_df, booktabs = TRUE, escape = FALSE) %>%
   column_spec(8, width = "1.5cm")
 ```
 
-### A Note on Ink
+## A Note on Ink
 
 Overlap between points was not taken into account during any of the experiments
 described in this thesis. As *r* increases and points become closer together,
@@ -518,7 +518,8 @@ for experiment 2 in @fig-ink-e2, for experiment 3 in @fig-ink-e3, for experiment
 4 in @fig-ink-e4, and for experiment 5 in @fig-ink-e5. In all cases, total ink
 values only refer to the plotted scatterplot points; all other visual features,
 including axis lines and ticks, in experiments 1 to 4, and text in experiment
-5, are discounted.
+5, are discounted. Each visualisation shows the normalised total ink
+$\frac{total\ ink}{total\ pixel\ count}$ on the $y$-axis.
 
 ```{r}
 #| label: fig-ink-e1
@@ -584,12 +585,13 @@ plot_ink <- function(input_dir, condition_labels,
     ) +
     #scale_y_continuous(limits = c(0, 40000)) +
     scale_fill_brewer(palette = "Dark2") +
-    labs(x = "*r* value", y = "Total Ink") +
+    labs(x = "*r* value", y = "Normalised Total Ink") +
     theme_ggdist() +
     theme(
-      plot.title       = element_text(hjust = 0.5),
       axis.text.x      = element_text(vjust = 0.5, size = 7),
-      axis.title       = element_markdown(),
+      axis.text.y      = element_text(size = 7),
+      axis.title       = element_markdown(size = 8),
+      strip.text       = element_text(size = 8),
       legend.position  = "none"
     )
 }
@@ -638,6 +640,105 @@ plot_ink(
   condition_labels  = labels_e4,
   row_end = 993, col_start = 62
 )
+```
+
+```{r}
+#| label: fig-ink-e5
+#| include: true
+#| fig-cap: Changes in the total amount of ink in plots in experiment 5 as a function of \textit{r} value, plotted separately for standard and alternative plotting conditions. Only the scatterplot points themselves are included in these calculations.
+#| fig-asp: 1
+
+# new ink plotting function needed for exp 5
+
+labels_e5 <- c("A" = "Alternative Scatterplot",
+               "T" = "Standard Scatterplot")
+
+plot_ink_e5 <- function(input_dir, condition_labels,
+                     row_end = 1132, col_start = 68,
+                     row_start = 1, col_end = NULL,
+                     conditions = c("A", "T"),
+                     ink_threshold = 0) { 
+  
+  set.seed(1234)
+  
+  my_rs <- seq(0.6, 0.99, length.out = 45)
+  
+  CONDITION_ALPHA <- setNames(seq(0.25, 1, length.out = length(conditions)), conditions)
+  
+  measure_ink <- function(path) {
+    img        <- readPNG(path)
+    brightness <- (img[, , 1] + img[, , 2] + img[, , 3]) / 3
+    darkness   <- 1 - brightness
+    col_max    <- if (is.null(col_end)) ncol(darkness) else col_end
+    interior   <- darkness[row_start:row_end, col_start:col_max]
+    interior[interior <= ink_threshold] <- 0
+    list(
+      ink_total      = sum(interior),
+      ink_normalised = mean(interior),
+      n_pixels       = length(interior)
+    )
+  }
+  
+  png_files <- list.files(input_dir, pattern = "\\.png$", full.names = FALSE)
+  
+  cond_pattern <- paste0("[", paste(c(conditions, tolower(conditions)), collapse = ""), "]")
+  
+  parsed <- tibble(filename = png_files) %>%
+  mutate(
+    item      = str_extract(filename, "^\\d+"),
+    condition = str_extract(filename, "(?<=_spice_)[A-Ta-t](?=_)") %>% toupper()
+  ) %>%
+  filter(!is.na(item), !is.na(condition))
+  
+  skipped <- setdiff(png_files, parsed$filename)
+  if (length(skipped) > 0)
+    message("Skipped ", length(skipped), " unrecognised file(s): ",
+            paste(head(skipped, 5), collapse = ", "))
+  
+  results <- parsed %>%
+    mutate(alpha = CONDITION_ALPHA[condition]) %>%
+    mutate(metrics = map(
+      file.path(input_dir, filename),
+      \(p) { message("Processing: ", basename(p)); measure_ink(p) }
+    ))
+  results <- unnest_wider(results, metrics)
+  
+  n_items  <- max(as.integer(results$item))
+  tick_pos <- round(seq(1, n_items, length.out = 10))
+  
+  results %>%
+    mutate(item = as.integer(item)) %>%
+    ggplot(aes(x = item, y = ink_normalised, fill = condition)) +
+    geom_col() +
+    facet_wrap(~ condition, nrow = 2,
+               labeller = labeller(condition = condition_labels)) +
+    scale_x_continuous(
+      breaks = tick_pos,
+      labels = round(my_rs[tick_pos], 2)
+    ) +
+    scale_fill_brewer(palette = "Dark2") +
+    labs(x = "*r* value", y = "Normalised Total Ink") +
+    theme_ggdist() +
+    theme(
+      axis.text.x      = element_text(vjust = 0.5, size = 7),
+      axis.text.y      = element_text(size = 7),
+      axis.title       = element_markdown(size = 8),
+      strip.text       = element_text(size = 8),
+      legend.position  = "none"
+    )
+}
+
+plot_ink_e5(
+  input_dir        = "../data/exp_plots/exp5_all_plots",
+  condition_labels = labels_e5,
+  conditions       = c("A", "T"),
+  row_start        = 272,
+  row_end          = 1288,
+  col_start        = 34,
+  col_end          = 1477,
+  ink_threshold    = 0.25
+)
+
 ```
 
 
