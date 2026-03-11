@@ -1255,7 +1255,6 @@ magnitudes and opacity values in each condition using *r* values of 0.2, 0.6, an
 #| fig-cap: Using \textit{r} values of 0.2, 0.6, and 0.9 to demonstrate the relationship between the size of a point's residual and the alpha value (opacity) rendered. Note that as the \textit{r} value increases, the range of alpha values that can be applied to points decreases.
 #| fig-asp: 0.45
 
-
 plot_decay_slopes <- function(r_values,
                               hjust_inverted, hjust_linear, hjust_non_linear) {
   

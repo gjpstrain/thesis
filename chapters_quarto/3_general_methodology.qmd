@@ -34,6 +34,8 @@ library(ggpubr)
 library(bbplot)
 library(conflicted)
 library(kableExtra)
+library(png)
+library(ggtext)
 
 # load shared functions
 
@@ -48,6 +50,28 @@ slopes_0.99 <- prepare_slopes(0.99)
 # fix conflicts
 
 conflicts_prefer(dplyr::select(), dplyr::filter(), lme4::lmer())
+
+# get label vectors
+
+labels_e1 <- c(A = "Low Opacity (alpha = 0.25)",
+               B = "Medium Opacity (alpha = 0.5)",
+               C = "High Opacity (alpha = 0.75)",
+               D = "Full Opacity (alpha = 1.0)")
+
+labels_e2 <- c(A = "Non-Linear Decay",
+               B = "Linear Decay",
+               C = "Inverted Decay",
+               D = "Full Opacity")
+
+labels_e3 <- c(A = "Non-Linear Decay",
+               B = "Linear Decay",
+               C = "Inverted Decay",
+               D = "Standard Size")
+
+labels_e4 <- c(A = "Typical Orientation Size Typical Orientation Opacity",
+               B = "Inverted Orientation Size Inverted Orientation Opacity",
+               C = "Typical Orientation Size Inverted Orientation Opacity",
+               D = "Inverted Orientation Size Typical Orientation Opacity")
 ```
 
 # Introduction
@@ -482,91 +506,138 @@ kbl(table_df, booktabs = TRUE, escape = FALSE) %>%
 
 ### A Note on Ink
 
+Overlap between points was not taken into account during any of the experiments
+described in this thesis. As *r* increases and points become closer together,
+the amount of overlap also increases. Due to this, the total proportion of the
+plot occupied decreases. I refer to this concept as the total amount of *ink*
+present in a particular plot. Below, I present visualisations of the amount of
+ink present in a scatterplot changes as a function of the *r* value the plot
+describes. These visualisations take into account point opacity and point 
+overlap. The ink distribution plot for experiment 1 can be seen in @fig-ink-e1,
+for experiment 2 in @fig-ink-e2, for experiment 3 in @fig-ink-e3, for experiment
+4 in @fig-ink-e4, and for experiment 5 in @fig-ink-e5. In all cases, total ink
+values only refer to the plotted scatterplot points; all other visual features,
+including axis lines and ticks, in experiments 1 to 4, and text in experiment
+5, are discounted.
+
 ```{r}
-#| label: fig-ink-test
+#| label: fig-ink-e1
 #| include: true
-#| fig-cap: placehodler
+#| fig-cap: Changes in the total amount of ink in plots in experiment 1 as a function of \textit{r} value, plotted separately for the four global opacity conditions. Note how in each condition, the total amount of ink begins to drop very slightly as the objective \textit{r} value increases.
+#| fig-asp: 1
+
+plot_ink <- function(input_dir, condition_labels,
+                     row_end = 1132, col_start = 68) {
+  
+  set.seed(1234)
+
+  my_rs <- seq(0.2, 0.99, length.out = 45)
+  
+  CONDITION_ALPHA <- c(A = 0.25, B = 0.50, C = 0.75, D = 1.00)
+  
+  measure_ink <- function(path) {
+    img        <- readPNG(path)
+    brightness <- (img[, , 1] + img[, , 2] + img[, , 3]) / 3
+    darkness   <- 1 - brightness
+    interior   <- darkness[1:row_end, col_start:ncol(darkness)]
+    list(
+      ink_total      = sum(interior),
+      ink_normalised = mean(interior),
+      n_pixels       = length(interior)
+    )
+  }
+  
+  png_files <- list.files(input_dir, pattern = "\\.png$", full.names = FALSE)
+  
+  parsed <- tibble(filename = png_files) %>%
+    mutate(
+      item      = str_extract(filename, "^\\d+"),
+      condition = str_extract(filename, "(?<=\\d)[A-Da-d](?=\\.png$)") %>% toupper()
+    ) %>%
+    filter(!is.na(item), !is.na(condition))
+  
+  skipped <- setdiff(png_files, parsed$filename)
+  if (length(skipped) > 0)
+    message("Skipped ", length(skipped), " unrecognised file(s): ",
+            paste(head(skipped, 5), collapse = ", "))
+  
+  results <- parsed %>%
+    mutate(alpha = CONDITION_ALPHA[condition]) %>%
+    mutate(metrics = map(
+      file.path(input_dir, filename),
+      \(p) { message("Processing: ", basename(p)); measure_ink(p) }
+    ))
+  results <- unnest_wider(results, metrics)
+  
+  n_items <- max(as.integer(results$item))
+  tick_pos <- seq(1, n_items, length.out = 10)
+
+  results %>%
+    mutate(item = as.integer(item)) %>%
+    ggplot(aes(x = item, y = ink_normalised, fill = condition)) +
+    geom_col() +
+    facet_wrap(~ condition, nrow = 4,
+               labeller = labeller(condition = condition_labels)) +
+    scale_x_continuous(
+      breaks = tick_pos,
+      labels = round(my_rs[tick_pos], 2)
+    ) +
+    #scale_y_continuous(limits = c(0, 40000)) +
+    scale_fill_brewer(palette = "Dark2") +
+    labs(x = "*r* value", y = "Total Ink") +
+    theme_ggdist() +
+    theme(
+      plot.title       = element_text(hjust = 0.5),
+      axis.text.x      = element_text(vjust = 0.5, size = 7),
+      axis.title       = element_markdown(),
+      legend.position  = "none"
+    )
+}
+
+plot_ink(
+  input_dir         = "../data/exp_plots/exp1_all_plots/",
+  condition_labels  = labels_e1
+)
+```
+
+```{r}
+#| label: fig-ink-e2
+#| include: true
+#| fig-cap: Changes in the total amount of ink in plots in experiment 2 as a function of \textit{r} value, plotted separately for the four opacity decay conditions.
 #| fig-asp: 1
 
 
-library(png)
-library(tidyverse)
-
-INPUT_DIR  <- "../data/exp_plots/exp_1_all_plots/"
-
-ROW_END    <- 1132   
-COL_START  <- 68     
-
-CONDITION_ALPHA <- c(A = 0.25, B = 0.50, C = 0.75, D = 1.00)
-
-measure_ink <- function(path) {
-  img <- readPNG(path)
-  
-  rgb <- img[, , 1:3]
-  brightness <- (rgb[, , 1] + rgb[, , 2] + rgb[, , 3]) / 3
-  
-  darkness <- 1 - brightness
-  
-  interior <- darkness[1:ROW_END, COL_START:ncol(darkness)]
-  
-  list(
-    ink_total      = sum(interior),
-    ink_normalised = mean(interior),
-    n_pixels       = length(interior)
-  )
-}
-
-png_files <- list.files(INPUT_DIR, pattern = "\\.png$", full.names = FALSE)
-
-parsed <- tibble(filename = png_files) %>%
-  mutate(
-    item      = str_extract(filename, "^\\d+"),
-    condition = str_extract(filename, "(?<=\\d)[A-Da-d](?=\\.png$)") %>% toupper()
-  ) %>%
-  filter(!is.na(item), !is.na(condition))
-
-skipped <- setdiff(png_files, parsed$filename)
-if (length(skipped) > 0)
-  message("Skipped ", length(skipped), " unrecognised file(s): ",
-          paste(head(skipped, 5), collapse = ", "))
-
-results <- parsed %>%
-  mutate(alpha = CONDITION_ALPHA[condition]) %>%
-  mutate(metrics = map(
-    file.path(INPUT_DIR, filename),
-    \(p) { message("Processing: ", basename(p)); measure_ink(p) }
-  ))
-
-results <- unnest_wider(results, metrics)
-
-condition_labels <- c(
-  A = "alpha = 0.25",
-  B = "alpha = 0.50",
-  C = "alpha = 0.75",
-  D = "alpha = 1.00"
+plot_ink(
+  input_dir         = "../data/exp_plots/exp2_all_plots/",
+  condition_labels  = labels_e2
 )
+```
 
-results %>%
-  mutate(
-    item = factor(as.integer(item)),
-    condition_label = condition_labels[condition]
-  ) %>%
-  ggplot(aes(x = item, y = ink_total ##, fill = condition)) +
-  )) +geom_col() +
-  # scale_fill_manual(values = c(A = "#4393c3", B = "#74c476",
-  #                              C = "#fd8d3c", D = "#e31a1c"),
-                    # guide = "none") +
-  facet_wrap(~ condition_label, nrow = 4) +
-  labs(
-    x     = "Plot number",
-    y     = "Total ink"
-  ) +
-  theme_ggdist(base_size = 12) +
-  theme(
-    plot.title   = element_text(hjust = 0.5),
-    axis.text.x  = element_text(vjust = 0.5, size = 7),
-    strip.text   = element_text()
-  )
+```{r}
+#| label: fig-ink-e3
+#| include: true
+#| fig-cap: Changes in the total amount of ink in plots in experiment 3 as a function of \textit{r} value, plotted separately for the four size decay conditions.
+#| fig-asp: 1
+
+
+plot_ink(
+  input_dir         = "../data/exp_plots/exp3_all_plots/",
+  condition_labels  = labels_e3,
+  row_end = 993, col_start = 62
+)
+```
+
+```{r}
+#| label: fig-ink-e4
+#| include: true
+#| fig-cap: Changes in the total amount of ink in plots in experiment 4 as a function of \textit{r} value, plotted separately for the four opacity and size decay conditions.
+#| fig-asp: 1
+
+plot_ink(
+  input_dir         = "../data/exp_plots/exp4_all_plots/",
+  condition_labels  = labels_e4,
+  row_end = 993, col_start = 62
+)
 ```
 
 
