@@ -1775,7 +1775,7 @@ While the general pattern of results is expected based on previous work, the
 interaction present between defensive confidence and scatterplot condition is
 novel. Despite following the normal pattern of results for
 low to moderate levels of defensive confidence, the relationship between
-scatterplot type, defensive confidence, and belief change diverges past \~ 36/60
+scatterplot type, defensive confidence, and belief change diverges past \sim 36/60
 on the defensive confidence scale. It is unclear why the alternative scatterplot
 condition is associated with high levels of belief change in those with high defensive
 confidence. Further work would be required to explore the interaction between novel

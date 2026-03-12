@@ -558,7 +558,7 @@ residual. By comparing participants' performance on a correlation estimation
 task for data-identical scatterplots that vary only in the opacities of their
 points, it is demonstrated that; lower global point opacity results in greater
 errors in the estimation of positive correlation (Experiment 1); and lowering
-point opacity as a function of the size of a point's residual is able to bias
+point opacity as a function of the magnitude of a point's residual is able to bias
 estimates of positive correlation upwards to partially correct for a historical
 underestimation bias (Experiment 2).
 
@@ -618,7 +618,8 @@ the background, and for regions with overlapping points, colour intensities are
 summed. The stimuli used in the experiments throughout this chapter had 128
 small points, meaning the majority of points were clearly visible at all times.
 For this reason, the effects of point overlap were not taken into account when
-designing and analysing the experiments described here. Due to this, the
+designing and analysing the experiments described here, however see \ref{ink} for
+plots visualising the impacts of point overlap throughout this thesis. Due to this, the
 approach to opacity described in this chapter would not be useful when dealing
 with much larger datasets where clutter becomes an issue.
 
@@ -790,7 +791,7 @@ Participants were instructed to make their judgements as quickly and accurately
 as possible, but there was no time limit per trial. Both experiments described
 here use a fully repeated-measures, within-participants design. All 150
 participants saw all  4 (factor levels) $\times$ 45 (*r* values) = 180 
-experimental items, corresponding to \~27,000 individual judgements per 
+experimental items, corresponding to \sim 27,000 individual judgements per 
 experiment, in a fully randomised order.
 
 ## Materials {#shared-materials-chap4}
@@ -839,12 +840,16 @@ changes in opacity \cite{rensink_2012, rensink_2014}. Findings from the
 pre-study described above provided evidence against this conclusion, so before
 proceeding with the fine-tuning of the immature point opacity decay function, I
 felt that gaining an understanding of how point opacity and correlation
-estimation interact more generally was important. Owing to the robust effects of
-altering stimulus opacity on perception described in Section \ref{related-work-adjusting-opacity}
-\cite{wehrhahn_1990, champion_2017}, it was hypothesised that:
+estimation interact more generally was important. Given the lack of previous
+evidence that correlation perception might be influenced by point opacity,
+I could not hypothesise whether or not this might be the case. However, owing to 
+the robust effects of altering stimulus opacity on perception described in 
+Section \ref{related-work-adjusting-opacity} \cite{wehrhahn_1990, champion_2017},
+it was hypothesised that:
 
--   H1: A greater spread of estimates of correlation for plots with lower global
-    opacity compared to higher opacity plots will be observed.
+-   H1: A greater spread of estimates of correlation, measured by standard 
+        deviations, for plots with lower global opacity compared to higher 
+        opacity plots will be observed.
 
 ## Method {#method-e1}
 
@@ -968,6 +973,8 @@ anova_results(e1_model, e1_model_cmpr)
 anova_results(e1_lit_model, e1_model)
 ```
 
+While I did not make hypotheses based on estimation accuracy, it is the primary 
+focus of the statistical analysis due to its relevance to later work.
 To investigate the effects of opacity condition on participants' estimates of
 correlation, a linear mixed effects model was built with opacity condition as
 a predictor for the difference between objective *r* values for each plot and
@@ -1159,7 +1166,7 @@ A function from the now archived `EMAtools` package \cite{ematools} was used to
 calculate an approximation of Cohen's *d* between the reference level (full
 opacity, alpha = 1.0) and each other level of the opacity factor. These
 statistics can be seen in @tbl-efs-e1 (a) along with means and standard
-errors (b). The largest effect size observed (*d* \~ 0.16) is between the
+errors (b). The largest effect size observed (*d* \sim 0.16) is between the
 low and full opacity conditions, and is small. This was unsurprising given the
 lack of previously reported effects on correlation perception of global point
 opacity \cite{rensink_2012}. @fig-estimates-by-r-e1 shows how participants'
@@ -1668,9 +1675,9 @@ emmeans(e2_model, pairwise ~ "opacity")[[1]] %>%
 
 Approximated Cohen's *d* effect sizes between the baseline (global full opacity)
 and each other condition can be seen in @tbl-efs-e2. The largest effect size
-observed (\~0.23 between full opacity and inverted decay conditions) is small to
+observed (\sim 0.23 between full opacity and inverted decay conditions) is small to
 moderate, and the effect size between the baseline and the non-linear decay
-condition (\~0.19) is small. @fig-estimates-by-r-e2 illustrates the effects of
+condition (\sim 0.19) is small. @fig-estimates-by-r-e2 illustrates the effects of
 each manipulation on participants' correlation estimation performance separately
 for each value of *r* used. The dashed horizontal line represents perfect
 estimation, and standard deviations of estimation error are provided by way of

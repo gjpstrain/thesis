@@ -504,7 +504,7 @@ kbl(table_df, booktabs = TRUE, escape = FALSE) %>%
   column_spec(8, width = "1.5cm")
 ```
 
-## A Note on Ink
+## A Note on Ink {#ink}
 
 Overlap between points was not taken into account during any of the experiments
 described in this thesis. As *r* increases and points become closer together,
@@ -814,14 +814,14 @@ it was required that participants:
 -   Had an acceptance rate of at least 99% for those studies.[^1]
 
 Following implementation of these pre-screen criteria, the rejection rate for
-the next experiment fell to \~5%. Rejection rates were similar for the remainder
+the next experiment fell to \sim 5%. Rejection rates were similar for the remainder
 of experiments. Exact numbers of accepted and rejected participants can be found
 in the \textbf{Participants} sections of each experiment.
 
 Each full experiment recruited until 150 participants had completed
 successfully. Due to the novelty of this work, it was difficult to get a sense
 of the effect sizes that would be seen. I assumed a small effect size (Cohen’s
-*d* \~ 0.2), and aimed to recruit enough participants to adequately power the
+*d* \sim 0.2), and aimed to recruit enough participants to adequately power the
 experiments \cite{brysbaert_2019}. NB: I did not conduct an *a priori* power
 analysis. A post-hoc power analysis of the first experiment revealed a power of
 0.54. Effect sizes were larger in the subsequent experiments, however to
