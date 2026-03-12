@@ -68,10 +68,10 @@ labels_e3 <- c(A = "Non-Linear Decay",
                C = "Inverted Decay",
                D = "Standard Size")
 
-labels_e4 <- c(A = "Typical Orientation Size Typical Orientation Opacity",
-               B = "Inverted Orientation Size Inverted Orientation Opacity",
-               C = "Typical Orientation Size Inverted Orientation Opacity",
-               D = "Inverted Orientation Size Typical Orientation Opacity")
+labels_e4 <- c(A = "Typical Orientation Size Typical Orientation Opacity (***congruent**)",
+               B = "Inverted Orientation Size Inverted Orientation Opacity (***congruent**)",
+               C = "Typical Orientation Size Inverted Orientation Opacity (***incongruent**)",
+               D = "Inverted Orientation Size Typical Orientation Opacity (***incongruent**)")
 ```
 
 # Introduction
@@ -519,7 +519,7 @@ for experiment 2 in @fig-ink-e2, for experiment 3 in @fig-ink-e3, for experiment
 values only refer to the plotted scatterplot points; all other visual features,
 including axis lines and ticks, in experiments 1 to 4, and text in experiment
 5, are discounted. Each visualisation shows the normalised total ink
-$\frac{total\ ink}{total\ pixel\ count}$ on the $y$-axis.
+($\frac{total\ ink}{total\ pixel\ count}$) on the $y$-axis.
 
 ```{r}
 #| label: fig-ink-e1
@@ -591,7 +591,7 @@ plot_ink <- function(input_dir, condition_labels,
       axis.text.x      = element_text(vjust = 0.5, size = 7),
       axis.text.y      = element_text(size = 7),
       axis.title       = element_markdown(size = 8),
-      strip.text       = element_text(size = 8),
+      strip.text       = element_markdown(size = 8),
       legend.position  = "none"
     )
 }
@@ -605,7 +605,7 @@ plot_ink(
 ```{r}
 #| label: fig-ink-e2
 #| include: true
-#| fig-cap: Changes in the total amount of ink in plots in experiment 2 as a function of \textit{r} value, plotted separately for the four opacity decay conditions.
+#| fig-cap: Changes in the total amount of ink in plots in experiment 2 as a function of \textit{r} value, plotted separately for the three opacity decay conditions and the full opacity condition.
 #| fig-asp: 1
 
 
@@ -618,7 +618,7 @@ plot_ink(
 ```{r}
 #| label: fig-ink-e3
 #| include: true
-#| fig-cap: Changes in the total amount of ink in plots in experiment 3 as a function of \textit{r} value, plotted separately for the four size decay conditions.
+#| fig-cap: Changes in the total amount of ink in plots in experiment 3 as a function of \textit{r} value, plotted separately for the three size decay conditions and the standard size condition. The influence of point overlap causes the total amount of ink to fall in all conditions bar non-linear decay.
 #| fig-asp: 1
 
 

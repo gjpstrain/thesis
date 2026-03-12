@@ -513,15 +513,12 @@ with the point size used in \chap{chap:adjusting_opacity} and the minimum point
 size used in \chap{chap:adjusting_size}. With regards to changing the opacities
 of points, an alpha = 0.2 floor was implemented, as informal piloting indicated
 low levels of visibility when very small points also had particularly low
-opacity. In this experiment, point opacity or size manipulations in which a
+opacity. All stimuli in the current experiment use a combination of the non-linear
+decay and inverted non-linear decay functions introduced in the previous
+chapters. In this experiment, point opacity or size manipulations in which a
 reduction with residual magnitude takes place are referred to as *typical
 orientation*, while those in which point opacity or size are increased with
-residual magnitude are referred to as *inverted orientation*. Additionally, as
-the current experiment only examines combinations of point opacity and size
-decay manipulations, the nature of these combinations are classified. When both
-point size and opacity decay operate in the same direction, that condition is
-referred to as *congruent*. When they operate in opposition to each other, those
-conditions are referred to as *incongruent*. Labelled examples of the stimuli
+residual magnitude are referred to as *inverted orientation*. Labelled examples of the stimuli
 used in this experiment can be viewed in @fig-exp4-examples-chap6.
 
 ```{r}
