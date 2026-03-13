@@ -498,6 +498,98 @@ scatterplots offer a number of distinct advantages.
 
 \subsection{Scatterplots}\label{scatterplots-corr-viz}
 
+I begin this section by outlining common tasks that viewers of
+scatterplots are expected to perform, including the types of visual
+patterns typically involved. I then briefly discuss visual channel
+rankings as they pertain to correlation perception and scatterplot tasks
+more generally, before providing an overview of clutter and overplotting
+issues, especially as they pertain to the techniques developed in this
+thesis. Finally, I discuss scatterplots specifically as they pertain to
+correlation perception.
+
+\subsection{Scatterplot Tasks \& Visual
+Channels}\label{scatterplot-tasks}
+
+Being a popular visualisation type, scatterplots have been used to
+facilitate a wide range of visualisation tasks; Quadri \& Rosen
+\cite{quadri_2021} provide a task-based overview of visualisations,
+including scatterplots. Sarikaya \& Gleicher \cite{sarikaya_2018}
+provide a task taxonomy specifically for scatterplots, and detail 12
+abstract analysis tasks that may be applied to them. These abstract
+analysis tasks are split into 3 types: \emph{object-centre} tasks, such
+as value retrieval and comparison between data points; \emph{browsing}
+tasks, such as finding clusters; and \emph{aggregate-level} tasks, such
+as determining correlations or anomalies. Kanjanabose et
+al.~\cite{kanjanabose_2015} used a set of four tasks (value retrieval,
+clustering, outlier detection, and change detection) when comparing task
+performance between scatterplots and parallel coordinates plots, and
+Wang et al.~\cite{wang_2021} used three (finding anomalies, judging
+correlation, and identifying clusters) when studying data size and
+pattern salience with regards to scatterplot comprehension. Lee et
+al.~\cite{lee_2017}, in development of the Visualisation Literacy
+Assessment Test (VLAT), identify scatterplots as being uniquely suitable
+for the eight visualisation tasks chosen (retrieve value, find extremum,
+determine range, characterise distribution, find anomalies, find
+trends/correlations, and make comparisons). Within a particular study or
+taxonomy, many tasks overlap with regards to what viewers of
+visualisations actually do. Hence, I focus on four higher level tasks
+for the remainder of this section:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Value Retrieval.
+\item
+  Cluster Separation.
+\item
+  Characterise Distributions.
+\item
+  Find Correlation.
+\end{enumerate}
+
+Figure~\ref{fig-task-examples} illustrates these four tasks using
+128-point scatterplots of the type used in the experiments throughout
+this thesis.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=\textwidth]{2_related_work_files/figure-latex/fig-task-examples-1.pdf}
+
+}
+
+\caption{\label{fig-task-examples}placeholder}
+
+\end{figure}%
+
+\begin{itemize}
+\tightlist
+\item
+  list scatterplot tasks
+\item
+  Tasks, Data, and Designs paper may be useful here
+\item
+  what visual channels related to those tasks?
+\item
+  potential for summary figure for tasks
+\end{itemize}
+
+Sarikaya \& Gleicher, 2017 Kanjanabose et al., 2015 Wang et al., 2021
+
+\subsection{Overplotting \& Clutter}\label{overplotting-clutter}
+
+\begin{itemize}
+\tightlist
+\item
+  what is overplotting/clutter?
+\item
+  move some of the overplotting intro from later chapter to here
+\item
+  reference the ink plots
+\end{itemize}
+
 In the context of correlation estimation from scatterplots, Weber's law
 states that the differential change in perception between scatterplots
 with two correlation values can be described by applying an

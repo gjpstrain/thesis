@@ -392,15 +392,14 @@ the largest limitation in this thesis. As opposed to previous work that employed
 more psychophysical designs, such as correlation discrimination or magnitude
 estimation via bisection tasks \cite{rensink_2010, rensink_2017}, Experiments 1
 to 4 in this thesis utilised a direct estimation paradigm more akin to much
-older correlation perception work
-\cite{strahan_1978, bobko_1979, cleveland_1982, lane_1985, lauer_1989, collyer_1990,
-meyer_1992}. While this technique supplies robust conclusions for the HCI and
-design audiences, it means that making claims about the precise mathematical
-relationship between perceived and actual correlation is difficult based on the
-data gathered. Similarly, the correlation judgements that participants made in
-these experiments must be considered in context; it would not be expected that
-people may view 180 data visualisations in sequence during the course of normal,
-day-to-day visualisation viewing.
+older correlation perception work \cite{strahan_1978, bobko_1979, cleveland_1982,
+lane_1985, lauer_1989, collyer_1990, meyer_1992}. While this technique supplies
+robust conclusions for the HCI and design audiences, it means that making claims
+about the precise mathematical relationship between perceived and actual
+correlation is difficult based on the data gathered. Similarly, the correlation
+judgements that participants made in these experiments must be considered in
+context; it would not be expected that people may view 180 data visualisations
+in sequence during the course of normal, day-to-day visualisation viewing.
 
 All experiments presented in this thesis were conducted entirely online. Doing
 so allowed for the rapid collection of large amounts of high quality data,
@@ -412,6 +411,19 @@ participants' responses. Online experimentation does not allow for the
 determination of other factors that may explain variance, such as
 head-to-monitor distance or monitor specifications that may influence the visual
 quality of scatterplots with altered point opacities or sizes.
+
+None of the experiments considered the impact of overplotting in this thesis. The 
+number of scatterplot points used (128) was small, especially compared to datasets
+that may include thousands or millions of data points. For this reason, I did not
+manually correct for overlapping points. In the initial experiments, which only
+investigated point opacity, this was unnecessary, as the impact of overplotting was
+extremely low; later, when changing the sizes of points increased the amount of
+overlap, I elected again not to make manual changes to facilitate comparison
+to earlier work. High *r* value scatterplots in experiment 5 (see Section \ref{beliefs-main-e5}
+in \chap{chap:belief_change}) suffered particularly from this problem. If the 
+techniques developed in this thesis around changing the sizes of points were 
+to be used in the wild, further tuning would be required, as many individual
+points are effectively obscured (see Figure \ref{fig-exp5-examples-chap7})
 
 # Future Directions {#future-work-chap8}
 
