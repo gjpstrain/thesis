@@ -361,6 +361,23 @@ correlated scatterplots. I would not recommend this until further work has been
 done on the potential for misinterpretation from scatterplots such as those
 described here (see Section \ref{future-work-chap8}).
 
+Given the effects reported here, designers should also be aware of the side-effects
+of changing the sizes and opacities of scatterplot points on other task types.
+Akin to how different visual channels have impacts on perceptions of each
+other \cite{smart_2019}, using the techniques described in this thesis with the
+intention of facilitating more accurate correlation estimation/belief change may have the
+unintended side effect of preventing the completion of other analytical tasks. Further
+investigation would be required in this case. Additionally, designers must consider
+that by choosing to use point size and/or opacity to facilitate correlation perception
+or belief change, they lose those visual channels for the encoding of other
+information. Again, this may be an acceptable pay-off depending on the purpose of
+the visualisation in question, but would require further study.
+
+<!-- deliberate distortion vs. design choices made to mitigate data scale/overplotting/etc. -->
+
+<!-- -       “Biasing viewer’s beliefs” vs. impact on visual patterns that are not linear correlations -->
+
+
 ## For Society
 
 Given the ubiquity of scatterplots and the fundamental nature of correlation as
