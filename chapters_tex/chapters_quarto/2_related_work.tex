@@ -501,39 +501,38 @@ scatterplots offer a number of distinct advantages.
 I begin this section by outlining common tasks that viewers of
 scatterplots are expected to perform, including the types of visual
 patterns typically involved. I then briefly discuss visual channel
-rankings as they pertain to correlation perception and scatterplot tasks
-more generally, before providing an overview of clutter and overplotting
+rankings related to correlation perception and scatterplot tasks more
+generally, before providing an overview of clutter and overplotting
 issues, especially as they pertain to the techniques developed in this
-thesis. Finally, I discuss scatterplots specifically as they pertain to
-correlation perception.
+thesis. Finally, I narrow my focus and discuss scatterplots specifically
+as they relate to correlation perception.
 
-\subsection{Scatterplot Tasks \& Visual
-Channels}\label{scatterplot-tasks}
+\subsubsection{Tasks}\label{scatterplot-tasks}
 
 Being a popular visualisation type, scatterplots have been used to
 facilitate a wide range of visualisation tasks; Quadri \& Rosen
-\cite{quadri_2021} provide a task-based overview of visualisations,
+\cite{quadri_2022} provide a task-based overview of visualisations,
 including scatterplots. Sarikaya \& Gleicher \cite{sarikaya_2018}
 provide a task taxonomy specifically for scatterplots, and detail 12
 abstract analysis tasks that may be applied to them. These abstract
-analysis tasks are split into 3 types: \emph{object-centre} tasks, such
-as value retrieval and comparison between data points; \emph{browsing}
-tasks, such as finding clusters; and \emph{aggregate-level} tasks, such
-as determining correlations or anomalies. Kanjanabose et
-al.~\cite{kanjanabose_2015} used a set of four tasks (value retrieval,
-clustering, outlier detection, and change detection) when comparing task
-performance between scatterplots and parallel coordinates plots, and
-Wang et al.~\cite{wang_2021} used three (finding anomalies, judging
-correlation, and identifying clusters) when studying data size and
-pattern salience with regards to scatterplot comprehension. Lee et
-al.~\cite{lee_2017}, in development of the Visualisation Literacy
-Assessment Test (VLAT), identify scatterplots as being uniquely suitable
-for the eight visualisation tasks chosen (retrieve value, find extremum,
-determine range, characterise distribution, find anomalies, find
-trends/correlations, and make comparisons). Within a particular study or
-taxonomy, many tasks overlap with regards to what viewers of
-visualisations actually do. Hence, I focus on four higher level tasks
-for the remainder of this section:
+analysis tasks are split into three types: \emph{object-centric} tasks,
+such as value retrieval and comparison between data points;
+\emph{browsing} tasks, such as finding clusters; and
+\emph{aggregate-level} tasks, such as determining correlations or
+anomalies. Kanjanabose et al.~\cite{kanjanabose_2015} used a set of four
+tasks (value retrieval, clustering, outlier detection, and change
+detection) when comparing task performance between scatterplots and
+parallel coordinates plots, and Wang et al.~\cite{wang_2021} used three
+(finding anomalies, judging correlation, and identifying clusters) when
+studying data size and pattern salience with regards to scatterplot
+comprehension. Lee et al.~\cite{lee_2017}, through development of the
+Visualisation Literacy Assessment Test (VLAT), identify scatterplots as
+being uniquely suitable for the eight visualisation tasks chosen
+(retrieve value, find extremum, determine range, characterise
+distribution, find anomalies, find trends/correlations, and make
+comparisons). Within a particular study or taxonomy, many tasks overlap
+with regards to what viewers of visualisations actually do. Hence, I
+focus on four higher level tasks for the remainder of this section:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -549,8 +548,7 @@ for the remainder of this section:
 \end{enumerate}
 
 Figure~\ref{fig-task-examples} illustrates these four tasks using
-128-point scatterplots of the type used in the experiments throughout
-this thesis.
+scatterplots of the type used in the experiments throughout this thesis.
 
 \begin{figure}
 
@@ -560,35 +558,81 @@ this thesis.
 
 }
 
-\caption{\label{fig-task-examples}placeholder}
+\caption{\label{fig-task-examples}Illustrating four different
+scatterplots tasks using scatterplots similar to those used in the
+experiments in this thesis. Visual elements are used to highlight the
+task detailed in the title of each plot.}
 
 \end{figure}%
 
-\begin{itemize}
-\tightlist
-\item
-  list scatterplot tasks
-\item
-  Tasks, Data, and Designs paper may be useful here
-\item
-  what visual channels related to those tasks?
-\item
-  potential for summary figure for tasks
-\end{itemize}
+Scatterplot tasks generally require viewers to engage with patterns in
+the data. The value retrieval task usually required viewers to use axis
+ticks and labels to look up the \(x\) and \(y\) values for the
+particular points they wish to locate. Such tasks may be facilitated by
+increasing the salience of relevant data points, either as I have in
+Figure~\ref{fig-task-examples} using additional visual scaffolding, or
+by changing the size, colour, or shape of points relative to others.
+Cluster separation, a task commonly associated with large-dataset
+scatterplots, requires viewers to group points together based on their
+similarities and differences with their neighbours. In
+Figure~\ref{fig-task-examples}, I have used colour and marker shape to
+delineate three clusters of points. The third task, characterising a
+distribution, requires viewers to use the totality of points in the plot
+to generate inferences about the structure of the data; when this
+structure is clear, as in Figure~\ref{fig-task-examples}, this is a
+relatively simple task, however becomes much more difficult as patterns
+become more complex and obscured by noisy data. Finally, getting a sense
+of correlation from a scatterplot also requires viewers to take into
+account the shape of the underlying data; this thesis presents
+visualisation techniques that are intended to aid in this.
 
-Sarikaya \& Gleicher, 2017 Kanjanabose et al., 2015 Wang et al., 2021
+\subsubsection{Visual Channels}\label{visual-channels}
+
+Scatterplots are primarily used for presenting bivariate data based on
+positions along \(x\) and \(y\) axes. Bubble charts (see Section
+\ref{introduction-adjusting-size}) encode an additional third variable
+using point size. Aside from information overload, there is no hard
+limit to the number of variables that a scatterplot might encode,
+including the use of point size, marker shape, hue/gradient, or
+orientation. Due to its suitability for encoding categorical data
+\cite{kim_2018}, point colour is an often studied visual channel when
+going past bivariate plots, however there is evidence that channels such
+as colour, size, and shape are not entirely separable \cite{smart_2019}.
+Such evidence means that design must take into account interactions
+between visual channels, and motivates the study of point opacity and
+size related to correlation perception from the bottom-up.
+
+The property of correlation itself does not require visualisation with
+scatterplots based on position values along an axis. Research has
+investigated correlation visualisations that encode data point position
+using line angles, areas, and orderings \cite{harrison_2014},
+consistently finding that conventional, bivariate scatterplots offer the
+best performance for visualising both positive and negative
+correlations.
 
 \subsection{Overplotting \& Clutter}\label{overplotting-clutter}
 
-\begin{itemize}
-\tightlist
-\item
-  what is overplotting/clutter?
-\item
-  move some of the overplotting intro from later chapter to here
-\item
-  reference the ink plots
-\end{itemize}
+As the datasets that scatterplots describe increase in size and
+complexity, overplotting becomes an issue. Increased amounts of data
+results in increased amounts of point overlap, and reducing the size and
+opacity of points are common methods of ameliorating these issues. As
+point size and opacity decrease, however, individual point salience
+decreases, leading designers to be forced to consider a trade-off
+between accurately representing the whole dataset and allowing for
+individual data points to be accessible to viewers
+\cite{bertini_2004, matejka_2015}. To facilitate comparison across the
+different experiments in this thesis, stimuli always featured 128
+points, meaning the impact of overplotting was minimal. Some experiments
+in this thesis, however, feature changes to the sizes of individual
+points, resulting in overplotting and a reduction in the amount of
+information a single data point can provide. Section \ref{ink} in
+\chap{chap:gen_methods} contains a more comprehensive discussion of the
+impact of overplotting throughout this thesis, including visualisations
+that describe how much \emph{ink} was actually present in experimental
+scatterplots once overlap had been taken into account.
+
+\subsection{Scatterplots \& Correlation
+Estimation}\label{scatterplots-correlation-estimation}
 
 In the context of correlation estimation from scatterplots, Weber's law
 states that the differential change in perception between scatterplots

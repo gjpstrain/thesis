@@ -259,7 +259,7 @@ participants' performance on a correlation estimation task for
 data-identical scatterplots that vary only in the opacities of their
 points, it is demonstrated that; lower global point opacity results in
 greater errors in the estimation of positive correlation (Experiment 1);
-and lowering point opacity as a function of the size of a point's
+and lowering point opacity as a function of the magnitude of a point's
 residual is able to bias estimates of positive correlation upwards to
 partially correct for a historical underestimation bias (Experiment 2).
 
@@ -308,9 +308,10 @@ intensities are summed. The stimuli used in the experiments throughout
 this chapter had 128 small points, meaning the majority of points were
 clearly visible at all times. For this reason, the effects of point
 overlap were not taken into account when designing and analysing the
-experiments described here. Due to this, the approach to opacity
-described in this chapter would not be useful when dealing with much
-larger datasets where clutter becomes an issue.
+experiments described here, however see \ref{ink} for plots visualising
+the impacts of point overlap throughout this thesis. Due to this, the
+approach to opacity described in this chapter would not be useful when
+dealing with much larger datasets where clutter becomes an issue.
 
 The \texttt{ggplot2} \cite{wickham_2016} package (version 3.4.1) was
 used in R to create stimuli for this experiment. This package uses an
@@ -492,7 +493,7 @@ their judgements as quickly and accurately as possible, but there was no
 time limit per trial. Both experiments described here use a fully
 repeated-measures, within-participants design. All 150 participants saw
 all 4 (factor levels) \(\times\) 45 (\emph{r} values) = 180 experimental
-items, corresponding to \textasciitilde27,000 individual judgements per
+items, corresponding to \sim 27,000 individual judgements per
 experiment, in a fully randomised order.
 
 \subsection{Materials}\label{shared-materials-chap4}
@@ -541,16 +542,19 @@ Findings from the pre-study described above provided evidence against
 this conclusion, so before proceeding with the fine-tuning of the
 immature point opacity decay function, I felt that gaining an
 understanding of how point opacity and correlation estimation interact
-more generally was important. Owing to the robust effects of altering
-stimulus opacity on perception described in Section
-\ref{related-work-adjusting-opacity}
+more generally was important. Given the lack of previous evidence that
+correlation perception might be influenced by point opacity, I could not
+hypothesise whether or not this might be the case. However, owing to the
+robust effects of altering stimulus opacity on perception described in
+Section \ref{related-work-adjusting-opacity}
 \cite{wehrhahn_1990, champion_2017}, it was hypothesised that:
 
 \begin{itemize}
 \tightlist
 \item
-  H1: A greater spread of estimates of correlation for plots with lower
-  global opacity compared to higher opacity plots will be observed.
+  H1: A greater spread of estimates of correlation, measured by standard
+  deviations, for plots with lower global opacity compared to higher
+  opacity plots will be observed.
 \end{itemize}
 
 \subsection{Method}\label{method-e1}
@@ -592,7 +596,9 @@ Here, ``opacity'' refers to the alpha value used by \texttt{ggplot2}.}
 
 \subsection{Results}\label{results-e1}
 
-To investigate the effects of opacity condition on participants'
+While I did not make hypotheses based on estimation accuracy, it is the
+primary focus of the statistical analysis due to its relevance to later
+work. To investigate the effects of opacity condition on participants'
 estimates of correlation, a linear mixed effects model was built with
 opacity condition as a predictor for the difference between objective
 \emph{r} values for each plot and participants' estimates of \emph{r}.
@@ -748,18 +754,17 @@ A function from the now archived \texttt{EMAtools} package
 \emph{d} between the reference level (full opacity, alpha = 1.0) and
 each other level of the opacity factor. These statistics can be seen in
 Table~\ref{tbl-efs-e1} (a) along with means and standard errors (b). The
-largest effect size observed (\emph{d} \textasciitilde{} 0.16) is
-between the low and full opacity conditions, and is small. This was
-unsurprising given the lack of previously reported effects on
-correlation perception of global point opacity \cite{rensink_2012}.
-Figure~\ref{fig-estimates-by-r-e1} shows how participants' estimates of
-correlation change with the objective \emph{r} value in the plot. The
-line shows mean errors in correlation estimation, and standard
-deviations of error are provided as error bars. The dashed horizontal
-line represents hypothetical perfect estimation. As reported in previous
-literature (see Section \ref{underestimation-related-work} in
-\chap{chap:related_work}), participants underestimated \emph{r} in
-nearly all cases.
+largest effect size observed (\emph{d} \sim 0.16) is between the low and
+full opacity conditions, and is small. This was unsurprising given the
+lack of previously reported effects on correlation perception of global
+point opacity \cite{rensink_2012}. Figure~\ref{fig-estimates-by-r-e1}
+shows how participants' estimates of correlation change with the
+objective \emph{r} value in the plot. The line shows mean errors in
+correlation estimation, and standard deviations of error are provided as
+error bars. The dashed horizontal line represents hypothetical perfect
+estimation. As reported in previous literature (see Section
+\ref{underestimation-related-work} in \chap{chap:related_work}),
+participants underestimated \emph{r} in nearly all cases.
 
 \subsection{Discussion}\label{discussion-e1}
 
@@ -1064,15 +1069,14 @@ full opacity) and each other condition can be seen in
 Table~\ref{tbl-efs-e2}. The largest effect size observed (\sim 0.23
 between full opacity and inverted decay conditions) is small to
 moderate, and the effect size between the baseline and the non-linear
-decay condition (\textasciitilde0.19) is small.
-Figure~\ref{fig-estimates-by-r-e2} illustrates the effects of each
-manipulation on participants' correlation estimation performance
-separately for each value of \emph{r} used. The dashed horizontal line
-represents perfect estimation, and standard deviations of estimation
-error are provided by way of error bars. Participants still
-underestimated correlation in all conditions, although the use of the
-non-linear decay function biased participants' estimates upwards to
-partially correct for the underestimation.
+decay condition (\sim 0.19) is small. Figure~\ref{fig-estimates-by-r-e2}
+illustrates the effects of each manipulation on participants'
+correlation estimation performance separately for each value of \emph{r}
+used. The dashed horizontal line represents perfect estimation, and
+standard deviations of estimation error are provided by way of error
+bars. Participants still underestimated correlation in all conditions,
+although the use of the non-linear decay function biased participants'
+estimates upwards to partially correct for the underestimation.
 
 \begin{figure}
 
