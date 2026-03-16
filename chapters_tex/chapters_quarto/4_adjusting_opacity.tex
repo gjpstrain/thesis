@@ -1230,7 +1230,12 @@ communicative concepts in mind. When one of these concepts is
 illustrating the degree of positive association between two variables,
 the findings presented suggest that designers should utilise the
 techniques described to give viewers the best chance of interpreting the
-correlation displayed as accurately as possible.
+correlation displayed as accurately as possible. Of course, when
+scatterplots are designed with more than simple correlation estimation
+in mind, the techniques described here might not be suitable, and may
+impede the completion of other scatterplot tasks. For example, if
+viewers were also expected to be able to find outliers, the reduced
+opacity of exterior points may hamper their ability to do so.
 
 \subsection{Training}\label{training-adjusting-opacity}
 
@@ -1292,27 +1297,8 @@ are promising with regards to design research.
 
 \subsection{Future Work}\label{future-work-adjusting-opacity}
 
-Future work may wish to investigate negative values of \emph{r}, given
-findings that people may overestimate the correlation of negatively
-correlated scatterplots in a similar way \cite{sher_2017}. The
-techniques presented here could be adapted to bias perceptions of
-correlation down and correct for this overestimation. The non-linear
-inverted opacity decay function demonstrated here may be able to
-accomplish this.
-
-The opacity decay function conditions in Experiment 2 used the vertical
-distance between a particular point and the regression line to set that
-point's opacity. Previous work \cite{meyer_1997} has suggested that the
-perpendicular distance between a point and the regression line may be a
-more accurate predictor of performance on correlation estimation tasks
-\cite{cleveland_1982, rensink_2017, yang_2019}. Future work exploring
-these manipulations further may wish to investigate whether there are
-differences between using perpendicular and vertical residual distance
-as bases for setting point opacity with regard to correlation
-estimation.
-
-Finally, the most exciting avenue for related future work is expanding
-the technique developed here to other visual features in isolation and
+The most exciting avenue for related future work is expanding the
+technique developed here to other visual features in isolation and
 combination. \chap{chap:adjusting_size} investigates the use of point
 size in place of opacity with the techniques described, while
 \chap{chap:interactions_opacity_size} combines the two to explore how
