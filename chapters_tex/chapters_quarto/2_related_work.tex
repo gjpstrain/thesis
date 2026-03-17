@@ -41,15 +41,6 @@ our world and the relationships therein is often easier through pictures
 as opposed to only words and/or numbers, a principle which I consider
 key for this thesis.
 
-Moving on, then, to the kind of pictorial representation that modern-day
-students and scientists would firmly recognise as ``data
-visualisation''. Tufte and Graves-Morris, in 1983's seminal \emph{The
-Visual Display of Quantitative Information} \cite{tufte_1983}, describe
-an unattributed time series illustration from the 10th or 11th century,
-itself described by Funkhouser in 1936 \cite{funkhouser_1936} as being
-discovered by Sigmund Günther in 1877. This illustration is included
-here in Figure~\ref{fig-early-time-series}.
-
 \begin{figure}
 
 \centering{
@@ -64,17 +55,24 @@ Graves-Morris, 1983 \cite{tufte_1983} from Funkhouser, 1936
 
 \end{figure}%
 
-This illustration purports to show the movements of planetary bodies as
-a function of time, although Funkhouser considered it little more than a
-``schematic diagram\ldots for illustrative purposes''
-\cite{funkhouser_1936}. Regardless, the recognisable grid lines and
-sinusoidal variation in the curves are ideas that would not appear again
-for another 600-700 years, after which they would become mainstream
-visualisation techniques. In the mid-14th century, French philosopher
-Nicole Oresme demonstrated an understanding of graphing by plotting
-proto-bar charts, and by the 16th century, advances in cartography,
-photography, and mathematics laid the ground for an explosion in data
-visualisation.
+Moving on, then, to the kind of pictorial representation that modern-day
+students and scientists would firmly recognise as ``data
+visualisation''. Tufte and Graves-Morris, in 1983's seminal \emph{The
+Visual Display of Quantitative Information} \cite{tufte_1983}, describe
+an unattributed time series illustration from the 10th or 11th century,
+itself described by Funkhouser in 1936 \cite{funkhouser_1936} as being
+discovered by Sigmund Günther in 1877. This illustration is included
+here in Figure~\ref{fig-early-time-series}, and purports to show the
+movements of planetary bodies as a function of time, although Funkhouser
+considered it little more than a ``schematic diagram\ldots for
+illustrative purposes'' \cite{funkhouser_1936}. Regardless, the
+recognisable grid lines and sinusoidal variation in the curves are ideas
+that would not appear again for another 600-700 years, after which they
+would become mainstream visualisation techniques. In the mid-14th
+century, French philosopher Nicole Oresme demonstrated an understanding
+of graphing by plotting proto-bar charts, and by the 16th century,
+advances in cartography, photography, and mathematics laid the ground
+for an explosion in data visualisation.
 
 The 17th century saw the birth of geometry and coordinate systems, error
 measurement, probability, and demographic statistics. With these
@@ -242,8 +240,8 @@ Francis Galton was the first to formally introduce the concept of
 \emph{co-relation} in 1888 \cite{galton_1888}. He derived a definition
 of correlation as a by-product of his invention of statistical
 regression, first describing this new property by way of anthropometric
-data relating to the measurement of different parts of the body. Early
-in this brief, but significant, paper, Galton puts forward a basic
+data relating to the measurement of different parts of the human body.
+Early in this brief but significant paper, Galton puts forward a basic
 definition of correlation:
 
 \begin{quotation}
@@ -477,24 +475,23 @@ standard scatterplots.}
 
 When I began this project in the autumn of 2021, I believed that
 scatterplots were the first and last word when it came to visualising
-correlation. I soon discovered that this was not the case; as scientists
-often do, a whole host of other visualisation types had been designed or
-adapted in an effort to better visualise correlation. Parallel
-Coordinates Plots (PCPs) \cite{heinrich_2013}, which are popular in the
-InfoVis community, are most often used for multidimensional data.
-Applying them to bivariate data results in plots that perform (almost)
-as well as scatterplots with regards to visualising the correlation
-between two variables \cite{kay_2016}. Figure~\ref{fig-other-corr-viz}
-illustrates parallel coordinates plots, along with 3 other types of
-correlation visualisation, with an \emph{r} value of 0.6. Despite the
-existence of plots such as these, scatterplots remain by far the most
-popular way of visualising correlation. With the exception of the charts
-featured in Figure~\ref{fig-other-corr-viz}, many other ways of
-visualising correlation are density-flavoured remixes of traditional
-scatterplots, such as Hexbin plots and Kernel Density Estimate plots
-(see Figure~\ref{fig-remixes}). While there may be many, often more
-visually appealing ways of visualising correlation, traditional
-scatterplots offer a number of distinct advantages.
+correlation. I soon discovered that this was not the case; a whole host
+of other visualisation types had been designed or adapted in an effort
+to better visualise correlation. Parallel Coordinates Plots (PCPs)
+\cite{heinrich_2013}, which are popular in the InfoVis community, are
+most often used for multidimensional data. Applying them to bivariate
+data results in plots that perform (almost) as well as scatterplots with
+regards to visualising the correlation between two variables
+\cite{kay_2016}. Figure~\ref{fig-other-corr-viz} illustrates PCPs, along
+with three other types of correlation visualisation, with an \emph{r}
+value of 0.6. Despite the existence of plots such as these, scatterplots
+remain by far the most popular way of visualising correlation. With the
+exception of the charts featured in Figure~\ref{fig-other-corr-viz},
+many other ways of visualising correlation are density-flavoured remixes
+of traditional scatterplots, such as Hexbin plots and Kernel Density
+Estimate plots (see Figure~\ref{fig-remixes}). While there may be many,
+often more visually appealing ways of visualising correlation,
+traditional scatterplots offer a number of distinct advantages.
 
 \subsection{Scatterplots}\label{scatterplots-corr-viz}
 
@@ -529,10 +526,10 @@ comprehension. Lee et al.~\cite{lee_2017}, through development of the
 Visualisation Literacy Assessment Test (VLAT), identify scatterplots as
 being uniquely suitable for the eight visualisation tasks chosen
 (retrieve value, find extremum, determine range, characterise
-distribution, find anomalies, find trends/correlations, and make
-comparisons). Within a particular study or taxonomy, many tasks overlap
-with regards to what viewers of visualisations actually do. Hence, I
-focus on four higher level tasks, illustrated in
+distribution, find anomalies, find clusters, find trends/correlations,
+and make comparisons). Within a particular study or taxonomy, many tasks
+overlap with regards to what viewers of visualisations actually do.
+Hence, I focus on four higher level tasks, illustrated in
 Figure~\ref{fig-task-examples}, for the remainder of this section:
 
 \begin{enumerate}
@@ -564,7 +561,7 @@ task detailed in the title of each plot.}
 \end{figure}%
 
 Scatterplot tasks generally require viewers to engage with patterns in
-the data. The value retrieval task usually required viewers to use axis
+the data. The value retrieval task usually requires viewers to use axis
 ticks and labels to look up the \(x\) and \(y\) values for the
 particular points they wish to locate. Such tasks may be facilitated by
 increasing the salience of relevant data points, either as I have in
@@ -941,10 +938,11 @@ levels of misinterpretation and more often rely on misleading mappings
 \cite{okan_2016}.
 
 The SGL was administered in each experiment described in this thesis,
-and takes the form of 5 questions to which participants must provide an
-answer. Generally, the scale ascertains each participant's self-reported
-competencies when working with a small range of visualisations. The SGL
-test portion of each experiment is shown in Figure~\ref{fig-sgl-screen}.
+and takes the form of five questions to which participants must provide
+an answer. Generally, the scale ascertains each participant's
+self-reported competencies when working with a small range of
+visualisations. The SGL test portion of each experiment is shown in
+Figure~\ref{fig-sgl-screen}.
 
 \section{Objectives and Contributions}\label{objectives-contributions}
 
@@ -957,7 +955,7 @@ In this thesis, I aim to answer three high-level research questions:
   Are there effects of changing the opacities and sizes of scatterplot
   points on performance on a correlation estimation task?
 \item
-  Can these changes be used to correct for the underestimation bias?
+  Can these effects be used to correct for the underestimation bias?
 \item
   Are these effects only perceptual, or do participants integrate them
   cognitively such that they may influence beliefs about correlations?

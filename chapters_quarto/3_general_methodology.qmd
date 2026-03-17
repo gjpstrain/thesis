@@ -68,10 +68,10 @@ labels_e3 <- c(A = "Non-Linear Decay",
                C = "Inverted Decay",
                D = "Standard Size")
 
-labels_e4 <- c(A = "Typical Orientation Size Typical Orientation Opacity (**congruent**)",
-               B = "Inverted Orientation Size Inverted Orientation Opacity (**congruent**)",
-               C = "Typical Orientation Size Inverted Orientation Opacity (**incongruent**)",
-               D = "Inverted Orientation Size Typical Orientation Opacity (**incongruent**)")
+labels_e4 <- c(A = "Typical Orientation Size × Typical Orientation Opacity (**congruent**)",
+               B = "Inverted Orientation Size × Inverted Orientation Opacity (**congruent**)",
+               C = "Typical Orientation Size × Inverted Orientation Opacity (**incongruent**)",
+               D = "Inverted Orientation Size × Typical Orientation Opacity (**incongruent**)")
 ```
 
 # Introduction
@@ -127,12 +127,12 @@ opacity with 4 levels (see @fig-exp1-examples). Experiment 2 featured a single
 factor of scatterplot point design regarding opacity with 4 levels (see
 @fig-exp2-examples). Experiment 3 featured a single factor of scatterplot point
 design regarding size with 4 levels (see @fig-exp3-examples). Experiment 4
-featured a factorial 2 $\times$ 2 design; IV~1~ was the scatterplot point
+featured a factorial $2\times2$ design; IV~1~ was the scatterplot point
 opacity design used with 2 levels, and IV~2~ was the scatterplot point size
 design used with 2 levels (see @fig-exp4-examples). Experiment 5 is a departure
 from the shared experimental paradigm of the previous experiments, and features
-a 1 factor, 2 level between-participants design; group A saw scatterplots
-designed to elicit greater levels of belief change compared to typical
+a 1-factor, 2-level between-participants design; group A saw alternative scatterplots
+designed to elicit greater levels of belief change compared to standard
 scatterplots, which were shown to group B (see @fig-exp5-examples). Characteristics
 of all experiments are summarised in @tbl-exp-summary, which also includes
 locations for full descriptions of stimuli.
@@ -488,7 +488,7 @@ plots_99
 ```{r}
 #| label: tbl-exp-summary
 #| include: true
-#| tbl-cap: Experimental summary table showing the visual channeln manipulated, the type of manipulation, dependent variable, presence or absence of a baseline condition, experimental design, location, and chapter.
+#| tbl-cap: Experimental summary table showing the visual channel manipulated, the type of manipulation, dependent variable, presence or absence of a baseline condition, experimental design, section, and chapter.
 
 table_df <- read_csv("../data/exp_summary.csv")
 
@@ -516,8 +516,9 @@ describes. These visualisations take into account point opacity and point
 overlap. The ink distribution plot for experiment 1 can be seen in @fig-ink-e1,
 for experiment 2 in @fig-ink-e2, for experiment 3 in @fig-ink-e3, for experiment
 4 in @fig-ink-e4, and for experiment 5 in @fig-ink-e5. In all cases, total ink
-values only refer to the plotted scatterplot points; all other visual features,
-including axis lines and ticks, in experiments 1 to 4, and text in experiment
+values only refer to the plotted scatterplot points in relation to the white plotting
+background; all other visual features,
+including axis lines and ticks in experiments 1 to 4, and text in experiment
 5, are discounted. Each visualisation shows the normalised total ink
 ($\frac{total\ ink}{total\ pixel\ count}$) on the $y$-axis.
 
@@ -618,7 +619,7 @@ plot_ink(
 ```{r}
 #| label: fig-ink-e3
 #| include: true
-#| fig-cap: Changes in the total amount of ink in plots in experiment 3 as a function of \textit{r} value, plotted separately for the three size decay conditions and the standard size condition. The influence of point overlap causes the total amount of ink to fall in all conditions bar non-linear decay.
+#| fig-cap: Changes in the total amount of ink in plots in experiment 3 as a function of \textit{r} value, plotted separately for the three size decay conditions and the standard size condition. The influence of point overlap causes the total amount of ink to fall in all conditions, with non-linear decay experiencing some rise in total ink prior.
 #| fig-asp: 1
 
 
@@ -646,7 +647,7 @@ plot_ink(
 #| label: fig-ink-e5
 #| include: true
 #| fig-cap: Changes in the total amount of ink in plots in experiment 5 as a function of \textit{r} value, plotted separately for standard and alternative plotting conditions. Only the scatterplot points themselves are included in these calculations.
-#| fig-asp: 1
+#| fig-asp: 0.5
 
 # new ink plotting function needed for exp 5
 
@@ -874,14 +875,14 @@ and analyses.
 
 # Analytical Methods
 
-All analyses in this thesis were conducted using R (version 4.5.1
+All analyses in this thesis were conducted using R (version 4.5.2
 \cite{r_core}). To investigate whether the experimental manipulations have
 actual effects on the interpretations participants provide, appropriate
 statistical testing must be employed. This involves taking into account the
 variability in responses that can be attributed to an experimental manipulation
 against the backdrop of other variability inherent in the dataset. Traditional
 analysis of the data collected throughout this thesis would involve the use of
-repeated measures analysis of variance (ANOVA). This technique assesses whether
+repeated-measures analysis of variance (ANOVA). This technique assesses whether
 there are significant differences in the means of the dependent variables
 between conditions. While these techniques are commonplace, they do not allow
 for comparisons of differences across the full range of individual participant
@@ -966,7 +967,7 @@ rm(df)
 
 Throughout the course of this thesis, analyses attempt to model both random
 intercepts and slopes in order to capture the maximum amount of variability
-present in our datasets. In order to ascertain the goodness-of-fit of models,
+present in the datasets. In order to ascertain the goodness-of-fit of models,
 their ability to explain variance is compared to that of a nested null model
 \cite{singmann_2019}; such a model is identical bar the removal of the fixed
 effect of interest. The likelihood ratio test (LRT) is used here to assess
@@ -995,7 +996,7 @@ Choices are inherent in every type of statistical analysis, and can play a large
 role in the conclusions that are drawn from them. In linear mixed-effects
 modelling, deciding *what* is a fixed or random effect is straightforward;
 deciding *how to specify* random effects is a more complicated matter. Barr et
-al. \cite{barr_2013} argue that for fully repeated measures designs, a maximal
+al. \cite{barr_2013} argue that for fully repeated-measures designs, a maximal
 model should be preferred; one with random intercepts and slopes for each
 participant and experimental item. More recently, Bates et al. \cite{bates_2018}
 have argued that attempting to specify maximal models for insufficiently rich
@@ -1131,54 +1132,64 @@ environment they were conducted in.
 
 Building Docker containers is facilitated through a Dockerfile. This file
 instructs Docker to build a container with the appropriate version of R, the
-files required, and the correct package versions used during analysis. Below is
+files required, and the correct package versions used during analysis. The
+`renv` package (version 1.1.8 \cite{renv}) is used to capture package versions
+and dependencies
+
+Below is
 a minimal example of a Dockerfile.
 
 I first specify the Rocker image that will form the basis of the container. This
-includes the version of R required (version 4.5.1), the Rstudio Integrated
+includes the version of R required (version 4.5.3), the Rstudio Integrated
 Development Environment (IDE), Quarto, and the `tidyverse` package.
 
-`FROM rocker/version:4.5.1`
+`FROM rocker/version:4.5.3`
+
+Then, I add the required `renv` files that I have previously used to capture
+packages, versions, and dependencies:
+
+```
+ADD renv.lock /home/rstudio/
+ADD .Rprofile /home/rstudio/
+ADD renv/ /home/rstudio/renv/
+```
+
+Following that, I instruct `renv` to use the `renv.lock` file it generated to
+install the exact versions of the packages the project requires:
+
+`RUN R -e "renv::restore()"`
 
 Next, I add the files and folders required, including the Quarto document and
 related files, chapter folder, bibliography, additional scripts, LaTeX class
 file and template, the folders containing the cached models and raw data, and
 the R project file:
 
-`ADD thesis.qmd /home/rstudio/`
+```
+ADD thesis.qmd /home/rstudio/
+ADD _quarto.yml /home/rstudio/
+ADD chapters_quarto/ /home/rstudio/chapters_quarto/
+ADD thesis.bib /home/rstudio/
+ADD reformat_tex.R /home/rstudio/
+ADD finalise_thesis.R /home/rstudio/
+ADD uom_thesis_casson.cls /home/rstudio/
+ADD main.tex /home/rstudio/
+ADD data/ /home/rstudio/data/
+ADD cache/ /home/rstudio/cache/
+ADD thesis.Rproj /home/rstudio/
+```
 
-`ADD _quarto.yml /home/rstudio/`
+Finally, I use `tinytex` to install necessary additional LaTeX files that
+are required to produce the final document. For brevity, I only show the first
+few here:
 
-`ADD chapters_quarto/ /home/rstudio/chapters_quarto/`
-
-`ADD thesis.bib /home/rstudio/`
-
-`ADD reformat_tex.R /home/rstudio/`
-
-`ADD finalise_thesis.R /home/rstudio/`
-
-`ADD uom_thesis_casson.cls /home/rstudio/`
-
-`ADD main.tex /home/rstudio/`
-
-`ADD data/ /home/rstudio/data/`
-
-`ADD cache/ /home/rstudio/cache/`
-
-`ADD thesis.Rproj /home/rstudio/`
-
-Finally, I add the specific versions of the R packages used throughout the
-course of this thesis. For brevity, I only display the addition of the first
-three here:
-
-`RUN R -e "devtools::install_version('MASS', version = '7.3-65', dependencies = T)"`
-
-`RUN R -e "devtools::install_version('ggdist', version = '3.3.3', dependencies = T)"`
-
-`RUN R -e "devtools::install_version('ggpubr', version = '0.6.1', dependencies = T)"`
-
-`...`
-
+```
+RUN R -e "tinytex::tlmgr_install(c( \
+  'pdfx', \
+  'everyshi', \
+  'colorprofiles', \
+  'xmpincl', \
+  ...
+```
 # Reproducibility In This Thesis
 
 Reproducibility is a broad spectrum \cite{peng_2011} (see

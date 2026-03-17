@@ -685,7 +685,7 @@ fixed effect is provided in Section \ref{results-e4}.
 
 ## Design {#design-e4}
 
-A fully repeated-measures, 2 $\times$ 2 factorial design was employed. The first
+A fully repeated-measures, $2\times2$ factorial design was employed. The first
 factor, point opacity decay, had two levels; typical orientation and inverted orientation.
 The second factor, point size decay, also had two levels; typical orientation 
 and inverted orientation. Each participant saw each combination of opacity and size

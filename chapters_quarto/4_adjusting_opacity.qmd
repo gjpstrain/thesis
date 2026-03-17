@@ -305,7 +305,7 @@ scatterplot point resided in a particular place on a scatterplot, it would
 always have the same opacity or size. In the pilot study, the code that set the
 opacity of each point always scaled the opacity values such that the point with
 the highest residual had the lowest possible opacity, and vice versa, resulting
-in the plots seen in @fig-pilot-study-examples.
+in the plot seen on the left in @fig-pilot-study-examples.
 
 ```{r}
 #| label: fig-pilot-study-examples
@@ -318,7 +318,7 @@ knitr::include_graphics(path = "../supplied_graphics/pilot_examples.png")
 ```
 
 This provided no consistency between different experimental stimuli, making it
-difficult to comment on the effects of changing levels of opacity in various
+difficult to comment on the effects of changing the levels of opacity in various
 parts of a plot on correlation estimation behaviour. This was later addressed by
 hardcoding residual magnitude to a specific value of opacity or size. The pilot
 also suffered extensively from poor data quality. Of the 260 participants
@@ -326,8 +326,8 @@ tested, data from only 118 was included in the final analyses due to failed
 attention checks. It is for this reason that the pre-screen requirements
 detailed in Section \ref{recruitment} were implemented.
 
-In the pilot experiment, participants viewed 180 experimental plots in a 3x2 factorial design. The first
-independent variable, plot size, had three levels, 63%, 100%, and 252% scales.
+In the pilot experiment, participants viewed 180 experimental plots in a $3\times2$ factorial design. The first
+independent variable, plot size, had three levels; 63%, 100%, and 252% scales.
 The second was the presence or absence of the opacity decay function (see
 @fig-pilot-study-examples). I aimed to recruit 150 participants, but stopped
 after 118 due to ongoing data quality issues. Nevertheless, the results provided
@@ -984,7 +984,7 @@ opacity as a fixed effect explained significantly more variance than a null
 model ($\chi^2$(`r in_paren(e1_model.df)`) = `r printnum(e1_model.Chisq)`, *p*
 `r printp(e1_model.p, add_equals = TRUE)`). @fig-e1-estimates shows the mean
 errors in correlation estimation for each opacity condition, along with 95%
-confidence intervals.
+confidence intervals. 
 
 ```{r}
 #| label: fig-e1-estimates
@@ -1184,7 +1184,8 @@ for plots with lower global opacity compared to those with higher global
 opacity, was not supported. As seen in @tbl-efs-e1 (b), standard errors for each
 opacity condition are identical to 3 decimal places. Participants' errors in
 correlation estimation were significantly greater when the opacity of all
-scatterplot points was lower compared to when it was higher. This held true up
+scatterplot points was lower compared to when it was higher, however accuracy
+is fairly consistent across experimental conditions. This held true up
 until alpha was set to 0.75, implying a threshold around this value past which
 there is little variation in the perception of opacity, at least as far as it is
 associated with correlation estimation. This lack of significant difference in

@@ -66,9 +66,9 @@ point opacity design used with 2 levels, and IV\textsubscript{2} was the
 scatterplot point size design used with 2 levels (see
 Figure~\ref{fig-exp4-examples}). Experiment 5 is a departure from the
 shared experimental paradigm of the previous experiments, and features a
-1 factor, 2 level between-participants design; group A saw scatterplots
-designed to elicit greater levels of belief change compared to typical
-scatterplots, which were shown to group B (see
+1-factor, 2-level between-participants design; group A saw alternative
+scatterplots designed to elicit greater levels of belief change compared
+to standard scatterplots, which were shown to group B (see
 Figure~\ref{fig-exp5-examples}). Characteristics of all experiments are
 summarised in Table~\ref{tbl-exp-summary}, which also includes locations
 for full descriptions of stimuli.
@@ -161,9 +161,9 @@ standard design on the right.}
 \begin{table}
 
 \caption{\label{tbl-exp-summary}Experimental summary table showing the
-visual channeln manipulated, the type of manipulation, dependent
+visual channel manipulated, the type of manipulation, dependent
 variable, presence or absence of a baseline condition, experimental
-design, location, and chapter.}
+design, section, and chapter.}
 
 \centering{
 
@@ -200,9 +200,10 @@ Figure~\ref{fig-ink-e1}, for experiment 2 in Figure~\ref{fig-ink-e2},
 for experiment 3 in Figure~\ref{fig-ink-e3}, for experiment 4 in
 Figure~\ref{fig-ink-e4}, and for experiment 5 in
 Figure~\ref{fig-ink-e5}. In all cases, total ink values only refer to
-the plotted scatterplot points; all other visual features, including
-axis lines and ticks, in experiments 1 to 4, and text in experiment 5,
-are discounted. Each visualisation shows the normalised total ink
+the plotted scatterplot points in relation to the white plotting
+background; all other visual features, including axis lines and ticks in
+experiments 1 to 4, and text in experiment 5, are discounted. Each
+visualisation shows the normalised total ink
 (\(\frac{total\ ink}{total\ pixel\ count}\)) on the \(y\)-axis.
 
 \begin{figure}
@@ -247,7 +248,8 @@ for the three opacity decay conditions and the full opacity condition.}
 in experiment 3 as a function of \textit{r} value, plotted separately
 for the three size decay conditions and the standard size condition. The
 influence of point overlap causes the total amount of ink to fall in all
-conditions bar non-linear decay.}
+conditions, with non-linear decay experiencing some rise in total ink
+prior.}
 
 \end{figure}%
 
@@ -428,14 +430,14 @@ where available, this is included in discussions and analyses.
 
 \section{Analytical Methods}\label{analytical-methods}
 
-All analyses in this thesis were conducted using R (version 4.5.1
+All analyses in this thesis were conducted using R (version 4.5.2
 \cite{r_core}). To investigate whether the experimental manipulations
 have actual effects on the interpretations participants provide,
 appropriate statistical testing must be employed. This involves taking
 into account the variability in responses that can be attributed to an
 experimental manipulation against the backdrop of other variability
 inherent in the dataset. Traditional analysis of the data collected
-throughout this thesis would involve the use of repeated measures
+throughout this thesis would involve the use of repeated-measures
 analysis of variance (ANOVA). This technique assesses whether there are
 significant differences in the means of the dependent variables between
 conditions. While these techniques are commonplace, they do not allow
@@ -489,7 +491,7 @@ This graphic was inspired by those featured in Brown, 2021
 
 Throughout the course of this thesis, analyses attempt to model both
 random intercepts and slopes in order to capture the maximum amount of
-variability present in our datasets. In order to ascertain the
+variability present in the datasets. In order to ascertain the
 goodness-of-fit of models, their ability to explain variance is compared
 to that of a nested null model \cite{singmann_2019}; such a model is
 identical bar the removal of the fixed effect of interest. The
@@ -522,7 +524,7 @@ a large role in the conclusions that are drawn from them. In linear
 mixed-effects modelling, deciding \emph{what} is a fixed or random
 effect is straightforward; deciding \emph{how to specify} random effects
 is a more complicated matter. Barr et al.~\cite{barr_2013} argue that
-for fully repeated measures designs, a maximal model should be
+for fully repeated-measures designs, a maximal model should be
 preferred; one with random intercepts and slopes for each participant
 and experimental item. More recently, Bates et al.~\cite{bates_2018}
 have argued that attempting to specify maximal models for insufficiently
@@ -675,53 +677,64 @@ they were conducted in.
 Building Docker containers is facilitated through a Dockerfile. This
 file instructs Docker to build a container with the appropriate version
 of R, the files required, and the correct package versions used during
-analysis. Below is a minimal example of a Dockerfile.
+analysis. The \texttt{renv} package (version 1.1.8 \cite{renv}) is used
+to capture package versions and dependencies
+
+Below is a minimal example of a Dockerfile.
 
 I first specify the Rocker image that will form the basis of the
-container. This includes the version of R required (version 4.5.1), the
+container. This includes the version of R required (version 4.5.3), the
 Rstudio Integrated Development Environment (IDE), Quarto, and the
 \texttt{tidyverse} package.
 
-\texttt{FROM\ rocker/version:4.5.1}
+\texttt{FROM\ rocker/version:4.5.3}
+
+Then, I add the required \texttt{renv} files that I have previously used
+to capture packages, versions, and dependencies:
+
+\begin{verbatim}
+ADD renv.lock /home/rstudio/
+ADD .Rprofile /home/rstudio/
+ADD renv/ /home/rstudio/renv/
+\end{verbatim}
+
+Following that, I instruct \texttt{renv} to use the \texttt{renv.lock}
+file it generated to install the exact versions of the packages the
+project requires:
+
+\texttt{RUN\ R\ -e\ "renv::restore()"}
 
 Next, I add the files and folders required, including the Quarto
 document and related files, chapter folder, bibliography, additional
 scripts, LaTeX class file and template, the folders containing the
 cached models and raw data, and the R project file:
 
-\texttt{ADD\ thesis.qmd\ /home/rstudio/}
+\begin{verbatim}
+ADD thesis.qmd /home/rstudio/
+ADD _quarto.yml /home/rstudio/
+ADD chapters_quarto/ /home/rstudio/chapters_quarto/
+ADD thesis.bib /home/rstudio/
+ADD reformat_tex.R /home/rstudio/
+ADD finalise_thesis.R /home/rstudio/
+ADD uom_thesis_casson.cls /home/rstudio/
+ADD main.tex /home/rstudio/
+ADD data/ /home/rstudio/data/
+ADD cache/ /home/rstudio/cache/
+ADD thesis.Rproj /home/rstudio/
+\end{verbatim}
 
-\texttt{ADD\ \_quarto.yml\ /home/rstudio/}
+Finally, I use \texttt{tinytex} to install necessary additional LaTeX
+files that are required to produce the final document. For brevity, I
+only show the first few here:
 
-\texttt{ADD\ chapters\_quarto/\ /home/rstudio/chapters\_quarto/}
-
-\texttt{ADD\ thesis.bib\ /home/rstudio/}
-
-\texttt{ADD\ reformat\_tex.R\ /home/rstudio/}
-
-\texttt{ADD\ finalise\_thesis.R\ /home/rstudio/}
-
-\texttt{ADD\ uom\_thesis\_casson.cls\ /home/rstudio/}
-
-\texttt{ADD\ main.tex\ /home/rstudio/}
-
-\texttt{ADD\ data/\ /home/rstudio/data/}
-
-\texttt{ADD\ cache/\ /home/rstudio/cache/}
-
-\texttt{ADD\ thesis.Rproj\ /home/rstudio/}
-
-Finally, I add the specific versions of the R packages used throughout
-the course of this thesis. For brevity, I only display the addition of
-the first three here:
-
-\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}MASS\textquotesingle{},\ version\ =\ \textquotesingle{}7.3-65\textquotesingle{},\ dependencies\ =\ T)"}
-
-\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}ggdist\textquotesingle{},\ version\ =\ \textquotesingle{}3.3.3\textquotesingle{},\ dependencies\ =\ T)"}
-
-\texttt{RUN\ R\ -e\ "devtools::install\_version(\textquotesingle{}ggpubr\textquotesingle{},\ version\ =\ \textquotesingle{}0.6.1\textquotesingle{},\ dependencies\ =\ T)"}
-
-\texttt{...}
+\begin{verbatim}
+RUN R -e "tinytex::tlmgr_install(c( \
+  'pdfx', \
+  'everyshi', \
+  'colorprofiles', \
+  'xmpincl', \
+  ...
+\end{verbatim}
 
 \section{Reproducibility In This
 Thesis}\label{reproducibility-in-this-thesis}

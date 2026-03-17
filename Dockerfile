@@ -1,5 +1,5 @@
-# Add the rocker/verse Docker image for R 4.5.1
-FROM rocker/verse:4.5.1
+# Add the rocker/verse Docker image for R 4.5.3
+FROM rocker/verse:4.5.3
 
 # Set the working directory early
 WORKDIR /home/rstudio

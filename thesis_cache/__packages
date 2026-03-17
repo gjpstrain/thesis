@@ -28,12 +28,13 @@ geomtextpath
 conflicted
 formattable
 effectsize
+gridtext
 ggtext
+r2glmm
+DescTools
 lpSolve
 irr
 bbplot
 ggh4x
 ordinal
 ggrain
-r2glmm
-DescTools

@@ -85,14 +85,6 @@ humans; making sense of our world and the relationships therein is often easier
 through pictures as opposed to only words and/or numbers, a principle which I
 consider key for this thesis.
 
-Moving on, then, to the kind of pictorial representation that modern-day
-students and scientists would firmly recognise as "data visualisation". Tufte
-and Graves-Morris, in 1983's seminal *The Visual Display of Quantitative
-Information* \cite{tufte_1983}, describe an unattributed time series
-illustration from the 10th or 11th century, itself described by Funkhouser in
-1936 \cite{funkhouser_1936} as being discovered by Sigmund Günther in 1877. This
-illustration is included here in @fig-early-time-series.
-
 ```{r}
 #| label: fig-early-time-series
 #| include: true
@@ -105,7 +97,13 @@ illustration is included here in @fig-early-time-series.
 knitr::include_graphics(path = "../supplied_graphics/tufte_1983.png", dpi = NA)
 ```
 
-This illustration purports to show the movements of planetary bodies as a
+Moving on, then, to the kind of pictorial representation that modern-day
+students and scientists would firmly recognise as "data visualisation". Tufte
+and Graves-Morris, in 1983's seminal *The Visual Display of Quantitative
+Information* \cite{tufte_1983}, describe an unattributed time series
+illustration from the 10th or 11th century, itself described by Funkhouser in
+1936 \cite{funkhouser_1936} as being discovered by Sigmund Günther in 1877. This
+illustration is included here in @fig-early-time-series, and purports to show the movements of planetary bodies as a
 function of time, although Funkhouser considered it little more than a
 "schematic diagram...for illustrative purposes" \cite{funkhouser_1936}.
 Regardless, the recognisable grid lines and sinusoidal variation in the curves
@@ -246,7 +244,7 @@ Francis Galton was the first to formally introduce the concept of *co-relation*
 in 1888 \cite{galton_1888}. He derived a definition of correlation as a
 by-product of his invention of statistical regression, first describing this new
 property by way of anthropometric data relating to the measurement of different
-parts of the body. Early in this brief, but significant, paper, Galton puts
+parts of the human body. Early in this brief but significant paper, Galton puts
 forward a basic definition of correlation:
 
 \begin{quotation}
@@ -421,7 +419,7 @@ img <- readPNG("../supplied_graphics/galton_scan.png")
 
 g <- rasterGrob(img, interpolate = TRUE)
 
-# draw plotting area and suppled graphic
+# draw plotting area and supplied graphic
 
 p2 <- ggdraw() + draw_grob(g)
 
@@ -489,7 +487,7 @@ options(scipen = 999)
 
 HRG_data %>%
   ggplot(aes(ci, lum, colour = ci)) +
-  geom_point(size = 0.02, show.legend = F) +
+  geom_point(size = 0.02, show.legend = F, alpha = 0.35) +
   scale_y_log10() +
   scale_x_continuous(limits = c(-.5,2.25)) +
   scale_color_gradient2(low = "blue", mid = "white", high = "red",midpoint=0.75) +
@@ -674,14 +672,14 @@ ggarrange(hex_plot, KDE_plot,
 
 When I began this project in the autumn of 2021, I believed that scatterplots
 were the first and last word when it came to visualising correlation. I soon
-discovered that this was not the case; as scientists often do, a whole host of
+discovered that this was not the case; a whole host of
 other visualisation types had been designed or adapted in an effort to better
 visualise correlation. Parallel Coordinates Plots (PCPs) \cite{heinrich_2013},
 which are popular in the InfoVis community, are most often used for
 multidimensional data. Applying them to bivariate data results in plots that
 perform (almost) as well as scatterplots with regards to visualising the
 correlation between two variables \cite{kay_2016}. @fig-other-corr-viz
-illustrates parallel coordinates plots, along with 3 other types of correlation
+illustrates PCPs, along with three other types of correlation
 visualisation, with an *r* value of 0.6. Despite the existence of plots such as
 these, scatterplots remain by far the most popular way of visualising
 correlation. With the exception of the charts featured in @fig-other-corr-viz,
@@ -719,7 +717,7 @@ and identifying clusters) when studying data size and pattern salience with rega
 to scatterplot comprehension. Lee et al. \cite{lee_2017}, through development of the
 Visualisation Literacy Assessment Test (VLAT), identify scatterplots as being 
 uniquely suitable for the eight visualisation tasks chosen (retrieve value, find
-extremum, determine range, characterise distribution, find anomalies, find trends/correlations,
+extremum, determine range, characterise distribution, find anomalies, find clusters, find trends/correlations,
 and make comparisons). Within a particular study or taxonomy, many tasks
 overlap with regards to what viewers of visualisations actually do. Hence, I focus
 on four higher level tasks, illustrated in @fig-task-examples, for the remainder of this section: 
@@ -812,8 +810,9 @@ corr_plot <- plot_example_function(slopes, "", 1, 0.2, 7) +
 
 ggarrange(value_retrieval_plot, cluster_sep_plot, dist_plot, corr_plot, ncol = 2, nrow = 2)
 ```
+
 Scatterplot tasks generally require viewers to engage with patterns in the data.
-The value retrieval task usually required viewers to use axis ticks and labels
+The value retrieval task usually requires viewers to use axis ticks and labels
 to look up the $x$ and $y$ values for the particular points they wish to locate.
 Such tasks may be facilitated by increasing the salience of relevant data points,
 either as I have in @fig-task-examples using additional visual scaffolding, or by
@@ -1184,7 +1183,7 @@ literacy suffer from higher levels of misinterpretation and more often rely on
 misleading mappings \cite{okan_2016}.
 
 The SGL was administered in each experiment described in this thesis, and takes
-the form of 5 questions to which participants must provide an answer. Generally,
+the form of five questions to which participants must provide an answer. Generally,
 the scale ascertains each participant's self-reported competencies when working
 with a small range of visualisations. The SGL test portion of each experiment is
 shown in @fig-sgl-screen.
@@ -1195,7 +1194,7 @@ In this thesis, I aim to answer three high-level research questions:
 
 1.  Are there effects of changing the opacities and sizes of scatterplot points
     on performance on a correlation estimation task?
-2.  Can these changes be used to correct for the underestimation bias?
+2.  Can these effects be used to correct for the underestimation bias?
 3.  Are these effects only perceptual, or do participants integrate them
     cognitively such that they may influence beliefs about correlations?
 
