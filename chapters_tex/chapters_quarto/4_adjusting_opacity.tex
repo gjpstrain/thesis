@@ -308,10 +308,11 @@ intensities are summed. The stimuli used in the experiments throughout
 this chapter had 128 small points, meaning the majority of points were
 clearly visible at all times. For this reason, the effects of point
 overlap were not taken into account when designing and analysing the
-experiments described here, however see \ref{ink} for plots visualising
-the impacts of point overlap throughout this thesis. Due to this, the
-approach to opacity described in this chapter would not be useful when
-dealing with much larger datasets where clutter becomes an issue.
+experiments described here, however see Section \ref{ink} for plots
+visualising the impacts of point overlap throughout this thesis. Due to
+this, the approach to opacity described in this chapter would not be
+useful when dealing with much larger datasets where clutter becomes an
+issue.
 
 The \texttt{ggplot2} \cite{wickham_2016} package (version 3.4.1) was
 used in R to create stimuli for this experiment. This package uses an
@@ -510,8 +511,9 @@ levels; full opacity, linear decay, in which point opacity is decreased
 linearly with residual magnitude, non-linear decay, in which point
 opacity is decreased with residual magnitude using equation 4.1, and
 inverted non-linear decay, in which point opacity is increased with
-residual magnitude using equation 4.1. Examples of the stimuli used in
-experiment 2 can be seen in Figure~\ref{fig-exp2-examples-chap4}.
+residual magnitude using and inverted form of equation 4.1. Examples of
+the stimuli used in experiment 2 can be seen in
+Figure~\ref{fig-exp2-examples-chap4}.
 
 \subsection{Open Research}\label{open-research-chap4}
 
@@ -849,12 +851,12 @@ to conditions with a linear relationship between residual magnitude and
 opacity. Non-linear decay conditions use equation 4.1 to map residual
 magnitude to opacity values. Inverted decay conditions feature
 scatterplots whose points increase in opacity as a function of residual
-magnitude. Due to alpha values being hard coded to residual magnitudes,
-the full range of opacities is not always accessed depending on the
-\emph{r} value and the particular condition. To illustrate this, Figure
-\ref{fig-opposing-curve} demonstrates the relationships between residual
-magnitudes and opacity values in each condition using \emph{r} values of
-0.2, 0.6, and 0.99.
+magnitude using an inverted form of equation 4.1. Due to alpha values
+being hard coded to residual magnitudes, the full range of opacities is
+not always accessed depending on the \emph{r} value and the particular
+condition. To illustrate this, Figure \ref{fig-opposing-curve}
+demonstrates the relationships between residual magnitudes and opacity
+values in each condition using \emph{r} values of 0.2, 0.6, and 0.99.
 
 \begin{figure}
 

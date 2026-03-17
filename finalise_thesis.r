@@ -1,4 +1,4 @@
-# If you only want to compile the final thesis, go straight to line 55
+# If you only want to compile the final thesis, go straight to line 53
 
 # If you want to compile each chapter from scratch, start from line 10
 
@@ -6,13 +6,6 @@
 # additional tex packages; this is handled by the Dockerfile
 
 ################################################################################
-
-# First, install required packages
-
-#install.packages("quarto")
-#install.packages("tinytex")
-
-# Load packages in
 
 library(quarto)
 library(tinytex)
@@ -26,6 +19,7 @@ quarto_render("chapters_quarto/", output_format = "latex")
 quarto_render("chapters_quarto/2_related_work.qmd", output_format = "latex")
 
 # functions to reformat tex are stored in the local directory
+# these must be run before rendering the final pdf
 
 source("reformat_tex.R")
 
@@ -34,23 +28,27 @@ replace_before_document_in_folder(folder_path)
 
 ################################################################################
 
-# now we can use tinytex to compile the thesis
-# if this is your first time using the template,
-# you will need to install tinytex (the package), and
-# then TinyTex (the engine)
+# Skip straight to line 53 if you are using the Docker container.
 
-#install.packages("tinytex")
-#tinytex::reinstall_tinytex()
+## now we can use tinytex to compile the thesis
+## if this is your first time using the template without using the Docker Container,
+## you will need to install tinytex (the package), and
+## then TinyTex (the engine)
 
-# because the UoM template uses lualatex, we have to manually install
-# an additional package (just uncomment and run)
+# install.packages("tinytex")
+# tinytex::reinstall_tinytex()
 
-#tinytex::tlmgr_install("luatex85")
+## because the UoM template uses lualatex, we have to manually install
+## an additional package (just uncomment and run)
 
-# sometimes the Tex Gyres Termes font is not found, so manually install it via
-# tinytex
+# tinytex::tlmgr_install("luatex85")
 
-#tinytex::tlmgr_install("tex-gyre")
+## sometimes the Tex Gyres Termes font is not found, so manually install it via
+## tinytex
+
+# tinytex::tlmgr_install("tex-gyre")
+
+# Use the below command to render the final pdf
 
 tinytex::lualatex("main.tex", bib_engine = "biber")
 

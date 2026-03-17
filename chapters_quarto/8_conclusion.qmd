@@ -373,12 +373,12 @@ may obscure data to the point where the completion of those tasks became impossi
 It is the responsibility of the visualisation designer to balance the facilitation
 of some tasks and the impedance of others; correcting for the long-standing 
 underestimation bias may not be worth impeding other tasks. Additionally, designers
-must consider that by choosing to use point size and/or opacity to facilitate correlation perception
-or belief change, they lose those visual channels for the encoding of other
+must consider that by choosing to use point size and/or opacity to facilitate more
+accurate correlation perception or belief change, they lose those visual channels for the encoding of other
 information. Again, this may be an acceptable pay-off depending on the purpose of
 the visualisation in question, but would require further study.
 
-Hong et al. \cite{hong_2021} found that viewers' perceptions of mean value in
+Hong et al. \cite{hong_2022} found that viewers' perceptions of mean value in
 scatterplots was biased towards areas of larger and darker points, a finding
 which informed some of the work in this thesis. It is apparent, then, that
 there are impacts of changing the opacities and sizes of scatterplot points
@@ -489,12 +489,11 @@ Given the finding that the combination of point opacity and size decay is not
 linearly additive (see Section \ref{discussion-e4}, \chap{chap:interactions_opacity_size}),
 there are a multitude of parameters that may be adjusted and tested to
 explore the relative contributions of each to the effects seen. The value of
-*b*, which so far has only been b = 0.25, is one such parameter, and controls
+$b$, which so far has only been $b = 0.25$, is one such parameter, and controls
 the severity of the fall-off in point opacity or size of the decay function in
 question. The opacity floor, size scaling factor, and size constant are other
-values that might be changed. Of course, the equation used is not the last word;
-future work may wish to investigate more complicated equations that link the
-objective *r* value to the decay condition.
+values that might be changed. Future work may also wish to investigate different
+equations that link the objective *r* value to the decay condition.
 
 Future experimental work may use the major axis through the probability ellipse
 instead of the regression line as a baseline to change point sizes and
@@ -531,7 +530,7 @@ polarised emotional components. A simple, blunt measure of belief about
 relatedness was utilised, and only one of the alternative scatterplot
 visualisations described in this thesis was used. Each of these components
 deserves study, and each is ripe for future work to investigate the
-contributions of each factor to the effects have seen here.
+contributions of each factor to the effects seen here.
 
 Section \ref{add-analyses-discussion} in \chap{chap:belief_change} describes the effects that graph literacy,
 defensive confidence, and participants' ratings of the emotional valence of the

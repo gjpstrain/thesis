@@ -68,10 +68,10 @@ labels_e3 <- c(A = "Non-Linear Decay",
                C = "Inverted Decay",
                D = "Standard Size")
 
-labels_e4 <- c(A = "Typical Orientation Size Typical Orientation Opacity (***congruent**)",
-               B = "Inverted Orientation Size Inverted Orientation Opacity (***congruent**)",
-               C = "Typical Orientation Size Inverted Orientation Opacity (***incongruent**)",
-               D = "Inverted Orientation Size Typical Orientation Opacity (***incongruent**)")
+labels_e4 <- c(A = "Typical Orientation Size Typical Orientation Opacity (**congruent**)",
+               B = "Inverted Orientation Size Inverted Orientation Opacity (**congruent**)",
+               C = "Typical Orientation Size Inverted Orientation Opacity (**incongruent**)",
+               D = "Inverted Orientation Size Typical Orientation Opacity (**incongruent**)")
 ```
 
 # Introduction

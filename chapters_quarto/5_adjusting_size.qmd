@@ -510,10 +510,10 @@ indicate a sufficient level of point visibility.
 ## Design {#design-e3}
 
 A fully repeated-measures, within-participants design was employed. Each
-participant saw and responded to each of the 180 scatterplots in a fully
-randomised order. There were four scatterplots for each of the 45 *r* values
-corresponding to the four levels of the size decay condition, examples of which
-are shown in @fig-exp3-examples-chap5.
+participant saw and responded to each of the 4 (factor levels) $\times$ 45 *r*
+values = 180 scatterplots in a fully randomised order. There were four scatterplots
+for each of the 45 *r* values corresponding to the four levels of the size decay
+condition, examples of which are shown in @fig-exp3-examples-chap5.
 
 ## Procedure {#procedure-e3}
 

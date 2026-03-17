@@ -521,7 +521,7 @@ type. As we will see in Section \ref{present-landscape-corr-viz}, the landscape
 of correlation visualisation is now much broader, however the humble scatterplot
 still remains a crucial part of the visualiser's toolbox. From its origins as a
 way of inferring astronomical relationships, to its use in the discovery of
-correlation, the standard scatterplot remains largely unchanged to this day'
+correlation, the standard scatterplot remains largely unchanged to this day;
 this thesis charts the development of a new type of scatterplot that draws on
 key elements of human perception to increase its utility in correlation
 visualisation. It is important, however, to pay homage to the history of the
@@ -722,20 +722,17 @@ uniquely suitable for the eight visualisation tasks chosen (retrieve value, find
 extremum, determine range, characterise distribution, find anomalies, find trends/correlations,
 and make comparisons). Within a particular study or taxonomy, many tasks
 overlap with regards to what viewers of visualisations actually do. Hence, I focus
-on four higher level tasks for the remainder of this section: 
+on four higher level tasks, illustrated in @fig-task-examples, for the remainder of this section: 
 
   1. Value Retrieval.
   2. Cluster Separation.
   3. Characterise Distributions.
   4. Find Correlation.
 
-@fig-task-examples illustrates these four tasks using scatterplots of
-the type used in the experiments throughout this thesis.
-
 ```{r}
 #| label: fig-task-examples
 #| include: true
-#| fig-cap: Illustrating four different scatterplots tasks using scatterplots similar to those used in the experiments in this thesis. Visual elements are used to highlight the task detailed in the title of each plot.
+#| fig-cap: Illustrating four different scatterplot tasks using scatterplots similar to those used in the experiments in this thesis. Visual elements are used to highlight the task detailed in the title of each plot.
 #| fig-asp: 1
 
 
@@ -852,17 +849,18 @@ scatterplots based on position values along an axis. Research has investigated
 correlation visualisations that encode data point position using line angles,
 areas, and orderings \cite{harrison_2014}, consistently finding that conventional,
 bivariate scatterplots offer the best performance for visualising both positive
-and negative correlations.
+and negative correlations. @fig-other-corr-viz in Section \ref{present-landscape-corr-viz}
+displays examples of other types of correlation visualisation.
 
 ## Overplotting & Clutter {#overplotting-clutter}
 
 As the datasets that scatterplots describe increase in size and complexity, overplotting
 becomes an issue. Increased amounts of data results in increased amounts of point
-overlap, and reducing the size and opacity of points are common methods of ameliorating
+overlap, and reducing the size and opacity of points are common ways of ameliorating
 these issues. As point size and opacity decrease, however, individual point salience
 decreases, leading designers to be forced to consider a trade-off between accurately
 representing the whole dataset and allowing for individual data points to be 
-accessible to viewers \cite{bertini_2004, matejka_2015}. To facilitate comparison
+effectively accessible to viewers \cite{bertini_2004, matejka_2015}. To facilitate comparison
 across the different experiments in this thesis, stimuli always featured 128 points,
 meaning the impact of overplotting was minimal. Some experiments in this thesis, however,
 feature changes to the sizes of individual points, resulting in overplotting and a 
@@ -1213,7 +1211,7 @@ made the following contributions:
     without removing data, although significantly more work is needed to find
     the exact combinations of size and opacity adjustments that produce
     perceptually-optimised estimates.
-3.  These effects do extend into a cognitive space, and are able to influence
+3.  These effects extend into a cognitive space, and are able to influence
     people's beliefs about the levels of relatedness between variables.
 4.  This project is exemplary of one done in an entirely open and reproducible
     manner; the latter half of \chap{chap:gen_methods} is concerned with this.
