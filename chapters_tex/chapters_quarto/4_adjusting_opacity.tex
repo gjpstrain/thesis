@@ -70,11 +70,11 @@ value of opacity or size. The pilot also suffered extensively from poor
 data quality. Of the 260 participants tested, data from only 118 was
 included in the final analyses due to failed attention checks. It is for
 this reason that the pre-screen requirements detailed in Section
-\ref{recruitment} were implemented.
+\ref{recruitment} on page \pageref{recruitment} were implemented.
 
 In the pilot experiment, participants viewed 180 experimental plots in a
 \(3\times2\) factorial design. The first independent variable, plot
-size, had three levels, 63\%, 100\%, and 252\% scales. The second was
+size, had three levels; 63\%, 100\%, and 252\% scales. The second was
 the presence or absence of the opacity decay function (see
 Figure~\ref{fig-pilot-study-examples}). I aimed to recruit 150
 participants, but stopped after 118 due to ongoing data quality issues.
@@ -308,11 +308,11 @@ intensities are summed. The stimuli used in the experiments throughout
 this chapter had 128 small points, meaning the majority of points were
 clearly visible at all times. For this reason, the effects of point
 overlap were not taken into account when designing and analysing the
-experiments described here, however see Section \ref{ink} for plots
-visualising the impacts of point overlap throughout this thesis. Due to
-this, the approach to opacity described in this chapter would not be
-useful when dealing with much larger datasets where clutter becomes an
-issue.
+experiments described here, however see Section \ref{ink} on page
+\pageref{ink} for plots visualising the impacts of point overlap
+throughout this thesis. Due to this, the approach to opacity described
+in this chapter would not be useful when dealing with much larger
+datasets where clutter becomes an issue.
 
 The \texttt{ggplot2} \cite{wickham_2016} package (version 3.4.1) was
 used in R to create stimuli for this experiment. This package uses an
@@ -375,7 +375,8 @@ reducing point opacity on people's perceptions of correlation. In 2012,
 Rensink \cite{rensink_2012} found correlation perception to be invariant
 to changes in point opacity, although this work took place with a small
 sample (\emph{N} = 12), and using bisection/JND methodologies (see
-Section \ref{scatterplots-corr-viz} in \chap{chap:related_work}).
+Section \ref{scatterplots-corr-viz} in \chap{chap:related_work}, page
+\pageref{scatterplots-corr-viz}).
 
 Changing the contrast between a stimulus and its background (lowering
 its opacity) effectively reduces the strength of its signal. A likely
@@ -436,15 +437,17 @@ consent through key presses in response to consent statements.
 Participants were asked to provide their age and gender identity, after
 which they completed the 5-item Subjective Graph Literacy test described
 by Garcia-Retamero et al.~\cite{garcia_2016} and discussed in Section
-\ref{graph-literacy-related-work} of \chap{chap:related_work}. Early
-piloting with a graduate student in humanities suggested the potential
-for participants to be unfamiliar with the visual nature of different
-values of Pearson's \emph{r}. Participants were therefore shown examples
-of \emph{r} = 0.2, 0.5, 0.8, and 0.95 (see
+\ref{graph-literacy-related-work} of \chap{chap:related_work}, page
+\pageref{graph-literacy-related-work}. Early piloting with a graduate
+student in humanities suggested the potential for participants to be
+unfamiliar with the visual nature of different values of Pearson's
+\emph{r}. Participants were therefore shown examples of \emph{r} = 0.2,
+0.5, 0.8, and 0.95 (see
 Figure~\ref{fig-training-slide-adjusting-opacity}); a discussion of the
 effects of this training is provided in Section
-\ref{training-adjusting-opacity}. Participants were given two practice
-trials to familiarise themselves with the response slider.
+\ref{training-adjusting-opacity} on page
+\pageref{training-adjusting-opacity}. Participants were given two
+practice trials to familiarise themselves with the response slider.
 
 \begin{figure}
 
@@ -511,7 +514,7 @@ levels; full opacity, linear decay, in which point opacity is decreased
 linearly with residual magnitude, non-linear decay, in which point
 opacity is decreased with residual magnitude using equation 4.1, and
 inverted non-linear decay, in which point opacity is increased with
-residual magnitude using and inverted form of equation 4.1. Examples of
+residual magnitude using an inverted form of equation 4.1. Examples of
 the stimuli used in experiment 2 can be seen in
 Figure~\ref{fig-exp2-examples-chap4}.
 
@@ -540,15 +543,16 @@ Adjustments}\label{experiment-1-uniform-opacity-adjustments}
 
 Previous literature had described correlation perception as being
 resistant to changes in opacity \cite{rensink_2012, rensink_2014}.
-Findings from the pre-study described above provided evidence against
-this conclusion, so before proceeding with the fine-tuning of the
-immature point opacity decay function, I felt that gaining an
-understanding of how point opacity and correlation estimation interact
-more generally was important. Given the lack of previous evidence that
-correlation perception might be influenced by point opacity, I could not
-hypothesise whether or not this might be the case. However, owing to the
-robust effects of altering stimulus opacity on perception described in
-Section \ref{related-work-adjusting-opacity}
+Findings from the pilot described above provided evidence against this
+conclusion, so before proceeding with the fine-tuning of the immature
+point opacity decay function, I felt that gaining an understanding of
+how point opacity and correlation estimation interact more generally was
+important. Given the lack of previous evidence that correlation
+perception might be influenced by point opacity, I could not hypothesise
+whether or not this might be the case. However, owing to the robust
+effects of altering stimulus opacity on perception described in Section
+\ref{related-work-adjusting-opacity}, page
+\pageref{related-work-adjusting-opacity}
 \cite{wehrhahn_1990, champion_2017}, it was hypothesised that:
 
 \begin{itemize}
@@ -571,9 +575,9 @@ participants. 8 failed more than 2 out of 6 attention check questions,
 and, as per the pre-registration, had their submissions rejected from
 the study. The data from the remaining 150 participants were included in
 the full analysis (77 male, 71 female, and 2 non-binary). Participants'
-mean age was 28.3 (\emph{SD} = 8.6). Mean graph literacy score was 21.8
-(\emph{SD} = 4.5) out of 30. The mean time taken to complete the
-experiment was 33 minutes (SD = 10 minutes).
+mean age was 28.3 (SD = 8.6). Mean graph literacy score was 21.8 (SD =
+4.5) out of 30. The mean time taken to complete the experiment was 33
+minutes (SD = 10 minutes).
 
 \subsubsection{Design}\label{design-e1}
 
@@ -620,9 +624,9 @@ intervals.
 
 }
 
-\caption{\label{fig-e1-estimates}Estimated marginal means for the four
-conditions tested in Experiment 1. 95\% confidence intervals are shown.
-The vertical dashed line represents no estimation error. The
+\caption{\label{fig-e1-estimates}Estimated marginal means of error for
+the four conditions tested in Experiment 1. 95\% confidence intervals
+are shown. The vertical dashed line represents no estimation error. The
 overestimation zone is included to facilitate comparison to later work.}
 
 \end{figure}%
@@ -765,8 +769,9 @@ objective \emph{r} value in the plot. The line shows mean errors in
 correlation estimation, and standard deviations of error are provided as
 error bars. The dashed horizontal line represents hypothetical perfect
 estimation. As reported in previous literature (see Section
-\ref{underestimation-related-work} in \chap{chap:related_work}),
-participants underestimated \emph{r} in nearly all cases.
+\ref{underestimation-related-work} in \chap{chap:related_work}, page
+\pageref{underestimation-related-work}), participants underestimated
+\emph{r} in nearly all cases.
 
 \subsection{Discussion}\label{discussion-e1}
 
@@ -857,7 +862,7 @@ being hard coded to residual magnitudes, the full range of opacities is
 not always accessed depending on the \emph{r} value and the particular
 condition. To illustrate this, Figure \ref{fig-opposing-curve}
 demonstrates the relationships between residual magnitudes and opacity
-values in each condition using \emph{r} values of 0.2, 0.6, and 0.99.
+values in each condition using \emph{r} values of 0.2, 0.6, and 0.9.
 
 \begin{figure}
 
@@ -877,8 +882,8 @@ applied to points decreases.}
 
 Given the previously reported effects of changing scatterplot point
 opacity on other perceptual metrics (see Section
-\ref{point-opacity-chap4}), and with the findings from Experiment 1 in
-mind, it was hypothesised that:
+\ref{point-opacity-chap4} on page \pageref{point-opacity-chap4}), and
+with the findings from Experiment 1 in mind, it was hypothesised that:
 
 \begin{itemize}
 \tightlist
@@ -905,9 +910,9 @@ Experiment 1 were prevented from participating. Data were collected from
 questions, and, as per the pre-registration, had their submissions
 rejected from the study. The data from the remaining 150 participants
 were included in the full analysis (77 male, 69 female, and 4
-non-binary). Participants' mean age was 27.1 (\emph{SD} = 7.4). Mean
-graph literacy score was 21.7 (\emph{SD} = 4.1) out of 30. The mean time
-taken to complete the experiment was 33 minutes (SD = 10 minutes).
+non-binary). Participants' mean age was 27.1 (SD = 7.4). Mean graph
+literacy score was 21.7 (SD = 4.1) out of 30. The mean time taken to
+complete the experiment was 33 minutes (SD = 10 minutes).
 
 \subsubsection{Design}\label{design-e2}
 
@@ -917,18 +922,19 @@ decay function and the baseline global full opacity condition. Examples
 of each of these can be seen in Figure~\ref{fig-exp2-examples-chap4},
 demonstrated with \emph{r} values of 0.2, 0.6, and 0.99. Given the shape
 of the underestimation curve found in previous work (see Figure
-\ref{fig-underestimation-curves}, \chap{chap:related_work}), intuition
-suggested employing a symmetrically opposing curve (see the non-linear
-decay curve in Figure~\ref{fig-opposing-curve}) to relate point opacity
-to residuals. An minimum alpha value of 0.025 was used to ensure that
-all points were visibly rendered, however, unlike in later chapters,
-visibility testing was not carried out.
+\ref{fig-underestimation-curves}, \chap{chap:related_work}, page
+\pageref{fig-underestimation-curves}), intuition suggested employing a
+symmetrically opposing curve (see the non-linear decay curve in
+Figure~\ref{fig-opposing-curve}) to relate point opacity to residuals.
+An minimum alpha value of 0.025 was used to ensure that all points were
+visibly rendered, however, unlike in later chapters, visibility testing
+was not carried out.
 
 Equation 4.1 was used to non-linearly map residuals to \texttt{ggplot2}
-alpha values. 0.25 was chosen as the value of \emph{b}, as it was felt
-at the time that this rendered plots that maintained point visibility
-while also allowing a large enough point opacity range that, if an
-effect was present, it was likely to be found.
+alpha values. 0.25 was chosen as the value of \(b\), as it was felt at
+the time that this rendered plots that maintained point visibility while
+also allowing a large enough point opacity range that, if an effect was
+present, it was likely to be found.
 
 \begin{equation}
   point_{opacity} = 1 - b^{residual}
@@ -970,9 +976,10 @@ along with 95\% confidence intervals.
 
 }
 
-\caption{\label{fig-e2-estimates}Estimated marginal means for the four
-conditions tested in Experiment 2. 95\% confidence intervals are shown.
-The vertical dashed line represents no estimation error.}
+\caption{\label{fig-e2-estimates}Estimated marginal means of error for
+the four conditions tested in Experiment 2. 95\% confidence intervals
+are shown. The vertical dashed line represents no estimation error. The
+overestimation zone is included to facilitate comparison to later work.}
 
 \end{figure}%
 
@@ -1127,17 +1134,18 @@ underestimation bias.
 Looking at the standard deviations of correlation estimates plotted
 separately by opacity decay function and \emph{r} value in
 Figure~\ref{fig-estimates-by-r-e2}, it can be observed that as in
-Experiment 1 (see Figure~\ref{fig-estimates-by-r-e1}), and aside from
-the inverted non-linear decay function condition, precision in \emph{r}
-estimation increased with the objective \emph{r} value. This finding
-corroborates previous work. In the inverted non-linear decay condition,
-as \emph{r} approaches 1 (and point residuals accordingly approach 0),
-the opacity of points diminishes. Just as the standard deviation of
-correlation estimates was higher for the low global opacity condition in
-Experiment 1, having lower opacity points at the high \emph{r} end of
-the non-linear inverted condition in Experiment 2 resulted in fairly
-constant standard deviations across \emph{r} values, as the usual
-reduction towards \emph{r} = 1 was not observed.
+Experiment 1 (see Figure~\ref{fig-estimates-by-r-e1} on page
+\pageref{fig-estimates-by-r-e1}), and aside from the inverted non-linear
+decay function condition, precision in \emph{r} estimation increased
+with the objective \emph{r} value. This finding corroborates previous
+work. In the inverted non-linear decay condition, as \emph{r} approaches
+1 (and point residuals accordingly approach 0), the opacity of points
+diminishes. Just as the standard deviation of correlation estimates was
+higher for the low global opacity condition in Experiment 1, having
+lower opacity points at the high \emph{r} end of the non-linear inverted
+condition in Experiment 2 resulted in fairly constant standard
+deviations across \emph{r} values, as the usual reduction towards
+\emph{r} = 1 was not observed.
 
 The non-linear inverted opacity decay condition produced significantly
 lower estimates of correlation than all other conditions. This adds
@@ -1246,7 +1254,8 @@ Both experiments tested lay participants with varying levels of graph
 literacy. Due to concerns about participants' familiarity with
 scatterplots, each saw four scatterplots depicting correlations of
 \emph{r} = 0.2, 0.5, 0.8, and 0.95 (see
-Figure~\ref{fig-training-slide-adjusting-opacity}) to familiarise
+Figure~\ref{fig-training-slide-adjusting-opacity} on page
+\pageref{fig-training-slide-adjusting-opacity}) to familiarise
 themselves with the concept. To test if the patterns of results seen in
 correlation estimation could be attributed to this training, models were
 built that included the half of the session (first or second) as a

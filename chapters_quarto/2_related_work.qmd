@@ -832,8 +832,8 @@ are intended to aid in this.
 ### Visual Channels {#visual-channels}
 
 Scatterplots are primarily used for presenting bivariate data based on positions along
-$x$ and $y$ axes. Bubble charts (see Section \ref{introduction-adjusting-size})
-encode an additional third variable using point size. Aside from information
+$x$ and $y$ axes. Bubble charts (see Section \ref{introduction-adjusting-size},
+page \pageref{introduction-adjusting-size}) encode an additional third variable using point size. Aside from information
 overload, there is no hard limit to the number of variables that a scatterplot 
 might encode, including the use of point size, marker shape, hue/gradient, or orientation.
 Due to its suitability for encoding categorical data \cite{kim_2018}, point colour
@@ -849,7 +849,7 @@ correlation visualisations that encode data point position using line angles,
 areas, and orderings \cite{harrison_2014}, consistently finding that conventional,
 bivariate scatterplots offer the best performance for visualising both positive
 and negative correlations. @fig-other-corr-viz in Section \ref{present-landscape-corr-viz}
-displays examples of other types of correlation visualisation.
+on page \pageref{present-landscape-corr-viz} displays examples of other types of correlation visualisation.
 
 ## Overplotting & Clutter {#overplotting-clutter}
 
@@ -864,7 +864,7 @@ across the different experiments in this thesis, stimuli always featured 128 poi
 meaning the impact of overplotting was minimal. Some experiments in this thesis, however,
 feature changes to the sizes of individual points, resulting in overplotting and a 
 reduction in the amount of information a single data point can provide. Section 
-\ref{ink} in \chap{chap:gen_methods} contains a more comprehensive discussion of
+\ref{ink} in \chap{chap:gen_methods}, page \pageref{ink} contains a more comprehensive discussion of
 the impact of overplotting throughout this thesis, including visualisations that
 describe how much *ink* was actually present in experimental scatterplots once overlap
 had been taken into account.
@@ -1096,7 +1096,7 @@ as_tibble(my_rs) %>%
 The underestimation of correlation in positively correlated scatterplots was
 also observed in Experiments 1 to 4 in the current paper, and is detailed in
 each experimental chapter. Figure \ref{fig-mean-all-exp} in
-\chap{chap:conclusion} summarises the mean estimation behaviour observed for
+\chap{chap:conclusion}, page \pageref{fig-mean-all-exp} summarises the mean estimation behaviour observed for
 each experiment throughout this thesis. Despite this long-standing finding, no
 efforts have been made to correct for this perceptual underestimation. Quite why
 this perceptual bias correction has never been attempted, however, is unclear.

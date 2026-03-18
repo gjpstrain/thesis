@@ -24,18 +24,20 @@ who design with the estimation of positive correlation in mind.
 While I was successful at changing participants' perceptions of
 correlation in positively correlated scatterplots in
 \chap{chap:adjusting_opacity}, the extent to which these perceptions
-were changed was minimal. Figure \ref{fig-estimates-by-r-e2} illustrates
-how participants' mean errors in \emph{r} estimation changed as a
-function of the subjective \emph{r} value. Scatterplots employing
-non-linear inverted opacity decay produced the most drastic changes in
-correlation estimation, however these changes were still small, with an
-effect size of Cohen's \emph{d} = 0.23. Recent evidence suggests that
-with regards to altering percepts in scatterplots, changes in point size
-may be more effective than changes in opacity. In a fully-reproducible,
-large sample (\emph{N} = 150) study, I show that systematically altering
-point size using the same function is not only able to more effectively
-correct for the correlation underestimation bias, but is also able to
-alter the shape of the correlation estimation curve.
+were changed was minimal. Figure \ref{fig-estimates-by-r-e2} on page
+\pageref{fig-estimates-by-r-e2} illustrates how participants' mean
+errors in \emph{r} estimation changed as a function of the subjective
+\emph{r} value. Scatterplots employing non-linear inverted opacity decay
+produced the most drastic changes in correlation estimation, however
+these changes were still small, with an effect size of Cohen's \emph{d}
+= 0.23 (see Table \ref{tbl-efs-e2}a on page \pageref{tbl-efs-e2}).
+Recent evidence suggests that with regards to altering percepts in
+scatterplots, changes in point size may be more effective than changes
+in opacity. In a fully-reproducible, large sample (\emph{N} = 150)
+study, I show that systematically altering point size using the same
+function is not only able to more effectively correct for the
+correlation underestimation bias, but is also able to alter the shape of
+the correlation estimation curve.
 
 \section{Related Work}\label{related-work-adjusting-size}
 
@@ -62,13 +64,14 @@ to have a greater number of engine cylinders.}
 Opacity adjustments have been used extensively to solve issues of
 overplotting and clutter in scatterplots
 \cite{bertini_2004, matejka_2015}. Figure
-\ref{fig-overplotting-examples} in \chap{chap:adjusting_opacity}
-demonstrates this usage. Practicality also dictates that scatterplots
-visualising sufficiently large datasets inherently require their points
-to be smaller to minimise obfuscation of the data they portray. Aside
-from being used to increase point visibility, point size changes in
-scatterplots have also been employed in the creation of bubble charts;
-here, the size of a scatterplot point is mapped to a third variable.
+\ref{fig-overplotting-examples} on page
+\pageref{fig-overplotting-examples} demonstrates this usage.
+Practicality also dictates that scatterplots visualising sufficiently
+large datasets inherently require their points to be smaller to minimise
+obfuscation of the data they portray. Aside from being used to increase
+point visibility, point size changes in scatterplots have also been
+employed in the creation of bubble charts; here, the size of a
+scatterplot point is mapped to a third variable.
 Figure~\ref{fig-bubble-chart} demonstrates this class of scatterplot
 using the included \texttt{mtcars} dataset in \texttt{ggplot2}.
 
@@ -132,10 +135,10 @@ deviations from them.
 
 The creation of stimuli in this experiment follows the same general
 principles as outlined in Section \ref{creating-stimuli},
-\chap{chap:gen_methods}, and was performed using \texttt{ggplot2}
-(version 3.4.4). As in \chap{chap:adjusting_opacity}, equation 5.1 was
-used to map point residuals to size values in the two non-linear decay
-conditions:
+\chap{chap:gen_methods}, page \pageref{creating-stimuli}, and was
+performed using \texttt{ggplot2} (version 3.4.4). As in
+\chap{chap:adjusting_opacity}, equation 5.1 was used to map point
+residuals to size values in the two non-linear decay conditions:
 
 \begin{equation}
   point_{size} = 1 - b^{residual}
@@ -197,21 +200,22 @@ These cards have a universal standard size (ISO/IEC 7810 ID-1), which
 when combined with the monitor resolution information recorded by
 PsychoPy, and assuming a widescreen 16:9 aspect ratio, allows for the
 inference of dot pitch and therefore the physical size of the points in
-the experiment. Mean dot pitch was 0.33mm (\(SD = 0.06\)), corresponding
-to a physical size on the screen of 4.32mm for the smallest points
-displayed. Section \ref{results-e3} includes analysis that takes into
-account the physical on-screen sizes of scatterplot points.
+the experiment. Mean dot pitch was 0.33mm (SD = 0.06), corresponding to
+a physical size on the screen of 4.32mm for the smallest points
+displayed. Section \ref{results-e3} on page \pageref{results-e3}
+includes analysis that takes into account the physical on-screen sizes
+of scatterplot points.
 
 \subsection{Point Visibility Testing}\label{point-visibility-testing-e3}
 
 It is key that the manipulations used do not remove (or appear to
 remove) data from scatterplots. Therefore, point visibility testing is
 included in this experiment prior to the experimental items.
-Participants were shown 6 scatterplots and were asked to enter in a text
-box how many points were being displayed. These points were the same
-size as the smallest points displayed in the experimental items. 5\% of
-participants were correct on 5 out of 6 point visibility tests, while
-95\% were correct on 6 out of 6. It should be noted that those
+Participants were shown six scatterplots and were asked to enter in a
+text box how many points were being displayed. These points were the
+same size as the smallest points displayed in the experimental items.
+5\% of participants were correct on 5 out of 6 point visibility tests,
+while 95\% were correct on 6 out of 6. It should be noted that those
 participants scoring 5/6 did not answer incorrectly, rather they did not
 answer at all for a particular question, which is suggestive of a
 mis-click or an initial misunderstanding of the task. Regardless, the
@@ -224,7 +228,8 @@ participant saw and responded to each of the 4 (factor levels)
 \(\times\) 45 \emph{r} values = 180 scatterplots in a fully randomised
 order. There were four scatterplots for each of the 45 \emph{r} values
 corresponding to the four levels of the size decay condition, examples
-of which are shown in Figure~\ref{fig-exp3-examples-chap5}.
+of which are shown in Figure~\ref{fig-exp3-examples-chap5} on page
+\pageref{fig-exp3-examples-chap5}.
 
 \subsection{Procedure}\label{procedure-e3}
 
@@ -253,9 +258,9 @@ more than 2 out of 6 attention check questions, and, as per the
 pre-registration, had their submissions rejected from the study. The
 data from the remaining 150 participants were included in the full
 analysis (72 male, 75 female, and 3 non-binary). Participants' mean age
-was 29.6 (\emph{SD} = 8.5). Mean graph literacy score was 21.8
-(\emph{SD} = 4.3) out of 30. The mean time taken to complete the
-experiment was 39 minutes (SD = 14 minutes).
+was 29.6 (SD = 8.5). Mean graph literacy score was 21.8 (SD = 4.3) out
+of 30. The mean time taken to complete the experiment was 39 minutes (SD
+= 14 minutes).
 
 \section{Results}\label{results-e3}
 
@@ -279,9 +284,9 @@ intervals.
 
 }
 
-\caption{\label{fig-e3-estimates}Estimated marginal means for the four
-conditions tested in Experiment 3. 95\% confidence intervals are shown.
-The vertical dashed line represents no estimation error. The
+\caption{\label{fig-e3-estimates}Estimated marginal means of error for
+the four conditions tested in Experiment 3. 95\% confidence intervals
+are shown. The vertical dashed line represents no estimation error. The
 overestimation zone is included to facilitate comparison to later work.}
 
 \end{figure}%
@@ -423,8 +428,8 @@ participants still underestimated \emph{r} in all conditions, the
 non-linear size decay condition provided the most promising correction
 to date; the average estimation error is approaching a flat line (see
 the left-most plot in Figure~\ref{fig-estimates-by-r-e3}). The change in
-the shape of the correlation estimation is a novel finding seen with the
-non-linear and linear decay conditions.
+the shape of the correlation estimation curve is a novel finding seen
+with the non-linear and linear decay conditions.
 
 \section{Discussion}\label{discussion-e3}
 
@@ -442,28 +447,28 @@ observed for the standard size condition.
 Accuracy}\label{increased-correlation-estimation-accuracy}
 
 The mean error in correlation estimation for the non-linear size decay
-condition in this experiment was .025, while the error associated with
+condition in this experiment was .02, while the error associated with
 the equivalent opacity decay condition described in Experiment 2 (see
-\chap{chap:adjusting_opacity}) was .086. This finding, along with the
-significantly higher Cohen's \emph{d} effect size reported in this
-experiment compared to Experiment 2 for the non-linear decay conditions
-(0.86 vs.~0.19), provides evidence that point size is a stronger
-encoding channel for the manipulation of perceived correlation than
-point opacity. If these effects are being driven by the lower salience
-of more exterior points, the fact that a larger effect of point size has
-been reported is congruent with research showing clear influences of
-stimulus size on object salience and perceptual weighting
-\cite{grice_1983, hong_2022, healey_2012}. The present results therefore
-provide support for point salience/perceptual weighting being a key
-driver of the effects observed; lower point salience brought on by
-reduced point size in the exterior of the scatterplot reduces the
-perceived width of the distribution of data points around the regression
-line, biasing estimates of correlation upwards and leading to a higher
-degree of accuracy. Other candidate mechanisms do exist; similar results
-would be expected if a feature-based attentional bias was responsible
-\cite{sun_2016, hong_2022}. The current methodology does not allow for
-distinguishing between these explanations, and it may be that both are
-partially responsible.
+Table\ref{tbl-efs-e2} on page \pageref{tbl-efs-e2}) was .09. This
+finding, along with the significantly higher Cohen's \emph{d} effect
+size reported in this experiment compared to Experiment 2 for the
+non-linear decay conditions (0.61 vs.~0.19), provides evidence that
+point size is a stronger encoding channel for the manipulation of
+perceived correlation than point opacity. If these effects are being
+driven by the lower salience of more exterior points, the fact that a
+larger effect of point size has been reported is congruent with research
+showing clear influences of stimulus size on object salience and
+perceptual weighting \cite{grice_1983, hong_2022, healey_2012}. The
+present results therefore provide support for point salience/perceptual
+weighting being a key driver of the effects observed; lower point
+salience brought on by reduced point size in the exterior of the
+scatterplot reduces the perceived width of the distribution of data
+points around the regression line, biasing estimates of correlation
+upwards and leading to a higher degree of accuracy. Other candidate
+mechanisms do exist; similar results would be expected if a
+feature-based attention bias was responsible \cite{sun_2016, hong_2022}.
+The current methodology does not allow for distinguishing between these
+explanations, and it may be that both are partially responsible.
 
 The lack of support for the second hypothesis is surprising, and
 suggests that point salience and perceived distributional width do not
@@ -478,10 +483,10 @@ influence of less reliable information (in this case the higher spatial
 uncertainty of larger exterior points) on subsequent perceptual
 estimates. In the present experiment, this resulted in participants
 making more accurate estimates of correlation in the inverted decay
-condition compared to the standard size condition. It was suggested in
-\chap{chap:adjusting_opacity} that inverted opacity manipulations may be
+condition compared to the standard size condition. While the inverted
+opacity manipulation used in \chap{chap:adjusting_opacity} may be
 employed to correct for the \emph{overestimation} of correlation
-observed with negatively correlated scatterplots \cite{sher_2017};
+observed with negatively correlated scatterplots \cite{sher_2017},
 findings here indicate that using an inverted size decay function in
 this way may not be appropriate.
 
@@ -503,10 +508,10 @@ account for the absence of this effect, however cannot account for these
 findings with regards to the standard size condition. Aside from the
 inverted non-linear decay condition in \chap{chap:adjusting_opacity},
 the finding that precision increased with \emph{r} was robust. Its
-absence here is curious given that the standard size decay condition
-here is identical to the full opacity condition in that chapter. Relying
-on relative judgements means that the interplay between scatterplots
-with different visual features must be accounted for within a particular
+absence here is curious given that the standard size condition here is
+identical to the full opacity condition in that chapter. Relying on
+relative judgements means that the interplay between scatterplots with
+different visual features must be accounted for within a particular
 experiment. The stimuli as \emph{r} approaches 1 in the current study
 exhibit greater levels of visual variance than the stimuli in
 Experiments 1 and 2 (see \chap{chap:adjusting_opacity}), which may

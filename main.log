@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.3.17)  17 MAR 2026 20:26
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.3.17)  18 MAR 2026 16:16
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -1255,100 +1255,101 @@ Chapter 2.
 (./chapters_tex/chapters_quarto/2_related_work.tex [26
 
 ]
-<chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png, id=925, 1623.06375pt x 914.66719pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png, id=928, 1623.06375pt x 914.66719pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png  used on input line 48.
 (luatex.def)             Requested size: 483.69687pt x 272.5879pt.
 [27<./chapters_tex/chapters_quarto/../supplied_graphics/tufte_1983.png>]
-<chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png, id=940, 1451.4225pt x 1120.9378pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png, id=943, 1451.4225pt x 1120.9378pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png  used on input line 89.
 (luatex.def)             Requested size: 483.69687pt x 373.5538pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg, id=941, 1211.9679pt x 1136.86732pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg, id=944, 1211.9679pt x 1136.86732pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg Graphic file (type jpg)
 <use chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg  used on input line 103.
 (luatex.def)             Requested size: 483.69687pt x 453.73274pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg, id=942, 1462.19pt x 697.15pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg, id=945, 1462.19pt x 697.15pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg Graphic file (type jpg)
 <use chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg  used on input line 118.
 (luatex.def)             Requested size: 483.69687pt x 230.62401pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg, id=943, 7022.235pt x 3840.3475pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg, id=946, 7022.235pt x 3840.3475pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg Graphic file (type jpg)
 <use chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg  used on input line 136.
 (luatex.def)             Requested size: 483.69687pt x 264.51547pt.
 [28<./chapters_tex/chapters_quarto/../supplied_graphics/sunspots.png>] [29<./chapters_tex/chapters_quarto/../supplied_graphics/snow_cholera.jpg>] [30<./chapters_tex/chapters_quarto/../supplied_graphics/minard_napoleon.jpg><./chapters_tex/chapters_quarto/../supplied_graphics/nightingale-rose.jpg>]
-<chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png, id=966, 914.66719pt x 593.21625pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png, id=969, 914.66719pt x 593.21625pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png  used on input line 204.
 (luatex.def)             Requested size: 483.69687pt x 313.70613pt.
 [31<./chapters_tex/chapters_quarto/../supplied_graphics/rug_density.png>] [32]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf, id=997, 385.44pt x 87.32625pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf, id=1000, 385.44pt x 87.32625pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf  used on input line 304.
 (luatex.def)             Requested size: 483.69687pt x 109.58794pt.
 [33<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-anscombe-1.pdf>]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf, id=1021, 389.455pt x 198.7425pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf, id=1024, 389.455pt x 198.7425pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf  used on input line 349.
 (luatex.def)             Requested size: 483.69687pt x 246.8445pt.
 [34<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-galton-hand-plot-1.pdf>]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf, id=1044, 387.4475pt x 242.9075pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf, id=1047, 387.4475pt x 242.9075pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf  used on input line 407.
 (luatex.def)             Requested size: 483.69687pt x 303.25554pt.
 [35]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf, id=1058, 378.41376pt x 384.43625pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf, id=1061, 378.41376pt x 384.43625pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf  used on input line 450.
 (luatex.def)             Requested size: 483.69687pt x 491.40211pt.
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf, id=1060, 385.44pt x 186.6975pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf, id=1063, 385.44pt x 186.6975pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf  used on input line 466.
 (luatex.def)             Requested size: 483.69687pt x 234.29144pt.
 [36<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-HR-plot-1.pdf>] [37<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-other-corr-viz-1.pdf>] [38<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-remixes-1.pdf>]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-task-examples-1.pdf, id=1115, 385.44pt x 384.43625pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-task-examples-1.pdf, id=1118, 385.44pt x 384.43625pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-task-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-task-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-task-examples-1.pdf  used on input line 552.
 (luatex.def)             Requested size: 483.69687pt x 482.43884pt.
 [39] [40<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-task-examples-1.pdf>] [41] [42]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf, id=1183, 396.48125pt x 226.8475pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf, id=1189, 396.48125pt x 226.8475pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf  used on input line 717.
+Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf  used on input line 720.
 (luatex.def)             Requested size: 483.69687pt x 276.75354pt.
 [43<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-point-cloud-trends-1.pdf>] [44]
-<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf, id=1240, 387.4475pt x 385.44pt>
+<chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf, id=1246, 387.4475pt x 385.44pt>
 File: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf  used on input line 823.
+Package luatex.def Info: chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf  used on input line 826.
 (luatex.def)             Requested size: 483.69687pt x 481.19891pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png, id=1252, 979.66pt x 1399.2275pt>
+[45]
+<chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png, id=1270, 979.66pt x 1399.2275pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png>
-Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png  used on input line 868.
+Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png  used on input line 872.
 (luatex.def)             Requested size: 483.69687pt x 690.83699pt.
-[45] [46<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf>] [47<./chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png>]
-<chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png, id=1289, 1212.02812pt x 706.89093pt>
+[46<./chapters_tex/chapters_quarto/2_related_work_files/figure-latex/fig-underestimation-curves-1.pdf>] [47<./chapters_tex/chapters_quarto/../supplied_graphics/covid_bbc.png>]
+<chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png, id=1296, 1212.02812pt x 706.89093pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png>
-Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png  used on input line 916.
+Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png  used on input line 920.
 (luatex.def)             Requested size: 483.69687pt x 282.10419pt.
 [48<./chapters_tex/chapters_quarto/../supplied_graphics/sgl_test_screen.png>] [49]) [50]
 Chapter 3.
 (./chapters_tex/chapters_quarto/3_general_methodology.tex
-<chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png, id=1330, 1811.76875pt x 1062.97125pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png, id=1337, 1811.76875pt x 1062.97125pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png  used on input line 34.
@@ -1356,200 +1357,199 @@ Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/examp
 [51
 
 ]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf, id=1345, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf, id=1352, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf  used on input line 80.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf, id=1346, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf, id=1353, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf  used on input line 94.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf, id=1347, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf, id=1354, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf  used on input line 108.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf, id=1348, 395.4775pt x 305.14pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf, id=1355, 395.4775pt x 305.14pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf  used on input line 122.
 (luatex.def)             Requested size: 483.69687pt x 373.21075pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf, id=1349, 396.48125pt x 582.175pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf, id=1356, 396.48125pt x 582.175pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf  used on input line 136.
 (luatex.def)             Requested size: 483.69687pt x 710.25247pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-cont-1.pdf, id=1350, 396.48125pt x 284.06125pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-cont-1.pdf, id=1357, 396.48125pt x 284.06125pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-cont-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-cont-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-cont-1.pdf  used on input line 153.
 (luatex.def)             Requested size: 483.69687pt x 346.55418pt.
 [52<./chapters_tex/chapters_quarto/../supplied_graphics/example_exp.png>] [53<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp1-examples-1.pdf>]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e1-1.pdf, id=1390, 387.4475pt x 385.44pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e1-1.pdf, id=1397, 387.4475pt x 385.44pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e1-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e1-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e1-1.pdf  used on input line 213.
 (luatex.def)             Requested size: 483.69687pt x 481.19891pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e2-1.pdf, id=1391, 387.4475pt x 385.44pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e2-1.pdf, id=1398, 387.4475pt x 385.44pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e2-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e2-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e2-1.pdf  used on input line 229.
 (luatex.def)             Requested size: 483.69687pt x 481.19891pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e3-1.pdf, id=1392, 387.4475pt x 385.44pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e3-1.pdf, id=1399, 387.4475pt x 385.44pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e3-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e3-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e3-1.pdf  used on input line 243.
 (luatex.def)             Requested size: 483.69687pt x 481.19891pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e4-1.pdf, id=1393, 387.4475pt x 385.44pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e4-1.pdf, id=1400, 387.4475pt x 385.44pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e4-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e4-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e4-1.pdf  used on input line 260.
 (luatex.def)             Requested size: 483.69687pt x 481.19891pt.
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e5-1.pdf, id=1394, 387.4475pt x 186.6975pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e5-1.pdf, id=1401, 387.4475pt x 186.6975pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e5-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e5-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e5-1.pdf  used on input line 274.
 (luatex.def)             Requested size: 483.69687pt x 233.08072pt.
 [54<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp2-examples-1.pdf>] [55<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp3-examples-1.pdf>] [56<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp4-examples-1.pdf>] [57<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-1.pdf>] [58<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-exp5-examples-cont-1.pdf>] [59<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e1-1.pdf>] [60<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e2-1.pdf>]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf, id=2074, 399.4925pt x 368.37625pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf, id=2083, 399.4925pt x 368.37625pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf  used on input line 408.
+Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf  used on input line 409.
 (luatex.def)             Requested size: 483.69687pt x 446.04578pt.
 [61<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e3-1.pdf>] [62<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e4-1.pdf>] [63<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-ink-e5-1.pdf><./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-scatter-example-1.pdf>]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf, id=2124, 387.4475pt x 228.855pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf, id=2133, 387.4475pt x 228.855pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf  used on input line 478.
+Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf  used on input line 479.
 (luatex.def)             Requested size: 483.69687pt x 285.71184pt.
 [64] [65<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-mixed-effects-demo-1.pdf>] [66] [67] [68] [69] [70]
-<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf, id=2244, 363.3575pt x 77.28876pt>
+<chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf, id=2253, 363.3575pt x 77.28876pt>
 File: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf  used on input line 781.
+Package luatex.def Info: chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf  used on input line 782.
 (luatex.def)             Requested size: 483.69687pt x 102.88826pt.
 [71<./chapters_tex/chapters_quarto/3_general_methodology_files/figure-latex/fig-reproducibility-spectrum-1.pdf>] [72]) [73]
 Chapter 4.
 (./chapters_tex/chapters_quarto/4_adjusting_opacity.tex [74
 
 ]
-<chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png, id=2300, 2409.0pt x 1204.5pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png, id=2309, 2409.0pt x 1204.5pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png>
 Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png  used on input line 55.
 (luatex.def)             Requested size: 483.69687pt x 241.83307pt.
 [75<./chapters_tex/chapters_quarto/../supplied_graphics/pilot_examples.png>] [76] [77]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf, id=2335, 370.38374pt x 131.49126pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf, id=2345, 370.38374pt x 131.49126pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf  used on input line 294.
 (luatex.def)             Requested size: 483.69687pt x 171.72108pt.
 [78]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf, id=2346, 374.39874pt x 56.21pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf, id=2357, 374.39874pt x 56.21pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf>
 Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf  used on input line 331.
 (luatex.def)             Requested size: 483.69687pt x 72.62354pt.
-[79<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf><./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf>] [80]
-<chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png, id=2400, 1256.44406pt x 665.48625pt>
+[79<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-overplotting-examples-1.pdf><./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-alpha-examples-1.pdf>] [80] [81]
+<chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png, id=2421, 1256.44406pt x 665.48625pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png>
-Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png  used on input line 453.
+Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png  used on input line 456.
 (luatex.def)             Requested size: 483.69687pt x 256.1876pt.
-[81]
-<chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png, id=2408, 289.08pt x 289.08pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png, id=2422, 289.08pt x 289.08pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png>
-Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png  used on input line 467.
+Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png  used on input line 470.
 (luatex.def)             Requested size: 483.69687pt x 483.72346pt.
 [82<./chapters_tex/chapters_quarto/../supplied_graphics/example-plots.png>] [83<./chapters_tex/chapters_quarto/../supplied_graphics/visual_mask.png>] [84]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf, id=2445, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf, id=2460, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf  used on input line 589.
+Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf  used on input line 593.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf, id=2447, 387.4475pt x 148.555pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf, id=2462, 387.4475pt x 148.555pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf  used on input line 619.
+Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf  used on input line 623.
 (luatex.def)             Requested size: 483.69687pt x 185.46207pt.
 [85] [86<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp1-examples-chap4-1.pdf><./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e1-estimates-1.pdf>]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf, id=2477, 388.45125pt x 128.48pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf, id=2492, 388.45125pt x 128.48pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf  used on input line 742.
+Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf  used on input line 746.
 (luatex.def)             Requested size: 483.69687pt x 159.98596pt.
 [87<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e1-1.pdf>] [88]
-Overfull \hbox (2.2366pt too wide) in paragraph at lines 814--822
+Overfull \hbox (2.2366pt too wide) in paragraph at lines 819--827
 \TU/Calibri(0)/m/n/12 ground; the greater spa-tial un-cer-tainty brought on by re-duced point opac-ity, while not elic-it-ing greater
  []
 
 [89]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf, id=2517, 387.4475pt x 168.63pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf, id=2533, 387.4475pt x 168.63pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf  used on input line 866.
+Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf  used on input line 871.
 (luatex.def)             Requested size: 483.69687pt x 210.5245pt.
 [90<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-opposing-curve-1.pdf>]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf, id=2536, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf, id=2554, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf  used on input line 941.
+Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf  used on input line 947.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf, id=2538, 387.4475pt x 148.555pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf, id=2556, 387.4475pt x 148.555pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf  used on input line 969.
+Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf  used on input line 975.
 (luatex.def)             Requested size: 483.69687pt x 185.46207pt.
 [91] [92<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-exp2-examples-chap4-1.pdf><./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-e2-estimates-1.pdf>]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf, id=2795, 388.45125pt x 128.48pt>
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf, id=2813, 388.45125pt x 128.48pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf  used on input line 1088.
+Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf  used on input line 1095.
 (luatex.def)             Requested size: 483.69687pt x 159.98596pt.
-[93<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf>] [94]
-<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf, id=2824, 399.4925pt x 363.3575pt>
+[93] [94<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-estimates-by-r-e2-1.pdf>]
+<chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf, id=2843, 399.4925pt x 363.3575pt>
 File: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf  used on input line 1167.
+Package luatex.def Info: chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf  used on input line 1175.
 (luatex.def)             Requested size: 483.69687pt x 439.96886pt.
-[95<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf>] [96] [97] [98]) [99]
+[95] [96<./chapters_tex/chapters_quarto/4_adjusting_opacity_files/figure-latex/fig-prediction-ellipse-1.pdf>] [97] [98]) [99]
 Chapter 5.
 (./chapters_tex/chapters_quarto/5_adjusting_size.tex [100
 
 ]
-<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf, id=2877, 391.4625pt x 232.87pt>
+<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf, id=2900, 391.4625pt x 232.87pt>
 File: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf  used on input line 49.
+Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf  used on input line 51.
 (luatex.def)             Requested size: 483.69687pt x 287.75375pt.
 [101<./chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-bubble-chart-1.pdf>] [102]
-<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf, id=2920, 395.4775pt x 294.09875pt>
+<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf, id=2944, 395.4775pt x 294.09875pt>
 File: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf  used on input line 159.
+Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf  used on input line 162.
 (luatex.def)             Requested size: 483.69687pt x 359.70644pt.
-<chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png, id=2921, 1445.4pt x 1129.21875pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png, id=2945, 1445.4pt x 1129.21875pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png>
-Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png  used on input line 176.
+Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png  used on input line 179.
 (luatex.def)             Requested size: 483.69687pt x 377.88141pt.
 [103] [104<./chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-exp3-examples-chap5-1.pdf>] [105<./chapters_tex/chapters_quarto/../supplied_graphics/screen_scale_illustration.png>]
-<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf, id=2960, 387.4475pt x 148.555pt>
+<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf, id=2986, 387.4475pt x 148.555pt>
 File: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf  used on input line 278.
+Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf  used on input line 283.
 (luatex.def)             Requested size: 483.69687pt x 185.46207pt.
 [106]
-<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf, id=2968, 388.45125pt x 128.48pt>
+<chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf, id=2994, 388.45125pt x 128.48pt>
 File: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf  used on input line 396.
+Package luatex.def Info: chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf  used on input line 401.
 (luatex.def)             Requested size: 483.69687pt x 159.98596pt.
 [107<./chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-e3-estimates-1.pdf>] [108<./chapters_tex/chapters_quarto/5_adjusting_size_files/figure-latex/fig-estimates-by-r-e3-1.pdf>] [109] [110]
-Overfull \hbox (0.37567pt too wide) in paragraph at lines 561--581
+Overfull \hbox (0.37567pt too wide) in paragraph at lines 566--586
 []\TU/Calibri(0)/m/n/12 I con-ducted a sin-gle ex-per-i-ment, in which points on scat-ter-plots had their sizes sys-tem-at-i-cally changed
  []
 
@@ -1558,120 +1558,120 @@ Chapter 6.
 (./chapters_tex/chapters_quarto/6_interactions_opacity_size.tex [113
 
 ]
-Overfull \hbox (4.92422pt too wide) in paragraph at lines 69--91
+Overfull \hbox (4.92422pt too wide) in paragraph at lines 70--93
 \TU/Calibri(0)/m/n/12 Chang-ing the opac-i-ties of points in scat-ter-plots is stan-dard prac-tice when vi-su-al-is-ing very large datasets
  []
 
 [114] [115] [116]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf, id=3116, 395.4775pt x 305.14pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf, id=3147, 395.4775pt x 305.14pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf  used on input line 224.
+Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf  used on input line 228.
 (luatex.def)             Requested size: 483.69687pt x 373.21075pt.
 [117] [118<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-exp4-examples-chap6-1.pdf>] [119]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf, id=3361, 387.4475pt x 148.555pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf, id=3396, 387.4475pt x 148.555pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf  used on input line 348.
+Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf  used on input line 355.
 (luatex.def)             Requested size: 483.69687pt x 185.46207pt.
 [120]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf, id=3374, 387.4475pt x 146.5475pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf, id=3411, 387.4475pt x 146.5475pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf  used on input line 433.
+Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf  used on input line 442.
 (luatex.def)             Requested size: 483.69687pt x 182.95581pt.
 [121<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-estimates-1.pdf>]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf, id=3388, 388.45125pt x 128.48pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf, id=3425, 388.45125pt x 128.48pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf  used on input line 477.
+Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf  used on input line 486.
 (luatex.def)             Requested size: 483.69687pt x 159.98596pt.
 [122<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-e4-trial-number-1.pdf>] [123<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-estimates-by-r-e4-1.pdf>] [124]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf, id=3440, 388.45125pt x 128.48pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf, id=3479, 388.45125pt x 128.48pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf  used on input line 621.
+Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf  used on input line 630.
 (luatex.def)             Requested size: 483.69687pt x 159.98596pt.
 [125<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-all-est-curves-1.pdf>]
-<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf, id=3462, 387.4475pt x 158.5925pt>
+<chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf, id=3501, 387.4475pt x 158.5925pt>
 File: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf  used on input line 692.
+Package luatex.def Info: chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf  used on input line 701.
 (luatex.def)             Requested size: 483.69687pt x 197.99327pt.
 [126] [127<./chapters_tex/chapters_quarto/6_interactions_opacity_size_files/figure-latex/fig-power-plot-e4-1.pdf>] [128]) [129]
 Chapter 7.
 (./chapters_tex/chapters_quarto/7_belief_change.tex [130
 
 ] [131]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf, id=3550, 395.4775pt x 248.93pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf, id=3590, 395.4775pt x 248.93pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf  used on input line 120.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf  used on input line 121.
 (luatex.def)             Requested size: 483.69687pt x 304.46141pt.
 [132] [133<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-previous-manipulations-1.pdf>] [134] [135] [136]
-<chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png, id=3720, 1229.34282pt x 678.28406pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png, id=3761, 1229.34282pt x 678.28406pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png>
-Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png  used on input line 331.
+Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png  used on input line 333.
 (luatex.def)             Requested size: 483.69687pt x 266.8791pt.
 [137<./chapters_tex/chapters_quarto/../supplied_graphics/e5_pre_test_trial.png>]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf, id=3730, 387.4475pt x 577.15625pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf, id=3772, 387.4475pt x 577.15625pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf  used on input line 370.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf  used on input line 373.
 (luatex.def)             Requested size: 483.69687pt x 720.54524pt.
 
-LaTeX Warning: Float too large for page by 18.85664pt on input line 381.
+LaTeX Warning: Float too large for page by 18.85664pt on input line 384.
 
 [138] [139<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-all-statements-results-1.pdf>] [140]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf, id=3763, 396.48125pt x 582.175pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf, id=3806, 396.48125pt x 582.175pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf  used on input line 494.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf  used on input line 498.
 (luatex.def)             Requested size: 483.69687pt x 710.25247pt.
 
-LaTeX Warning: Float too large for page by 8.56387pt on input line 506.
+LaTeX Warning: Float too large for page by 8.56387pt on input line 511.
 
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-cont-1.pdf, id=3766, 396.48125pt x 284.06125pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-cont-1.pdf, id=3810, 396.48125pt x 284.06125pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-cont-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-cont-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-cont-1.pdf  used on input line 514.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-cont-1.pdf  used on input line 519.
 (luatex.def)             Requested size: 483.69687pt x 346.55418pt.
 [141] [142<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-1.pdf>] [143<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-exp5-examples-chap7-cont-1.pdf>]
-<chapters_tex/chapters_quarto/../supplied_graphics/exp5_flowchart.png, id=3933, 576.35326pt x 406.8801pt>
+<chapters_tex/chapters_quarto/../supplied_graphics/exp5_flowchart.png, id=3979, 583.58025pt x 404.712pt>
 File: chapters_tex/chapters_quarto/../supplied_graphics/exp5_flowchart.png Graphic file (type png)
 <use chapters_tex/chapters_quarto/../supplied_graphics/exp5_flowchart.png>
-Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/exp5_flowchart.png  used on input line 594.
-(luatex.def)             Requested size: 483.69687pt x 341.47273pt.
+Package luatex.def Info: chapters_tex/chapters_quarto/../supplied_graphics/exp5_flowchart.png  used on input line 600.
+(luatex.def)             Requested size: 483.69687pt x 335.44772pt.
 [144<./chapters_tex/chapters_quarto/../supplied_graphics/exp5_flowchart.png>] [145] [146]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf, id=3980, 372.39125pt x 209.78375pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf, id=4028, 372.39125pt x 209.78375pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf  used on input line 787.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf  used on input line 794.
 (luatex.def)             Requested size: 483.69687pt x 272.49794pt.
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf, id=3983, 372.39125pt x 144.54pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf, id=4031, 372.39125pt x 144.54pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf  used on input line 827.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf  used on input line 834.
 (luatex.def)             Requested size: 483.69687pt x 187.74977pt.
 [147] [148<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-descriptives-e5-1.pdf><./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-difference-descriptive-1.pdf>]
-<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf, id=4010, 387.4475pt x 132.495pt>
+<chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf, id=4058, 387.4475pt x 132.495pt>
 File: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf  used on input line 875.
+Package luatex.def Info: chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf  used on input line 882.
 (luatex.def)             Requested size: 483.69687pt x 165.41211pt.
 [149<./chapters_tex/chapters_quarto/7_belief_change_files/figure-latex/fig-add-analyses-plots-1.pdf>] [150] [151]) [152]
 Chapter 8.
 (./chapters_tex/chapters_quarto/8_conclusion.tex [153
 
 ]
-<chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf, id=4076, 386.44376pt x 586.19pt>
+<chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf, id=4127, 386.44376pt x 586.19pt>
 File: chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf Graphic file (type pdf)
 <use chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf>
-Package luatex.def Info: chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf  used on input line 86.
+Package luatex.def Info: chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf  used on input line 87.
 (luatex.def)             Requested size: 483.69687pt x 733.7196pt.
 
-LaTeX Warning: Float too large for page by 20.031pt on input line 97.
+LaTeX Warning: Float too large for page by 20.031pt on input line 98.
 
 [154] [155<./chapters_tex/chapters_quarto/8_conclusion_files/figure-latex/fig-mean-all-exp-1.pdf>] [156] [157] [158] [159] [160] [161] [162]) [163] [164
 
@@ -1823,9 +1823,9 @@ warning  (pdf backend): unreferenced destination with name 'Hfootnote.2'
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
 <c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.otf><c:/Windows/Fonts/calibrii.ttf><c:/Windows/Fonts/calibri.ttf><c:/Windows/Fonts/calibrib.ttf><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/gabri/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (194 pages, 38314250 bytes).
+Output written on main.pdf (194 pages, 38287517 bytes).
 
-PDF statistics: 5563 PDF objects out of 6186 (max. 8388607)
+PDF statistics: 5621 PDF objects out of 6186 (max. 8388607)
  678 named destinations out of 1000 (max. 1048576)
  1327 words of extra memory for PDF output out of 10000 (max. 100000000)
 

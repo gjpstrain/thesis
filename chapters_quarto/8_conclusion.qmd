@@ -68,7 +68,7 @@ In \chap{chap:adjusting_opacity}, the opacities of scatterplot points were
 altered while participants were tested on a correlation estimation task. The two
 published experiments in this chapter were partially based on an earlier pilot
 study that ultimately remains unpublished due to data quality issues (see
-Section \ref{pilot-study} for a full account of this). In the first experiment in this
+Section \ref{pilot-study} on page \pageref{pilot-study} for a full account of this). In the first experiment in this
 chapter, the opacities of scatterplot points were changed in a uniform manner;
 this was done with the intent of discovering any general effects of point
 opacity on correlation estimation. Evidence was found for an increase in
@@ -359,7 +359,7 @@ appropriate, using some form of the point opacity and/or size manipulations
 described in this thesis could enhance the communicative efficacy of positively
 correlated scatterplots. I would not recommend this until further work has been
 done on the potential for misinterpretation from scatterplots such as those
-described here (see Section \ref{future-work-chap8}).
+described here (see Section \ref{future-work-chap8} on page \pageref{future-work-chap8}).
 
 Given the effects reported here, designers should also be aware of the side-effects
 of changing the sizes and opacities of scatterplot points on other task types.
@@ -447,10 +447,11 @@ investigated point opacity, this was unnecessary, as the impact of overplotting 
 extremely low; later, when changing the sizes of points increased the amount of
 overlap, I elected again not to make manual changes to facilitate comparison
 to earlier work. High *r* value scatterplots in experiment 5 (see Section \ref{beliefs-main-e5}
-in \chap{chap:belief_change}) suffered particularly from this problem. If the 
+in \chap{chap:belief_change}, page \pageref{beliefs-main-e5}) suffered particularly from this problem. If the 
 techniques developed in this thesis around changing the sizes of points were 
 to be used in the wild, further tuning would be required, as many individual
-points are effectively obscured (see Figure \ref{fig-exp5-examples-chap7}).
+points are effectively obscured (see Figure \ref{fig-exp5-examples-chap7} on 
+page \pageref{fig-exp5-examples-chap7}).
 
 # Future Directions {#future-work-chap8}
 
@@ -486,8 +487,8 @@ point_{size/opacity} = 1 - b^{residual}
 \end{equation}
 
 Given the finding that the combination of point opacity and size decay is not
-linearly additive (see Section \ref{discussion-e4}, \chap{chap:interactions_opacity_size}),
-there are a multitude of parameters that may be adjusted and tested to
+linearly additive (see Section \ref{discussion-e4}, \chap{chap:interactions_opacity_size},
+page \pageref{discussion-e4}), there are a multitude of parameters that may be adjusted and tested to
 explore the relative contributions of each to the effects seen. The value of
 $b$, which so far has only been $b = 0.25$, is one such parameter, and controls
 the severity of the fall-off in point opacity or size of the decay function in
@@ -513,7 +514,8 @@ While point salience/perceptual weighting is put forward as the most
 likely driver of the effects observed in \chap{chap:adjusting_opacity},
 \chap{chap:adjusting_size}, and \chap{chap:interactions_opacity_size}, the data gathered do not explain the
 differences in the shapes of the observed correlation estimation curves (see
-Figure \ref{fig-all-est-curves}, Section \ref{relative-contributions-ch6}).
+Figure \ref{fig-all-est-curves}, Section \ref{relative-contributions-ch6},
+page \pageref{fig-all-est-curves}).
 The context that a particular point manipulation is
 presented in, including the objective *r* value of the scatterplot, interacts
 with point opacity and size adjustments in complex ways. Future work may wish to
@@ -532,7 +534,8 @@ visualisations described in this thesis was used. Each of these components
 deserves study, and each is ripe for future work to investigate the
 contributions of each factor to the effects seen here.
 
-Section \ref{add-analyses-discussion} in \chap{chap:belief_change} describes the effects that graph literacy,
+Section \ref{add-analyses-discussion} in \chap{chap:belief_change}, 
+page \pageref{add-analyses-discussion}, describes the effects that graph literacy,
 defensive confidence, and participants' ratings of the emotional valence of the
 correlative statement have on the propensity for belief change. Future work may
 wish to investigate these factors, along with others that affect perceptions of
@@ -542,7 +545,7 @@ estimation may differ according to the context the data are presented in; this
 could be extended to instead investigate statements with differing emotional
 contents and how alternative scatterplot designs might interact with emotional
 valence. Similarly, selecting matched participant groups with low or high graph
-literacy or defensive confidence would facilitate understanding of how
+literacy or defensive confidence would facilitate an understanding of how
 alternative designs may be employed to cater for people with different levels of
 experience, or who differ in terms of their faith in their own ideas and
 abilities.
@@ -554,10 +557,10 @@ designs. Markant et al. \cite{markant_2023} found that while beliefs about
 correlations changed in participants as a result of interaction with
 scatterplots, attitudes did not. Future work may wish to investigate whether
 this finding would persist with scatterplots utilising the alternative designs
-described here. Finally, while changing perceptions, beliefs, and attitudes are
+described in \chap{chap:belief_change}. While changing perceptions, beliefs, and attitudes are
 promising early steps, changing people's behaviours would be the real test of
 the power of alternative visualisation techniques; while this may be difficult
-to study, future work should investigate whether what has been found here and
+to study, future work should investigate whether what has been found 
 throughout this thesis may be used to induce behaviour change.
 
 This thesis represents a large amount of quantitative data on how viewers
@@ -568,7 +571,7 @@ work should take place investigating users' thoughts and feelings about novel
 visualisations that have been designed based on perceptual metrics. It may be
 the case that any potential advantages of the novel scatterplots described
 herein are outweighed by distrust or unfamiliarity with novel designs, or that
-they are considered to be an effort at deliberate distortion of data.
+they are considered to be an effort at deliberate distortion of the data.
 
 Finally, to further investigate precisely *why* the techniques described in this
 thesis work, lab-based experiments should be conducted. While more costly and
@@ -580,7 +583,7 @@ perceptions of correlation.
 # Closing Remarks
 
 The design of data visualisations should be based, at least partially, on the
-ways in which those data visualisations are perceived by the people that use
+ways in which those data visualisations are perceived and thought about by the people that use
 them. The opacities and sizes of points in positively correlated scatterplots
 have clear, strong effects on the perceptions of correlation based on them. The
 extent to which viewers update their beliefs following scatterplot-viewing can

@@ -371,15 +371,14 @@ correlations displayed therein. In a fully-reproducible, large-sample (*N* =
 150) study, I show that combining point opacity and size manipulations can
 produce more powerful effects on correlation estimation than either manipulation
 in isolation. Additionally, I comment on the impact that the adjustment of each
-visual feature may have on correlation estimation, and suggest future work to
-tune the effects seen in \chap{chap:adjusting_opacity},
-\chap{chap:adjusting_size}, and here.
+visual feature may have on correlation estimation.
 
 # Related Work {#related-work-interactions}
 
 Much of the related work presented here is covered in more detail in
-\chap{chap:related_work} and in Sections \ref{related-work-adjusting-opacity}
-and \ref{related-work-adjusting-size} in \chap{chap:adjusting_opacity} and 
+\chap{chap:related_work} and in Sections \ref{related-work-adjusting-opacity},
+page \pageref{related-work-adjusting-opacity} and \ref{related-work-adjusting-size},
+page \pageref{related-work-adjusting-size} in \chap{chap:adjusting_opacity} and 
 \chap{chap:adjusting_size} respectively. For the reader's convenience, and to
 properly contextualise the experimental methods and findings in the present
 chapter, this related work is reproduced in brief here.
@@ -388,7 +387,7 @@ chapter, this related work is reproduced in brief here.
 
 Changing the opacities of points in scatterplots is standard practice when
 visualising very large datasets to address overplotting \cite{matejka_2015}.
-Figure \ref{fig-overplotting-examples} visualises how point opacity is often
+Figure \ref{fig-overplotting-examples} on page \pageref{fig-overplotting-examples} visualises how point opacity is often
 reduced when large numbers of points are present to preserve individual point
 discriminability. While work on the effects of point opacity on correlation
 perception in scatterplots has taken place, it is often contradictory. Earlier
@@ -411,15 +410,16 @@ Micallef et al. \cite{micallef_2017} found that "merging, dark dots" support
 correlation estimation; despite only changing point opacity in a *uniform*
 manner, the sheer number of points used in that study results in scatterplots
 that appear similar to those that reduce opacity as a function of residual
-magnitude (see \chap{chap:adjusting_opacity}). That this technique has been
-shown to produce more accurate correlation estimates as compared to unadjusted
+magnitude (see Figure \ref{fig-exp2-examples-chap4} on \pageref{fig-exp2-examples-chap4}).
+That this technique has been shown to produce more accurate correlation estimates compared to unadjusted
 scatterplots may explain why the optimisation system employed in Micallef et al.
 \cite{micallef_2017} conferred benefits regarding correlation estimation.
 
 ## Point Size
 
 Again, for discriminability reasons, scatterplots dealing with larger datasets
-tend to have smaller individual points. Section \ref{point-size-chap5} explores
+tend to have smaller individual points. Section \ref{point-size-chap5} on 
+page \pageref{point-size-chap5} explores
 this, and related bubble charts, in greater detail. As with opacity, the work
 exploring the effects of point size on correlation perception in scatterplots is
 conflicted. Some finds correlation perception to be invariant to both global and
@@ -496,10 +496,10 @@ deviations from them were made.
 ## Stimuli {#stimuli-e4}
 
 The creation of the stimuli in this experiment follow the same general
-principles outlined in Section \ref{creating-stimuli}, \chap{chap:gen_methods}.
-`ggplot2` (version 3.5.0) was used to create the stimuli. Again, equation 6.1
-was used to map point residuals to opacity and size values, with a value of b =
-0.25:
+principles outlined in Section \ref{creating-stimuli}, \chap{chap:gen_methods},
+page \pageref{creating-stimuli}. `ggplot2` (version 3.5.0) was used to create the stimuli. Again, equation 6.1
+was used to map point residuals to opacity and size values, with a value of 
+$b = 0.25$:
 
 \begin{equation}
   point_{size/opacity} = 1 - b^{residual}
@@ -508,7 +508,7 @@ was used to map point residuals to opacity and size values, with a value of b =
 For the changes made to point size in this experiment, a constant of 0.2 was
 added to each raw value, along with a scaling factor of 4; as in
 \chap{chap:adjusting_size}, these adjustments resulted in the smallest points
-having a width of 12 pixels on a 1920 $\times$ 1080 pixel monitor, which is consistent
+having a width of 12 pixels, which is consistent
 with the point size used in \chap{chap:adjusting_opacity} and the minimum point
 size used in \chap{chap:adjusting_size}. With regards to changing the opacities
 of points, an alpha = 0.2 floor was implemented, as informal piloting indicated
@@ -647,16 +647,16 @@ scatterplots containing between 2 and 7 points; these points were the same size
 and opacity as the smallest and least opaque points used in the experimental
 stimuli. Participants were instructed to enter the number of points present for
 each plot in a textbox. Participants scored an average of
-`r printnum(VT$mean_VT_perc_correct)`% ($SD$ =
-`r printnum(VT$sd_VT_perc_correct)`%). Despite the use of the opacity floor and
-point size constant and scaling factor, some of the smallest, least opaque
+`r printnum(VT$mean_VT_perc_correct)`% (SD =
+`r printnum(VT$sd_VT_perc_correct)`%). Despite the use of the opacity floor,
+point size constant, and scaling factor, some of the smallest, least opaque
 stimuli used were clearly not visible to participants. This was most likely due
 to low contrast between the foreground (scatterplot points) and the background,
 as Experiment 4, \chap{chap:adjusting_size} found visibility mostly invariant to
 point size. In an idealised experimental setup, minimum point opacity and size
 would be calibrated on a per-monitor basis. Analysis including
 participants' performance on the point visibility task as a fixed effect is
-detailed in Section \ref{results-e4}.
+detailed in Section \ref{results-e4} on page \pageref{results-e4}.
 
 ## Dot Pitch
 
@@ -674,14 +674,13 @@ dot_pitch <- E4_interactions_tidy %>%
 
 As in \chap{chap:adjusting_size}, a method for inferring the dot pitch of
 participants' monitors was included in this experiment \cite{screenscale}.
-Section \ref{dot-pitch-chap5} details precisely how this was accomplished. Mean
-dot pitch was `r printnum(dot_pitch$mean_dp, digits = 2)`mm ($SD$ =
+Section \ref{dot-pitch-chap5} on page \pageref{dot-pitch-chap5} details precisely how this was accomplished. Mean
+dot pitch was `r printnum(dot_pitch$mean_dp, digits = 2)`mm (SD =
 `r printnum(dot_pitch$sd_dp, digits = 2)`), corresponding to a physical
-on-screen size of `r printnum(dot_pitch$mean_dp*13)`mm on a 1920 $\times$ 1080
-pixel monitor for the smallest points displayed on a hypothetical
-`r printnum(dot_pitch$mean_width)` $\times$
-`r printnum(dot_pitch$mean_height)`cm monitor. Analysis including dot pitch as a
-fixed effect is provided in Section \ref{results-e4}.
+on-screen size of `r printnum(dot_pitch$mean_dp*13)`mm on hypothetical 1920 $\times$ 1080
+pixel, `r printnum(dot_pitch$mean_width)` $\times$
+`r printnum(dot_pitch$mean_height)`cm monitor for the smallest points displayed.
+Analysis including dot pitch as a fixed effect is provided in Section \ref{results-e4}.
 
 ## Design {#design-e4}
 
@@ -691,7 +690,7 @@ The second factor, point size decay, also had two levels; typical orientation
 and inverted orientation. Each participant saw each combination of opacity and size
 decay function scatterplots for a total 2 (factors) $\times$ 2 levels each $\times$ 45
 *r* values = 180 experimental items. Participants viewed these experimental
-items, along with 6 attention check items, in a fully randomised order. The
+items, along with six attention check items, in a fully randomised order. The
 experiment was built using PsychoPy and hosted on Pavlovia[^4].
 
 [^4]: https://gitlab.pavlovia.org/Strain/size_and_opacity_additive_exp
@@ -704,14 +703,14 @@ Participants viewed the PIS and provided consent through key presses in response
 to consent statements. Participants were asked to provide their age and gender
 identity. Participants completed the 5-item Subjective Graph Literacy test
 \cite{garcia_2016}, followed by the screen scale and point visibility tasks
-described in Section \ref{method-e4}. Following the completion of the
+described in Section \ref{method-e4} on page \pageref{method-e4}. Following the completion of the
 pre-experimental tests, participants were briefly shown examples of scatterplots
 with correlations of 0.2, 0.5, 0.8, and 0.95. Section \ref{results-e4} contains
 a discussion of the potential effects of this training. Two practice trials were
 allowed before the experiment began. Participants worked through a series of 180
-experimental and 6 attention check trials in a fully randomised order while
+experimental and six attention check trials in a fully randomised order while
 being asked to use a slider (see Figure \ref{fig-exp-illustrate},
-\chap{chap:gen_methods}) to estimate the correlation to two decimal places.
+\chap{chap:gen_methods}, page \pageref{fig-exp-illustrate}) to estimate the correlation to two decimal places.
 Visual masks preceded each trial. The attention check trials explicitly asked
 participants to set the slider to 0 or 1.
 
@@ -728,9 +727,9 @@ participants were included in the full analysis
 (`r printnum(E4_interactions_tidy_gender$M, digits = 0)` male,
 `r printnum(E4_interactions_tidy_gender$F)` female, and
 `r printnum(E4_interactions_tidy_gender$NB)` non-binary). Participants' mean age
-was `r printnum(E4_interactions_tidy_age$mean, digits = 1)` (*SD* =
+was `r printnum(E4_interactions_tidy_age$mean, digits = 1)` (SD =
 `r printnum(E4_interactions_tidy_age$sd, digits = 1)`). Mean graph literacy score was
-`r printnum(E4_interactions_tidy_graph_literacy$mean, digits = 1)` (*SD* =
+`r printnum(E4_interactions_tidy_graph_literacy$mean, digits = 1)` (SD =
 `r printnum(E4_interactions_tidy_graph_literacy$sd, digits = 1)`) out of 30. The mean time taken to
 complete the experiment was 37 minutes (SD = 12.3 minutes).
 
@@ -827,7 +826,7 @@ errors in correlation estimation for each combination of conditions, along with
 ```{r}
 #| label: fig-e4-estimates
 #| include: true
-#| fig-cap: Estimated marginal means for the four conditions tested in Experiment 4. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error.
+#| fig-cap: Estimated marginal means of error for the four conditions tested in Experiment 4. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error.
 #| fig-asp: 0.4
 
 # assign buildmer model to lmer slot
@@ -940,15 +939,17 @@ the two incongruent decay conditions. Statistical testing for contrasts were
 performed using the `emmeans` package \cite{lenth_2024}, and are provided in
 @tbl-contrasts-e4. Experiments 1, 2, and 3 all featured identical comparative
 baseline conditions. In the former two experiments, this was the full contrast
-condition (see \chap{chap:adjusting_opacity}), while in the latter, this was the
-standard size condition (see \chap{chap:adjusting_size}). In the current
+condition (see Figure \ref{fig-exp1-examples-chap4} on page 
+\pageref{fig-exp1-examples-chap4}), while in the latter, this was the
+standard size condition (see Figure \ref{fig-exp2-examples-chap4} on page 
+\pageref{fig-exp3-examples-chap5}). In the current
 experiment, no baseline condition was used. Owing both to this and the use of a
 linear mixed effects model with an interaction term, the use of Cohen's *d* as a
 measure of effect size would be inappropriate. In its place, the amounts of
 variance in participants' errors in correlation estimation explained by each
 fixed effect term and the interaction term is represented as semi-partial R^2^
 \cite{nakagawa_2013}. These statistics were calculated using the `r2glmm`
-package (version 0.1.2) \cite{r2glmm}, and are presented along with model
+package (version 0.1.3) \cite{r2glmm}, and are presented along with model
 statistics in @tbl-model-stats-e4.
 
 ```{r}
@@ -1060,7 +1061,7 @@ hypothesis, that there would be a significant difference in correlation
 estimates between inverted orientation opacity/typical orientation size plots
 and typical orientation opacity/inverted orientation size plots. There was,
 however, a significant interaction term present, providing evidence that the
-combination of opacity and size decay functions is not additive in nature.
+combination of opacity and size decay functions is not linearly additive in nature.
 
 Further confirmatory evidence is found in favour of the phenomena reported in
 \chap{chap:adjusting_opacity} and \chap{chap:adjusting_size}. Namely, that while
@@ -1078,7 +1079,7 @@ redundancy can be exploited to change perceptions of correlation.
 Given the consistent finding throughout this thesis that point size is a
 stronger encoding channel for the purposes of altering perceptions of
 correlation compared to point opacity, the lack of support for the third
-hypothesis was unexpected. Tentatively, this may be a result of the non-additive
+hypothesis was unexpected. Tentatively, this may be a result of the 
 nature of combining point opacity and size manipulations. Despite this, it was
 found that point size explained a greater proportion of the variance (.104) in
 the experimental model compared to point opacity.
@@ -1112,7 +1113,8 @@ point opacity and size manipulations to change estimates of correlation, there
 appear to be few limitations. If correlation estimation can be over-corrected,
 as in the typical orientation condition here, then there exists a *tuning* of
 the opacity and size decay parameters such that the degree of correction is
-appropriate; Section \ref{future-work-e4} explores the work that might be done
+appropriate; Section \ref{future-work-chap8} on page \pageref{future-work-chap8}
+explores the work that might be done
 to achieve this. The combination of inverted orientation opacity and size decay
 functions also had the expected effect, producing the lowest and least accurate
 estimates of correlation. Combining inverted manipulations did not, however,
@@ -1141,7 +1143,7 @@ found that in some cases, precision in *r* estimation is constant across the
 range of *r* values investigated. For example, the use of a size decay function,
 whether linear or non-linear decay in typical or inverted directions, results in
 no change in *r* estimation precision (see Section \ref{results-e3},
-\chap{chap:adjusting_size}). When point opacity was altered in the same way,
+\chap{chap:adjusting_size}, page \pageref{results-e3}). When point opacity was altered in the same way,
 only an inverted decay function does not exhibit the conventional increase in
 *r* estimation precision with increasing objective *r* value. In the experiment
 described presently, precision in *r* estimation increased whenever a typical
@@ -1442,12 +1444,13 @@ First, participants' performance on the point visibility task. This was poor,
 with an average of only `r printnum(VT$mean_VT_perc_correct)`%. It would seem
 that despite the implementation of the opacity floor and the size scaling factor
 and constant, many stimuli were simply not visible. While modelling indicates
-that this did not have a significant effect on errors of correlation estimation,
+that this did not have a significant effect on correlation estimation errors,
 for many participants it will have seemed as if data had been removed, violating
 the intended aims of the manipulations. Addressing this properly would require a
 by-participant calibration of the necessary minimum point opacity and size
 values to ensure visibility, as these values will change as a function of
-head-to-monitor distance and monitor characteristics.
+head-to-monitor distance, monitor characteristics, and characteristics of
+a participants' vision.
 
 While evidence has been found that combining point opacity and size decay is not
 additive, it is difficult to comment precisely on what proportions of the
@@ -1497,7 +1500,7 @@ conditions described here in addition to a baseline, no manipulations condition.
 
 In a single experiment that combined the point opacity manipulation from
 \chap{chap:adjusting_opacity} and the point size manipulation from
-\chap{chap:adjusting_size}, evidence is provided that this combination is not
+\chap{chap:adjusting_size}, evidence is provided that this combination is not linearly
 additive in nature. In addition to opening up questions about the complexity of
 this interaction, this work shows that there is scope to bias correlation
 estimates significantly; the finding that the combination of non-linear opacity

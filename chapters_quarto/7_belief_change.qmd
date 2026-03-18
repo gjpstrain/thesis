@@ -464,7 +464,7 @@ function of residual magnitude, was found in \chap{chap:adjusting_size} to
 produce much stronger effects on estimates of correlation; the non-linear decay
 function used in that experiment produced higher levels of correction and
 resulted in highly accurate correlation estimates (see Figure
-\ref{fig-estimates-by-r-e3}, \chap{chap:adjusting_size}). In
+\ref{fig-estimates-by-r-e3}, \chap{chap:adjusting_size}, page \pageref{fig-estimates-by-r-e3}). In
 \chap{chap:interactions_opacity_size}, these point opacity and size
 manipulations were combined. Their combination was found to produce stronger
 effects than would be expected if they were linearly additive. While my efforts
@@ -474,7 +474,7 @@ thesis may be used to change people's cognitions about data. Therefore, for my
 final experimental chapter, I show that scatterplot manipulations that are able
 to correct for a historical correlation underestimation bias are also able to
 induce stronger levels of belief change in viewers compared to conventional
-plots showing identical data. Through a pre-study and main experiment, I provide
+plots showing identical data. Through a pre-test and main experiment, I provide
 evidence that adjusting visual features in scatterplots can go beyond simple
 perceptual effects to influence beliefs about information from trusted news
 sources.
@@ -707,8 +707,8 @@ specified employs the labelled non-linear decay function(s). The present
 experiment investigates the potential for alternative scatterplot designs to
 have effects on cognition. For this reason, and to facilitate comparison to the
 work carried out in Experiments 1 to 4, the same design protocols have been
-utilised here, including the number of points (*n* = 128), the value of *b*
-(0.25), and the size scaling factor, additional constant, and opacity floor. For
+utilised here, including the number of points (*n* = 128), the value of $b$ (0.25),
+and the size scaling factor, additional constant, and opacity floor. For
 the alternative scatterplot condition here, the manipulation which has been
 previously shown to cause the most dramatic change in participants' estimates of
 correlation was used: the combination of non-linear opacity and size decay
@@ -725,7 +725,7 @@ participants is introduced. Recent work has established that scatterplots are
 able to induce different levels of belief change in viewers
 \cite{karduni_2021, markant_2023}; this may depend on factors such as prior
 belief strength, attitudes, and the presence or absence of uncertainty
-visualisations. Accordingly, the pre-study is essential for isolating the
+visualisations. Accordingly, the pre-test is essential for isolating the
 variable of interest, the alternative scatterplot design. Data visualisation
 does not take place without context, and so the investigation of top-down
 effects is critical for providing designers with the tools to design
@@ -738,7 +738,7 @@ relatedness between variables.
 
 All experiments in this chapter were conducted according to the principles of
 open and reproducible research \cite{ayris_2018}. All experimental code,
-materials, and instructions are hosted on GitLab for the pretest[^1] and for
+materials, and instructions are hosted on GitLab for the pre-test[^1] and for
 the main test as a pair of separate experiments[^2]^,^[^3]. The original paper is
 maintained as a GitHub repository[^4]. This repository contains all code,
 analysis, and visualisation. The repository also contains instructions for
@@ -759,7 +759,7 @@ deviations are noted where relevant in this chapter.
 
 [^6]: https://osf.io/anmez
 
-# Pre-Study: Investigating Beliefs About Relatedness Statements {#beliefs-e5a}
+# Pre-Test: Investigating Beliefs About Relatedness Statements {#beliefs-e5a}
 
 The goal of the present study is to investigate the extent to which a novel
 scatterplot design, incorporating the findings of \chap{chap:adjusting_opacity},
@@ -772,13 +772,13 @@ belief change can be affected by prior beliefs and attitudes
 \cite{markant_2023, xiong_2023}, and that emotion, including the content of a
 visualisation \cite{phelps_2006, harrison_2013} and the emotional state of a
 participant \cite{thoresen_2016} can have perceptual effects on participants and
-their performance.
+their performance on visualisation tasks.
 
-## Materials
+## Materials {#materials-e5a}
 
 I was unable to find resources for correlative statements
 that included ratings for belief strength and emotional valence, so elected to
-create my own. To control for these factors as much as possible, the pre-study
+create my own. To control for these factors as much as possible, the pre-test
 was run with the intent of finding a correlative statement that was matched on
 emotional valence and level of belief strength. As opposed to manually creating
 a list of candidate statements, I used the ChatGPT4 Large Language Model (LLM)
@@ -791,7 +791,8 @@ a list of candidate statements, I used the ChatGPT4 Large Language Model (LLM)
     Try to match all the statements on emotionality.''
 \end{quotation}
 
-The full list of statements can be found in Appendix \ref{chap:appendix_A}. A co-author and I
+The full list of statements can be found in Appendix \ref{chap:appendix_A},
+page \pageref{chap:appendix_A}. A co-author and I
 rated each statement on emotional valence and belief about strength of
 relatedness using Likert scales from 1 to 7. Both statement emotional valence
 and strength of relatedness were anchored at points 1 and 7: *Very Negative* and
@@ -813,7 +814,7 @@ statements are reproduced in @tbl-all-statements.
 ```{r}
 #| label: tbl-all-statements
 #| include: true
-#| tbl-cap: Statements tested with participants in the pre-study.
+#| tbl-cap: Statements tested with participants in the pre-test.
 
 statements <- read_csv("../data/experimental_dataframes/e5a_exp_dataframe.csv") %>%
   filter(item_no <= 25) %>%
@@ -836,7 +837,7 @@ population in order to ascertain consensus.
 
 ### Design {#design-e5a}
 
-The pre-study featured a within-subjects design. Each participant saw all experimental
+The pre-test featured a within-subjects design. Each participant saw all experimental
 and attention check items in a fully randomised order.
 
 ### Procedure {#procedure-e5a}
@@ -853,8 +854,8 @@ asked to complete a practice trial in response to the statement: "As
 participation in online experiments increases, society becomes happier".
 
 In the experiment, participants were asked to read the 25 correlative statements
-shown in @tbl-all-statements, and to indicate their beliefs about topic emotionality
-and strength of relatedness. Stimuli were presented in a randomised order, with 6
+shown in @tbl-all-statements and to indicate their beliefs about topic emotionality
+and strength of relatedness. Stimuli were presented in a randomised order, with six
 attention checks interleaved. A screenshot of an experimental trial can be seen
 in @fig-e5-trial-example.
 
@@ -882,10 +883,10 @@ specific answers to the Likert scale sliders. No participants failed more than 2
 out of 6 attention check items, and therefore data from all 100 were included in
 the full analysis (`r printnum(E5_beliefs_pre_test_tidy_gender$Male)` male and
 `r printnum(E5_beliefs_pre_test_tidy_gender$Female)` female). Participants' mean
-age was `r printnum(E5_beliefs_pre_test_tidy_age$mean, digits = 1)` (*SD* =
+age was `r printnum(E5_beliefs_pre_test_tidy_age$mean, digits = 1)` (SD =
 `r printnum(E5_beliefs_pre_test_tidy_age$sd, digits = 1)`). The mean time
-taken to complete the survey was `r printnum(time_taken_e5$mean, digits = 1)`
-minutes (*SD* = `r printnum(time_taken_e5a$sd, digits = 1)` minutes).
+taken to complete the pre-test+- was `r printnum(time_taken_e5$mean, digits = 1)`
+minutes (SD = `r printnum(time_taken_e5a$sd, digits = 1)` minutes).
 
 ## Results {#results-e5a}
 
@@ -935,7 +936,8 @@ ratings_df <- full_join(agreement_df_belief, agreement_df_emot,
 # calculate average topic emotionality ratings
 
 avg_emot <- ratings_df %>%
-  filter(between(mean_emot, 3, 5))
+  filter(between(mean_emot, 3, 5)) %>%
+  arrange(item_no)
 
 # calculate consensus by summing standard deviations
 
@@ -953,7 +955,7 @@ above chance on statement emotional valence ($\kappa$ =
 `r printp(emot_kappa$p.value, add_equals = TRUE)`) and strength of relatedness
 ($\kappa$ = `r printnum(belief_kappa$value, digits = 2)`, *p*
 `r printp(belief_kappa$p.value, add_equals = TRUE)`). Results for all 25 
-statements are shown in @fig-all-statements-results.
+statements are shown in @fig-all-statements-results on page \pageref{fig-all-statements-results}.
 
 ```{r}
 #| label: fig-all-statements-results
@@ -1129,7 +1131,7 @@ Exploratory investigations also took place taking into account participants'
 scores on a defensive confidence test, their scores on a graph literacy test,
 and each participant's rating of the emotional valence of the correlative
 statement used. Analysis including each of these factors can be found in Section
-\ref{add-analyses-e5}.
+\ref{add-analyses-e5} on page \pageref{add-analyses-e5}.
 
 ## Method {#method-e5}
 
@@ -1138,7 +1140,7 @@ statement used. Analysis including each of these factors can be found in Section
 ```{r}
 #| label: fig-exp5-examples-chap7
 #| include: true
-#| fig-cap: Examples of the stimuli for Experiment 5 using \textit{r} values of 0.2, 0.6, and 0.99. Group A saw the alternative scatterplot presented on the left, while group B saw the standard design on the right. Plots in the alternative condition (left) used the combined point opacity and size decay functions developed in \chap{chap:interactions_opacity_size} (see the "Both Manipulations" panel in @fig-previous-manipulations). 
+#| fig-cap: Examples of the stimuli for Experiment 5 using \textit{r} values of 0.2, 0.6, and 0.99. Group A saw the alternative scatterplots presented on the left, while group B saw the standard design on the right. Plots in the alternative condition (left) used the combined point opacity and size decay functions developed in \chap{chap:interactions_opacity_size} (see the "Both Manipulations" panel in @fig-previous-manipulations on page \pageref{fig-previous-manipulations}). 
 #| fig-asp: 1.5
 #| out-width: "100%"
 
@@ -1256,7 +1258,7 @@ as this particular condition was shown to bias correlation estimates to a
 greater degree than either point opacity or size decay alone (see Experiment 4
 in \chap{chap:interactions_opacity_size}). 45 *r* values uniformly distributed
 between 0.6 and 0.99 were used to create 45 scatterplots for each condition.
-Examples of stimuli using an *r* value of 0.6 for both the standard and
+Examples of stimuli using *r* values of 0.2, 0.6, and 0.99 for both the standard and
 alternative scatterplot conditions can be seen in @fig-exp5-examples-chap7.
 
 ### Design {#design-e5}
@@ -1265,11 +1267,11 @@ Unlike all previous experiments, a between-participants design was employed
 here. Each participant was randomly assigned either to group A, in which they
 viewed alternative scatterplots designed deliberately to elicit higher levels 
 of belief change, or group B, in which they viewed standard scatterplots.
-Participants saw all 45 experimental items for their group, along with 4
+Participants saw all 45 experimental items for their group, along with four
 attention check items, in a fully randomised order. The dependent variable was
 the level of belief change induced by viewing the scatterplot visualisations, so
 participants were tested on how strongly related they believed the variables
-described by the correlative statement were both **before** and **after**
+described by the correlative statement to be both **before** and **after**
 viewing the experimental items.
 
 ### Procedure {#procedure-e5}
@@ -1295,7 +1297,8 @@ participants were given two practice trials; these trials took
 the form of a full opacity trial from Experiment 1.
 Participants were then asked to indicate their beliefs about emotional valence
 and strength of relatedness described in the chosen correlative statement; these
-data were captured using Likert scales identical to those described previously.
+data were captured using Likert scales identical to those described in Section
+\ref{materials-e5a} on page \pageref{materials-e5a}.
 After completing 45 experimental trials, participants were then asked again,
 using the same Likert scales, to indicate their belief about the strength of relatedness
 described in the correlative statement. Interspersed among the 
@@ -1355,7 +1358,7 @@ is evidence that graph literacy may affect performance on more cognitively
 demanding visualisation tasks \cite{canham_2010, okan_2012}. Additionally, the
 graph literacy test used \cite{garcia_2016} is extremely short; in the present
 study, this took participants an average of
-`r printnum(literacy_e5$mean_time, digits = 0)` seconds (*SD* =
+`r printnum(literacy_e5$mean_time, digits = 0)` seconds (SD =
 `r printnum(literacy_e5$sd_time, digits = 0)` seconds).
 
 ### Emotionality
@@ -1363,7 +1366,7 @@ study, this took participants an average of
 The emotional content of a visualisation and the emotional state of a
 participant may have cognitive and perceptual effects on performance in
 visualisation tasks \cite{phelps_2006, harrison_2013, thoresen_2016}; this was
-the primary motivation behind performing the pre-study. Nevertheless, it is not
+the primary motivation behind performing the pre-test. Nevertheless, it is not
 guaranteed that each participant considers the emotional content of the
 correlative statement to be the same. To account for these individual
 differences, ratings of emotional valence are also collected during the main
@@ -1373,9 +1376,9 @@ study.
 
 150 participants were recruited using the Prolific platform \cite{prolific}.
 Normal or corrected-to-normal vision and English fluency were required. As in
-the pre-study, UK residency was required of participants, as the experiment
+the pre-test, UK residency was required of participants, as the experiment
 relied on familiarity with the visual style of a British news source.
-Participants who took part in the pre-study, or in any of the experiments
+Participants who took part in the pre-test, or in any of the experiments
 described in \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, or
 \chap{chap:interactions_opacity_size} were prevented from completing this
 experiment. Data were collected from 77 participants in each condition. 2
@@ -1386,19 +1389,19 @@ Data from the remaining 150 participants were included in the full analysis
 `r printnum(E5_beliefs_main_tidy_gender$Female)` female, and
 `r printnum(E5_beliefs_main_tidy_gender$'Non-binary')` non-binary).
 Participants' mean age was
-`r printnum(E5_beliefs_main_tidy_age$mean, digits = 1)` (*SD* =
+`r printnum(E5_beliefs_main_tidy_age$mean, digits = 1)` (SD =
 `r printnum(E5_beliefs_main_tidy_age$sd, digits = 1)`). Participants' mean graph
 literacy score was
-`r printnum(E5_beliefs_main_tidy_graph_literacy$mean, digits = 1)` (*SD* =
+`r printnum(E5_beliefs_main_tidy_graph_literacy$mean, digits = 1)` (SD =
 `r printnum(E5_beliefs_main_tidy_graph_literacy$sd, digits = 1)`) out of 30,
 their mean defensive confidence score was
-`r printnum(defensive_confidence_e5$mean, digits = 0)` (*SD* =
+`r printnum(defensive_confidence_e5$mean, digits = 0)` (SD =
 `r printnum(defensive_confidence_e5$sd, digits = 1)`) out of 60, and their mean
 rating of statement emotional valence was
-`r printnum(topic_emotionality_e5$mean, digits = 1)` (*SD* =
+`r printnum(topic_emotionality_e5$mean, digits = 1)` (SD =
 `r printnum(topic_emotionality_e5$sd, digits = 1)`) on a 7-point Likert scale.
 On average, participants took `r printnum(time_taken_e5$mean, digits = 1)`
-minutes to complete the experiment (*SD* = `r printnum(time_taken_e5$sd)`).
+minutes to complete the experiment (SD = `r printnum(time_taken_e5$sd)`).
 
 ## Results {#results-e5}
 
@@ -1474,7 +1477,8 @@ the `ordinal` package (version 2023.12-4.1 \cite{ordinal}) was used to build
 cumulative link mixed effects models to analyse Likert scale data[^8]. As in
 previous chapters, the `buildmer` (version 2.12 \cite{buildmer}) package is
 used to automate the selection of the random effects structure (see Section
-\ref{model-construction} for further details). Odds ratios and equivalent
+\ref{model-construction}, \chap{chap:gen_methods}, page \pageref{model-construction}
+for further details). Odds ratios and equivalent
 Cohen's *d* effect size values are calculated using the `effectsize` package
 (version 1.0.1 \cite{effectsize}).
 
@@ -1833,7 +1837,8 @@ broadly consequential. For data visualisation designers, they provide strong
 evidence that utilising the alternative scatterplot designs described in this
 thesis can affect beliefs about levels of relatedness without requiring the
 removal of data. For researchers, these results pave the way for work in a
-number of directions (see Section \ref{future-work-chap8}, \chap{chap:conclusion}).
+number of directions (see Section \ref{future-work-chap8}, \chap{chap:conclusion},
+page \pageref{future-work-chap8}).
 
 # Limitations {#limitations-e5}
 
@@ -1845,7 +1850,8 @@ addressing this using the framework presented here would be simple to
 accomplish. Similarly, the size and opacity decay parameters utilised in the
 alternative scatterplot condition have resulted in a large amount of point overlap
 as *r* approaches 1, meaning individual point discriminability suffered 
-(see @fig-exp5-examples-chap7). Further tuning of these decay functions, with
+(see @fig-exp5-examples-chap7 on page \pageref{fig-exp5-examples-chap7}).
+Further tuning of these decay functions, with
 potential adjustment for overlap, would be required if plots such as these were
 to be used in real-life visualisations.
 

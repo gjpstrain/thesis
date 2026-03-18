@@ -790,15 +790,15 @@ the 24th of July, 2021, the Prolific.co platform went viral on social media
 \cite{charalambides_2021}, leading to a participant pool heavily skewed towards
 young people identifying as female. At the time, Prolific did not manually
 balance the participants recruited for a study. This was addressed in the pilot
-study (see Section \ref{pilot-study}) by preventing participants who joined
+study (see Section \ref{pilot-study} on page \pageref{pilot-study}) by preventing participants who joined
 after this date from participating, in addition to manually requesting a 1:1
 ratio of male to female participants. The demographic issues settled quickly,
 however the screened 1:1 ratio was maintained for the remainder of the
 experiments. Participants were only permitted to complete any of the experiments
 on desktop or laptop computers, not on phones or tablets.
 
-Chronologically, the first experiment conducted was a pilot study (see Section \ref{pilot-study}
-for full details) investigating a very early iteration of the point opacity
+Chronologically, the first experiment conducted was a pilot study (see Section \ref{pilot-study} 
+on page \pageref{pilot-study} for full details) investigating a very early iteration of the point opacity
 manipulation in combination with exploratory work around plot size and
 correlation estimation. At the time, I was relatively naive to the intricacies
 of recruiting research participants online, and thus experienced issues
@@ -875,7 +875,7 @@ and analyses.
 
 # Analytical Methods
 
-All analyses in this thesis were conducted using R (version 4.5.2
+All analyses in this thesis were conducted using R (version 4.5.3
 \cite{r_core}). To investigate whether the experimental manipulations have
 actual effects on the interpretations participants provide, appropriate
 statistical testing must be employed. This involves taking into account the
@@ -1320,7 +1320,7 @@ Experiment 4:
 
 \textbf{Chapter 7}
 
-Experiment 5 Pre-Study:
+Experiment 5 Pre-Test:
 
 [gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest](https://gitlab.pavlovia.org/Strain/beliefs_scatterplots_pretest)
 
