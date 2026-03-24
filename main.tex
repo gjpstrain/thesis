@@ -89,6 +89,23 @@
 % trying to address pandoc issue (12.05.2025)
 \newcommand{\pandocbounded}[1]{#1}
 
+\usepackage{caption}
+
+\makeatletter
+\newcommand{\tblscap}[1]{\gdef\@tblscap{#1}}
+\newcommand{\@tblscap}{}
+
+\let\oldcaption\caption
+\renewcommand{\caption}[2][]{%
+  \ifx\@tblscap\empty
+    \oldcaption[#1]{#2}%
+  \else
+    \oldcaption[\@tblscap]{#2}%
+    \gdef\@tblscap{}
+  \fi
+}
+\makeatother
+
 %%%%%%%%%%%%%%%%%% START DOCUMENT %%%%%%%%%%%%%%%%%%
 \begin{document}
 

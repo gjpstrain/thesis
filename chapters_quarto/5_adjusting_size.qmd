@@ -290,6 +290,7 @@ bias, but is also able to alter the shape of the correlation estimation curve.
 #| label: fig-bubble-chart
 #| include: true
 #| fig-cap: An example of a bubble chart. This plot compares car engine displacement (cubic inches) with fuel efficiency (miles per gallon). Additionally, the number of cylinders in the car's engine are encoded with point size. One can see from this plot that vehicles with higher engine displacement and lower fuel efficiency tend to have a greater number of engine cylinders.
+#| fig-scap: An example of a bubble chart.
 #| fig-asp: 0.6
 
 # create bubble chart plot by setting size as a function of "cyl"
@@ -393,6 +394,7 @@ the stimuli used in this experiment can be see in @fig-exp3-examples-chap5.
 #| label: fig-exp3-examples-chap5
 #| include: true
 #| fig-cap: Examples of the stimuli used in Experiment 3, demonstrated with \textit{r} values of 0.2, 0.6, and 0.99.
+#| fig-scap: Examples of the stimuli used in Experiment 3.
 #| fig-asp: 0.8
 
 # example plots for experiment 3, arranged with ggarrange()
@@ -627,6 +629,7 @@ decay condition, along with 95% confidence intervals.
 #| label: fig-e3-estimates
 #| include: true
 #| fig-cap: Estimated marginal means of error for the four conditions tested in Experiment 3. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error. The overestimation zone is included to facilitate comparison to later work.
+#| fig-scap: Estimated marginal means of error for the four conditions tested in Experiment 3.
 #| fig-asp: 0.4
 
 # assign buildmer model to lmer slot
@@ -795,6 +798,7 @@ emmeans(e3_model, pairwise ~ "size")[[1]] %>%
 #| label: fig-estimates-by-r-e3
 #| include: true
 #| fig-cap: Participants' mean errors in correlation estimates grouped by condition and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring the non-linear size decay function. Error bars show standard deviations of estimates.
+#| fig-scap: Participants' mean errors in correlation estimates grouped by condition and by \textit{r} value in Experiment 3.
 
 # plot error bars for experiment 3
 

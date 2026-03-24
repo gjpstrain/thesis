@@ -555,6 +555,7 @@ opacity and size were lowered as a function of residual magnitude using equation
 #| label: fig-previous-manipulations
 #| include: true
 #| fig-cap: "Top row: Examples of scatterplot manipulations from previous work using an \\textit{r} value of 0.6. In each case, the manipulation used is non-linear, typical orientation decay. Bottom row: the corresponding correlation estimation behaviour across values of \\textit{r} between 0.2 and 0.99. The dashed diagonal line represents hypothetically accurate estimation, while the solid line is the mean of what is observed when participants are asked to estimate correlation."
+#| fig-scap: Scatterplot manipulations from previous chapters and corresponding estimation behaviour.
 #| fig-pos: "H"
 
 # dataframe containing values from previous work and the current is included
@@ -863,6 +864,7 @@ in @fig-e5-trial-example.
 #| label: fig-e5-trial-example
 #| include: true
 #| fig-cap: An example of an experimental trial in the pre-test, including the text stimulus participants were asked to read, and the Likert scales they were asked to use to indicate their beliefs about topic emotionality and strength of relatedness.
+#| fig-scap: An example of an experimental trial in the pre-test for Experiment 5.
 #| out-width: NA
 #| out-height: NA
 # find exp example png in supplied graphics folder
@@ -962,6 +964,7 @@ statements are shown in @fig-all-statements-results on page \pageref{fig-all-sta
 #| include: true
 #| fig-asp: 1.5
 #| fig-cap: Dot plots showing average ratings of strength of relatedness and emotionality across the 25 tested statements. The vertical dashed line represents the midpoint on both Likert scales. Standard deviations are plotted as errorbars. See @tbl-all-statements for the full text of each statement. Statement 22 was eventually selected for the main experiment.
+#| fig-scap: Dot plots showing average ratings of strength of relatedness and emotionality across the 25 tested statements in the Experiment 5 pre-test.
 
 summary_df <- E5_beliefs_pre_test_tidy %>%
   select(statement,
@@ -1141,6 +1144,7 @@ statement used. Analysis including each of these factors can be found in Section
 #| label: fig-exp5-examples-chap7
 #| include: true
 #| fig-cap: Examples of the stimuli for Experiment 5 using \textit{r} values of 0.2, 0.6, and 0.99. Group A saw the alternative scatterplots presented on the left, while group B saw the standard design on the right. Plots in the alternative condition (left) used the combined point opacity and size decay functions developed in \chap{chap:interactions_opacity_size} (see the "Both Manipulations" panel in @fig-previous-manipulations on page \pageref{fig-previous-manipulations}). 
+#| fig-scap: Experiment 5 example stimuli.
 #| fig-asp: 1.5
 #| out-width: "100%"
 
@@ -1528,6 +1532,7 @@ make_sig_table_interact(e5_condition_interact_model)
 #| include: true
 #| fig-asp: 0.6
 #| fig-cap: Dot plots showing individual pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplot conditions. Mean ratings are also shown as points.
+#| fig-scap: Dot plots showing individual pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplot conditions.
 
 # create dot plot for pre and post viewing beliefs
 
@@ -1604,6 +1609,7 @@ the participants who were exposed to the alternative scatterplot condition.
 #| fig-env: "figure*"
 #| fig-asp: 0.4
 #| fig-cap: Histograms illustrating the magnitudes of the difference between pre- and post-plot viewing ratings of strength of relatedness for standard and alternative scatterplots. Difference is calculated by subtracting the ratings made before viewing plots from the ratings made after. Median values are plotted as points.
+#| fig-scap: Histograms illustrating the magnitudes of the difference between pre- and post-plot viewing ratings of strength of relatedness in Experiment 5.
 
 # create histograms for magnitude of difference for standard and alternative plots
     
@@ -1693,6 +1699,7 @@ visualisations.
 #| include: true
 #| fig-asp: 0.4
 #| fig-cap: Illustrating how differences in beliefs about strength of relatedness change as a function of participants' scores on the graph literacy test (left), their scores on the defensive confidence test (centre), and their ratings of statement emotional valence (right). Locally smoothed curves with 95% CI ribbons are shown separately for standard and alternative scatterplot viewing conditions. Lower ratings of Difference in Beliefs ($y$ axis) corresponds to lower levels of belief change between pre- and post-scatterplot viewing times.
+#| fig-scap: Differences in beliefs about strength of relatedness plotted separately for graph literacy scores, defensive confidence scores, and statement emotional valence.
 
 # make plot for additional analyses
 # first, make plotting df

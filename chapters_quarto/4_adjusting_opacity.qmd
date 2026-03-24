@@ -311,6 +311,7 @@ in the plot seen on the left in @fig-pilot-study-examples.
 #| label: fig-pilot-study-examples
 #| include: true
 #| fig-cap: Examples of the experimental stimuli used in the pilot study (opacity decay factor). On the left, the opacity decay function is visible. Note the linear scaling used.
+#| fig-scap: Examples of the experimental stimuli used in the pilot study.
 
 # include pre-rendered graphics
 
@@ -587,6 +588,7 @@ opacity in a scatterplot with a very high number of data points.
 #| include: true
 #| fig-asp: 0.4
 #| fig-cap: Adjusting point opacity to address overplotting. Contrast between the points and the background is full (alpha = 1, full opacity points, left) or low (alpha = .1, low opacity points, right). The dataset used has 20,000 points.
+#| fig-scap: Demonstrating overplotting as it relates to point opacity.
 
 # set random seed for reproducibility
  
@@ -637,6 +639,7 @@ and are illustrated in @fig-alpha-examples.
 #| include: true
 #| fig-asp:  0.2
 #| fig-cap: The relationship between alpha values and rendered point opacity. Higher alpha values result in greater contrast between the foreground (scatterplot point) and background. When alpha = 0, the foreground is ignored and the background is rendered.
+#| fig-scap: Demonstrating the relationship between `ggplot2` alpha values and point opacity.
 
 # create x and y dataframe for plotting
 
@@ -763,6 +766,7 @@ slider.
 #| label: fig-training-slide-adjusting-opacity
 #| include: true
 #| fig-cap: Participants viewed these plots for at least eight seconds before being allowed to continue to the practice trials.
+#| fig-scap: Training slide shown to participants.
 
 # find training slide png in supplied graphics folder
 
@@ -884,6 +888,7 @@ be seen in @fig-exp1-examples-chap4, demonstrated with *r* values of 0.2, 0.6, a
 #| label: fig-exp1-examples-chap4
 #| include: true
 #| fig-cap: Examples of the stimuli used in Experiment 1, demonstrated with \textit{r} values of 0.2, 0.6, and 0.99. Here, "opacity" refers to the alpha value used by `ggplot2`.
+#| fig-scap: Examples of the stimuli used in Experiment 1.
 #| fig-asp: 0.8
 
 # create example plots, arrange with ggarrange()
@@ -992,6 +997,7 @@ confidence intervals.
 #| label: fig-e1-estimates
 #| include: true
 #| fig-cap: Estimated marginal means of error for the four conditions tested in Experiment 1. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error. The overestimation zone is included to facilitate comparison to later work.
+#| fig-scap: Estimated marginal means of error for the four conditions tested in Experiment 1.
 #| fig-asp: 0.4
 
 # assign buildmer model to lmer slot
@@ -1151,6 +1157,7 @@ emmeans(e1_model, pairwise ~ "opacity")[[1]] %>%
 #| label: fig-estimates-by-r-e1
 #| include: true
 #| fig-cap: Participants' mean errors in correlation estimates grouped by condition and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring higher global point opacity. Error bars show standard deviations of estimates.
+#| fig-scap: Participants' mean errors in correlation estimates grouped by condition and by \textit{r} value.
 
 # use plot_error_bars_function from shared_functions.R
 
@@ -1263,6 +1270,7 @@ magnitudes and opacity values in each condition using *r* values of 0.2, 0.6, an
 #| label: fig-opposing-curve
 #| include: true
 #| fig-cap: Using \textit{r} values of 0.2, 0.6, and 0.9 to demonstrate the relationship between the size of a point's residual and the alpha value (opacity) rendered. Note that as the \textit{r} value increases, the range of alpha values that can be applied to points decreases.
+#| fig-scap: Demonstrating the relationship between the size of a point's residual and the alpha value (opacity) rendered.
 #| fig-asp: 0.45
 
 plot_decay_slopes <- function(r_values,
@@ -1419,6 +1427,7 @@ found.
 #| label: fig-exp2-examples-chap4
 #| include: true
 #| fig-cap: Examples of the stimuli used in Experiment 2, demonstrated with \textit{r} values of 0.2, 0.6, and 0.99.
+#| fig-scap: Examples of the stimuli used in Experiment 2.
 #| fig-asp: 0.8
 
 # example plots for experiment 2, arranged with ggarrange()
@@ -1527,6 +1536,7 @@ opacity decay function condition, along with 95% confidence intervals.
 #| label: fig-e2-estimates
 #| include: true
 #| fig-cap: Estimated marginal means of error for the four conditions tested in Experiment 2. 95\% confidence intervals are shown. The vertical dashed line represents no estimation error. The overestimation zone is included to facilitate comparison to later work.
+#| fig-scap: Estimated marginal means of error for the four conditions tested in Experiment 2.
 #| fig-asp: 0.4
 
 # assign buildmer model to lmer slot
@@ -1692,6 +1702,7 @@ upwards to partially correct for the underestimation.
 #| label: fig-estimates-by-r-e2
 #| include: true
 #| fig-cap: Participants' mean errors in correlation estimates grouped by condition and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots featuring the non-linear opacity decay function. Error bars show standard deviations of estimates.
+#| fig-scap: Participants' mean errors in correlation estimates grouped by condition and by \textit{r} value in Experiment 2.
 
 # plot error bars using function from shared_functions.R
 
