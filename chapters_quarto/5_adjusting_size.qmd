@@ -825,11 +825,10 @@ separately for each *r* value used. Points represent means of estimation error
 for each *r* value, with standard deviations of error shown as error bars. The
 dashed horizontal line represents hypothetical perfect estimation. Expectedly,
 while participants still underestimated *r* in all conditions, the non-linear
-size decay condition provided the most promising correction to date; the average
+size decay condition provided the most promising correction to date; the mean
 estimation error is approaching a flat line (see the left-most plot in
 @fig-estimates-by-r-e3). The change in the shape of the correlation estimation curve
 is a novel finding seen with the non-linear and linear decay conditions.
-
 
 # Discussion {#discussion-e3}
 

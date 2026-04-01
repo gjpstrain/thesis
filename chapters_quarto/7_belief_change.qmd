@@ -963,8 +963,8 @@ statements are shown in @fig-all-statements-results on page \pageref{fig-all-sta
 #| label: fig-all-statements-results
 #| include: true
 #| fig-asp: 1.5
-#| fig-cap: Dot plots showing average ratings of strength of relatedness and emotionality across the 25 tested statements. The vertical dashed line represents the midpoint on both Likert scales. Standard deviations are plotted as errorbars. See @tbl-all-statements for the full text of each statement. Statement 22 was eventually selected for the main experiment.
-#| fig-scap: Dot plots showing average ratings of strength of relatedness and emotionality across the 25 tested statements in the Experiment 5 pre-test.
+#| fig-cap: Dot plots showing mean ratings of strength of relatedness and emotionality across the 25 tested statements. The vertical dashed line represents the midpoint on both Likert scales. Standard deviations are plotted as errorbars. See @tbl-all-statements for the full text of each statement. Statement 22 was eventually selected for the main experiment.
+#| fig-scap: Dot plots showing mean ratings of strength of relatedness and emotionality across the 25 tested statements in the Experiment 5 pre-test.
 
 summary_df <- E5_beliefs_pre_test_tidy %>%
   select(statement,
