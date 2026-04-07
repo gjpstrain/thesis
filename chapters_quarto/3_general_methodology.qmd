@@ -122,8 +122,8 @@ there are experimental items in levels \cite{charness_2012}, offer a significant
 boost in statistical power over between-participant designs where each
 participant may only provide data points for a portion of the total experimental
 items. In Experiments 1 to 4, each participant saw all experimental stimuli and
-provided a judgement of correlation using a sliding scale between 0 and 1 (see
-@fig-exp-illustrate). Experiment 1 featured a single factor of global scatterplot point
+provided a judgement of correlation using a sliding scale between 0 and 1 (see the
+example of an experimental trial in @fig-exp-illustrate). Experiment 1 featured a single factor of global scatterplot point
 opacity with 4 levels (see @fig-exp1-examples). Experiment 2 featured a single
 factor of scatterplot point design regarding opacity with 4 levels (see
 @fig-exp2-examples). Experiment 3 featured a single factor of scatterplot point
@@ -517,7 +517,7 @@ described in this thesis. As *r* increases and points become closer together,
 the amount of overlap also increases. Due to this, the total proportion of the
 plot occupied decreases. I refer to this concept as the total amount of *ink*
 present in a particular plot. Below, I present visualisations of the amount of
-ink present in a scatterplot changes as a function of the *r* value the plot
+ink present in a scatterplot, and how this changes as a function of the *r* value the plot
 describes. These visualisations take into account point opacity and point 
 overlap. The ink distribution plot for experiment 1 can be seen in @fig-ink-e1,
 for experiment 2 in @fig-ink-e2, for experiment 3 in @fig-ink-e3, for experiment
@@ -1061,7 +1061,7 @@ are included for transparency \cite{meteyard_2020}.
 
 The approach to computational methods in this thesis sought to marry
 practicality, simplicity, and reproducibility. Often, this meant that what would
-otherwise be a makeshift script followed by copy-pasting of results into
+otherwise be a makeshift script followed by copy-pasting results into
 [Overleaf](https://www.overleaf.com/) ended up being an involved exercise in
 literate programming \cite{knuth_1984} and code wrangling. This involved effort
 and time, particularly in the early stages of the project, however has yielded a
@@ -1171,13 +1171,12 @@ install the exact versions of the packages the project requires:
 
 `RUN R -e "renv::restore()"`
 
-Next, I add the files and folders required, including the Quarto document and
-related files, chapter folder, bibliography, additional scripts, LaTeX class
-file and template, the folders containing the cached models and raw data, and
+Next, I add the files and folders required, including the Quarto setup file,
+chapter folder, bibliography, additional scripts, LaTeX class
+file and template, the folders containing the raw data and cached models, and
 the R project file:
 
 ```
-ADD thesis.qmd /home/rstudio/
 ADD _quarto.yml /home/rstudio/
 ADD chapters_quarto/ /home/rstudio/chapters_quarto/
 ADD thesis.bib /home/rstudio/
@@ -1212,7 +1211,7 @@ their heads. While for most, the reproducibility crisis \cite{osf_2015}
 crystallised in the early 2010s \cite{peng_2015}, serious concerns had been
 voiced since at least the late 1960s \cite{romero_2019}. Since coming into the
 wider academic consciousness, numerous studies have identified reasons for the
-crisis, ranging from poor practice (e.g. Potti et al., 2006 \cite{potti_2006})
+crisis, ranging from poor practice (e.g. Potti et al., 2006)
 to outright deception and fabrication (e.g. the Woo-Suk Hwang scandal
 \cite{saunders_2008}). These issues led this project to strive for a gold
 standard \cite{peng_2011} of reproducibility throughout. In this section, I

@@ -274,7 +274,7 @@ correlation without recognising its importance; Lee Rodgers & Nicewander (1988)
 
 Building on Galton's groundbreaking work, his younger, more
 mathematically-minded student, Karl Pearson, developed the Pearson
-Product-Moment correlation (Pearson's *r*) in 1895 \cite{lee_1988} based on
+product-moment correlation coefficient (Pearson's *r*) in 1895 \cite{lee_1988} based on
 initial formulae by Bravais (1844) \cite{bravais_1844}. This measure has been
 remarkably persistent, remaining unchanged for well over a century. In fact,
 many other measures of correlation, such as Spearman's $\rho$, the
@@ -868,7 +868,7 @@ on page \pageref{present-landscape-corr-viz} displays examples of other types of
 As the datasets that scatterplots describe increase in size and complexity, overplotting
 becomes an issue. Increased amounts of data results in increased amounts of point
 overlap, and reducing the size and opacity of points are common ways of ameliorating
-these issues. As point size and opacity decrease, however, individual point salience
+these issues. As point size and opacity decrease, however, individual point salience also
 decreases, leading designers to be forced to consider a trade-off between accurately
 representing the whole dataset and allowing for individual data points to be 
 effectively accessible to viewers \cite{bertini_2004, matejka_2015}. To facilitate comparison
@@ -896,7 +896,7 @@ correlation visualisation types, including scatterplots and those depicted in
 @fig-other-corr-viz, to investigate whether precision in correlation estimation
 could be modelled by Weber's law \cite{rensink_2010}. Participants were asked to make discriminative
 judgements between side-by-side correlation visualisations and an adaptive
-staircase procedure was employed to infer just-noticeable differences (JNDs) for
+staircase procedure was employed to infer Just-Noticeable Differences (JNDs) for
 correlation perception with nine correlation visualisation types. Both positive
 and negative correlations were tested. Fitting linear models to the JND data
 revealed that correlation discrimination in the nine different visualisations
@@ -1108,7 +1108,7 @@ as_tibble(my_rs) %>%
 ```
 
 The underestimation of correlation in positively correlated scatterplots was
-also observed in Experiments 1 to 4 in the current paper, and is detailed in
+also observed in Experiments 1 to 4 in the current thesis, and is detailed in
 each experimental chapter. Figure \ref{fig-mean-all-exp} in
 \chap{chap:conclusion}, page \pageref{fig-mean-all-exp} summarises the mean estimation behaviour observed for
 each experiment throughout this thesis. Despite this long-standing finding, no
@@ -1144,7 +1144,7 @@ knitr::include_graphics(path = "../supplied_graphics/covid_bbc.png", dpi = NA)
 ```
 
 All this is to say that the underestimation of correlation matters. It is not
-unreasonable to imagine that some policy decisions may have been made based at
+unreasonable to imagine that policy decisions have been made based at
 least in part on data visualisations; the long-standing finding that lay people
 and those educated in statistics underestimate the levels of relatedness between
 variables displayed in scatterplots is not trivial, and has real impact on
