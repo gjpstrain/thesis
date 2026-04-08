@@ -737,7 +737,7 @@ relatedness between variables.
 
 # Open Research {#open-research-chap7}
 
-All experiments in this chapter were conducted according to the principles of
+Both experiments in this chapter were conducted according to the principles of
 open and reproducible research \cite{ayris_2018}. All experimental code,
 materials, and instructions are hosted on GitLab for the pre-test[^1] and for
 the main test as a pair of separate experiments[^2]^,^[^3]. The original paper is
@@ -887,7 +887,7 @@ the full analysis (`r printnum(E5_beliefs_pre_test_tidy_gender$Male)` male and
 `r printnum(E5_beliefs_pre_test_tidy_gender$Female)` female). Participants' mean
 age was `r printnum(E5_beliefs_pre_test_tidy_age$mean, digits = 1)` (SD =
 `r printnum(E5_beliefs_pre_test_tidy_age$sd, digits = 1)`). The mean time
-taken to complete the pre-test+- was `r printnum(time_taken_e5$mean, digits = 1)`
+taken to complete the pre-test was `r printnum(time_taken_e5$mean, digits = 1)`
 minutes (SD = `r printnum(time_taken_e5a$sd, digits = 1)` minutes).
 
 ## Results {#results-e5a}
@@ -1124,10 +1124,10 @@ to affect perceptual estimates, the following hypotheses were made.
 
 ## Hypotheses {#hypotheses-e5}
 
--   H1: there will be a significant difference between ratings of strength of
+-   H~1~: there will be a significant difference between ratings of strength of
     relatedness made before and after participants viewed scatterplots in either
     the standard or alternative conditions.
--   H2: this difference will be greatest when participants are exposed to
+-   H~2~: this difference will be greatest when participants are exposed to
     scatterplots in the alternative scatterplot condition.
 
 Exploratory investigations also took place taking into account participants'
@@ -1384,8 +1384,8 @@ the pre-test, UK residency was required of participants, as the experiment
 relied on familiarity with the visual style of a British news source.
 Participants who took part in the pre-test, or in any of the experiments
 described in \chap{chap:adjusting_opacity}, \chap{chap:adjusting_size}, or
-\chap{chap:interactions_opacity_size} were prevented from completing this
-experiment. Data were collected from 77 participants in each condition. 2
+\chap{chap:interactions_opacity_size} were prevented from participating.
+Data were collected from 77 participants in each condition. 2
 participants failed more than 2 out of 4 attention check questions for each
 condition, meaning their data were excluded per pre-registration stipulations.
 Data from the remaining 150 participants were included in the full analysis
@@ -1827,7 +1827,7 @@ consensus on how related the variables in question were, and the general design
 evidence that alternative scatterplot design was responsible for increasing the
 level of belief change amongst participants.
 
-An alternative (although not competing) explanation for the results have seen
+An alternative (although not competing) explanation for the results seen
 here comes from recent work on the incorporation of uncertainty visualisations
 in scatterplots. Karduni et al. \cite{karduni_2021} found in 2021 that
 visualisations that encode uncertainty produce lower levels of belief change

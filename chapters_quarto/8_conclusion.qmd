@@ -101,7 +101,7 @@ and in all experiments undertaken in \chap{chap:adjusting_opacity}, precision in
 correlation estimation increased as the objective *r* value itself increases;
 this behaviour was not observed when employing manipulations that alter point
 size. The non-linear decay condition in this experiment remains the most
-promising condition with regards to correcting for the underestimation bias.
+promising with regards to correcting for the underestimation bias.
 
 In a final implementation of the same experimental paradigm,
 \chap{chap:interactions_opacity_size} combined point opacity and size
@@ -399,8 +399,8 @@ that the techniques described here are also able to bias viewers' beliefs about
 correlations. Whether or not such techniques would be appropriate is a question
 that requires further work to answer.
 
-Additionally, I hope that this project is demonstrative of the need for the
-re-examination of common data visualisations from the ground up. In an age where
+Additionally, I hope that this project is demonstrative of the need to
+re-examine common data visualisations from the ground up. In an age where
 everything is measured, and the complexity of information increases year on
 year, data visualisations are crucial for the communication of difficult and complex topics
 to the general public. Many of the most popular, widely-used data visualisations

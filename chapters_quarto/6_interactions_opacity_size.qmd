@@ -72,7 +72,7 @@ labels_e4_regex <- c(
 labels_all_exp <- c(additive_manipulation = "<b>Chapter 6</b><br>Size and Opacity Decay",
                     opacity_manipulated = "<b>Chapter 4</b><br>Opacity Decay",
                     size_manipulated = "<b>Chapter 5</b><br>Size Decay",
-                    standard_plot = "<b>Chapter 4 & 5</b><br>Typical Scatterplot")
+                    standard_plot = "<b>Chapter 4 & 5</b><br>Standard Scatterplot")
 
 
 labels_power <- c(size_power = "Size\nPower",
@@ -347,7 +347,7 @@ opacity and size manipulations from \chap{chap:adjusting_opacity} and
 \chap{chap:adjusting_size}. In a condition where point opacity and size are
 reduced as a function of residual magnitude, correlation estimation is
 significantly biased upwards, a finding that suggests there are few limits with
-regards to using point opacity and size to manipulate perceived contrast.
+regards to using point opacity and size to manipulate perceived correlation.
 Additionally, this effect is stronger than the effects of changing point opacity
 and size in isolation, and is greater than what might be expected if the effects
 of point opacity and size on correlation estimation were simply additive.
@@ -395,7 +395,7 @@ work found correlation perception invariant to changes in the opacities of
 points \cite{rensink_2012, rensink_2014}, while the work I completed in
 \chap{chap:adjusting_opacity} found clear, if small, effects. That work offered
 both point salience/perceptual weighting and spatial uncertainty as potential
-drivers for the effects found. Lower stimulus contrast, which for isolated
+drivers of the effects found. Lower stimulus contrast, which for isolated
 stimuli is functionally identical to lower opacity, is associated with lower
 salience \cite{healey_2012}, can bias judgements of mean point position
 \cite{hong_2022}, increases error in positional judgements \cite{wehrhahn_1990},
@@ -410,7 +410,7 @@ Micallef et al. \cite{micallef_2017} found that "merging, dark dots" support
 correlation estimation; despite only changing point opacity in a *uniform*
 manner, the sheer number of points used in that study results in scatterplots
 that appear similar to those that reduce opacity as a function of residual
-magnitude (see Figure \ref{fig-exp2-examples-chap4} on \pageref{fig-exp2-examples-chap4}).
+magnitude (see Figure \ref{fig-exp2-examples-chap4} on page \pageref{fig-exp2-examples-chap4}).
 That this technique has been shown to produce more accurate correlation estimates compared to unadjusted
 scatterplots may explain why the optimisation system employed in Micallef et al.
 \cite{micallef_2017} conferred benefits regarding correlation estimation.
@@ -461,9 +461,9 @@ residual magnitude can bias correlation estimates upwards, and that increasing
 point opacity and size with residual magnitude can further bias estimates
 downwards, it is hypothesised that:
 
--   H1: an increased reduction in correlation estimation error will be observed
+-   H~1~: an increased reduction in correlation estimation error will be observed
     when congruent typical orientation decay functions are used.
--   H2: the use of congruent inverted functions, such that point opacity and
+-   H~2~: the use of congruent inverted functions, such that point opacity and
     size are both increased with residual magnitude, will produce the least
     accurate estimates of correlation.
 
@@ -471,7 +471,7 @@ Owing to the finding from \chap{chap:adjusting_size} that point size is a
 stronger channel for biasing correlation estimation than point opacity, it is
 also hypothesised that:
 
--   H3: there will be a significant difference in correlation estimates between
+-   H~3~: there will be a significant difference in correlation estimates between
     the two incongruent orientation conditions.
 
 # Method {#method-e4}
@@ -513,7 +513,7 @@ with the point size used in \chap{chap:adjusting_opacity} and the minimum point
 size used in \chap{chap:adjusting_size}. With regards to changing the opacities
 of points, an alpha = 0.2 floor was implemented, as informal piloting indicated
 low levels of visibility when very small points also had particularly low
-opacity. All stimuli in the current experiment use a combination of the non-linear
+opacities. All stimuli in the current experiment use a combination of the non-linear
 decay and inverted non-linear decay functions introduced in the previous
 chapters. In this experiment, point opacity or size manipulations in which a
 reduction with residual magnitude takes place are referred to as *typical
@@ -636,7 +636,7 @@ VT <- E4_interactions_tidy %>%
 Discussions about the opacities and sizes of stimuli are difficult in the
 context of online, crowdsourced experiments. Unfortunately, it is not possible
 to exert much control over the types of device participants use beyond insisting
-on laptops or desktop computers. In particular, the varying physical sizes,
+on laptop or desktop computers. In particular, the varying physical sizes,
 resolutions, and dynamic ranges of participants' monitors can make commenting on
 the opacities and sizes of stimuli difficult. On the other hand, carrying out
 this kind of experimentation produces findings that are more resilient to
@@ -940,7 +940,7 @@ correlation estimation error between all conditions besides that which compares
 the two incongruent decay conditions. Statistical testing for contrasts were
 performed using the `emmeans` package \cite{lenth_2024}, and are provided in
 @tbl-contrasts-e4. Experiments 1, 2, and 3 all featured identical comparative
-baseline conditions. In the former two experiments, this was the full contrast
+baseline conditions. In the former two experiments, this was the full opacity
 condition (see Figure \ref{fig-exp1-examples-chap4} on page 
 \pageref{fig-exp1-examples-chap4}), while in the latter, this was the
 standard size condition (see Figure \ref{fig-exp2-examples-chap4} on page 
@@ -1014,18 +1014,18 @@ visibility task ($\chi^2$(`r in_paren(e4_VT_model.df)`) =
 significant effect of training ($\chi^2$(`r in_paren(e4_training_model.df)`) =
 `r printnum(e4_training_model.Chisq)`, *p*
 `r printp(e4_training_model.p, add_equals = TRUE)`), with participants rating
-correlation .01 lower during the second half. This drop suggests that having
+correlation .01 lower during the second half of the experiment. This drop suggests that having
 more recently viewed the training plots may have increased participants'
 estimates of correlation. To further analyse this variability, a model was built
 including trial number, allowing for the analysis of error purely as a function
 of when an experimental trial took place. A significant effect of trial number
-is also found ($\chi^2$(`r in_paren(e4_trial_number_model.df)`) =
+was also found ($\chi^2$(`r in_paren(e4_trial_number_model.df)`) =
 `r printnum(e4_trial_number_model.Chisq)`, *p*
 `r printp(e4_trial_number_model.p, add_equals = TRUE)`) on participants'
 correlation estimation errors. @fig-e4-trial-number shows participants' unsigned
 mean errors in correlation estimation against trial number. Variability in
 error, as represented by the ribbon, stabilised quickly and remained stable for
-most of the experiment, only widening again around trial number 170. The simplest
+most of the experiment, with the ribbon only widening again around trial number 170. The simplest
 explanation for this is that participants, knowing they were coming to the end
 of the experiment, became less vigilant and rushed their judgements.
 Regardless of statistical significance, this effect is not large enough to
@@ -1037,7 +1037,7 @@ in scatterplots.
 ```{r}
 #| label: fig-estimates-by-r-e4
 #| include: true
-#| fig-cap: Participants' mean errors in correlation estimates grouped by factor and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots in the congruent, typical orientation condition. Error bars show standard deviations of estimates.
+#| fig-cap: Participants' mean errors in correlation estimates grouped by condition and by \textit{r} value. The dashed horizontal line represents perfect estimation. Participants were most accurate when presented with the plots in the congruent, typical orientation condition (far left). Error bars show standard deviations of estimates.
 #| fig-scap: Participants' mean errors in correlation estimates grouped by factor and by \textit{r} value for Experiment 4.
 
 # plot error bars
@@ -1235,7 +1235,7 @@ size decay and opacity decay both in isolation and combination.
 @fig-all-est-curves shows correlation estimation error curves in the present
 experiment (typical orientation congruent), and in the non-linear decay
 conditions for both opacity decay (\chap{chap:adjusting_opacity}) and size decay
-(\chap{chap:adjusting_size}) conditions. The "no manipulations present" plot
+(\chap{chap:adjusting_size}) conditions. The "Standard Scatterplot" plot
 is averaged from the results of Experiments 1 to 3. Using opacity decay alone
 significantly changes the amplitude of the estimation curve while leaving its
 shape intact; this can be seen by comparing opacity decay and standard
@@ -1456,9 +1456,9 @@ the intended aims of the manipulations. Addressing this properly would require a
 by-participant calibration of the necessary minimum point opacity and size
 values to ensure visibility, as these values will change as a function of
 head-to-monitor distance, monitor characteristics, and characteristics of
-a participants' vision.
+a participant's vision.
 
-While evidence has been found that combining point opacity and size decay is not
+While evidence has been found that combining point opacity and size decay is not linearly
 additive, it is difficult to comment precisely on what proportions of the
 observed effects are a result of each manipulation. Previous work
 \cite{hong_2022}, as well as the work carried out here and in

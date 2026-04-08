@@ -274,7 +274,7 @@ to which these perceptions were changed was minimal. Figure
 estimation changed as a function of the subjective *r* value. Scatterplots
 employing non-linear inverted opacity decay produced the most drastic changes in
 correlation estimation, however these changes were still small, with an effect
-size of Cohen's *d* = 0.23 (see Table \ref{tbl-efs-e2}a on page \pageref{tbl-efs-e2}).
+size of Cohen's *d* = 0.23 (see Table \ref{tbl-efs-e2}(a) on page \pageref{tbl-efs-e2}).
 Recent evidence suggests that with regards to
 altering percepts in scatterplots, changes in point size may be more effective
 than changes in opacity. In a fully-reproducible, large sample (*N* = 150)
@@ -340,11 +340,11 @@ direction.
 Based on the findings from \chap{chap:adjusting_opacity}, and on evidence from
 the wider literature described above, two hypotheses are made:
 
--   H1: The non-linear decay function, in which scatterplot points become
+-   H~1~: The non-linear decay function, in which scatterplot points become
     smaller when they reside further from the regression line, will result in
     lower mean errors in correlation estimation than for linear decay and
     standard size conditions.
--   H2: The use of an inverted non-linear decay function, in which scatterplot
+-   H~2~: The use of an inverted non-linear decay function, in which scatterplot
     points become larger when they reside further away from the regression line,
     will result in higher mean errors in correlation estimation than for all
     other conditions.
@@ -498,7 +498,7 @@ vis_df_e3 <- E3_size_adjustments_tidy %>%
 ```
 
 It is key that the manipulations used do not remove (or appear to remove) data
-from scatterplots. Therefore, point visibility testing is included in this
+from scatterplots. Therefore, point visibility testing was included in this
 experiment prior to the experimental items. Participants were shown six
 scatterplots and were asked to enter in a text box how many points were being
 displayed. These points were the same size as the smallest points displayed in
@@ -507,7 +507,7 @@ participants were correct on `r printnum(vis_df_e3$VT_no_correct[1])` out of 6
 point visibility tests, while `r printnum(vis_df_e3$n[2]/270, digits = 0)`% were
 correct on `r printnum(vis_df_e3$VT_no_correct[2])` out of 6. It should be noted
 that those participants scoring 5/6 did not answer incorrectly, rather they did
-not answer at all for a particular question, which is suggestive of a mis-click
+not answer at all for a particular question, which is suggestive of a misclick
 or an initial misunderstanding of the task. Regardless, the results of this test
 indicate a sufficient level of point visibility.
 
@@ -845,7 +845,7 @@ the standard size condition.
 
 The mean error in correlation estimation for the non-linear size decay condition
 in this experiment was .02, while the error associated with the equivalent opacity decay condition
-described in Experiment 2 (see Table\ref{tbl-efs-e2} on page \pageref{tbl-efs-e2}) was .09. This
+described in Experiment 2 (see Table \ref{tbl-efs-e2} on page \pageref{tbl-efs-e2}) was .09. This
 finding, along with the significantly higher Cohen's *d* effect size reported in
 this experiment compared to Experiment 2 for the non-linear decay conditions
 (0.61 vs. 0.19), provides evidence that point size is a stronger encoding
