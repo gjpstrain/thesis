@@ -1976,7 +1976,7 @@ correlation estimation when *r* was nearer 0 or 1 would suggest that the use of
 a decay parameter for these correlations is unnecessary.
 
 The simplicity of the direct estimation task employed confers some limitations
-on the conclusions that can be drawn, although these limitations do not QFprevent
+on the conclusions that can be drawn, although these limitations do not prevent
 the data gathered from being practically useful. The methods used do not allow
 for the investigation of absolute correlation perception, as JND or bisection
 methodologies might. The finding that mean errors in judgements of correlation
